@@ -15,6 +15,7 @@
     "clean": "yarn cache clean --mirror && [ -d \"node_modules\" ] && dotenv -- turbo run clean && rm -rf node_modules",
     "start": "dotenv -- turbo run start --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
     "format": "prettier --write \"{**/src/{,**/}*.{js,ts,tsx,mjs,cjs,md},e2e/{,**/}*.{js,ts,tsx,mjs,cjs,md}}\"",
+    "precommit format": "prettier --write \"{*.{js,ts,tsx,mjs,cjs,md}}\"",
     "ts-check": "dotenv -- turbo run ts-check --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
     "ts-check:ci": "turbo run ts-check --continue",
     "lint": "dotenv -- turbo run lint --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
@@ -57,7 +58,7 @@
     "yarn": ">=1.22"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "yarn run format"
+    "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "yarn run precommit format"
   },
   "dependencies": {
     "@cosmjs/stargate": "^0.30.1"

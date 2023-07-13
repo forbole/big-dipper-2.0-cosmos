@@ -79,7 +79,7 @@ const ValidatorFilterInput: FC<ValidatorFilterInputProps> = ({
       renderInput={(params) => (
         <TextField
           {...params}
-          placeholder={!params.inputProps.value ? t('filterBarPlaceholder') : ''}
+          placeholder={!params.inputProps.value ? t('filterBarPlaceholder') : 'test'}
           InputProps={{
             ...params.InputProps,
             startAdornment: (
