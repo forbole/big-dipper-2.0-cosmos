@@ -12,6 +12,7 @@ import type {
   ItemType,
   ValidatorsAvatarNameType,
 } from '@/screens/validators/components/list/types';
+import useConnectWalletList from '@/components/nav/components/connect_wallet/hooks';
 import DelegateDialog from '@/screens/validators/components/list/components/staking/delegate';
 import useStakingHooks from '@/screens/validators/components/list/components/staking/hooks';
 import RedelegateDialog from '@/screens/validators/components/list/components/staking/redelegate';
@@ -73,6 +74,7 @@ const StakeButton = (props: StakeButtonProps) => {
     handleCloseUndelegateDialog,
     handleCloseWithdrawRewardsDialog,
   } = useStakingHooks();
+  const { handleLogin } = useConnectWalletList();
 
   return (
     <div>
@@ -102,6 +104,7 @@ const StakeButton = (props: StakeButtonProps) => {
               highlightText={t('stakeNow')}
               text={t('buttonTooltipText')}
               buttonText={t('buttonTooltipButtonText')}
+              onClick={handleLogin}
               button
             >
               <StakingButtonRef classes={classes} disabled={props.disabled} />
