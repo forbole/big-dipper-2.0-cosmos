@@ -12,6 +12,7 @@ interface ButtonToolTipProps extends Omit<TooltipProps, 'title'> {
   text: string;
   button?: boolean;
   buttonText?: string;
+  onClick?: () => void;
 }
 
 const ButtonTooltip: FC<ButtonToolTipProps> = ({
@@ -20,6 +21,7 @@ const ButtonTooltip: FC<ButtonToolTipProps> = ({
   text,
   button,
   buttonText,
+  onClick,
 }) => {
   const { classes } = useStyles();
   const { open, handleClose } = useButtonTooltipHook();
@@ -41,7 +43,11 @@ const ButtonTooltip: FC<ButtonToolTipProps> = ({
               <CloseIcon fontSize="small" />
             </IconButton>
           </Box>
-          {button && <Button className={classes.button}>{buttonText}</Button>}
+          {button && (
+            <Button className={classes.button} onClick={onClick}>
+              {buttonText}
+            </Button>
+          )}
         </Box>
       }
     >
