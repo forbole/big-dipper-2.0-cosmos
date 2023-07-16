@@ -1,6 +1,7 @@
 import { ChainInfo, Window as KeplrWindow } from '@keplr-wallet/types';
 import { useState } from 'react';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
+import RespondParams, { SignClient } from '@walletconnect/sign-client';
 import chainConfig from '@/chainConfig';
 import {
   getAccountKey,
@@ -236,7 +237,7 @@ const useConnectWalletList = () => {
 
     const { session, error } = await ConnectClient(client);
     if (error) {
-      setErrorMsg(error?.message);
+      setErrorMsg((error as Error).message);
       return;
     }
 
@@ -248,26 +249,26 @@ const useConnectWalletList = () => {
       setOpenPairConnectWalletDialog(false);
       setOpenAuthorizeConnectionDialog(true);
       setErrorMsg(undefined);
-    }
 
-    // Obtain account address
-    const account = Object.values(session.namespaces)
-      .map((namespace) => namespace.accounts)
-      .flat()
-      .map((address) => ({
-        address: address.split(':')[2],
-        algo: 'secp256k1',
-        pubkey: Uint8Array.from([]),
-      }));
+      // Obtain account address
+      const account = Object.values(session.namespaces)
+        .map((namespace) => namespace.accounts)
+        .flat()
+        .map((address) => ({
+          address: address.split(':')[2],
+          algo: 'secp256k1',
+          pubkey: Uint8Array.from([]),
+        }));
 
-    if (account.length > 0) {
-      saveUserInfo(
-        account[0].address,
-        account[0].pubkey as unknown as PubKey, // currently can't obtain pubkey for wallet connect
-        'Wallet Connect',
-        'Wallet Connect',
-        keplrCustomChainInfo?.chainId ?? network
-      );
+      if (account.length > 0) {
+        saveUserInfo(
+          account[0].address,
+          account[0].pubkey as unknown as PubKey, // currently can't obtain pubkey for wallet connect
+          'Wallet Connect',
+          'Wallet Connect',
+          keplrCustomChainInfo?.chainId ?? network
+        );
+      }
     }
 
     continueToLoginSuccessDialog();

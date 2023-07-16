@@ -8,7 +8,7 @@ import {
   bigDipperRepositoryURL,
   walletConnectProjectID,
   walletConnectRelayURL,
-} from './utils';
+} from '@/components/nav/components/connect_wallet/utils';
 
 const {
   network,
@@ -35,11 +35,10 @@ export async function InitWalletConnectClient() {
 }
 
 export async function ConnectClient(clientNew: ISignClient) {
-  let session: SessionTypes.Struct | null = null;
+  let session: SessionTypes.Struct | undefined;
 
   try {
     const { uri, approval } = await clientNew.connect({
-      pairingTopic: clientNew.topic,
       requiredNamespaces: {
         cosmos: {
           methods: ['cosmos_getAccounts', 'cosmos_signAmino', 'cosmos_signDirect'],
