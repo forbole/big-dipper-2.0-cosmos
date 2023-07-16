@@ -58,7 +58,7 @@ const PairConnectWalletDialog: FC<PairWalletConnectDialogProps> = ({
             <LinearLoading className={classes.loading} />
           )}
           {errorMsg !== undefined ? (
-            <div className={classes.walletConnectError}>
+            <div className={classes.errorMsg}>
               <Typography variant="h5" className={classes.errorMsg}>
                 Error: {errorMsg}
               </Typography>
