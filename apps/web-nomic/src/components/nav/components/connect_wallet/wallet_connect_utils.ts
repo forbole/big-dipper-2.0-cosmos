@@ -5,7 +5,7 @@
 // import { WC_URI } from '@/utils/localstorage';
 // import {
 //   bigDipperIcon,
-//   bigDipperRepositoryURL,
+//   bigDipperURL,
 //   walletConnectProjectID,
 //   walletConnectRelayURL,
 // } from '@/components/nav/components/connect_wallet/utils';
@@ -26,7 +26,7 @@
 //     metadata: {
 //       name: 'Big Dipper Wallet',
 //       description: 'Big Dipper Wallet',
-//       url: bigDipperRepositoryURL,
+//       url: bigDipperURL,
 //       icons: [bigDipperIcon],
 //     },
 //   });

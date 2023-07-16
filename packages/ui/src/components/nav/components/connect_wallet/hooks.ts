@@ -1,7 +1,6 @@
 import { ChainInfo, Window as KeplrWindow } from '@keplr-wallet/types';
 import { useState } from 'react';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
-import RespondParams, { SignClient } from '@walletconnect/sign-client';
 import chainConfig from '@/chainConfig';
 import {
   getAccountKey,
