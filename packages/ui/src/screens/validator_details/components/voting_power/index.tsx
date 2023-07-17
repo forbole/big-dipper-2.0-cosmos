@@ -43,7 +43,9 @@ const VotingPower: FC<VotingPowerProps> = ({ className, data, status }) => {
           {`${votingPowerPercent.format('0,0.00')}%`}
         </Typography>
         <Typography variant="body1">
-          {votingPower} / {numeral(data.overall.value).format('0,0')}
+          {chainName === 'wormhole'
+            ? `${votingPower} / ${state.activeValidators}`
+            : `${votingPower} / ${numeral(data.overall.value).format('0,0')}`}
         </Typography>
       </div>
       <div className={classes.chart}>
