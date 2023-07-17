@@ -70,10 +70,16 @@ const Row: React.FC<ListItemProps> = ({
   selectedItems,
 }) => {
   const tokenDenomFormat = formatToken(item.coins.amount, item.coins.denom);
-  const amountDisplay = `${formatNumber(
-    tokenDenomFormat.value,
-    tokenDenomFormat.exponent
-  )} ${tokenDenomFormat.displayDenom.toUpperCase()}`;
+  const amountDisplay = tokenDenomFormat.displayDenom.startsWith('ibc')
+    ? `${formatNumber(
+        tokenDenomFormat.value,
+        tokenDenomFormat.exponent
+      )} ${tokenDenomFormat.displayDenom.slice(0, 3).toUpperCase()}`
+    : `${formatNumber(
+        tokenDenomFormat.value,
+        tokenDenomFormat.exponent
+      )} ${tokenDenomFormat.displayDenom.toUpperCase()}`;
+
   return (
     <ListItem key={item.validator.address} style={style} onClick={() => handleItemSelect(item)}>
       <ListItemIcon>

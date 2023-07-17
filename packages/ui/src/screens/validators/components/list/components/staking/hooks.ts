@@ -202,9 +202,11 @@ const useStakingHooks = ({
   useEffect(() => {
     const coinsAmount =
       rewards?.find((d) => d.validator.address === validatorRewardAddress[0])?.coins.amount ?? '0';
-    const denom =
+    let denom =
       rewards?.find((d) => d.validator.address === validatorRewardAddress[0])?.coins.denom ??
       baseDenom;
+    // eslint-disable-next-line no-unused-expressions
+    denom = denom?.startsWith('ibc') ? 'IBC' : denom;
     const tokenDenomFormat = formatToken(coinsAmount, denom);
     const rToken = `${formatNumber(
       tokenDenomFormat.value,
