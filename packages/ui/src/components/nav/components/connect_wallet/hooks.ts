@@ -62,6 +62,7 @@ if (keplr !== undefined && keplr !== '') {
 declare const window: KeplrWindow & typeof globalThis;
 
 const useConnectWalletList = () => {
+  const [tooltipOpen, setTooltipOpen] = useState(true);
   // UserState
   const [, setUserAddress] = useRecoilState(writeUserAddress) as [string, SetterOrUpdater<string>];
   const [, setUserIsLoggedIn] = useRecoilState(writeIsUserLoggedIn) as [
@@ -160,6 +161,7 @@ const useConnectWalletList = () => {
   // ------ Login/Logout hooks ------
   const handleLogin = () => {
     setOpenLoginDialog(true);
+    setTooltipOpen(false);
   };
 
   const handleLogout = async () => {
@@ -428,6 +430,7 @@ const useConnectWalletList = () => {
     errorMsg,
     showWalletDetails,
     walletConnectURI,
+    tooltipOpen,
     continueToAuthorizeKeplrConnectionDialog,
     continueToKeplrExtensionPairingDialog,
     closeAuthorizeConnectionDialog,

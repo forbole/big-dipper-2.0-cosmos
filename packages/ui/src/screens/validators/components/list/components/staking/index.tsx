@@ -74,7 +74,7 @@ const StakeButton = (props: StakeButtonProps) => {
     handleCloseUndelegateDialog,
     handleCloseWithdrawRewardsDialog,
   } = useStakingHooks();
-  const { handleLogin } = useConnectWalletList();
+  const { handleLogin, tooltipOpen } = useConnectWalletList();
 
   return (
     <div>
@@ -99,7 +99,7 @@ const StakeButton = (props: StakeButtonProps) => {
         </div>
       ) : (
         <div className={classes.flexRow}>
-          {props.disabled ? (
+          {props.disabled && tooltipOpen ? (
             <ButtonTooltip
               highlightText={t('stakeNow')}
               text={t('buttonTooltipText')}
