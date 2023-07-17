@@ -1,5 +1,5 @@
 import { SigningStargateClient, GasPrice } from '@cosmjs/stargate';
-import { OfflineAminoSigner } from '@keplr-wallet/types';
+import { OfflineAminoSigner, Key } from '@keplr-wallet/types';
 import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
 import chainConfig from '@/chainConfig';
@@ -82,6 +82,21 @@ export const getOfflineSignerPubKey = async (
       pubkey = encodeEd25519PubKey(accounts[0].pubkey);
     } else if (isSecp256k1PubKey(accounts[0].pubkey)) {
       pubkey = encodeSecp256k1PubKey(accounts[0].pubkey);
+    }
+    return pubkey;
+  }
+};
+
+export const getChangedOfflineSignerPubKey = async (
+  changedAccount: Key
+  // eslint-disable-next-line consistent-return
+) => {
+  let pubkey;
+  if (changedAccount.pubKey) {
+    if (isEd25519PubKey(changedAccount.pubKey)) {
+      pubkey = encodeEd25519PubKey(changedAccount.pubKey);
+    } else if (isSecp256k1PubKey(changedAccount.pubKey)) {
+      pubkey = encodeSecp256k1PubKey(changedAccount.pubKey);
     }
     return pubkey;
   }

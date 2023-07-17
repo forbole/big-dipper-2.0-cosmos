@@ -1,5 +1,5 @@
 import { ChainInfo, Window as KeplrWindow } from '@keplr-wallet/types';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 import chainConfig from '@/chainConfig';
 import {
@@ -8,6 +8,7 @@ import {
   getOfflineSigner,
   getOfflineSignerAddress,
   getOfflineSignerPubKey,
+  getChangedOfflineSignerPubKey,
   isKeplrAvailable,
 } from '@/components/nav/components/connect_wallet/keplr_utils';
 import {
@@ -112,24 +113,27 @@ const useConnectWalletList = () => {
   // Wallet Connect Session
   const setWalletConnectSession = useSetWalletConnectSession();
 
-  const saveUserInfo = (
-    address: string,
-    pubkey: PubKey | undefined,
-    connectionType: string,
-    wallet: string,
-    chainID: string
-  ) => {
-    localStorage.setItem(ADDRESS_KEY, address);
-    localStorage.setItem(PUBKEY_KEY, JSON.stringify(pubkey));
-    localStorage.setItem(CONNECTION_TYPE, connectionType);
-    localStorage.setItem(WALLET_NAME_KEY, wallet);
-    localStorage.setItem(CHAIN_ID, chainID);
-    setUserAddress(address);
-    setUserPubKey(pubkey ?? { type: '', value: '' });
-    setWalletName(wallet);
-    setUserIsLoggedIn(true);
-    setErrorMsg(undefined);
-  };
+  const saveUserInfo = useCallback(
+    (
+      address: string,
+      pubkey: PubKey | undefined,
+      connectionType: string,
+      wallet: string,
+      chainID: string
+    ) => {
+      localStorage.setItem(ADDRESS_KEY, address);
+      localStorage.setItem(PUBKEY_KEY, JSON.stringify(pubkey));
+      localStorage.setItem(CONNECTION_TYPE, connectionType);
+      localStorage.setItem(WALLET_NAME_KEY, wallet);
+      localStorage.setItem(CHAIN_ID, chainID);
+      setUserAddress(address);
+      setUserPubKey(pubkey ?? { type: '', value: '' });
+      setWalletName(wallet);
+      setUserIsLoggedIn(true);
+      setErrorMsg(undefined);
+    },
+    [setUserAddress, setUserIsLoggedIn, setUserPubKey, setWalletName]
+  );
 
   const resetUserInfo = () => {
     localStorage.setItem(ADDRESS_KEY, '');
@@ -336,6 +340,30 @@ const useConnectWalletList = () => {
       }
     }
   };
+
+  useEffect(() => {
+    const handleKeystoreChange = async () => {
+      const key = await getAccountKey(keplrCustomChainInfo?.chainId ?? network);
+
+      if (key) {
+        const changedPubKey = await getChangedOfflineSignerPubKey(key);
+        // store user info in state
+        saveUserInfo(
+          key?.bech32Address ?? '',
+          changedPubKey,
+          'Keplr',
+          key?.name ?? '',
+          keplrCustomChainInfo?.chainId ?? network
+        );
+      }
+    };
+
+    window.addEventListener('keplr_keystorechange', handleKeystoreChange);
+
+    return () => {
+      window.removeEventListener('keplr_keystorechange', handleKeystoreChange);
+    };
+  }, [saveUserInfo]);
 
   const continueToLoginSuccessDialog = () => {
     const address = localStorage.getItem(ADDRESS_KEY);
