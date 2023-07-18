@@ -13,7 +13,8 @@ import {
   formatSlashing,
   formatStaking,
   formatFeeModel,
-  formatToken,
+  formatFT,
+  formatNFT,
 } from '@/screens/params/utils';
 
 const Params = () => {
@@ -63,12 +64,9 @@ const Params = () => {
       }
     : null;
 
-  const token = state.token
-    ? {
-        title: t('token') ?? undefined,
-        details: formatToken(state.token, t),
-      }
-    : null;
+  const ft = state.ft ? { title: t('ft') ?? undefined, details: formatFT(state.ft, t) } : null;
+
+  const nft = state.nft ? { title: t('nft') ?? undefined, details: formatNFT(state.nft, t) } : null;
 
   return (
     <>
@@ -90,7 +88,8 @@ const Params = () => {
             {distribution && <BoxDetails {...distribution} />}
             {gov && <BoxDetails {...gov} />}
             {feeModel && <BoxDetails {...feeModel} />}
-            {token && <BoxDetails {...token} />}
+            {ft && <BoxDetails {...ft} />}
+            {nft && <BoxDetails {...nft} />}
           </span>
         </LoadAndExist>
       </Layout>

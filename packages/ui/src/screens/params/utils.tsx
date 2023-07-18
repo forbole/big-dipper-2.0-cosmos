@@ -5,7 +5,8 @@ import type {
   Slashing,
   Staking,
   FeeModel,
-  Token,
+  NFT,
+  FT,
 } from '@/screens/params/types';
 import { nanoToSeconds, secondsToDays } from '@/utils/time';
 import { TFunction } from 'next-i18next';
@@ -217,17 +218,20 @@ export const formatFeeModel = (data: FeeModel, t: TFunction) => [
   },
 ];
 
-export const formatToken = (data: Token, t: TFunction) => {
+export const formatNFT = (data: NFT, t: TFunction) => [
+  {
+    key: 'nftMintFee',
+    label: t('nftMintFee'),
+    detail: `${numeral(data.nftMintFee.value).format(
+      '0.[0000]'
+    )} ${data.nftMintFee.displayDenom.toUpperCase()}`,
+  },
+];
+
+export const formatFT = (data: FT, t: TFunction) => {
   if (data.tokenUpgradeDecisionTimeout && data.tokenUpgradeGracePeriod) {
     const tokenDecisionTimeout = new Date(data.tokenUpgradeDecisionTimeout);
     return [
-      {
-        key: 'nftMintFee',
-        label: t('nftMintFee'),
-        detail: `${numeral(data.nftMintFee.value).format(
-          '0.[0000]'
-        )} ${data.nftMintFee.displayDenom.toUpperCase()}`,
-      },
       {
         key: 'ftIssueFee',
         label: t('ftIssueFee'),
@@ -238,23 +242,16 @@ export const formatToken = (data: Token, t: TFunction) => {
       {
         key: 'tokenUpgradeGracePeriod',
         label: t('tokenUpgradeGracePeriod'),
-        detail: `${numeral(data.tokenUpgradeGracePeriod / 1000000).format('0,0')}`,
+        detail: convertBySeconds(nanoToSeconds(data.tokenUpgradeGracePeriod), t),
       },
       {
         key: 'tokenUpgradeDecisionTimeout',
         label: t('tokenUpgradeDecisionTimeout'),
-        detail: `${tokenDecisionTimeout.toLocaleDateString()} `,
+        detail: `${tokenDecisionTimeout.toLocaleDateString()} at ${tokenDecisionTimeout.toLocaleTimeString()}`,
       },
     ];
   } else {
     return [
-      {
-        key: 'nftMintFee',
-        label: t('nftMintFee'),
-        detail: `${numeral(data.nftMintFee.value).format(
-          '0.[0000]'
-        )} ${data.nftMintFee.displayDenom.toUpperCase()}`,
-      },
       {
         key: 'ftIssueFee',
         label: t('ftIssueFee'),

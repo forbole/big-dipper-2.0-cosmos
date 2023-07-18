@@ -27,7 +27,8 @@ const initialState: ParamsState = {
   distribution: null,
   gov: null,
   feeModel: null,
-  token: null,
+  nft: null,
+  ft: null,
 };
 
 // ================================
@@ -161,16 +162,24 @@ const formatFeeModel = (data: ParamsQuery) => {
 // token params
 // ================================
 
-const formatTokenParams = (data: ParamsQuery) => {
-  if (data.nftParams?.length && data.ftParams?.length) {
+const formatNFTParams = (data: ParamsQuery) => {
+  if (data.nftParams?.length) {
     const nftParamsRaw = TokenParams.fromJson(data.nftParams?.[0]?.params ?? {});
+    return {
+      nftMintFee: formatToken(
+        nftParamsRaw.nftMintFee.amount ?? '',
+        nftParamsRaw.nftMintFee.denom ?? ''
+      ),
+    };
+  }
+  return null;
+};
+
+const formatFTParams = (data: ParamsQuery) => {
+  if (data.ftParams?.length) {
     const ftParamsRaw = TokenParams.fromJson(data.ftParams?.[0]?.params ?? {});
     if (ftParamsRaw.tokenUpgradeDecisionTimeout && ftParamsRaw.tokenUpgradeGracePeriod) {
       return {
-        nftMintFee: formatToken(
-          nftParamsRaw.nftMintFee.amount ?? '',
-          nftParamsRaw.nftMintFee.denom ?? ''
-        ),
         ftIssueFee: formatToken(
           ftParamsRaw.ftIssueFee.amount ?? '',
           ftParamsRaw.ftIssueFee.denom ?? ''
@@ -180,10 +189,6 @@ const formatTokenParams = (data: ParamsQuery) => {
       };
     } else {
       return {
-        nftMintFee: formatToken(
-          nftParamsRaw.nftMintFee.amount ?? '',
-          nftParamsRaw.nftMintFee.denom ?? ''
-        ),
         ftIssueFee: formatToken(
           ftParamsRaw.ftIssueFee.amount ?? '',
           ftParamsRaw.ftIssueFee.denom ?? ''
@@ -209,7 +214,9 @@ const formatParam = (data: ParamsQuery) => {
 
   results.feeModel = formatFeeModel(data);
 
-  results.token = formatTokenParams(data);
+  results.nft = formatNFTParams(data);
+
+  results.ft = formatFTParams(data);
 
   return results;
 };
