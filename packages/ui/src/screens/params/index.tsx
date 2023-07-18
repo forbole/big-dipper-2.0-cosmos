@@ -13,6 +13,7 @@ import {
   formatSlashing,
   formatStaking,
   formatFeeModel,
+  formatToken,
 } from '@/screens/params/utils';
 
 const Params = () => {
@@ -62,6 +63,13 @@ const Params = () => {
       }
     : null;
 
+  const token = state.token
+    ? {
+        title: t('token') ?? undefined,
+        details: formatToken(state.token, t),
+      }
+    : null;
+
   return (
     <>
       <NextSeo
@@ -82,6 +90,7 @@ const Params = () => {
             {distribution && <BoxDetails {...distribution} />}
             {gov && <BoxDetails {...gov} />}
             {feeModel && <BoxDetails {...feeModel} />}
+            {token && <BoxDetails {...token} />}
           </span>
         </LoadAndExist>
       </Layout>

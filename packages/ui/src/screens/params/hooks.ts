@@ -10,6 +10,7 @@ import {
   SlashingParams,
   StakingParams,
   FeeModelParams,
+  TokenParams,
 } from '@/models';
 import { customStakingParams } from '@/models/staking_params';
 import type { ParamsState } from '@/screens/params/types';
@@ -26,6 +27,7 @@ const initialState: ParamsState = {
   distribution: null,
   gov: null,
   feeModel: null,
+  token: null,
 };
 
 // ================================
@@ -155,6 +157,43 @@ const formatFeeModel = (data: ParamsQuery) => {
   return null;
 };
 
+// ================================
+// token params
+// ================================
+
+const formatTokenParams = (data: ParamsQuery) => {
+  if (data.nftParams?.length && data.ftParams?.length) {
+    const nftParamsRaw = TokenParams.fromJson(data.nftParams?.[0]?.params ?? {});
+    const ftParamsRaw = TokenParams.fromJson(data.ftParams?.[0]?.params ?? {});
+    if (ftParamsRaw.tokenUpgradeDecisionTimeout && ftParamsRaw.tokenUpgradeGracePeriod) {
+      return {
+        nftMintFee: formatToken(
+          nftParamsRaw.nftMintFee.amount ?? '',
+          nftParamsRaw.nftMintFee.denom ?? ''
+        ),
+        ftIssueFee: formatToken(
+          ftParamsRaw.ftIssueFee.amount ?? '',
+          ftParamsRaw.ftIssueFee.denom ?? ''
+        ),
+        tokenUpgradeGracePeriod: ftParamsRaw.tokenUpgradeGracePeriod ?? undefined,
+        tokenUpgradeDecisionTimeout: ftParamsRaw.tokenUpgradeDecisionTimeout ?? undefined,
+      };
+    } else {
+      return {
+        nftMintFee: formatToken(
+          nftParamsRaw.nftMintFee.amount ?? '',
+          nftParamsRaw.nftMintFee.denom ?? ''
+        ),
+        ftIssueFee: formatToken(
+          ftParamsRaw.ftIssueFee.amount ?? '',
+          ftParamsRaw.ftIssueFee.denom ?? ''
+        ),
+      };
+    }
+  }
+  return null;
+};
+
 const formatParam = (data: ParamsQuery) => {
   const results: Partial<ParamsState> = {};
 
@@ -169,6 +208,8 @@ const formatParam = (data: ParamsQuery) => {
   results.gov = formatGov(data);
 
   results.feeModel = formatFeeModel(data);
+
+  results.token = formatTokenParams(data);
 
   return results;
 };
@@ -194,7 +235,7 @@ export const useParams = () => {
         ...formatParam(data),
       }));
     },
-    onError: () => {
+    onError: (e) => {
       handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
   });
