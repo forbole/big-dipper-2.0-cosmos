@@ -80,10 +80,14 @@ const DelegateDialog: FC<DelegateDialogProps> = ({
   }, [setValAddress, validatorAddress, validators]);
 
   React.useEffect(() => {
+    let timer: NodeJS.Timeout;
     if (errorMsg !== '') {
-      resetDialogInfo();
-      onClose();
+      timer = setTimeout(() => {
+        resetDialogInfo();
+        onClose();
+      }, 60000);
     }
+    return () => clearTimeout(timer);
   }, [errorMsg, onClose, resetDialogInfo]);
 
   return (

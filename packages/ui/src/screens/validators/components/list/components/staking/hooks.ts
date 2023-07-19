@@ -11,16 +11,19 @@ import {
   baseToDisplayUnit,
 } from '@/utils/format_token';
 import { getClient } from '@/components/nav/components/connect_wallet/keplr_utils';
-import { assertIsDeliverTxSuccess, MsgBeginRedelegateEncodeObject, StdFee } from '@cosmjs/stargate';
+import { useWalletConnectClient } from '@/recoil/wallet_connect_client';
+import { assertIsDeliverTxSuccess, StargateClient, StdFee } from '@cosmjs/stargate';
 import { useEffect } from 'react';
 import { coin } from '@cosmjs/proto-signing';
-import { ADDRESS_KEY, CHAIN_ID } from '@/utils/localstorage';
+import { ADDRESS_KEY, CHAIN_ID, CONNECTION_TYPE, WC_SESSION_TOPIC } from '@/utils/localstorage';
 import { readIsUserLoggedIn } from '@/recoil/user';
 import type {
   ItemType,
   ValidatorsAvatarNameType,
 } from '@/screens/validators/components/list/types';
 import { estimateFee } from '@/screens/validators/components/list/components/staking/utils/gas';
+import { wcSignAmino } from '@/screens/validators/components/list/components/staking/utils';
+import { ISignClient } from '@walletconnect/types';
 
 interface UseStakingHooksOptions {
   rewards?: ValidatorsAvatarNameType[];
@@ -37,8 +40,11 @@ const useStakingHooks = ({
   const [amount, setAmount] = React.useState<string | number>('');
   const [userAddress, setUserAddress] = React.useState('');
   const [chainID, setChainID] = React.useState('');
+  const [connectionType, setConnectionType] = React.useState('');
+  const [wcSessionTopic, setWCSessionTopic] = React.useState('');
 
   const [valAddress, setValAddress] = React.useState('');
+  const [redelegateAddress, setRedelegateAddress] = React.useState('');
 
   const [memo, setMemo] = React.useState('');
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -237,6 +243,8 @@ const useStakingHooks = ({
   useEffect(() => {
     setUserAddress(localStorage.getItem(ADDRESS_KEY) ?? '');
     setChainID(localStorage.getItem(CHAIN_ID) ?? '');
+    setConnectionType(localStorage.getItem(CONNECTION_TYPE) ?? '');
+    setWCSessionTopic(localStorage.getItem(WC_SESSION_TOPIC) ?? '');
   }, [userAddress, setUserAddress]);
 
   const handleOpenValidatorRedelegateMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -250,6 +258,10 @@ const useStakingHooks = ({
     amount: [{ amount: '0.01', denom: baseDenom ?? tokenFormatDenom.baseDenom }],
     gas: '',
   };
+
+  const walletConnectClient = useWalletConnectClient();
+
+  // if (connectionTypes === 'Wallet Connect') {
 
   const handleMaxFee = async (maxToken: string, validator: string, action: string) => {
     const stakingAddress = validator;
@@ -332,7 +344,7 @@ const useStakingHooks = ({
             value: {
               delegatorAddress: userAddress,
               validatorSrcAddress: validatorSourceAddress,
-              validatorDstAddress: stakingAddress,
+              validatorDstAddress: redelegateAddress,
               amount: coin(base64Amount, baseDenom ?? ''),
             },
           };
@@ -362,15 +374,18 @@ const useStakingHooks = ({
         ? never
         : T
       : never;
-    let client: SigningStargateClient;
+    let client: SigningStargateClient | ISignClient;
     let result;
     const rewardsTxs: TransactionMsgWithdrawReward[] = [];
 
     try {
-      client = (await getClient(
-        chainID,
-        baseDenom ?? tokenFormatDenom.baseDenom
-      )) as SigningStargateClient;
+      client =
+        connectionType === 'Wallet Connect' && walletConnectClient
+          ? (walletConnectClient as ISignClient)
+          : ((await getClient(
+              chainID,
+              baseDenom ?? tokenFormatDenom.baseDenom
+            )) as SigningStargateClient);
     } catch (e) {
       setErrorMsg((e as Error).message);
       return;
@@ -381,20 +396,34 @@ const useStakingHooks = ({
         try {
           setLoading(true);
           const base64Amount = displayToBaseUnit(amount);
-          result = await client.delegateTokens(
-            userAddress,
-            stakingAddress,
-            coin(base64Amount, baseDenom ?? ''),
-            'auto',
-            memo ?? ''
-          );
+          const delegateMsg: TransactionMsgDelegate = {
+            typeUrl: '/cosmos.staking.v1beta1.MsgDelegate',
+            value: {
+              delegatorAddress: userAddress,
+              validatorAddress: stakingAddress,
+              amount: coin(base64Amount, baseDenom ?? ''),
+            },
+          };
+          if (client instanceof ISignClient) {
+            result = await wcSignAmino({
+              client,
+              sessionTopic: wcSessionTopic,
+              signerAddress: userAddress,
+              chainId: chainID,
+              msgs: [delegateMsg],
+              memo,
+              fee: { amount: [], gas: '23' },
+            });
+          } else {
+            result = await client.signAndBroadcast(userAddress, [delegateMsg], 'auto', memo);
+            setTxHash(result.transactionHash);
+            assertIsDeliverTxSuccess(result);
+          }
           setDelegationSuccess(true);
-          setTxHash(result.transactionHash);
-          assertIsDeliverTxSuccess(result);
           setLoading(false);
         } catch (e) {
           setErrorMsg((e as Error).message);
-          handleCloseDelegateDialog();
+          // handleCloseDelegateDialog();
           setOpenSuccessSnackbar(false);
           return;
         }
@@ -403,23 +432,35 @@ const useStakingHooks = ({
         try {
           setLoading(true);
           const base64Amount = displayToBaseUnit(amount);
-          const redelegateMsg: MsgBeginRedelegateEncodeObject = {
+          const redelegateMsg: TransactionMsgRedelegate = {
             typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegate',
             value: {
               delegatorAddress: userAddress,
               validatorSrcAddress: validatorSourceAddress,
-              validatorDstAddress: stakingAddress,
+              validatorDstAddress: redelegateAddress,
               amount: coin(base64Amount, baseDenom ?? ''),
             },
           };
-          result = await client.signAndBroadcast(userAddress, [redelegateMsg], 'auto', memo);
+          if (client instanceof ISignClient) {
+            result = await wcSignAmino({
+              client,
+              sessionTopic: wcSessionTopic,
+              signerAddress: userAddress,
+              chainId: chainID,
+              msgs: [redelegateMsg],
+              memo,
+              fee: { amount: [], gas: '23' },
+            });
+          } else {
+            result = await client.signAndBroadcast(userAddress, [redelegateMsg], 'auto', memo);
+            setTxHash(result.transactionHash);
+            assertIsDeliverTxSuccess(result);
+          }
           setDelegationSuccess(true);
-          setTxHash(result.transactionHash);
-          assertIsDeliverTxSuccess(result);
           setLoading(false);
           setValidatorSourceAddress('');
         } catch (e) {
-          handleCloseRedelegateDialog();
+          // handleCloseRedelegateDialog();
           setErrorMsg((e as Error).message);
           setOpenSuccessSnackbar(false);
           return;
@@ -429,21 +470,34 @@ const useStakingHooks = ({
         try {
           setLoading(true);
           const base64Amount = displayToBaseUnit(amount);
-          result = await client.undelegateTokens(
-            userAddress,
-            validatorSourceAddress,
-            coin(base64Amount, baseDenom ?? ''),
-            'auto',
-            memo
-          );
+          const undelegateMsg: TransactionMsgUndelegate = {
+            typeUrl: '/cosmos.staking.v1beta1.MsgUndelegate',
+            value: {
+              delegatorAddress: userAddress,
+              validatorAddress: validatorSourceAddress,
+              amount: coin(base64Amount, baseDenom ?? ''),
+            },
+          };
+          if (client instanceof ISignClient) {
+            result = await wcSignAmino({
+              client,
+              sessionTopic: wcSessionTopic,
+              signerAddress: userAddress,
+              chainId: chainID,
+              msgs: [redelegateMsg],
+              memo,
+              fee: { amount: [], gas: '23' },
+            });
+          } else {
+            result = await client.signAndBroadcast(userAddress, [undelegateMsg], 'auto', memo);
+            setTxHash(result.transactionHash);
+            assertIsDeliverTxSuccess(result);
+          }
           setDelegationSuccess(true);
-          setTxHash(result.transactionHash);
-          assertIsDeliverTxSuccess(result);
           setLoading(false);
           setValidatorSourceAddress('');
         } catch (e) {
           setErrorMsg((e as Error).message);
-          handleCloseRedelegateDialog();
           setOpenSuccessSnackbar(false);
           return;
         }
@@ -461,10 +515,22 @@ const useStakingHooks = ({
             };
             rewardsTxs.push(rewardTx);
           });
-          result = await client.signAndBroadcast(userAddress, rewardsTxs, 'auto', memo);
+          if (client instanceof ISignClient) {
+            result = await wcSignAmino({
+              client,
+              sessionTopic: wcSessionTopic,
+              signerAddress: userAddress,
+              chainId: chainID,
+              msgs: rewardsTxs,
+              memo,
+              fee: { amount: [], gas: '23' },
+            });
+          } else {
+            result = await client.signAndBroadcast(userAddress, rewardsTxs, 'auto', memo);
+            setTxHash(result.transactionHash);
+            assertIsDeliverTxSuccess(result);
+          }
           setWithdrawSuccess(true);
-          setTxHash(result.transactionHash);
-          assertIsDeliverTxSuccess(result);
           setLoading(false);
           setValidatorRewardAddress([]);
         } catch (e) {
@@ -477,7 +543,7 @@ const useStakingHooks = ({
       default:
         return;
     }
-    client.disconnect();
+    if (client instanceof StargateClient) client.disconnect();
   };
 
   return {
@@ -519,6 +585,8 @@ const useStakingHooks = ({
     delegationSuccess,
     withdrawSuccess,
     valAddress,
+    redelegateAddress,
+    setRedelegateAddress,
     amount,
     errorMsg,
     memo,

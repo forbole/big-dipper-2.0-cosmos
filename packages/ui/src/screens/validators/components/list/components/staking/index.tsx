@@ -145,7 +145,7 @@ const StakeButton = (props: StakeButtonProps) => {
           horizontal: 'left',
         }}
       >
-        <MenuItem onClick={handleOpenDelegateDialog}> {t('validators:delegate')}</MenuItem>
+        <MenuItem onClick={handleOpenDelegateDialog}>{t('validators:delegate')}</MenuItem>
         <DelegateDialog
           open={openDelegateDialog}
           onClose={handleCloseDelegateDialog}

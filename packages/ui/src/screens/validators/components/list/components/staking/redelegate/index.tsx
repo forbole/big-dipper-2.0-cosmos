@@ -69,6 +69,8 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
     validatorSourceAddress,
     valAddress,
     handleMaxFee,
+    redelegateAddress,
+    setRedelegateAddress,
   } = useStakingHooks({ validators, delegations });
 
   // set sources address to validatorAddress input if validatorAddress prop is passed
@@ -140,8 +142,8 @@ const RedelegateDialog: FC<RedelegateDialogProps> = ({
           {validators ? (
             <ValidatorFilterInput
               options={validators}
-              setValidatorAddress={setValAddress}
-              validatorAddress={valAddress}
+              setValidatorAddress={setRedelegateAddress}
+              validatorAddress={redelegateAddress}
             />
           ) : (
             <Loading />
