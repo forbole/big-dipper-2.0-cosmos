@@ -10,6 +10,7 @@ import {
   SlashingParams,
   StakingParams,
   FeeModelParams,
+  TokenParams,
 } from '@/models';
 import { customStakingParams } from '@/models/staking_params';
 import type { ParamsState } from '@/screens/params/types';
@@ -26,6 +27,8 @@ const initialState: ParamsState = {
   distribution: null,
   gov: null,
   feeModel: null,
+  nft: null,
+  ft: null,
 };
 
 // ================================
@@ -155,6 +158,50 @@ const formatFeeModel = (data: ParamsQuery) => {
   return null;
 };
 
+// ================================
+// token params
+// ================================
+
+const formatNFTParams = (data: ParamsQuery) => {
+  if (data.nftParams?.length) {
+    const nftParamsRaw = TokenParams.fromJson(data.nftParams?.[0]?.params ?? {});
+    return {
+      nftMintFee: formatToken(
+        nftParamsRaw.nftMintFee.amount ?? '',
+        nftParamsRaw.nftMintFee.denom ?? ''
+      ),
+    };
+  }
+  return null;
+};
+
+const formatFTParams = (data: ParamsQuery) => {
+  if (data.ftParams?.length) {
+    const ftParamsRaw = TokenParams.fromJson(data.ftParams?.[0]?.params ?? {});
+    if (
+      ftParamsRaw.tokenUpgradeDecisionTimeout &&
+      ftParamsRaw.tokenUpgradeGracePeriod !== undefined
+    ) {
+      return {
+        ftIssueFee: formatToken(
+          ftParamsRaw.ftIssueFee.amount ?? '',
+          ftParamsRaw.ftIssueFee.denom ?? ''
+        ),
+        tokenUpgradeGracePeriod: ftParamsRaw.tokenUpgradeGracePeriod,
+        tokenUpgradeDecisionTimeout: ftParamsRaw.tokenUpgradeDecisionTimeout,
+      };
+    } else {
+      return {
+        ftIssueFee: formatToken(
+          ftParamsRaw.ftIssueFee.amount ?? '',
+          ftParamsRaw.ftIssueFee.denom ?? ''
+        ),
+      };
+    }
+  }
+  return null;
+};
+
 const formatParam = (data: ParamsQuery) => {
   const results: Partial<ParamsState> = {};
 
@@ -169,6 +216,10 @@ const formatParam = (data: ParamsQuery) => {
   results.gov = formatGov(data);
 
   results.feeModel = formatFeeModel(data);
+
+  results.nft = formatNFTParams(data);
+
+  results.ft = formatFTParams(data);
 
   return results;
 };
@@ -194,7 +245,7 @@ export const useParams = () => {
         ...formatParam(data),
       }));
     },
-    onError: () => {
+    onError: (e) => {
       handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
   });

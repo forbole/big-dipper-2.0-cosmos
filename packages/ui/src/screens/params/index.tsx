@@ -13,6 +13,8 @@ import {
   formatSlashing,
   formatStaking,
   formatFeeModel,
+  formatFT,
+  formatNFT,
 } from '@/screens/params/utils';
 
 const Params = () => {
@@ -62,6 +64,10 @@ const Params = () => {
       }
     : null;
 
+  const ft = state.ft ? { title: t('ft') ?? undefined, details: formatFT(state.ft, t) } : null;
+
+  const nft = state.nft ? { title: t('nft') ?? undefined, details: formatNFT(state.nft, t) } : null;
+
   return (
     <>
       <NextSeo
@@ -82,6 +88,8 @@ const Params = () => {
             {distribution && <BoxDetails {...distribution} />}
             {gov && <BoxDetails {...gov} />}
             {feeModel && <BoxDetails {...feeModel} />}
+            {ft && <BoxDetails {...ft} />}
+            {nft && <BoxDetails {...nft} />}
           </span>
         </LoadAndExist>
       </Layout>

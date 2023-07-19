@@ -50,6 +50,15 @@ export interface FeeModel {
   escalationStartFraction: number;
 }
 
+export interface NFT {
+  nftMintFee: TokenUnit;
+}
+
+export interface FT {
+  ftIssueFee: TokenUnit;
+  tokenUpgradeGracePeriod?: number | undefined;
+  tokenUpgradeDecisionTimeout?: string | undefined;
+}
 export interface ParamsState {
   loading: boolean;
   exists: boolean;
@@ -59,4 +68,6 @@ export interface ParamsState {
   distribution: Distribution | null;
   gov: Gov | null;
   feeModel: FeeModel | null;
+  nft: NFT | null;
+  ft: FT | null;
 }

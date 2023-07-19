@@ -4,6 +4,7 @@
 export { default as DistributionParams } from '@/models/distribution_params';
 export { default as GovParams } from '@/models/gov_params';
 export { default as MintParams } from '@/models/mint_params';
+export { default as TokenParams } from '@/models/token_params';
 export { default as MsgGrant } from '@/models/msg/authz/msg_grant';
 export { default as MsgRevoke } from '@/models/msg/authz/msg_revoke';
 export { default as MsgExec } from '@/models/msg/authz/msg_exec';

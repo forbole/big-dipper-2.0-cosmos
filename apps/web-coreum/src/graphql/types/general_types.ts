@@ -409,7 +409,6 @@ export enum Account_Select_Column {
   /** column name */
   Address = 'address'
 }
-
 /** columns and relationships of "average_block_time_from_genesis" */
 export type Average_Block_Time_From_Genesis = {
   __typename?: 'average_block_time_from_genesis';
@@ -11763,7 +11762,7 @@ export type OnlineVotingPowerQuery = { activeTotal: { __typename?: 'validator_st
 export type ParamsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ParamsQuery = { stakingParams: Array<{ __typename?: 'staking_params', params: any }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }>, mintParams: Array<{ __typename?: 'mint_params', params: any }>, distributionParams: Array<{ __typename?: 'distribution_params', params: any }>, govParams: Array<{ __typename?: 'gov_params', depositParams: any, tallyParams: any, votingParams: any }>, feeModelParams: Array<{__typename?: 'feemodel_params', params: any}>, customParams: Array<{__typename?: 'custom_params', customStakingParams: any }> };
+export type ParamsQuery = { stakingParams: Array<{ __typename?: 'staking_params', params: any }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }>, mintParams: Array<{ __typename?: 'mint_params', params: any }>, distributionParams: Array<{ __typename?: 'distribution_params', params: any }>, govParams: Array<{ __typename?: 'gov_params', depositParams: any, tallyParams: any, votingParams: any }>, feeModelParams: Array<{__typename?: 'feemodel_params', params: any}>, customParams: Array<{__typename?: 'custom_params', customStakingParams: any }>, nftParams: Array<{ __typename?: 'assetnft_params', params: any }>, ftParams: Array<{ __typename?: 'assetft_params', params: any, token_upgrade_grace_period: any, token_upgrade_decision_timeout: any }>};
 
 export type ProposalDetailsQueryVariables = Exact<{
   proposalId?: InputMaybe<Scalars['Int']>;
@@ -12772,6 +12771,12 @@ export const ParamsDocument = gql`
   }
   customParams: customparams_params  (limit: 1, order_by: {height: desc}) {
     customStakingParams: staking_params
+  }
+  nftParams: assetnft_params {
+    params
+  }
+  ftParams: assetft_params{
+    params
   }
 }
     `;

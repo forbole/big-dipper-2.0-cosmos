@@ -5,6 +5,8 @@ import type {
   Slashing,
   Staking,
   FeeModel,
+  NFT,
+  FT,
 } from '@/screens/params/types';
 import { nanoToSeconds, secondsToDays } from '@/utils/time';
 import { TFunction } from 'next-i18next';
@@ -215,3 +217,48 @@ export const formatFeeModel = (data: FeeModel, t: TFunction) => [
     detail: numeral(data.escalationStartFraction).format('0.[000]'),
   },
 ];
+
+export const formatNFT = (data: NFT, t: TFunction) => [
+  {
+    key: 'nftMintFee',
+    label: t('nftMintFee'),
+    detail: `${numeral(data.nftMintFee.value).format(
+      '0.[0000]'
+    )} ${data.nftMintFee.displayDenom.toUpperCase()}`,
+  },
+];
+
+export const formatFT = (data: FT, t: TFunction) => {
+  if (data.tokenUpgradeDecisionTimeout && data.tokenUpgradeGracePeriod !== undefined) {
+    const tokenDecisionTimeout = new Date(data.tokenUpgradeDecisionTimeout);
+    return [
+      {
+        key: 'ftIssueFee',
+        label: t('ftIssueFee'),
+        detail: `${numeral(data.ftIssueFee.value).format(
+          '0.[0000]'
+        )} ${data.ftIssueFee.displayDenom.toUpperCase()}`,
+      },
+      {
+        key: 'tokenUpgradeGracePeriod',
+        label: t('tokenUpgradeGracePeriod'),
+        detail: convertBySeconds(nanoToSeconds(data.tokenUpgradeGracePeriod), t),
+      },
+      {
+        key: 'tokenUpgradeDecisionTimeout',
+        label: t('tokenUpgradeDecisionTimeout'),
+        detail: `${tokenDecisionTimeout.toLocaleDateString()} at ${tokenDecisionTimeout.toLocaleTimeString()}`,
+      },
+    ];
+  } else {
+    return [
+      {
+        key: 'ftIssueFee',
+        label: t('ftIssueFee'),
+        detail: `${numeral(data.ftIssueFee.value).format(
+          '0.[0000]'
+        )} ${data.ftIssueFee.displayDenom.toUpperCase()}`,
+      },
+    ];
+  }
+};
