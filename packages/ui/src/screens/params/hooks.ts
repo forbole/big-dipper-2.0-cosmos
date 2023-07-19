@@ -178,14 +178,17 @@ const formatNFTParams = (data: ParamsQuery) => {
 const formatFTParams = (data: ParamsQuery) => {
   if (data.ftParams?.length) {
     const ftParamsRaw = TokenParams.fromJson(data.ftParams?.[0]?.params ?? {});
-    if (ftParamsRaw.tokenUpgradeDecisionTimeout && ftParamsRaw.tokenUpgradeGracePeriod) {
+    if (
+      ftParamsRaw.tokenUpgradeDecisionTimeout &&
+      ftParamsRaw.tokenUpgradeGracePeriod !== undefined
+    ) {
       return {
         ftIssueFee: formatToken(
           ftParamsRaw.ftIssueFee.amount ?? '',
           ftParamsRaw.ftIssueFee.denom ?? ''
         ),
-        tokenUpgradeGracePeriod: ftParamsRaw.tokenUpgradeGracePeriod ?? undefined,
-        tokenUpgradeDecisionTimeout: ftParamsRaw.tokenUpgradeDecisionTimeout ?? undefined,
+        tokenUpgradeGracePeriod: ftParamsRaw.tokenUpgradeGracePeriod,
+        tokenUpgradeDecisionTimeout: ftParamsRaw.tokenUpgradeDecisionTimeout,
       };
     } else {
       return {

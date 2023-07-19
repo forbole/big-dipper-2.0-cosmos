@@ -229,7 +229,7 @@ export const formatNFT = (data: NFT, t: TFunction) => [
 ];
 
 export const formatFT = (data: FT, t: TFunction) => {
-  if (data.tokenUpgradeDecisionTimeout && data.tokenUpgradeGracePeriod) {
+  if (data.tokenUpgradeDecisionTimeout && data.tokenUpgradeGracePeriod !== undefined) {
     const tokenDecisionTimeout = new Date(data.tokenUpgradeDecisionTimeout);
     return [
       {
