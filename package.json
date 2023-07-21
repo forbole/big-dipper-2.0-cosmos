@@ -57,6 +57,6 @@
     "yarn": ">=1.22"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "yarn dlx prettier --write"
+    "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "npx prettier --write"
   }
 }
