@@ -1,18 +1,4 @@
 query MarketData ($denom: String) {
-  bdjuno_provider {
-    communityPool: community_pool(order_by: {height: desc}, limit: 1) {
-      coins
-    }
-    inflation: inflation(order_by: {height: desc}, limit: 1) {
-      value
-    }
-    bondedTokens: staking_pool(order_by: {height: desc}, limit: 1) {
-      bonded_tokens
-    }
-    distributionParams: distribution_params {
-      params
-    }
-  }
   tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
     marketCap: market_cap
     price
