@@ -1,5 +1,6 @@
-query OnlineVotingPower {
-  bdjuno_provider {
+export const OnlineVotingPowerDocument = /* GraphQL */ `
+  query OnlineVotingPower{
+    bdjuno_provider {
     activeTotal: validator_status_aggregate(where: {status: {_eq: 3}}) {
       aggregate {
         count
@@ -19,4 +20,6 @@ query OnlineVotingPower {
       params
     }
 	}
-}
+  }
+`;
+

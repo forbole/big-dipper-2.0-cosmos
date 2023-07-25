@@ -19031,754 +19031,760 @@ export type Wasm_Params_Variance_Fields = {
   instantiate_default_permission?: Maybe<Scalars['Float']>;
 };
 
-export type BlockDetailsQueryVariables = Exact<{
-  height?: InputMaybe<Scalars['bigint']>;
-  signatureHeight?: InputMaybe<Scalars['bigint']>;
+export type AccountCommissionQueryVariables = Exact<{
+  validatorAddress: Scalars['String'];
 }>;
 
 
-export type BlockDetailsQuery = { transaction: Array<{ __typename?: 'transaction', height: any, hash: string, messages: any, success: boolean, logs?: any | null }>, block: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo: Array<{ __typename?: 'validator_signing_info', operatorAddress: string }> } | null }>, preCommitsAggregate: { __typename?: 'pre_commit_aggregate', aggregate?: { __typename?: 'pre_commit_aggregate_fields', sum?: { __typename?: 'pre_commit_sum_fields', votingPower?: any | null } | null } | null }, preCommits: Array<{ __typename?: 'pre_commit', validator: { __typename?: 'validator', validatorInfo: Array<{ __typename?: 'validator_signing_info', operatorAddress: string }> } }> };
+export type AccountCommissionQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', commission?: { __typename?: 'bdjuno_provider_ActionValidatorCommissionAmount', coins?: Array<any | null> | null } | null } | null };
 
-export type LatestBlockHeightListenerSubscriptionVariables = Exact<{
+export type AccountWithdrawalAddressQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountWithdrawalAddressQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', withdrawalAddress: { __typename?: 'bdjuno_provider_ActionAddress', address: string } } | null };
+
+export type AccountBalancesQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountBalancesQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', accountBalances?: { __typename?: 'bdjuno_provider_ActionBalance', coins?: Array<any | null> | null } | null } | null };
+
+export type AccountDelegationBalanceQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountDelegationBalanceQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', delegationBalance?: { __typename?: 'bdjuno_provider_ActionBalance', coins?: Array<any | null> | null } | null } | null };
+
+export type AccountUnbondingBalanceQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountUnbondingBalanceQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', unbondingBalance?: { __typename?: 'bdjuno_provider_ActionBalance', coins?: Array<any | null> | null } | null } | null };
+
+export type AccountDelegationRewardsQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountDelegationRewardsQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', delegationRewards?: Array<{ __typename?: 'bdjuno_provider_ActionDelegationReward', coins?: Array<any | null> | null, validatorAddress: string } | null> | null } | null };
+
+export type AccountDelegationsQueryVariables = Exact<{
+  address: Scalars['String'];
   offset?: InputMaybe<Scalars['Int']>;
-}>;
-
-
-export type LatestBlockHeightListenerSubscription = { height: Array<{ __typename?: 'block', height: any }> };
-
-export type AverageBlockTimeQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type AverageBlockTimeQuery = { averageBlockTime: Array<{ __typename?: 'average_block_time_per_hour', averageTime: any }> };
-
-export type LatestBlockTimestampQueryVariables = Exact<{
-  offset?: InputMaybe<Scalars['Int']>;
-}>;
-
-
-export type LatestBlockTimestampQuery = { block: Array<{ __typename?: 'block', timestamp: any }> };
-
-export type BlocksListenerSubscriptionVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
+}>;
+
+
+export type AccountDelegationsQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', delegations?: { __typename?: 'bdjuno_provider_ActionDelegationResponse', delegations?: Array<any | null> | null, pagination?: any | null } | null } | null };
+
+export type AccountRedelegationsQueryVariables = Exact<{
+  address: Scalars['String'];
   offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
 }>;
 
 
-export type BlocksListenerSubscription = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo: Array<{ __typename?: 'validator_signing_info', operatorAddress: string }> } | null }> };
+export type AccountRedelegationsQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', redelegations?: { __typename?: 'bdjuno_provider_ActionRedelegationResponse', redelegations?: Array<any | null> | null, pagination?: any | null } | null } | null };
 
-export type BlocksQueryVariables = Exact<{
-  limit?: InputMaybe<Scalars['Int']>;
+export type AccountUndelegationsQueryVariables = Exact<{
+  address: Scalars['String'];
   offset?: InputMaybe<Scalars['Int']>;
-}>;
-
-
-export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, ccv_validator?: { __typename?: 'ccv_validator', validator?: { __typename?: 'provider_validator', validatorInfo?: { __typename?: 'provider_validator_info', self_delegate_address?: string | null, operatorAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, identity?: string | null }> } | null } | null }> };
-
-export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type ChainIdQuery = { genesis: Array<{ __typename?: 'genesis', time: any, chainId: string }> };
-
-export type MarketDataQueryVariables = Exact<{
-  denom?: InputMaybe<Scalars['String']>;
-}>;
-
-
-export type MarketDataQuery = { tokenPrice: Array<{ __typename?: 'token_price', price: any, marketCap: any }>, supply: Array<{ __typename?: 'supply', coins: any }> };
-
-export type GetMessagesByAddressQueryVariables = Exact<{
-  address?: InputMaybe<Scalars['_text']>;
-  limit?: InputMaybe<Scalars['bigint']>;
-  offset?: InputMaybe<Scalars['bigint']>;
-  types?: InputMaybe<Scalars['_text']>;
-}>;
-
-
-export type GetMessagesByAddressQuery = { messagesByAddress: Array<{ __typename?: 'message', transaction?: { __typename?: 'transaction', height: any, hash: string, success: boolean, messages: any, logs?: any | null, block: { __typename?: 'block', height: any, timestamp: any } } | null }> };
-
-export type TokenPriceListenerSubscriptionVariables = Exact<{
-  denom?: InputMaybe<Scalars['String']>;
-}>;
-
-
-export type TokenPriceListenerSubscription = { tokenPrice: Array<{ __typename?: 'token_price', price: any, timestamp: any, marketCap: any, unitName: string }> };
-
-export type TokenPriceHistoryQueryVariables = Exact<{
-  denom?: InputMaybe<Scalars['String']>;
   limit?: InputMaybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
 }>;
 
 
-export type TokenPriceHistoryQuery = { tokenPrice: Array<{ __typename?: 'token_price_history', price: any, timestamp: any }> };
+export type AccountUndelegationsQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', undelegations?: { __typename?: 'bdjuno_provider_ActionUnbondingDelegationResponse', pagination?: any | null, undelegations?: Array<any | null> | null } | null } | null };
 
-export type TokenomicsQueryVariables = Exact<{ [key: string]: never; }>;
+export type ActiveValidatorCountQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type TokenomicsQuery = { supply: Array<{ __typename?: 'supply', coins: any }> };
+export type ActiveValidatorCountQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', activeTotal: { __typename?: 'bdjuno_provider_validator_status_aggregate', aggregate?: { __typename?: 'bdjuno_provider_validator_status_aggregate_fields', count: number } | null }, inactiveTotal: { __typename?: 'bdjuno_provider_validator_status_aggregate', aggregate?: { __typename?: 'bdjuno_provider_validator_status_aggregate_fields', count: number } | null }, total: { __typename?: 'bdjuno_provider_validator_status_aggregate', aggregate?: { __typename?: 'bdjuno_provider_validator_status_aggregate_fields', count: number } | null } } | null };
 
-export type TransactionDetailsQueryVariables = Exact<{
-  hash?: InputMaybe<Scalars['String']>;
+export type OnlineVotingPowerQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type OnlineVotingPowerQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', activeTotal: { __typename?: 'bdjuno_provider_validator_status_aggregate', aggregate?: { __typename?: 'bdjuno_provider_validator_status_aggregate_fields', count: number } | null }, validatorVotingPowerAggregate: { __typename?: 'bdjuno_provider_validator_voting_power_aggregate', aggregate?: { __typename?: 'bdjuno_provider_validator_voting_power_aggregate_fields', sum?: { __typename?: 'bdjuno_provider_validator_voting_power_sum_fields', votingPower?: any | null } | null } | null }, stakingPool: Array<{ __typename?: 'bdjuno_provider_staking_pool', bonded: string }>, stakingParams: Array<{ __typename?: 'bdjuno_provider_staking_params', params: any }> } | null };
+
+export type ParamsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ParamsQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', stakingParams: Array<{ __typename?: 'bdjuno_provider_staking_params', params: any }>, slashingParams: Array<{ __typename?: 'bdjuno_provider_slashing_params', params: any }>, mintParams: Array<{ __typename?: 'bdjuno_provider_mint_params', params: any }>, distributionParams: Array<{ __typename?: 'bdjuno_provider_distribution_params', params: any }>, govParams: Array<{ __typename?: 'bdjuno_provider_gov_params', depositParams: any, tallyParams: any, votingParams: any }> } | null };
+
+export type LastHundredBlocksSubscriptionVariables = Exact<{
+  address?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type TransactionDetailsQuery = { transaction: Array<{ __typename?: 'transaction', logs?: any | null, hash: string, height: any, fee: any, gasUsed?: any | null, gasWanted?: any | null, success: boolean, memo?: string | null, messages: any, rawLog?: string | null, block: { __typename?: 'block', timestamp: any } }> };
+export type LastHundredBlocksSubscription = { block: Array<{ __typename?: 'block', height: any, ccv_validator?: { __typename?: 'ccv_validator', validator?: { __typename?: 'provider_validator', validatorInfo?: { __typename?: 'provider_validator_info', operatorAddress: string } | null } | null } | null, transactions: Array<{ __typename?: 'transaction', hash: string }>, precommits: Array<{ __typename?: 'pre_commit', validatorAddress: string }> }> };
 
-export type TransactionsListenerSubscriptionVariables = Exact<{
-  limit?: InputMaybe<Scalars['Int']>;
+export type ValidatorLastSeenListenerSubscriptionVariables = Exact<{
+  address?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ValidatorLastSeenListenerSubscription = { preCommit: Array<{ __typename?: 'pre_commit', height: any, timestamp: any }> };
+
+export type ValidatorDetailsQueryVariables = Exact<{
+  address?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ValidatorDetailsQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', stakingPool: Array<{ __typename?: 'bdjuno_provider_staking_pool', height: any, bonded: string }>, validator: Array<{ __typename?: 'bdjuno_provider_validator', validatorDescriptions: Array<{ __typename?: 'bdjuno_provider_validator_description', details?: string | null, website?: string | null }>, validatorStatuses: Array<{ __typename?: 'bdjuno_provider_validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'bdjuno_provider_validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'bdjuno_provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null, maxRate: string } | null, validatorCommissions: Array<{ __typename?: 'bdjuno_provider_validator_commission', commission: any }>, validatorVotingPowers: Array<{ __typename?: 'bdjuno_provider_validator_voting_power', height: any, votingPower: any }> }>, slashingParams: Array<{ __typename?: 'bdjuno_provider_slashing_params', params: any }> } | null };
+
+export type ValidatorDelegationsQueryVariables = Exact<{
+  validatorAddress: Scalars['String'];
   offset?: InputMaybe<Scalars['Int']>;
-}>;
-
-
-export type TransactionsListenerSubscription = { transactions: Array<{ __typename?: 'transaction', height: any, hash: string, success: boolean, messages: any, logs?: any | null, block: { __typename?: 'block', timestamp: any } }> };
-
-export type TransactionsQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
 }>;
 
 
-export type TransactionsQuery = { transactions: Array<{ __typename?: 'transaction', height: any, hash: string, success: boolean, messages: any, logs?: any | null, block: { __typename?: 'block', timestamp: any } }> };
+export type ValidatorDelegationsQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', delegations?: { __typename?: 'bdjuno_provider_ActionDelegationResponse', delegations?: Array<any | null> | null, pagination?: any | null } | null } | null };
 
-export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
+export type ValidatorRedelegationsQueryVariables = Exact<{
+  validatorAddress: Scalars['String'];
+  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
+}>;
 
 
-export type ValidatorsQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', validator?: { __typename?: 'provider_validator', validatorStatuses: Array<{ __typename?: 'provider_validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'provider_validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null, validatorVotingPowers: Array<{ __typename?: 'provider_validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'provider_validator_commission', commission: any }> } | null }> };
+export type ValidatorRedelegationsQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', redelegations?: { __typename?: 'bdjuno_provider_ActionRedelegationResponse', redelegations?: Array<any | null> | null, pagination?: any | null } | null } | null };
+
+export type ValidatorUndelegationsQueryVariables = Exact<{
+  validatorAddress: Scalars['String'];
+  offset?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  pagination?: Scalars['Boolean'];
+}>;
 
 
-export const BlockDetailsDocument = gql`
-    query BlockDetails($height: bigint, $signatureHeight: bigint) {
-  transaction(where: {height: {_eq: $height}}) {
-    height
-    hash
-    messages
-    success
-    logs
-  }
-  block(limit: 1, where: {height: {_eq: $height}}) {
-    height
-    hash
-    timestamp
-    txs: num_txs
-    validator {
-      validatorInfo: validator_signing_infos {
-        operatorAddress: validator_address
-      }
-    }
-  }
-  preCommitsAggregate: pre_commit_aggregate(
-    where: {height: {_eq: $signatureHeight}}
-  ) {
-    aggregate {
-      sum {
-        votingPower: voting_power
-      }
-    }
-  }
-  preCommits: pre_commit(where: {height: {_eq: $signatureHeight}}) {
-    validator {
-      validatorInfo: validator_signing_infos {
-        operatorAddress: validator_address
-      }
+export type ValidatorUndelegationsQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', undelegations?: { __typename?: 'bdjuno_provider_ActionUnbondingDelegationResponse', pagination?: any | null, undelegations?: Array<any | null> | null } | null } | null };
+
+export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ValidatorsAddressListQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', validator?: { __typename?: 'provider_validator', validatorInfo?: { __typename?: 'provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, identity?: string | null, avatarUrl?: string | null }> } | null }> };
+
+export type ValidatorAddressesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ValidatorAddressesQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', validator?: { __typename?: 'provider_validator', validatorInfo?: { __typename?: 'provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, avatarUrl?: string | null }> } | null }> };
+
+
+export const AccountCommissionDocument = gql`
+    query AccountCommission($validatorAddress: String!) {
+  bdjuno_provider {
+    commission: action_validator_commission_amount(address: $validatorAddress) {
+      coins
     }
   }
 }
     `;
 
 /**
- * __useBlockDetailsQuery__
+ * __useAccountCommissionQuery__
  *
- * To run a query within a React component, call `useBlockDetailsQuery` and pass it any options that fit your needs.
- * When your component renders, `useBlockDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useAccountCommissionQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountCommissionQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useBlockDetailsQuery({
+ * const { data, loading, error } = useAccountCommissionQuery({
  *   variables: {
- *      height: // value for 'height'
- *      signatureHeight: // value for 'signatureHeight'
+ *      validatorAddress: // value for 'validatorAddress'
  *   },
  * });
  */
-export function useBlockDetailsQuery(baseOptions?: Apollo.QueryHookOptions<BlockDetailsQuery, BlockDetailsQueryVariables>) {
+export function useAccountCommissionQuery(baseOptions: Apollo.QueryHookOptions<AccountCommissionQuery, AccountCommissionQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<BlockDetailsQuery, BlockDetailsQueryVariables>(BlockDetailsDocument, options);
+        return Apollo.useQuery<AccountCommissionQuery, AccountCommissionQueryVariables>(AccountCommissionDocument, options);
       }
-export function useBlockDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BlockDetailsQuery, BlockDetailsQueryVariables>) {
+export function useAccountCommissionLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountCommissionQuery, AccountCommissionQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<BlockDetailsQuery, BlockDetailsQueryVariables>(BlockDetailsDocument, options);
+          return Apollo.useLazyQuery<AccountCommissionQuery, AccountCommissionQueryVariables>(AccountCommissionDocument, options);
         }
-export type BlockDetailsQueryHookResult = ReturnType<typeof useBlockDetailsQuery>;
-export type BlockDetailsLazyQueryHookResult = ReturnType<typeof useBlockDetailsLazyQuery>;
-export type BlockDetailsQueryResult = Apollo.QueryResult<BlockDetailsQuery, BlockDetailsQueryVariables>;
-export const LatestBlockHeightListenerDocument = gql`
-    subscription LatestBlockHeightListener($offset: Int = 0) {
-  height: block(order_by: {height: desc}, limit: 1, offset: $offset) {
-    height
+export type AccountCommissionQueryHookResult = ReturnType<typeof useAccountCommissionQuery>;
+export type AccountCommissionLazyQueryHookResult = ReturnType<typeof useAccountCommissionLazyQuery>;
+export type AccountCommissionQueryResult = Apollo.QueryResult<AccountCommissionQuery, AccountCommissionQueryVariables>;
+export const AccountWithdrawalAddressDocument = gql`
+    query AccountWithdrawalAddress($address: String!) {
+  bdjuno_provider {
+    withdrawalAddress: action_delegator_withdraw_address(address: $address) {
+      address
+    }
   }
 }
     `;
 
 /**
- * __useLatestBlockHeightListenerSubscription__
+ * __useAccountWithdrawalAddressQuery__
  *
- * To run a query within a React component, call `useLatestBlockHeightListenerSubscription` and pass it any options that fit your needs.
- * When your component renders, `useLatestBlockHeightListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useAccountWithdrawalAddressQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountWithdrawalAddressQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
- * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useLatestBlockHeightListenerSubscription({
+ * const { data, loading, error } = useAccountWithdrawalAddressQuery({
  *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountWithdrawalAddressQuery(baseOptions: Apollo.QueryHookOptions<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>(AccountWithdrawalAddressDocument, options);
+      }
+export function useAccountWithdrawalAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>(AccountWithdrawalAddressDocument, options);
+        }
+export type AccountWithdrawalAddressQueryHookResult = ReturnType<typeof useAccountWithdrawalAddressQuery>;
+export type AccountWithdrawalAddressLazyQueryHookResult = ReturnType<typeof useAccountWithdrawalAddressLazyQuery>;
+export type AccountWithdrawalAddressQueryResult = Apollo.QueryResult<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>;
+export const AccountBalancesDocument = gql`
+    query AccountBalances($address: String!) {
+  bdjuno_provider {
+    accountBalances: action_account_balance(address: $address) {
+      coins
+    }
+  }
+}
+    `;
+
+/**
+ * __useAccountBalancesQuery__
+ *
+ * To run a query within a React component, call `useAccountBalancesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountBalancesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountBalancesQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountBalancesQuery(baseOptions: Apollo.QueryHookOptions<AccountBalancesQuery, AccountBalancesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountBalancesQuery, AccountBalancesQueryVariables>(AccountBalancesDocument, options);
+      }
+export function useAccountBalancesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountBalancesQuery, AccountBalancesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountBalancesQuery, AccountBalancesQueryVariables>(AccountBalancesDocument, options);
+        }
+export type AccountBalancesQueryHookResult = ReturnType<typeof useAccountBalancesQuery>;
+export type AccountBalancesLazyQueryHookResult = ReturnType<typeof useAccountBalancesLazyQuery>;
+export type AccountBalancesQueryResult = Apollo.QueryResult<AccountBalancesQuery, AccountBalancesQueryVariables>;
+export const AccountDelegationBalanceDocument = gql`
+    query AccountDelegationBalance($address: String!) {
+  bdjuno_provider {
+    delegationBalance: action_delegation_total(address: $address) {
+      coins
+    }
+  }
+}
+    `;
+
+/**
+ * __useAccountDelegationBalanceQuery__
+ *
+ * To run a query within a React component, call `useAccountDelegationBalanceQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountDelegationBalanceQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountDelegationBalanceQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountDelegationBalanceQuery(baseOptions: Apollo.QueryHookOptions<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>(AccountDelegationBalanceDocument, options);
+      }
+export function useAccountDelegationBalanceLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>(AccountDelegationBalanceDocument, options);
+        }
+export type AccountDelegationBalanceQueryHookResult = ReturnType<typeof useAccountDelegationBalanceQuery>;
+export type AccountDelegationBalanceLazyQueryHookResult = ReturnType<typeof useAccountDelegationBalanceLazyQuery>;
+export type AccountDelegationBalanceQueryResult = Apollo.QueryResult<AccountDelegationBalanceQuery, AccountDelegationBalanceQueryVariables>;
+export const AccountUnbondingBalanceDocument = gql`
+    query AccountUnbondingBalance($address: String!) {
+  bdjuno_provider {
+    unbondingBalance: action_unbonding_delegation_total(address: $address) {
+      coins
+    }
+  }
+}
+    `;
+
+/**
+ * __useAccountUnbondingBalanceQuery__
+ *
+ * To run a query within a React component, call `useAccountUnbondingBalanceQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountUnbondingBalanceQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountUnbondingBalanceQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountUnbondingBalanceQuery(baseOptions: Apollo.QueryHookOptions<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>(AccountUnbondingBalanceDocument, options);
+      }
+export function useAccountUnbondingBalanceLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>(AccountUnbondingBalanceDocument, options);
+        }
+export type AccountUnbondingBalanceQueryHookResult = ReturnType<typeof useAccountUnbondingBalanceQuery>;
+export type AccountUnbondingBalanceLazyQueryHookResult = ReturnType<typeof useAccountUnbondingBalanceLazyQuery>;
+export type AccountUnbondingBalanceQueryResult = Apollo.QueryResult<AccountUnbondingBalanceQuery, AccountUnbondingBalanceQueryVariables>;
+export const AccountDelegationRewardsDocument = gql`
+    query AccountDelegationRewards($address: String!) {
+  bdjuno_provider {
+    delegationRewards: action_delegation_reward(address: $address) {
+      validatorAddress: validator_address
+      coins
+    }
+  }
+}
+    `;
+
+/**
+ * __useAccountDelegationRewardsQuery__
+ *
+ * To run a query within a React component, call `useAccountDelegationRewardsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountDelegationRewardsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountDelegationRewardsQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountDelegationRewardsQuery(baseOptions: Apollo.QueryHookOptions<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>(AccountDelegationRewardsDocument, options);
+      }
+export function useAccountDelegationRewardsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>(AccountDelegationRewardsDocument, options);
+        }
+export type AccountDelegationRewardsQueryHookResult = ReturnType<typeof useAccountDelegationRewardsQuery>;
+export type AccountDelegationRewardsLazyQueryHookResult = ReturnType<typeof useAccountDelegationRewardsLazyQuery>;
+export type AccountDelegationRewardsQueryResult = Apollo.QueryResult<AccountDelegationRewardsQuery, AccountDelegationRewardsQueryVariables>;
+export const AccountDelegationsDocument = gql`
+    query AccountDelegations($address: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
+  bdjuno_provider {
+    delegations: action_delegation(
+      address: $address
+      limit: $limit
+      offset: $offset
+      count_total: $pagination
+    ) {
+      delegations
+      pagination
+    }
+  }
+}
+    `;
+
+/**
+ * __useAccountDelegationsQuery__
+ *
+ * To run a query within a React component, call `useAccountDelegationsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountDelegationsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountDelegationsQuery({
+ *   variables: {
+ *      address: // value for 'address'
  *      offset: // value for 'offset'
- *   },
- * });
- */
-export function useLatestBlockHeightListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<LatestBlockHeightListenerSubscription, LatestBlockHeightListenerSubscriptionVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<LatestBlockHeightListenerSubscription, LatestBlockHeightListenerSubscriptionVariables>(LatestBlockHeightListenerDocument, options);
-      }
-export type LatestBlockHeightListenerSubscriptionHookResult = ReturnType<typeof useLatestBlockHeightListenerSubscription>;
-export type LatestBlockHeightListenerSubscriptionResult = Apollo.SubscriptionResult<LatestBlockHeightListenerSubscription>;
-export const AverageBlockTimeDocument = gql`
-    query AverageBlockTime {
-  averageBlockTime: average_block_time_per_hour(
-    limit: 1
-    order_by: {height: desc}
-  ) {
-    averageTime: average_time
-  }
-}
-    `;
-
-/**
- * __useAverageBlockTimeQuery__
- *
- * To run a query within a React component, call `useAverageBlockTimeQuery` and pass it any options that fit your needs.
- * When your component renders, `useAverageBlockTimeQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useAverageBlockTimeQuery({
- *   variables: {
- *   },
- * });
- */
-export function useAverageBlockTimeQuery(baseOptions?: Apollo.QueryHookOptions<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(AverageBlockTimeDocument, options);
-      }
-export function useAverageBlockTimeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(AverageBlockTimeDocument, options);
-        }
-export type AverageBlockTimeQueryHookResult = ReturnType<typeof useAverageBlockTimeQuery>;
-export type AverageBlockTimeLazyQueryHookResult = ReturnType<typeof useAverageBlockTimeLazyQuery>;
-export type AverageBlockTimeQueryResult = Apollo.QueryResult<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>;
-export const LatestBlockTimestampDocument = gql`
-    query LatestBlockTimestamp($offset: Int = 0) {
-  block: block(order_by: {height: desc}, limit: 1, offset: $offset) {
-    timestamp
-  }
-}
-    `;
-
-/**
- * __useLatestBlockTimestampQuery__
- *
- * To run a query within a React component, call `useLatestBlockTimestampQuery` and pass it any options that fit your needs.
- * When your component renders, `useLatestBlockTimestampQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useLatestBlockTimestampQuery({
- *   variables: {
- *      offset: // value for 'offset'
- *   },
- * });
- */
-export function useLatestBlockTimestampQuery(baseOptions?: Apollo.QueryHookOptions<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>(LatestBlockTimestampDocument, options);
-      }
-export function useLatestBlockTimestampLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>(LatestBlockTimestampDocument, options);
-        }
-export type LatestBlockTimestampQueryHookResult = ReturnType<typeof useLatestBlockTimestampQuery>;
-export type LatestBlockTimestampLazyQueryHookResult = ReturnType<typeof useLatestBlockTimestampLazyQuery>;
-export type LatestBlockTimestampQueryResult = Apollo.QueryResult<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>;
-export const BlocksListenerDocument = gql`
-    subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
-  blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
-    height
-    txs: num_txs
-    hash
-    timestamp
-    validator {
-      validatorInfo: validator_signing_infos {
-        operatorAddress: validator_address
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __useBlocksListenerSubscription__
- *
- * To run a query within a React component, call `useBlocksListenerSubscription` and pass it any options that fit your needs.
- * When your component renders, `useBlocksListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useBlocksListenerSubscription({
- *   variables: {
  *      limit: // value for 'limit'
- *      offset: // value for 'offset'
+ *      pagination: // value for 'pagination'
  *   },
  * });
  */
-export function useBlocksListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<BlocksListenerSubscription, BlocksListenerSubscriptionVariables>) {
+export function useAccountDelegationsQuery(baseOptions: Apollo.QueryHookOptions<AccountDelegationsQuery, AccountDelegationsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<BlocksListenerSubscription, BlocksListenerSubscriptionVariables>(BlocksListenerDocument, options);
+        return Apollo.useQuery<AccountDelegationsQuery, AccountDelegationsQueryVariables>(AccountDelegationsDocument, options);
       }
-export type BlocksListenerSubscriptionHookResult = ReturnType<typeof useBlocksListenerSubscription>;
-export type BlocksListenerSubscriptionResult = Apollo.SubscriptionResult<BlocksListenerSubscription>;
-export const BlocksDocument = gql`
-    query Blocks($limit: Int = 7, $offset: Int = 0) {
-  blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
+export function useAccountDelegationsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountDelegationsQuery, AccountDelegationsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountDelegationsQuery, AccountDelegationsQueryVariables>(AccountDelegationsDocument, options);
+        }
+export type AccountDelegationsQueryHookResult = ReturnType<typeof useAccountDelegationsQuery>;
+export type AccountDelegationsLazyQueryHookResult = ReturnType<typeof useAccountDelegationsLazyQuery>;
+export type AccountDelegationsQueryResult = Apollo.QueryResult<AccountDelegationsQuery, AccountDelegationsQueryVariables>;
+export const AccountRedelegationsDocument = gql`
+    query AccountRedelegations($address: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
+  bdjuno_provider {
+    redelegations: action_redelegation(
+      address: $address
+      limit: $limit
+      offset: $offset
+      count_total: $pagination
+    ) {
+      redelegations
+      pagination
+    }
+  }
+}
+    `;
+
+/**
+ * __useAccountRedelegationsQuery__
+ *
+ * To run a query within a React component, call `useAccountRedelegationsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountRedelegationsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountRedelegationsQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *      offset: // value for 'offset'
+ *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
+ *   },
+ * });
+ */
+export function useAccountRedelegationsQuery(baseOptions: Apollo.QueryHookOptions<AccountRedelegationsQuery, AccountRedelegationsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountRedelegationsQuery, AccountRedelegationsQueryVariables>(AccountRedelegationsDocument, options);
+      }
+export function useAccountRedelegationsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountRedelegationsQuery, AccountRedelegationsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountRedelegationsQuery, AccountRedelegationsQueryVariables>(AccountRedelegationsDocument, options);
+        }
+export type AccountRedelegationsQueryHookResult = ReturnType<typeof useAccountRedelegationsQuery>;
+export type AccountRedelegationsLazyQueryHookResult = ReturnType<typeof useAccountRedelegationsLazyQuery>;
+export type AccountRedelegationsQueryResult = Apollo.QueryResult<AccountRedelegationsQuery, AccountRedelegationsQueryVariables>;
+export const AccountUndelegationsDocument = gql`
+    query AccountUndelegations($address: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
+  bdjuno_provider {
+    undelegations: action_unbonding_delegation(
+      address: $address
+      limit: $limit
+      offset: $offset
+      count_total: $pagination
+    ) {
+      undelegations: unbonding_delegations
+      pagination
+    }
+  }
+}
+    `;
+
+/**
+ * __useAccountUndelegationsQuery__
+ *
+ * To run a query within a React component, call `useAccountUndelegationsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountUndelegationsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountUndelegationsQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *      offset: // value for 'offset'
+ *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
+ *   },
+ * });
+ */
+export function useAccountUndelegationsQuery(baseOptions: Apollo.QueryHookOptions<AccountUndelegationsQuery, AccountUndelegationsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountUndelegationsQuery, AccountUndelegationsQueryVariables>(AccountUndelegationsDocument, options);
+      }
+export function useAccountUndelegationsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountUndelegationsQuery, AccountUndelegationsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountUndelegationsQuery, AccountUndelegationsQueryVariables>(AccountUndelegationsDocument, options);
+        }
+export type AccountUndelegationsQueryHookResult = ReturnType<typeof useAccountUndelegationsQuery>;
+export type AccountUndelegationsLazyQueryHookResult = ReturnType<typeof useAccountUndelegationsLazyQuery>;
+export type AccountUndelegationsQueryResult = Apollo.QueryResult<AccountUndelegationsQuery, AccountUndelegationsQueryVariables>;
+export const ActiveValidatorCountDocument = gql`
+    query ActiveValidatorCount {
+  bdjuno_provider {
+    activeTotal: validator_status_aggregate(where: {status: {_eq: 3}}) {
+      aggregate {
+        count
+      }
+    }
+    inactiveTotal: validator_status_aggregate(where: {status: {_neq: 3}}) {
+      aggregate {
+        count
+      }
+    }
+    total: validator_status_aggregate {
+      aggregate {
+        count
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useActiveValidatorCountQuery__
+ *
+ * To run a query within a React component, call `useActiveValidatorCountQuery` and pass it any options that fit your needs.
+ * When your component renders, `useActiveValidatorCountQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useActiveValidatorCountQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useActiveValidatorCountQuery(baseOptions?: Apollo.QueryHookOptions<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(ActiveValidatorCountDocument, options);
+      }
+export function useActiveValidatorCountLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>(ActiveValidatorCountDocument, options);
+        }
+export type ActiveValidatorCountQueryHookResult = ReturnType<typeof useActiveValidatorCountQuery>;
+export type ActiveValidatorCountLazyQueryHookResult = ReturnType<typeof useActiveValidatorCountLazyQuery>;
+export type ActiveValidatorCountQueryResult = Apollo.QueryResult<ActiveValidatorCountQuery, ActiveValidatorCountQueryVariables>;
+export const OnlineVotingPowerDocument = gql`
+    query OnlineVotingPower {
+  bdjuno_provider {
+    activeTotal: validator_status_aggregate(where: {status: {_eq: 3}}) {
+      aggregate {
+        count
+      }
+    }
+    validatorVotingPowerAggregate: validator_voting_power_aggregate(
+      where: {validator: {validator_statuses: {status: {_eq: 3}}}}
+    ) {
+      aggregate {
+        sum {
+          votingPower: voting_power
+        }
+      }
+    }
+    stakingPool: staking_pool(order_by: {height: desc}, limit: 1) {
+      bonded: bonded_tokens
+    }
+    stakingParams: staking_params(limit: 1) {
+      params
+    }
+  }
+}
+    `;
+
+/**
+ * __useOnlineVotingPowerQuery__
+ *
+ * To run a query within a React component, call `useOnlineVotingPowerQuery` and pass it any options that fit your needs.
+ * When your component renders, `useOnlineVotingPowerQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useOnlineVotingPowerQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useOnlineVotingPowerQuery(baseOptions?: Apollo.QueryHookOptions<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>(OnlineVotingPowerDocument, options);
+      }
+export function useOnlineVotingPowerLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>(OnlineVotingPowerDocument, options);
+        }
+export type OnlineVotingPowerQueryHookResult = ReturnType<typeof useOnlineVotingPowerQuery>;
+export type OnlineVotingPowerLazyQueryHookResult = ReturnType<typeof useOnlineVotingPowerLazyQuery>;
+export type OnlineVotingPowerQueryResult = Apollo.QueryResult<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>;
+export const ParamsDocument = gql`
+    query Params {
+  bdjuno_provider {
+    stakingParams: staking_params(limit: 1, order_by: {height: desc}) {
+      params
+    }
+    slashingParams: slashing_params(limit: 1, order_by: {height: desc}) {
+      params
+    }
+    mintParams: mint_params(limit: 1, order_by: {height: desc}) {
+      params
+    }
+    distributionParams: distribution_params(limit: 1, order_by: {height: desc}) {
+      params
+    }
+    govParams: gov_params(limit: 1, order_by: {height: desc}) {
+      depositParams: deposit_params
+      tallyParams: tally_params
+      votingParams: voting_params
+    }
+  }
+}
+    `;
+
+/**
+ * __useParamsQuery__
+ *
+ * To run a query within a React component, call `useParamsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useParamsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useParamsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useParamsQuery(baseOptions?: Apollo.QueryHookOptions<ParamsQuery, ParamsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ParamsQuery, ParamsQueryVariables>(ParamsDocument, options);
+      }
+export function useParamsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ParamsQuery, ParamsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ParamsQuery, ParamsQueryVariables>(ParamsDocument, options);
+        }
+export type ParamsQueryHookResult = ReturnType<typeof useParamsQuery>;
+export type ParamsLazyQueryHookResult = ReturnType<typeof useParamsLazyQuery>;
+export type ParamsQueryResult = Apollo.QueryResult<ParamsQuery, ParamsQueryVariables>;
+export const LastHundredBlocksDocument = gql`
+    subscription LastHundredBlocks($address: String) {
+  block(offset: 1, order_by: {height: desc}, limit: 100) {
     height
-    txs: num_txs
-    hash
-    timestamp
     ccv_validator {
       validator {
         validatorInfo: validator_info {
           operatorAddress: operator_address
-          self_delegate_address
-        }
-        validatorDescriptions: validator_descriptions(
-          limit: 1
-          order_by: {height: desc}
-        ) {
-          moniker
-          identity
         }
       }
     }
-  }
-}
-    `;
-
-/**
- * __useBlocksQuery__
- *
- * To run a query within a React component, call `useBlocksQuery` and pass it any options that fit your needs.
- * When your component renders, `useBlocksQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useBlocksQuery({
- *   variables: {
- *      limit: // value for 'limit'
- *      offset: // value for 'offset'
- *   },
- * });
- */
-export function useBlocksQuery(baseOptions?: Apollo.QueryHookOptions<BlocksQuery, BlocksQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<BlocksQuery, BlocksQueryVariables>(BlocksDocument, options);
-      }
-export function useBlocksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BlocksQuery, BlocksQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<BlocksQuery, BlocksQueryVariables>(BlocksDocument, options);
-        }
-export type BlocksQueryHookResult = ReturnType<typeof useBlocksQuery>;
-export type BlocksLazyQueryHookResult = ReturnType<typeof useBlocksLazyQuery>;
-export type BlocksQueryResult = Apollo.QueryResult<BlocksQuery, BlocksQueryVariables>;
-export const ChainIdDocument = gql`
-    query ChainId {
-  genesis(limit: 1, order_by: {time: desc}) {
-    chainId: chain_id
-    time
-  }
-}
-    `;
-
-/**
- * __useChainIdQuery__
- *
- * To run a query within a React component, call `useChainIdQuery` and pass it any options that fit your needs.
- * When your component renders, `useChainIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useChainIdQuery({
- *   variables: {
- *   },
- * });
- */
-export function useChainIdQuery(baseOptions?: Apollo.QueryHookOptions<ChainIdQuery, ChainIdQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ChainIdQuery, ChainIdQueryVariables>(ChainIdDocument, options);
-      }
-export function useChainIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ChainIdQuery, ChainIdQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ChainIdQuery, ChainIdQueryVariables>(ChainIdDocument, options);
-        }
-export type ChainIdQueryHookResult = ReturnType<typeof useChainIdQuery>;
-export type ChainIdLazyQueryHookResult = ReturnType<typeof useChainIdLazyQuery>;
-export type ChainIdQueryResult = Apollo.QueryResult<ChainIdQuery, ChainIdQueryVariables>;
-export const MarketDataDocument = gql`
-    query MarketData($denom: String) {
-  tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
-    marketCap: market_cap
-    price
-  }
-  supply {
-    coins
-  }
-}
-    `;
-
-/**
- * __useMarketDataQuery__
- *
- * To run a query within a React component, call `useMarketDataQuery` and pass it any options that fit your needs.
- * When your component renders, `useMarketDataQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useMarketDataQuery({
- *   variables: {
- *      denom: // value for 'denom'
- *   },
- * });
- */
-export function useMarketDataQuery(baseOptions?: Apollo.QueryHookOptions<MarketDataQuery, MarketDataQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<MarketDataQuery, MarketDataQueryVariables>(MarketDataDocument, options);
-      }
-export function useMarketDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MarketDataQuery, MarketDataQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<MarketDataQuery, MarketDataQueryVariables>(MarketDataDocument, options);
-        }
-export type MarketDataQueryHookResult = ReturnType<typeof useMarketDataQuery>;
-export type MarketDataLazyQueryHookResult = ReturnType<typeof useMarketDataLazyQuery>;
-export type MarketDataQueryResult = Apollo.QueryResult<MarketDataQuery, MarketDataQueryVariables>;
-export const GetMessagesByAddressDocument = gql`
-    query GetMessagesByAddress($address: _text, $limit: bigint = 50, $offset: bigint = 0, $types: _text = "{}") {
-  messagesByAddress: messages_by_address(
-    args: {addresses: $address, types: $types, limit: $limit, offset: $offset}
-  ) {
-    transaction {
-      height
+    transactions {
       hash
-      success
-      messages
-      logs
-      block {
-        height
-        timestamp
-      }
+    }
+    precommits: pre_commits(where: {validator_address: {_eq: $address}}) {
+      validatorAddress: validator_address
     }
   }
 }
     `;
 
 /**
- * __useGetMessagesByAddressQuery__
+ * __useLastHundredBlocksSubscription__
  *
- * To run a query within a React component, call `useGetMessagesByAddressQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetMessagesByAddressQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useLastHundredBlocksSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useLastHundredBlocksSubscription` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetMessagesByAddressQuery({
+ * const { data, loading, error } = useLastHundredBlocksSubscription({
  *   variables: {
  *      address: // value for 'address'
- *      limit: // value for 'limit'
- *      offset: // value for 'offset'
- *      types: // value for 'types'
  *   },
  * });
  */
-export function useGetMessagesByAddressQuery(baseOptions?: Apollo.QueryHookOptions<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>) {
+export function useLastHundredBlocksSubscription(baseOptions?: Apollo.SubscriptionHookOptions<LastHundredBlocksSubscription, LastHundredBlocksSubscriptionVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>(GetMessagesByAddressDocument, options);
+        return Apollo.useSubscription<LastHundredBlocksSubscription, LastHundredBlocksSubscriptionVariables>(LastHundredBlocksDocument, options);
       }
-export function useGetMessagesByAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>(GetMessagesByAddressDocument, options);
-        }
-export type GetMessagesByAddressQueryHookResult = ReturnType<typeof useGetMessagesByAddressQuery>;
-export type GetMessagesByAddressLazyQueryHookResult = ReturnType<typeof useGetMessagesByAddressLazyQuery>;
-export type GetMessagesByAddressQueryResult = Apollo.QueryResult<GetMessagesByAddressQuery, GetMessagesByAddressQueryVariables>;
-export const TokenPriceListenerDocument = gql`
-    subscription TokenPriceListener($denom: String) {
-  tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
-    price
-    timestamp
-    marketCap: market_cap
-    unitName: unit_name
-  }
-}
-    `;
-
-/**
- * __useTokenPriceListenerSubscription__
- *
- * To run a query within a React component, call `useTokenPriceListenerSubscription` and pass it any options that fit your needs.
- * When your component renders, `useTokenPriceListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useTokenPriceListenerSubscription({
- *   variables: {
- *      denom: // value for 'denom'
- *   },
- * });
- */
-export function useTokenPriceListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<TokenPriceListenerSubscription, TokenPriceListenerSubscriptionVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<TokenPriceListenerSubscription, TokenPriceListenerSubscriptionVariables>(TokenPriceListenerDocument, options);
-      }
-export type TokenPriceListenerSubscriptionHookResult = ReturnType<typeof useTokenPriceListenerSubscription>;
-export type TokenPriceListenerSubscriptionResult = Apollo.SubscriptionResult<TokenPriceListenerSubscription>;
-export const TokenPriceHistoryDocument = gql`
-    query TokenPriceHistory($denom: String, $limit: Int = 10) {
-  tokenPrice: token_price_history(
-    where: {unit_name: {_eq: $denom}}
-    limit: $limit
-    order_by: {timestamp: desc}
+export type LastHundredBlocksSubscriptionHookResult = ReturnType<typeof useLastHundredBlocksSubscription>;
+export type LastHundredBlocksSubscriptionResult = Apollo.SubscriptionResult<LastHundredBlocksSubscription>;
+export const ValidatorLastSeenListenerDocument = gql`
+    subscription ValidatorLastSeenListener($address: String) {
+  preCommit: pre_commit(
+    limit: 1
+    where: {validator_address: {_eq: $address}}
+    order_by: {height: desc}
   ) {
-    price
+    height
     timestamp
   }
 }
     `;
 
 /**
- * __useTokenPriceHistoryQuery__
+ * __useValidatorLastSeenListenerSubscription__
  *
- * To run a query within a React component, call `useTokenPriceHistoryQuery` and pass it any options that fit your needs.
- * When your component renders, `useTokenPriceHistoryQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useTokenPriceHistoryQuery({
- *   variables: {
- *      denom: // value for 'denom'
- *      limit: // value for 'limit'
- *   },
- * });
- */
-export function useTokenPriceHistoryQuery(baseOptions?: Apollo.QueryHookOptions<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>(TokenPriceHistoryDocument, options);
-      }
-export function useTokenPriceHistoryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>(TokenPriceHistoryDocument, options);
-        }
-export type TokenPriceHistoryQueryHookResult = ReturnType<typeof useTokenPriceHistoryQuery>;
-export type TokenPriceHistoryLazyQueryHookResult = ReturnType<typeof useTokenPriceHistoryLazyQuery>;
-export type TokenPriceHistoryQueryResult = Apollo.QueryResult<TokenPriceHistoryQuery, TokenPriceHistoryQueryVariables>;
-export const TokenomicsDocument = gql`
-    query Tokenomics {
-  supply: supply(order_by: {height: desc}, limit: 1) {
-    coins
-  }
-}
-    `;
-
-/**
- * __useTokenomicsQuery__
- *
- * To run a query within a React component, call `useTokenomicsQuery` and pass it any options that fit your needs.
- * When your component renders, `useTokenomicsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useTokenomicsQuery({
- *   variables: {
- *   },
- * });
- */
-export function useTokenomicsQuery(baseOptions?: Apollo.QueryHookOptions<TokenomicsQuery, TokenomicsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<TokenomicsQuery, TokenomicsQueryVariables>(TokenomicsDocument, options);
-      }
-export function useTokenomicsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TokenomicsQuery, TokenomicsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<TokenomicsQuery, TokenomicsQueryVariables>(TokenomicsDocument, options);
-        }
-export type TokenomicsQueryHookResult = ReturnType<typeof useTokenomicsQuery>;
-export type TokenomicsLazyQueryHookResult = ReturnType<typeof useTokenomicsLazyQuery>;
-export type TokenomicsQueryResult = Apollo.QueryResult<TokenomicsQuery, TokenomicsQueryVariables>;
-export const TransactionDetailsDocument = gql`
-    query TransactionDetails($hash: String) {
-  transaction(where: {hash: {_eq: $hash}}, limit: 1) {
-    hash: hash
-    height: height
-    block: block {
-      timestamp: timestamp
-    }
-    fee: fee
-    gasUsed: gas_used
-    gasWanted: gas_wanted
-    success: success
-    memo: memo
-    messages: messages
-    logs
-    rawLog: raw_log
-  }
-}
-    `;
-
-/**
- * __useTransactionDetailsQuery__
- *
- * To run a query within a React component, call `useTransactionDetailsQuery` and pass it any options that fit your needs.
- * When your component renders, `useTransactionDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useTransactionDetailsQuery({
- *   variables: {
- *      hash: // value for 'hash'
- *   },
- * });
- */
-export function useTransactionDetailsQuery(baseOptions?: Apollo.QueryHookOptions<TransactionDetailsQuery, TransactionDetailsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<TransactionDetailsQuery, TransactionDetailsQueryVariables>(TransactionDetailsDocument, options);
-      }
-export function useTransactionDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TransactionDetailsQuery, TransactionDetailsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<TransactionDetailsQuery, TransactionDetailsQueryVariables>(TransactionDetailsDocument, options);
-        }
-export type TransactionDetailsQueryHookResult = ReturnType<typeof useTransactionDetailsQuery>;
-export type TransactionDetailsLazyQueryHookResult = ReturnType<typeof useTransactionDetailsLazyQuery>;
-export type TransactionDetailsQueryResult = Apollo.QueryResult<TransactionDetailsQuery, TransactionDetailsQueryVariables>;
-export const TransactionsListenerDocument = gql`
-    subscription TransactionsListener($limit: Int = 7, $offset: Int = 0) {
-  transactions: transaction(
-    limit: $limit
-    offset: $offset
-    order_by: {height: desc}
-  ) {
-    height
-    hash
-    success
-    block {
-      timestamp
-    }
-    messages
-    logs
-  }
-}
-    `;
-
-/**
- * __useTransactionsListenerSubscription__
- *
- * To run a query within a React component, call `useTransactionsListenerSubscription` and pass it any options that fit your needs.
- * When your component renders, `useTransactionsListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useValidatorLastSeenListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorLastSeenListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useTransactionsListenerSubscription({
+ * const { data, loading, error } = useValidatorLastSeenListenerSubscription({
  *   variables: {
- *      limit: // value for 'limit'
- *      offset: // value for 'offset'
+ *      address: // value for 'address'
  *   },
  * });
  */
-export function useTransactionsListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<TransactionsListenerSubscription, TransactionsListenerSubscriptionVariables>) {
+export function useValidatorLastSeenListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<ValidatorLastSeenListenerSubscription, ValidatorLastSeenListenerSubscriptionVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useSubscription<TransactionsListenerSubscription, TransactionsListenerSubscriptionVariables>(TransactionsListenerDocument, options);
+        return Apollo.useSubscription<ValidatorLastSeenListenerSubscription, ValidatorLastSeenListenerSubscriptionVariables>(ValidatorLastSeenListenerDocument, options);
       }
-export type TransactionsListenerSubscriptionHookResult = ReturnType<typeof useTransactionsListenerSubscription>;
-export type TransactionsListenerSubscriptionResult = Apollo.SubscriptionResult<TransactionsListenerSubscription>;
-export const TransactionsDocument = gql`
-    query Transactions($limit: Int = 7, $offset: Int = 0) {
-  transactions: transaction(
-    limit: $limit
-    offset: $offset
-    order_by: {height: desc}
-  ) {
-    height
-    hash
-    success
-    block {
-      timestamp
+export type ValidatorLastSeenListenerSubscriptionHookResult = ReturnType<typeof useValidatorLastSeenListenerSubscription>;
+export type ValidatorLastSeenListenerSubscriptionResult = Apollo.SubscriptionResult<ValidatorLastSeenListenerSubscription>;
+export const ValidatorDetailsDocument = gql`
+    query ValidatorDetails($address: String) {
+  bdjuno_provider {
+    stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
+      height
+      bonded: bonded_tokens
     }
-    messages
-    logs
-  }
-}
-    `;
-
-/**
- * __useTransactionsQuery__
- *
- * To run a query within a React component, call `useTransactionsQuery` and pass it any options that fit your needs.
- * When your component renders, `useTransactionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useTransactionsQuery({
- *   variables: {
- *      limit: // value for 'limit'
- *      offset: // value for 'offset'
- *   },
- * });
- */
-export function useTransactionsQuery(baseOptions?: Apollo.QueryHookOptions<TransactionsQuery, TransactionsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<TransactionsQuery, TransactionsQueryVariables>(TransactionsDocument, options);
+    validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+      validatorDescriptions: validator_descriptions(
+        order_by: {height: desc}
+        limit: 1
+      ) {
+        details
+        website
       }
-export function useTransactionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TransactionsQuery, TransactionsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<TransactionsQuery, TransactionsQueryVariables>(TransactionsDocument, options);
-        }
-export type TransactionsQueryHookResult = ReturnType<typeof useTransactionsQuery>;
-export type TransactionsLazyQueryHookResult = ReturnType<typeof useTransactionsLazyQuery>;
-export type TransactionsQueryResult = Apollo.QueryResult<TransactionsQuery, TransactionsQueryVariables>;
-export const ValidatorsDocument = gql`
-    query Validators {
-  ccv_validator {
-    validator {
       validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
         status
         jailed
@@ -19794,22 +19800,208 @@ export const ValidatorsDocument = gql`
       validatorInfo: validator_info {
         operatorAddress: operator_address
         selfDelegateAddress: self_delegate_address
+        maxRate: max_rate
+      }
+      validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
+        commission
       }
       validatorVotingPowers: validator_voting_powers(
         offset: 0
         limit: 1
         order_by: {height: desc}
       ) {
+        height
         votingPower: voting_power
       }
-      validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
-        commission
+    }
+    slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
+      params
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorDetailsQuery__
+ *
+ * To run a query within a React component, call `useValidatorDetailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorDetailsQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useValidatorDetailsQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>(ValidatorDetailsDocument, options);
       }
-      validatorSigningInfos: validator_signing_infos(
-        order_by: {height: desc}
+export function useValidatorDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>(ValidatorDetailsDocument, options);
+        }
+export type ValidatorDetailsQueryHookResult = ReturnType<typeof useValidatorDetailsQuery>;
+export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidatorDetailsLazyQuery>;
+export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
+export const ValidatorDelegationsDocument = gql`
+    query ValidatorDelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
+  bdjuno_provider {
+    delegations: action_validator_delegations(
+      address: $validatorAddress
+      limit: $limit
+      offset: $offset
+      count_total: $pagination
+    ) {
+      delegations
+      pagination
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorDelegationsQuery__
+ *
+ * To run a query within a React component, call `useValidatorDelegationsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorDelegationsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorDelegationsQuery({
+ *   variables: {
+ *      validatorAddress: // value for 'validatorAddress'
+ *      offset: // value for 'offset'
+ *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
+ *   },
+ * });
+ */
+export function useValidatorDelegationsQuery(baseOptions: Apollo.QueryHookOptions<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>(ValidatorDelegationsDocument, options);
+      }
+export function useValidatorDelegationsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>(ValidatorDelegationsDocument, options);
+        }
+export type ValidatorDelegationsQueryHookResult = ReturnType<typeof useValidatorDelegationsQuery>;
+export type ValidatorDelegationsLazyQueryHookResult = ReturnType<typeof useValidatorDelegationsLazyQuery>;
+export type ValidatorDelegationsQueryResult = Apollo.QueryResult<ValidatorDelegationsQuery, ValidatorDelegationsQueryVariables>;
+export const ValidatorRedelegationsDocument = gql`
+    query ValidatorRedelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
+  bdjuno_provider {
+    redelegations: action_validator_redelegations_from(
+      address: $validatorAddress
+      limit: $limit
+      offset: $offset
+      count_total: $pagination
+    ) {
+      redelegations
+      pagination
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorRedelegationsQuery__
+ *
+ * To run a query within a React component, call `useValidatorRedelegationsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorRedelegationsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorRedelegationsQuery({
+ *   variables: {
+ *      validatorAddress: // value for 'validatorAddress'
+ *      offset: // value for 'offset'
+ *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
+ *   },
+ * });
+ */
+export function useValidatorRedelegationsQuery(baseOptions: Apollo.QueryHookOptions<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>(ValidatorRedelegationsDocument, options);
+      }
+export function useValidatorRedelegationsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>(ValidatorRedelegationsDocument, options);
+        }
+export type ValidatorRedelegationsQueryHookResult = ReturnType<typeof useValidatorRedelegationsQuery>;
+export type ValidatorRedelegationsLazyQueryHookResult = ReturnType<typeof useValidatorRedelegationsLazyQuery>;
+export type ValidatorRedelegationsQueryResult = Apollo.QueryResult<ValidatorRedelegationsQuery, ValidatorRedelegationsQueryVariables>;
+export const ValidatorUndelegationsDocument = gql`
+    query ValidatorUndelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
+  bdjuno_provider {
+    undelegations: action_validator_unbonding_delegations(
+      address: $validatorAddress
+      limit: $limit
+      offset: $offset
+      count_total: $pagination
+    ) {
+      undelegations: unbonding_delegations
+      pagination
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorUndelegationsQuery__
+ *
+ * To run a query within a React component, call `useValidatorUndelegationsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorUndelegationsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorUndelegationsQuery({
+ *   variables: {
+ *      validatorAddress: // value for 'validatorAddress'
+ *      offset: // value for 'offset'
+ *      limit: // value for 'limit'
+ *      pagination: // value for 'pagination'
+ *   },
+ * });
+ */
+export function useValidatorUndelegationsQuery(baseOptions: Apollo.QueryHookOptions<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>(ValidatorUndelegationsDocument, options);
+      }
+export function useValidatorUndelegationsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>(ValidatorUndelegationsDocument, options);
+        }
+export type ValidatorUndelegationsQueryHookResult = ReturnType<typeof useValidatorUndelegationsQuery>;
+export type ValidatorUndelegationsLazyQueryHookResult = ReturnType<typeof useValidatorUndelegationsLazyQuery>;
+export type ValidatorUndelegationsQueryResult = Apollo.QueryResult<ValidatorUndelegationsQuery, ValidatorUndelegationsQueryVariables>;
+export const ValidatorsAddressListDocument = gql`
+    query ValidatorsAddressList {
+  ccv_validator {
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+        selfDelegateAddress: self_delegate_address
+        consensusAddress: consensus_address
+      }
+      validatorDescriptions: validator_descriptions(
         limit: 1
+        order_by: {height: desc}
       ) {
-        missedBlocksCounter: missed_blocks_counter
+        moniker
+        identity
+        avatarUrl: avatar_url
       }
     }
   }
@@ -19817,28 +20009,77 @@ export const ValidatorsDocument = gql`
     `;
 
 /**
- * __useValidatorsQuery__
+ * __useValidatorsAddressListQuery__
  *
- * To run a query within a React component, call `useValidatorsQuery` and pass it any options that fit your needs.
- * When your component renders, `useValidatorsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useValidatorsAddressListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorsAddressListQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useValidatorsQuery({
+ * const { data, loading, error } = useValidatorsAddressListQuery({
  *   variables: {
  *   },
  * });
  */
-export function useValidatorsQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorsQuery, ValidatorsQueryVariables>) {
+export function useValidatorsAddressListQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ValidatorsQuery, ValidatorsQueryVariables>(ValidatorsDocument, options);
+        return Apollo.useQuery<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>(ValidatorsAddressListDocument, options);
       }
-export function useValidatorsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorsQuery, ValidatorsQueryVariables>) {
+export function useValidatorsAddressListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ValidatorsQuery, ValidatorsQueryVariables>(ValidatorsDocument, options);
+          return Apollo.useLazyQuery<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>(ValidatorsAddressListDocument, options);
         }
-export type ValidatorsQueryHookResult = ReturnType<typeof useValidatorsQuery>;
-export type ValidatorsLazyQueryHookResult = ReturnType<typeof useValidatorsLazyQuery>;
-export type ValidatorsQueryResult = Apollo.QueryResult<ValidatorsQuery, ValidatorsQueryVariables>;
+export type ValidatorsAddressListQueryHookResult = ReturnType<typeof useValidatorsAddressListQuery>;
+export type ValidatorsAddressListLazyQueryHookResult = ReturnType<typeof useValidatorsAddressListLazyQuery>;
+export type ValidatorsAddressListQueryResult = Apollo.QueryResult<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>;
+export const ValidatorAddressesDocument = gql`
+    query ValidatorAddresses {
+  ccv_validator(
+    where: {consumer_consensus_address: {_is_null: false}, provider_consensus_address: {_is_null: false}}
+  ) {
+    validator {
+      validatorInfo: validator_info {
+        operatorAddress: operator_address
+        selfDelegateAddress: self_delegate_address
+        consensusAddress: consensus_address
+      }
+      validatorDescriptions: validator_descriptions(
+        limit: 1
+        order_by: {height: desc}
+      ) {
+        moniker
+        avatarUrl: avatar_url
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorAddressesQuery__
+ *
+ * To run a query within a React component, call `useValidatorAddressesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorAddressesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorAddressesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useValidatorAddressesQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>(ValidatorAddressesDocument, options);
+      }
+export function useValidatorAddressesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>(ValidatorAddressesDocument, options);
+        }
+export type ValidatorAddressesQueryHookResult = ReturnType<typeof useValidatorAddressesQuery>;
+export type ValidatorAddressesLazyQueryHookResult = ReturnType<typeof useValidatorAddressesLazyQuery>;
+export type ValidatorAddressesQueryResult = Apollo.QueryResult<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>;

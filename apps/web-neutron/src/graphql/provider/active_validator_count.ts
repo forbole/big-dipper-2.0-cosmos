@@ -1,5 +1,6 @@
-query ActiveValidatorCount {
-  bdjuno_provider {
+export const ActiveValidatorCountDocument = /* GraphQL */ `
+  query ActiveValidatorCount{
+    bdjuno_provider {
     activeTotal: validator_status_aggregate(where: {status: {_eq: 3}}) {
       aggregate {
         count
@@ -16,4 +17,6 @@ query ActiveValidatorCount {
       }
     }
   }
-}
+  }
+`;
+
