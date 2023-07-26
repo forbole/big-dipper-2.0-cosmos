@@ -1,5 +1,18 @@
 # ui
 
+## 2.34.0
+
+### Minor Changes
+
+- [#1293](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1293) [`d6d815915`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/d6d815915a397c857247b32882222918eaef14e5) Thanks [@rachelhox](https://github.com/rachelhox)! - feat: add Coingecko attribution
+
+- [#1285](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1285) [`1e919a3c7`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/1e919a3c7eff85ce9aef954d59dfe38212fd997a) Thanks [@rachelhox](https://github.com/rachelhox)! - fix: wormhole val details
+
+### Patch Changes
+
+- Updated dependencies [[`d6d815915`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/d6d815915a397c857247b32882222918eaef14e5)]:
+  - shared-utils@2.21.0
+
 ## 2.33.0
 
 ### Minor Changes
