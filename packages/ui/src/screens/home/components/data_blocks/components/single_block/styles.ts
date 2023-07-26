@@ -26,6 +26,11 @@ const useStyles = makeStyles()((theme) => ({
         display: 'block',
       },
     },
+    '& .flexContent': {
+      display: 'flex',
+      flexDirection: 'row',
+      gap: theme.spacing(0.5),
+    },
   },
 }));
 
