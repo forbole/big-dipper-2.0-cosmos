@@ -30,5 +30,6 @@
   "lastVotingPowerChange": "最后投票权变更",
   "powerChange": "<0>{{change}}</0> 在区块 ",
   "validators": "验证人",
-  "priceHistory": "价格（~48 小时）"
+  "priceHistory": "价格（~48 小时）",
+  "dataFrom": "数据来自"
 }

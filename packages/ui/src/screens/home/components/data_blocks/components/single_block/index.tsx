@@ -7,9 +7,10 @@ type SingleBlockProps = {
   label: string;
   value: string;
   description?: string;
+  Icon?: JSX.Element;
 };
 
-const SingleBlock: FC<SingleBlockProps> = ({ className, label, value, description }) => {
+const SingleBlock: FC<SingleBlockProps> = ({ className, label, value, description, Icon }) => {
   const { classes, cx } = useStyles();
 
   return (
@@ -19,11 +20,14 @@ const SingleBlock: FC<SingleBlockProps> = ({ className, label, value, descriptio
       </Typography>
       <div className="content">
         <Typography variant="h1">{value}</Typography>
-        {!!description && (
-          <Typography variant="caption" className="description">
-            {description}
-          </Typography>
-        )}
+        <div className="flexContent">
+          {!!description && (
+            <Typography variant="caption" className="description">
+              {description}
+            </Typography>
+          )}
+          {!!Icon && Icon}
+        </div>
       </div>
     </div>
   );

@@ -30,5 +30,6 @@
   "lastVotingPowerChange": "Last Voting Power Change",
   "powerChange": "<0>{{change}}</0> at block ",
   "validators": "Validators",
-  "priceHistory": "Price (~48h)"
+  "priceHistory": "Price (~48h)",
+  "dataFrom": "Data from"
 }
