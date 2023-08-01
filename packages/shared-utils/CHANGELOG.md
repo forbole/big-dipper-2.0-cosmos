@@ -1,5 +1,11 @@
 # shared-utils
 
+## 2.21.0
+
+### Minor Changes
+
+- [#1293](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1293) [`d6d815915`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/d6d815915a397c857247b32882222918eaef14e5) Thanks [@rachelhox](https://github.com/rachelhox)! - feat: add Coingecko attribution
+
 ## 2.20.0
 
 ### Minor Changes
