@@ -41,8 +41,10 @@ export const useCommission = (address?: string) => {
 export const useAccountWithdrawalAddress = (address?: string) => {
   const defaultReturnValue = useMemo(
     () => ({
-      withdrawalAddress: {
-        address,
+      bdjuno_provider: {
+        withdrawalAddress: {
+          address,
+        },
       },
     }),
     [address]

@@ -69,3 +69,57 @@ export const ValidatorDetailsDocument = /* GraphQL */ `
 }
 
 `;
+
+export const ValidatorConsensusAddressesListDocument =  /* GraphQL */ `
+    query ValidatorConsensusAddressesList($address: String!) {
+        ccv_validator(
+        where: {consumer_consensus_address: {_eq: $address}}
+        ) {
+        consumer_consensus_address
+        consumer_operator_address
+        consumer_self_delegate_address
+        provider_consensus_address
+        provider_operator_address
+        provider_self_delegate_address
+        validator {
+            validator_commissions {
+            commission
+            validator_address
+            }
+            validator_descriptions {
+            moniker
+            }
+            validator_info {
+            self_delegate_address
+            }
+        }
+        }
+    }
+`;
+
+export const ValidatorProviderOperatorAddressesListDocument =  /* GraphQL */ `
+    query ValidatorProviderOperatorAddressesList($address: String!) {
+        ccv_validator(
+        where: {provider_operator_address: {_eq: $address}}
+        ) {
+        consumer_consensus_address
+        consumer_operator_address
+        consumer_self_delegate_address
+        provider_consensus_address
+        provider_operator_address
+        provider_self_delegate_address
+        validator {
+            validator_commissions {
+            commission
+            validator_address
+            }
+            validator_descriptions {
+            moniker
+            }
+            validator_info {
+            self_delegate_address
+            }
+        }
+        }
+    }
+`;

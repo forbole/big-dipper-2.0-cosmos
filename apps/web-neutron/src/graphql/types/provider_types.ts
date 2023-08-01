@@ -2489,6 +2489,115 @@ export type Bdjuno_Provider_Fee_Grant_Allowance_Variance_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
+export type Bdjuno_Provider_Genesis = {
+  __typename?: 'bdjuno_provider_genesis';
+  chain_id: Scalars['String'];
+  initial_height: Scalars['bdjuno_provider_bigint'];
+  time: Scalars['bdjuno_provider_timestamp'];
+};
+
+export type Bdjuno_Provider_Genesis_Aggregate = {
+  __typename?: 'bdjuno_provider_genesis_aggregate';
+  aggregate?: Maybe<Bdjuno_Provider_Genesis_Aggregate_Fields>;
+  nodes: Array<Bdjuno_Provider_Genesis>;
+};
+
+export type Bdjuno_Provider_Genesis_Aggregate_Fields = {
+  __typename?: 'bdjuno_provider_genesis_aggregate_fields';
+  avg?: Maybe<Bdjuno_Provider_Genesis_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Bdjuno_Provider_Genesis_Max_Fields>;
+  min?: Maybe<Bdjuno_Provider_Genesis_Min_Fields>;
+  stddev?: Maybe<Bdjuno_Provider_Genesis_Stddev_Fields>;
+  stddev_pop?: Maybe<Bdjuno_Provider_Genesis_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Bdjuno_Provider_Genesis_Stddev_Samp_Fields>;
+  sum?: Maybe<Bdjuno_Provider_Genesis_Sum_Fields>;
+  var_pop?: Maybe<Bdjuno_Provider_Genesis_Var_Pop_Fields>;
+  var_samp?: Maybe<Bdjuno_Provider_Genesis_Var_Samp_Fields>;
+  variance?: Maybe<Bdjuno_Provider_Genesis_Variance_Fields>;
+};
+
+
+export type Bdjuno_Provider_Genesis_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Bdjuno_Provider_Genesis_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type Bdjuno_Provider_Genesis_Avg_Fields = {
+  __typename?: 'bdjuno_provider_genesis_avg_fields';
+  initial_height?: Maybe<Scalars['Float']>;
+};
+
+export type Bdjuno_Provider_Genesis_Bool_Exp = {
+  _and?: InputMaybe<Array<Bdjuno_Provider_Genesis_Bool_Exp>>;
+  _not?: InputMaybe<Bdjuno_Provider_Genesis_Bool_Exp>;
+  _or?: InputMaybe<Array<Bdjuno_Provider_Genesis_Bool_Exp>>;
+  chain_id?: InputMaybe<Bdjuno_Provider_String_Comparison_Exp>;
+  initial_height?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
+  time?: InputMaybe<Bdjuno_Provider_Timestamp_Comparison_Exp>;
+};
+
+export type Bdjuno_Provider_Genesis_Max_Fields = {
+  __typename?: 'bdjuno_provider_genesis_max_fields';
+  chain_id?: Maybe<Scalars['String']>;
+  initial_height?: Maybe<Scalars['bdjuno_provider_bigint']>;
+  time?: Maybe<Scalars['bdjuno_provider_timestamp']>;
+};
+
+export type Bdjuno_Provider_Genesis_Min_Fields = {
+  __typename?: 'bdjuno_provider_genesis_min_fields';
+  chain_id?: Maybe<Scalars['String']>;
+  initial_height?: Maybe<Scalars['bdjuno_provider_bigint']>;
+  time?: Maybe<Scalars['bdjuno_provider_timestamp']>;
+};
+
+export type Bdjuno_Provider_Genesis_Order_By = {
+  chain_id?: InputMaybe<Bdjuno_Provider_Order_By>;
+  initial_height?: InputMaybe<Bdjuno_Provider_Order_By>;
+  time?: InputMaybe<Bdjuno_Provider_Order_By>;
+};
+
+export enum Bdjuno_Provider_Genesis_Select_Column {
+  ChainId = 'chain_id',
+  InitialHeight = 'initial_height',
+  Time = 'time'
+}
+
+export type Bdjuno_Provider_Genesis_Stddev_Fields = {
+  __typename?: 'bdjuno_provider_genesis_stddev_fields';
+  initial_height?: Maybe<Scalars['Float']>;
+};
+
+export type Bdjuno_Provider_Genesis_Stddev_Pop_Fields = {
+  __typename?: 'bdjuno_provider_genesis_stddev_pop_fields';
+  initial_height?: Maybe<Scalars['Float']>;
+};
+
+export type Bdjuno_Provider_Genesis_Stddev_Samp_Fields = {
+  __typename?: 'bdjuno_provider_genesis_stddev_samp_fields';
+  initial_height?: Maybe<Scalars['Float']>;
+};
+
+export type Bdjuno_Provider_Genesis_Sum_Fields = {
+  __typename?: 'bdjuno_provider_genesis_sum_fields';
+  initial_height?: Maybe<Scalars['bdjuno_provider_bigint']>;
+};
+
+export type Bdjuno_Provider_Genesis_Var_Pop_Fields = {
+  __typename?: 'bdjuno_provider_genesis_var_pop_fields';
+  initial_height?: Maybe<Scalars['Float']>;
+};
+
+export type Bdjuno_Provider_Genesis_Var_Samp_Fields = {
+  __typename?: 'bdjuno_provider_genesis_var_samp_fields';
+  initial_height?: Maybe<Scalars['Float']>;
+};
+
+export type Bdjuno_Provider_Genesis_Variance_Fields = {
+  __typename?: 'bdjuno_provider_genesis_variance_fields';
+  initial_height?: Maybe<Scalars['Float']>;
+};
+
 export type Bdjuno_Provider_Gov_Params = {
   __typename?: 'bdjuno_provider_gov_params';
   deposit_params: Scalars['bdjuno_provider_jsonb'];
@@ -8267,6 +8376,8 @@ export type Bdjuno_Providerquery_Root = {
   fee_grant_allowance: Array<Bdjuno_Provider_Fee_Grant_Allowance>;
   fee_grant_allowance_aggregate: Bdjuno_Provider_Fee_Grant_Allowance_Aggregate;
   fee_grant_allowance_by_pk?: Maybe<Bdjuno_Provider_Fee_Grant_Allowance>;
+  genesis: Array<Bdjuno_Provider_Genesis>;
+  genesis_aggregate: Bdjuno_Provider_Genesis_Aggregate;
   gov_params: Array<Bdjuno_Provider_Gov_Params>;
   gov_params_aggregate: Bdjuno_Provider_Gov_Params_Aggregate;
   gov_params_by_pk?: Maybe<Bdjuno_Provider_Gov_Params>;
@@ -8658,6 +8769,24 @@ export type Bdjuno_Providerquery_RootFee_Grant_Allowance_AggregateArgs = {
 
 export type Bdjuno_Providerquery_RootFee_Grant_Allowance_By_PkArgs = {
   id: Scalars['Int'];
+};
+
+
+export type Bdjuno_Providerquery_RootGenesisArgs = {
+  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Genesis_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Bdjuno_Provider_Genesis_Order_By>>;
+  where?: InputMaybe<Bdjuno_Provider_Genesis_Bool_Exp>;
+};
+
+
+export type Bdjuno_Providerquery_RootGenesis_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Genesis_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Bdjuno_Provider_Genesis_Order_By>>;
+  where?: InputMaybe<Bdjuno_Provider_Genesis_Bool_Exp>;
 };
 
 
@@ -9754,6 +9883,7 @@ export type Ccv_Consumer_Chain_Variance_Fields = {
 export type Ccv_Consumer_Params = {
   __typename?: 'ccv_consumer_params';
   height: Scalars['bigint'];
+  one_row_id: Scalars['Boolean'];
   params: Scalars['jsonb'];
 };
 
@@ -9805,6 +9935,7 @@ export type Ccv_Consumer_Params_Bool_Exp = {
   _not?: InputMaybe<Ccv_Consumer_Params_Bool_Exp>;
   _or?: InputMaybe<Array<Ccv_Consumer_Params_Bool_Exp>>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
+  one_row_id?: InputMaybe<Boolean_Comparison_Exp>;
   params?: InputMaybe<Jsonb_Comparison_Exp>;
 };
 
@@ -9823,6 +9954,7 @@ export type Ccv_Consumer_Params_Min_Fields = {
 /** Ordering options when selecting data from "ccv_consumer_params". */
 export type Ccv_Consumer_Params_Order_By = {
   height?: InputMaybe<Order_By>;
+  one_row_id?: InputMaybe<Order_By>;
   params?: InputMaybe<Order_By>;
 };
 
@@ -9830,6 +9962,8 @@ export type Ccv_Consumer_Params_Order_By = {
 export enum Ccv_Consumer_Params_Select_Column {
   /** column name */
   Height = 'height',
+  /** column name */
+  OneRowId = 'one_row_id',
   /** column name */
   Params = 'params'
 }
@@ -9863,6 +9997,7 @@ export type Ccv_Consumer_Params_Stream_Cursor_Input = {
 /** Initial value of the column from where the streaming should start */
 export type Ccv_Consumer_Params_Stream_Cursor_Value_Input = {
   height?: InputMaybe<Scalars['bigint']>;
+  one_row_id?: InputMaybe<Scalars['Boolean']>;
   params?: InputMaybe<Scalars['jsonb']>;
 };
 
@@ -9894,8 +10029,12 @@ export type Ccv_Consumer_Params_Variance_Fields = {
 export type Ccv_Validator = {
   __typename?: 'ccv_validator';
   consumer_consensus_address: Scalars['String'];
+  consumer_operator_address: Scalars['String'];
+  consumer_self_delegate_address: Scalars['String'];
   height: Scalars['bigint'];
   provider_consensus_address: Scalars['String'];
+  provider_operator_address: Scalars['String'];
+  provider_self_delegate_address: Scalars['String'];
   validator?: Maybe<Provider_Validator>;
 };
 
@@ -9905,15 +10044,23 @@ export type Ccv_Validator_Bool_Exp = {
   _not?: InputMaybe<Ccv_Validator_Bool_Exp>;
   _or?: InputMaybe<Array<Ccv_Validator_Bool_Exp>>;
   consumer_consensus_address?: InputMaybe<String_Comparison_Exp>;
+  consumer_operator_address?: InputMaybe<String_Comparison_Exp>;
+  consumer_self_delegate_address?: InputMaybe<String_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   provider_consensus_address?: InputMaybe<String_Comparison_Exp>;
+  provider_operator_address?: InputMaybe<String_Comparison_Exp>;
+  provider_self_delegate_address?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** Ordering options when selecting data from "ccv_validator". */
 export type Ccv_Validator_Order_By = {
   consumer_consensus_address?: InputMaybe<Order_By>;
+  consumer_operator_address?: InputMaybe<Order_By>;
+  consumer_self_delegate_address?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   provider_consensus_address?: InputMaybe<Order_By>;
+  provider_operator_address?: InputMaybe<Order_By>;
+  provider_self_delegate_address?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "ccv_validator" */
@@ -9921,9 +10068,17 @@ export enum Ccv_Validator_Select_Column {
   /** column name */
   ConsumerConsensusAddress = 'consumer_consensus_address',
   /** column name */
+  ConsumerOperatorAddress = 'consumer_operator_address',
+  /** column name */
+  ConsumerSelfDelegateAddress = 'consumer_self_delegate_address',
+  /** column name */
   Height = 'height',
   /** column name */
-  ProviderConsensusAddress = 'provider_consensus_address'
+  ProviderConsensusAddress = 'provider_consensus_address',
+  /** column name */
+  ProviderOperatorAddress = 'provider_operator_address',
+  /** column name */
+  ProviderSelfDelegateAddress = 'provider_self_delegate_address'
 }
 
 /** Streaming cursor of the table "ccv_validator" */
@@ -9937,8 +10092,12 @@ export type Ccv_Validator_Stream_Cursor_Input = {
 /** Initial value of the column from where the streaming should start */
 export type Ccv_Validator_Stream_Cursor_Value_Input = {
   consumer_consensus_address?: InputMaybe<Scalars['String']>;
+  consumer_operator_address?: InputMaybe<Scalars['String']>;
+  consumer_self_delegate_address?: InputMaybe<Scalars['String']>;
   height?: InputMaybe<Scalars['bigint']>;
   provider_consensus_address?: InputMaybe<Scalars['String']>;
+  provider_operator_address?: InputMaybe<Scalars['String']>;
+  provider_self_delegate_address?: InputMaybe<Scalars['String']>;
 };
 
 /** ordering argument of a cursor */
@@ -13924,8 +14083,6 @@ export type Provider_Validator = {
   /** An aggregate relationship */
   pre_commits_aggregate: Provider_Pre_Commit_Aggregate;
   /** An array relationship */
-  proposal_validator_status_snapshots: Array<Provider_Proposal_Validator_Status_Snapshot>;
-  /** An array relationship */
   validator_commissions: Array<Provider_Validator_Commission>;
   /** An array relationship */
   validator_descriptions: Array<Provider_Validator_Description>;
@@ -13983,16 +14140,6 @@ export type Provider_ValidatorPre_Commits_AggregateArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Provider_Pre_Commit_Order_By>>;
   where?: InputMaybe<Provider_Pre_Commit_Bool_Exp>;
-};
-
-
-/** columns and relationships of "validator" */
-export type Provider_ValidatorProposal_Validator_Status_SnapshotsArgs = {
-  distinct_on?: InputMaybe<Array<Provider_Proposal_Validator_Status_Snapshot_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Provider_Proposal_Validator_Status_Snapshot_Order_By>>;
-  where?: InputMaybe<Provider_Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
 
@@ -14086,7 +14233,6 @@ export type Provider_Validator_Bool_Exp = {
   double_sign_votes?: InputMaybe<Provider_Double_Sign_Vote_Bool_Exp>;
   pre_commits?: InputMaybe<Provider_Pre_Commit_Bool_Exp>;
   pre_commits_aggregate?: InputMaybe<Pre_Commit_Aggregate_Bool_Exp>;
-  proposal_validator_status_snapshots?: InputMaybe<Provider_Proposal_Validator_Status_Snapshot_Bool_Exp>;
   validator_commissions?: InputMaybe<Provider_Validator_Commission_Bool_Exp>;
   validator_descriptions?: InputMaybe<Provider_Validator_Description_Bool_Exp>;
   validator_info?: InputMaybe<Provider_Validator_Info_Bool_Exp>;
@@ -14510,7 +14656,6 @@ export type Provider_Validator_Order_By = {
   consensus_pubkey?: InputMaybe<Order_By>;
   double_sign_votes_aggregate?: InputMaybe<Provider_Double_Sign_Vote_Aggregate_Order_By>;
   pre_commits_aggregate?: InputMaybe<Provider_Pre_Commit_Aggregate_Order_By>;
-  proposal_validator_status_snapshots_aggregate?: InputMaybe<Provider_Proposal_Validator_Status_Snapshot_Aggregate_Order_By>;
   validator_commissions_aggregate?: InputMaybe<Provider_Validator_Commission_Aggregate_Order_By>;
   validator_descriptions_aggregate?: InputMaybe<Provider_Validator_Description_Aggregate_Order_By>;
   validator_info?: InputMaybe<Provider_Validator_Info_Order_By>;
@@ -15463,6 +15608,8 @@ export type Query_Root = {
   ccv_consumer_params: Array<Ccv_Consumer_Params>;
   /** fetch aggregated fields from the table: "ccv_consumer_params" */
   ccv_consumer_params_aggregate: Ccv_Consumer_Params_Aggregate;
+  /** fetch data from the table: "ccv_consumer_params" using primary key columns */
+  ccv_consumer_params_by_pk?: Maybe<Ccv_Consumer_Params>;
   /** fetch data from the table: "ccv_validator" */
   ccv_validator: Array<Ccv_Validator>;
   /** fetch data from the table: "ccv_validator" using primary key columns */
@@ -15634,6 +15781,11 @@ export type Query_RootCcv_Consumer_Params_AggregateArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Ccv_Consumer_Params_Order_By>>;
   where?: InputMaybe<Ccv_Consumer_Params_Bool_Exp>;
+};
+
+
+export type Query_RootCcv_Consumer_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -16008,6 +16160,8 @@ export type Subscription_Root = {
   ccv_consumer_params: Array<Ccv_Consumer_Params>;
   /** fetch aggregated fields from the table: "ccv_consumer_params" */
   ccv_consumer_params_aggregate: Ccv_Consumer_Params_Aggregate;
+  /** fetch data from the table: "ccv_consumer_params" using primary key columns */
+  ccv_consumer_params_by_pk?: Maybe<Ccv_Consumer_Params>;
   /** fetch data from the table in a streaming manner: "ccv_consumer_params" */
   ccv_consumer_params_stream: Array<Ccv_Consumer_Params>;
   /** fetch data from the table: "ccv_validator" */
@@ -16266,6 +16420,11 @@ export type Subscription_RootCcv_Consumer_Params_AggregateArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Ccv_Consumer_Params_Order_By>>;
   where?: InputMaybe<Ccv_Consumer_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootCcv_Consumer_Params_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -17274,7 +17433,7 @@ export type Transaction = {
   memo?: Maybe<Scalars['String']>;
   messages: Scalars['jsonb'];
   /** An array relationship */
-  messagesByPartitionIdTransactionHash: Array<Message>;
+  messagesByTransactionHashPartitionId: Array<Message>;
   raw_log?: Maybe<Scalars['String']>;
   signatures: Scalars['_text'];
   signer_infos: Scalars['jsonb'];
@@ -17301,7 +17460,7 @@ export type TransactionMessagesArgs = {
 
 
 /** columns and relationships of "transaction" */
-export type TransactionMessagesByPartitionIdTransactionHashArgs = {
+export type TransactionMessagesByTransactionHashPartitionIdArgs = {
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -17351,7 +17510,7 @@ export type Transaction_Bool_Exp = {
   logs?: InputMaybe<Jsonb_Comparison_Exp>;
   memo?: InputMaybe<String_Comparison_Exp>;
   messages?: InputMaybe<Jsonb_Comparison_Exp>;
-  messagesByPartitionIdTransactionHash?: InputMaybe<Message_Bool_Exp>;
+  messagesByTransactionHashPartitionId?: InputMaybe<Message_Bool_Exp>;
   raw_log?: InputMaybe<String_Comparison_Exp>;
   signatures?: InputMaybe<_Text_Comparison_Exp>;
   signer_infos?: InputMaybe<Jsonb_Comparison_Exp>;
@@ -17389,7 +17548,7 @@ export type Transaction_Order_By = {
   logs?: InputMaybe<Order_By>;
   memo?: InputMaybe<Order_By>;
   messages?: InputMaybe<Order_By>;
-  messagesByPartitionIdTransactionHash_aggregate?: InputMaybe<Message_Aggregate_Order_By>;
+  messagesByTransactionHashPartitionId_aggregate?: InputMaybe<Message_Aggregate_Order_By>;
   raw_log?: InputMaybe<Order_By>;
   signatures?: InputMaybe<Order_By>;
   signer_infos?: InputMaybe<Order_By>;
@@ -19139,6 +19298,20 @@ export type ValidatorDetailsQueryVariables = Exact<{
 
 export type ValidatorDetailsQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', stakingPool: Array<{ __typename?: 'bdjuno_provider_staking_pool', height: any, bonded: string }>, validator: Array<{ __typename?: 'bdjuno_provider_validator', validatorDescriptions: Array<{ __typename?: 'bdjuno_provider_validator_description', details?: string | null, website?: string | null }>, validatorStatuses: Array<{ __typename?: 'bdjuno_provider_validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'bdjuno_provider_validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'bdjuno_provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null, maxRate: string } | null, validatorCommissions: Array<{ __typename?: 'bdjuno_provider_validator_commission', commission: any }>, validatorVotingPowers: Array<{ __typename?: 'bdjuno_provider_validator_voting_power', height: any, votingPower: any }> }>, slashingParams: Array<{ __typename?: 'bdjuno_provider_slashing_params', params: any }> } | null };
 
+export type ValidatorConsensusAddressesListQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type ValidatorConsensusAddressesListQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', consumer_consensus_address: string, consumer_operator_address: string, consumer_self_delegate_address: string, provider_consensus_address: string, provider_operator_address: string, provider_self_delegate_address: string, validator?: { __typename?: 'provider_validator', validator_commissions: Array<{ __typename?: 'provider_validator_commission', commission: any, validator_address: string }>, validator_descriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null }>, validator_info?: { __typename?: 'provider_validator_info', self_delegate_address?: string | null } | null } | null }> };
+
+export type ValidatorProviderOperatorAddressesListQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type ValidatorProviderOperatorAddressesListQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', consumer_consensus_address: string, consumer_operator_address: string, consumer_self_delegate_address: string, provider_consensus_address: string, provider_operator_address: string, provider_self_delegate_address: string, validator?: { __typename?: 'provider_validator', validator_commissions: Array<{ __typename?: 'provider_validator_commission', commission: any, validator_address: string }>, validator_descriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null }>, validator_info?: { __typename?: 'provider_validator_info', self_delegate_address?: string | null } | null } | null }> };
+
 export type ValidatorDelegationsQueryVariables = Exact<{
   validatorAddress: Scalars['String'];
   offset?: InputMaybe<Scalars['Int']>;
@@ -19177,7 +19350,7 @@ export type ValidatorsAddressListQuery = { ccv_validator: Array<{ __typename?: '
 export type ValidatorAddressesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ValidatorAddressesQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', validator?: { __typename?: 'provider_validator', validatorInfo?: { __typename?: 'provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, avatarUrl?: string | null }> } | null }> };
+export type ValidatorAddressesQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', consumer_self_delegate_address: string, consumer_consensus_address: string, provider_self_delegate_address: string, provider_operator_address: string, validator?: { __typename?: 'provider_validator', validatorInfo?: { __typename?: 'provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string, account?: { __typename?: 'provider_account', address: string } | null } | null, validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, avatarUrl?: string | null }> } | null }> };
 
 
 export const AccountCommissionDocument = gql`
@@ -19848,6 +20021,110 @@ export function useValidatorDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookO
 export type ValidatorDetailsQueryHookResult = ReturnType<typeof useValidatorDetailsQuery>;
 export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidatorDetailsLazyQuery>;
 export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
+export const ValidatorConsensusAddressesListDocument = gql`
+    query ValidatorConsensusAddressesList($address: String!) {
+  ccv_validator(where: {consumer_consensus_address: {_eq: $address}}) {
+    consumer_consensus_address
+    consumer_operator_address
+    consumer_self_delegate_address
+    provider_consensus_address
+    provider_operator_address
+    provider_self_delegate_address
+    validator {
+      validator_commissions {
+        commission
+        validator_address
+      }
+      validator_descriptions {
+        moniker
+      }
+      validator_info {
+        self_delegate_address
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorConsensusAddressesListQuery__
+ *
+ * To run a query within a React component, call `useValidatorConsensusAddressesListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorConsensusAddressesListQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorConsensusAddressesListQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useValidatorConsensusAddressesListQuery(baseOptions: Apollo.QueryHookOptions<ValidatorConsensusAddressesListQuery, ValidatorConsensusAddressesListQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorConsensusAddressesListQuery, ValidatorConsensusAddressesListQueryVariables>(ValidatorConsensusAddressesListDocument, options);
+      }
+export function useValidatorConsensusAddressesListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorConsensusAddressesListQuery, ValidatorConsensusAddressesListQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorConsensusAddressesListQuery, ValidatorConsensusAddressesListQueryVariables>(ValidatorConsensusAddressesListDocument, options);
+        }
+export type ValidatorConsensusAddressesListQueryHookResult = ReturnType<typeof useValidatorConsensusAddressesListQuery>;
+export type ValidatorConsensusAddressesListLazyQueryHookResult = ReturnType<typeof useValidatorConsensusAddressesListLazyQuery>;
+export type ValidatorConsensusAddressesListQueryResult = Apollo.QueryResult<ValidatorConsensusAddressesListQuery, ValidatorConsensusAddressesListQueryVariables>;
+export const ValidatorProviderOperatorAddressesListDocument = gql`
+    query ValidatorProviderOperatorAddressesList($address: String!) {
+  ccv_validator(where: {provider_operator_address: {_eq: $address}}) {
+    consumer_consensus_address
+    consumer_operator_address
+    consumer_self_delegate_address
+    provider_consensus_address
+    provider_operator_address
+    provider_self_delegate_address
+    validator {
+      validator_commissions {
+        commission
+        validator_address
+      }
+      validator_descriptions {
+        moniker
+      }
+      validator_info {
+        self_delegate_address
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorProviderOperatorAddressesListQuery__
+ *
+ * To run a query within a React component, call `useValidatorProviderOperatorAddressesListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorProviderOperatorAddressesListQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorProviderOperatorAddressesListQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useValidatorProviderOperatorAddressesListQuery(baseOptions: Apollo.QueryHookOptions<ValidatorProviderOperatorAddressesListQuery, ValidatorProviderOperatorAddressesListQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorProviderOperatorAddressesListQuery, ValidatorProviderOperatorAddressesListQueryVariables>(ValidatorProviderOperatorAddressesListDocument, options);
+      }
+export function useValidatorProviderOperatorAddressesListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorProviderOperatorAddressesListQuery, ValidatorProviderOperatorAddressesListQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorProviderOperatorAddressesListQuery, ValidatorProviderOperatorAddressesListQueryVariables>(ValidatorProviderOperatorAddressesListDocument, options);
+        }
+export type ValidatorProviderOperatorAddressesListQueryHookResult = ReturnType<typeof useValidatorProviderOperatorAddressesListQuery>;
+export type ValidatorProviderOperatorAddressesListLazyQueryHookResult = ReturnType<typeof useValidatorProviderOperatorAddressesListLazyQuery>;
+export type ValidatorProviderOperatorAddressesListQueryResult = Apollo.QueryResult<ValidatorProviderOperatorAddressesListQuery, ValidatorProviderOperatorAddressesListQueryVariables>;
 export const ValidatorDelegationsDocument = gql`
     query ValidatorDelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
   bdjuno_provider {
@@ -20039,11 +20316,18 @@ export const ValidatorAddressesDocument = gql`
   ccv_validator(
     where: {consumer_consensus_address: {_is_null: false}, provider_consensus_address: {_is_null: false}}
   ) {
+    consumer_self_delegate_address
+    consumer_consensus_address
+    provider_self_delegate_address
+    provider_operator_address
     validator {
       validatorInfo: validator_info {
         operatorAddress: operator_address
         selfDelegateAddress: self_delegate_address
         consensusAddress: consensus_address
+        account {
+          address
+        }
       }
       validatorDescriptions: validator_descriptions(
         limit: 1

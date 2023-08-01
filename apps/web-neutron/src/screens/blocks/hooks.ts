@@ -4,6 +4,7 @@ import {
   BlocksListenerSubscription,
   useBlocksListenerSubscription,
   useBlocksQuery,
+  BlocksQuery,
 } from '@/graphql/types/general_types';
 import type { BlocksState, BlockType } from '@/screens/blocks/types';
 
@@ -25,8 +26,26 @@ const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
   }
   return (
     formattedData?.map((x) => {
-      const proposerAddress = x?.validator?.validatorInfo?.[0].operatorAddress ?? '';
-      console.log('proposer---', proposerAddress);
+      const proposerAddress = x?.validator?.validatorInfo[0].operatorAddress ?? '';
+      return {
+        height: x.height,
+        txs: x.txs ?? 0,
+        hash: x.hash,
+        timestamp: x.timestamp,
+        proposer: proposerAddress,
+      };
+    }) ?? []
+  );
+};
+
+const formatBlocksQuery = (data: BlocksQuery): BlockType[] => {
+  let formattedData = data.blocks;
+  if (data.blocks.length === 51) {
+    formattedData = data.blocks.slice(0, 51);
+  }
+  return (
+    formattedData?.map((x) => {
+      const proposerAddress = x?.ccv_validator?.validator?.validatorInfo?.operatorAddress ?? '';
       return {
         height: x.height,
         txs: x.txs ?? 0,
@@ -86,7 +105,7 @@ export const useBlocks = () => {
     },
     onCompleted: (data) => {
       const itemsLength = data.blocks.length;
-      const newItems = uniqueAndSort([...state.items, ...formatBlocks(data)]);
+      const newItems = uniqueAndSort([...state.items, ...formatBlocksQuery(data)]);
       handleSetState((prevState) => ({
         ...prevState,
         loading: false,

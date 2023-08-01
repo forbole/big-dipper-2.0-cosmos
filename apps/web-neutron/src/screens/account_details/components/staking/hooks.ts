@@ -9,6 +9,9 @@ import {
   useAccountDelegationsQuery,
   useAccountRedelegationsQuery,
   useAccountUndelegationsQuery,
+  useValidatorAddressesQuery,
+  useValidatorConsensusAddressesListQuery,
+  useValidatorProviderOperatorAddressesListQuery,
 } from '@/graphql/types/provider_types';
 import type {
   DelegationType,
@@ -20,7 +23,7 @@ import { ValidatorType } from '@/screens/validators/components/list/types';
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
 
-const { primaryTokenUnit } = chainConfig();
+const { primaryTokenUnit, prefix } = chainConfig();
 
 export const ROWS_PER_PAGE = 10;
 
@@ -137,9 +140,56 @@ export const useStaking = (
     []
   );
 
+  const { data: valAddressesInfo } = useValidatorAddressesQuery();
+
   const address = Array.isArray(router?.query?.address)
     ? router.query.address[0]
     : router?.query?.address ?? '';
+
+  const [providerAddress, setProviderAddress] = useState(address);
+
+  const { data: addresses } = useValidatorConsensusAddressesListQuery({
+    variables: { address: providerAddress },
+  });
+
+  const { data: cosmosvaloperAddresses } = useValidatorProviderOperatorAddressesListQuery({
+    variables: { address: providerAddress },
+  });
+
+  useEffect(() => {
+    let provider = '';
+    if (valAddressesInfo?.ccv_validator) {
+      if (providerAddress.startsWith(prefix.consensus)) {
+        // const {data: addresses} = useValidatorConsensusAddressesListQuery(providerAddress);
+        if (addresses) {
+          // const { ccv_validator: { provider_self_delegate_address }} = addresses[0];
+          provider = addresses.ccv_validator?.[0].provider_self_delegate_address;
+        } else {
+          provider = address;
+        }
+        setProviderAddress(provider);
+      } else if (providerAddress.startsWith(prefix.account)) {
+        const matchingValidator = valAddressesInfo.ccv_validator.find(
+          (x) => x.consumer_self_delegate_address === providerAddress
+        );
+        if (matchingValidator) {
+          provider = matchingValidator.provider_self_delegate_address ?? '';
+        } else {
+          provider = address;
+        }
+        setProviderAddress(provider);
+      } else if (providerAddress.startsWith('cosmosvaloper')) {
+        if (cosmosvaloperAddresses) {
+          provider = cosmosvaloperAddresses.ccv_validator?.[0].provider_self_delegate_address;
+        }
+        // const matchingValidator = valAddressesInfo.ccv_validator.find((x) => x.validator?.validatorInfo?.operatorAddress === providerAddress);
+        else {
+          provider = address;
+        }
+        setProviderAddress(provider);
+      }
+    }
+  }, [address, addresses, cosmosvaloperAddresses, providerAddress, valAddressesInfo]);
 
   // =====================================
   // delegations
@@ -151,7 +201,7 @@ export const useStaking = (
     refetch: delegationsRefetch,
   } = useAccountDelegationsQuery({
     variables: {
-      address,
+      address: providerAddress,
       limit: ROWS_PER_PAGE,
       offset: delegationsPage * ROWS_PER_PAGE,
     },
@@ -164,7 +214,7 @@ export const useStaking = (
   }, [delegationsError, delegationsLoading, delegationsRefetch]);
   useAccountDelegationsQuery({
     variables: {
-      address,
+      address: providerAddress,
       limit: ROWS_PER_PAGE,
       offset: (delegationsPage + 1) * ROWS_PER_PAGE,
     },
@@ -177,7 +227,7 @@ export const useStaking = (
     refetch: dRefetch,
   } = useAccountDelegationsQuery({
     variables: {
-      address,
+      address: providerAddress,
       limit: 0,
       offset: 0,
       pagination: true,
@@ -202,7 +252,7 @@ export const useStaking = (
     refetch: redelegationsRefetch,
   } = useAccountRedelegationsQuery({
     variables: {
-      address,
+      address: providerAddress,
       limit: ROWS_PER_PAGE,
       offset: redelegationsPage * ROWS_PER_PAGE,
     },
@@ -215,7 +265,7 @@ export const useStaking = (
   }, [redelegationsError, redelegationsLoading, redelegationsRefetch]);
   useAccountRedelegationsQuery({
     variables: {
-      address,
+      address: providerAddress,
       limit: ROWS_PER_PAGE,
       offset: (redelegationsPage + 1) * ROWS_PER_PAGE,
     },
@@ -228,7 +278,7 @@ export const useStaking = (
     refetch: rRefetch,
   } = useAccountRedelegationsQuery({
     variables: {
-      address,
+      address: providerAddress,
       limit: 0,
       offset: 0,
       pagination: true,
@@ -253,7 +303,7 @@ export const useStaking = (
     refetch: undelegationsRefetch,
   } = useAccountUndelegationsQuery({
     variables: {
-      address,
+      address: providerAddress,
       limit: ROWS_PER_PAGE,
       offset: unbondingsPage * ROWS_PER_PAGE,
     },
@@ -266,7 +316,7 @@ export const useStaking = (
   }, [undelegationsError, undelegationsLoading, undelegationsRefetch]);
   useAccountUndelegationsQuery({
     variables: {
-      address,
+      address: providerAddress,
       limit: ROWS_PER_PAGE,
       offset: (unbondingsPage + 1) * ROWS_PER_PAGE,
     },
@@ -279,7 +329,7 @@ export const useStaking = (
     refetch: uRefetch,
   } = useAccountUndelegationsQuery({
     variables: {
-      address,
+      address: providerAddress,
       limit: 0,
       offset: 0,
       pagination: true,
