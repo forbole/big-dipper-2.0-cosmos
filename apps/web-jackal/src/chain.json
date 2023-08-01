@@ -152,7 +152,7 @@
       "endpoints": {
         "graphql": "https://gql.jackal.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql.jackal.forbole.com/v1/graphql",
-        "publicRpcWebsocket": "wss://rpc.jackalforbole.com/websocket"
+        "publicRpcWebsocket": "wss://rpc.jackal.forbole.com/websocket"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
