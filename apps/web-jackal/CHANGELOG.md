@@ -1,5 +1,17 @@
 # Unreleased
 
+## 2.18.0
+
+### Minor Changes
+
+- [#1294](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1294) [`99fb1bdf8`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/99fb1bdf8be3e3baa022475903f0ebc8fc9f0619) Thanks [@rachelhox](https://github.com/rachelhox)! - add Jackal Big Dipper
+
+### Patch Changes
+
+- Updated dependencies [[`99fb1bdf8`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/99fb1bdf8be3e3baa022475903f0ebc8fc9f0619)]:
+  - shared-utils@2.22.0
+  - ui@2.35.0
+
 ## 2.17.0
 
 ### Minor Changes
