@@ -73,7 +73,7 @@ const useConnectWalletList = () => {
   const [, setWalletName] = useRecoilState(writeWalletName) as [string, SetterOrUpdater<string>];
 
   // WalletState
-  const [, setOpenLoginDialog] = useRecoilState(writeOpenLoginDialog) as [
+  const [openLoginDialog, setOpenLoginDialog] = useRecoilState(writeOpenLoginDialog) as [
     boolean,
     SetterOrUpdater<boolean>
   ];
@@ -163,6 +163,12 @@ const useConnectWalletList = () => {
     setOpenLoginDialog(true);
     setTooltipOpen(false);
   };
+
+  useEffect(() => {
+    if (openLoginDialog) {
+      setTooltipOpen(false);
+    }
+  }, [openLoginDialog, setOpenLoginDialog]);
 
   const handleLogout = async () => {
     const connectionTypes = localStorage.getItem(CONNECTION_TYPE);
