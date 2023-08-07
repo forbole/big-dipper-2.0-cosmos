@@ -30,7 +30,7 @@ const ButtonTooltip: FC<ButtonToolTipProps> = ({
       className={classes.tooltip}
       open={open}
       arrow
-      placement="top-start"
+      placement="bottom-start"
       PopperProps={{ className: classes.popper }}
       title={
         <Box className={classes.root}>
