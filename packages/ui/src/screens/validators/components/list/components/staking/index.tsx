@@ -31,6 +31,7 @@ type StakeButtonProps = {
   rewards?: ValidatorsAvatarNameType[];
   disabled: boolean;
   valRow?: boolean;
+  accountPage?: boolean;
 };
 
 interface StakingButtonRefProps {
@@ -75,6 +76,18 @@ const StakeButton = (props: StakeButtonProps) => {
     handleCloseWithdrawRewardsDialog,
   } = useStakingHooks();
   const { handleLogin, tooltipOpen } = useConnectWalletList();
+  let buttonTooltipProps;
+  if (props.accountPage) {
+    buttonTooltipProps = {
+      accountText1: t('accountText1'),
+      accountText2: 'common:accountText2',
+    };
+  } else {
+    buttonTooltipProps = {
+      highlightText: t('stakeNow'),
+      text: t('buttonTooltipText'),
+    };
+  }
 
   return (
     <div>
@@ -101,11 +114,11 @@ const StakeButton = (props: StakeButtonProps) => {
         <div className={classes.flexRow}>
           {props.disabled && tooltipOpen ? (
             <ButtonTooltip
-              highlightText={t('stakeNow')}
-              text={t('buttonTooltipText')}
               buttonText={t('buttonTooltipButtonText')}
               onClick={handleLogin}
               button
+              accountPage={props.accountPage}
+              {...buttonTooltipProps}
             >
               <StakingButtonRef classes={classes} disabled={props.disabled} />
             </ButtonTooltip>

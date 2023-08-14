@@ -85,6 +85,7 @@ const Balance: FC<BalanceProps> = (props) => {
             delegations={props.delegations}
             rewards={props.rewards}
             disabled={!props.loggedIn}
+            accountPage
           />
         </span>
       </span>

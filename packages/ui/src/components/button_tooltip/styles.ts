@@ -16,6 +16,27 @@ const useStyles = makeStyles()((theme) => ({
       backgroundColor: theme.palette.divider,
     },
   },
+  alignSelf: {
+    alignSelf: 'center',
+  },
+  accountText1: {
+    color: theme.palette.custom.fonts.fontThree,
+    fontSize: theme.spacing(2),
+    display: 'block',
+  },
+  highlightTextSmall: {
+    color: theme.palette.primary.main,
+    fontSize: theme.spacing(2),
+  },
+  accountText: {
+    color: theme.palette.custom.fonts.fontThree,
+    fontSize: theme.spacing(2),
+  },
+  accountTextEnd: {
+    color: theme.palette.custom.fonts.fontThree,
+    fontSize: theme.spacing(2),
+    paddingRight: theme.spacing(1.5),
+  },
   highlightText: {
     color: theme.palette.primary.main,
     fontSize: theme.spacing(2),
@@ -24,7 +45,7 @@ const useStyles = makeStyles()((theme) => ({
   textWithIcon: {
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     paddingBottom: theme.spacing(1),
   },
   text: {
