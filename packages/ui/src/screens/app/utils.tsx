@@ -4,7 +4,7 @@ const { basePath, previewImage } = chainConfig();
 
 export const OPEN_GRAPH_SEO = {
   type: 'website',
-  site_name: 'CoreumX',
+  site_name: 'Coreum Blockchain Explorer',
   images: [
     {
       url: previewImage ?? '',
