@@ -12969,6 +12969,10 @@ export type Provider_Provider_Query = {
   provider_proposal_validator_status_snapshot: Array<Provider_Proposal_Validator_Status_Snapshot>;
   /** fetch data from the table: "proposal_vote" */
   provider_proposal_vote: Array<Provider_Proposal_Vote>;
+  /** fetch data from the table: "slashing_params" */
+  provider_slashing_params: Array<Provider_Slashing_Params>;
+  /** fetch aggregated fields from the table: "slashing_params" */
+  provider_slashing_params_aggregate: Provider_Slashing_Params_Aggregate;
   /** fetch data from the table: "transaction" */
   provider_transaction: Array<Provider_Transaction>;
   /** fetch data from the table: "validator" */
@@ -13149,6 +13153,24 @@ export type Provider_Provider_QueryProvider_Proposal_VoteArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Provider_Proposal_Vote_Order_By>>;
   where?: InputMaybe<Provider_Proposal_Vote_Bool_Exp>;
+};
+
+
+export type Provider_Provider_QueryProvider_Slashing_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Provider_Slashing_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Provider_Slashing_Params_Order_By>>;
+  where?: InputMaybe<Provider_Slashing_Params_Bool_Exp>;
+};
+
+
+export type Provider_Provider_QueryProvider_Slashing_Params_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Provider_Slashing_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Provider_Slashing_Params_Order_By>>;
+  where?: InputMaybe<Provider_Slashing_Params_Bool_Exp>;
 };
 
 
@@ -13354,6 +13376,12 @@ export type Provider_Provider_Subscription = {
   provider_proposal_vote: Array<Provider_Proposal_Vote>;
   /** fetch data from the table in a streaming manner: "proposal_vote" */
   provider_proposal_vote_stream: Array<Provider_Proposal_Vote>;
+  /** fetch data from the table: "slashing_params" */
+  provider_slashing_params: Array<Provider_Slashing_Params>;
+  /** fetch aggregated fields from the table: "slashing_params" */
+  provider_slashing_params_aggregate: Provider_Slashing_Params_Aggregate;
+  /** fetch data from the table in a streaming manner: "slashing_params" */
+  provider_slashing_params_stream: Array<Provider_Slashing_Params>;
   /** fetch data from the table: "transaction" */
   provider_transaction: Array<Provider_Transaction>;
   /** fetch data from the table in a streaming manner: "transaction" */
@@ -13634,6 +13662,31 @@ export type Provider_Provider_SubscriptionProvider_Proposal_Vote_StreamArgs = {
 };
 
 
+export type Provider_Provider_SubscriptionProvider_Slashing_ParamsArgs = {
+  distinct_on?: InputMaybe<Array<Provider_Slashing_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Provider_Slashing_Params_Order_By>>;
+  where?: InputMaybe<Provider_Slashing_Params_Bool_Exp>;
+};
+
+
+export type Provider_Provider_SubscriptionProvider_Slashing_Params_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Provider_Slashing_Params_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Provider_Slashing_Params_Order_By>>;
+  where?: InputMaybe<Provider_Slashing_Params_Bool_Exp>;
+};
+
+
+export type Provider_Provider_SubscriptionProvider_Slashing_Params_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Provider_Slashing_Params_Stream_Cursor_Input>>;
+  where?: InputMaybe<Provider_Slashing_Params_Bool_Exp>;
+};
+
+
 export type Provider_Provider_SubscriptionProvider_TransactionArgs = {
   distinct_on?: InputMaybe<Array<Provider_Transaction_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -13844,6 +13897,146 @@ export type Provider_Provider_SubscriptionProvider_Vesting_Period_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Provider_Vesting_Period_Stream_Cursor_Input>>;
   where?: InputMaybe<Provider_Vesting_Period_Bool_Exp>;
+};
+
+/** columns and relationships of "slashing_params" */
+export type Provider_Slashing_Params = {
+  __typename?: 'provider_slashing_params';
+  height: Scalars['bigint'];
+  params: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "slashing_params" */
+export type Provider_Slashing_ParamsParamsArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregated selection of "slashing_params" */
+export type Provider_Slashing_Params_Aggregate = {
+  __typename?: 'provider_slashing_params_aggregate';
+  aggregate?: Maybe<Provider_Slashing_Params_Aggregate_Fields>;
+  nodes: Array<Provider_Slashing_Params>;
+};
+
+/** aggregate fields of "slashing_params" */
+export type Provider_Slashing_Params_Aggregate_Fields = {
+  __typename?: 'provider_slashing_params_aggregate_fields';
+  avg?: Maybe<Provider_Slashing_Params_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Provider_Slashing_Params_Max_Fields>;
+  min?: Maybe<Provider_Slashing_Params_Min_Fields>;
+  stddev?: Maybe<Provider_Slashing_Params_Stddev_Fields>;
+  stddev_pop?: Maybe<Provider_Slashing_Params_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Provider_Slashing_Params_Stddev_Samp_Fields>;
+  sum?: Maybe<Provider_Slashing_Params_Sum_Fields>;
+  var_pop?: Maybe<Provider_Slashing_Params_Var_Pop_Fields>;
+  var_samp?: Maybe<Provider_Slashing_Params_Var_Samp_Fields>;
+  variance?: Maybe<Provider_Slashing_Params_Variance_Fields>;
+};
+
+
+/** aggregate fields of "slashing_params" */
+export type Provider_Slashing_Params_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Provider_Slashing_Params_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Provider_Slashing_Params_Avg_Fields = {
+  __typename?: 'provider_slashing_params_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "slashing_params". All fields are combined with a logical 'AND'. */
+export type Provider_Slashing_Params_Bool_Exp = {
+  _and?: InputMaybe<Array<Provider_Slashing_Params_Bool_Exp>>;
+  _not?: InputMaybe<Provider_Slashing_Params_Bool_Exp>;
+  _or?: InputMaybe<Array<Provider_Slashing_Params_Bool_Exp>>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  params?: InputMaybe<Jsonb_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Provider_Slashing_Params_Max_Fields = {
+  __typename?: 'provider_slashing_params_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Provider_Slashing_Params_Min_Fields = {
+  __typename?: 'provider_slashing_params_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "slashing_params". */
+export type Provider_Slashing_Params_Order_By = {
+  height?: InputMaybe<Order_By>;
+  params?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "slashing_params" */
+export enum Provider_Slashing_Params_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Params = 'params'
+}
+
+/** aggregate stddev on columns */
+export type Provider_Slashing_Params_Stddev_Fields = {
+  __typename?: 'provider_slashing_params_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Provider_Slashing_Params_Stddev_Pop_Fields = {
+  __typename?: 'provider_slashing_params_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Provider_Slashing_Params_Stddev_Samp_Fields = {
+  __typename?: 'provider_slashing_params_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Streaming cursor of the table "slashing_params" */
+export type Provider_Slashing_Params_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Provider_Slashing_Params_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Provider_Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Provider_Slashing_Params_Stream_Cursor_Value_Input = {
+  height?: InputMaybe<Scalars['bigint']>;
+  params?: InputMaybe<Scalars['jsonb']>;
+};
+
+/** aggregate sum on columns */
+export type Provider_Slashing_Params_Sum_Fields = {
+  __typename?: 'provider_slashing_params_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Provider_Slashing_Params_Var_Pop_Fields = {
+  __typename?: 'provider_slashing_params_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Provider_Slashing_Params_Var_Samp_Fields = {
+  __typename?: 'provider_slashing_params_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Provider_Slashing_Params_Variance_Fields = {
+  __typename?: 'provider_slashing_params_variance_fields';
+  height?: Maybe<Scalars['Float']>;
 };
 
 /** columns and relationships of "transaction" */
@@ -17744,6 +17937,8 @@ export enum Validator_Select_Column {
 /** columns and relationships of "validator_signing_info" */
 export type Validator_Signing_Info = {
   __typename?: 'validator_signing_info';
+  /** An object relationship */
+  ccv_validator_signing_info?: Maybe<Ccv_Validator>;
   height: Scalars['bigint'];
   index_offset: Scalars['bigint'];
   jailed_until: Scalars['timestamp'];
@@ -17781,6 +17976,7 @@ export type Validator_Signing_Info_Bool_Exp = {
   _and?: InputMaybe<Array<Validator_Signing_Info_Bool_Exp>>;
   _not?: InputMaybe<Validator_Signing_Info_Bool_Exp>;
   _or?: InputMaybe<Array<Validator_Signing_Info_Bool_Exp>>;
+  ccv_validator_signing_info?: InputMaybe<Ccv_Validator_Bool_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   index_offset?: InputMaybe<Bigint_Comparison_Exp>;
   jailed_until?: InputMaybe<Timestamp_Comparison_Exp>;
@@ -17812,6 +18008,7 @@ export type Validator_Signing_Info_Min_Order_By = {
 
 /** Ordering options when selecting data from "validator_signing_info". */
 export type Validator_Signing_Info_Order_By = {
+  ccv_validator_signing_info?: InputMaybe<Ccv_Validator_Order_By>;
   height?: InputMaybe<Order_By>;
   index_offset?: InputMaybe<Order_By>;
   jailed_until?: InputMaybe<Order_By>;

@@ -35,4 +35,9 @@ query Validators {
       }
   	}
   }
+  bdjuno_provider {
+        slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
+    			params
+  	}
+  }
 }

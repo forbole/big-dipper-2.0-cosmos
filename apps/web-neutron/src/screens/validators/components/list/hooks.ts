@@ -2,6 +2,7 @@ import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { SyntheticEvent, useCallback, useEffect, useState } from 'react';
+import { SlashingParams } from '@/models';
 import chainConfig from '@/chainConfig';
 import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
 import type {
@@ -26,10 +27,12 @@ const formatValidators = ({
   data: ValidatorsQuery;
   bonded: string;
 }): Partial<ValidatorsState> => {
-  // const slashingParams = SlashingParams.fromJson(data?.ccv_validator.slashingParams?.[0]?.params ?? {});
+  const slashingParams = SlashingParams.fromJson(
+    data?.bdjuno_provider?.slashingParams?.[0]?.params ?? {}
+  );
   const votingPowerOverall = numeral(formatToken(bonded, votingPowerTokenUnit).value).value() ?? 0;
 
-  // const { signedBlockWindow } = slashingParams;
+  const { signedBlockWindow } = slashingParams;
 
   let formattedItems: ValidatorType[] = data.ccv_validator
     .filter((x) => x?.validator?.validatorInfo)
@@ -43,14 +46,14 @@ const formatValidators = ({
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const missedBlockCounter = x?.validator?.validatorSigningInfos?.[0]?.missedBlocksCounter ?? 0;
-      // const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
+      const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
       return {
         validator: x.validator?.validatorInfo?.operatorAddress ?? '',
         votingPower: votingPower ?? 0,
         votingPowerPercent: votingPowerPercent ?? 0,
         commission: (x?.validator?.validatorCommissions?.[0]?.commission ?? 0) * 100,
-        condition: 0,
+        condition,
         status: x?.validator?.validatorStatuses?.[0]?.status ?? 0,
         jailed: x?.validator?.validatorStatuses?.[0]?.jailed ?? false,
         tombstoned: x?.validator?.validatorSigningInfos?.[0]?.tombstoned ?? false,

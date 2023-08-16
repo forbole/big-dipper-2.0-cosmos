@@ -1,4 +1,4 @@
-import Big from 'big.js';
+import Big, { BigSource } from 'big.js';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
@@ -90,7 +90,7 @@ const formatBalance = (data: Data): BalanceType => {
   const unbondingAmount = formatToken(unbonding.amount, primaryTokenUnit);
 
   const rewards =
-    data.delegationRewards?.reduce((a, b) => {
+    data.delegationRewards?.reduce((a: BigSource, b: unknown) => {
       if (!b) return a;
       const coins = R.pathOr([], ['coins'], b);
       const dsmCoins = getDenom(coins, primaryTokenUnit);
@@ -337,8 +337,9 @@ export const useAccountDetails = () => {
     handleSetState((prevState) => ({
       ...prevState,
       overview: {
-        address: providerAddress ?? '',
-        withdrawalAddress: withdrawalAddress?.bdjuno_provider?.withdrawalAddress?.address ?? '',
+        address: address ?? '',
+        withdrawalAddress:
+          address ?? withdrawalAddress?.bdjuno_provider?.withdrawalAddress?.address ?? '',
       },
     }));
   }, [
