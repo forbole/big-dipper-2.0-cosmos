@@ -19498,7 +19498,7 @@ export type TransactionsQuery = { transactions: Array<{ __typename?: 'transactio
 export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ValidatorsQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', validator?: { __typename?: 'provider_validator', validatorStatuses: Array<{ __typename?: 'provider_validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'provider_validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null, validatorVotingPowers: Array<{ __typename?: 'provider_validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'provider_validator_commission', commission: any }> } | null }>, bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', slashingParams: Array<{ __typename?: 'bdjuno_provider_slashing_params', params: any }> } | null };
+export type ValidatorsQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', consumer_operator_address: string, validator?: { __typename?: 'provider_validator', validatorStatuses: Array<{ __typename?: 'provider_validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'provider_validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null, validatorVotingPowers: Array<{ __typename?: 'provider_validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'provider_validator_commission', commission: any }> } | null }>, bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', slashingParams: Array<{ __typename?: 'bdjuno_provider_slashing_params', params: any }> } | null };
 
 
 export const BlockDetailsDocument = gql`
@@ -20134,6 +20134,7 @@ export type TransactionsQueryResult = Apollo.QueryResult<TransactionsQuery, Tran
 export const ValidatorsDocument = gql`
     query Validators {
   ccv_validator {
+    consumer_operator_address
     validator {
       validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
         status

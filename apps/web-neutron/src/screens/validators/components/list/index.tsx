@@ -40,8 +40,8 @@ const List: FC<ComponentDefault> = ({ className }) => {
   });
 
   const items = useMemo(
-    () => sortItems(state.items.map((x, i) => ({ ...x, validator: avatarNames?.[i] }))),
-    [sortItems, state.items, avatarNames]
+    () => sortItems(state.items.map((x, i) => ({ ...x, validator: dataProfiles?.[i] }))),
+    [sortItems, state.items, dataProfiles]
   );
 
   let list: ReactNode;

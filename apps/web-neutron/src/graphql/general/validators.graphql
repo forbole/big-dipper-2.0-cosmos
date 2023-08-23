@@ -1,5 +1,6 @@
 query Validators {
   ccv_validator {
+    consumer_operator_address
     validator {
       validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
         status
