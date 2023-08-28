@@ -1,4 +1,4 @@
-import Big, { BigSource } from 'big.js';
+import Big from 'big.js';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
@@ -54,26 +54,26 @@ const initialState: AccountDetailState = {
 };
 
 type Data = {
-  delegationRewards?: ReturnType<typeof useRewards>['delegationRewards'];
-  accountBalances?: ReturnType<typeof useAvailableBalances>['accountBalances'];
-  delegationBalance?: ReturnType<typeof useDelegationBalance>['delegationBalance'];
-  unbondingBalance?: ReturnType<typeof useUnbondingBalance>['unbondingBalance'];
-  commission?: ReturnType<typeof useCommission>['commission'];
+  delegationRewards?: unknown;
+  accountBalances?: unknown;
+  delegationBalance?: unknown;
+  unbondingBalance?: unknown;
+  commission?: unknown;
 };
 
 // ============================
 // rewards
 // ============================
-const formatRewards = (data: Data) => {
+const formatRewards = (_data: Data) => {
   const rewardsDict: { [key: string]: TokenUnit } = {};
   // log all the rewards
-  data?.delegationRewards?.forEach((x) => {
-    if (!x) return;
-    const coins = x.coins ?? [];
-    const denomAmount = getDenom(coins, primaryTokenUnit);
-    const denomFormat = formatToken(denomAmount.amount, primaryTokenUnit);
-    rewardsDict[x.validatorAddress ?? ''] = denomFormat;
-  });
+  // data?.delegationRewards?.forEach((x) => {
+  //   if (!x) return;
+  //   const coins = x.coins ?? [];
+  //   const denomAmount = getDenom(coins, primaryTokenUnit);
+  //   const denomFormat = formatToken(denomAmount.amount, primaryTokenUnit);
+  //   rewardsDict[x.validatorAddress ?? ''] = denomFormat;
+  // });
   return rewardsDict;
 };
 
@@ -89,25 +89,25 @@ const formatBalance = (data: Data): BalanceType => {
   const unbonding = getDenom(R.pathOr([], ['unbondingBalance', 'coins'], data), primaryTokenUnit);
   const unbondingAmount = formatToken(unbonding.amount, primaryTokenUnit);
 
-  const rewards =
-    data.delegationRewards?.reduce((a: BigSource, b: unknown) => {
-      if (!b) return a;
-      const coins = R.pathOr([], ['coins'], b);
-      const dsmCoins = getDenom(coins, primaryTokenUnit);
+  const rewards = '0';
+  // data.delegationRewards?.reduce((a: BigSource, b: unknown) => {
+  //   if (!b) return a;
+  //   const coins = R.pathOr([], ['coins'], b);
+  //   const dsmCoins = getDenom(coins, primaryTokenUnit);
 
-      return Big(a).plus(dsmCoins.amount).toPrecision();
-    }, '0') ?? '0';
+  //   return Big(a).plus(dsmCoins.amount).toPrecision();
+  // }, '0') ?? '0';
   const rewardsAmount = formatToken(rewards, primaryTokenUnit);
 
-  const commission = getDenom(
-    R.pathOr<NonNullable<NonNullable<typeof data['commission']>['coins']>>(
-      [],
-      ['commission', 'coins'],
-      data
-    ),
-    primaryTokenUnit
-  );
-  const commissionAmount = formatToken(commission.amount, primaryTokenUnit);
+  // const commission = getDenom(
+  //   R.pathOr<NonNullable<NonNullable<typeof data['commission']>['coins']>>(
+  //     [],
+  //     ['commission', 'coins'],
+  //     data
+  //   ),
+  //   primaryTokenUnit
+  // );
+  const commissionAmount = formatToken(0, primaryTokenUnit);
 
   const total = Big(availableAmount.value)
     .plus(delegateAmount.value)
@@ -233,7 +233,7 @@ export const useAccountDetails = () => {
 
   const [providerAddress, setProviderAddress] = useState(address);
 
-  const [consumerAddress, setConsumerAddress] = useState(address);
+  const [_consumerAddress, setConsumerAddress] = useState(address);
 
   useEffect(() => {
     let provider = '';
