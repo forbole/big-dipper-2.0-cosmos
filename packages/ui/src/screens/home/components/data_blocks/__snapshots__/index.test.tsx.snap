@@ -72,6 +72,17 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
   }
 }
 
+.emotion-1 .flexContent {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 4px;
+}
+
 .emotion-2 {
   margin: 0;
   font-size: 0.875rem;
@@ -142,6 +153,17 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
   }
 }
 
+.emotion-4 .flexContent {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 4px;
+}
+
 .emotion-7 {
   padding: 16px;
   background: #FF835B;
@@ -194,7 +216,27 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
   }
 }
 
+.emotion-7 .flexContent {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 4px;
+}
+
 .emotion-10 {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.4px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+}
+
+.emotion-11 {
   padding: 16px;
   background: #FF835B;
   border-radius: 4px;
@@ -217,11 +259,11 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
   background: #2FB6E0;
 }
 
-.emotion-10 .label {
+.emotion-11 .label {
   margin-bottom: 16px;
 }
 
-.emotion-10 .content {
+.emotion-11 .content {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -236,23 +278,25 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
   justify-content: space-between;
 }
 
-.emotion-10 .description {
+.emotion-11 .description {
   display: none;
 }
 
 @media (min-width:768px) {
-  .emotion-10 .description {
+  .emotion-11 .description {
     display: block;
   }
 }
 
-.emotion-13 {
-  margin: 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.4px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 400;
-  line-height: 1.66;
+.emotion-11 .flexContent {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 4px;
 }
 
 <div
@@ -274,6 +318,9 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
       >
         953,992
       </h1>
+      <div
+        className="flexContent"
+      />
     </div>
   </div>
   <div
@@ -292,6 +339,9 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
       >
         6.54 s
       </h1>
+      <div
+        className="flexContent"
+      />
     </div>
   </div>
   <div
@@ -310,10 +360,20 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
       >
         N/A
       </h1>
+      <div
+        className="flexContent"
+      >
+        <span
+          className="MuiTypography-root MuiTypography-caption description emotion-10"
+        >
+          dataFrom
+        </span>
+        <svg />
+      </div>
     </div>
   </div>
   <div
-    className="emotion-10"
+    className="emotion-11"
   >
     <p
       className="MuiTypography-root MuiTypography-body2 label emotion-2"
@@ -328,11 +388,15 @@ exports[`screen: Home/DataBlocks matches snapshot 1`] = `
       >
         200
       </h1>
-      <span
-        className="MuiTypography-root MuiTypography-caption description emotion-13"
+      <div
+        className="flexContent"
       >
-        outOfValidators
-      </span>
+        <span
+          className="MuiTypography-root MuiTypography-caption description emotion-10"
+        >
+          outOfValidators
+        </span>
+      </div>
     </div>
   </div>
 </div>

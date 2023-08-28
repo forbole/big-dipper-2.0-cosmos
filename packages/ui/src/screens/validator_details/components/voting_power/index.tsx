@@ -3,10 +3,12 @@ import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
+import chainConfig from '@/chainConfig';
 import { BLOCK_DETAILS } from '@/utils/go_to_page';
 import type { VotingPowerType } from '@/screens/validator_details/types';
 import useStyles from '@/screens/validator_details/components/voting_power/styles';
 import Box from '@/components/box';
+import { useOnlineVotingPower } from '@/screens/home/components/hero/components/online_voting_power/hooks';
 
 type VotingPowerProps = {
   className?: string;
@@ -16,17 +18,23 @@ type VotingPowerProps = {
 
 const VotingPower: FC<VotingPowerProps> = ({ className, data, status }) => {
   const { t } = useAppTranslation('validators');
+  const { state } = useOnlineVotingPower();
+
+  const { chainName } = chainConfig();
+
+  const votingPower = status === 3 ? numeral(data.self).format('0,0') : '0';
+
   const votingPowerPercent =
+    // eslint-disable-next-line no-nested-ternary
     status === 3
-      ? numeral((data.self / (numeral(data.overall.value).value() ?? 0)) * 100)
+      ? chainName === 'wormhole'
+        ? numeral((Number(votingPower) / state.activeValidators) * 100)
+        : numeral((data.self / (numeral(data.overall.value).value() ?? 0)) * 100)
       : numeral(0);
 
   const { classes, cx } = useStyles({
     percentage: parseFloat(votingPowerPercent.format('0', Math.floor)),
   });
-
-  const votingPower = status === 3 ? numeral(data.self).format('0,0') : '0';
-
   return (
     <Box className={cx(classes.root, className)}>
       <Typography variant="h2">{t('votingPower')}</Typography>
@@ -35,7 +43,9 @@ const VotingPower: FC<VotingPowerProps> = ({ className, data, status }) => {
           {`${votingPowerPercent.format('0,0.00')}%`}
         </Typography>
         <Typography variant="body1">
-          {votingPower} / {numeral(data.overall.value).format('0,0')}
+          {chainName === 'wormhole'
+            ? `${votingPower} / ${state.activeValidators}`
+            : `${votingPower} / ${numeral(data.overall.value).format('0,0')}`}
         </Typography>
       </div>
       <div className={classes.chart}>

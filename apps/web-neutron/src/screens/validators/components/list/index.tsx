@@ -10,8 +10,6 @@ import Tabs from '@/screens/validators/components/list/components/tabs';
 import { useValidators } from '@/screens/validators/components/list/hooks';
 import useStyles from '@/screens/validators/components/list/styles';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
-import { useRecoilValue } from 'recoil';
-import { readProfiles } from '@/recoil/profiles/selectors';
 import { useValidatorAddressesQuery } from '@/graphql/types/provider_types';
 
 const List: FC<ComponentDefault> = ({ className }) => {
