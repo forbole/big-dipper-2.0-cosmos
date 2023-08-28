@@ -19,7 +19,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
   const display = useDisplayStyles().classes;
   const { state, handleTabChange, handleSearch, handleSort, sortItems, search } = useValidators();
   const validatorsMemo = useShallowMemo(state.items.map((x) => x.validator));
-  const { profiles: dataProfiles, loading } = useProfilesRecoil(validatorsMemo);
+  const { profiles: _dataProfiles, loading } = useProfilesRecoil(validatorsMemo);
   const { data } = useValidatorAddressesQuery();
 
   const monikerMap = new Map<string, string[]>();
@@ -40,8 +40,8 @@ const List: FC<ComponentDefault> = ({ className }) => {
   });
 
   const items = useMemo(
-    () => sortItems(state.items.map((x, i) => ({ ...x, validator: dataProfiles?.[i] }))),
-    [sortItems, state.items, dataProfiles]
+    () => sortItems(state.items.map((x, i) => ({ ...x, validator: avatarNames?.[i] }))),
+    [sortItems, state.items, avatarNames]
   );
 
   let list: ReactNode;

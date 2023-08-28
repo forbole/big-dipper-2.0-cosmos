@@ -49,7 +49,7 @@ const formatValidators = ({
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
       return {
-        validator: x.consumer_operator_address ?? '',
+        validator: x.validator?.validatorInfo?.operatorAddress ?? '',
         votingPower: votingPower ?? 0,
         votingPowerPercent: votingPowerPercent ?? 0,
         commission: (x?.validator?.validatorCommissions?.[0]?.commission ?? 0) * 100,
