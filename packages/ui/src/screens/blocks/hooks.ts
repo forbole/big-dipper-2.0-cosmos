@@ -20,7 +20,6 @@ const uniqueAndSort = R.pipe(
 
 const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
   let formattedData = data.blocks;
-  console.log('format', data.blocks);
   if (data.blocks.length === 51) {
     formattedData = data.blocks.slice(0, 51);
   }
