@@ -35,6 +35,8 @@ const Desktop: FC<TransactionsListState> = ({
   const { classes, cx } = useStyles();
   const { t } = useTranslation('transactions');
 
+  console.log(transactions);
+
   const items = transactions.map((x) => ({
     block: (
       <Link shallow prefetch={false} href={BLOCK_DETAILS(x.height)}>

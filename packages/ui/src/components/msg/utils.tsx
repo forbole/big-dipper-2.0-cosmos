@@ -507,6 +507,12 @@ const customTypeToModel = {
     tagTheme: 'six',
     tagDisplay: 'msgNftSendLabel',
   },
+  '/coreum.asset.ft.v1.MsgUpgradeTokenV1': {
+    model: MODELS.MsgUpgradeToken,
+    content: COMPONENTS.UpgradeToken,
+    tagTheme: 'six',
+    tagDisplay: 'msgUpgradeTokenLabel',
+  },
 };
 type CustomTypeToModel = typeof customTypeToModel;
 

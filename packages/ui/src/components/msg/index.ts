@@ -1,6 +1,7 @@
 // =========================
 // msg components
 // =========================
+export { default as UpgradeToken } from '@/components/msg/asset/upgrade_token';
 export { default as Grant } from '@/components/msg/authz/grant';
 export { default as Revoke } from '@/components/msg/authz/revoke';
 export { default as Exec } from '@/components/msg/authz/exec';

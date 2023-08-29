@@ -1,6 +1,7 @@
 // ================================
 // Transaction Message Types
 // ================================
+export { default as MsgUpgradeToken } from '@/models/msg/asset/msg_upgrade_token';
 export { default as DistributionParams } from '@/models/distribution_params';
 export { default as GovParams } from '@/models/gov_params';
 export { default as MintParams } from '@/models/mint_params';
