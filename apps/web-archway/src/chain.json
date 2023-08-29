@@ -146,7 +146,7 @@
       "tokenUnits": {
         "aarch": {
           "display": "arch",
-          "exponent": 6
+          "exponent": 18
         }
       },
       "endpoints": {
