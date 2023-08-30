@@ -12145,6 +12145,8 @@ export type Bigint_Comparison_Exp = {
 /** columns and relationships of "block" */
 export type Block = {
   __typename?: 'block';
+  /** An object relationship */
+  ccv_validator?: Maybe<Ccv_Validator>;
   hash: Scalars['String'];
   height: Scalars['bigint'];
   num_txs?: Maybe<Scalars['Int']>;
@@ -12266,6 +12268,7 @@ export type Block_Bool_Exp = {
   _and?: InputMaybe<Array<Block_Bool_Exp>>;
   _not?: InputMaybe<Block_Bool_Exp>;
   _or?: InputMaybe<Array<Block_Bool_Exp>>;
+  ccv_validator?: InputMaybe<Ccv_Validator_Bool_Exp>;
   hash?: InputMaybe<String_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   num_txs?: InputMaybe<Int_Comparison_Exp>;
@@ -12304,6 +12307,7 @@ export type Block_Min_Order_By = {
 
 /** Ordering options when selecting data from "block". */
 export type Block_Order_By = {
+  ccv_validator?: InputMaybe<Ccv_Validator_Order_By>;
   hash?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   num_txs?: InputMaybe<Order_By>;
@@ -12405,8 +12409,12 @@ export type Block_Variance_Order_By = {
 export type Ccv_Validator = {
   __typename?: 'ccv_validator';
   consumer_consensus_address: Scalars['String'];
+  consumer_operator_address: Scalars['String'];
+  consumer_self_delegate_address: Scalars['String'];
   height: Scalars['bigint'];
   provider_consensus_address: Scalars['String'];
+  provider_operator_address: Scalars['String'];
+  provider_self_delegate_address: Scalars['String'];
   validator?: Maybe<Provider_Validator>;
 };
 
@@ -12452,31 +12460,47 @@ export type Ccv_Validator_Bool_Exp = {
   _not?: InputMaybe<Ccv_Validator_Bool_Exp>;
   _or?: InputMaybe<Array<Ccv_Validator_Bool_Exp>>;
   consumer_consensus_address?: InputMaybe<String_Comparison_Exp>;
+  consumer_operator_address?: InputMaybe<String_Comparison_Exp>;
+  consumer_self_delegate_address?: InputMaybe<String_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   provider_consensus_address?: InputMaybe<String_Comparison_Exp>;
+  provider_operator_address?: InputMaybe<String_Comparison_Exp>;
+  provider_self_delegate_address?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
 export type Ccv_Validator_Max_Fields = {
   __typename?: 'ccv_validator_max_fields';
   consumer_consensus_address?: Maybe<Scalars['String']>;
+  consumer_operator_address?: Maybe<Scalars['String']>;
+  consumer_self_delegate_address?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   provider_consensus_address?: Maybe<Scalars['String']>;
+  provider_operator_address?: Maybe<Scalars['String']>;
+  provider_self_delegate_address?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type Ccv_Validator_Min_Fields = {
   __typename?: 'ccv_validator_min_fields';
   consumer_consensus_address?: Maybe<Scalars['String']>;
+  consumer_operator_address?: Maybe<Scalars['String']>;
+  consumer_self_delegate_address?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
   provider_consensus_address?: Maybe<Scalars['String']>;
+  provider_operator_address?: Maybe<Scalars['String']>;
+  provider_self_delegate_address?: Maybe<Scalars['String']>;
 };
 
 /** Ordering options when selecting data from "ccv_validator". */
 export type Ccv_Validator_Order_By = {
   consumer_consensus_address?: InputMaybe<Order_By>;
+  consumer_operator_address?: InputMaybe<Order_By>;
+  consumer_self_delegate_address?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   provider_consensus_address?: InputMaybe<Order_By>;
+  provider_operator_address?: InputMaybe<Order_By>;
+  provider_self_delegate_address?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "ccv_validator" */
@@ -12484,9 +12508,17 @@ export enum Ccv_Validator_Select_Column {
   /** column name */
   ConsumerConsensusAddress = 'consumer_consensus_address',
   /** column name */
+  ConsumerOperatorAddress = 'consumer_operator_address',
+  /** column name */
+  ConsumerSelfDelegateAddress = 'consumer_self_delegate_address',
+  /** column name */
   Height = 'height',
   /** column name */
-  ProviderConsensusAddress = 'provider_consensus_address'
+  ProviderConsensusAddress = 'provider_consensus_address',
+  /** column name */
+  ProviderOperatorAddress = 'provider_operator_address',
+  /** column name */
+  ProviderSelfDelegateAddress = 'provider_self_delegate_address'
 }
 
 /** aggregate stddev on columns */
@@ -12518,8 +12550,12 @@ export type Ccv_Validator_Stream_Cursor_Input = {
 /** Initial value of the column from where the streaming should start */
 export type Ccv_Validator_Stream_Cursor_Value_Input = {
   consumer_consensus_address?: InputMaybe<Scalars['String']>;
+  consumer_operator_address?: InputMaybe<Scalars['String']>;
+  consumer_self_delegate_address?: InputMaybe<Scalars['String']>;
   height?: InputMaybe<Scalars['bigint']>;
   provider_consensus_address?: InputMaybe<Scalars['String']>;
+  provider_operator_address?: InputMaybe<Scalars['String']>;
+  provider_self_delegate_address?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate sum on columns */
@@ -13259,6 +13295,156 @@ export type Gov_Params_Stream_Cursor_Value_Input = {
   height?: InputMaybe<Scalars['bigint']>;
   tally_params?: InputMaybe<Scalars['jsonb']>;
   voting_params?: InputMaybe<Scalars['jsonb']>;
+};
+
+/** columns and relationships of "inflation" */
+export type Inflation = {
+  __typename?: 'inflation';
+  height: Scalars['bigint'];
+  one_row_id: Scalars['Boolean'];
+  value: Scalars['numeric'];
+};
+
+/** aggregated selection of "inflation" */
+export type Inflation_Aggregate = {
+  __typename?: 'inflation_aggregate';
+  aggregate?: Maybe<Inflation_Aggregate_Fields>;
+  nodes: Array<Inflation>;
+};
+
+/** aggregate fields of "inflation" */
+export type Inflation_Aggregate_Fields = {
+  __typename?: 'inflation_aggregate_fields';
+  avg?: Maybe<Inflation_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Inflation_Max_Fields>;
+  min?: Maybe<Inflation_Min_Fields>;
+  stddev?: Maybe<Inflation_Stddev_Fields>;
+  stddev_pop?: Maybe<Inflation_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Inflation_Stddev_Samp_Fields>;
+  sum?: Maybe<Inflation_Sum_Fields>;
+  var_pop?: Maybe<Inflation_Var_Pop_Fields>;
+  var_samp?: Maybe<Inflation_Var_Samp_Fields>;
+  variance?: Maybe<Inflation_Variance_Fields>;
+};
+
+
+/** aggregate fields of "inflation" */
+export type Inflation_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Inflation_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Inflation_Avg_Fields = {
+  __typename?: 'inflation_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "inflation". All fields are combined with a logical 'AND'. */
+export type Inflation_Bool_Exp = {
+  _and?: InputMaybe<Array<Inflation_Bool_Exp>>;
+  _not?: InputMaybe<Inflation_Bool_Exp>;
+  _or?: InputMaybe<Array<Inflation_Bool_Exp>>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  one_row_id?: InputMaybe<Boolean_Comparison_Exp>;
+  value?: InputMaybe<Numeric_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Inflation_Max_Fields = {
+  __typename?: 'inflation_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  value?: Maybe<Scalars['numeric']>;
+};
+
+/** aggregate min on columns */
+export type Inflation_Min_Fields = {
+  __typename?: 'inflation_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  value?: Maybe<Scalars['numeric']>;
+};
+
+/** Ordering options when selecting data from "inflation". */
+export type Inflation_Order_By = {
+  height?: InputMaybe<Order_By>;
+  one_row_id?: InputMaybe<Order_By>;
+  value?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "inflation" */
+export enum Inflation_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  OneRowId = 'one_row_id',
+  /** column name */
+  Value = 'value'
+}
+
+/** aggregate stddev on columns */
+export type Inflation_Stddev_Fields = {
+  __typename?: 'inflation_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Inflation_Stddev_Pop_Fields = {
+  __typename?: 'inflation_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Inflation_Stddev_Samp_Fields = {
+  __typename?: 'inflation_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** Streaming cursor of the table "inflation" */
+export type Inflation_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Inflation_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Inflation_Stream_Cursor_Value_Input = {
+  height?: InputMaybe<Scalars['bigint']>;
+  one_row_id?: InputMaybe<Scalars['Boolean']>;
+  value?: InputMaybe<Scalars['numeric']>;
+};
+
+/** aggregate sum on columns */
+export type Inflation_Sum_Fields = {
+  __typename?: 'inflation_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  value?: Maybe<Scalars['numeric']>;
+};
+
+/** aggregate var_pop on columns */
+export type Inflation_Var_Pop_Fields = {
+  __typename?: 'inflation_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Inflation_Var_Samp_Fields = {
+  __typename?: 'inflation_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Inflation_Variance_Fields = {
+  __typename?: 'inflation_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  value?: Maybe<Scalars['Float']>;
 };
 
 export type Jsonb_Cast_Exp = {
@@ -19710,6 +19896,12 @@ export type Query_Root = {
   genesis: Array<Genesis>;
   /** fetch data from the table: "gov_params" */
   gov_params: Array<Gov_Params>;
+  /** fetch data from the table: "inflation" */
+  inflation: Array<Inflation>;
+  /** fetch aggregated fields from the table: "inflation" */
+  inflation_aggregate: Inflation_Aggregate;
+  /** fetch data from the table: "inflation" using primary key columns */
+  inflation_by_pk?: Maybe<Inflation>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
   /** execute function "messages_by_address" which returns "message" */
@@ -20041,6 +20233,29 @@ export type Query_RootGov_ParamsArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Gov_Params_Order_By>>;
   where?: InputMaybe<Gov_Params_Bool_Exp>;
+};
+
+
+export type Query_RootInflationArgs = {
+  distinct_on?: InputMaybe<Array<Inflation_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Inflation_Order_By>>;
+  where?: InputMaybe<Inflation_Bool_Exp>;
+};
+
+
+export type Query_RootInflation_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Inflation_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Inflation_Order_By>>;
+  where?: InputMaybe<Inflation_Bool_Exp>;
+};
+
+
+export type Query_RootInflation_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
 };
 
 
@@ -20846,6 +21061,14 @@ export type Subscription_Root = {
   gov_params: Array<Gov_Params>;
   /** fetch data from the table in a streaming manner: "gov_params" */
   gov_params_stream: Array<Gov_Params>;
+  /** fetch data from the table: "inflation" */
+  inflation: Array<Inflation>;
+  /** fetch aggregated fields from the table: "inflation" */
+  inflation_aggregate: Inflation_Aggregate;
+  /** fetch data from the table: "inflation" using primary key columns */
+  inflation_by_pk?: Maybe<Inflation>;
+  /** fetch data from the table in a streaming manner: "inflation" */
+  inflation_stream: Array<Inflation>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
   /** fetch data from the table in a streaming manner: "message" */
@@ -21247,6 +21470,36 @@ export type Subscription_RootGov_Params_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Gov_Params_Stream_Cursor_Input>>;
   where?: InputMaybe<Gov_Params_Bool_Exp>;
+};
+
+
+export type Subscription_RootInflationArgs = {
+  distinct_on?: InputMaybe<Array<Inflation_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Inflation_Order_By>>;
+  where?: InputMaybe<Inflation_Bool_Exp>;
+};
+
+
+export type Subscription_RootInflation_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Inflation_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Inflation_Order_By>>;
+  where?: InputMaybe<Inflation_Bool_Exp>;
+};
+
+
+export type Subscription_RootInflation_By_PkArgs = {
+  one_row_id: Scalars['Boolean'];
+};
+
+
+export type Subscription_RootInflation_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Inflation_Stream_Cursor_Input>>;
+  where?: InputMaybe<Inflation_Bool_Exp>;
 };
 
 
@@ -24316,7 +24569,7 @@ export type BlocksListenerSubscriptionVariables = Exact<{
 }>;
 
 
-export type BlocksListenerSubscription = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string } | null } | null }> };
+export type BlocksListenerSubscription = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo: Array<{ __typename?: 'validator_info', operatorAddress: string }> } | null }> };
 
 export type BlocksQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -24324,7 +24577,7 @@ export type BlocksQueryVariables = Exact<{
 }>;
 
 
-export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', self_delegate_address?: string | null, operatorAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, identity?: string | null }> } | null }> };
+export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, ccv_validator?: { __typename?: 'ccv_validator', validator?: { __typename?: 'provider_validator', validatorInfo?: { __typename?: 'provider_validator_info', self_delegate_address?: string | null, operatorAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, identity?: string | null }> } | null } | null }> };
 
 export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -25070,7 +25323,7 @@ export const BlocksListenerDocument = gql`
     hash
     timestamp
     validator {
-      validatorInfo: validator_info {
+      validatorInfo: validator_infos {
         operatorAddress: operator_address
       }
     }
@@ -25108,22 +25361,24 @@ export const BlocksDocument = gql`
     txs: num_txs
     hash
     timestamp
-    validator {
-      validatorInfo: validator_info {
-        operatorAddress: operator_address
-        self_delegate_address
-      }
-      validatorDescriptions: validator_descriptions(
-        limit: 1
-        order_by: {height: desc}
-      ) {
-        moniker
-        identity
+    ccv_validator {
+      validator {
+        validatorInfo: validator_info {
+          operatorAddress: operator_address
+          self_delegate_address
+        }
+        validatorDescriptions: validator_descriptions(
+          limit: 1
+          order_by: {height: desc}
+        ) {
+          moniker
+          identity
+        }
       }
     }
   }
 }
-    `;
+    `
 
 /**
  * __useBlocksQuery__

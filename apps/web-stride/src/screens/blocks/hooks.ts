@@ -26,7 +26,9 @@ const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
   }
   return (
     formattedData?.map((x) => {
-      const proposerAddress = x?.validator?.validatorInfo[0].operatorAddress ?? '';
+      const proposerAddress = x?.validator?.validatorInfo[0]
+        ? x?.validator?.validatorInfo[0].operatorAddress
+        : '';
       return {
         height: x.height,
         txs: x.txs ?? 0,
