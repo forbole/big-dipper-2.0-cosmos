@@ -484,7 +484,7 @@ const useStakingHooks = ({
               sessionTopic: wcSessionTopic,
               signerAddress: userAddress,
               chainId: chainID,
-              msgs: [redelegateMsg],
+              msgs: [undelegateMsg],
               memo,
               fee: { amount: [], gas: '23' },
             });
