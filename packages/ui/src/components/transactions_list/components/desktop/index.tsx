@@ -60,7 +60,13 @@ const Desktop: FC<TransactionsListState> = ({
     ),
     type: (
       <div>
-        <Tag value={x.type?.[0] ? x.type[0] : ''} theme="six" />
+        {x.type?.[0] && x.type?.[0] === 'Update Client' ? (
+          <Tag value="IBC Received" theme="six" />
+        ) : x.type?.[0] === 'Transfer' ? (
+          <Tag value="IBC Transfer" theme="six" />
+        ) : (
+          <Tag value={x.type?.[0] ? x.type[0] : ''} theme="six" />
+        )}
         {x.messages.count > 1 ? ` + ${x.messages.count - 1}` : ''}
       </div>
     ),

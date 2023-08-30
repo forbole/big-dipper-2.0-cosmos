@@ -71,5 +71,6 @@
   "msgNftIssueClassLabel": "NFT Issue Class",
   "msgNftSendLabel": "NFT Send",
   "msgNftAddToWhitelistLabel": "Add to Whitelist",
-  "msgNftRemoveFromWhitelistLabel": "Remove from Whitelist"
+  "msgNftRemoveFromWhitelistLabel": "Remove from Whitelist",
+  "msgUpgradeTokenLabel": "Upgrade Token"
 }
