@@ -19,7 +19,6 @@ describe('screen: TransactionDetails/SetDenomMetadata', () => {
       category: 'tokenfactory',
       type: 'MsgSetDenomMetadata',
       sender: 'sender',
-      metadata: 'metadata',
       subspace_id: 'subspace-id-1',
       json: {},
     };

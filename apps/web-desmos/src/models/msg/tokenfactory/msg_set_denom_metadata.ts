@@ -10,8 +10,6 @@ class MsgSetDenomMetadata {
 
   public sender: string;
 
-  public metadata: string;
-
   public subspace_id: string;
 
   constructor(payload: object) {
@@ -19,7 +17,6 @@ class MsgSetDenomMetadata {
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
     this.sender = R.pathOr('', ['sender'], payload);
-    this.metadata = R.pathOr('', ['metadata'], payload);
     this.subspace_id = R.pathOr('', ['subspace_id'], payload);
   }
 
@@ -29,7 +26,6 @@ class MsgSetDenomMetadata {
       type: R.pathOr('', ['@type'], json),
       json,
       sender: R.pathOr('', ['sender'], json),
-      metadata: R.pathOr('', ['metadata'], json),
       subspace_id: R.pathOr('', ['subspace_id'], json),
     };
   }

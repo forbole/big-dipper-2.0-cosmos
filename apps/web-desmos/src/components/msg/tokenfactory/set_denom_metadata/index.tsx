@@ -19,7 +19,6 @@ const SetDenomMetadata: FC<{ message: MsgSetDenomMetadata }> = (props) => {
         components={[<Name address={message.sender} name={senderMoniker} />, <b />]}
         values={{
           sender: senderMoniker,
-          metadata: message.metadata,
           subspace_id: message.subspace_id,
         }}
       />
