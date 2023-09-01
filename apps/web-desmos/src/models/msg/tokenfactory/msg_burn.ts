@@ -10,7 +10,7 @@ class MsgBurn {
 
   public sender: string;
 
-  public amount: string;
+  public amount: MsgCoin[];
 
   public subspace_id: string;
 
@@ -19,7 +19,7 @@ class MsgBurn {
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
     this.sender = R.pathOr('', ['sender'], payload);
-    this.amount = R.pathOr('', ['amount'], payload);
+    this.amount = R.pathOr<MsgBurn['amount']>([], ['amount'], payload);
     this.subspace_id = R.pathOr('', ['subspace_id'], payload);
   }
 
@@ -29,7 +29,10 @@ class MsgBurn {
       type: R.pathOr('', ['@type'], json),
       json,
       sender: R.pathOr('', ['sender'], json),
-      amount: R.pathOr('', ['amount'], json),
+      amount: R.pathOr<MsgBurn['amount']>([], ['amount'], json).map((x) => ({
+        denom: x?.denom ?? '',
+        amount: x?.amount ?? '0',
+      })),
       subspace_id: R.pathOr('', ['subspace_id'], json),
     };
   }
