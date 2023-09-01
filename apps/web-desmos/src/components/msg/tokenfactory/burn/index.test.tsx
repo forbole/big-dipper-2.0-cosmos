@@ -15,11 +15,17 @@ jest.mock('@/components/name', () => (props: JSX.IntrinsicElements['div']) => (
 // ==================================
 describe('screen: TransactionDetails/Burn', () => {
   it('matches snapshot', () => {
+    let totalAmount: MsgCoin[] = [
+      {
+        denom: 'udsm',
+        amount: '1',
+      },
+    ];
     const message: MsgBurn = {
       category: 'tokenfactory',
       type: 'MsgBurn',
       sender: 'sender',
-      amount: '1 DSM',
+      amount: totalAmount,
       subspace_id: 'subspace-id-1',
       json: {},
     };
