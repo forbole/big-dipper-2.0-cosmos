@@ -28,7 +28,7 @@ describe('screen: TransactionDetails/BurnTokens', () => {
           denom: 'denom2',
           amount: '200000',
         },
-      ], //tutaj
+      ],
       json: {},
     };
     const component = renderer.create(
