@@ -1,20 +1,26 @@
 import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
 
-class MsgEditPost {
+class MsgMint {
   public category: Categories;
 
   public type: string;
 
   public json: object;
 
-  public editor: string;
+  public sender: string;
+
+  public amount: string;
+
+  public subspace_id: string;
 
   constructor(payload: object) {
     this.category = 'posts';
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
-    this.editor = R.pathOr('', ['editor'], payload);
+    this.sender = R.pathOr('', ['sender'], payload);
+    this.amount = R.pathOr('', ['amount'], payload);
+    this.subspace_id = R.pathOr('', ['subspace_id'], payload);
   }
 
   static fromJson(json: object) {
@@ -22,9 +28,11 @@ class MsgEditPost {
       category: 'posts',
       type: R.pathOr('', ['@type'], json),
       json,
-      editor: R.pathOr('', ['editor'], json),
+      sender: R.pathOr('', ['sender'], json),
+      amount: R.pathOr('', ['amount'], json),
+      subspace_id: R.pathOr('', ['subspace_id'], json),
     };
   }
 }
 
-export default MsgEditPost;
+export default MsgMint;

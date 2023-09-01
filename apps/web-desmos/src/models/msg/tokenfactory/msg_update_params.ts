@@ -1,20 +1,23 @@
 import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
 
-class MsgEditPost {
+class MsgUpdateParams {
   public category: Categories;
 
   public type: string;
 
   public json: object;
 
-  public editor: string;
+  public authority: string;
+
+  public params: string;
 
   constructor(payload: object) {
     this.category = 'posts';
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
-    this.editor = R.pathOr('', ['editor'], payload);
+    this.authority = R.pathOr('', ['authority'], payload);
+    this.params = R.pathOr('', ['params'], payload);
   }
 
   static fromJson(json: object) {
@@ -22,9 +25,10 @@ class MsgEditPost {
       category: 'posts',
       type: R.pathOr('', ['@type'], json),
       json,
-      editor: R.pathOr('', ['editor'], json),
+      authority: R.pathOr('', ['authority'], json),
+      params: R.pathOr('', ['params'], json),
     };
   }
 }
 
-export default MsgEditPost;
+export default MsgUpdateParams;
