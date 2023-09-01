@@ -24,7 +24,7 @@ exports[`screen: TransactionDetails/SetDenomMetadata matches snapshot 1`] = `
       name="sender"
     />
     <b />
-    {"sender":"sender","metadata":"metadata","subspace_id":"subspace-id-1"}
+    {"sender":"sender","subspace_id":"subspace-id-1"}
   </span>
 </p>
 `;

@@ -19,7 +19,7 @@ describe('screen: TransactionDetails/Mint', () => {
       category: 'tokenfactory',
       type: 'MsgMint',
       sender: 'sender',
-      amount: '{amount: {}, denom: ""}',
+      amount: '1 DSM',
       subspace_id: 'subspace-id-1',
       json: {},
     };

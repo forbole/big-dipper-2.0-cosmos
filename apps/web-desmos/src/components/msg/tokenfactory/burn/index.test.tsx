@@ -19,7 +19,7 @@ describe('screen: TransactionDetails/Burn', () => {
       category: 'tokenfactory',
       type: 'MsgBurn',
       sender: 'sender',
-      amount: '{amount: {}, denom: ""}',
+      amount: '1 DSM',
       subspace_id: 'subspace-id-1',
       json: {},
     };
