@@ -1,20 +1,26 @@
 import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
 
-class MsgEditPost {
+class MsgCreateDenom {
   public category: Categories;
 
   public type: string;
 
   public json: object;
 
-  public editor: string;
+  public sender: string;
+
+  public subdenom: string;
+
+  public subspace_id: string;
 
   constructor(payload: object) {
     this.category = 'posts';
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
-    this.editor = R.pathOr('', ['editor'], payload);
+    this.sender = R.pathOr('', ['sender'], payload);
+    this.subdenom = R.pathOr('', ['subdenom'], payload);
+    this.subspace_id = R.pathOr('', ['subspace_id'], payload);
   }
 
   static fromJson(json: object) {
@@ -22,9 +28,11 @@ class MsgEditPost {
       category: 'posts',
       type: R.pathOr('', ['@type'], json),
       json,
-      editor: R.pathOr('', ['editor'], json),
+      sender: R.pathOr('', ['sender'], json),
+      subdenom: R.pathOr('', ['subdenom'], json),
+      subspace_id: R.pathOr('', ['subspace_id'], json),
     };
   }
 }
 
-export default MsgEditPost;
+export default MsgCreateDenom;
