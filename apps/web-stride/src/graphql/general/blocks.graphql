@@ -4,10 +4,9 @@ subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
     txs: num_txs
     hash
     timestamp
-    validator {
-      validatorInfo: validator_infos {
-        operatorAddress: operator_address
-      }
+    validator: ccv_validator {
+      consumerOperatorAddress: consumer_operator_address
+      providerOperatorAddress: provider_operator_address
     }
   }
 }
@@ -20,14 +19,14 @@ query Blocks($limit: Int = 7, $offset: Int = 0) {
     hash
     timestamp
     ccv_validator {
+      consumerOperatorAddress: consumer_operator_address
+      providerOperatorAddress: provider_operator_address
+      consumerSelfDelegateAddress: consumer_self_delegate_address
+      providerSelfDelegateAddress: provider_self_delegate_address
       validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-          self_delegate_address
-        }
         validatorDescriptions: validator_descriptions(limit: 1, order_by: {height: desc}) {
-          moniker
-          identity
+            moniker
+            identity
         }
       }
     }

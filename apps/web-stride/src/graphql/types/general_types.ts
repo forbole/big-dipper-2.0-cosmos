@@ -548,7 +548,6 @@ export type Bdjuno_Provider_ActionValidatorCommissionAmount = {
   coins?: Maybe<Array<Maybe<Scalars['bdjuno_provider_ActionCoin']>>>;
 };
 
-/** Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'. */
 export type Bdjuno_Provider_Boolean_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['Boolean']>;
   _gt?: InputMaybe<Scalars['Boolean']>;
@@ -561,7 +560,6 @@ export type Bdjuno_Provider_Boolean_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['Boolean']>>;
 };
 
-/** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
 export type Bdjuno_Provider_Int_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['Int']>;
   _gt?: InputMaybe<Scalars['Int']>;
@@ -574,40 +572,28 @@ export type Bdjuno_Provider_Int_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['Int']>>;
 };
 
-/** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
 export type Bdjuno_Provider_String_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['String']>;
   _gt?: InputMaybe<Scalars['String']>;
   _gte?: InputMaybe<Scalars['String']>;
-  /** does the column match the given case-insensitive pattern */
   _ilike?: InputMaybe<Scalars['String']>;
   _in?: InputMaybe<Array<Scalars['String']>>;
-  /** does the column match the given POSIX regular expression, case insensitive */
   _iregex?: InputMaybe<Scalars['String']>;
   _is_null?: InputMaybe<Scalars['Boolean']>;
-  /** does the column match the given pattern */
   _like?: InputMaybe<Scalars['String']>;
   _lt?: InputMaybe<Scalars['String']>;
   _lte?: InputMaybe<Scalars['String']>;
   _neq?: InputMaybe<Scalars['String']>;
-  /** does the column NOT match the given case-insensitive pattern */
   _nilike?: InputMaybe<Scalars['String']>;
   _nin?: InputMaybe<Array<Scalars['String']>>;
-  /** does the column NOT match the given POSIX regular expression, case insensitive */
   _niregex?: InputMaybe<Scalars['String']>;
-  /** does the column NOT match the given pattern */
   _nlike?: InputMaybe<Scalars['String']>;
-  /** does the column NOT match the given POSIX regular expression, case sensitive */
   _nregex?: InputMaybe<Scalars['String']>;
-  /** does the column NOT match the given SQL regular expression */
   _nsimilar?: InputMaybe<Scalars['String']>;
-  /** does the column match the given POSIX regular expression, case sensitive */
   _regex?: InputMaybe<Scalars['String']>;
-  /** does the column match the given SQL regular expression */
   _similar?: InputMaybe<Scalars['String']>;
 };
 
-/** Boolean expression to compare columns of type "_coin". All fields are combined with logical 'AND'. */
 export type Bdjuno_Provider__Coin_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['bdjuno_provider__coin']>;
   _gt?: InputMaybe<Scalars['bdjuno_provider__coin']>;
@@ -620,7 +606,6 @@ export type Bdjuno_Provider__Coin_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['bdjuno_provider__coin']>>;
 };
 
-/** Boolean expression to compare columns of type "_dec_coin". All fields are combined with logical 'AND'. */
 export type Bdjuno_Provider__Dec_Coin_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['bdjuno_provider__dec_coin']>;
   _gt?: InputMaybe<Scalars['bdjuno_provider__dec_coin']>;
@@ -633,7 +618,6 @@ export type Bdjuno_Provider__Dec_Coin_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['bdjuno_provider__dec_coin']>>;
 };
 
-/** Boolean expression to compare columns of type "_text". All fields are combined with logical 'AND'. */
 export type Bdjuno_Provider__Text_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['bdjuno_provider__text']>;
   _gt?: InputMaybe<Scalars['bdjuno_provider__text']>;
@@ -646,44 +630,27 @@ export type Bdjuno_Provider__Text_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['bdjuno_provider__text']>>;
 };
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_Account = {
   __typename?: 'bdjuno_provider_account';
   address: Scalars['String'];
-  /** An array relationship */
   feeGrantAllowancesByGranterAddress: Array<Bdjuno_Provider_Fee_Grant_Allowance>;
-  /** An aggregate relationship */
   feeGrantAllowancesByGranterAddress_aggregate: Bdjuno_Provider_Fee_Grant_Allowance_Aggregate;
-  /** An array relationship */
   fee_grant_allowances: Array<Bdjuno_Provider_Fee_Grant_Allowance>;
-  /** An aggregate relationship */
   fee_grant_allowances_aggregate: Bdjuno_Provider_Fee_Grant_Allowance_Aggregate;
-  /** An array relationship */
   proposal_deposits: Array<Bdjuno_Provider_Proposal_Deposit>;
-  /** An aggregate relationship */
   proposal_deposits_aggregate: Bdjuno_Provider_Proposal_Deposit_Aggregate;
-  /** An array relationship */
   proposal_votes: Array<Bdjuno_Provider_Proposal_Vote>;
-  /** An aggregate relationship */
   proposal_votes_aggregate: Bdjuno_Provider_Proposal_Vote_Aggregate;
-  /** An array relationship */
   proposals: Array<Bdjuno_Provider_Proposal>;
-  /** An aggregate relationship */
   proposals_aggregate: Bdjuno_Provider_Proposal_Aggregate;
-  /** An array relationship */
   validator_infos: Array<Bdjuno_Provider_Validator_Info>;
-  /** An aggregate relationship */
   validator_infos_aggregate: Bdjuno_Provider_Validator_Info_Aggregate;
-  /** An object relationship */
   vesting_account?: Maybe<Bdjuno_Provider_Vesting_Account>;
-  /** An array relationship */
   vesting_accounts: Array<Bdjuno_Provider_Vesting_Account>;
-  /** An aggregate relationship */
   vesting_accounts_aggregate: Bdjuno_Provider_Vesting_Account_Aggregate;
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountFeeGrantAllowancesByGranterAddressArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Fee_Grant_Allowance_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -693,7 +660,6 @@ export type Bdjuno_Provider_AccountFeeGrantAllowancesByGranterAddressArgs = {
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountFeeGrantAllowancesByGranterAddress_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Fee_Grant_Allowance_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -703,7 +669,6 @@ export type Bdjuno_Provider_AccountFeeGrantAllowancesByGranterAddress_AggregateA
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountFee_Grant_AllowancesArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Fee_Grant_Allowance_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -713,7 +678,6 @@ export type Bdjuno_Provider_AccountFee_Grant_AllowancesArgs = {
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountFee_Grant_Allowances_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Fee_Grant_Allowance_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -723,7 +687,6 @@ export type Bdjuno_Provider_AccountFee_Grant_Allowances_AggregateArgs = {
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountProposal_DepositsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Deposit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -733,7 +696,6 @@ export type Bdjuno_Provider_AccountProposal_DepositsArgs = {
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountProposal_Deposits_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Deposit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -743,7 +705,6 @@ export type Bdjuno_Provider_AccountProposal_Deposits_AggregateArgs = {
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountProposal_VotesArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Vote_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -753,7 +714,6 @@ export type Bdjuno_Provider_AccountProposal_VotesArgs = {
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountProposal_Votes_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Vote_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -763,7 +723,6 @@ export type Bdjuno_Provider_AccountProposal_Votes_AggregateArgs = {
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountProposalsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -773,7 +732,6 @@ export type Bdjuno_Provider_AccountProposalsArgs = {
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountProposals_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -783,7 +741,6 @@ export type Bdjuno_Provider_AccountProposals_AggregateArgs = {
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountValidator_InfosArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -793,7 +750,6 @@ export type Bdjuno_Provider_AccountValidator_InfosArgs = {
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountValidator_Infos_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -803,7 +759,6 @@ export type Bdjuno_Provider_AccountValidator_Infos_AggregateArgs = {
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountVesting_AccountsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Vesting_Account_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -813,7 +768,6 @@ export type Bdjuno_Provider_AccountVesting_AccountsArgs = {
 };
 
 
-/** columns and relationships of "account" */
 export type Bdjuno_Provider_AccountVesting_Accounts_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Vesting_Account_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -822,14 +776,12 @@ export type Bdjuno_Provider_AccountVesting_Accounts_AggregateArgs = {
   where?: InputMaybe<Bdjuno_Provider_Vesting_Account_Bool_Exp>;
 };
 
-/** aggregated selection of "account" */
 export type Bdjuno_Provider_Account_Aggregate = {
   __typename?: 'bdjuno_provider_account_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Account_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Account>;
 };
 
-/** aggregate fields of "account" */
 export type Bdjuno_Provider_Account_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_account_aggregate_fields';
   count: Scalars['Int'];
@@ -838,13 +790,11 @@ export type Bdjuno_Provider_Account_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "account" */
 export type Bdjuno_Provider_Account_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Account_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** Boolean expression to filter rows from the table "account". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Account_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Account_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Account_Bool_Exp>;
@@ -860,19 +810,16 @@ export type Bdjuno_Provider_Account_Bool_Exp = {
   vesting_accounts?: InputMaybe<Bdjuno_Provider_Vesting_Account_Bool_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Account_Max_Fields = {
   __typename?: 'bdjuno_provider_account_max_fields';
   address?: Maybe<Scalars['String']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Account_Min_Fields = {
   __typename?: 'bdjuno_provider_account_min_fields';
   address?: Maybe<Scalars['String']>;
 };
 
-/** Ordering options when selecting data from "account". */
 export type Bdjuno_Provider_Account_Order_By = {
   address?: InputMaybe<Bdjuno_Provider_Order_By>;
   feeGrantAllowancesByGranterAddress_aggregate?: InputMaybe<Bdjuno_Provider_Fee_Grant_Allowance_Aggregate_Order_By>;
@@ -885,27 +832,22 @@ export type Bdjuno_Provider_Account_Order_By = {
   vesting_accounts_aggregate?: InputMaybe<Bdjuno_Provider_Vesting_Account_Aggregate_Order_By>;
 };
 
-/** select columns of table "account" */
 export enum Bdjuno_Provider_Account_Select_Column {
-  /** column name */
   Address = 'address'
 }
 
-/** columns and relationships of "average_block_time_from_genesis" */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis = {
   __typename?: 'bdjuno_provider_average_block_time_from_genesis';
   average_time: Scalars['bdjuno_provider_numeric'];
   height: Scalars['bdjuno_provider_bigint'];
 };
 
-/** aggregated selection of "average_block_time_from_genesis" */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Aggregate = {
   __typename?: 'bdjuno_provider_average_block_time_from_genesis_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Average_Block_Time_From_Genesis_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Average_Block_Time_From_Genesis>;
 };
 
-/** aggregate fields of "average_block_time_from_genesis" */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_from_genesis_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Average_Block_Time_From_Genesis_Avg_Fields>;
@@ -922,20 +864,17 @@ export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "average_block_time_from_genesis" */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_From_Genesis_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Avg_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_from_genesis_avg_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "average_block_time_from_genesis". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_From_Genesis_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Average_Block_Time_From_Genesis_Bool_Exp>;
@@ -944,98 +883,82 @@ export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Bool_Exp = {
   height?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Max_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_from_genesis_max_fields';
   average_time?: Maybe<Scalars['bdjuno_provider_numeric']>;
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Min_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_from_genesis_min_fields';
   average_time?: Maybe<Scalars['bdjuno_provider_numeric']>;
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** Ordering options when selecting data from "average_block_time_from_genesis". */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Order_By = {
   average_time?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "average_block_time_from_genesis" */
 export enum Bdjuno_Provider_Average_Block_Time_From_Genesis_Select_Column {
-  /** column name */
   AverageTime = 'average_time',
-  /** column name */
   Height = 'height'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Stddev_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_from_genesis_stddev_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_from_genesis_stddev_pop_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_from_genesis_stddev_samp_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Sum_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_from_genesis_sum_fields';
   average_time?: Maybe<Scalars['bdjuno_provider_numeric']>;
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_from_genesis_var_pop_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_from_genesis_var_samp_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Average_Block_Time_From_Genesis_Variance_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_from_genesis_variance_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** columns and relationships of "average_block_time_per_day" */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day = {
   __typename?: 'bdjuno_provider_average_block_time_per_day';
   average_time: Scalars['bdjuno_provider_numeric'];
   height: Scalars['bdjuno_provider_bigint'];
 };
 
-/** aggregated selection of "average_block_time_per_day" */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Aggregate = {
   __typename?: 'bdjuno_provider_average_block_time_per_day_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Average_Block_Time_Per_Day_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Average_Block_Time_Per_Day>;
 };
 
-/** aggregate fields of "average_block_time_per_day" */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_day_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Average_Block_Time_Per_Day_Avg_Fields>;
@@ -1052,20 +975,17 @@ export type Bdjuno_Provider_Average_Block_Time_Per_Day_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "average_block_time_per_day" */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Day_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Avg_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_day_avg_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "average_block_time_per_day". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Day_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Average_Block_Time_Per_Day_Bool_Exp>;
@@ -1074,98 +994,82 @@ export type Bdjuno_Provider_Average_Block_Time_Per_Day_Bool_Exp = {
   height?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Max_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_day_max_fields';
   average_time?: Maybe<Scalars['bdjuno_provider_numeric']>;
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Min_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_day_min_fields';
   average_time?: Maybe<Scalars['bdjuno_provider_numeric']>;
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** Ordering options when selecting data from "average_block_time_per_day". */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Order_By = {
   average_time?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "average_block_time_per_day" */
 export enum Bdjuno_Provider_Average_Block_Time_Per_Day_Select_Column {
-  /** column name */
   AverageTime = 'average_time',
-  /** column name */
   Height = 'height'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Stddev_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_day_stddev_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_day_stddev_pop_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_day_stddev_samp_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Sum_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_day_sum_fields';
   average_time?: Maybe<Scalars['bdjuno_provider_numeric']>;
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_day_var_pop_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_day_var_samp_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Day_Variance_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_day_variance_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** columns and relationships of "average_block_time_per_hour" */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour = {
   __typename?: 'bdjuno_provider_average_block_time_per_hour';
   average_time: Scalars['bdjuno_provider_numeric'];
   height: Scalars['bdjuno_provider_bigint'];
 };
 
-/** aggregated selection of "average_block_time_per_hour" */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Aggregate = {
   __typename?: 'bdjuno_provider_average_block_time_per_hour_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Average_Block_Time_Per_Hour_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Average_Block_Time_Per_Hour>;
 };
 
-/** aggregate fields of "average_block_time_per_hour" */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_hour_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Average_Block_Time_Per_Hour_Avg_Fields>;
@@ -1182,20 +1086,17 @@ export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "average_block_time_per_hour" */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Hour_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Avg_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_hour_avg_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "average_block_time_per_hour". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Hour_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Average_Block_Time_Per_Hour_Bool_Exp>;
@@ -1204,98 +1105,82 @@ export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Bool_Exp = {
   height?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Max_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_hour_max_fields';
   average_time?: Maybe<Scalars['bdjuno_provider_numeric']>;
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Min_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_hour_min_fields';
   average_time?: Maybe<Scalars['bdjuno_provider_numeric']>;
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** Ordering options when selecting data from "average_block_time_per_hour". */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Order_By = {
   average_time?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "average_block_time_per_hour" */
 export enum Bdjuno_Provider_Average_Block_Time_Per_Hour_Select_Column {
-  /** column name */
   AverageTime = 'average_time',
-  /** column name */
   Height = 'height'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Stddev_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_hour_stddev_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_hour_stddev_pop_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_hour_stddev_samp_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Sum_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_hour_sum_fields';
   average_time?: Maybe<Scalars['bdjuno_provider_numeric']>;
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_hour_var_pop_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_hour_var_samp_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Hour_Variance_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_hour_variance_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** columns and relationships of "average_block_time_per_minute" */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute = {
   __typename?: 'bdjuno_provider_average_block_time_per_minute';
   average_time: Scalars['bdjuno_provider_numeric'];
   height: Scalars['bdjuno_provider_bigint'];
 };
 
-/** aggregated selection of "average_block_time_per_minute" */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Aggregate = {
   __typename?: 'bdjuno_provider_average_block_time_per_minute_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Average_Block_Time_Per_Minute_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Average_Block_Time_Per_Minute>;
 };
 
-/** aggregate fields of "average_block_time_per_minute" */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_minute_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Average_Block_Time_Per_Minute_Avg_Fields>;
@@ -1312,20 +1197,17 @@ export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "average_block_time_per_minute" */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Minute_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Avg_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_minute_avg_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "average_block_time_per_minute". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Minute_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Average_Block_Time_Per_Minute_Bool_Exp>;
@@ -1334,84 +1216,70 @@ export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Bool_Exp = {
   height?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Max_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_minute_max_fields';
   average_time?: Maybe<Scalars['bdjuno_provider_numeric']>;
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Min_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_minute_min_fields';
   average_time?: Maybe<Scalars['bdjuno_provider_numeric']>;
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** Ordering options when selecting data from "average_block_time_per_minute". */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Order_By = {
   average_time?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "average_block_time_per_minute" */
 export enum Bdjuno_Provider_Average_Block_Time_Per_Minute_Select_Column {
-  /** column name */
   AverageTime = 'average_time',
-  /** column name */
   Height = 'height'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Stddev_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_minute_stddev_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_minute_stddev_pop_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_minute_stddev_samp_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Sum_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_minute_sum_fields';
   average_time?: Maybe<Scalars['bdjuno_provider_numeric']>;
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_minute_var_pop_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_minute_var_samp_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Average_Block_Time_Per_Minute_Variance_Fields = {
   __typename?: 'bdjuno_provider_average_block_time_per_minute_variance_fields';
   average_time?: Maybe<Scalars['Float']>;
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to compare columns of type "bigint". All fields are combined with logical 'AND'. */
 export type Bdjuno_Provider_Bigint_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['bdjuno_provider_bigint']>;
   _gt?: InputMaybe<Scalars['bdjuno_provider_bigint']>;
@@ -1424,41 +1292,28 @@ export type Bdjuno_Provider_Bigint_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['bdjuno_provider_bigint']>>;
 };
 
-/** columns and relationships of "block" */
 export type Bdjuno_Provider_Block = {
   __typename?: 'bdjuno_provider_block';
   hash: Scalars['String'];
   height: Scalars['bdjuno_provider_bigint'];
   num_txs?: Maybe<Scalars['Int']>;
-  /** An array relationship */
   pre_commits: Array<Bdjuno_Provider_Pre_Commit>;
-  /** An aggregate relationship */
   pre_commits_aggregate: Bdjuno_Provider_Pre_Commit_Aggregate;
-  /** An array relationship */
   proposal_deposits: Array<Bdjuno_Provider_Proposal_Deposit>;
-  /** An aggregate relationship */
   proposal_deposits_aggregate: Bdjuno_Provider_Proposal_Deposit_Aggregate;
-  /** An array relationship */
   proposal_votes: Array<Bdjuno_Provider_Proposal_Vote>;
-  /** An aggregate relationship */
   proposal_votes_aggregate: Bdjuno_Provider_Proposal_Vote_Aggregate;
   proposer_address?: Maybe<Scalars['String']>;
   timestamp: Scalars['bdjuno_provider_timestamp'];
   total_gas?: Maybe<Scalars['bdjuno_provider_bigint']>;
-  /** An array relationship */
   transactions: Array<Bdjuno_Provider_Transaction>;
-  /** An aggregate relationship */
   transactions_aggregate: Bdjuno_Provider_Transaction_Aggregate;
-  /** An object relationship */
   validator?: Maybe<Bdjuno_Provider_Validator>;
-  /** An array relationship */
   validator_voting_powers: Array<Bdjuno_Provider_Validator_Voting_Power>;
-  /** An aggregate relationship */
   validator_voting_powers_aggregate: Bdjuno_Provider_Validator_Voting_Power_Aggregate;
 };
 
 
-/** columns and relationships of "block" */
 export type Bdjuno_Provider_BlockPre_CommitsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Pre_Commit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1468,7 +1323,6 @@ export type Bdjuno_Provider_BlockPre_CommitsArgs = {
 };
 
 
-/** columns and relationships of "block" */
 export type Bdjuno_Provider_BlockPre_Commits_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Pre_Commit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1478,7 +1332,6 @@ export type Bdjuno_Provider_BlockPre_Commits_AggregateArgs = {
 };
 
 
-/** columns and relationships of "block" */
 export type Bdjuno_Provider_BlockProposal_DepositsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Deposit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1488,7 +1341,6 @@ export type Bdjuno_Provider_BlockProposal_DepositsArgs = {
 };
 
 
-/** columns and relationships of "block" */
 export type Bdjuno_Provider_BlockProposal_Deposits_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Deposit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1498,7 +1350,6 @@ export type Bdjuno_Provider_BlockProposal_Deposits_AggregateArgs = {
 };
 
 
-/** columns and relationships of "block" */
 export type Bdjuno_Provider_BlockProposal_VotesArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Vote_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1508,7 +1359,6 @@ export type Bdjuno_Provider_BlockProposal_VotesArgs = {
 };
 
 
-/** columns and relationships of "block" */
 export type Bdjuno_Provider_BlockProposal_Votes_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Vote_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1518,7 +1368,6 @@ export type Bdjuno_Provider_BlockProposal_Votes_AggregateArgs = {
 };
 
 
-/** columns and relationships of "block" */
 export type Bdjuno_Provider_BlockTransactionsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Transaction_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1528,7 +1377,6 @@ export type Bdjuno_Provider_BlockTransactionsArgs = {
 };
 
 
-/** columns and relationships of "block" */
 export type Bdjuno_Provider_BlockTransactions_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Transaction_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1538,7 +1386,6 @@ export type Bdjuno_Provider_BlockTransactions_AggregateArgs = {
 };
 
 
-/** columns and relationships of "block" */
 export type Bdjuno_Provider_BlockValidator_Voting_PowersArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Voting_Power_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1548,7 +1395,6 @@ export type Bdjuno_Provider_BlockValidator_Voting_PowersArgs = {
 };
 
 
-/** columns and relationships of "block" */
 export type Bdjuno_Provider_BlockValidator_Voting_Powers_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Voting_Power_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1557,14 +1403,12 @@ export type Bdjuno_Provider_BlockValidator_Voting_Powers_AggregateArgs = {
   where?: InputMaybe<Bdjuno_Provider_Validator_Voting_Power_Bool_Exp>;
 };
 
-/** aggregated selection of "block" */
 export type Bdjuno_Provider_Block_Aggregate = {
   __typename?: 'bdjuno_provider_block_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Block_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Block>;
 };
 
-/** aggregate fields of "block" */
 export type Bdjuno_Provider_Block_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_block_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Block_Avg_Fields>;
@@ -1581,13 +1425,11 @@ export type Bdjuno_Provider_Block_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "block" */
 export type Bdjuno_Provider_Block_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Block_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "block" */
 export type Bdjuno_Provider_Block_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Block_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -1602,7 +1444,6 @@ export type Bdjuno_Provider_Block_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Block_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Block_Avg_Fields = {
   __typename?: 'bdjuno_provider_block_avg_fields';
   height?: Maybe<Scalars['Float']>;
@@ -1610,14 +1451,12 @@ export type Bdjuno_Provider_Block_Avg_Fields = {
   total_gas?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "block" */
 export type Bdjuno_Provider_Block_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   num_txs?: InputMaybe<Bdjuno_Provider_Order_By>;
   total_gas?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "block". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Block_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Block_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Block_Bool_Exp>;
@@ -1636,7 +1475,6 @@ export type Bdjuno_Provider_Block_Bool_Exp = {
   validator_voting_powers?: InputMaybe<Bdjuno_Provider_Validator_Voting_Power_Bool_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Block_Max_Fields = {
   __typename?: 'bdjuno_provider_block_max_fields';
   hash?: Maybe<Scalars['String']>;
@@ -1647,7 +1485,6 @@ export type Bdjuno_Provider_Block_Max_Fields = {
   total_gas?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by max() on columns of table "block" */
 export type Bdjuno_Provider_Block_Max_Order_By = {
   hash?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -1657,7 +1494,6 @@ export type Bdjuno_Provider_Block_Max_Order_By = {
   total_gas?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Block_Min_Fields = {
   __typename?: 'bdjuno_provider_block_min_fields';
   hash?: Maybe<Scalars['String']>;
@@ -1668,7 +1504,6 @@ export type Bdjuno_Provider_Block_Min_Fields = {
   total_gas?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by min() on columns of table "block" */
 export type Bdjuno_Provider_Block_Min_Order_By = {
   hash?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -1678,7 +1513,6 @@ export type Bdjuno_Provider_Block_Min_Order_By = {
   total_gas?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "block". */
 export type Bdjuno_Provider_Block_Order_By = {
   hash?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -1694,23 +1528,15 @@ export type Bdjuno_Provider_Block_Order_By = {
   validator_voting_powers_aggregate?: InputMaybe<Bdjuno_Provider_Validator_Voting_Power_Aggregate_Order_By>;
 };
 
-/** select columns of table "block" */
 export enum Bdjuno_Provider_Block_Select_Column {
-  /** column name */
   Hash = 'hash',
-  /** column name */
   Height = 'height',
-  /** column name */
   NumTxs = 'num_txs',
-  /** column name */
   ProposerAddress = 'proposer_address',
-  /** column name */
   Timestamp = 'timestamp',
-  /** column name */
   TotalGas = 'total_gas'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Block_Stddev_Fields = {
   __typename?: 'bdjuno_provider_block_stddev_fields';
   height?: Maybe<Scalars['Float']>;
@@ -1718,14 +1544,12 @@ export type Bdjuno_Provider_Block_Stddev_Fields = {
   total_gas?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "block" */
 export type Bdjuno_Provider_Block_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   num_txs?: InputMaybe<Bdjuno_Provider_Order_By>;
   total_gas?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Block_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_block_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -1733,14 +1557,12 @@ export type Bdjuno_Provider_Block_Stddev_Pop_Fields = {
   total_gas?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "block" */
 export type Bdjuno_Provider_Block_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   num_txs?: InputMaybe<Bdjuno_Provider_Order_By>;
   total_gas?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Block_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_block_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -1748,14 +1570,12 @@ export type Bdjuno_Provider_Block_Stddev_Samp_Fields = {
   total_gas?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "block" */
 export type Bdjuno_Provider_Block_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   num_txs?: InputMaybe<Bdjuno_Provider_Order_By>;
   total_gas?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Block_Sum_Fields = {
   __typename?: 'bdjuno_provider_block_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -1763,14 +1583,12 @@ export type Bdjuno_Provider_Block_Sum_Fields = {
   total_gas?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by sum() on columns of table "block" */
 export type Bdjuno_Provider_Block_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   num_txs?: InputMaybe<Bdjuno_Provider_Order_By>;
   total_gas?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Block_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_block_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -1778,14 +1596,12 @@ export type Bdjuno_Provider_Block_Var_Pop_Fields = {
   total_gas?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "block" */
 export type Bdjuno_Provider_Block_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   num_txs?: InputMaybe<Bdjuno_Provider_Order_By>;
   total_gas?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Block_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_block_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -1793,14 +1609,12 @@ export type Bdjuno_Provider_Block_Var_Samp_Fields = {
   total_gas?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "block" */
 export type Bdjuno_Provider_Block_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   num_txs?: InputMaybe<Bdjuno_Provider_Order_By>;
   total_gas?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Block_Variance_Fields = {
   __typename?: 'bdjuno_provider_block_variance_fields';
   height?: Maybe<Scalars['Float']>;
@@ -1808,28 +1622,24 @@ export type Bdjuno_Provider_Block_Variance_Fields = {
   total_gas?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "block" */
 export type Bdjuno_Provider_Block_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   num_txs?: InputMaybe<Bdjuno_Provider_Order_By>;
   total_gas?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "community_pool" */
 export type Bdjuno_Provider_Community_Pool = {
   __typename?: 'bdjuno_provider_community_pool';
   coins: Scalars['bdjuno_provider__dec_coin'];
   height: Scalars['bdjuno_provider_bigint'];
 };
 
-/** aggregated selection of "community_pool" */
 export type Bdjuno_Provider_Community_Pool_Aggregate = {
   __typename?: 'bdjuno_provider_community_pool_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Community_Pool_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Community_Pool>;
 };
 
-/** aggregate fields of "community_pool" */
 export type Bdjuno_Provider_Community_Pool_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_community_pool_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Community_Pool_Avg_Fields>;
@@ -1846,19 +1656,16 @@ export type Bdjuno_Provider_Community_Pool_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "community_pool" */
 export type Bdjuno_Provider_Community_Pool_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Community_Pool_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Community_Pool_Avg_Fields = {
   __typename?: 'bdjuno_provider_community_pool_avg_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "community_pool". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Community_Pool_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Community_Pool_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Community_Pool_Bool_Exp>;
@@ -1867,75 +1674,61 @@ export type Bdjuno_Provider_Community_Pool_Bool_Exp = {
   height?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Community_Pool_Max_Fields = {
   __typename?: 'bdjuno_provider_community_pool_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Community_Pool_Min_Fields = {
   __typename?: 'bdjuno_provider_community_pool_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** Ordering options when selecting data from "community_pool". */
 export type Bdjuno_Provider_Community_Pool_Order_By = {
   coins?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "community_pool" */
 export enum Bdjuno_Provider_Community_Pool_Select_Column {
-  /** column name */
   Coins = 'coins',
-  /** column name */
   Height = 'height'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Community_Pool_Stddev_Fields = {
   __typename?: 'bdjuno_provider_community_pool_stddev_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Community_Pool_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_community_pool_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Community_Pool_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_community_pool_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Community_Pool_Sum_Fields = {
   __typename?: 'bdjuno_provider_community_pool_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Community_Pool_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_community_pool_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Community_Pool_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_community_pool_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Community_Pool_Variance_Fields = {
   __typename?: 'bdjuno_provider_community_pool_variance_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** columns and relationships of "distribution_params" */
 export type Bdjuno_Provider_Distribution_Params = {
   __typename?: 'bdjuno_provider_distribution_params';
   height: Scalars['bdjuno_provider_bigint'];
@@ -1944,19 +1737,16 @@ export type Bdjuno_Provider_Distribution_Params = {
 };
 
 
-/** columns and relationships of "distribution_params" */
 export type Bdjuno_Provider_Distribution_ParamsParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
-/** aggregated selection of "distribution_params" */
 export type Bdjuno_Provider_Distribution_Params_Aggregate = {
   __typename?: 'bdjuno_provider_distribution_params_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Distribution_Params_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Distribution_Params>;
 };
 
-/** aggregate fields of "distribution_params" */
 export type Bdjuno_Provider_Distribution_Params_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_distribution_params_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Distribution_Params_Avg_Fields>;
@@ -1973,19 +1763,16 @@ export type Bdjuno_Provider_Distribution_Params_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "distribution_params" */
 export type Bdjuno_Provider_Distribution_Params_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Distribution_Params_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Distribution_Params_Avg_Fields = {
   __typename?: 'bdjuno_provider_distribution_params_avg_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "distribution_params". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Distribution_Params_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Distribution_Params_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Distribution_Params_Bool_Exp>;
@@ -1995,97 +1782,78 @@ export type Bdjuno_Provider_Distribution_Params_Bool_Exp = {
   params?: InputMaybe<Bdjuno_Provider_Jsonb_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Distribution_Params_Max_Fields = {
   __typename?: 'bdjuno_provider_distribution_params_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Distribution_Params_Min_Fields = {
   __typename?: 'bdjuno_provider_distribution_params_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** Ordering options when selecting data from "distribution_params". */
 export type Bdjuno_Provider_Distribution_Params_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   one_row_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   params?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "distribution_params" */
 export enum Bdjuno_Provider_Distribution_Params_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   OneRowId = 'one_row_id',
-  /** column name */
   Params = 'params'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Distribution_Params_Stddev_Fields = {
   __typename?: 'bdjuno_provider_distribution_params_stddev_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Distribution_Params_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_distribution_params_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Distribution_Params_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_distribution_params_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Distribution_Params_Sum_Fields = {
   __typename?: 'bdjuno_provider_distribution_params_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Distribution_Params_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_distribution_params_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Distribution_Params_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_distribution_params_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Distribution_Params_Variance_Fields = {
   __typename?: 'bdjuno_provider_distribution_params_variance_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** columns and relationships of "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence = {
   __typename?: 'bdjuno_provider_double_sign_evidence';
-  /** An object relationship */
   doubleSignVoteByVoteAId: Bdjuno_Provider_Double_Sign_Vote;
-  /** An object relationship */
   double_sign_vote: Bdjuno_Provider_Double_Sign_Vote;
   height: Scalars['bdjuno_provider_bigint'];
   vote_a_id: Scalars['bdjuno_provider_bigint'];
   vote_b_id: Scalars['bdjuno_provider_bigint'];
 };
 
-/** aggregated selection of "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Aggregate = {
   __typename?: 'bdjuno_provider_double_sign_evidence_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Double_Sign_Evidence_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Double_Sign_Evidence>;
 };
 
-/** aggregate fields of "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_double_sign_evidence_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Double_Sign_Evidence_Avg_Fields>;
@@ -2102,13 +1870,11 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Evidence_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Double_Sign_Evidence_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2123,7 +1889,6 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Double_Sign_Evidence_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Double_Sign_Evidence_Avg_Fields = {
   __typename?: 'bdjuno_provider_double_sign_evidence_avg_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2131,14 +1896,12 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Avg_Fields = {
   vote_b_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_a_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_b_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "double_sign_evidence". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Double_Sign_Evidence_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Evidence_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Double_Sign_Evidence_Bool_Exp>;
@@ -2150,7 +1913,6 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Bool_Exp = {
   vote_b_id?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Double_Sign_Evidence_Max_Fields = {
   __typename?: 'bdjuno_provider_double_sign_evidence_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -2158,14 +1920,12 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Max_Fields = {
   vote_b_id?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by max() on columns of table "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Max_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_a_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_b_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Double_Sign_Evidence_Min_Fields = {
   __typename?: 'bdjuno_provider_double_sign_evidence_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -2173,14 +1933,12 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Min_Fields = {
   vote_b_id?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by min() on columns of table "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Min_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_a_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_b_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "double_sign_evidence". */
 export type Bdjuno_Provider_Double_Sign_Evidence_Order_By = {
   doubleSignVoteByVoteAId?: InputMaybe<Bdjuno_Provider_Double_Sign_Vote_Order_By>;
   double_sign_vote?: InputMaybe<Bdjuno_Provider_Double_Sign_Vote_Order_By>;
@@ -2189,17 +1947,12 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Order_By = {
   vote_b_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "double_sign_evidence" */
 export enum Bdjuno_Provider_Double_Sign_Evidence_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   VoteAId = 'vote_a_id',
-  /** column name */
   VoteBId = 'vote_b_id'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Double_Sign_Evidence_Stddev_Fields = {
   __typename?: 'bdjuno_provider_double_sign_evidence_stddev_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2207,14 +1960,12 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Stddev_Fields = {
   vote_b_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_a_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_b_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Double_Sign_Evidence_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_double_sign_evidence_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2222,14 +1973,12 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Stddev_Pop_Fields = {
   vote_b_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_a_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_b_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Double_Sign_Evidence_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_double_sign_evidence_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2237,14 +1986,12 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Stddev_Samp_Fields = {
   vote_b_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_a_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_b_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Double_Sign_Evidence_Sum_Fields = {
   __typename?: 'bdjuno_provider_double_sign_evidence_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -2252,14 +1999,12 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Sum_Fields = {
   vote_b_id?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by sum() on columns of table "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_a_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_b_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Double_Sign_Evidence_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_double_sign_evidence_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2267,14 +2012,12 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Var_Pop_Fields = {
   vote_b_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_a_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_b_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Double_Sign_Evidence_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_double_sign_evidence_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2282,14 +2025,12 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Var_Samp_Fields = {
   vote_b_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_a_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_b_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Double_Sign_Evidence_Variance_Fields = {
   __typename?: 'bdjuno_provider_double_sign_evidence_variance_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2297,38 +2038,30 @@ export type Bdjuno_Provider_Double_Sign_Evidence_Variance_Fields = {
   vote_b_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "double_sign_evidence" */
 export type Bdjuno_Provider_Double_Sign_Evidence_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_a_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   vote_b_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote = {
   __typename?: 'bdjuno_provider_double_sign_vote';
   block_id: Scalars['String'];
-  /** An array relationship */
   doubleSignEvidencesByVoteBId: Array<Bdjuno_Provider_Double_Sign_Evidence>;
-  /** An aggregate relationship */
   doubleSignEvidencesByVoteBId_aggregate: Bdjuno_Provider_Double_Sign_Evidence_Aggregate;
-  /** An array relationship */
   double_sign_evidences: Array<Bdjuno_Provider_Double_Sign_Evidence>;
-  /** An aggregate relationship */
   double_sign_evidences_aggregate: Bdjuno_Provider_Double_Sign_Evidence_Aggregate;
   height: Scalars['bdjuno_provider_bigint'];
   id: Scalars['Int'];
   round: Scalars['Int'];
   signature: Scalars['String'];
   type: Scalars['bdjuno_provider_smallint'];
-  /** An object relationship */
   validator: Bdjuno_Provider_Validator;
   validator_address: Scalars['String'];
   validator_index: Scalars['Int'];
 };
 
 
-/** columns and relationships of "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_VoteDoubleSignEvidencesByVoteBIdArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Evidence_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2338,7 +2071,6 @@ export type Bdjuno_Provider_Double_Sign_VoteDoubleSignEvidencesByVoteBIdArgs = {
 };
 
 
-/** columns and relationships of "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_VoteDoubleSignEvidencesByVoteBId_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Evidence_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2348,7 +2080,6 @@ export type Bdjuno_Provider_Double_Sign_VoteDoubleSignEvidencesByVoteBId_Aggrega
 };
 
 
-/** columns and relationships of "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_VoteDouble_Sign_EvidencesArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Evidence_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2358,7 +2089,6 @@ export type Bdjuno_Provider_Double_Sign_VoteDouble_Sign_EvidencesArgs = {
 };
 
 
-/** columns and relationships of "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_VoteDouble_Sign_Evidences_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Evidence_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -2367,14 +2097,12 @@ export type Bdjuno_Provider_Double_Sign_VoteDouble_Sign_Evidences_AggregateArgs 
   where?: InputMaybe<Bdjuno_Provider_Double_Sign_Evidence_Bool_Exp>;
 };
 
-/** aggregated selection of "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Aggregate = {
   __typename?: 'bdjuno_provider_double_sign_vote_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Double_Sign_Vote_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Double_Sign_Vote>;
 };
 
-/** aggregate fields of "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_double_sign_vote_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Double_Sign_Vote_Avg_Fields>;
@@ -2391,13 +2119,11 @@ export type Bdjuno_Provider_Double_Sign_Vote_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Vote_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Double_Sign_Vote_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2412,7 +2138,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Double_Sign_Vote_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Double_Sign_Vote_Avg_Fields = {
   __typename?: 'bdjuno_provider_double_sign_vote_avg_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2422,7 +2147,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Avg_Fields = {
   validator_index?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2431,7 +2155,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Avg_Order_By = {
   validator_index?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "double_sign_vote". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Double_Sign_Vote_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Vote_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Double_Sign_Vote_Bool_Exp>;
@@ -2449,7 +2172,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Bool_Exp = {
   validator_index?: InputMaybe<Bdjuno_Provider_Int_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Double_Sign_Vote_Max_Fields = {
   __typename?: 'bdjuno_provider_double_sign_vote_max_fields';
   block_id?: Maybe<Scalars['String']>;
@@ -2462,7 +2184,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Max_Fields = {
   validator_index?: Maybe<Scalars['Int']>;
 };
 
-/** order by max() on columns of table "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Max_Order_By = {
   block_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2474,7 +2195,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Max_Order_By = {
   validator_index?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Double_Sign_Vote_Min_Fields = {
   __typename?: 'bdjuno_provider_double_sign_vote_min_fields';
   block_id?: Maybe<Scalars['String']>;
@@ -2487,7 +2207,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Min_Fields = {
   validator_index?: Maybe<Scalars['Int']>;
 };
 
-/** order by min() on columns of table "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Min_Order_By = {
   block_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2499,7 +2218,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Min_Order_By = {
   validator_index?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "double_sign_vote". */
 export type Bdjuno_Provider_Double_Sign_Vote_Order_By = {
   block_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   doubleSignEvidencesByVoteBId_aggregate?: InputMaybe<Bdjuno_Provider_Double_Sign_Evidence_Aggregate_Order_By>;
@@ -2514,27 +2232,17 @@ export type Bdjuno_Provider_Double_Sign_Vote_Order_By = {
   validator_index?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "double_sign_vote" */
 export enum Bdjuno_Provider_Double_Sign_Vote_Select_Column {
-  /** column name */
   BlockId = 'block_id',
-  /** column name */
   Height = 'height',
-  /** column name */
   Id = 'id',
-  /** column name */
   Round = 'round',
-  /** column name */
   Signature = 'signature',
-  /** column name */
   Type = 'type',
-  /** column name */
   ValidatorAddress = 'validator_address',
-  /** column name */
   ValidatorIndex = 'validator_index'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Double_Sign_Vote_Stddev_Fields = {
   __typename?: 'bdjuno_provider_double_sign_vote_stddev_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2544,7 +2252,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Stddev_Fields = {
   validator_index?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2553,7 +2260,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Stddev_Order_By = {
   validator_index?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Double_Sign_Vote_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_double_sign_vote_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2563,7 +2269,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Stddev_Pop_Fields = {
   validator_index?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2572,7 +2277,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Stddev_Pop_Order_By = {
   validator_index?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Double_Sign_Vote_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_double_sign_vote_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2582,7 +2286,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Stddev_Samp_Fields = {
   validator_index?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2591,7 +2294,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Stddev_Samp_Order_By = {
   validator_index?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Double_Sign_Vote_Sum_Fields = {
   __typename?: 'bdjuno_provider_double_sign_vote_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -2601,7 +2303,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Sum_Fields = {
   validator_index?: Maybe<Scalars['Int']>;
 };
 
-/** order by sum() on columns of table "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2610,7 +2311,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Sum_Order_By = {
   validator_index?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Double_Sign_Vote_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_double_sign_vote_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2620,7 +2320,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Var_Pop_Fields = {
   validator_index?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2629,7 +2328,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Var_Pop_Order_By = {
   validator_index?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Double_Sign_Vote_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_double_sign_vote_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2639,7 +2337,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Var_Samp_Fields = {
   validator_index?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2648,7 +2345,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Var_Samp_Order_By = {
   validator_index?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Double_Sign_Vote_Variance_Fields = {
   __typename?: 'bdjuno_provider_double_sign_vote_variance_fields';
   height?: Maybe<Scalars['Float']>;
@@ -2658,7 +2354,6 @@ export type Bdjuno_Provider_Double_Sign_Vote_Variance_Fields = {
   validator_index?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "double_sign_vote" */
 export type Bdjuno_Provider_Double_Sign_Vote_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2667,14 +2362,11 @@ export type Bdjuno_Provider_Double_Sign_Vote_Variance_Order_By = {
   validator_index?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance = {
   __typename?: 'bdjuno_provider_fee_grant_allowance';
   allowance: Scalars['bdjuno_provider_jsonb'];
-  /** An object relationship */
   grantee: Bdjuno_Provider_Account;
   grantee_address: Scalars['String'];
-  /** An object relationship */
   granter: Bdjuno_Provider_Account;
   granter_address: Scalars['String'];
   height: Scalars['bdjuno_provider_bigint'];
@@ -2682,19 +2374,16 @@ export type Bdjuno_Provider_Fee_Grant_Allowance = {
 };
 
 
-/** columns and relationships of "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_AllowanceAllowanceArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
-/** aggregated selection of "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Aggregate = {
   __typename?: 'bdjuno_provider_fee_grant_allowance_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Fee_Grant_Allowance_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Fee_Grant_Allowance>;
 };
 
-/** aggregate fields of "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_fee_grant_allowance_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Fee_Grant_Allowance_Avg_Fields>;
@@ -2711,13 +2400,11 @@ export type Bdjuno_Provider_Fee_Grant_Allowance_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Fee_Grant_Allowance_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Fee_Grant_Allowance_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2732,20 +2419,17 @@ export type Bdjuno_Provider_Fee_Grant_Allowance_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Fee_Grant_Allowance_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Avg_Fields = {
   __typename?: 'bdjuno_provider_fee_grant_allowance_avg_fields';
   height?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "fee_grant_allowance". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Fee_Grant_Allowance_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Fee_Grant_Allowance_Bool_Exp>;
@@ -2759,7 +2443,6 @@ export type Bdjuno_Provider_Fee_Grant_Allowance_Bool_Exp = {
   id?: InputMaybe<Bdjuno_Provider_Int_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Max_Fields = {
   __typename?: 'bdjuno_provider_fee_grant_allowance_max_fields';
   grantee_address?: Maybe<Scalars['String']>;
@@ -2768,7 +2451,6 @@ export type Bdjuno_Provider_Fee_Grant_Allowance_Max_Fields = {
   id?: Maybe<Scalars['Int']>;
 };
 
-/** order by max() on columns of table "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Max_Order_By = {
   grantee_address?: InputMaybe<Bdjuno_Provider_Order_By>;
   granter_address?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2776,7 +2458,6 @@ export type Bdjuno_Provider_Fee_Grant_Allowance_Max_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Min_Fields = {
   __typename?: 'bdjuno_provider_fee_grant_allowance_min_fields';
   grantee_address?: Maybe<Scalars['String']>;
@@ -2785,7 +2466,6 @@ export type Bdjuno_Provider_Fee_Grant_Allowance_Min_Fields = {
   id?: Maybe<Scalars['Int']>;
 };
 
-/** order by min() on columns of table "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Min_Order_By = {
   grantee_address?: InputMaybe<Bdjuno_Provider_Order_By>;
   granter_address?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -2793,7 +2473,6 @@ export type Bdjuno_Provider_Fee_Grant_Allowance_Min_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "fee_grant_allowance". */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Order_By = {
   allowance?: InputMaybe<Bdjuno_Provider_Order_By>;
   grantee?: InputMaybe<Bdjuno_Provider_Account_Order_By>;
@@ -2804,112 +2483,91 @@ export type Bdjuno_Provider_Fee_Grant_Allowance_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "fee_grant_allowance" */
 export enum Bdjuno_Provider_Fee_Grant_Allowance_Select_Column {
-  /** column name */
   Allowance = 'allowance',
-  /** column name */
   GranteeAddress = 'grantee_address',
-  /** column name */
   GranterAddress = 'granter_address',
-  /** column name */
   Height = 'height',
-  /** column name */
   Id = 'id'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Stddev_Fields = {
   __typename?: 'bdjuno_provider_fee_grant_allowance_stddev_fields';
   height?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_fee_grant_allowance_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_fee_grant_allowance_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Sum_Fields = {
   __typename?: 'bdjuno_provider_fee_grant_allowance_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
   id?: Maybe<Scalars['Int']>;
 };
 
-/** order by sum() on columns of table "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_fee_grant_allowance_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_fee_grant_allowance_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Variance_Fields = {
   __typename?: 'bdjuno_provider_fee_grant_allowance_variance_fields';
   height?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "fee_grant_allowance" */
 export type Bdjuno_Provider_Fee_Grant_Allowance_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "genesis" */
 export type Bdjuno_Provider_Genesis = {
   __typename?: 'bdjuno_provider_genesis';
   chain_id: Scalars['String'];
@@ -2917,14 +2575,12 @@ export type Bdjuno_Provider_Genesis = {
   time: Scalars['bdjuno_provider_timestamp'];
 };
 
-/** aggregated selection of "genesis" */
 export type Bdjuno_Provider_Genesis_Aggregate = {
   __typename?: 'bdjuno_provider_genesis_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Genesis_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Genesis>;
 };
 
-/** aggregate fields of "genesis" */
 export type Bdjuno_Provider_Genesis_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_genesis_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Genesis_Avg_Fields>;
@@ -2941,19 +2597,16 @@ export type Bdjuno_Provider_Genesis_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "genesis" */
 export type Bdjuno_Provider_Genesis_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Genesis_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Genesis_Avg_Fields = {
   __typename?: 'bdjuno_provider_genesis_avg_fields';
   initial_height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "genesis". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Genesis_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Genesis_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Genesis_Bool_Exp>;
@@ -2963,7 +2616,6 @@ export type Bdjuno_Provider_Genesis_Bool_Exp = {
   time?: InputMaybe<Bdjuno_Provider_Timestamp_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Genesis_Max_Fields = {
   __typename?: 'bdjuno_provider_genesis_max_fields';
   chain_id?: Maybe<Scalars['String']>;
@@ -2971,7 +2623,6 @@ export type Bdjuno_Provider_Genesis_Max_Fields = {
   time?: Maybe<Scalars['bdjuno_provider_timestamp']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Genesis_Min_Fields = {
   __typename?: 'bdjuno_provider_genesis_min_fields';
   chain_id?: Maybe<Scalars['String']>;
@@ -2979,66 +2630,53 @@ export type Bdjuno_Provider_Genesis_Min_Fields = {
   time?: Maybe<Scalars['bdjuno_provider_timestamp']>;
 };
 
-/** Ordering options when selecting data from "genesis". */
 export type Bdjuno_Provider_Genesis_Order_By = {
   chain_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   initial_height?: InputMaybe<Bdjuno_Provider_Order_By>;
   time?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "genesis" */
 export enum Bdjuno_Provider_Genesis_Select_Column {
-  /** column name */
   ChainId = 'chain_id',
-  /** column name */
   InitialHeight = 'initial_height',
-  /** column name */
   Time = 'time'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Genesis_Stddev_Fields = {
   __typename?: 'bdjuno_provider_genesis_stddev_fields';
   initial_height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Genesis_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_genesis_stddev_pop_fields';
   initial_height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Genesis_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_genesis_stddev_samp_fields';
   initial_height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Genesis_Sum_Fields = {
   __typename?: 'bdjuno_provider_genesis_sum_fields';
   initial_height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Genesis_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_genesis_var_pop_fields';
   initial_height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Genesis_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_genesis_var_samp_fields';
   initial_height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Genesis_Variance_Fields = {
   __typename?: 'bdjuno_provider_genesis_variance_fields';
   initial_height?: Maybe<Scalars['Float']>;
 };
 
-/** columns and relationships of "gov_params" */
 export type Bdjuno_Provider_Gov_Params = {
   __typename?: 'bdjuno_provider_gov_params';
   deposit_params: Scalars['bdjuno_provider_jsonb'];
@@ -3049,31 +2687,26 @@ export type Bdjuno_Provider_Gov_Params = {
 };
 
 
-/** columns and relationships of "gov_params" */
 export type Bdjuno_Provider_Gov_ParamsDeposit_ParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
 
-/** columns and relationships of "gov_params" */
 export type Bdjuno_Provider_Gov_ParamsTally_ParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
 
-/** columns and relationships of "gov_params" */
 export type Bdjuno_Provider_Gov_ParamsVoting_ParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
-/** aggregated selection of "gov_params" */
 export type Bdjuno_Provider_Gov_Params_Aggregate = {
   __typename?: 'bdjuno_provider_gov_params_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Gov_Params_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Gov_Params>;
 };
 
-/** aggregate fields of "gov_params" */
 export type Bdjuno_Provider_Gov_Params_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_gov_params_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Gov_Params_Avg_Fields>;
@@ -3090,19 +2723,16 @@ export type Bdjuno_Provider_Gov_Params_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "gov_params" */
 export type Bdjuno_Provider_Gov_Params_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Gov_Params_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Gov_Params_Avg_Fields = {
   __typename?: 'bdjuno_provider_gov_params_avg_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "gov_params". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Gov_Params_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Gov_Params_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Gov_Params_Bool_Exp>;
@@ -3114,19 +2744,16 @@ export type Bdjuno_Provider_Gov_Params_Bool_Exp = {
   voting_params?: InputMaybe<Bdjuno_Provider_Jsonb_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Gov_Params_Max_Fields = {
   __typename?: 'bdjuno_provider_gov_params_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Gov_Params_Min_Fields = {
   __typename?: 'bdjuno_provider_gov_params_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** Ordering options when selecting data from "gov_params". */
 export type Bdjuno_Provider_Gov_Params_Order_By = {
   deposit_params?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -3135,77 +2762,61 @@ export type Bdjuno_Provider_Gov_Params_Order_By = {
   voting_params?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "gov_params" */
 export enum Bdjuno_Provider_Gov_Params_Select_Column {
-  /** column name */
   DepositParams = 'deposit_params',
-  /** column name */
   Height = 'height',
-  /** column name */
   OneRowId = 'one_row_id',
-  /** column name */
   TallyParams = 'tally_params',
-  /** column name */
   VotingParams = 'voting_params'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Gov_Params_Stddev_Fields = {
   __typename?: 'bdjuno_provider_gov_params_stddev_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Gov_Params_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_gov_params_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Gov_Params_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_gov_params_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Gov_Params_Sum_Fields = {
   __typename?: 'bdjuno_provider_gov_params_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Gov_Params_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_gov_params_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Gov_Params_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_gov_params_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Gov_Params_Variance_Fields = {
   __typename?: 'bdjuno_provider_gov_params_variance_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** columns and relationships of "inflation" */
 export type Bdjuno_Provider_Inflation = {
   __typename?: 'bdjuno_provider_inflation';
   height: Scalars['bdjuno_provider_bigint'];
   value: Scalars['bdjuno_provider_numeric'];
 };
 
-/** aggregated selection of "inflation" */
 export type Bdjuno_Provider_Inflation_Aggregate = {
   __typename?: 'bdjuno_provider_inflation_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Inflation_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Inflation>;
 };
 
-/** aggregate fields of "inflation" */
 export type Bdjuno_Provider_Inflation_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_inflation_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Inflation_Avg_Fields>;
@@ -3222,20 +2833,17 @@ export type Bdjuno_Provider_Inflation_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "inflation" */
 export type Bdjuno_Provider_Inflation_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Inflation_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Inflation_Avg_Fields = {
   __typename?: 'bdjuno_provider_inflation_avg_fields';
   height?: Maybe<Scalars['Float']>;
   value?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "inflation". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Inflation_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Inflation_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Inflation_Bool_Exp>;
@@ -3244,97 +2852,78 @@ export type Bdjuno_Provider_Inflation_Bool_Exp = {
   value?: InputMaybe<Bdjuno_Provider_Numeric_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Inflation_Max_Fields = {
   __typename?: 'bdjuno_provider_inflation_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
   value?: Maybe<Scalars['bdjuno_provider_numeric']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Inflation_Min_Fields = {
   __typename?: 'bdjuno_provider_inflation_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
   value?: Maybe<Scalars['bdjuno_provider_numeric']>;
 };
 
-/** Ordering options when selecting data from "inflation". */
 export type Bdjuno_Provider_Inflation_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   value?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "inflation" */
 export enum Bdjuno_Provider_Inflation_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   Value = 'value'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Inflation_Stddev_Fields = {
   __typename?: 'bdjuno_provider_inflation_stddev_fields';
   height?: Maybe<Scalars['Float']>;
   value?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Inflation_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_inflation_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
   value?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Inflation_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_inflation_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
   value?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Inflation_Sum_Fields = {
   __typename?: 'bdjuno_provider_inflation_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
   value?: Maybe<Scalars['bdjuno_provider_numeric']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Inflation_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_inflation_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
   value?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Inflation_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_inflation_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
   value?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Inflation_Variance_Fields = {
   __typename?: 'bdjuno_provider_inflation_variance_fields';
   height?: Maybe<Scalars['Float']>;
   value?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to compare columns of type "jsonb". All fields are combined with logical 'AND'. */
 export type Bdjuno_Provider_Jsonb_Comparison_Exp = {
-  /** is the column contained in the given json value */
   _contained_in?: InputMaybe<Scalars['bdjuno_provider_jsonb']>;
-  /** does the column contain the given json value at the top level */
   _contains?: InputMaybe<Scalars['bdjuno_provider_jsonb']>;
   _eq?: InputMaybe<Scalars['bdjuno_provider_jsonb']>;
   _gt?: InputMaybe<Scalars['bdjuno_provider_jsonb']>;
   _gte?: InputMaybe<Scalars['bdjuno_provider_jsonb']>;
-  /** does the string exist as a top-level key in the column */
   _has_key?: InputMaybe<Scalars['String']>;
-  /** do all of these strings exist as top-level keys in the column */
   _has_keys_all?: InputMaybe<Array<Scalars['String']>>;
-  /** do any of these strings exist as top-level keys in the column */
   _has_keys_any?: InputMaybe<Array<Scalars['String']>>;
   _in?: InputMaybe<Array<Scalars['bdjuno_provider_jsonb']>>;
   _is_null?: InputMaybe<Scalars['Boolean']>;
@@ -3344,16 +2933,13 @@ export type Bdjuno_Provider_Jsonb_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['bdjuno_provider_jsonb']>>;
 };
 
-/** columns and relationships of "message" */
 export type Bdjuno_Provider_Message = {
   __typename?: 'bdjuno_provider_message';
   height: Scalars['bdjuno_provider_bigint'];
   index: Scalars['bdjuno_provider_bigint'];
   involved_accounts_addresses: Scalars['bdjuno_provider__text'];
   partition_id: Scalars['bdjuno_provider_bigint'];
-  /** An object relationship */
   transaction?: Maybe<Bdjuno_Provider_Transaction>;
-  /** An object relationship */
   transactionByPartitionIdTransactionHash?: Maybe<Bdjuno_Provider_Transaction>;
   transaction_hash: Scalars['String'];
   type: Scalars['String'];
@@ -3361,19 +2947,16 @@ export type Bdjuno_Provider_Message = {
 };
 
 
-/** columns and relationships of "message" */
 export type Bdjuno_Provider_MessageValueArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
-/** aggregated selection of "message" */
 export type Bdjuno_Provider_Message_Aggregate = {
   __typename?: 'bdjuno_provider_message_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Message_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Message>;
 };
 
-/** aggregate fields of "message" */
 export type Bdjuno_Provider_Message_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_message_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Message_Avg_Fields>;
@@ -3390,13 +2973,11 @@ export type Bdjuno_Provider_Message_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "message" */
 export type Bdjuno_Provider_Message_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Message_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "message" */
 export type Bdjuno_Provider_Message_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Message_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -3411,7 +2992,6 @@ export type Bdjuno_Provider_Message_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Message_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Message_Avg_Fields = {
   __typename?: 'bdjuno_provider_message_avg_fields';
   height?: Maybe<Scalars['Float']>;
@@ -3419,14 +2999,12 @@ export type Bdjuno_Provider_Message_Avg_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "message" */
 export type Bdjuno_Provider_Message_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index?: InputMaybe<Bdjuno_Provider_Order_By>;
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "message". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Message_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Message_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Message_Bool_Exp>;
@@ -3442,7 +3020,6 @@ export type Bdjuno_Provider_Message_Bool_Exp = {
   value?: InputMaybe<Bdjuno_Provider_Jsonb_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Message_Max_Fields = {
   __typename?: 'bdjuno_provider_message_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -3452,7 +3029,6 @@ export type Bdjuno_Provider_Message_Max_Fields = {
   type?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "message" */
 export type Bdjuno_Provider_Message_Max_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -3461,7 +3037,6 @@ export type Bdjuno_Provider_Message_Max_Order_By = {
   type?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Message_Min_Fields = {
   __typename?: 'bdjuno_provider_message_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -3471,7 +3046,6 @@ export type Bdjuno_Provider_Message_Min_Fields = {
   type?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "message" */
 export type Bdjuno_Provider_Message_Min_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -3480,7 +3054,6 @@ export type Bdjuno_Provider_Message_Min_Order_By = {
   type?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "message". */
 export type Bdjuno_Provider_Message_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -3493,25 +3066,16 @@ export type Bdjuno_Provider_Message_Order_By = {
   value?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "message" */
 export enum Bdjuno_Provider_Message_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   Index = 'index',
-  /** column name */
   InvolvedAccountsAddresses = 'involved_accounts_addresses',
-  /** column name */
   PartitionId = 'partition_id',
-  /** column name */
   TransactionHash = 'transaction_hash',
-  /** column name */
   Type = 'type',
-  /** column name */
   Value = 'value'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Message_Stddev_Fields = {
   __typename?: 'bdjuno_provider_message_stddev_fields';
   height?: Maybe<Scalars['Float']>;
@@ -3519,14 +3083,12 @@ export type Bdjuno_Provider_Message_Stddev_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "message" */
 export type Bdjuno_Provider_Message_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index?: InputMaybe<Bdjuno_Provider_Order_By>;
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Message_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_message_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -3534,14 +3096,12 @@ export type Bdjuno_Provider_Message_Stddev_Pop_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "message" */
 export type Bdjuno_Provider_Message_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index?: InputMaybe<Bdjuno_Provider_Order_By>;
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Message_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_message_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -3549,14 +3109,12 @@ export type Bdjuno_Provider_Message_Stddev_Samp_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "message" */
 export type Bdjuno_Provider_Message_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index?: InputMaybe<Bdjuno_Provider_Order_By>;
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Message_Sum_Fields = {
   __typename?: 'bdjuno_provider_message_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -3564,14 +3122,12 @@ export type Bdjuno_Provider_Message_Sum_Fields = {
   partition_id?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by sum() on columns of table "message" */
 export type Bdjuno_Provider_Message_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index?: InputMaybe<Bdjuno_Provider_Order_By>;
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Message_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_message_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -3579,14 +3135,12 @@ export type Bdjuno_Provider_Message_Var_Pop_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "message" */
 export type Bdjuno_Provider_Message_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index?: InputMaybe<Bdjuno_Provider_Order_By>;
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Message_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_message_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -3594,14 +3148,12 @@ export type Bdjuno_Provider_Message_Var_Samp_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "message" */
 export type Bdjuno_Provider_Message_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index?: InputMaybe<Bdjuno_Provider_Order_By>;
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Message_Variance_Fields = {
   __typename?: 'bdjuno_provider_message_variance_fields';
   height?: Maybe<Scalars['Float']>;
@@ -3609,7 +3161,6 @@ export type Bdjuno_Provider_Message_Variance_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "message" */
 export type Bdjuno_Provider_Message_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -3623,7 +3174,6 @@ export type Bdjuno_Provider_Messages_By_Address_Args = {
   types?: InputMaybe<Scalars['bdjuno_provider__text']>;
 };
 
-/** columns and relationships of "mint_params" */
 export type Bdjuno_Provider_Mint_Params = {
   __typename?: 'bdjuno_provider_mint_params';
   height: Scalars['bdjuno_provider_bigint'];
@@ -3632,19 +3182,16 @@ export type Bdjuno_Provider_Mint_Params = {
 };
 
 
-/** columns and relationships of "mint_params" */
 export type Bdjuno_Provider_Mint_ParamsParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
-/** aggregated selection of "mint_params" */
 export type Bdjuno_Provider_Mint_Params_Aggregate = {
   __typename?: 'bdjuno_provider_mint_params_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Mint_Params_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Mint_Params>;
 };
 
-/** aggregate fields of "mint_params" */
 export type Bdjuno_Provider_Mint_Params_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_mint_params_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Mint_Params_Avg_Fields>;
@@ -3661,19 +3208,16 @@ export type Bdjuno_Provider_Mint_Params_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "mint_params" */
 export type Bdjuno_Provider_Mint_Params_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Mint_Params_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Mint_Params_Avg_Fields = {
   __typename?: 'bdjuno_provider_mint_params_avg_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "mint_params". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Mint_Params_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Mint_Params_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Mint_Params_Bool_Exp>;
@@ -3683,91 +3227,74 @@ export type Bdjuno_Provider_Mint_Params_Bool_Exp = {
   params?: InputMaybe<Bdjuno_Provider_Jsonb_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Mint_Params_Max_Fields = {
   __typename?: 'bdjuno_provider_mint_params_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Mint_Params_Min_Fields = {
   __typename?: 'bdjuno_provider_mint_params_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** Ordering options when selecting data from "mint_params". */
 export type Bdjuno_Provider_Mint_Params_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   one_row_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   params?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "mint_params" */
 export enum Bdjuno_Provider_Mint_Params_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   OneRowId = 'one_row_id',
-  /** column name */
   Params = 'params'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Mint_Params_Stddev_Fields = {
   __typename?: 'bdjuno_provider_mint_params_stddev_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Mint_Params_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_mint_params_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Mint_Params_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_mint_params_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Mint_Params_Sum_Fields = {
   __typename?: 'bdjuno_provider_mint_params_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Mint_Params_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_mint_params_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Mint_Params_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_mint_params_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Mint_Params_Variance_Fields = {
   __typename?: 'bdjuno_provider_mint_params_variance_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** columns and relationships of "modules" */
 export type Bdjuno_Provider_Modules = {
   __typename?: 'bdjuno_provider_modules';
   module_name: Scalars['String'];
 };
 
-/** aggregated selection of "modules" */
 export type Bdjuno_Provider_Modules_Aggregate = {
   __typename?: 'bdjuno_provider_modules_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Modules_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Modules>;
 };
 
-/** aggregate fields of "modules" */
 export type Bdjuno_Provider_Modules_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_modules_aggregate_fields';
   count: Scalars['Int'];
@@ -3776,13 +3303,11 @@ export type Bdjuno_Provider_Modules_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "modules" */
 export type Bdjuno_Provider_Modules_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Modules_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** Boolean expression to filter rows from the table "modules". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Modules_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Modules_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Modules_Bool_Exp>;
@@ -3790,30 +3315,24 @@ export type Bdjuno_Provider_Modules_Bool_Exp = {
   module_name?: InputMaybe<Bdjuno_Provider_String_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Modules_Max_Fields = {
   __typename?: 'bdjuno_provider_modules_max_fields';
   module_name?: Maybe<Scalars['String']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Modules_Min_Fields = {
   __typename?: 'bdjuno_provider_modules_min_fields';
   module_name?: Maybe<Scalars['String']>;
 };
 
-/** Ordering options when selecting data from "modules". */
 export type Bdjuno_Provider_Modules_Order_By = {
   module_name?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "modules" */
 export enum Bdjuno_Provider_Modules_Select_Column {
-  /** column name */
   ModuleName = 'module_name'
 }
 
-/** Boolean expression to compare columns of type "numeric". All fields are combined with logical 'AND'. */
 export type Bdjuno_Provider_Numeric_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['bdjuno_provider_numeric']>;
   _gt?: InputMaybe<Scalars['bdjuno_provider_numeric']>;
@@ -3826,42 +3345,31 @@ export type Bdjuno_Provider_Numeric_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['bdjuno_provider_numeric']>>;
 };
 
-/** column ordering options */
 export enum Bdjuno_Provider_Order_By {
-  /** in ascending order, nulls last */
   Asc = 'asc',
-  /** in ascending order, nulls first */
   AscNullsFirst = 'asc_nulls_first',
-  /** in ascending order, nulls last */
   AscNullsLast = 'asc_nulls_last',
-  /** in descending order, nulls first */
   Desc = 'desc',
-  /** in descending order, nulls first */
   DescNullsFirst = 'desc_nulls_first',
-  /** in descending order, nulls last */
   DescNullsLast = 'desc_nulls_last'
 }
 
-/** columns and relationships of "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit = {
   __typename?: 'bdjuno_provider_pre_commit';
   height: Scalars['bdjuno_provider_bigint'];
   proposer_priority: Scalars['bdjuno_provider_bigint'];
   timestamp: Scalars['bdjuno_provider_timestamp'];
-  /** An object relationship */
   validator: Bdjuno_Provider_Validator;
   validator_address: Scalars['String'];
   voting_power: Scalars['bdjuno_provider_bigint'];
 };
 
-/** aggregated selection of "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Aggregate = {
   __typename?: 'bdjuno_provider_pre_commit_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Pre_Commit_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Pre_Commit>;
 };
 
-/** aggregate fields of "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_pre_commit_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Pre_Commit_Avg_Fields>;
@@ -3878,13 +3386,11 @@ export type Bdjuno_Provider_Pre_Commit_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Pre_Commit_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Pre_Commit_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -3899,7 +3405,6 @@ export type Bdjuno_Provider_Pre_Commit_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Pre_Commit_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Pre_Commit_Avg_Fields = {
   __typename?: 'bdjuno_provider_pre_commit_avg_fields';
   height?: Maybe<Scalars['Float']>;
@@ -3907,14 +3412,12 @@ export type Bdjuno_Provider_Pre_Commit_Avg_Fields = {
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposer_priority?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "pre_commit". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Pre_Commit_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Pre_Commit_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Pre_Commit_Bool_Exp>;
@@ -3927,7 +3430,6 @@ export type Bdjuno_Provider_Pre_Commit_Bool_Exp = {
   voting_power?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Pre_Commit_Max_Fields = {
   __typename?: 'bdjuno_provider_pre_commit_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -3937,7 +3439,6 @@ export type Bdjuno_Provider_Pre_Commit_Max_Fields = {
   voting_power?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by max() on columns of table "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Max_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposer_priority?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -3946,7 +3447,6 @@ export type Bdjuno_Provider_Pre_Commit_Max_Order_By = {
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Pre_Commit_Min_Fields = {
   __typename?: 'bdjuno_provider_pre_commit_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -3956,7 +3456,6 @@ export type Bdjuno_Provider_Pre_Commit_Min_Fields = {
   voting_power?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by min() on columns of table "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Min_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposer_priority?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -3965,7 +3464,6 @@ export type Bdjuno_Provider_Pre_Commit_Min_Order_By = {
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "pre_commit". */
 export type Bdjuno_Provider_Pre_Commit_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposer_priority?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -3975,21 +3473,14 @@ export type Bdjuno_Provider_Pre_Commit_Order_By = {
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "pre_commit" */
 export enum Bdjuno_Provider_Pre_Commit_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   ProposerPriority = 'proposer_priority',
-  /** column name */
   Timestamp = 'timestamp',
-  /** column name */
   ValidatorAddress = 'validator_address',
-  /** column name */
   VotingPower = 'voting_power'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Pre_Commit_Stddev_Fields = {
   __typename?: 'bdjuno_provider_pre_commit_stddev_fields';
   height?: Maybe<Scalars['Float']>;
@@ -3997,14 +3488,12 @@ export type Bdjuno_Provider_Pre_Commit_Stddev_Fields = {
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposer_priority?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Pre_Commit_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_pre_commit_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -4012,14 +3501,12 @@ export type Bdjuno_Provider_Pre_Commit_Stddev_Pop_Fields = {
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposer_priority?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Pre_Commit_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_pre_commit_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -4027,14 +3514,12 @@ export type Bdjuno_Provider_Pre_Commit_Stddev_Samp_Fields = {
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposer_priority?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Pre_Commit_Sum_Fields = {
   __typename?: 'bdjuno_provider_pre_commit_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -4042,14 +3527,12 @@ export type Bdjuno_Provider_Pre_Commit_Sum_Fields = {
   voting_power?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by sum() on columns of table "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposer_priority?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Pre_Commit_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_pre_commit_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -4057,14 +3540,12 @@ export type Bdjuno_Provider_Pre_Commit_Var_Pop_Fields = {
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposer_priority?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Pre_Commit_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_pre_commit_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -4072,14 +3553,12 @@ export type Bdjuno_Provider_Pre_Commit_Var_Samp_Fields = {
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposer_priority?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Pre_Commit_Variance_Fields = {
   __typename?: 'bdjuno_provider_pre_commit_variance_fields';
   height?: Maybe<Scalars['Float']>;
@@ -4087,60 +3566,45 @@ export type Bdjuno_Provider_Pre_Commit_Variance_Fields = {
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "pre_commit" */
 export type Bdjuno_Provider_Pre_Commit_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposer_priority?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "proposal" */
 export type Bdjuno_Provider_Proposal = {
   __typename?: 'bdjuno_provider_proposal';
   content: Scalars['bdjuno_provider_jsonb'];
   deposit_end_time?: Maybe<Scalars['bdjuno_provider_timestamp']>;
   description: Scalars['String'];
   id: Scalars['Int'];
-  /** An array relationship */
   proposal_deposits: Array<Bdjuno_Provider_Proposal_Deposit>;
-  /** An aggregate relationship */
   proposal_deposits_aggregate: Bdjuno_Provider_Proposal_Deposit_Aggregate;
   proposal_route: Scalars['String'];
-  /** An object relationship */
   proposal_tally_result?: Maybe<Bdjuno_Provider_Proposal_Tally_Result>;
-  /** An array relationship */
   proposal_tally_results: Array<Bdjuno_Provider_Proposal_Tally_Result>;
-  /** An aggregate relationship */
   proposal_tally_results_aggregate: Bdjuno_Provider_Proposal_Tally_Result_Aggregate;
   proposal_type: Scalars['String'];
-  /** An array relationship */
   proposal_votes: Array<Bdjuno_Provider_Proposal_Vote>;
-  /** An aggregate relationship */
   proposal_votes_aggregate: Bdjuno_Provider_Proposal_Vote_Aggregate;
-  /** An object relationship */
   proposer: Bdjuno_Provider_Account;
   proposer_address: Scalars['String'];
-  /** An object relationship */
   staking_pool_snapshot?: Maybe<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot>;
   status?: Maybe<Scalars['String']>;
   submit_time: Scalars['bdjuno_provider_timestamp'];
   title: Scalars['String'];
-  /** An array relationship */
   validator_status_snapshots: Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot>;
-  /** An aggregate relationship */
   validator_status_snapshots_aggregate: Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Aggregate;
   voting_end_time?: Maybe<Scalars['bdjuno_provider_timestamp']>;
   voting_start_time?: Maybe<Scalars['bdjuno_provider_timestamp']>;
 };
 
 
-/** columns and relationships of "proposal" */
 export type Bdjuno_Provider_ProposalContentArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
 
-/** columns and relationships of "proposal" */
 export type Bdjuno_Provider_ProposalProposal_DepositsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Deposit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4150,7 +3614,6 @@ export type Bdjuno_Provider_ProposalProposal_DepositsArgs = {
 };
 
 
-/** columns and relationships of "proposal" */
 export type Bdjuno_Provider_ProposalProposal_Deposits_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Deposit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4160,7 +3623,6 @@ export type Bdjuno_Provider_ProposalProposal_Deposits_AggregateArgs = {
 };
 
 
-/** columns and relationships of "proposal" */
 export type Bdjuno_Provider_ProposalProposal_Tally_ResultsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Tally_Result_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4170,7 +3632,6 @@ export type Bdjuno_Provider_ProposalProposal_Tally_ResultsArgs = {
 };
 
 
-/** columns and relationships of "proposal" */
 export type Bdjuno_Provider_ProposalProposal_Tally_Results_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Tally_Result_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4180,7 +3641,6 @@ export type Bdjuno_Provider_ProposalProposal_Tally_Results_AggregateArgs = {
 };
 
 
-/** columns and relationships of "proposal" */
 export type Bdjuno_Provider_ProposalProposal_VotesArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Vote_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4190,7 +3650,6 @@ export type Bdjuno_Provider_ProposalProposal_VotesArgs = {
 };
 
 
-/** columns and relationships of "proposal" */
 export type Bdjuno_Provider_ProposalProposal_Votes_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Vote_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4200,7 +3659,6 @@ export type Bdjuno_Provider_ProposalProposal_Votes_AggregateArgs = {
 };
 
 
-/** columns and relationships of "proposal" */
 export type Bdjuno_Provider_ProposalValidator_Status_SnapshotsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4210,7 +3668,6 @@ export type Bdjuno_Provider_ProposalValidator_Status_SnapshotsArgs = {
 };
 
 
-/** columns and relationships of "proposal" */
 export type Bdjuno_Provider_ProposalValidator_Status_Snapshots_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4219,14 +3676,12 @@ export type Bdjuno_Provider_ProposalValidator_Status_Snapshots_AggregateArgs = {
   where?: InputMaybe<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
-/** aggregated selection of "proposal" */
 export type Bdjuno_Provider_Proposal_Aggregate = {
   __typename?: 'bdjuno_provider_proposal_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Proposal_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Proposal>;
 };
 
-/** aggregate fields of "proposal" */
 export type Bdjuno_Provider_Proposal_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_proposal_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Proposal_Avg_Fields>;
@@ -4243,13 +3698,11 @@ export type Bdjuno_Provider_Proposal_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "proposal" */
 export type Bdjuno_Provider_Proposal_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Proposal_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "proposal" */
 export type Bdjuno_Provider_Proposal_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Proposal_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -4264,18 +3717,15 @@ export type Bdjuno_Provider_Proposal_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Proposal_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Proposal_Avg_Fields = {
   __typename?: 'bdjuno_provider_proposal_avg_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "proposal" */
 export type Bdjuno_Provider_Proposal_Avg_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "proposal". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Proposal_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Proposal_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Proposal_Bool_Exp>;
@@ -4301,30 +3751,24 @@ export type Bdjuno_Provider_Proposal_Bool_Exp = {
   voting_start_time?: InputMaybe<Bdjuno_Provider_Timestamp_Comparison_Exp>;
 };
 
-/** columns and relationships of "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit = {
   __typename?: 'bdjuno_provider_proposal_deposit';
   amount?: Maybe<Scalars['bdjuno_provider__coin']>;
-  /** An object relationship */
   block?: Maybe<Bdjuno_Provider_Block>;
-  /** An object relationship */
   depositor?: Maybe<Bdjuno_Provider_Account>;
   depositor_address?: Maybe<Scalars['String']>;
   height: Scalars['bdjuno_provider_bigint'];
-  /** An object relationship */
   proposal: Bdjuno_Provider_Proposal;
   proposal_id: Scalars['Int'];
   timestamp?: Maybe<Scalars['bdjuno_provider_timestamptz']>;
 };
 
-/** aggregated selection of "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Aggregate = {
   __typename?: 'bdjuno_provider_proposal_deposit_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Proposal_Deposit_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Proposal_Deposit>;
 };
 
-/** aggregate fields of "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_proposal_deposit_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Proposal_Deposit_Avg_Fields>;
@@ -4341,13 +3785,11 @@ export type Bdjuno_Provider_Proposal_Deposit_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Proposal_Deposit_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Proposal_Deposit_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -4362,20 +3804,17 @@ export type Bdjuno_Provider_Proposal_Deposit_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Proposal_Deposit_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Proposal_Deposit_Avg_Fields = {
   __typename?: 'bdjuno_provider_proposal_deposit_avg_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "proposal_deposit". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Proposal_Deposit_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Proposal_Deposit_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Proposal_Deposit_Bool_Exp>;
@@ -4390,7 +3829,6 @@ export type Bdjuno_Provider_Proposal_Deposit_Bool_Exp = {
   timestamp?: InputMaybe<Bdjuno_Provider_Timestamptz_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Proposal_Deposit_Max_Fields = {
   __typename?: 'bdjuno_provider_proposal_deposit_max_fields';
   depositor_address?: Maybe<Scalars['String']>;
@@ -4399,7 +3837,6 @@ export type Bdjuno_Provider_Proposal_Deposit_Max_Fields = {
   timestamp?: Maybe<Scalars['bdjuno_provider_timestamptz']>;
 };
 
-/** order by max() on columns of table "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Max_Order_By = {
   depositor_address?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -4407,7 +3844,6 @@ export type Bdjuno_Provider_Proposal_Deposit_Max_Order_By = {
   timestamp?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Proposal_Deposit_Min_Fields = {
   __typename?: 'bdjuno_provider_proposal_deposit_min_fields';
   depositor_address?: Maybe<Scalars['String']>;
@@ -4416,7 +3852,6 @@ export type Bdjuno_Provider_Proposal_Deposit_Min_Fields = {
   timestamp?: Maybe<Scalars['bdjuno_provider_timestamptz']>;
 };
 
-/** order by min() on columns of table "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Min_Order_By = {
   depositor_address?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -4424,7 +3859,6 @@ export type Bdjuno_Provider_Proposal_Deposit_Min_Order_By = {
   timestamp?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "proposal_deposit". */
 export type Bdjuno_Provider_Proposal_Deposit_Order_By = {
   amount?: InputMaybe<Bdjuno_Provider_Order_By>;
   block?: InputMaybe<Bdjuno_Provider_Block_Order_By>;
@@ -4436,112 +3870,91 @@ export type Bdjuno_Provider_Proposal_Deposit_Order_By = {
   timestamp?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "proposal_deposit" */
 export enum Bdjuno_Provider_Proposal_Deposit_Select_Column {
-  /** column name */
   Amount = 'amount',
-  /** column name */
   DepositorAddress = 'depositor_address',
-  /** column name */
   Height = 'height',
-  /** column name */
   ProposalId = 'proposal_id',
-  /** column name */
   Timestamp = 'timestamp'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Proposal_Deposit_Stddev_Fields = {
   __typename?: 'bdjuno_provider_proposal_deposit_stddev_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Proposal_Deposit_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_proposal_deposit_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Proposal_Deposit_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_proposal_deposit_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Proposal_Deposit_Sum_Fields = {
   __typename?: 'bdjuno_provider_proposal_deposit_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
-/** order by sum() on columns of table "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Proposal_Deposit_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_proposal_deposit_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Proposal_Deposit_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_proposal_deposit_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Proposal_Deposit_Variance_Fields = {
   __typename?: 'bdjuno_provider_proposal_deposit_variance_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "proposal_deposit" */
 export type Bdjuno_Provider_Proposal_Deposit_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Proposal_Max_Fields = {
   __typename?: 'bdjuno_provider_proposal_max_fields';
   deposit_end_time?: Maybe<Scalars['bdjuno_provider_timestamp']>;
@@ -4557,7 +3970,6 @@ export type Bdjuno_Provider_Proposal_Max_Fields = {
   voting_start_time?: Maybe<Scalars['bdjuno_provider_timestamp']>;
 };
 
-/** order by max() on columns of table "proposal" */
 export type Bdjuno_Provider_Proposal_Max_Order_By = {
   deposit_end_time?: InputMaybe<Bdjuno_Provider_Order_By>;
   description?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -4572,7 +3984,6 @@ export type Bdjuno_Provider_Proposal_Max_Order_By = {
   voting_start_time?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Proposal_Min_Fields = {
   __typename?: 'bdjuno_provider_proposal_min_fields';
   deposit_end_time?: Maybe<Scalars['bdjuno_provider_timestamp']>;
@@ -4588,7 +3999,6 @@ export type Bdjuno_Provider_Proposal_Min_Fields = {
   voting_start_time?: Maybe<Scalars['bdjuno_provider_timestamp']>;
 };
 
-/** order by min() on columns of table "proposal" */
 export type Bdjuno_Provider_Proposal_Min_Order_By = {
   deposit_end_time?: InputMaybe<Bdjuno_Provider_Order_By>;
   description?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -4603,7 +4013,6 @@ export type Bdjuno_Provider_Proposal_Min_Order_By = {
   voting_start_time?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "proposal". */
 export type Bdjuno_Provider_Proposal_Order_By = {
   content?: InputMaybe<Bdjuno_Provider_Order_By>;
   deposit_end_time?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -4626,53 +4035,36 @@ export type Bdjuno_Provider_Proposal_Order_By = {
   voting_start_time?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "proposal" */
 export enum Bdjuno_Provider_Proposal_Select_Column {
-  /** column name */
   Content = 'content',
-  /** column name */
   DepositEndTime = 'deposit_end_time',
-  /** column name */
   Description = 'description',
-  /** column name */
   Id = 'id',
-  /** column name */
   ProposalRoute = 'proposal_route',
-  /** column name */
   ProposalType = 'proposal_type',
-  /** column name */
   ProposerAddress = 'proposer_address',
-  /** column name */
   Status = 'status',
-  /** column name */
   SubmitTime = 'submit_time',
-  /** column name */
   Title = 'title',
-  /** column name */
   VotingEndTime = 'voting_end_time',
-  /** column name */
   VotingStartTime = 'voting_start_time'
 }
 
-/** columns and relationships of "proposal_staking_pool_snapshot" */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot = {
   __typename?: 'bdjuno_provider_proposal_staking_pool_snapshot';
   bonded_tokens: Scalars['String'];
   height: Scalars['bdjuno_provider_bigint'];
   not_bonded_tokens: Scalars['String'];
-  /** An object relationship */
   proposal: Bdjuno_Provider_Proposal;
   proposal_id: Scalars['Int'];
 };
 
-/** aggregated selection of "proposal_staking_pool_snapshot" */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Aggregate = {
   __typename?: 'bdjuno_provider_proposal_staking_pool_snapshot_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot>;
 };
 
-/** aggregate fields of "proposal_staking_pool_snapshot" */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_proposal_staking_pool_snapshot_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Avg_Fields>;
@@ -4689,20 +4081,17 @@ export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "proposal_staking_pool_snapshot" */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Avg_Fields = {
   __typename?: 'bdjuno_provider_proposal_staking_pool_snapshot_avg_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "proposal_staking_pool_snapshot". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Bool_Exp>;
@@ -4714,7 +4103,6 @@ export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Bool_Exp = {
   proposal_id?: InputMaybe<Bdjuno_Provider_Int_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Max_Fields = {
   __typename?: 'bdjuno_provider_proposal_staking_pool_snapshot_max_fields';
   bonded_tokens?: Maybe<Scalars['String']>;
@@ -4723,7 +4111,6 @@ export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Max_Fields = {
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Min_Fields = {
   __typename?: 'bdjuno_provider_proposal_staking_pool_snapshot_min_fields';
   bonded_tokens?: Maybe<Scalars['String']>;
@@ -4732,7 +4119,6 @@ export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Min_Fields = {
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
-/** Ordering options when selecting data from "proposal_staking_pool_snapshot". */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Order_By = {
   bonded_tokens?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -4741,132 +4127,108 @@ export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Order_By = {
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "proposal_staking_pool_snapshot" */
 export enum Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Select_Column {
-  /** column name */
   BondedTokens = 'bonded_tokens',
-  /** column name */
   Height = 'height',
-  /** column name */
   NotBondedTokens = 'not_bonded_tokens',
-  /** column name */
   ProposalId = 'proposal_id'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Stddev_Fields = {
   __typename?: 'bdjuno_provider_proposal_staking_pool_snapshot_stddev_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_proposal_staking_pool_snapshot_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_proposal_staking_pool_snapshot_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Sum_Fields = {
   __typename?: 'bdjuno_provider_proposal_staking_pool_snapshot_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_proposal_staking_pool_snapshot_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_proposal_staking_pool_snapshot_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Variance_Fields = {
   __typename?: 'bdjuno_provider_proposal_staking_pool_snapshot_variance_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Proposal_Stddev_Fields = {
   __typename?: 'bdjuno_provider_proposal_stddev_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "proposal" */
 export type Bdjuno_Provider_Proposal_Stddev_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Proposal_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_proposal_stddev_pop_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "proposal" */
 export type Bdjuno_Provider_Proposal_Stddev_Pop_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Proposal_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_proposal_stddev_samp_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "proposal" */
 export type Bdjuno_Provider_Proposal_Stddev_Samp_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Proposal_Sum_Fields = {
   __typename?: 'bdjuno_provider_proposal_sum_fields';
   id?: Maybe<Scalars['Int']>;
 };
 
-/** order by sum() on columns of table "proposal" */
 export type Bdjuno_Provider_Proposal_Sum_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result = {
   __typename?: 'bdjuno_provider_proposal_tally_result';
   abstain: Scalars['String'];
   height: Scalars['bdjuno_provider_bigint'];
   no: Scalars['String'];
   no_with_veto: Scalars['String'];
-  /** An object relationship */
   proposal: Bdjuno_Provider_Proposal;
   proposal_id: Scalars['Int'];
   yes: Scalars['String'];
 };
 
-/** aggregated selection of "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Aggregate = {
   __typename?: 'bdjuno_provider_proposal_tally_result_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Proposal_Tally_Result_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Proposal_Tally_Result>;
 };
 
-/** aggregate fields of "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_proposal_tally_result_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Proposal_Tally_Result_Avg_Fields>;
@@ -4883,13 +4245,11 @@ export type Bdjuno_Provider_Proposal_Tally_Result_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Proposal_Tally_Result_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Proposal_Tally_Result_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -4904,20 +4264,17 @@ export type Bdjuno_Provider_Proposal_Tally_Result_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Proposal_Tally_Result_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Proposal_Tally_Result_Avg_Fields = {
   __typename?: 'bdjuno_provider_proposal_tally_result_avg_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "proposal_tally_result". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Proposal_Tally_Result_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Proposal_Tally_Result_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Proposal_Tally_Result_Bool_Exp>;
@@ -4931,7 +4288,6 @@ export type Bdjuno_Provider_Proposal_Tally_Result_Bool_Exp = {
   yes?: InputMaybe<Bdjuno_Provider_String_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Proposal_Tally_Result_Max_Fields = {
   __typename?: 'bdjuno_provider_proposal_tally_result_max_fields';
   abstain?: Maybe<Scalars['String']>;
@@ -4942,7 +4298,6 @@ export type Bdjuno_Provider_Proposal_Tally_Result_Max_Fields = {
   yes?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Max_Order_By = {
   abstain?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -4952,7 +4307,6 @@ export type Bdjuno_Provider_Proposal_Tally_Result_Max_Order_By = {
   yes?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Proposal_Tally_Result_Min_Fields = {
   __typename?: 'bdjuno_provider_proposal_tally_result_min_fields';
   abstain?: Maybe<Scalars['String']>;
@@ -4963,7 +4317,6 @@ export type Bdjuno_Provider_Proposal_Tally_Result_Min_Fields = {
   yes?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Min_Order_By = {
   abstain?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -4973,7 +4326,6 @@ export type Bdjuno_Provider_Proposal_Tally_Result_Min_Order_By = {
   yes?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "proposal_tally_result". */
 export type Bdjuno_Provider_Proposal_Tally_Result_Order_By = {
   abstain?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -4984,137 +4336,111 @@ export type Bdjuno_Provider_Proposal_Tally_Result_Order_By = {
   yes?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "proposal_tally_result" */
 export enum Bdjuno_Provider_Proposal_Tally_Result_Select_Column {
-  /** column name */
   Abstain = 'abstain',
-  /** column name */
   Height = 'height',
-  /** column name */
   No = 'no',
-  /** column name */
   NoWithVeto = 'no_with_veto',
-  /** column name */
   ProposalId = 'proposal_id',
-  /** column name */
   Yes = 'yes'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Proposal_Tally_Result_Stddev_Fields = {
   __typename?: 'bdjuno_provider_proposal_tally_result_stddev_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Proposal_Tally_Result_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_proposal_tally_result_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Proposal_Tally_Result_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_proposal_tally_result_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Proposal_Tally_Result_Sum_Fields = {
   __typename?: 'bdjuno_provider_proposal_tally_result_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
-/** order by sum() on columns of table "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Proposal_Tally_Result_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_proposal_tally_result_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Proposal_Tally_Result_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_proposal_tally_result_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Proposal_Tally_Result_Variance_Fields = {
   __typename?: 'bdjuno_provider_proposal_tally_result_variance_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "proposal_tally_result" */
 export type Bdjuno_Provider_Proposal_Tally_Result_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot';
   height: Scalars['bdjuno_provider_bigint'];
   id: Scalars['Int'];
   jailed: Scalars['Boolean'];
-  /** An object relationship */
   proposal?: Maybe<Bdjuno_Provider_Proposal>;
   proposal_id?: Maybe<Scalars['Int']>;
   status: Scalars['Int'];
-  /** An object relationship */
   validator: Bdjuno_Provider_Validator;
   validator_address: Scalars['String'];
   voting_power: Scalars['bdjuno_provider_bigint'];
 };
 
-/** aggregated selection of "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Aggregate = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot>;
 };
 
-/** aggregate fields of "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Avg_Fields>;
@@ -5131,13 +4457,11 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Aggregate_Fields 
 };
 
 
-/** aggregate fields of "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5152,7 +4476,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Aggregate_Order_B
   variance?: InputMaybe<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Avg_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_avg_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5162,7 +4485,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Avg_Fields = {
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5171,7 +4493,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Avg_Order_By = {
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "proposal_validator_status_snapshot". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Bool_Exp>;
@@ -5187,7 +4508,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Bool_Exp = {
   voting_power?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Max_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -5198,7 +4518,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Max_Fields = {
   voting_power?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by max() on columns of table "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Max_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5208,7 +4527,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Max_Order_By = {
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Min_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -5219,7 +4537,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Min_Fields = {
   voting_power?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by min() on columns of table "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Min_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5229,7 +4546,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Min_Order_By = {
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "proposal_validator_status_snapshot". */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5242,25 +4558,16 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Order_By = {
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "proposal_validator_status_snapshot" */
 export enum Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   Id = 'id',
-  /** column name */
   Jailed = 'jailed',
-  /** column name */
   ProposalId = 'proposal_id',
-  /** column name */
   Status = 'status',
-  /** column name */
   ValidatorAddress = 'validator_address',
-  /** column name */
   VotingPower = 'voting_power'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Stddev_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_stddev_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5270,7 +4577,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Stddev_Fields = {
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5279,7 +4585,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Stddev_Order_By =
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5289,7 +4594,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Stddev_Pop_Fields
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5298,7 +4602,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Stddev_Pop_Order_
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5308,7 +4611,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Stddev_Samp_Field
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5317,7 +4619,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Stddev_Samp_Order
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Sum_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -5327,7 +4628,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Sum_Fields = {
   voting_power?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by sum() on columns of table "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5336,7 +4636,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Sum_Order_By = {
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5346,7 +4645,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Var_Pop_Fields = 
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5355,7 +4653,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Var_Pop_Order_By 
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5365,7 +4662,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Var_Samp_Fields =
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5374,7 +4670,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Var_Samp_Order_By
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Variance_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_variance_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5384,7 +4679,6 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Variance_Fields =
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "proposal_validator_status_snapshot" */
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5393,63 +4687,51 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Variance_Order_By
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Proposal_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_proposal_var_pop_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "proposal" */
 export type Bdjuno_Provider_Proposal_Var_Pop_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Proposal_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_proposal_var_samp_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "proposal" */
 export type Bdjuno_Provider_Proposal_Var_Samp_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Proposal_Variance_Fields = {
   __typename?: 'bdjuno_provider_proposal_variance_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "proposal" */
 export type Bdjuno_Provider_Proposal_Variance_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote = {
   __typename?: 'bdjuno_provider_proposal_vote';
-  /** An object relationship */
   account: Bdjuno_Provider_Account;
-  /** An object relationship */
   block: Bdjuno_Provider_Block;
   height: Scalars['bdjuno_provider_bigint'];
   option: Scalars['String'];
-  /** An object relationship */
   proposal: Bdjuno_Provider_Proposal;
   proposal_id: Scalars['Int'];
   timestamp?: Maybe<Scalars['bdjuno_provider_timestamptz']>;
   voter_address: Scalars['String'];
 };
 
-/** aggregated selection of "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Aggregate = {
   __typename?: 'bdjuno_provider_proposal_vote_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Proposal_Vote_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Proposal_Vote>;
 };
 
-/** aggregate fields of "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_proposal_vote_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Proposal_Vote_Avg_Fields>;
@@ -5466,13 +4748,11 @@ export type Bdjuno_Provider_Proposal_Vote_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Proposal_Vote_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Proposal_Vote_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5487,20 +4767,17 @@ export type Bdjuno_Provider_Proposal_Vote_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Proposal_Vote_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Proposal_Vote_Avg_Fields = {
   __typename?: 'bdjuno_provider_proposal_vote_avg_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "proposal_vote". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Proposal_Vote_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Proposal_Vote_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Proposal_Vote_Bool_Exp>;
@@ -5515,7 +4792,6 @@ export type Bdjuno_Provider_Proposal_Vote_Bool_Exp = {
   voter_address?: InputMaybe<Bdjuno_Provider_String_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Proposal_Vote_Max_Fields = {
   __typename?: 'bdjuno_provider_proposal_vote_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -5525,7 +4801,6 @@ export type Bdjuno_Provider_Proposal_Vote_Max_Fields = {
   voter_address?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Max_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   option?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5534,7 +4809,6 @@ export type Bdjuno_Provider_Proposal_Vote_Max_Order_By = {
   voter_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Proposal_Vote_Min_Fields = {
   __typename?: 'bdjuno_provider_proposal_vote_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -5544,7 +4818,6 @@ export type Bdjuno_Provider_Proposal_Vote_Min_Fields = {
   voter_address?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Min_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   option?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5553,7 +4826,6 @@ export type Bdjuno_Provider_Proposal_Vote_Min_Order_By = {
   voter_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "proposal_vote". */
 export type Bdjuno_Provider_Proposal_Vote_Order_By = {
   account?: InputMaybe<Bdjuno_Provider_Account_Order_By>;
   block?: InputMaybe<Bdjuno_Provider_Block_Order_By>;
@@ -5565,112 +4837,91 @@ export type Bdjuno_Provider_Proposal_Vote_Order_By = {
   voter_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "proposal_vote" */
 export enum Bdjuno_Provider_Proposal_Vote_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   Option = 'option',
-  /** column name */
   ProposalId = 'proposal_id',
-  /** column name */
   Timestamp = 'timestamp',
-  /** column name */
   VoterAddress = 'voter_address'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Proposal_Vote_Stddev_Fields = {
   __typename?: 'bdjuno_provider_proposal_vote_stddev_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Proposal_Vote_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_proposal_vote_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Proposal_Vote_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_proposal_vote_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Proposal_Vote_Sum_Fields = {
   __typename?: 'bdjuno_provider_proposal_vote_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
 };
 
-/** order by sum() on columns of table "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Proposal_Vote_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_proposal_vote_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Proposal_Vote_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_proposal_vote_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Proposal_Vote_Variance_Fields = {
   __typename?: 'bdjuno_provider_proposal_vote_variance_fields';
   height?: Maybe<Scalars['Float']>;
   proposal_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "proposal_vote" */
 export type Bdjuno_Provider_Proposal_Vote_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "slashing_params" */
 export type Bdjuno_Provider_Slashing_Params = {
   __typename?: 'bdjuno_provider_slashing_params';
   height: Scalars['bdjuno_provider_bigint'];
@@ -5679,19 +4930,16 @@ export type Bdjuno_Provider_Slashing_Params = {
 };
 
 
-/** columns and relationships of "slashing_params" */
 export type Bdjuno_Provider_Slashing_ParamsParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
-/** aggregated selection of "slashing_params" */
 export type Bdjuno_Provider_Slashing_Params_Aggregate = {
   __typename?: 'bdjuno_provider_slashing_params_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Slashing_Params_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Slashing_Params>;
 };
 
-/** aggregate fields of "slashing_params" */
 export type Bdjuno_Provider_Slashing_Params_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_slashing_params_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Slashing_Params_Avg_Fields>;
@@ -5708,19 +4956,16 @@ export type Bdjuno_Provider_Slashing_Params_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "slashing_params" */
 export type Bdjuno_Provider_Slashing_Params_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Slashing_Params_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Slashing_Params_Avg_Fields = {
   __typename?: 'bdjuno_provider_slashing_params_avg_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "slashing_params". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Slashing_Params_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Slashing_Params_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Slashing_Params_Bool_Exp>;
@@ -5730,78 +4975,63 @@ export type Bdjuno_Provider_Slashing_Params_Bool_Exp = {
   params?: InputMaybe<Bdjuno_Provider_Jsonb_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Slashing_Params_Max_Fields = {
   __typename?: 'bdjuno_provider_slashing_params_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Slashing_Params_Min_Fields = {
   __typename?: 'bdjuno_provider_slashing_params_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** Ordering options when selecting data from "slashing_params". */
 export type Bdjuno_Provider_Slashing_Params_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   one_row_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   params?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "slashing_params" */
 export enum Bdjuno_Provider_Slashing_Params_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   OneRowId = 'one_row_id',
-  /** column name */
   Params = 'params'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Slashing_Params_Stddev_Fields = {
   __typename?: 'bdjuno_provider_slashing_params_stddev_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Slashing_Params_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_slashing_params_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Slashing_Params_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_slashing_params_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Slashing_Params_Sum_Fields = {
   __typename?: 'bdjuno_provider_slashing_params_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Slashing_Params_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_slashing_params_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Slashing_Params_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_slashing_params_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Slashing_Params_Variance_Fields = {
   __typename?: 'bdjuno_provider_slashing_params_variance_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to compare columns of type "smallint". All fields are combined with logical 'AND'. */
 export type Bdjuno_Provider_Smallint_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['bdjuno_provider_smallint']>;
   _gt?: InputMaybe<Scalars['bdjuno_provider_smallint']>;
@@ -5814,26 +5044,22 @@ export type Bdjuno_Provider_Smallint_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['bdjuno_provider_smallint']>>;
 };
 
-/** columns and relationships of "software_upgrade_plan" */
 export type Bdjuno_Provider_Software_Upgrade_Plan = {
   __typename?: 'bdjuno_provider_software_upgrade_plan';
   height: Scalars['bdjuno_provider_bigint'];
   info: Scalars['String'];
   plan_name: Scalars['String'];
-  /** An object relationship */
   proposal?: Maybe<Bdjuno_Provider_Proposal>;
   proposal_id?: Maybe<Scalars['Int']>;
   upgrade_height: Scalars['bdjuno_provider_bigint'];
 };
 
-/** aggregated selection of "software_upgrade_plan" */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Aggregate = {
   __typename?: 'bdjuno_provider_software_upgrade_plan_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Software_Upgrade_Plan_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Software_Upgrade_Plan>;
 };
 
-/** aggregate fields of "software_upgrade_plan" */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_software_upgrade_plan_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Software_Upgrade_Plan_Avg_Fields>;
@@ -5850,13 +5076,11 @@ export type Bdjuno_Provider_Software_Upgrade_Plan_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "software_upgrade_plan" */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Software_Upgrade_Plan_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Avg_Fields = {
   __typename?: 'bdjuno_provider_software_upgrade_plan_avg_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5864,7 +5088,6 @@ export type Bdjuno_Provider_Software_Upgrade_Plan_Avg_Fields = {
   upgrade_height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "software_upgrade_plan". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Software_Upgrade_Plan_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Software_Upgrade_Plan_Bool_Exp>;
@@ -5877,7 +5100,6 @@ export type Bdjuno_Provider_Software_Upgrade_Plan_Bool_Exp = {
   upgrade_height?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Max_Fields = {
   __typename?: 'bdjuno_provider_software_upgrade_plan_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -5887,7 +5109,6 @@ export type Bdjuno_Provider_Software_Upgrade_Plan_Max_Fields = {
   upgrade_height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Min_Fields = {
   __typename?: 'bdjuno_provider_software_upgrade_plan_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -5897,7 +5118,6 @@ export type Bdjuno_Provider_Software_Upgrade_Plan_Min_Fields = {
   upgrade_height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** Ordering options when selecting data from "software_upgrade_plan". */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   info?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -5907,21 +5127,14 @@ export type Bdjuno_Provider_Software_Upgrade_Plan_Order_By = {
   upgrade_height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "software_upgrade_plan" */
 export enum Bdjuno_Provider_Software_Upgrade_Plan_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   Info = 'info',
-  /** column name */
   PlanName = 'plan_name',
-  /** column name */
   ProposalId = 'proposal_id',
-  /** column name */
   UpgradeHeight = 'upgrade_height'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Stddev_Fields = {
   __typename?: 'bdjuno_provider_software_upgrade_plan_stddev_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5929,7 +5142,6 @@ export type Bdjuno_Provider_Software_Upgrade_Plan_Stddev_Fields = {
   upgrade_height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_software_upgrade_plan_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5937,7 +5149,6 @@ export type Bdjuno_Provider_Software_Upgrade_Plan_Stddev_Pop_Fields = {
   upgrade_height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_software_upgrade_plan_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5945,7 +5156,6 @@ export type Bdjuno_Provider_Software_Upgrade_Plan_Stddev_Samp_Fields = {
   upgrade_height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Sum_Fields = {
   __typename?: 'bdjuno_provider_software_upgrade_plan_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -5953,7 +5163,6 @@ export type Bdjuno_Provider_Software_Upgrade_Plan_Sum_Fields = {
   upgrade_height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_software_upgrade_plan_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5961,7 +5170,6 @@ export type Bdjuno_Provider_Software_Upgrade_Plan_Var_Pop_Fields = {
   upgrade_height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_software_upgrade_plan_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5969,7 +5177,6 @@ export type Bdjuno_Provider_Software_Upgrade_Plan_Var_Samp_Fields = {
   upgrade_height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Software_Upgrade_Plan_Variance_Fields = {
   __typename?: 'bdjuno_provider_software_upgrade_plan_variance_fields';
   height?: Maybe<Scalars['Float']>;
@@ -5977,7 +5184,6 @@ export type Bdjuno_Provider_Software_Upgrade_Plan_Variance_Fields = {
   upgrade_height?: Maybe<Scalars['Float']>;
 };
 
-/** columns and relationships of "staking_params" */
 export type Bdjuno_Provider_Staking_Params = {
   __typename?: 'bdjuno_provider_staking_params';
   height: Scalars['bdjuno_provider_bigint'];
@@ -5986,19 +5192,16 @@ export type Bdjuno_Provider_Staking_Params = {
 };
 
 
-/** columns and relationships of "staking_params" */
 export type Bdjuno_Provider_Staking_ParamsParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
-/** aggregated selection of "staking_params" */
 export type Bdjuno_Provider_Staking_Params_Aggregate = {
   __typename?: 'bdjuno_provider_staking_params_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Staking_Params_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Staking_Params>;
 };
 
-/** aggregate fields of "staking_params" */
 export type Bdjuno_Provider_Staking_Params_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_staking_params_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Staking_Params_Avg_Fields>;
@@ -6015,19 +5218,16 @@ export type Bdjuno_Provider_Staking_Params_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "staking_params" */
 export type Bdjuno_Provider_Staking_Params_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Staking_Params_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Staking_Params_Avg_Fields = {
   __typename?: 'bdjuno_provider_staking_params_avg_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "staking_params". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Staking_Params_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Staking_Params_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Staking_Params_Bool_Exp>;
@@ -6037,78 +5237,63 @@ export type Bdjuno_Provider_Staking_Params_Bool_Exp = {
   params?: InputMaybe<Bdjuno_Provider_Jsonb_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Staking_Params_Max_Fields = {
   __typename?: 'bdjuno_provider_staking_params_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Staking_Params_Min_Fields = {
   __typename?: 'bdjuno_provider_staking_params_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** Ordering options when selecting data from "staking_params". */
 export type Bdjuno_Provider_Staking_Params_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   one_row_id?: InputMaybe<Bdjuno_Provider_Order_By>;
   params?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "staking_params" */
 export enum Bdjuno_Provider_Staking_Params_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   OneRowId = 'one_row_id',
-  /** column name */
   Params = 'params'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Staking_Params_Stddev_Fields = {
   __typename?: 'bdjuno_provider_staking_params_stddev_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Staking_Params_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_staking_params_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Staking_Params_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_staking_params_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Staking_Params_Sum_Fields = {
   __typename?: 'bdjuno_provider_staking_params_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Staking_Params_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_staking_params_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Staking_Params_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_staking_params_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Staking_Params_Variance_Fields = {
   __typename?: 'bdjuno_provider_staking_params_variance_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** columns and relationships of "staking_pool" */
 export type Bdjuno_Provider_Staking_Pool = {
   __typename?: 'bdjuno_provider_staking_pool';
   bonded_tokens: Scalars['String'];
@@ -6118,14 +5303,12 @@ export type Bdjuno_Provider_Staking_Pool = {
   unbonding_tokens?: Maybe<Scalars['String']>;
 };
 
-/** aggregated selection of "staking_pool" */
 export type Bdjuno_Provider_Staking_Pool_Aggregate = {
   __typename?: 'bdjuno_provider_staking_pool_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Staking_Pool_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Staking_Pool>;
 };
 
-/** aggregate fields of "staking_pool" */
 export type Bdjuno_Provider_Staking_Pool_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_staking_pool_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Staking_Pool_Avg_Fields>;
@@ -6142,19 +5325,16 @@ export type Bdjuno_Provider_Staking_Pool_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "staking_pool" */
 export type Bdjuno_Provider_Staking_Pool_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Staking_Pool_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Staking_Pool_Avg_Fields = {
   __typename?: 'bdjuno_provider_staking_pool_avg_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "staking_pool". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Staking_Pool_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Staking_Pool_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Staking_Pool_Bool_Exp>;
@@ -6166,7 +5346,6 @@ export type Bdjuno_Provider_Staking_Pool_Bool_Exp = {
   unbonding_tokens?: InputMaybe<Bdjuno_Provider_String_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Staking_Pool_Max_Fields = {
   __typename?: 'bdjuno_provider_staking_pool_max_fields';
   bonded_tokens?: Maybe<Scalars['String']>;
@@ -6176,7 +5355,6 @@ export type Bdjuno_Provider_Staking_Pool_Max_Fields = {
   unbonding_tokens?: Maybe<Scalars['String']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Staking_Pool_Min_Fields = {
   __typename?: 'bdjuno_provider_staking_pool_min_fields';
   bonded_tokens?: Maybe<Scalars['String']>;
@@ -6186,7 +5364,6 @@ export type Bdjuno_Provider_Staking_Pool_Min_Fields = {
   unbonding_tokens?: Maybe<Scalars['String']>;
 };
 
-/** Ordering options when selecting data from "staking_pool". */
 export type Bdjuno_Provider_Staking_Pool_Order_By = {
   bonded_tokens?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -6195,77 +5372,61 @@ export type Bdjuno_Provider_Staking_Pool_Order_By = {
   unbonding_tokens?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "staking_pool" */
 export enum Bdjuno_Provider_Staking_Pool_Select_Column {
-  /** column name */
   BondedTokens = 'bonded_tokens',
-  /** column name */
   Height = 'height',
-  /** column name */
   NotBondedTokens = 'not_bonded_tokens',
-  /** column name */
   StakedNotBondedTokens = 'staked_not_bonded_tokens',
-  /** column name */
   UnbondingTokens = 'unbonding_tokens'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Staking_Pool_Stddev_Fields = {
   __typename?: 'bdjuno_provider_staking_pool_stddev_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Staking_Pool_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_staking_pool_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Staking_Pool_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_staking_pool_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Staking_Pool_Sum_Fields = {
   __typename?: 'bdjuno_provider_staking_pool_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Staking_Pool_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_staking_pool_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Staking_Pool_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_staking_pool_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Staking_Pool_Variance_Fields = {
   __typename?: 'bdjuno_provider_staking_pool_variance_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** columns and relationships of "supply" */
 export type Bdjuno_Provider_Supply = {
   __typename?: 'bdjuno_provider_supply';
   coins: Scalars['bdjuno_provider__coin'];
   height: Scalars['bdjuno_provider_bigint'];
 };
 
-/** aggregated selection of "supply" */
 export type Bdjuno_Provider_Supply_Aggregate = {
   __typename?: 'bdjuno_provider_supply_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Supply_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Supply>;
 };
 
-/** aggregate fields of "supply" */
 export type Bdjuno_Provider_Supply_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_supply_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Supply_Avg_Fields>;
@@ -6282,19 +5443,16 @@ export type Bdjuno_Provider_Supply_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "supply" */
 export type Bdjuno_Provider_Supply_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Supply_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Supply_Avg_Fields = {
   __typename?: 'bdjuno_provider_supply_avg_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to filter rows from the table "supply". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Supply_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Supply_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Supply_Bool_Exp>;
@@ -6303,75 +5461,61 @@ export type Bdjuno_Provider_Supply_Bool_Exp = {
   height?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Supply_Max_Fields = {
   __typename?: 'bdjuno_provider_supply_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Supply_Min_Fields = {
   __typename?: 'bdjuno_provider_supply_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** Ordering options when selecting data from "supply". */
 export type Bdjuno_Provider_Supply_Order_By = {
   coins?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "supply" */
 export enum Bdjuno_Provider_Supply_Select_Column {
-  /** column name */
   Coins = 'coins',
-  /** column name */
   Height = 'height'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Supply_Stddev_Fields = {
   __typename?: 'bdjuno_provider_supply_stddev_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Supply_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_supply_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Supply_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_supply_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Supply_Sum_Fields = {
   __typename?: 'bdjuno_provider_supply_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Supply_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_supply_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Supply_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_supply_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Supply_Variance_Fields = {
   __typename?: 'bdjuno_provider_supply_variance_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** Boolean expression to compare columns of type "timestamp". All fields are combined with logical 'AND'. */
 export type Bdjuno_Provider_Timestamp_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['bdjuno_provider_timestamp']>;
   _gt?: InputMaybe<Scalars['bdjuno_provider_timestamp']>;
@@ -6384,7 +5528,6 @@ export type Bdjuno_Provider_Timestamp_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['bdjuno_provider_timestamp']>>;
 };
 
-/** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
 export type Bdjuno_Provider_Timestamptz_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['bdjuno_provider_timestamptz']>;
   _gt?: InputMaybe<Scalars['bdjuno_provider_timestamptz']>;
@@ -6397,18 +5540,14 @@ export type Bdjuno_Provider_Timestamptz_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['bdjuno_provider_timestamptz']>>;
 };
 
-/** columns and relationships of "token" */
 export type Bdjuno_Provider_Token = {
   __typename?: 'bdjuno_provider_token';
   name: Scalars['String'];
-  /** An array relationship */
   token_units: Array<Bdjuno_Provider_Token_Unit>;
-  /** An aggregate relationship */
   token_units_aggregate: Bdjuno_Provider_Token_Unit_Aggregate;
 };
 
 
-/** columns and relationships of "token" */
 export type Bdjuno_Provider_TokenToken_UnitsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Unit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6418,7 +5557,6 @@ export type Bdjuno_Provider_TokenToken_UnitsArgs = {
 };
 
 
-/** columns and relationships of "token" */
 export type Bdjuno_Provider_TokenToken_Units_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Unit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6427,14 +5565,12 @@ export type Bdjuno_Provider_TokenToken_Units_AggregateArgs = {
   where?: InputMaybe<Bdjuno_Provider_Token_Unit_Bool_Exp>;
 };
 
-/** aggregated selection of "token" */
 export type Bdjuno_Provider_Token_Aggregate = {
   __typename?: 'bdjuno_provider_token_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Token_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Token>;
 };
 
-/** aggregate fields of "token" */
 export type Bdjuno_Provider_Token_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_token_aggregate_fields';
   count: Scalars['Int'];
@@ -6443,13 +5579,11 @@ export type Bdjuno_Provider_Token_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "token" */
 export type Bdjuno_Provider_Token_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Token_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** Boolean expression to filter rows from the table "token". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Token_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Token_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Token_Bool_Exp>;
@@ -6458,44 +5592,37 @@ export type Bdjuno_Provider_Token_Bool_Exp = {
   token_units?: InputMaybe<Bdjuno_Provider_Token_Unit_Bool_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Token_Max_Fields = {
   __typename?: 'bdjuno_provider_token_max_fields';
   name?: Maybe<Scalars['String']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Token_Min_Fields = {
   __typename?: 'bdjuno_provider_token_min_fields';
   name?: Maybe<Scalars['String']>;
 };
 
-/** Ordering options when selecting data from "token". */
 export type Bdjuno_Provider_Token_Order_By = {
   name?: InputMaybe<Bdjuno_Provider_Order_By>;
   token_units_aggregate?: InputMaybe<Bdjuno_Provider_Token_Unit_Aggregate_Order_By>;
 };
 
-/** columns and relationships of "token_price" */
 export type Bdjuno_Provider_Token_Price = {
   __typename?: 'bdjuno_provider_token_price';
   id: Scalars['Int'];
   market_cap: Scalars['bdjuno_provider_bigint'];
   price: Scalars['bdjuno_provider_numeric'];
   timestamp: Scalars['bdjuno_provider_timestamp'];
-  /** An object relationship */
   token_unit: Bdjuno_Provider_Token_Unit;
   unit_name: Scalars['String'];
 };
 
-/** aggregated selection of "token_price" */
 export type Bdjuno_Provider_Token_Price_Aggregate = {
   __typename?: 'bdjuno_provider_token_price_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Token_Price_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Token_Price>;
 };
 
-/** aggregate fields of "token_price" */
 export type Bdjuno_Provider_Token_Price_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_token_price_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Token_Price_Avg_Fields>;
@@ -6512,13 +5639,11 @@ export type Bdjuno_Provider_Token_Price_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "token_price" */
 export type Bdjuno_Provider_Token_Price_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Token_Price_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "token_price" */
 export type Bdjuno_Provider_Token_Price_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Token_Price_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -6533,7 +5658,6 @@ export type Bdjuno_Provider_Token_Price_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Token_Price_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Token_Price_Avg_Fields = {
   __typename?: 'bdjuno_provider_token_price_avg_fields';
   id?: Maybe<Scalars['Float']>;
@@ -6541,14 +5665,12 @@ export type Bdjuno_Provider_Token_Price_Avg_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "token_price" */
 export type Bdjuno_Provider_Token_Price_Avg_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "token_price". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Token_Price_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Token_Price_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Token_Price_Bool_Exp>;
@@ -6561,25 +5683,21 @@ export type Bdjuno_Provider_Token_Price_Bool_Exp = {
   unit_name?: InputMaybe<Bdjuno_Provider_String_Comparison_Exp>;
 };
 
-/** columns and relationships of "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History = {
   __typename?: 'bdjuno_provider_token_price_history';
   market_cap: Scalars['bdjuno_provider_bigint'];
   price: Scalars['bdjuno_provider_numeric'];
   timestamp: Scalars['bdjuno_provider_timestamp'];
-  /** An object relationship */
   token_unit: Bdjuno_Provider_Token_Unit;
   unit_name: Scalars['String'];
 };
 
-/** aggregated selection of "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Aggregate = {
   __typename?: 'bdjuno_provider_token_price_history_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Token_Price_History_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Token_Price_History>;
 };
 
-/** aggregate fields of "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_token_price_history_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Token_Price_History_Avg_Fields>;
@@ -6596,13 +5714,11 @@ export type Bdjuno_Provider_Token_Price_History_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Token_Price_History_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Token_Price_History_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -6617,20 +5733,17 @@ export type Bdjuno_Provider_Token_Price_History_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Token_Price_History_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Token_Price_History_Avg_Fields = {
   __typename?: 'bdjuno_provider_token_price_history_avg_fields';
   market_cap?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Avg_Order_By = {
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "token_price_history". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Token_Price_History_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Token_Price_History_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Token_Price_History_Bool_Exp>;
@@ -6642,7 +5755,6 @@ export type Bdjuno_Provider_Token_Price_History_Bool_Exp = {
   unit_name?: InputMaybe<Bdjuno_Provider_String_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Token_Price_History_Max_Fields = {
   __typename?: 'bdjuno_provider_token_price_history_max_fields';
   market_cap?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -6651,7 +5763,6 @@ export type Bdjuno_Provider_Token_Price_History_Max_Fields = {
   unit_name?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Max_Order_By = {
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -6659,7 +5770,6 @@ export type Bdjuno_Provider_Token_Price_History_Max_Order_By = {
   unit_name?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Token_Price_History_Min_Fields = {
   __typename?: 'bdjuno_provider_token_price_history_min_fields';
   market_cap?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -6668,7 +5778,6 @@ export type Bdjuno_Provider_Token_Price_History_Min_Fields = {
   unit_name?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Min_Order_By = {
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -6676,7 +5785,6 @@ export type Bdjuno_Provider_Token_Price_History_Min_Order_By = {
   unit_name?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "token_price_history". */
 export type Bdjuno_Provider_Token_Price_History_Order_By = {
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -6685,110 +5793,90 @@ export type Bdjuno_Provider_Token_Price_History_Order_By = {
   unit_name?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "token_price_history" */
 export enum Bdjuno_Provider_Token_Price_History_Select_Column {
-  /** column name */
   MarketCap = 'market_cap',
-  /** column name */
   Price = 'price',
-  /** column name */
   Timestamp = 'timestamp',
-  /** column name */
   UnitName = 'unit_name'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Token_Price_History_Stddev_Fields = {
   __typename?: 'bdjuno_provider_token_price_history_stddev_fields';
   market_cap?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Stddev_Order_By = {
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Token_Price_History_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_token_price_history_stddev_pop_fields';
   market_cap?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Stddev_Pop_Order_By = {
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Token_Price_History_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_token_price_history_stddev_samp_fields';
   market_cap?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Stddev_Samp_Order_By = {
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Token_Price_History_Sum_Fields = {
   __typename?: 'bdjuno_provider_token_price_history_sum_fields';
   market_cap?: Maybe<Scalars['bdjuno_provider_bigint']>;
   price?: Maybe<Scalars['bdjuno_provider_numeric']>;
 };
 
-/** order by sum() on columns of table "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Sum_Order_By = {
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Token_Price_History_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_token_price_history_var_pop_fields';
   market_cap?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Var_Pop_Order_By = {
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Token_Price_History_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_token_price_history_var_samp_fields';
   market_cap?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Var_Samp_Order_By = {
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Token_Price_History_Variance_Fields = {
   __typename?: 'bdjuno_provider_token_price_history_variance_fields';
   market_cap?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "token_price_history" */
 export type Bdjuno_Provider_Token_Price_History_Variance_Order_By = {
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Token_Price_Max_Fields = {
   __typename?: 'bdjuno_provider_token_price_max_fields';
   id?: Maybe<Scalars['Int']>;
@@ -6798,7 +5886,6 @@ export type Bdjuno_Provider_Token_Price_Max_Fields = {
   unit_name?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "token_price" */
 export type Bdjuno_Provider_Token_Price_Max_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -6807,7 +5894,6 @@ export type Bdjuno_Provider_Token_Price_Max_Order_By = {
   unit_name?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Token_Price_Min_Fields = {
   __typename?: 'bdjuno_provider_token_price_min_fields';
   id?: Maybe<Scalars['Int']>;
@@ -6817,7 +5903,6 @@ export type Bdjuno_Provider_Token_Price_Min_Fields = {
   unit_name?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "token_price" */
 export type Bdjuno_Provider_Token_Price_Min_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -6826,7 +5911,6 @@ export type Bdjuno_Provider_Token_Price_Min_Order_By = {
   unit_name?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "token_price". */
 export type Bdjuno_Provider_Token_Price_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -6836,21 +5920,14 @@ export type Bdjuno_Provider_Token_Price_Order_By = {
   unit_name?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "token_price" */
 export enum Bdjuno_Provider_Token_Price_Select_Column {
-  /** column name */
   Id = 'id',
-  /** column name */
   MarketCap = 'market_cap',
-  /** column name */
   Price = 'price',
-  /** column name */
   Timestamp = 'timestamp',
-  /** column name */
   UnitName = 'unit_name'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Token_Price_Stddev_Fields = {
   __typename?: 'bdjuno_provider_token_price_stddev_fields';
   id?: Maybe<Scalars['Float']>;
@@ -6858,14 +5935,12 @@ export type Bdjuno_Provider_Token_Price_Stddev_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "token_price" */
 export type Bdjuno_Provider_Token_Price_Stddev_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Token_Price_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_token_price_stddev_pop_fields';
   id?: Maybe<Scalars['Float']>;
@@ -6873,14 +5948,12 @@ export type Bdjuno_Provider_Token_Price_Stddev_Pop_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "token_price" */
 export type Bdjuno_Provider_Token_Price_Stddev_Pop_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Token_Price_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_token_price_stddev_samp_fields';
   id?: Maybe<Scalars['Float']>;
@@ -6888,14 +5961,12 @@ export type Bdjuno_Provider_Token_Price_Stddev_Samp_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "token_price" */
 export type Bdjuno_Provider_Token_Price_Stddev_Samp_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Token_Price_Sum_Fields = {
   __typename?: 'bdjuno_provider_token_price_sum_fields';
   id?: Maybe<Scalars['Int']>;
@@ -6903,14 +5974,12 @@ export type Bdjuno_Provider_Token_Price_Sum_Fields = {
   price?: Maybe<Scalars['bdjuno_provider_numeric']>;
 };
 
-/** order by sum() on columns of table "token_price" */
 export type Bdjuno_Provider_Token_Price_Sum_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Token_Price_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_token_price_var_pop_fields';
   id?: Maybe<Scalars['Float']>;
@@ -6918,14 +5987,12 @@ export type Bdjuno_Provider_Token_Price_Var_Pop_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "token_price" */
 export type Bdjuno_Provider_Token_Price_Var_Pop_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Token_Price_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_token_price_var_samp_fields';
   id?: Maybe<Scalars['Float']>;
@@ -6933,14 +6000,12 @@ export type Bdjuno_Provider_Token_Price_Var_Samp_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "token_price" */
 export type Bdjuno_Provider_Token_Price_Var_Samp_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Token_Price_Variance_Fields = {
   __typename?: 'bdjuno_provider_token_price_variance_fields';
   id?: Maybe<Scalars['Float']>;
@@ -6948,43 +6013,32 @@ export type Bdjuno_Provider_Token_Price_Variance_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "token_price" */
 export type Bdjuno_Provider_Token_Price_Variance_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
   market_cap?: InputMaybe<Bdjuno_Provider_Order_By>;
   price?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "token" */
 export enum Bdjuno_Provider_Token_Select_Column {
-  /** column name */
   Name = 'name'
 }
 
-/** columns and relationships of "token_unit" */
 export type Bdjuno_Provider_Token_Unit = {
   __typename?: 'bdjuno_provider_token_unit';
   aliases?: Maybe<Scalars['bdjuno_provider__text']>;
   denom: Scalars['String'];
   exponent: Scalars['Int'];
   price_id?: Maybe<Scalars['String']>;
-  /** An object relationship */
   token: Bdjuno_Provider_Token;
   token_name: Scalars['String'];
-  /** An object relationship */
   token_price?: Maybe<Bdjuno_Provider_Token_Price>;
-  /** An array relationship */
   token_price_histories: Array<Bdjuno_Provider_Token_Price_History>;
-  /** An aggregate relationship */
   token_price_histories_aggregate: Bdjuno_Provider_Token_Price_History_Aggregate;
-  /** An array relationship */
   token_prices: Array<Bdjuno_Provider_Token_Price>;
-  /** An aggregate relationship */
   token_prices_aggregate: Bdjuno_Provider_Token_Price_Aggregate;
 };
 
 
-/** columns and relationships of "token_unit" */
 export type Bdjuno_Provider_Token_UnitToken_Price_HistoriesArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Price_History_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -6994,7 +6048,6 @@ export type Bdjuno_Provider_Token_UnitToken_Price_HistoriesArgs = {
 };
 
 
-/** columns and relationships of "token_unit" */
 export type Bdjuno_Provider_Token_UnitToken_Price_Histories_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Price_History_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7004,7 +6057,6 @@ export type Bdjuno_Provider_Token_UnitToken_Price_Histories_AggregateArgs = {
 };
 
 
-/** columns and relationships of "token_unit" */
 export type Bdjuno_Provider_Token_UnitToken_PricesArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Price_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7014,7 +6066,6 @@ export type Bdjuno_Provider_Token_UnitToken_PricesArgs = {
 };
 
 
-/** columns and relationships of "token_unit" */
 export type Bdjuno_Provider_Token_UnitToken_Prices_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Price_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7023,14 +6074,12 @@ export type Bdjuno_Provider_Token_UnitToken_Prices_AggregateArgs = {
   where?: InputMaybe<Bdjuno_Provider_Token_Price_Bool_Exp>;
 };
 
-/** aggregated selection of "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Aggregate = {
   __typename?: 'bdjuno_provider_token_unit_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Token_Unit_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Token_Unit>;
 };
 
-/** aggregate fields of "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_token_unit_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Token_Unit_Avg_Fields>;
@@ -7047,13 +6096,11 @@ export type Bdjuno_Provider_Token_Unit_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Token_Unit_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Token_Unit_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7068,18 +6115,15 @@ export type Bdjuno_Provider_Token_Unit_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Token_Unit_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Token_Unit_Avg_Fields = {
   __typename?: 'bdjuno_provider_token_unit_avg_fields';
   exponent?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Avg_Order_By = {
   exponent?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "token_unit". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Token_Unit_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Token_Unit_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Token_Unit_Bool_Exp>;
@@ -7095,7 +6139,6 @@ export type Bdjuno_Provider_Token_Unit_Bool_Exp = {
   token_prices?: InputMaybe<Bdjuno_Provider_Token_Price_Bool_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Token_Unit_Max_Fields = {
   __typename?: 'bdjuno_provider_token_unit_max_fields';
   denom?: Maybe<Scalars['String']>;
@@ -7104,7 +6147,6 @@ export type Bdjuno_Provider_Token_Unit_Max_Fields = {
   token_name?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Max_Order_By = {
   denom?: InputMaybe<Bdjuno_Provider_Order_By>;
   exponent?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7112,7 +6154,6 @@ export type Bdjuno_Provider_Token_Unit_Max_Order_By = {
   token_name?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Token_Unit_Min_Fields = {
   __typename?: 'bdjuno_provider_token_unit_min_fields';
   denom?: Maybe<Scalars['String']>;
@@ -7121,7 +6162,6 @@ export type Bdjuno_Provider_Token_Unit_Min_Fields = {
   token_name?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Min_Order_By = {
   denom?: InputMaybe<Bdjuno_Provider_Order_By>;
   exponent?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7129,7 +6169,6 @@ export type Bdjuno_Provider_Token_Unit_Min_Order_By = {
   token_name?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "token_unit". */
 export type Bdjuno_Provider_Token_Unit_Order_By = {
   aliases?: InputMaybe<Bdjuno_Provider_Order_By>;
   denom?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7142,101 +6181,79 @@ export type Bdjuno_Provider_Token_Unit_Order_By = {
   token_prices_aggregate?: InputMaybe<Bdjuno_Provider_Token_Price_Aggregate_Order_By>;
 };
 
-/** select columns of table "token_unit" */
 export enum Bdjuno_Provider_Token_Unit_Select_Column {
-  /** column name */
   Aliases = 'aliases',
-  /** column name */
   Denom = 'denom',
-  /** column name */
   Exponent = 'exponent',
-  /** column name */
   PriceId = 'price_id',
-  /** column name */
   TokenName = 'token_name'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Token_Unit_Stddev_Fields = {
   __typename?: 'bdjuno_provider_token_unit_stddev_fields';
   exponent?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Stddev_Order_By = {
   exponent?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Token_Unit_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_token_unit_stddev_pop_fields';
   exponent?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Stddev_Pop_Order_By = {
   exponent?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Token_Unit_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_token_unit_stddev_samp_fields';
   exponent?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Stddev_Samp_Order_By = {
   exponent?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Token_Unit_Sum_Fields = {
   __typename?: 'bdjuno_provider_token_unit_sum_fields';
   exponent?: Maybe<Scalars['Int']>;
 };
 
-/** order by sum() on columns of table "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Sum_Order_By = {
   exponent?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Token_Unit_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_token_unit_var_pop_fields';
   exponent?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Var_Pop_Order_By = {
   exponent?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Token_Unit_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_token_unit_var_samp_fields';
   exponent?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Var_Samp_Order_By = {
   exponent?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Token_Unit_Variance_Fields = {
   __typename?: 'bdjuno_provider_token_unit_variance_fields';
   exponent?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "token_unit" */
 export type Bdjuno_Provider_Token_Unit_Variance_Order_By = {
   exponent?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "transaction" */
 export type Bdjuno_Provider_Transaction = {
   __typename?: 'bdjuno_provider_transaction';
-  /** An object relationship */
   block: Bdjuno_Provider_Block;
   fee: Scalars['bdjuno_provider_jsonb'];
   gas_used?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -7246,9 +6263,7 @@ export type Bdjuno_Provider_Transaction = {
   logs?: Maybe<Scalars['bdjuno_provider_jsonb']>;
   memo?: Maybe<Scalars['String']>;
   messages: Scalars['bdjuno_provider_jsonb'];
-  /** An array relationship */
   messagesByTransactionHashPartitionId: Array<Bdjuno_Provider_Message>;
-  /** An aggregate relationship */
   messagesByTransactionHashPartitionId_aggregate: Bdjuno_Provider_Message_Aggregate;
   partition_id: Scalars['bdjuno_provider_bigint'];
   raw_log?: Maybe<Scalars['String']>;
@@ -7258,25 +6273,21 @@ export type Bdjuno_Provider_Transaction = {
 };
 
 
-/** columns and relationships of "transaction" */
 export type Bdjuno_Provider_TransactionFeeArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
 
-/** columns and relationships of "transaction" */
 export type Bdjuno_Provider_TransactionLogsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
 
-/** columns and relationships of "transaction" */
 export type Bdjuno_Provider_TransactionMessagesArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
 
-/** columns and relationships of "transaction" */
 export type Bdjuno_Provider_TransactionMessagesByTransactionHashPartitionIdArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7286,7 +6297,6 @@ export type Bdjuno_Provider_TransactionMessagesByTransactionHashPartitionIdArgs 
 };
 
 
-/** columns and relationships of "transaction" */
 export type Bdjuno_Provider_TransactionMessagesByTransactionHashPartitionId_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7296,19 +6306,16 @@ export type Bdjuno_Provider_TransactionMessagesByTransactionHashPartitionId_Aggr
 };
 
 
-/** columns and relationships of "transaction" */
 export type Bdjuno_Provider_TransactionSigner_InfosArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
-/** aggregated selection of "transaction" */
 export type Bdjuno_Provider_Transaction_Aggregate = {
   __typename?: 'bdjuno_provider_transaction_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Transaction_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Transaction>;
 };
 
-/** aggregate fields of "transaction" */
 export type Bdjuno_Provider_Transaction_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_transaction_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Transaction_Avg_Fields>;
@@ -7325,13 +6332,11 @@ export type Bdjuno_Provider_Transaction_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "transaction" */
 export type Bdjuno_Provider_Transaction_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Transaction_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "transaction" */
 export type Bdjuno_Provider_Transaction_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Transaction_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7346,7 +6351,6 @@ export type Bdjuno_Provider_Transaction_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Transaction_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Transaction_Avg_Fields = {
   __typename?: 'bdjuno_provider_transaction_avg_fields';
   gas_used?: Maybe<Scalars['Float']>;
@@ -7355,7 +6359,6 @@ export type Bdjuno_Provider_Transaction_Avg_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "transaction" */
 export type Bdjuno_Provider_Transaction_Avg_Order_By = {
   gas_used?: InputMaybe<Bdjuno_Provider_Order_By>;
   gas_wanted?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7363,7 +6366,6 @@ export type Bdjuno_Provider_Transaction_Avg_Order_By = {
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "transaction". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Transaction_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Transaction_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Transaction_Bool_Exp>;
@@ -7385,7 +6387,6 @@ export type Bdjuno_Provider_Transaction_Bool_Exp = {
   success?: InputMaybe<Bdjuno_Provider_Boolean_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Transaction_Max_Fields = {
   __typename?: 'bdjuno_provider_transaction_max_fields';
   gas_used?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -7397,7 +6398,6 @@ export type Bdjuno_Provider_Transaction_Max_Fields = {
   raw_log?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "transaction" */
 export type Bdjuno_Provider_Transaction_Max_Order_By = {
   gas_used?: InputMaybe<Bdjuno_Provider_Order_By>;
   gas_wanted?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7408,7 +6408,6 @@ export type Bdjuno_Provider_Transaction_Max_Order_By = {
   raw_log?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Transaction_Min_Fields = {
   __typename?: 'bdjuno_provider_transaction_min_fields';
   gas_used?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -7420,7 +6419,6 @@ export type Bdjuno_Provider_Transaction_Min_Fields = {
   raw_log?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "transaction" */
 export type Bdjuno_Provider_Transaction_Min_Order_By = {
   gas_used?: InputMaybe<Bdjuno_Provider_Order_By>;
   gas_wanted?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7431,7 +6429,6 @@ export type Bdjuno_Provider_Transaction_Min_Order_By = {
   raw_log?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "transaction". */
 export type Bdjuno_Provider_Transaction_Order_By = {
   block?: InputMaybe<Bdjuno_Provider_Block_Order_By>;
   fee?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7450,37 +6447,22 @@ export type Bdjuno_Provider_Transaction_Order_By = {
   success?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "transaction" */
 export enum Bdjuno_Provider_Transaction_Select_Column {
-  /** column name */
   Fee = 'fee',
-  /** column name */
   GasUsed = 'gas_used',
-  /** column name */
   GasWanted = 'gas_wanted',
-  /** column name */
   Hash = 'hash',
-  /** column name */
   Height = 'height',
-  /** column name */
   Logs = 'logs',
-  /** column name */
   Memo = 'memo',
-  /** column name */
   Messages = 'messages',
-  /** column name */
   PartitionId = 'partition_id',
-  /** column name */
   RawLog = 'raw_log',
-  /** column name */
   Signatures = 'signatures',
-  /** column name */
   SignerInfos = 'signer_infos',
-  /** column name */
   Success = 'success'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Transaction_Stddev_Fields = {
   __typename?: 'bdjuno_provider_transaction_stddev_fields';
   gas_used?: Maybe<Scalars['Float']>;
@@ -7489,7 +6471,6 @@ export type Bdjuno_Provider_Transaction_Stddev_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "transaction" */
 export type Bdjuno_Provider_Transaction_Stddev_Order_By = {
   gas_used?: InputMaybe<Bdjuno_Provider_Order_By>;
   gas_wanted?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7497,7 +6478,6 @@ export type Bdjuno_Provider_Transaction_Stddev_Order_By = {
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Transaction_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_transaction_stddev_pop_fields';
   gas_used?: Maybe<Scalars['Float']>;
@@ -7506,7 +6486,6 @@ export type Bdjuno_Provider_Transaction_Stddev_Pop_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "transaction" */
 export type Bdjuno_Provider_Transaction_Stddev_Pop_Order_By = {
   gas_used?: InputMaybe<Bdjuno_Provider_Order_By>;
   gas_wanted?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7514,7 +6493,6 @@ export type Bdjuno_Provider_Transaction_Stddev_Pop_Order_By = {
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Transaction_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_transaction_stddev_samp_fields';
   gas_used?: Maybe<Scalars['Float']>;
@@ -7523,7 +6501,6 @@ export type Bdjuno_Provider_Transaction_Stddev_Samp_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "transaction" */
 export type Bdjuno_Provider_Transaction_Stddev_Samp_Order_By = {
   gas_used?: InputMaybe<Bdjuno_Provider_Order_By>;
   gas_wanted?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7531,7 +6508,6 @@ export type Bdjuno_Provider_Transaction_Stddev_Samp_Order_By = {
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Transaction_Sum_Fields = {
   __typename?: 'bdjuno_provider_transaction_sum_fields';
   gas_used?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -7540,7 +6516,6 @@ export type Bdjuno_Provider_Transaction_Sum_Fields = {
   partition_id?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by sum() on columns of table "transaction" */
 export type Bdjuno_Provider_Transaction_Sum_Order_By = {
   gas_used?: InputMaybe<Bdjuno_Provider_Order_By>;
   gas_wanted?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7548,7 +6523,6 @@ export type Bdjuno_Provider_Transaction_Sum_Order_By = {
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Transaction_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_transaction_var_pop_fields';
   gas_used?: Maybe<Scalars['Float']>;
@@ -7557,7 +6531,6 @@ export type Bdjuno_Provider_Transaction_Var_Pop_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "transaction" */
 export type Bdjuno_Provider_Transaction_Var_Pop_Order_By = {
   gas_used?: InputMaybe<Bdjuno_Provider_Order_By>;
   gas_wanted?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7565,7 +6538,6 @@ export type Bdjuno_Provider_Transaction_Var_Pop_Order_By = {
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Transaction_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_transaction_var_samp_fields';
   gas_used?: Maybe<Scalars['Float']>;
@@ -7574,7 +6546,6 @@ export type Bdjuno_Provider_Transaction_Var_Samp_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "transaction" */
 export type Bdjuno_Provider_Transaction_Var_Samp_Order_By = {
   gas_used?: InputMaybe<Bdjuno_Provider_Order_By>;
   gas_wanted?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7582,7 +6553,6 @@ export type Bdjuno_Provider_Transaction_Var_Samp_Order_By = {
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Transaction_Variance_Fields = {
   __typename?: 'bdjuno_provider_transaction_variance_fields';
   gas_used?: Maybe<Scalars['Float']>;
@@ -7591,7 +6561,6 @@ export type Bdjuno_Provider_Transaction_Variance_Fields = {
   partition_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "transaction" */
 export type Bdjuno_Provider_Transaction_Variance_Order_By = {
   gas_used?: InputMaybe<Bdjuno_Provider_Order_By>;
   gas_wanted?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7599,59 +6568,35 @@ export type Bdjuno_Provider_Transaction_Variance_Order_By = {
   partition_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_Validator = {
   __typename?: 'bdjuno_provider_validator';
-  /** An array relationship */
   blocks: Array<Bdjuno_Provider_Block>;
-  /** An aggregate relationship */
   blocks_aggregate: Bdjuno_Provider_Block_Aggregate;
   consensus_address: Scalars['String'];
   consensus_pubkey: Scalars['String'];
-  /** An array relationship */
   double_sign_votes: Array<Bdjuno_Provider_Double_Sign_Vote>;
-  /** An aggregate relationship */
   double_sign_votes_aggregate: Bdjuno_Provider_Double_Sign_Vote_Aggregate;
-  /** An array relationship */
   pre_commits: Array<Bdjuno_Provider_Pre_Commit>;
-  /** An aggregate relationship */
   pre_commits_aggregate: Bdjuno_Provider_Pre_Commit_Aggregate;
-  /** An object relationship */
   proposal_validator_status_snapshot?: Maybe<Bdjuno_Provider_Proposal_Validator_Status_Snapshot>;
-  /** An array relationship */
   proposal_validator_status_snapshots: Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot>;
-  /** An aggregate relationship */
   proposal_validator_status_snapshots_aggregate: Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Aggregate;
-  /** An array relationship */
   validator_commissions: Array<Bdjuno_Provider_Validator_Commission>;
-  /** An aggregate relationship */
   validator_commissions_aggregate: Bdjuno_Provider_Validator_Commission_Aggregate;
-  /** An array relationship */
   validator_descriptions: Array<Bdjuno_Provider_Validator_Description>;
-  /** An aggregate relationship */
   validator_descriptions_aggregate: Bdjuno_Provider_Validator_Description_Aggregate;
-  /** An object relationship */
   validator_info?: Maybe<Bdjuno_Provider_Validator_Info>;
-  /** An array relationship */
   validator_infos: Array<Bdjuno_Provider_Validator_Info>;
-  /** An aggregate relationship */
   validator_infos_aggregate: Bdjuno_Provider_Validator_Info_Aggregate;
-  /** An array relationship */
   validator_signing_infos: Array<Bdjuno_Provider_Validator_Signing_Info>;
-  /** An aggregate relationship */
   validator_signing_infos_aggregate: Bdjuno_Provider_Validator_Signing_Info_Aggregate;
-  /** An array relationship */
   validator_statuses: Array<Bdjuno_Provider_Validator_Status>;
-  /** An aggregate relationship */
   validator_statuses_aggregate: Bdjuno_Provider_Validator_Status_Aggregate;
-  /** An array relationship */
   validator_voting_powers: Array<Bdjuno_Provider_Validator_Voting_Power>;
-  /** An aggregate relationship */
   validator_voting_powers_aggregate: Bdjuno_Provider_Validator_Voting_Power_Aggregate;
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorBlocksArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Block_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7661,7 +6606,6 @@ export type Bdjuno_Provider_ValidatorBlocksArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorBlocks_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Block_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7671,7 +6615,6 @@ export type Bdjuno_Provider_ValidatorBlocks_AggregateArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorDouble_Sign_VotesArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Vote_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7681,7 +6624,6 @@ export type Bdjuno_Provider_ValidatorDouble_Sign_VotesArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorDouble_Sign_Votes_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Vote_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7691,7 +6633,6 @@ export type Bdjuno_Provider_ValidatorDouble_Sign_Votes_AggregateArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorPre_CommitsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Pre_Commit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7701,7 +6642,6 @@ export type Bdjuno_Provider_ValidatorPre_CommitsArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorPre_Commits_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Pre_Commit_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7711,7 +6651,6 @@ export type Bdjuno_Provider_ValidatorPre_Commits_AggregateArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorProposal_Validator_Status_SnapshotsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7721,7 +6660,6 @@ export type Bdjuno_Provider_ValidatorProposal_Validator_Status_SnapshotsArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorProposal_Validator_Status_Snapshots_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7731,7 +6669,6 @@ export type Bdjuno_Provider_ValidatorProposal_Validator_Status_Snapshots_Aggrega
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorValidator_CommissionsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Commission_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7741,7 +6678,6 @@ export type Bdjuno_Provider_ValidatorValidator_CommissionsArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorValidator_Commissions_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Commission_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7751,7 +6687,6 @@ export type Bdjuno_Provider_ValidatorValidator_Commissions_AggregateArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorValidator_DescriptionsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Description_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7761,7 +6696,6 @@ export type Bdjuno_Provider_ValidatorValidator_DescriptionsArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorValidator_Descriptions_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Description_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7771,7 +6705,6 @@ export type Bdjuno_Provider_ValidatorValidator_Descriptions_AggregateArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorValidator_InfosArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7781,7 +6714,6 @@ export type Bdjuno_Provider_ValidatorValidator_InfosArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorValidator_Infos_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7791,7 +6723,6 @@ export type Bdjuno_Provider_ValidatorValidator_Infos_AggregateArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorValidator_Signing_InfosArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Signing_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7801,7 +6732,6 @@ export type Bdjuno_Provider_ValidatorValidator_Signing_InfosArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorValidator_Signing_Infos_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Signing_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7811,7 +6741,6 @@ export type Bdjuno_Provider_ValidatorValidator_Signing_Infos_AggregateArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorValidator_StatusesArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Status_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7821,7 +6750,6 @@ export type Bdjuno_Provider_ValidatorValidator_StatusesArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorValidator_Statuses_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Status_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7831,7 +6759,6 @@ export type Bdjuno_Provider_ValidatorValidator_Statuses_AggregateArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorValidator_Voting_PowersArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Voting_Power_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7841,7 +6768,6 @@ export type Bdjuno_Provider_ValidatorValidator_Voting_PowersArgs = {
 };
 
 
-/** columns and relationships of "validator" */
 export type Bdjuno_Provider_ValidatorValidator_Voting_Powers_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Voting_Power_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -7850,14 +6776,12 @@ export type Bdjuno_Provider_ValidatorValidator_Voting_Powers_AggregateArgs = {
   where?: InputMaybe<Bdjuno_Provider_Validator_Voting_Power_Bool_Exp>;
 };
 
-/** aggregated selection of "validator" */
 export type Bdjuno_Provider_Validator_Aggregate = {
   __typename?: 'bdjuno_provider_validator_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Validator_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Validator>;
 };
 
-/** aggregate fields of "validator" */
 export type Bdjuno_Provider_Validator_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_validator_aggregate_fields';
   count: Scalars['Int'];
@@ -7866,13 +6790,11 @@ export type Bdjuno_Provider_Validator_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "validator" */
 export type Bdjuno_Provider_Validator_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Validator_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** Boolean expression to filter rows from the table "validator". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Validator_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Validator_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Validator_Bool_Exp>;
@@ -7893,25 +6815,21 @@ export type Bdjuno_Provider_Validator_Bool_Exp = {
   validator_voting_powers?: InputMaybe<Bdjuno_Provider_Validator_Voting_Power_Bool_Exp>;
 };
 
-/** columns and relationships of "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission = {
   __typename?: 'bdjuno_provider_validator_commission';
   commission: Scalars['bdjuno_provider_numeric'];
   height: Scalars['bdjuno_provider_bigint'];
   min_self_delegation: Scalars['bdjuno_provider_bigint'];
-  /** An object relationship */
   validator: Bdjuno_Provider_Validator;
   validator_address: Scalars['String'];
 };
 
-/** aggregated selection of "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Aggregate = {
   __typename?: 'bdjuno_provider_validator_commission_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Validator_Commission_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Validator_Commission>;
 };
 
-/** aggregate fields of "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_validator_commission_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Validator_Commission_Avg_Fields>;
@@ -7928,13 +6846,11 @@ export type Bdjuno_Provider_Validator_Commission_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Validator_Commission_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Validator_Commission_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7949,7 +6865,6 @@ export type Bdjuno_Provider_Validator_Commission_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Validator_Commission_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Validator_Commission_Avg_Fields = {
   __typename?: 'bdjuno_provider_validator_commission_avg_fields';
   commission?: Maybe<Scalars['Float']>;
@@ -7957,14 +6872,12 @@ export type Bdjuno_Provider_Validator_Commission_Avg_Fields = {
   min_self_delegation?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Avg_Order_By = {
   commission?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   min_self_delegation?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "validator_commission". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Validator_Commission_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Validator_Commission_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Validator_Commission_Bool_Exp>;
@@ -7976,7 +6889,6 @@ export type Bdjuno_Provider_Validator_Commission_Bool_Exp = {
   validator_address?: InputMaybe<Bdjuno_Provider_String_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Validator_Commission_Max_Fields = {
   __typename?: 'bdjuno_provider_validator_commission_max_fields';
   commission?: Maybe<Scalars['bdjuno_provider_numeric']>;
@@ -7985,7 +6897,6 @@ export type Bdjuno_Provider_Validator_Commission_Max_Fields = {
   validator_address?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Max_Order_By = {
   commission?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -7993,7 +6904,6 @@ export type Bdjuno_Provider_Validator_Commission_Max_Order_By = {
   validator_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Validator_Commission_Min_Fields = {
   __typename?: 'bdjuno_provider_validator_commission_min_fields';
   commission?: Maybe<Scalars['bdjuno_provider_numeric']>;
@@ -8002,7 +6912,6 @@ export type Bdjuno_Provider_Validator_Commission_Min_Fields = {
   validator_address?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Min_Order_By = {
   commission?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8010,7 +6919,6 @@ export type Bdjuno_Provider_Validator_Commission_Min_Order_By = {
   validator_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "validator_commission". */
 export type Bdjuno_Provider_Validator_Commission_Order_By = {
   commission?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8019,19 +6927,13 @@ export type Bdjuno_Provider_Validator_Commission_Order_By = {
   validator_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "validator_commission" */
 export enum Bdjuno_Provider_Validator_Commission_Select_Column {
-  /** column name */
   Commission = 'commission',
-  /** column name */
   Height = 'height',
-  /** column name */
   MinSelfDelegation = 'min_self_delegation',
-  /** column name */
   ValidatorAddress = 'validator_address'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Validator_Commission_Stddev_Fields = {
   __typename?: 'bdjuno_provider_validator_commission_stddev_fields';
   commission?: Maybe<Scalars['Float']>;
@@ -8039,14 +6941,12 @@ export type Bdjuno_Provider_Validator_Commission_Stddev_Fields = {
   min_self_delegation?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Stddev_Order_By = {
   commission?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   min_self_delegation?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Validator_Commission_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_validator_commission_stddev_pop_fields';
   commission?: Maybe<Scalars['Float']>;
@@ -8054,14 +6954,12 @@ export type Bdjuno_Provider_Validator_Commission_Stddev_Pop_Fields = {
   min_self_delegation?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Stddev_Pop_Order_By = {
   commission?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   min_self_delegation?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Validator_Commission_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_validator_commission_stddev_samp_fields';
   commission?: Maybe<Scalars['Float']>;
@@ -8069,14 +6967,12 @@ export type Bdjuno_Provider_Validator_Commission_Stddev_Samp_Fields = {
   min_self_delegation?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Stddev_Samp_Order_By = {
   commission?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   min_self_delegation?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Validator_Commission_Sum_Fields = {
   __typename?: 'bdjuno_provider_validator_commission_sum_fields';
   commission?: Maybe<Scalars['bdjuno_provider_numeric']>;
@@ -8084,14 +6980,12 @@ export type Bdjuno_Provider_Validator_Commission_Sum_Fields = {
   min_self_delegation?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by sum() on columns of table "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Sum_Order_By = {
   commission?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   min_self_delegation?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Validator_Commission_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_validator_commission_var_pop_fields';
   commission?: Maybe<Scalars['Float']>;
@@ -8099,14 +6993,12 @@ export type Bdjuno_Provider_Validator_Commission_Var_Pop_Fields = {
   min_self_delegation?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Var_Pop_Order_By = {
   commission?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   min_self_delegation?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Validator_Commission_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_validator_commission_var_samp_fields';
   commission?: Maybe<Scalars['Float']>;
@@ -8114,14 +7006,12 @@ export type Bdjuno_Provider_Validator_Commission_Var_Samp_Fields = {
   min_self_delegation?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Var_Samp_Order_By = {
   commission?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   min_self_delegation?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Validator_Commission_Variance_Fields = {
   __typename?: 'bdjuno_provider_validator_commission_variance_fields';
   commission?: Maybe<Scalars['Float']>;
@@ -8129,14 +7019,12 @@ export type Bdjuno_Provider_Validator_Commission_Variance_Fields = {
   min_self_delegation?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "validator_commission" */
 export type Bdjuno_Provider_Validator_Commission_Variance_Order_By = {
   commission?: InputMaybe<Bdjuno_Provider_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   min_self_delegation?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "validator_description" */
 export type Bdjuno_Provider_Validator_Description = {
   __typename?: 'bdjuno_provider_validator_description';
   avatar_url?: Maybe<Scalars['String']>;
@@ -8145,20 +7033,17 @@ export type Bdjuno_Provider_Validator_Description = {
   identity?: Maybe<Scalars['String']>;
   moniker?: Maybe<Scalars['String']>;
   security_contact?: Maybe<Scalars['String']>;
-  /** An object relationship */
   validator: Bdjuno_Provider_Validator;
   validator_address: Scalars['String'];
   website?: Maybe<Scalars['String']>;
 };
 
-/** aggregated selection of "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Aggregate = {
   __typename?: 'bdjuno_provider_validator_description_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Validator_Description_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Validator_Description>;
 };
 
-/** aggregate fields of "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_validator_description_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Validator_Description_Avg_Fields>;
@@ -8175,13 +7060,11 @@ export type Bdjuno_Provider_Validator_Description_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Validator_Description_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Validator_Description_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8196,18 +7079,15 @@ export type Bdjuno_Provider_Validator_Description_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Validator_Description_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Validator_Description_Avg_Fields = {
   __typename?: 'bdjuno_provider_validator_description_avg_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "validator_description". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Validator_Description_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Validator_Description_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Validator_Description_Bool_Exp>;
@@ -8223,7 +7103,6 @@ export type Bdjuno_Provider_Validator_Description_Bool_Exp = {
   website?: InputMaybe<Bdjuno_Provider_String_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Validator_Description_Max_Fields = {
   __typename?: 'bdjuno_provider_validator_description_max_fields';
   avatar_url?: Maybe<Scalars['String']>;
@@ -8236,7 +7115,6 @@ export type Bdjuno_Provider_Validator_Description_Max_Fields = {
   website?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Max_Order_By = {
   avatar_url?: InputMaybe<Bdjuno_Provider_Order_By>;
   details?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8248,7 +7126,6 @@ export type Bdjuno_Provider_Validator_Description_Max_Order_By = {
   website?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Validator_Description_Min_Fields = {
   __typename?: 'bdjuno_provider_validator_description_min_fields';
   avatar_url?: Maybe<Scalars['String']>;
@@ -8261,7 +7138,6 @@ export type Bdjuno_Provider_Validator_Description_Min_Fields = {
   website?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Min_Order_By = {
   avatar_url?: InputMaybe<Bdjuno_Provider_Order_By>;
   details?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8273,7 +7149,6 @@ export type Bdjuno_Provider_Validator_Description_Min_Order_By = {
   website?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "validator_description". */
 export type Bdjuno_Provider_Validator_Description_Order_By = {
   avatar_url?: InputMaybe<Bdjuno_Provider_Order_By>;
   details?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8286,125 +7161,97 @@ export type Bdjuno_Provider_Validator_Description_Order_By = {
   website?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "validator_description" */
 export enum Bdjuno_Provider_Validator_Description_Select_Column {
-  /** column name */
   AvatarUrl = 'avatar_url',
-  /** column name */
   Details = 'details',
-  /** column name */
   Height = 'height',
-  /** column name */
   Identity = 'identity',
-  /** column name */
   Moniker = 'moniker',
-  /** column name */
   SecurityContact = 'security_contact',
-  /** column name */
   ValidatorAddress = 'validator_address',
-  /** column name */
   Website = 'website'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Validator_Description_Stddev_Fields = {
   __typename?: 'bdjuno_provider_validator_description_stddev_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Validator_Description_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_validator_description_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Validator_Description_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_validator_description_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Validator_Description_Sum_Fields = {
   __typename?: 'bdjuno_provider_validator_description_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by sum() on columns of table "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Validator_Description_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_validator_description_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Validator_Description_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_validator_description_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Validator_Description_Variance_Fields = {
   __typename?: 'bdjuno_provider_validator_description_variance_fields';
   height?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "validator_description" */
 export type Bdjuno_Provider_Validator_Description_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "validator_info" */
 export type Bdjuno_Provider_Validator_Info = {
   __typename?: 'bdjuno_provider_validator_info';
-  /** An object relationship */
   account?: Maybe<Bdjuno_Provider_Account>;
   consensus_address: Scalars['String'];
   max_change_rate: Scalars['String'];
   max_rate: Scalars['String'];
   operator_address: Scalars['String'];
   self_delegate_address?: Maybe<Scalars['String']>;
-  /** An object relationship */
   validator: Bdjuno_Provider_Validator;
 };
 
-/** aggregated selection of "validator_info" */
 export type Bdjuno_Provider_Validator_Info_Aggregate = {
   __typename?: 'bdjuno_provider_validator_info_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Validator_Info_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Validator_Info>;
 };
 
-/** aggregate fields of "validator_info" */
 export type Bdjuno_Provider_Validator_Info_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_validator_info_aggregate_fields';
   count: Scalars['Int'];
@@ -8413,20 +7260,17 @@ export type Bdjuno_Provider_Validator_Info_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "validator_info" */
 export type Bdjuno_Provider_Validator_Info_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Validator_Info_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "validator_info" */
 export type Bdjuno_Provider_Validator_Info_Aggregate_Order_By = {
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
   max?: InputMaybe<Bdjuno_Provider_Validator_Info_Max_Order_By>;
   min?: InputMaybe<Bdjuno_Provider_Validator_Info_Min_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "validator_info". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Validator_Info_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Validator_Info_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Validator_Info_Bool_Exp>;
@@ -8440,7 +7284,6 @@ export type Bdjuno_Provider_Validator_Info_Bool_Exp = {
   validator?: InputMaybe<Bdjuno_Provider_Validator_Bool_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Validator_Info_Max_Fields = {
   __typename?: 'bdjuno_provider_validator_info_max_fields';
   consensus_address?: Maybe<Scalars['String']>;
@@ -8450,7 +7293,6 @@ export type Bdjuno_Provider_Validator_Info_Max_Fields = {
   self_delegate_address?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "validator_info" */
 export type Bdjuno_Provider_Validator_Info_Max_Order_By = {
   consensus_address?: InputMaybe<Bdjuno_Provider_Order_By>;
   max_change_rate?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8459,7 +7301,6 @@ export type Bdjuno_Provider_Validator_Info_Max_Order_By = {
   self_delegate_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Validator_Info_Min_Fields = {
   __typename?: 'bdjuno_provider_validator_info_min_fields';
   consensus_address?: Maybe<Scalars['String']>;
@@ -8469,7 +7310,6 @@ export type Bdjuno_Provider_Validator_Info_Min_Fields = {
   self_delegate_address?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "validator_info" */
 export type Bdjuno_Provider_Validator_Info_Min_Order_By = {
   consensus_address?: InputMaybe<Bdjuno_Provider_Order_By>;
   max_change_rate?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8478,7 +7318,6 @@ export type Bdjuno_Provider_Validator_Info_Min_Order_By = {
   self_delegate_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "validator_info". */
 export type Bdjuno_Provider_Validator_Info_Order_By = {
   account?: InputMaybe<Bdjuno_Provider_Account_Order_By>;
   consensus_address?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8489,35 +7328,26 @@ export type Bdjuno_Provider_Validator_Info_Order_By = {
   validator?: InputMaybe<Bdjuno_Provider_Validator_Order_By>;
 };
 
-/** select columns of table "validator_info" */
 export enum Bdjuno_Provider_Validator_Info_Select_Column {
-  /** column name */
   ConsensusAddress = 'consensus_address',
-  /** column name */
   MaxChangeRate = 'max_change_rate',
-  /** column name */
   MaxRate = 'max_rate',
-  /** column name */
   OperatorAddress = 'operator_address',
-  /** column name */
   SelfDelegateAddress = 'self_delegate_address'
 }
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Validator_Max_Fields = {
   __typename?: 'bdjuno_provider_validator_max_fields';
   consensus_address?: Maybe<Scalars['String']>;
   consensus_pubkey?: Maybe<Scalars['String']>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Validator_Min_Fields = {
   __typename?: 'bdjuno_provider_validator_min_fields';
   consensus_address?: Maybe<Scalars['String']>;
   consensus_pubkey?: Maybe<Scalars['String']>;
 };
 
-/** Ordering options when selecting data from "validator". */
 export type Bdjuno_Provider_Validator_Order_By = {
   blocks_aggregate?: InputMaybe<Bdjuno_Provider_Block_Aggregate_Order_By>;
   consensus_address?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8535,15 +7365,11 @@ export type Bdjuno_Provider_Validator_Order_By = {
   validator_voting_powers_aggregate?: InputMaybe<Bdjuno_Provider_Validator_Voting_Power_Aggregate_Order_By>;
 };
 
-/** select columns of table "validator" */
 export enum Bdjuno_Provider_Validator_Select_Column {
-  /** column name */
   ConsensusAddress = 'consensus_address',
-  /** column name */
   ConsensusPubkey = 'consensus_pubkey'
 }
 
-/** columns and relationships of "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info = {
   __typename?: 'bdjuno_provider_validator_signing_info';
   height: Scalars['bdjuno_provider_bigint'];
@@ -8555,14 +7381,12 @@ export type Bdjuno_Provider_Validator_Signing_Info = {
   validator_address: Scalars['String'];
 };
 
-/** aggregated selection of "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Aggregate = {
   __typename?: 'bdjuno_provider_validator_signing_info_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Validator_Signing_Info_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Validator_Signing_Info>;
 };
 
-/** aggregate fields of "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_validator_signing_info_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Validator_Signing_Info_Avg_Fields>;
@@ -8579,13 +7403,11 @@ export type Bdjuno_Provider_Validator_Signing_Info_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Validator_Signing_Info_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Validator_Signing_Info_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8600,7 +7422,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Validator_Signing_Info_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Validator_Signing_Info_Avg_Fields = {
   __typename?: 'bdjuno_provider_validator_signing_info_avg_fields';
   height?: Maybe<Scalars['Float']>;
@@ -8609,7 +7430,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Avg_Fields = {
   start_height?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index_offset?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8617,7 +7437,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Avg_Order_By = {
   start_height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "validator_signing_info". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Validator_Signing_Info_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Validator_Signing_Info_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Validator_Signing_Info_Bool_Exp>;
@@ -8631,7 +7450,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Bool_Exp = {
   validator_address?: InputMaybe<Bdjuno_Provider_String_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Validator_Signing_Info_Max_Fields = {
   __typename?: 'bdjuno_provider_validator_signing_info_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -8642,7 +7460,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Max_Fields = {
   validator_address?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Max_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index_offset?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8652,7 +7469,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Max_Order_By = {
   validator_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Validator_Signing_Info_Min_Fields = {
   __typename?: 'bdjuno_provider_validator_signing_info_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -8663,7 +7479,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Min_Fields = {
   validator_address?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Min_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index_offset?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8673,7 +7488,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Min_Order_By = {
   validator_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "validator_signing_info". */
 export type Bdjuno_Provider_Validator_Signing_Info_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index_offset?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8684,25 +7498,16 @@ export type Bdjuno_Provider_Validator_Signing_Info_Order_By = {
   validator_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "validator_signing_info" */
 export enum Bdjuno_Provider_Validator_Signing_Info_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   IndexOffset = 'index_offset',
-  /** column name */
   JailedUntil = 'jailed_until',
-  /** column name */
   MissedBlocksCounter = 'missed_blocks_counter',
-  /** column name */
   StartHeight = 'start_height',
-  /** column name */
   Tombstoned = 'tombstoned',
-  /** column name */
   ValidatorAddress = 'validator_address'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Validator_Signing_Info_Stddev_Fields = {
   __typename?: 'bdjuno_provider_validator_signing_info_stddev_fields';
   height?: Maybe<Scalars['Float']>;
@@ -8711,7 +7516,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Stddev_Fields = {
   start_height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index_offset?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8719,7 +7523,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Stddev_Order_By = {
   start_height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Validator_Signing_Info_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_validator_signing_info_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -8728,7 +7531,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Stddev_Pop_Fields = {
   start_height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index_offset?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8736,7 +7538,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Stddev_Pop_Order_By = {
   start_height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Validator_Signing_Info_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_validator_signing_info_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -8745,7 +7546,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Stddev_Samp_Fields = {
   start_height?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index_offset?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8753,7 +7553,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Stddev_Samp_Order_By = {
   start_height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Validator_Signing_Info_Sum_Fields = {
   __typename?: 'bdjuno_provider_validator_signing_info_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -8762,7 +7561,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Sum_Fields = {
   start_height?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by sum() on columns of table "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index_offset?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8770,7 +7568,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Sum_Order_By = {
   start_height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Validator_Signing_Info_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_validator_signing_info_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
@@ -8779,7 +7576,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Var_Pop_Fields = {
   start_height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index_offset?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8787,7 +7583,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Var_Pop_Order_By = {
   start_height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Validator_Signing_Info_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_validator_signing_info_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
@@ -8796,7 +7591,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Var_Samp_Fields = {
   start_height?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index_offset?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8804,7 +7598,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Var_Samp_Order_By = {
   start_height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Validator_Signing_Info_Variance_Fields = {
   __typename?: 'bdjuno_provider_validator_signing_info_variance_fields';
   height?: Maybe<Scalars['Float']>;
@@ -8813,7 +7606,6 @@ export type Bdjuno_Provider_Validator_Signing_Info_Variance_Fields = {
   start_height?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "validator_signing_info" */
 export type Bdjuno_Provider_Validator_Signing_Info_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   index_offset?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8821,26 +7613,22 @@ export type Bdjuno_Provider_Validator_Signing_Info_Variance_Order_By = {
   start_height?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "validator_status" */
 export type Bdjuno_Provider_Validator_Status = {
   __typename?: 'bdjuno_provider_validator_status';
   height: Scalars['bdjuno_provider_bigint'];
   jailed: Scalars['Boolean'];
   status: Scalars['Int'];
   tombstoned: Scalars['Boolean'];
-  /** An object relationship */
   validator: Bdjuno_Provider_Validator;
   validator_address: Scalars['String'];
 };
 
-/** aggregated selection of "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Aggregate = {
   __typename?: 'bdjuno_provider_validator_status_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Validator_Status_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Validator_Status>;
 };
 
-/** aggregate fields of "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_validator_status_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Validator_Status_Avg_Fields>;
@@ -8857,13 +7645,11 @@ export type Bdjuno_Provider_Validator_Status_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Validator_Status_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Validator_Status_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8878,20 +7664,17 @@ export type Bdjuno_Provider_Validator_Status_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Validator_Status_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Validator_Status_Avg_Fields = {
   __typename?: 'bdjuno_provider_validator_status_avg_fields';
   height?: Maybe<Scalars['Float']>;
   status?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   status?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "validator_status". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Validator_Status_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Validator_Status_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Validator_Status_Bool_Exp>;
@@ -8904,7 +7687,6 @@ export type Bdjuno_Provider_Validator_Status_Bool_Exp = {
   validator_address?: InputMaybe<Bdjuno_Provider_String_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Validator_Status_Max_Fields = {
   __typename?: 'bdjuno_provider_validator_status_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -8912,14 +7694,12 @@ export type Bdjuno_Provider_Validator_Status_Max_Fields = {
   validator_address?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Max_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   status?: InputMaybe<Bdjuno_Provider_Order_By>;
   validator_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Validator_Status_Min_Fields = {
   __typename?: 'bdjuno_provider_validator_status_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -8927,14 +7707,12 @@ export type Bdjuno_Provider_Validator_Status_Min_Fields = {
   validator_address?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Min_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   status?: InputMaybe<Bdjuno_Provider_Order_By>;
   validator_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "validator_status". */
 export type Bdjuno_Provider_Validator_Status_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   jailed?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -8944,131 +7722,106 @@ export type Bdjuno_Provider_Validator_Status_Order_By = {
   validator_address?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "validator_status" */
 export enum Bdjuno_Provider_Validator_Status_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   Jailed = 'jailed',
-  /** column name */
   Status = 'status',
-  /** column name */
   Tombstoned = 'tombstoned',
-  /** column name */
   ValidatorAddress = 'validator_address'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Validator_Status_Stddev_Fields = {
   __typename?: 'bdjuno_provider_validator_status_stddev_fields';
   height?: Maybe<Scalars['Float']>;
   status?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   status?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Validator_Status_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_validator_status_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
   status?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   status?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Validator_Status_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_validator_status_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
   status?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   status?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Validator_Status_Sum_Fields = {
   __typename?: 'bdjuno_provider_validator_status_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
   status?: Maybe<Scalars['Int']>;
 };
 
-/** order by sum() on columns of table "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   status?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Validator_Status_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_validator_status_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
   status?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   status?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Validator_Status_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_validator_status_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
   status?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   status?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Validator_Status_Variance_Fields = {
   __typename?: 'bdjuno_provider_validator_status_variance_fields';
   height?: Maybe<Scalars['Float']>;
   status?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "validator_status" */
 export type Bdjuno_Provider_Validator_Status_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   status?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power = {
   __typename?: 'bdjuno_provider_validator_voting_power';
-  /** An object relationship */
   block: Bdjuno_Provider_Block;
   height: Scalars['bdjuno_provider_bigint'];
-  /** An object relationship */
   validator: Bdjuno_Provider_Validator;
   validator_address: Scalars['String'];
   voting_power: Scalars['bdjuno_provider_bigint'];
 };
 
-/** aggregated selection of "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Aggregate = {
   __typename?: 'bdjuno_provider_validator_voting_power_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Validator_Voting_Power_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Validator_Voting_Power>;
 };
 
-/** aggregate fields of "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_validator_voting_power_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Validator_Voting_Power_Avg_Fields>;
@@ -9085,13 +7838,11 @@ export type Bdjuno_Provider_Validator_Voting_Power_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Validator_Voting_Power_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Validator_Voting_Power_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -9106,20 +7857,17 @@ export type Bdjuno_Provider_Validator_Voting_Power_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Validator_Voting_Power_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Validator_Voting_Power_Avg_Fields = {
   __typename?: 'bdjuno_provider_validator_voting_power_avg_fields';
   height?: Maybe<Scalars['Float']>;
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Avg_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "validator_voting_power". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Validator_Voting_Power_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Validator_Voting_Power_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Validator_Voting_Power_Bool_Exp>;
@@ -9131,7 +7879,6 @@ export type Bdjuno_Provider_Validator_Voting_Power_Bool_Exp = {
   voting_power?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Validator_Voting_Power_Max_Fields = {
   __typename?: 'bdjuno_provider_validator_voting_power_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -9139,14 +7886,12 @@ export type Bdjuno_Provider_Validator_Voting_Power_Max_Fields = {
   voting_power?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by max() on columns of table "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Max_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   validator_address?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Validator_Voting_Power_Min_Fields = {
   __typename?: 'bdjuno_provider_validator_voting_power_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -9154,14 +7899,12 @@ export type Bdjuno_Provider_Validator_Voting_Power_Min_Fields = {
   voting_power?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by min() on columns of table "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Min_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   validator_address?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "validator_voting_power". */
 export type Bdjuno_Provider_Validator_Voting_Power_Order_By = {
   block?: InputMaybe<Bdjuno_Provider_Block_Order_By>;
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -9170,111 +7913,91 @@ export type Bdjuno_Provider_Validator_Voting_Power_Order_By = {
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "validator_voting_power" */
 export enum Bdjuno_Provider_Validator_Voting_Power_Select_Column {
-  /** column name */
   Height = 'height',
-  /** column name */
   ValidatorAddress = 'validator_address',
-  /** column name */
   VotingPower = 'voting_power'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Validator_Voting_Power_Stddev_Fields = {
   __typename?: 'bdjuno_provider_validator_voting_power_stddev_fields';
   height?: Maybe<Scalars['Float']>;
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Stddev_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Validator_Voting_Power_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_validator_voting_power_stddev_pop_fields';
   height?: Maybe<Scalars['Float']>;
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Stddev_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Validator_Voting_Power_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_validator_voting_power_stddev_samp_fields';
   height?: Maybe<Scalars['Float']>;
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Stddev_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Validator_Voting_Power_Sum_Fields = {
   __typename?: 'bdjuno_provider_validator_voting_power_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
   voting_power?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by sum() on columns of table "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Sum_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Validator_Voting_Power_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_validator_voting_power_var_pop_fields';
   height?: Maybe<Scalars['Float']>;
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Var_Pop_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Validator_Voting_Power_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_validator_voting_power_var_samp_fields';
   height?: Maybe<Scalars['Float']>;
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Var_Samp_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Validator_Voting_Power_Variance_Fields = {
   __typename?: 'bdjuno_provider_validator_voting_power_variance_fields';
   height?: Maybe<Scalars['Float']>;
   voting_power?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "validator_voting_power" */
 export type Bdjuno_Provider_Validator_Voting_Power_Variance_Order_By = {
   height?: InputMaybe<Bdjuno_Provider_Order_By>;
   voting_power?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account = {
   __typename?: 'bdjuno_provider_vesting_account';
-  /** An object relationship */
   account: Bdjuno_Provider_Account;
   address: Scalars['String'];
   end_time: Scalars['bdjuno_provider_timestamp'];
@@ -9282,14 +8005,11 @@ export type Bdjuno_Provider_Vesting_Account = {
   original_vesting: Scalars['bdjuno_provider__coin'];
   start_time?: Maybe<Scalars['bdjuno_provider_timestamp']>;
   type: Scalars['String'];
-  /** An array relationship */
   vesting_periods: Array<Bdjuno_Provider_Vesting_Period>;
-  /** An aggregate relationship */
   vesting_periods_aggregate: Bdjuno_Provider_Vesting_Period_Aggregate;
 };
 
 
-/** columns and relationships of "vesting_account" */
 export type Bdjuno_Provider_Vesting_AccountVesting_PeriodsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Vesting_Period_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -9299,7 +8019,6 @@ export type Bdjuno_Provider_Vesting_AccountVesting_PeriodsArgs = {
 };
 
 
-/** columns and relationships of "vesting_account" */
 export type Bdjuno_Provider_Vesting_AccountVesting_Periods_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Vesting_Period_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -9308,14 +8027,12 @@ export type Bdjuno_Provider_Vesting_AccountVesting_Periods_AggregateArgs = {
   where?: InputMaybe<Bdjuno_Provider_Vesting_Period_Bool_Exp>;
 };
 
-/** aggregated selection of "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Aggregate = {
   __typename?: 'bdjuno_provider_vesting_account_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Vesting_Account_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Vesting_Account>;
 };
 
-/** aggregate fields of "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_vesting_account_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Vesting_Account_Avg_Fields>;
@@ -9332,13 +8049,11 @@ export type Bdjuno_Provider_Vesting_Account_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Vesting_Account_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Vesting_Account_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -9353,18 +8068,15 @@ export type Bdjuno_Provider_Vesting_Account_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Vesting_Account_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Vesting_Account_Avg_Fields = {
   __typename?: 'bdjuno_provider_vesting_account_avg_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Avg_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "vesting_account". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Vesting_Account_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Vesting_Account_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Vesting_Account_Bool_Exp>;
@@ -9379,7 +8091,6 @@ export type Bdjuno_Provider_Vesting_Account_Bool_Exp = {
   vesting_periods?: InputMaybe<Bdjuno_Provider_Vesting_Period_Bool_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Vesting_Account_Max_Fields = {
   __typename?: 'bdjuno_provider_vesting_account_max_fields';
   address?: Maybe<Scalars['String']>;
@@ -9389,7 +8100,6 @@ export type Bdjuno_Provider_Vesting_Account_Max_Fields = {
   type?: Maybe<Scalars['String']>;
 };
 
-/** order by max() on columns of table "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Max_Order_By = {
   address?: InputMaybe<Bdjuno_Provider_Order_By>;
   end_time?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -9398,7 +8108,6 @@ export type Bdjuno_Provider_Vesting_Account_Max_Order_By = {
   type?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Vesting_Account_Min_Fields = {
   __typename?: 'bdjuno_provider_vesting_account_min_fields';
   address?: Maybe<Scalars['String']>;
@@ -9408,7 +8117,6 @@ export type Bdjuno_Provider_Vesting_Account_Min_Fields = {
   type?: Maybe<Scalars['String']>;
 };
 
-/** order by min() on columns of table "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Min_Order_By = {
   address?: InputMaybe<Bdjuno_Provider_Order_By>;
   end_time?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -9417,7 +8125,6 @@ export type Bdjuno_Provider_Vesting_Account_Min_Order_By = {
   type?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "vesting_account". */
 export type Bdjuno_Provider_Vesting_Account_Order_By = {
   account?: InputMaybe<Bdjuno_Provider_Account_Order_By>;
   address?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -9429,118 +8136,93 @@ export type Bdjuno_Provider_Vesting_Account_Order_By = {
   vesting_periods_aggregate?: InputMaybe<Bdjuno_Provider_Vesting_Period_Aggregate_Order_By>;
 };
 
-/** select columns of table "vesting_account" */
 export enum Bdjuno_Provider_Vesting_Account_Select_Column {
-  /** column name */
   Address = 'address',
-  /** column name */
   EndTime = 'end_time',
-  /** column name */
   Id = 'id',
-  /** column name */
   OriginalVesting = 'original_vesting',
-  /** column name */
   StartTime = 'start_time',
-  /** column name */
   Type = 'type'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Vesting_Account_Stddev_Fields = {
   __typename?: 'bdjuno_provider_vesting_account_stddev_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Stddev_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Vesting_Account_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_vesting_account_stddev_pop_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Stddev_Pop_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Vesting_Account_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_vesting_account_stddev_samp_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Stddev_Samp_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Vesting_Account_Sum_Fields = {
   __typename?: 'bdjuno_provider_vesting_account_sum_fields';
   id?: Maybe<Scalars['Int']>;
 };
 
-/** order by sum() on columns of table "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Sum_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Vesting_Account_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_vesting_account_var_pop_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Var_Pop_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Vesting_Account_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_vesting_account_var_samp_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Var_Samp_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Vesting_Account_Variance_Fields = {
   __typename?: 'bdjuno_provider_vesting_account_variance_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "vesting_account" */
 export type Bdjuno_Provider_Vesting_Account_Variance_Order_By = {
   id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** columns and relationships of "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period = {
   __typename?: 'bdjuno_provider_vesting_period';
   amount: Scalars['bdjuno_provider__coin'];
   length: Scalars['bdjuno_provider_bigint'];
   period_order: Scalars['bdjuno_provider_bigint'];
-  /** An object relationship */
   vesting_account: Bdjuno_Provider_Vesting_Account;
   vesting_account_id: Scalars['bdjuno_provider_bigint'];
 };
 
-/** aggregated selection of "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Aggregate = {
   __typename?: 'bdjuno_provider_vesting_period_aggregate';
   aggregate?: Maybe<Bdjuno_Provider_Vesting_Period_Aggregate_Fields>;
   nodes: Array<Bdjuno_Provider_Vesting_Period>;
 };
 
-/** aggregate fields of "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Aggregate_Fields = {
   __typename?: 'bdjuno_provider_vesting_period_aggregate_fields';
   avg?: Maybe<Bdjuno_Provider_Vesting_Period_Avg_Fields>;
@@ -9557,13 +8239,11 @@ export type Bdjuno_Provider_Vesting_Period_Aggregate_Fields = {
 };
 
 
-/** aggregate fields of "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Bdjuno_Provider_Vesting_Period_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** order by aggregate values of table "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Aggregate_Order_By = {
   avg?: InputMaybe<Bdjuno_Provider_Vesting_Period_Avg_Order_By>;
   count?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -9578,7 +8258,6 @@ export type Bdjuno_Provider_Vesting_Period_Aggregate_Order_By = {
   variance?: InputMaybe<Bdjuno_Provider_Vesting_Period_Variance_Order_By>;
 };
 
-/** aggregate avg on columns */
 export type Bdjuno_Provider_Vesting_Period_Avg_Fields = {
   __typename?: 'bdjuno_provider_vesting_period_avg_fields';
   length?: Maybe<Scalars['Float']>;
@@ -9586,14 +8265,12 @@ export type Bdjuno_Provider_Vesting_Period_Avg_Fields = {
   vesting_account_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by avg() on columns of table "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Avg_Order_By = {
   length?: InputMaybe<Bdjuno_Provider_Order_By>;
   period_order?: InputMaybe<Bdjuno_Provider_Order_By>;
   vesting_account_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Boolean expression to filter rows from the table "vesting_period". All fields are combined with a logical 'AND'. */
 export type Bdjuno_Provider_Vesting_Period_Bool_Exp = {
   _and?: InputMaybe<Array<Bdjuno_Provider_Vesting_Period_Bool_Exp>>;
   _not?: InputMaybe<Bdjuno_Provider_Vesting_Period_Bool_Exp>;
@@ -9605,7 +8282,6 @@ export type Bdjuno_Provider_Vesting_Period_Bool_Exp = {
   vesting_account_id?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
 };
 
-/** aggregate max on columns */
 export type Bdjuno_Provider_Vesting_Period_Max_Fields = {
   __typename?: 'bdjuno_provider_vesting_period_max_fields';
   length?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -9613,14 +8289,12 @@ export type Bdjuno_Provider_Vesting_Period_Max_Fields = {
   vesting_account_id?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by max() on columns of table "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Max_Order_By = {
   length?: InputMaybe<Bdjuno_Provider_Order_By>;
   period_order?: InputMaybe<Bdjuno_Provider_Order_By>;
   vesting_account_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate min on columns */
 export type Bdjuno_Provider_Vesting_Period_Min_Fields = {
   __typename?: 'bdjuno_provider_vesting_period_min_fields';
   length?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -9628,14 +8302,12 @@ export type Bdjuno_Provider_Vesting_Period_Min_Fields = {
   vesting_account_id?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by min() on columns of table "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Min_Order_By = {
   length?: InputMaybe<Bdjuno_Provider_Order_By>;
   period_order?: InputMaybe<Bdjuno_Provider_Order_By>;
   vesting_account_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** Ordering options when selecting data from "vesting_period". */
 export type Bdjuno_Provider_Vesting_Period_Order_By = {
   amount?: InputMaybe<Bdjuno_Provider_Order_By>;
   length?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -9644,19 +8316,13 @@ export type Bdjuno_Provider_Vesting_Period_Order_By = {
   vesting_account_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** select columns of table "vesting_period" */
 export enum Bdjuno_Provider_Vesting_Period_Select_Column {
-  /** column name */
   Amount = 'amount',
-  /** column name */
   Length = 'length',
-  /** column name */
   PeriodOrder = 'period_order',
-  /** column name */
   VestingAccountId = 'vesting_account_id'
 }
 
-/** aggregate stddev on columns */
 export type Bdjuno_Provider_Vesting_Period_Stddev_Fields = {
   __typename?: 'bdjuno_provider_vesting_period_stddev_fields';
   length?: Maybe<Scalars['Float']>;
@@ -9664,14 +8330,12 @@ export type Bdjuno_Provider_Vesting_Period_Stddev_Fields = {
   vesting_account_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev() on columns of table "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Stddev_Order_By = {
   length?: InputMaybe<Bdjuno_Provider_Order_By>;
   period_order?: InputMaybe<Bdjuno_Provider_Order_By>;
   vesting_account_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_pop on columns */
 export type Bdjuno_Provider_Vesting_Period_Stddev_Pop_Fields = {
   __typename?: 'bdjuno_provider_vesting_period_stddev_pop_fields';
   length?: Maybe<Scalars['Float']>;
@@ -9679,14 +8343,12 @@ export type Bdjuno_Provider_Vesting_Period_Stddev_Pop_Fields = {
   vesting_account_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_pop() on columns of table "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Stddev_Pop_Order_By = {
   length?: InputMaybe<Bdjuno_Provider_Order_By>;
   period_order?: InputMaybe<Bdjuno_Provider_Order_By>;
   vesting_account_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate stddev_samp on columns */
 export type Bdjuno_Provider_Vesting_Period_Stddev_Samp_Fields = {
   __typename?: 'bdjuno_provider_vesting_period_stddev_samp_fields';
   length?: Maybe<Scalars['Float']>;
@@ -9694,14 +8356,12 @@ export type Bdjuno_Provider_Vesting_Period_Stddev_Samp_Fields = {
   vesting_account_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by stddev_samp() on columns of table "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Stddev_Samp_Order_By = {
   length?: InputMaybe<Bdjuno_Provider_Order_By>;
   period_order?: InputMaybe<Bdjuno_Provider_Order_By>;
   vesting_account_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate sum on columns */
 export type Bdjuno_Provider_Vesting_Period_Sum_Fields = {
   __typename?: 'bdjuno_provider_vesting_period_sum_fields';
   length?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -9709,14 +8369,12 @@ export type Bdjuno_Provider_Vesting_Period_Sum_Fields = {
   vesting_account_id?: Maybe<Scalars['bdjuno_provider_bigint']>;
 };
 
-/** order by sum() on columns of table "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Sum_Order_By = {
   length?: InputMaybe<Bdjuno_Provider_Order_By>;
   period_order?: InputMaybe<Bdjuno_Provider_Order_By>;
   vesting_account_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_pop on columns */
 export type Bdjuno_Provider_Vesting_Period_Var_Pop_Fields = {
   __typename?: 'bdjuno_provider_vesting_period_var_pop_fields';
   length?: Maybe<Scalars['Float']>;
@@ -9724,14 +8382,12 @@ export type Bdjuno_Provider_Vesting_Period_Var_Pop_Fields = {
   vesting_account_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_pop() on columns of table "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Var_Pop_Order_By = {
   length?: InputMaybe<Bdjuno_Provider_Order_By>;
   period_order?: InputMaybe<Bdjuno_Provider_Order_By>;
   vesting_account_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate var_samp on columns */
 export type Bdjuno_Provider_Vesting_Period_Var_Samp_Fields = {
   __typename?: 'bdjuno_provider_vesting_period_var_samp_fields';
   length?: Maybe<Scalars['Float']>;
@@ -9739,14 +8395,12 @@ export type Bdjuno_Provider_Vesting_Period_Var_Samp_Fields = {
   vesting_account_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by var_samp() on columns of table "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Var_Samp_Order_By = {
   length?: InputMaybe<Bdjuno_Provider_Order_By>;
   period_order?: InputMaybe<Bdjuno_Provider_Order_By>;
   vesting_account_id?: InputMaybe<Bdjuno_Provider_Order_By>;
 };
 
-/** aggregate variance on columns */
 export type Bdjuno_Provider_Vesting_Period_Variance_Fields = {
   __typename?: 'bdjuno_provider_vesting_period_variance_fields';
   length?: Maybe<Scalars['Float']>;
@@ -9754,7 +8408,6 @@ export type Bdjuno_Provider_Vesting_Period_Variance_Fields = {
   vesting_account_id?: Maybe<Scalars['Float']>;
 };
 
-/** order by variance() on columns of table "vesting_period" */
 export type Bdjuno_Provider_Vesting_Period_Variance_Order_By = {
   length?: InputMaybe<Bdjuno_Provider_Order_By>;
   period_order?: InputMaybe<Bdjuno_Provider_Order_By>;
@@ -9763,11 +8416,8 @@ export type Bdjuno_Provider_Vesting_Period_Variance_Order_By = {
 
 export type Bdjuno_Providerquery_Root = {
   __typename?: 'bdjuno_providerquery_root';
-  /** fetch data from the table: "account" */
   account: Array<Bdjuno_Provider_Account>;
-  /** fetch aggregated fields from the table: "account" */
   account_aggregate: Bdjuno_Provider_Account_Aggregate;
-  /** fetch data from the table: "account" using primary key columns */
   account_by_pk?: Maybe<Bdjuno_Provider_Account>;
   action_account_balance?: Maybe<Bdjuno_Provider_ActionBalance>;
   action_delegation?: Maybe<Bdjuno_Provider_ActionDelegationResponse>;
@@ -9781,221 +8431,113 @@ export type Bdjuno_Providerquery_Root = {
   action_validator_delegations?: Maybe<Bdjuno_Provider_ActionDelegationResponse>;
   action_validator_redelegations_from?: Maybe<Bdjuno_Provider_ActionRedelegationResponse>;
   action_validator_unbonding_delegations?: Maybe<Bdjuno_Provider_ActionUnbondingDelegationResponse>;
-  /** fetch data from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis: Array<Bdjuno_Provider_Average_Block_Time_From_Genesis>;
-  /** fetch aggregated fields from the table: "average_block_time_from_genesis" */
   average_block_time_from_genesis_aggregate: Bdjuno_Provider_Average_Block_Time_From_Genesis_Aggregate;
-  /** fetch data from the table: "average_block_time_per_day" */
   average_block_time_per_day: Array<Bdjuno_Provider_Average_Block_Time_Per_Day>;
-  /** fetch aggregated fields from the table: "average_block_time_per_day" */
   average_block_time_per_day_aggregate: Bdjuno_Provider_Average_Block_Time_Per_Day_Aggregate;
-  /** fetch data from the table: "average_block_time_per_hour" */
   average_block_time_per_hour: Array<Bdjuno_Provider_Average_Block_Time_Per_Hour>;
-  /** fetch aggregated fields from the table: "average_block_time_per_hour" */
   average_block_time_per_hour_aggregate: Bdjuno_Provider_Average_Block_Time_Per_Hour_Aggregate;
-  /** fetch data from the table: "average_block_time_per_minute" */
   average_block_time_per_minute: Array<Bdjuno_Provider_Average_Block_Time_Per_Minute>;
-  /** fetch aggregated fields from the table: "average_block_time_per_minute" */
   average_block_time_per_minute_aggregate: Bdjuno_Provider_Average_Block_Time_Per_Minute_Aggregate;
-  /** fetch data from the table: "block" */
   block: Array<Bdjuno_Provider_Block>;
-  /** fetch aggregated fields from the table: "block" */
   block_aggregate: Bdjuno_Provider_Block_Aggregate;
-  /** fetch data from the table: "block" using primary key columns */
   block_by_pk?: Maybe<Bdjuno_Provider_Block>;
-  /** fetch data from the table: "community_pool" */
   community_pool: Array<Bdjuno_Provider_Community_Pool>;
-  /** fetch aggregated fields from the table: "community_pool" */
   community_pool_aggregate: Bdjuno_Provider_Community_Pool_Aggregate;
-  /** fetch data from the table: "distribution_params" */
   distribution_params: Array<Bdjuno_Provider_Distribution_Params>;
-  /** fetch aggregated fields from the table: "distribution_params" */
   distribution_params_aggregate: Bdjuno_Provider_Distribution_Params_Aggregate;
-  /** fetch data from the table: "distribution_params" using primary key columns */
   distribution_params_by_pk?: Maybe<Bdjuno_Provider_Distribution_Params>;
-  /** fetch data from the table: "double_sign_evidence" */
   double_sign_evidence: Array<Bdjuno_Provider_Double_Sign_Evidence>;
-  /** fetch aggregated fields from the table: "double_sign_evidence" */
   double_sign_evidence_aggregate: Bdjuno_Provider_Double_Sign_Evidence_Aggregate;
-  /** fetch data from the table: "double_sign_vote" */
   double_sign_vote: Array<Bdjuno_Provider_Double_Sign_Vote>;
-  /** fetch aggregated fields from the table: "double_sign_vote" */
   double_sign_vote_aggregate: Bdjuno_Provider_Double_Sign_Vote_Aggregate;
-  /** fetch data from the table: "double_sign_vote" using primary key columns */
   double_sign_vote_by_pk?: Maybe<Bdjuno_Provider_Double_Sign_Vote>;
-  /** fetch data from the table: "fee_grant_allowance" */
   fee_grant_allowance: Array<Bdjuno_Provider_Fee_Grant_Allowance>;
-  /** fetch aggregated fields from the table: "fee_grant_allowance" */
   fee_grant_allowance_aggregate: Bdjuno_Provider_Fee_Grant_Allowance_Aggregate;
-  /** fetch data from the table: "fee_grant_allowance" using primary key columns */
   fee_grant_allowance_by_pk?: Maybe<Bdjuno_Provider_Fee_Grant_Allowance>;
-  /** fetch data from the table: "genesis" */
   genesis: Array<Bdjuno_Provider_Genesis>;
-  /** fetch aggregated fields from the table: "genesis" */
   genesis_aggregate: Bdjuno_Provider_Genesis_Aggregate;
-  /** fetch data from the table: "gov_params" */
   gov_params: Array<Bdjuno_Provider_Gov_Params>;
-  /** fetch aggregated fields from the table: "gov_params" */
   gov_params_aggregate: Bdjuno_Provider_Gov_Params_Aggregate;
-  /** fetch data from the table: "gov_params" using primary key columns */
   gov_params_by_pk?: Maybe<Bdjuno_Provider_Gov_Params>;
-  /** fetch data from the table: "inflation" */
   inflation: Array<Bdjuno_Provider_Inflation>;
-  /** fetch aggregated fields from the table: "inflation" */
   inflation_aggregate: Bdjuno_Provider_Inflation_Aggregate;
-  /** fetch data from the table: "message" */
   message: Array<Bdjuno_Provider_Message>;
-  /** fetch aggregated fields from the table: "message" */
   message_aggregate: Bdjuno_Provider_Message_Aggregate;
-  /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Bdjuno_Provider_Message>;
-  /** execute function "messages_by_address" and query aggregates on result of table type "message" */
   messages_by_address_aggregate: Bdjuno_Provider_Message_Aggregate;
-  /** fetch data from the table: "mint_params" */
   mint_params: Array<Bdjuno_Provider_Mint_Params>;
-  /** fetch aggregated fields from the table: "mint_params" */
   mint_params_aggregate: Bdjuno_Provider_Mint_Params_Aggregate;
-  /** fetch data from the table: "mint_params" using primary key columns */
   mint_params_by_pk?: Maybe<Bdjuno_Provider_Mint_Params>;
-  /** fetch data from the table: "modules" */
   modules: Array<Bdjuno_Provider_Modules>;
-  /** fetch aggregated fields from the table: "modules" */
   modules_aggregate: Bdjuno_Provider_Modules_Aggregate;
-  /** fetch data from the table: "modules" using primary key columns */
   modules_by_pk?: Maybe<Bdjuno_Provider_Modules>;
-  /** fetch data from the table: "pre_commit" */
   pre_commit: Array<Bdjuno_Provider_Pre_Commit>;
-  /** fetch aggregated fields from the table: "pre_commit" */
   pre_commit_aggregate: Bdjuno_Provider_Pre_Commit_Aggregate;
-  /** fetch data from the table: "proposal" */
   proposal: Array<Bdjuno_Provider_Proposal>;
-  /** fetch aggregated fields from the table: "proposal" */
   proposal_aggregate: Bdjuno_Provider_Proposal_Aggregate;
-  /** fetch data from the table: "proposal" using primary key columns */
   proposal_by_pk?: Maybe<Bdjuno_Provider_Proposal>;
-  /** fetch data from the table: "proposal_deposit" */
   proposal_deposit: Array<Bdjuno_Provider_Proposal_Deposit>;
-  /** fetch aggregated fields from the table: "proposal_deposit" */
   proposal_deposit_aggregate: Bdjuno_Provider_Proposal_Deposit_Aggregate;
-  /** fetch data from the table: "proposal_staking_pool_snapshot" */
   proposal_staking_pool_snapshot: Array<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot>;
-  /** fetch aggregated fields from the table: "proposal_staking_pool_snapshot" */
   proposal_staking_pool_snapshot_aggregate: Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Aggregate;
-  /** fetch data from the table: "proposal_staking_pool_snapshot" using primary key columns */
   proposal_staking_pool_snapshot_by_pk?: Maybe<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot>;
-  /** fetch data from the table: "proposal_tally_result" */
   proposal_tally_result: Array<Bdjuno_Provider_Proposal_Tally_Result>;
-  /** fetch aggregated fields from the table: "proposal_tally_result" */
   proposal_tally_result_aggregate: Bdjuno_Provider_Proposal_Tally_Result_Aggregate;
-  /** fetch data from the table: "proposal_tally_result" using primary key columns */
   proposal_tally_result_by_pk?: Maybe<Bdjuno_Provider_Proposal_Tally_Result>;
-  /** fetch data from the table: "proposal_validator_status_snapshot" */
   proposal_validator_status_snapshot: Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot>;
-  /** fetch aggregated fields from the table: "proposal_validator_status_snapshot" */
   proposal_validator_status_snapshot_aggregate: Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Aggregate;
-  /** fetch data from the table: "proposal_validator_status_snapshot" using primary key columns */
   proposal_validator_status_snapshot_by_pk?: Maybe<Bdjuno_Provider_Proposal_Validator_Status_Snapshot>;
-  /** fetch data from the table: "proposal_vote" */
   proposal_vote: Array<Bdjuno_Provider_Proposal_Vote>;
-  /** fetch aggregated fields from the table: "proposal_vote" */
   proposal_vote_aggregate: Bdjuno_Provider_Proposal_Vote_Aggregate;
-  /** fetch data from the table: "slashing_params" */
   slashing_params: Array<Bdjuno_Provider_Slashing_Params>;
-  /** fetch aggregated fields from the table: "slashing_params" */
   slashing_params_aggregate: Bdjuno_Provider_Slashing_Params_Aggregate;
-  /** fetch data from the table: "slashing_params" using primary key columns */
   slashing_params_by_pk?: Maybe<Bdjuno_Provider_Slashing_Params>;
-  /** fetch data from the table: "software_upgrade_plan" */
   software_upgrade_plan: Array<Bdjuno_Provider_Software_Upgrade_Plan>;
-  /** fetch aggregated fields from the table: "software_upgrade_plan" */
   software_upgrade_plan_aggregate: Bdjuno_Provider_Software_Upgrade_Plan_Aggregate;
-  /** fetch data from the table: "staking_params" */
   staking_params: Array<Bdjuno_Provider_Staking_Params>;
-  /** fetch aggregated fields from the table: "staking_params" */
   staking_params_aggregate: Bdjuno_Provider_Staking_Params_Aggregate;
-  /** fetch data from the table: "staking_params" using primary key columns */
   staking_params_by_pk?: Maybe<Bdjuno_Provider_Staking_Params>;
-  /** fetch data from the table: "staking_pool" */
   staking_pool: Array<Bdjuno_Provider_Staking_Pool>;
-  /** fetch aggregated fields from the table: "staking_pool" */
   staking_pool_aggregate: Bdjuno_Provider_Staking_Pool_Aggregate;
-  /** fetch data from the table: "supply" */
   supply: Array<Bdjuno_Provider_Supply>;
-  /** fetch aggregated fields from the table: "supply" */
   supply_aggregate: Bdjuno_Provider_Supply_Aggregate;
-  /** fetch data from the table: "token" */
   token: Array<Bdjuno_Provider_Token>;
-  /** fetch aggregated fields from the table: "token" */
   token_aggregate: Bdjuno_Provider_Token_Aggregate;
-  /** fetch data from the table: "token_price" */
   token_price: Array<Bdjuno_Provider_Token_Price>;
-  /** fetch aggregated fields from the table: "token_price" */
   token_price_aggregate: Bdjuno_Provider_Token_Price_Aggregate;
-  /** fetch data from the table: "token_price" using primary key columns */
   token_price_by_pk?: Maybe<Bdjuno_Provider_Token_Price>;
-  /** fetch data from the table: "token_price_history" */
   token_price_history: Array<Bdjuno_Provider_Token_Price_History>;
-  /** fetch aggregated fields from the table: "token_price_history" */
   token_price_history_aggregate: Bdjuno_Provider_Token_Price_History_Aggregate;
-  /** fetch data from the table: "token_unit" */
   token_unit: Array<Bdjuno_Provider_Token_Unit>;
-  /** fetch aggregated fields from the table: "token_unit" */
   token_unit_aggregate: Bdjuno_Provider_Token_Unit_Aggregate;
-  /** fetch data from the table: "transaction" */
   transaction: Array<Bdjuno_Provider_Transaction>;
-  /** fetch aggregated fields from the table: "transaction" */
   transaction_aggregate: Bdjuno_Provider_Transaction_Aggregate;
-  /** fetch data from the table: "validator" */
   validator: Array<Bdjuno_Provider_Validator>;
-  /** fetch aggregated fields from the table: "validator" */
   validator_aggregate: Bdjuno_Provider_Validator_Aggregate;
-  /** fetch data from the table: "validator" using primary key columns */
   validator_by_pk?: Maybe<Bdjuno_Provider_Validator>;
-  /** fetch data from the table: "validator_commission" */
   validator_commission: Array<Bdjuno_Provider_Validator_Commission>;
-  /** fetch aggregated fields from the table: "validator_commission" */
   validator_commission_aggregate: Bdjuno_Provider_Validator_Commission_Aggregate;
-  /** fetch data from the table: "validator_commission" using primary key columns */
   validator_commission_by_pk?: Maybe<Bdjuno_Provider_Validator_Commission>;
-  /** fetch data from the table: "validator_description" */
   validator_description: Array<Bdjuno_Provider_Validator_Description>;
-  /** fetch aggregated fields from the table: "validator_description" */
   validator_description_aggregate: Bdjuno_Provider_Validator_Description_Aggregate;
-  /** fetch data from the table: "validator_description" using primary key columns */
   validator_description_by_pk?: Maybe<Bdjuno_Provider_Validator_Description>;
-  /** fetch data from the table: "validator_info" */
   validator_info: Array<Bdjuno_Provider_Validator_Info>;
-  /** fetch aggregated fields from the table: "validator_info" */
   validator_info_aggregate: Bdjuno_Provider_Validator_Info_Aggregate;
-  /** fetch data from the table: "validator_info" using primary key columns */
   validator_info_by_pk?: Maybe<Bdjuno_Provider_Validator_Info>;
-  /** fetch data from the table: "validator_signing_info" */
   validator_signing_info: Array<Bdjuno_Provider_Validator_Signing_Info>;
-  /** fetch aggregated fields from the table: "validator_signing_info" */
   validator_signing_info_aggregate: Bdjuno_Provider_Validator_Signing_Info_Aggregate;
-  /** fetch data from the table: "validator_signing_info" using primary key columns */
   validator_signing_info_by_pk?: Maybe<Bdjuno_Provider_Validator_Signing_Info>;
-  /** fetch data from the table: "validator_status" */
   validator_status: Array<Bdjuno_Provider_Validator_Status>;
-  /** fetch aggregated fields from the table: "validator_status" */
   validator_status_aggregate: Bdjuno_Provider_Validator_Status_Aggregate;
-  /** fetch data from the table: "validator_status" using primary key columns */
   validator_status_by_pk?: Maybe<Bdjuno_Provider_Validator_Status>;
-  /** fetch data from the table: "validator_voting_power" */
   validator_voting_power: Array<Bdjuno_Provider_Validator_Voting_Power>;
-  /** fetch aggregated fields from the table: "validator_voting_power" */
   validator_voting_power_aggregate: Bdjuno_Provider_Validator_Voting_Power_Aggregate;
-  /** fetch data from the table: "validator_voting_power" using primary key columns */
   validator_voting_power_by_pk?: Maybe<Bdjuno_Provider_Validator_Voting_Power>;
-  /** fetch data from the table: "vesting_account" */
   vesting_account: Array<Bdjuno_Provider_Vesting_Account>;
-  /** fetch aggregated fields from the table: "vesting_account" */
   vesting_account_aggregate: Bdjuno_Provider_Vesting_Account_Aggregate;
-  /** fetch data from the table: "vesting_account" using primary key columns */
   vesting_account_by_pk?: Maybe<Bdjuno_Provider_Vesting_Account>;
-  /** fetch data from the table: "vesting_period" */
   vesting_period: Array<Bdjuno_Provider_Vesting_Period>;
-  /** fetch aggregated fields from the table: "vesting_period" */
   vesting_period_aggregate: Bdjuno_Provider_Vesting_Period_Aggregate;
 };
 
@@ -10994,1141 +9536,6 @@ export type Bdjuno_Providerquery_RootVesting_Period_AggregateArgs = {
   where?: InputMaybe<Bdjuno_Provider_Vesting_Period_Bool_Exp>;
 };
 
-export type Bdjuno_Providersubscription_Root = {
-  __typename?: 'bdjuno_providersubscription_root';
-  /** fetch data from the table: "account" */
-  account: Array<Bdjuno_Provider_Account>;
-  /** fetch aggregated fields from the table: "account" */
-  account_aggregate: Bdjuno_Provider_Account_Aggregate;
-  /** fetch data from the table: "account" using primary key columns */
-  account_by_pk?: Maybe<Bdjuno_Provider_Account>;
-  /** fetch data from the table: "average_block_time_from_genesis" */
-  average_block_time_from_genesis: Array<Bdjuno_Provider_Average_Block_Time_From_Genesis>;
-  /** fetch aggregated fields from the table: "average_block_time_from_genesis" */
-  average_block_time_from_genesis_aggregate: Bdjuno_Provider_Average_Block_Time_From_Genesis_Aggregate;
-  /** fetch data from the table: "average_block_time_per_day" */
-  average_block_time_per_day: Array<Bdjuno_Provider_Average_Block_Time_Per_Day>;
-  /** fetch aggregated fields from the table: "average_block_time_per_day" */
-  average_block_time_per_day_aggregate: Bdjuno_Provider_Average_Block_Time_Per_Day_Aggregate;
-  /** fetch data from the table: "average_block_time_per_hour" */
-  average_block_time_per_hour: Array<Bdjuno_Provider_Average_Block_Time_Per_Hour>;
-  /** fetch aggregated fields from the table: "average_block_time_per_hour" */
-  average_block_time_per_hour_aggregate: Bdjuno_Provider_Average_Block_Time_Per_Hour_Aggregate;
-  /** fetch data from the table: "average_block_time_per_minute" */
-  average_block_time_per_minute: Array<Bdjuno_Provider_Average_Block_Time_Per_Minute>;
-  /** fetch aggregated fields from the table: "average_block_time_per_minute" */
-  average_block_time_per_minute_aggregate: Bdjuno_Provider_Average_Block_Time_Per_Minute_Aggregate;
-  /** fetch data from the table: "block" */
-  block: Array<Bdjuno_Provider_Block>;
-  /** fetch aggregated fields from the table: "block" */
-  block_aggregate: Bdjuno_Provider_Block_Aggregate;
-  /** fetch data from the table: "block" using primary key columns */
-  block_by_pk?: Maybe<Bdjuno_Provider_Block>;
-  /** fetch data from the table: "community_pool" */
-  community_pool: Array<Bdjuno_Provider_Community_Pool>;
-  /** fetch aggregated fields from the table: "community_pool" */
-  community_pool_aggregate: Bdjuno_Provider_Community_Pool_Aggregate;
-  /** fetch data from the table: "distribution_params" */
-  distribution_params: Array<Bdjuno_Provider_Distribution_Params>;
-  /** fetch aggregated fields from the table: "distribution_params" */
-  distribution_params_aggregate: Bdjuno_Provider_Distribution_Params_Aggregate;
-  /** fetch data from the table: "distribution_params" using primary key columns */
-  distribution_params_by_pk?: Maybe<Bdjuno_Provider_Distribution_Params>;
-  /** fetch data from the table: "double_sign_evidence" */
-  double_sign_evidence: Array<Bdjuno_Provider_Double_Sign_Evidence>;
-  /** fetch aggregated fields from the table: "double_sign_evidence" */
-  double_sign_evidence_aggregate: Bdjuno_Provider_Double_Sign_Evidence_Aggregate;
-  /** fetch data from the table: "double_sign_vote" */
-  double_sign_vote: Array<Bdjuno_Provider_Double_Sign_Vote>;
-  /** fetch aggregated fields from the table: "double_sign_vote" */
-  double_sign_vote_aggregate: Bdjuno_Provider_Double_Sign_Vote_Aggregate;
-  /** fetch data from the table: "double_sign_vote" using primary key columns */
-  double_sign_vote_by_pk?: Maybe<Bdjuno_Provider_Double_Sign_Vote>;
-  /** fetch data from the table: "fee_grant_allowance" */
-  fee_grant_allowance: Array<Bdjuno_Provider_Fee_Grant_Allowance>;
-  /** fetch aggregated fields from the table: "fee_grant_allowance" */
-  fee_grant_allowance_aggregate: Bdjuno_Provider_Fee_Grant_Allowance_Aggregate;
-  /** fetch data from the table: "fee_grant_allowance" using primary key columns */
-  fee_grant_allowance_by_pk?: Maybe<Bdjuno_Provider_Fee_Grant_Allowance>;
-  /** fetch data from the table: "genesis" */
-  genesis: Array<Bdjuno_Provider_Genesis>;
-  /** fetch aggregated fields from the table: "genesis" */
-  genesis_aggregate: Bdjuno_Provider_Genesis_Aggregate;
-  /** fetch data from the table: "gov_params" */
-  gov_params: Array<Bdjuno_Provider_Gov_Params>;
-  /** fetch aggregated fields from the table: "gov_params" */
-  gov_params_aggregate: Bdjuno_Provider_Gov_Params_Aggregate;
-  /** fetch data from the table: "gov_params" using primary key columns */
-  gov_params_by_pk?: Maybe<Bdjuno_Provider_Gov_Params>;
-  /** fetch data from the table: "inflation" */
-  inflation: Array<Bdjuno_Provider_Inflation>;
-  /** fetch aggregated fields from the table: "inflation" */
-  inflation_aggregate: Bdjuno_Provider_Inflation_Aggregate;
-  /** fetch data from the table: "message" */
-  message: Array<Bdjuno_Provider_Message>;
-  /** fetch aggregated fields from the table: "message" */
-  message_aggregate: Bdjuno_Provider_Message_Aggregate;
-  /** execute function "messages_by_address" which returns "message" */
-  messages_by_address: Array<Bdjuno_Provider_Message>;
-  /** execute function "messages_by_address" and query aggregates on result of table type "message" */
-  messages_by_address_aggregate: Bdjuno_Provider_Message_Aggregate;
-  /** fetch data from the table: "mint_params" */
-  mint_params: Array<Bdjuno_Provider_Mint_Params>;
-  /** fetch aggregated fields from the table: "mint_params" */
-  mint_params_aggregate: Bdjuno_Provider_Mint_Params_Aggregate;
-  /** fetch data from the table: "mint_params" using primary key columns */
-  mint_params_by_pk?: Maybe<Bdjuno_Provider_Mint_Params>;
-  /** fetch data from the table: "modules" */
-  modules: Array<Bdjuno_Provider_Modules>;
-  /** fetch aggregated fields from the table: "modules" */
-  modules_aggregate: Bdjuno_Provider_Modules_Aggregate;
-  /** fetch data from the table: "modules" using primary key columns */
-  modules_by_pk?: Maybe<Bdjuno_Provider_Modules>;
-  /** fetch data from the table: "pre_commit" */
-  pre_commit: Array<Bdjuno_Provider_Pre_Commit>;
-  /** fetch aggregated fields from the table: "pre_commit" */
-  pre_commit_aggregate: Bdjuno_Provider_Pre_Commit_Aggregate;
-  /** fetch data from the table: "proposal" */
-  proposal: Array<Bdjuno_Provider_Proposal>;
-  /** fetch aggregated fields from the table: "proposal" */
-  proposal_aggregate: Bdjuno_Provider_Proposal_Aggregate;
-  /** fetch data from the table: "proposal" using primary key columns */
-  proposal_by_pk?: Maybe<Bdjuno_Provider_Proposal>;
-  /** fetch data from the table: "proposal_deposit" */
-  proposal_deposit: Array<Bdjuno_Provider_Proposal_Deposit>;
-  /** fetch aggregated fields from the table: "proposal_deposit" */
-  proposal_deposit_aggregate: Bdjuno_Provider_Proposal_Deposit_Aggregate;
-  /** fetch data from the table: "proposal_staking_pool_snapshot" */
-  proposal_staking_pool_snapshot: Array<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot>;
-  /** fetch aggregated fields from the table: "proposal_staking_pool_snapshot" */
-  proposal_staking_pool_snapshot_aggregate: Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Aggregate;
-  /** fetch data from the table: "proposal_staking_pool_snapshot" using primary key columns */
-  proposal_staking_pool_snapshot_by_pk?: Maybe<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot>;
-  /** fetch data from the table: "proposal_tally_result" */
-  proposal_tally_result: Array<Bdjuno_Provider_Proposal_Tally_Result>;
-  /** fetch aggregated fields from the table: "proposal_tally_result" */
-  proposal_tally_result_aggregate: Bdjuno_Provider_Proposal_Tally_Result_Aggregate;
-  /** fetch data from the table: "proposal_tally_result" using primary key columns */
-  proposal_tally_result_by_pk?: Maybe<Bdjuno_Provider_Proposal_Tally_Result>;
-  /** fetch data from the table: "proposal_validator_status_snapshot" */
-  proposal_validator_status_snapshot: Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot>;
-  /** fetch aggregated fields from the table: "proposal_validator_status_snapshot" */
-  proposal_validator_status_snapshot_aggregate: Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Aggregate;
-  /** fetch data from the table: "proposal_validator_status_snapshot" using primary key columns */
-  proposal_validator_status_snapshot_by_pk?: Maybe<Bdjuno_Provider_Proposal_Validator_Status_Snapshot>;
-  /** fetch data from the table: "proposal_vote" */
-  proposal_vote: Array<Bdjuno_Provider_Proposal_Vote>;
-  /** fetch aggregated fields from the table: "proposal_vote" */
-  proposal_vote_aggregate: Bdjuno_Provider_Proposal_Vote_Aggregate;
-  /** fetch data from the table: "slashing_params" */
-  slashing_params: Array<Bdjuno_Provider_Slashing_Params>;
-  /** fetch aggregated fields from the table: "slashing_params" */
-  slashing_params_aggregate: Bdjuno_Provider_Slashing_Params_Aggregate;
-  /** fetch data from the table: "slashing_params" using primary key columns */
-  slashing_params_by_pk?: Maybe<Bdjuno_Provider_Slashing_Params>;
-  /** fetch data from the table: "software_upgrade_plan" */
-  software_upgrade_plan: Array<Bdjuno_Provider_Software_Upgrade_Plan>;
-  /** fetch aggregated fields from the table: "software_upgrade_plan" */
-  software_upgrade_plan_aggregate: Bdjuno_Provider_Software_Upgrade_Plan_Aggregate;
-  /** fetch data from the table: "staking_params" */
-  staking_params: Array<Bdjuno_Provider_Staking_Params>;
-  /** fetch aggregated fields from the table: "staking_params" */
-  staking_params_aggregate: Bdjuno_Provider_Staking_Params_Aggregate;
-  /** fetch data from the table: "staking_params" using primary key columns */
-  staking_params_by_pk?: Maybe<Bdjuno_Provider_Staking_Params>;
-  /** fetch data from the table: "staking_pool" */
-  staking_pool: Array<Bdjuno_Provider_Staking_Pool>;
-  /** fetch aggregated fields from the table: "staking_pool" */
-  staking_pool_aggregate: Bdjuno_Provider_Staking_Pool_Aggregate;
-  /** fetch data from the table: "supply" */
-  supply: Array<Bdjuno_Provider_Supply>;
-  /** fetch aggregated fields from the table: "supply" */
-  supply_aggregate: Bdjuno_Provider_Supply_Aggregate;
-  /** fetch data from the table: "token" */
-  token: Array<Bdjuno_Provider_Token>;
-  /** fetch aggregated fields from the table: "token" */
-  token_aggregate: Bdjuno_Provider_Token_Aggregate;
-  /** fetch data from the table: "token_price" */
-  token_price: Array<Bdjuno_Provider_Token_Price>;
-  /** fetch aggregated fields from the table: "token_price" */
-  token_price_aggregate: Bdjuno_Provider_Token_Price_Aggregate;
-  /** fetch data from the table: "token_price" using primary key columns */
-  token_price_by_pk?: Maybe<Bdjuno_Provider_Token_Price>;
-  /** fetch data from the table: "token_price_history" */
-  token_price_history: Array<Bdjuno_Provider_Token_Price_History>;
-  /** fetch aggregated fields from the table: "token_price_history" */
-  token_price_history_aggregate: Bdjuno_Provider_Token_Price_History_Aggregate;
-  /** fetch data from the table: "token_unit" */
-  token_unit: Array<Bdjuno_Provider_Token_Unit>;
-  /** fetch aggregated fields from the table: "token_unit" */
-  token_unit_aggregate: Bdjuno_Provider_Token_Unit_Aggregate;
-  /** fetch data from the table: "transaction" */
-  transaction: Array<Bdjuno_Provider_Transaction>;
-  /** fetch aggregated fields from the table: "transaction" */
-  transaction_aggregate: Bdjuno_Provider_Transaction_Aggregate;
-  /** fetch data from the table: "validator" */
-  validator: Array<Bdjuno_Provider_Validator>;
-  /** fetch aggregated fields from the table: "validator" */
-  validator_aggregate: Bdjuno_Provider_Validator_Aggregate;
-  /** fetch data from the table: "validator" using primary key columns */
-  validator_by_pk?: Maybe<Bdjuno_Provider_Validator>;
-  /** fetch data from the table: "validator_commission" */
-  validator_commission: Array<Bdjuno_Provider_Validator_Commission>;
-  /** fetch aggregated fields from the table: "validator_commission" */
-  validator_commission_aggregate: Bdjuno_Provider_Validator_Commission_Aggregate;
-  /** fetch data from the table: "validator_commission" using primary key columns */
-  validator_commission_by_pk?: Maybe<Bdjuno_Provider_Validator_Commission>;
-  /** fetch data from the table: "validator_description" */
-  validator_description: Array<Bdjuno_Provider_Validator_Description>;
-  /** fetch aggregated fields from the table: "validator_description" */
-  validator_description_aggregate: Bdjuno_Provider_Validator_Description_Aggregate;
-  /** fetch data from the table: "validator_description" using primary key columns */
-  validator_description_by_pk?: Maybe<Bdjuno_Provider_Validator_Description>;
-  /** fetch data from the table: "validator_info" */
-  validator_info: Array<Bdjuno_Provider_Validator_Info>;
-  /** fetch aggregated fields from the table: "validator_info" */
-  validator_info_aggregate: Bdjuno_Provider_Validator_Info_Aggregate;
-  /** fetch data from the table: "validator_info" using primary key columns */
-  validator_info_by_pk?: Maybe<Bdjuno_Provider_Validator_Info>;
-  /** fetch data from the table: "validator_signing_info" */
-  validator_signing_info: Array<Bdjuno_Provider_Validator_Signing_Info>;
-  /** fetch aggregated fields from the table: "validator_signing_info" */
-  validator_signing_info_aggregate: Bdjuno_Provider_Validator_Signing_Info_Aggregate;
-  /** fetch data from the table: "validator_signing_info" using primary key columns */
-  validator_signing_info_by_pk?: Maybe<Bdjuno_Provider_Validator_Signing_Info>;
-  /** fetch data from the table: "validator_status" */
-  validator_status: Array<Bdjuno_Provider_Validator_Status>;
-  /** fetch aggregated fields from the table: "validator_status" */
-  validator_status_aggregate: Bdjuno_Provider_Validator_Status_Aggregate;
-  /** fetch data from the table: "validator_status" using primary key columns */
-  validator_status_by_pk?: Maybe<Bdjuno_Provider_Validator_Status>;
-  /** fetch data from the table: "validator_voting_power" */
-  validator_voting_power: Array<Bdjuno_Provider_Validator_Voting_Power>;
-  /** fetch aggregated fields from the table: "validator_voting_power" */
-  validator_voting_power_aggregate: Bdjuno_Provider_Validator_Voting_Power_Aggregate;
-  /** fetch data from the table: "validator_voting_power" using primary key columns */
-  validator_voting_power_by_pk?: Maybe<Bdjuno_Provider_Validator_Voting_Power>;
-  /** fetch data from the table: "vesting_account" */
-  vesting_account: Array<Bdjuno_Provider_Vesting_Account>;
-  /** fetch aggregated fields from the table: "vesting_account" */
-  vesting_account_aggregate: Bdjuno_Provider_Vesting_Account_Aggregate;
-  /** fetch data from the table: "vesting_account" using primary key columns */
-  vesting_account_by_pk?: Maybe<Bdjuno_Provider_Vesting_Account>;
-  /** fetch data from the table: "vesting_period" */
-  vesting_period: Array<Bdjuno_Provider_Vesting_Period>;
-  /** fetch aggregated fields from the table: "vesting_period" */
-  vesting_period_aggregate: Bdjuno_Provider_Vesting_Period_Aggregate;
-};
-
-
-export type Bdjuno_Providersubscription_RootAccountArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Account_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Account_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Account_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootAccount_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Account_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Account_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Account_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootAccount_By_PkArgs = {
-  address: Scalars['String'];
-};
-
-
-export type Bdjuno_Providersubscription_RootAverage_Block_Time_From_GenesisArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_From_Genesis_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_From_Genesis_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Average_Block_Time_From_Genesis_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootAverage_Block_Time_From_Genesis_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_From_Genesis_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_From_Genesis_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Average_Block_Time_From_Genesis_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootAverage_Block_Time_Per_DayArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Day_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Day_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Average_Block_Time_Per_Day_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootAverage_Block_Time_Per_Day_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Day_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Day_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Average_Block_Time_Per_Day_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootAverage_Block_Time_Per_HourArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Hour_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Hour_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Average_Block_Time_Per_Hour_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootAverage_Block_Time_Per_Hour_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Hour_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Hour_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Average_Block_Time_Per_Hour_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootAverage_Block_Time_Per_MinuteArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Minute_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Minute_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Average_Block_Time_Per_Minute_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootAverage_Block_Time_Per_Minute_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Minute_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Average_Block_Time_Per_Minute_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Average_Block_Time_Per_Minute_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootBlockArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Block_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Block_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Block_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootBlock_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Block_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Block_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Block_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootBlock_By_PkArgs = {
-  height: Scalars['bdjuno_provider_bigint'];
-};
-
-
-export type Bdjuno_Providersubscription_RootCommunity_PoolArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Community_Pool_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Community_Pool_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Community_Pool_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootCommunity_Pool_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Community_Pool_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Community_Pool_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Community_Pool_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootDistribution_ParamsArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Distribution_Params_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Distribution_Params_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Distribution_Params_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootDistribution_Params_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Distribution_Params_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Distribution_Params_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Distribution_Params_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootDistribution_Params_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-export type Bdjuno_Providersubscription_RootDouble_Sign_EvidenceArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Evidence_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Evidence_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Double_Sign_Evidence_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootDouble_Sign_Evidence_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Evidence_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Evidence_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Double_Sign_Evidence_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootDouble_Sign_VoteArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Vote_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Vote_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Double_Sign_Vote_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootDouble_Sign_Vote_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Vote_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Double_Sign_Vote_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Double_Sign_Vote_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootDouble_Sign_Vote_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
-
-export type Bdjuno_Providersubscription_RootFee_Grant_AllowanceArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Fee_Grant_Allowance_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Fee_Grant_Allowance_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Fee_Grant_Allowance_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootFee_Grant_Allowance_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Fee_Grant_Allowance_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Fee_Grant_Allowance_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Fee_Grant_Allowance_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootFee_Grant_Allowance_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
-
-export type Bdjuno_Providersubscription_RootGenesisArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Genesis_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Genesis_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Genesis_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootGenesis_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Genesis_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Genesis_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Genesis_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootGov_ParamsArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Gov_Params_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Gov_Params_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Gov_Params_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootGov_Params_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Gov_Params_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Gov_Params_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Gov_Params_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootGov_Params_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-export type Bdjuno_Providersubscription_RootInflationArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Inflation_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Inflation_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Inflation_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootInflation_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Inflation_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Inflation_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Inflation_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootMessageArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Message_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Message_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Message_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootMessage_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Message_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Message_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Message_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootMessages_By_AddressArgs = {
-  args: Bdjuno_Provider_Messages_By_Address_Args;
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Message_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Message_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Message_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootMessages_By_Address_AggregateArgs = {
-  args: Bdjuno_Provider_Messages_By_Address_Args;
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Message_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Message_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Message_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootMint_ParamsArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Mint_Params_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Mint_Params_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Mint_Params_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootMint_Params_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Mint_Params_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Mint_Params_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Mint_Params_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootMint_Params_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-export type Bdjuno_Providersubscription_RootModulesArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Modules_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Modules_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Modules_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootModules_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Modules_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Modules_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Modules_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootModules_By_PkArgs = {
-  module_name: Scalars['String'];
-};
-
-
-export type Bdjuno_Providersubscription_RootPre_CommitArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Pre_Commit_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Pre_Commit_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Pre_Commit_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootPre_Commit_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Pre_Commit_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Pre_Commit_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Pre_Commit_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootProposalArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Proposal_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Proposal_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Proposal_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Proposal_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_DepositArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Deposit_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Proposal_Deposit_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Proposal_Deposit_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_Deposit_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Deposit_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Proposal_Deposit_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Proposal_Deposit_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_Staking_Pool_SnapshotArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_Staking_Pool_Snapshot_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Proposal_Staking_Pool_Snapshot_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_Staking_Pool_Snapshot_By_PkArgs = {
-  proposal_id: Scalars['Int'];
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_Tally_ResultArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Tally_Result_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Proposal_Tally_Result_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Proposal_Tally_Result_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_Tally_Result_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Tally_Result_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Proposal_Tally_Result_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Proposal_Tally_Result_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_Tally_Result_By_PkArgs = {
-  proposal_id: Scalars['Int'];
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_Validator_Status_SnapshotArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_Validator_Status_Snapshot_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_Validator_Status_Snapshot_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_VoteArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Vote_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Proposal_Vote_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Proposal_Vote_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootProposal_Vote_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Proposal_Vote_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Proposal_Vote_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Proposal_Vote_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootSlashing_ParamsArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Slashing_Params_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Slashing_Params_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Slashing_Params_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootSlashing_Params_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Slashing_Params_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Slashing_Params_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Slashing_Params_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootSlashing_Params_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-export type Bdjuno_Providersubscription_RootSoftware_Upgrade_PlanArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Software_Upgrade_Plan_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Software_Upgrade_Plan_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Software_Upgrade_Plan_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootSoftware_Upgrade_Plan_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Software_Upgrade_Plan_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Software_Upgrade_Plan_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Software_Upgrade_Plan_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootStaking_ParamsArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Staking_Params_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Staking_Params_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Staking_Params_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootStaking_Params_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Staking_Params_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Staking_Params_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Staking_Params_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootStaking_Params_By_PkArgs = {
-  one_row_id: Scalars['Boolean'];
-};
-
-
-export type Bdjuno_Providersubscription_RootStaking_PoolArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Staking_Pool_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Staking_Pool_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Staking_Pool_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootStaking_Pool_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Staking_Pool_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Staking_Pool_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Staking_Pool_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootSupplyArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Supply_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Supply_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Supply_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootSupply_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Supply_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Supply_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Supply_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootTokenArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Token_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Token_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootToken_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Token_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Token_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootToken_PriceArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Price_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Token_Price_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Token_Price_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootToken_Price_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Price_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Token_Price_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Token_Price_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootToken_Price_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
-
-export type Bdjuno_Providersubscription_RootToken_Price_HistoryArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Price_History_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Token_Price_History_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Token_Price_History_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootToken_Price_History_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Price_History_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Token_Price_History_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Token_Price_History_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootToken_UnitArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Unit_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Token_Unit_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Token_Unit_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootToken_Unit_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Token_Unit_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Token_Unit_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Token_Unit_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootTransactionArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Transaction_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Transaction_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Transaction_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootTransaction_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Transaction_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Transaction_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Transaction_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidatorArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_By_PkArgs = {
-  consensus_address: Scalars['String'];
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_CommissionArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Commission_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Commission_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Commission_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Commission_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Commission_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Commission_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Commission_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Commission_By_PkArgs = {
-  validator_address: Scalars['String'];
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_DescriptionArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Description_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Description_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Description_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Description_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Description_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Description_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Description_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Description_By_PkArgs = {
-  validator_address: Scalars['String'];
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_InfoArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Info_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Info_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Info_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Info_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Info_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Info_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Info_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Info_By_PkArgs = {
-  consensus_address: Scalars['String'];
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Signing_InfoArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Signing_Info_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Signing_Info_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Signing_Info_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Signing_Info_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Signing_Info_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Signing_Info_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Signing_Info_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Signing_Info_By_PkArgs = {
-  validator_address: Scalars['String'];
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_StatusArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Status_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Status_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Status_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Status_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Status_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Status_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Status_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Status_By_PkArgs = {
-  validator_address: Scalars['String'];
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Voting_PowerArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Voting_Power_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Voting_Power_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Voting_Power_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Voting_Power_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Validator_Voting_Power_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Validator_Voting_Power_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Validator_Voting_Power_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootValidator_Voting_Power_By_PkArgs = {
-  validator_address: Scalars['String'];
-};
-
-
-export type Bdjuno_Providersubscription_RootVesting_AccountArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Vesting_Account_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Vesting_Account_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Vesting_Account_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootVesting_Account_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Vesting_Account_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Vesting_Account_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Vesting_Account_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootVesting_Account_By_PkArgs = {
-  id: Scalars['Int'];
-};
-
-
-export type Bdjuno_Providersubscription_RootVesting_PeriodArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Vesting_Period_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Vesting_Period_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Vesting_Period_Bool_Exp>;
-};
-
-
-export type Bdjuno_Providersubscription_RootVesting_Period_AggregateArgs = {
-  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Vesting_Period_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Bdjuno_Provider_Vesting_Period_Order_By>>;
-  where?: InputMaybe<Bdjuno_Provider_Vesting_Period_Bool_Exp>;
-};
-
 /** Boolean expression to compare columns of type "bigint". All fields are combined with logical 'AND'. */
 export type Bigint_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['bigint']>;
@@ -12411,6 +9818,8 @@ export type Ccv_Validator = {
   consumer_consensus_address: Scalars['String'];
   consumer_operator_address: Scalars['String'];
   consumer_self_delegate_address: Scalars['String'];
+  /** An object relationship */
+  ddd?: Maybe<Validator_Description>;
   height: Scalars['bigint'];
   provider_consensus_address: Scalars['String'];
   provider_operator_address: Scalars['String'];
@@ -12462,6 +9871,7 @@ export type Ccv_Validator_Bool_Exp = {
   consumer_consensus_address?: InputMaybe<String_Comparison_Exp>;
   consumer_operator_address?: InputMaybe<String_Comparison_Exp>;
   consumer_self_delegate_address?: InputMaybe<String_Comparison_Exp>;
+  ddd?: InputMaybe<Validator_Description_Bool_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   provider_consensus_address?: InputMaybe<String_Comparison_Exp>;
   provider_operator_address?: InputMaybe<String_Comparison_Exp>;
@@ -12497,6 +9907,7 @@ export type Ccv_Validator_Order_By = {
   consumer_consensus_address?: InputMaybe<Order_By>;
   consumer_operator_address?: InputMaybe<Order_By>;
   consumer_self_delegate_address?: InputMaybe<Order_By>;
+  ddd?: InputMaybe<Validator_Description_Order_By>;
   height?: InputMaybe<Order_By>;
   provider_consensus_address?: InputMaybe<Order_By>;
   provider_operator_address?: InputMaybe<Order_By>;
@@ -21018,7 +18429,6 @@ export type Subscription_Root = {
   average_block_time_per_minute: Array<Average_Block_Time_Per_Minute>;
   /** fetch data from the table in a streaming manner: "average_block_time_per_minute" */
   average_block_time_per_minute_stream: Array<Average_Block_Time_Per_Minute>;
-  bdjuno_provider?: Maybe<Bdjuno_Providersubscription_Root>;
   /** fetch data from the table: "block" */
   block: Array<Block>;
   /** fetch data from the table: "block" using primary key columns */
@@ -22897,6 +20307,8 @@ export type Validator = {
   __typename?: 'validator';
   /** An array relationship */
   blocks: Array<Block>;
+  /** An object relationship */
+  ccv_validator?: Maybe<Ccv_Validator>;
   consensus_address: Scalars['String'];
   consensus_pubkey: Scalars['String'];
   /** An array relationship */
@@ -23065,6 +20477,7 @@ export type Validator_Bool_Exp = {
   _not?: InputMaybe<Validator_Bool_Exp>;
   _or?: InputMaybe<Array<Validator_Bool_Exp>>;
   blocks?: InputMaybe<Block_Bool_Exp>;
+  ccv_validator?: InputMaybe<Ccv_Validator_Bool_Exp>;
   consensus_address?: InputMaybe<String_Comparison_Exp>;
   consensus_pubkey?: InputMaybe<String_Comparison_Exp>;
   double_sign_votes?: InputMaybe<Double_Sign_Vote_Bool_Exp>;
@@ -23491,6 +20904,7 @@ export type Validator_Info_Stream_Cursor_Value_Input = {
 /** Ordering options when selecting data from "validator". */
 export type Validator_Order_By = {
   blocks_aggregate?: InputMaybe<Block_Aggregate_Order_By>;
+  ccv_validator?: InputMaybe<Ccv_Validator_Order_By>;
   consensus_address?: InputMaybe<Order_By>;
   consensus_pubkey?: InputMaybe<Order_By>;
   double_sign_votes_aggregate?: InputMaybe<Double_Sign_Vote_Aggregate_Order_By>;
@@ -24569,7 +21983,7 @@ export type BlocksListenerSubscriptionVariables = Exact<{
 }>;
 
 
-export type BlocksListenerSubscription = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo: Array<{ __typename?: 'validator_info', operatorAddress: string }> } | null }> };
+export type BlocksListenerSubscription = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'ccv_validator', consumerOperatorAddress: string, providerOperatorAddress: string } | null }> };
 
 export type BlocksQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -24577,7 +21991,7 @@ export type BlocksQueryVariables = Exact<{
 }>;
 
 
-export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, ccv_validator?: { __typename?: 'ccv_validator', validator?: { __typename?: 'provider_validator', validatorInfo?: { __typename?: 'provider_validator_info', self_delegate_address?: string | null, operatorAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, identity?: string | null }> } | null } | null }> };
+export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, ccv_validator?: { __typename?: 'ccv_validator', consumerOperatorAddress: string, providerOperatorAddress: string, consumerSelfDelegateAddress: string, providerSelfDelegateAddress: string, validator?: { __typename?: 'provider_validator', validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, identity?: string | null }> } | null } | null }> };
 
 export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -25322,10 +22736,9 @@ export const BlocksListenerDocument = gql`
     txs: num_txs
     hash
     timestamp
-    validator {
-      validatorInfo: validator_infos {
-        operatorAddress: operator_address
-      }
+    validator: ccv_validator {
+      consumerOperatorAddress: consumer_operator_address
+      providerOperatorAddress: provider_operator_address
     }
   }
 }
@@ -25362,11 +22775,11 @@ export const BlocksDocument = gql`
     hash
     timestamp
     ccv_validator {
+      consumerOperatorAddress: consumer_operator_address
+      providerOperatorAddress: provider_operator_address
+      consumerSelfDelegateAddress: consumer_self_delegate_address
+      providerSelfDelegateAddress: provider_self_delegate_address
       validator {
-        validatorInfo: validator_info {
-          operatorAddress: operator_address
-          self_delegate_address
-        }
         validatorDescriptions: validator_descriptions(
           limit: 1
           order_by: {height: desc}
@@ -25378,7 +22791,7 @@ export const BlocksDocument = gql`
     }
   }
 }
-    `
+    `;
 
 /**
  * __useBlocksQuery__
