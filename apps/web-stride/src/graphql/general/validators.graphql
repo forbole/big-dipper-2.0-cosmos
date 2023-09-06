@@ -12,6 +12,16 @@ query Validators {
       missedBlocksCounter: missed_blocks_counter
       tombstoned
     }
+    ccv_validator {
+      providerOperatorAddress: provider_operator_address
+    }
+    validatorDescriptions: validator_descriptions {
+      moniker
+      avatar_url
+      validator_address
+      website
+      details
+    }
     validatorInfo: validator_info {
       operatorAddress: operator_address
       selfDelegateAddress: self_delegate_address
@@ -28,5 +38,36 @@ query Validators {
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
     params
+  }
+}
+
+query ConsumerCustomValidator($consumerAddress: String) {
+  validatorInfo: validator_info(where: {operator_address: {_eq: $consumerAddress}}) {
+    validator {
+      validatorDescriptions: validator_descriptions {
+        moniker
+        avatar_url
+        validator_address
+        website
+        details
+      }
+    }
+  }
+}
+
+query ProviderCustomValidator($providerAddress: String) {
+  ccv_validator(where: {provider_operator_address: {_eq: $providerAddress}}) {
+    ccv_validator_info {
+      operator_address
+      validator {
+        validatorDescriptions: validator_descriptions {
+          moniker
+          avatar_url
+          validator_address
+          website
+          details
+        }
+      }
+  	}
   }
 }

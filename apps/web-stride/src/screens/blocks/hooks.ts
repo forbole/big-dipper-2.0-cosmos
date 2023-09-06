@@ -26,13 +26,15 @@ const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
   }
   return (
     formattedData?.map((x) => {
-      const proposerAddress = x?.validator?.consumerOperatorAddress ?? '';
+      const proposerAddress = x?.validator?.providerOperatorAddress ?? '';
+      const consumerAdx = x?.validator?.consumerOperatorAddress ?? '';
       return {
         height: x.height,
         txs: x.txs ?? 0,
         hash: x.hash,
         timestamp: x.timestamp,
         proposer: proposerAddress,
+        consumer: consumerAdx,
       };
     }) ?? []
   );
@@ -45,13 +47,15 @@ const formatBlocksQuery = (data: BlocksQuery): BlockType[] => {
   }
   return (
     formattedData?.map((x) => {
-      const proposerAddress = x?.ccv_validator?.consumerOperatorAddress ?? '';
+      const proposerAddress = x?.ccv_validator?.providerOperatorAddress ?? '';
+      const consumerAdx = x?.ccv_validator?.consumerOperatorAddress ?? '';
       return {
         height: x.height,
         txs: x.txs ?? 0,
         hash: x.hash,
         timestamp: x.timestamp,
         proposer: proposerAddress,
+        consumer: consumerAdx,
       };
     }) ?? []
   );

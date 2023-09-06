@@ -9815,16 +9815,19 @@ export type Block_Variance_Order_By = {
 /** columns and relationships of "ccv_validator" */
 export type Ccv_Validator = {
   __typename?: 'ccv_validator';
+  ccv_validator?: Maybe<Provider_Validator>;
+  ccv_validator_info?: Maybe<Provider_Validator_Info>;
   consumer_consensus_address: Scalars['String'];
   consumer_operator_address: Scalars['String'];
   consumer_self_delegate_address: Scalars['String'];
-  /** An object relationship */
-  ddd?: Maybe<Validator_Description>;
   height: Scalars['bigint'];
   provider_consensus_address: Scalars['String'];
   provider_operator_address: Scalars['String'];
   provider_self_delegate_address: Scalars['String'];
-  validator?: Maybe<Provider_Validator>;
+  /** An object relationship */
+  validator?: Maybe<Validator>;
+  /** An object relationship */
+  validator_info?: Maybe<Validator_Info>;
 };
 
 /** aggregated selection of "ccv_validator" */
@@ -9871,11 +9874,12 @@ export type Ccv_Validator_Bool_Exp = {
   consumer_consensus_address?: InputMaybe<String_Comparison_Exp>;
   consumer_operator_address?: InputMaybe<String_Comparison_Exp>;
   consumer_self_delegate_address?: InputMaybe<String_Comparison_Exp>;
-  ddd?: InputMaybe<Validator_Description_Bool_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   provider_consensus_address?: InputMaybe<String_Comparison_Exp>;
   provider_operator_address?: InputMaybe<String_Comparison_Exp>;
   provider_self_delegate_address?: InputMaybe<String_Comparison_Exp>;
+  validator?: InputMaybe<Validator_Bool_Exp>;
+  validator_info?: InputMaybe<Validator_Info_Bool_Exp>;
 };
 
 /** aggregate max on columns */
@@ -9907,11 +9911,12 @@ export type Ccv_Validator_Order_By = {
   consumer_consensus_address?: InputMaybe<Order_By>;
   consumer_operator_address?: InputMaybe<Order_By>;
   consumer_self_delegate_address?: InputMaybe<Order_By>;
-  ddd?: InputMaybe<Validator_Description_Order_By>;
   height?: InputMaybe<Order_By>;
   provider_consensus_address?: InputMaybe<Order_By>;
   provider_operator_address?: InputMaybe<Order_By>;
   provider_self_delegate_address?: InputMaybe<Order_By>;
+  validator?: InputMaybe<Validator_Order_By>;
+  validator_info?: InputMaybe<Validator_Info_Order_By>;
 };
 
 /** select columns of table "ccv_validator" */
@@ -21991,7 +21996,7 @@ export type BlocksQueryVariables = Exact<{
 }>;
 
 
-export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, ccv_validator?: { __typename?: 'ccv_validator', consumerOperatorAddress: string, providerOperatorAddress: string, consumerSelfDelegateAddress: string, providerSelfDelegateAddress: string, validator?: { __typename?: 'provider_validator', validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, identity?: string | null }> } | null } | null }> };
+export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, ccv_validator?: { __typename?: 'ccv_validator', consumerOperatorAddress: string, providerOperatorAddress: string, consumerSelfDelegateAddress: string, providerSelfDelegateAddress: string, validator?: { __typename?: 'validator', validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, identity?: string | null }> } | null } | null }> };
 
 export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -22158,7 +22163,21 @@ export type ValidatorUndelegationsQuery = { undelegations?: { __typename?: 'Acti
 export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ValidatorsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', bondedTokens: string }>, validator: Array<{ __typename?: 'validator', validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
+export type ValidatorsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', bondedTokens: string }>, validator: Array<{ __typename?: 'validator', validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, ccv_validator?: { __typename?: 'ccv_validator', providerOperatorAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, avatar_url?: string | null, validator_address: string, website?: string | null, details?: string | null }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
+
+export type ConsumerCustomValidatorQueryVariables = Exact<{
+  consumerAddress?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ConsumerCustomValidatorQuery = { validatorInfo: Array<{ __typename?: 'validator_info', validator: { __typename?: 'validator', validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, avatar_url?: string | null, validator_address: string, website?: string | null, details?: string | null }> } }> };
+
+export type ProviderCustomValidatorQueryVariables = Exact<{
+  providerAddress?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ProviderCustomValidatorQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', ccv_validator_info?: { __typename?: 'provider_validator_info', operator_address: string, validator: { __typename?: 'provider_validator', validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, avatar_url?: string | null, validator_address: string, website?: string | null, details?: string | null }> } } | null }> };
 
 export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -23835,6 +23854,16 @@ export const ValidatorsDocument = gql`
       missedBlocksCounter: missed_blocks_counter
       tombstoned
     }
+    ccv_validator {
+      providerOperatorAddress: provider_operator_address
+    }
+    validatorDescriptions: validator_descriptions {
+      moniker
+      avatar_url
+      validator_address
+      website
+      details
+    }
     validatorInfo: validator_info {
       operatorAddress: operator_address
       selfDelegateAddress: self_delegate_address
@@ -23888,6 +23917,97 @@ export function useValidatorsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type ValidatorsQueryHookResult = ReturnType<typeof useValidatorsQuery>;
 export type ValidatorsLazyQueryHookResult = ReturnType<typeof useValidatorsLazyQuery>;
 export type ValidatorsQueryResult = Apollo.QueryResult<ValidatorsQuery, ValidatorsQueryVariables>;
+export const ConsumerCustomValidatorDocument = gql`
+    query ConsumerCustomValidator($consumerAddress: String) {
+  validatorInfo: validator_info(
+    where: {operator_address: {_eq: $consumerAddress}}
+  ) {
+    validator {
+      validatorDescriptions: validator_descriptions {
+        moniker
+        avatar_url
+        validator_address
+        website
+        details
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useConsumerCustomValidatorQuery__
+ *
+ * To run a query within a React component, call `useConsumerCustomValidatorQuery` and pass it any options that fit your needs.
+ * When your component renders, `useConsumerCustomValidatorQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useConsumerCustomValidatorQuery({
+ *   variables: {
+ *      consumerAddress: // value for 'consumerAddress'
+ *   },
+ * });
+ */
+export function useConsumerCustomValidatorQuery(baseOptions?: Apollo.QueryHookOptions<ConsumerCustomValidatorQuery, ConsumerCustomValidatorQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ConsumerCustomValidatorQuery, ConsumerCustomValidatorQueryVariables>(ConsumerCustomValidatorDocument, options);
+      }
+export function useConsumerCustomValidatorLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ConsumerCustomValidatorQuery, ConsumerCustomValidatorQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ConsumerCustomValidatorQuery, ConsumerCustomValidatorQueryVariables>(ConsumerCustomValidatorDocument, options);
+        }
+export type ConsumerCustomValidatorQueryHookResult = ReturnType<typeof useConsumerCustomValidatorQuery>;
+export type ConsumerCustomValidatorLazyQueryHookResult = ReturnType<typeof useConsumerCustomValidatorLazyQuery>;
+export type ConsumerCustomValidatorQueryResult = Apollo.QueryResult<ConsumerCustomValidatorQuery, ConsumerCustomValidatorQueryVariables>;
+export const ProviderCustomValidatorDocument = gql`
+    query ProviderCustomValidator($providerAddress: String) {
+  ccv_validator(where: {provider_operator_address: {_eq: $providerAddress}}) {
+    ccv_validator_info {
+      operator_address
+      validator {
+        validatorDescriptions: validator_descriptions {
+          moniker
+          avatar_url
+          validator_address
+          website
+          details
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useProviderCustomValidatorQuery__
+ *
+ * To run a query within a React component, call `useProviderCustomValidatorQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProviderCustomValidatorQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProviderCustomValidatorQuery({
+ *   variables: {
+ *      providerAddress: // value for 'providerAddress'
+ *   },
+ * });
+ */
+export function useProviderCustomValidatorQuery(baseOptions?: Apollo.QueryHookOptions<ProviderCustomValidatorQuery, ProviderCustomValidatorQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProviderCustomValidatorQuery, ProviderCustomValidatorQueryVariables>(ProviderCustomValidatorDocument, options);
+      }
+export function useProviderCustomValidatorLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProviderCustomValidatorQuery, ProviderCustomValidatorQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProviderCustomValidatorQuery, ProviderCustomValidatorQueryVariables>(ProviderCustomValidatorDocument, options);
+        }
+export type ProviderCustomValidatorQueryHookResult = ReturnType<typeof useProviderCustomValidatorQuery>;
+export type ProviderCustomValidatorLazyQueryHookResult = ReturnType<typeof useProviderCustomValidatorLazyQuery>;
+export type ProviderCustomValidatorQueryResult = Apollo.QueryResult<ProviderCustomValidatorQuery, ProviderCustomValidatorQueryVariables>;
 export const ValidatorsAddressListDocument = gql`
     query ValidatorsAddressList {
   validator {

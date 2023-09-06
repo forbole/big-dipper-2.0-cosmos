@@ -2,7 +2,7 @@ import AvatarName from '@/components/avatar_name';
 import Loading from '@/components/loading';
 import Timestamp from '@/components/Timestamp';
 import { useGrid } from '@/hooks/use_react_window';
-import { useProfileRecoil } from '@/recoil/profiles/hooks';
+import useProviderCustomValidator from '@/hooks/useProviderCustomValidator';
 import useStyles from '@/screens/blocks/components/desktop/styles';
 import { columns } from '@/screens/blocks/components/desktop/utils';
 import type { ItemType } from '@/screens/blocks/types';
@@ -27,7 +27,7 @@ type BlockItemProps = {
 };
 
 const BlockItem: FC<BlockItemProps> = ({ item, rowIndex, column, style, align }) => {
-  const { name, address, imageUrl } = useProfileRecoil(item.proposer);
+  const { profile } = useProviderCustomValidator(item.proposer);
   const { classes, cx } = useStyles();
   let formattedItem: ReactNode | null = null;
   switch (column) {
@@ -46,7 +46,13 @@ const BlockItem: FC<BlockItemProps> = ({ item, rowIndex, column, style, align })
       break;
     case 'proposer':
       formattedItem = (
-        <AvatarName address={address} imageUrl={imageUrl} name={name} href={VALIDATOR_DETAILS} />
+        <AvatarName
+          address={profile?.address ?? item.proposer}
+          imageUrl={profile?.imageUrl}
+          name={profile?.name ?? ''}
+          href={VALIDATOR_DETAILS}
+          displayAddress={item.consumer}
+        />
       );
       break;
     case 'hash':
