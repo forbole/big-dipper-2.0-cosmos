@@ -32,6 +32,7 @@ const defaultTokenUnit: TokenUnit = {
 
 const initialState: AccountDetailState = {
   loading: true,
+  balanceLoading: true,
   exists: true,
   desmosProfile: null,
   overview: {
@@ -197,7 +198,7 @@ const formatOtherTokens = (data: Data) => {
 // ==========================
 const formatAllBalance = (data: Data) => {
   const stateChange: Partial<AccountDetailState> = {
-    loading: false,
+    balanceLoading: false,
   };
 
   stateChange.rewards = formatRewards(data);
