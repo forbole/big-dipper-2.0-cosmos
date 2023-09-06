@@ -25,6 +25,7 @@ export interface RewardsType {
 
 export interface AccountDetailState {
   loading: boolean;
+  balanceLoading: boolean;
   exists: boolean;
   desmosProfile: DesmosProfile | null;
   overview: OverviewType;
