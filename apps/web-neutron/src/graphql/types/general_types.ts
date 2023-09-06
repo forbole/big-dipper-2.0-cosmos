@@ -10028,6 +10028,8 @@ export type Ccv_Consumer_Params_Variance_Fields = {
 /** columns and relationships of "ccv_validator" */
 export type Ccv_Validator = {
   __typename?: 'ccv_validator';
+  ccv_validator?: Maybe<Provider_Validator>;
+  ccv_validator_info?: Maybe<Provider_Validator_Info>;
   consumer_consensus_address: Scalars['String'];
   consumer_operator_address: Scalars['String'];
   consumer_self_delegate_address: Scalars['String'];
@@ -19420,7 +19422,7 @@ export type BlocksListenerSubscriptionVariables = Exact<{
 }>;
 
 
-export type BlocksListenerSubscription = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo: Array<{ __typename?: 'validator_signing_info', operatorAddress: string }> } | null }> };
+export type BlocksListenerSubscription = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo: Array<{ __typename?: 'validator_signing_info', operatorAddress: string, ccv_validator_signing_info?: { __typename?: 'ccv_validator', providerOperatorAddress: string } | null }> } | null }> };
 
 export type BlocksQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -19499,6 +19501,13 @@ export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ValidatorsQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', consumer_operator_address: string, validator?: { __typename?: 'provider_validator', validatorStatuses: Array<{ __typename?: 'provider_validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'provider_validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null, validatorVotingPowers: Array<{ __typename?: 'provider_validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'provider_validator_commission', commission: any }> } | null }>, bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', slashingParams: Array<{ __typename?: 'bdjuno_provider_slashing_params', params: any }> } | null };
+
+export type ProviderCustomValidatorQueryVariables = Exact<{
+  providerAddress?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ProviderCustomValidatorQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', ccv_validator_info?: { __typename?: 'provider_validator_info', operator_address: string, validator: { __typename?: 'provider_validator', validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, avatar_url?: string | null, validator_address: string, website?: string | null, details?: string | null }> } } | null }> };
 
 
 export const BlockDetailsDocument = gql`
@@ -19680,6 +19689,9 @@ export const BlocksListenerDocument = gql`
     validator {
       validatorInfo: validator_signing_infos {
         operatorAddress: validator_address
+        ccv_validator_signing_info {
+          providerOperatorAddress: provider_operator_address
+        }
       }
     }
   }
@@ -20204,3 +20216,49 @@ export function useValidatorsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type ValidatorsQueryHookResult = ReturnType<typeof useValidatorsQuery>;
 export type ValidatorsLazyQueryHookResult = ReturnType<typeof useValidatorsLazyQuery>;
 export type ValidatorsQueryResult = Apollo.QueryResult<ValidatorsQuery, ValidatorsQueryVariables>;
+export const ProviderCustomValidatorDocument = gql`
+    query ProviderCustomValidator($providerAddress: String) {
+  ccv_validator(where: {provider_operator_address: {_eq: $providerAddress}}) {
+    ccv_validator_info {
+      operator_address
+      validator {
+        validatorDescriptions: validator_descriptions {
+          moniker
+          avatar_url
+          validator_address
+          website
+          details
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useProviderCustomValidatorQuery__
+ *
+ * To run a query within a React component, call `useProviderCustomValidatorQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProviderCustomValidatorQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProviderCustomValidatorQuery({
+ *   variables: {
+ *      providerAddress: // value for 'providerAddress'
+ *   },
+ * });
+ */
+export function useProviderCustomValidatorQuery(baseOptions?: Apollo.QueryHookOptions<ProviderCustomValidatorQuery, ProviderCustomValidatorQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProviderCustomValidatorQuery, ProviderCustomValidatorQueryVariables>(ProviderCustomValidatorDocument, options);
+      }
+export function useProviderCustomValidatorLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProviderCustomValidatorQuery, ProviderCustomValidatorQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProviderCustomValidatorQuery, ProviderCustomValidatorQueryVariables>(ProviderCustomValidatorDocument, options);
+        }
+export type ProviderCustomValidatorQueryHookResult = ReturnType<typeof useProviderCustomValidatorQuery>;
+export type ProviderCustomValidatorLazyQueryHookResult = ReturnType<typeof useProviderCustomValidatorLazyQuery>;
+export type ProviderCustomValidatorQueryResult = Apollo.QueryResult<ProviderCustomValidatorQuery, ProviderCustomValidatorQueryVariables>;

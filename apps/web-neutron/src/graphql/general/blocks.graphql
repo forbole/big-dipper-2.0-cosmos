@@ -7,6 +7,9 @@ subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
     validator {
       validatorInfo: validator_signing_infos {
         operatorAddress: validator_address
+        ccv_validator_signing_info {
+          providerOperatorAddress: provider_operator_address
+        }
       }
     }
   }

@@ -10028,6 +10028,8 @@ export type Ccv_Consumer_Params_Variance_Fields = {
 /** columns and relationships of "ccv_validator" */
 export type Ccv_Validator = {
   __typename?: 'ccv_validator';
+  ccv_validator?: Maybe<Provider_Validator>;
+  ccv_validator_info?: Maybe<Provider_Validator_Info>;
   consumer_consensus_address: Scalars['String'];
   consumer_operator_address: Scalars['String'];
   consumer_self_delegate_address: Scalars['String'];
