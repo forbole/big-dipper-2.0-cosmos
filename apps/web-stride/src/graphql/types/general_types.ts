@@ -22189,6 +22189,11 @@ export type ValidatorAddressesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type ValidatorAddressesQuery = { validator: Array<{ __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, avatarUrl?: string | null }> }> };
 
+export type ValidatorConsumerProviderAddressesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ValidatorConsumerProviderAddressesQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', consumerOperatorAddress: string, providerOperatorAddress: string, providerSelfDelegateAddress: string, validator?: { __typename?: 'validator', validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, details?: string | null, website?: string | null, avatarUrl?: string | null }> } | null }> };
+
 
 export const AccountCommissionDocument = gql`
     query AccountCommission($validatorAddress: String!) {
@@ -24101,3 +24106,52 @@ export function useValidatorAddressesLazyQuery(baseOptions?: Apollo.LazyQueryHoo
 export type ValidatorAddressesQueryHookResult = ReturnType<typeof useValidatorAddressesQuery>;
 export type ValidatorAddressesLazyQueryHookResult = ReturnType<typeof useValidatorAddressesLazyQuery>;
 export type ValidatorAddressesQueryResult = Apollo.QueryResult<ValidatorAddressesQuery, ValidatorAddressesQueryVariables>;
+export const ValidatorConsumerProviderAddressesDocument = gql`
+    query ValidatorConsumerProviderAddresses {
+  ccv_validator(
+    where: {consumer_consensus_address: {_is_null: false}, provider_consensus_address: {_is_null: false}}
+  ) {
+    consumerOperatorAddress: consumer_operator_address
+    providerOperatorAddress: provider_operator_address
+    providerSelfDelegateAddress: provider_self_delegate_address
+    validator {
+      validatorDescriptions: validator_descriptions(
+        limit: 1
+        order_by: {height: desc}
+      ) {
+        moniker
+        avatarUrl: avatar_url
+        details
+        website
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorConsumerProviderAddressesQuery__
+ *
+ * To run a query within a React component, call `useValidatorConsumerProviderAddressesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorConsumerProviderAddressesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorConsumerProviderAddressesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useValidatorConsumerProviderAddressesQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorConsumerProviderAddressesQuery, ValidatorConsumerProviderAddressesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorConsumerProviderAddressesQuery, ValidatorConsumerProviderAddressesQueryVariables>(ValidatorConsumerProviderAddressesDocument, options);
+      }
+export function useValidatorConsumerProviderAddressesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorConsumerProviderAddressesQuery, ValidatorConsumerProviderAddressesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorConsumerProviderAddressesQuery, ValidatorConsumerProviderAddressesQueryVariables>(ValidatorConsumerProviderAddressesDocument, options);
+        }
+export type ValidatorConsumerProviderAddressesQueryHookResult = ReturnType<typeof useValidatorConsumerProviderAddressesQuery>;
+export type ValidatorConsumerProviderAddressesLazyQueryHookResult = ReturnType<typeof useValidatorConsumerProviderAddressesLazyQuery>;
+export type ValidatorConsumerProviderAddressesQueryResult = Apollo.QueryResult<ValidatorConsumerProviderAddressesQuery, ValidatorConsumerProviderAddressesQueryVariables>;
