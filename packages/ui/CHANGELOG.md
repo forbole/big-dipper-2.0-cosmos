@@ -1,5 +1,18 @@
 # ui
 
+## 2.36.0
+
+### Minor Changes
+
+- [#1296](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1296) [`584138bbb`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/584138bbb2443b74d437546ad04327fa2f0dd003) Thanks [@rachelhox](https://github.com/rachelhox)! - feat: add Archway Big Dipper
+
+- [#1298](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1298) [`18991b16b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/18991b16bda5af4b993868ee85a280e8b39271ca) Thanks [@MonikaCat](https://github.com/MonikaCat)! - Add x/post and x/tokenfactory modules msg types
+
+### Patch Changes
+
+- Updated dependencies [[`584138bbb`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/584138bbb2443b74d437546ad04327fa2f0dd003)]:
+  - shared-utils@2.23.0
+
 ## 2.35.0
 
 ### Minor Changes
