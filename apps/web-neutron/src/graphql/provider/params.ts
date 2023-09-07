@@ -1,24 +1,15 @@
 export const OnlineVotingPowerDocument = /* GraphQL */ `
-  query Params{
-    bdjuno_provider {
-        stakingParams: staking_params(limit: 1, order_by: {height: desc}) {
-        params
-        }
-        slashingParams: slashing_params(limit: 1, order_by: {height: desc}) {
-        params
-        }
-        mintParams: mint_params(limit: 1, order_by: {height: desc}) {
-        params
-        }
-        distributionParams: distribution_params(limit: 1, order_by: {height: desc}) {
-        params
-        }
-        govParams: gov_params (limit: 1, order_by: {height: desc}) {
-        depositParams: deposit_params
-        tallyParams: tally_params
-        votingParams: voting_params
-        }
-    }
+query Params {
+  consumerParams: ccv_consumer_params(limit: 1, order_by: {height: desc}) {
+    params
   }
+  slashingParams: slashing_params(limit: 1, order_by: {height: desc}) {
+  	params
+  }
+  wasmParams: wasm_params(limit: 1, order_by: {height: desc}) {
+    instantiate_default_permission
+    code_upload_access
+  }
+}
 `;
 

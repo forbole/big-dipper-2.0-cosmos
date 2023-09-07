@@ -19474,7 +19474,7 @@ export type OnlineVotingPowerQuery = { bdjuno_provider?: { __typename?: 'bdjuno_
 export type ParamsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ParamsQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', stakingParams: Array<{ __typename?: 'bdjuno_provider_staking_params', params: any }>, slashingParams: Array<{ __typename?: 'bdjuno_provider_slashing_params', params: any }>, mintParams: Array<{ __typename?: 'bdjuno_provider_mint_params', params: any }>, distributionParams: Array<{ __typename?: 'bdjuno_provider_distribution_params', params: any }>, govParams: Array<{ __typename?: 'bdjuno_provider_gov_params', depositParams: any, tallyParams: any, votingParams: any }> } | null };
+export type ParamsQuery = { consumerParams: Array<{ __typename?: 'ccv_consumer_params', params: any }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }>, wasmParams: Array<{ __typename?: 'wasm_params', instantiate_default_permission: number, code_upload_access: any }> };
 
 export type LastHundredBlocksSubscriptionVariables = Exact<{
   address?: InputMaybe<Scalars['String']>;
@@ -20016,24 +20016,15 @@ export type OnlineVotingPowerLazyQueryHookResult = ReturnType<typeof useOnlineVo
 export type OnlineVotingPowerQueryResult = Apollo.QueryResult<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>;
 export const ParamsDocument = gql`
     query Params {
-  bdjuno_provider {
-    stakingParams: staking_params(limit: 1, order_by: {height: desc}) {
-      params
-    }
-    slashingParams: slashing_params(limit: 1, order_by: {height: desc}) {
-      params
-    }
-    mintParams: mint_params(limit: 1, order_by: {height: desc}) {
-      params
-    }
-    distributionParams: distribution_params(limit: 1, order_by: {height: desc}) {
-      params
-    }
-    govParams: gov_params(limit: 1, order_by: {height: desc}) {
-      depositParams: deposit_params
-      tallyParams: tally_params
-      votingParams: voting_params
-    }
+  consumerParams: ccv_consumer_params(limit: 1, order_by: {height: desc}) {
+    params
+  }
+  slashingParams: slashing_params(limit: 1, order_by: {height: desc}) {
+    params
+  }
+  wasmParams: wasm_params(limit: 1, order_by: {height: desc}) {
+    instantiate_default_permission
+    code_upload_access
   }
 }
     `;
