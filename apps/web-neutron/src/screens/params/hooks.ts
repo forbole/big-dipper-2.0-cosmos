@@ -23,9 +23,10 @@ const initialState: ParamsState = {
 // staking
 // ================================
 const formatStaking = (data: ParamsQuery) => {
-  if (data.bdjuno_provider?.stakingParams.length) {
+  console.log('debug: hooks.ts: data', data);
+  if (data.bdjuno_provider?.staking_params.length) {
     const stakingParamsRaw = StakingParams.fromJson(
-      data?.bdjuno_provider?.stakingParams?.[0]?.params ?? {}
+      data?.bdjuno_provider?.staking_params?.[0]?.params ?? {}
     );
     return {
       bondDenom: stakingParamsRaw.bondDenom,
@@ -43,9 +44,9 @@ const formatStaking = (data: ParamsQuery) => {
 // slashing
 // ================================
 const formatSlashing = (data: ParamsQuery) => {
-  if (data.bdjuno_provider?.slashingParams.length) {
+  if (data.bdjuno_provider?.staking_params.length) {
     const slashingParamsRaw = SlashingParams.fromJson(
-      data?.bdjuno_provider?.slashingParams?.[0]?.params ?? {}
+      data?.bdjuno_provider?.staking_params?.[0]?.params ?? {}
     );
     return {
       downtimeJailDuration: slashingParamsRaw.downtimeJailDuration,
@@ -62,8 +63,10 @@ const formatSlashing = (data: ParamsQuery) => {
 // minting
 // ================================
 const formatMint = (data: ParamsQuery) => {
-  if (data.bdjuno_provider?.mintParams.length) {
-    const mintParamsRaw = MintParams.fromJson(data?.bdjuno_provider?.mintParams?.[0]?.params ?? {});
+  if (data.bdjuno_provider?.mint_params.length) {
+    const mintParamsRaw = MintParams.fromJson(
+      data?.bdjuno_provider?.mint_params?.[0]?.params ?? {}
+    );
 
     return {
       blocksPerYear: mintParamsRaw.blocksPerYear,
@@ -83,9 +86,9 @@ const formatMint = (data: ParamsQuery) => {
 // ================================
 
 const formatDistribution = (data: ParamsQuery) => {
-  if (data.bdjuno_provider?.distributionParams.length) {
+  if (data.bdjuno_provider?.distribution_params.length) {
     const distributionParamsRaw = DistributionParams.fromJson(
-      data?.bdjuno_provider?.distributionParams?.[0]?.params ?? {}
+      data?.bdjuno_provider?.distribution_params?.[0]?.params ?? {}
     );
     return {
       baseProposerReward: distributionParamsRaw.baseProposerReward,
@@ -103,8 +106,8 @@ const formatDistribution = (data: ParamsQuery) => {
 // ================================
 
 const formatGov = (data: ParamsQuery) => {
-  if (data.bdjuno_provider?.govParams.length) {
-    const govParamsRaw = GovParams.fromJson(data?.bdjuno_provider?.govParams?.[0] ?? {});
+  if (data.bdjuno_provider?.gov_params.length) {
+    const govParamsRaw = GovParams.fromJson(data?.bdjuno_provider?.gov_params?.[0] ?? {});
     return {
       minDeposit: formatToken(
         govParamsRaw.depositParams.minDeposit?.[0]?.amount ?? 0,

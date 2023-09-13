@@ -32,6 +32,7 @@ const defaultTokenUnit: TokenUnit = {
 
 const initialState: AccountDetailState = {
   loading: true,
+  balanceLoading: true,
   exists: true,
   desmosProfile: null,
   overview: {
@@ -170,7 +171,7 @@ const formatOtherTokens = (data: Data) => {
     const availableRawAmount = getDenom(available, x);
     const availableAmount = formatToken(availableRawAmount.amount, x);
     const rewardsRawAmount = rewards.reduce((a, b) => {
-      const coins = R.pathOr<NonNullable<typeof b['coins']>>([], ['coins'], b);
+      const coins = R.pathOr<NonNullable<(typeof b)['coins']>>([], ['coins'], b);
       const denom = getDenom(coins, x);
       return Big(a).plus(denom.amount).toPrecision();
     }, '0');
