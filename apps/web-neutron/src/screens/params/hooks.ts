@@ -23,7 +23,6 @@ const initialState: ParamsState = {
 // staking
 // ================================
 const formatStaking = (data: ParamsQuery) => {
-  console.log('debug: hooks.ts: data', data);
   if (data.bdjuno_provider?.staking_params.length) {
     const stakingParamsRaw = StakingParams.fromJson(
       data?.bdjuno_provider?.staking_params?.[0]?.params ?? {}
