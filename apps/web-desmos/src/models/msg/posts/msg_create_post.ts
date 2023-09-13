@@ -19,7 +19,7 @@ class MsgCreatePost {
 
   static fromJson(json: object): MsgCreatePost {
     return {
-      category: 'profiles',
+      category: 'posts',
       json,
       type: R.pathOr('', ['@type'], json),
       author: R.pathOr('', ['author'], json),

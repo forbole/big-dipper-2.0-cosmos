@@ -19474,7 +19474,7 @@ export type OnlineVotingPowerQuery = { bdjuno_provider?: { __typename?: 'bdjuno_
 export type ParamsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ParamsQuery = { consumerParams: Array<{ __typename?: 'ccv_consumer_params', params: any }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }>, wasmParams: Array<{ __typename?: 'wasm_params', instantiate_default_permission: number, code_upload_access: any }> };
+export type ParamsQuery = { slashingParams: Array<{ __typename?: 'slashing_params', params: any }>, wasmParams: Array<{ __typename?: 'wasm_params', instantiate_default_permission: number, code_upload_access: any }>, bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', distribution_params: Array<{ __typename?: 'bdjuno_provider_distribution_params', params: any }>, mint_params: Array<{ __typename?: 'bdjuno_provider_mint_params', params: any }>, gov_params: Array<{ __typename?: 'bdjuno_provider_gov_params', deposit_params: any, height: any, one_row_id: boolean, tally_params: any, voting_params: any }>, staking_params: Array<{ __typename?: 'bdjuno_provider_staking_params', params: any }> } | null };
 
 export type LastHundredBlocksSubscriptionVariables = Exact<{
   address?: InputMaybe<Scalars['String']>;
@@ -20016,15 +20016,30 @@ export type OnlineVotingPowerLazyQueryHookResult = ReturnType<typeof useOnlineVo
 export type OnlineVotingPowerQueryResult = Apollo.QueryResult<OnlineVotingPowerQuery, OnlineVotingPowerQueryVariables>;
 export const ParamsDocument = gql`
     query Params {
-  consumerParams: ccv_consumer_params(limit: 1, order_by: {height: desc}) {
-    params
-  }
   slashingParams: slashing_params(limit: 1, order_by: {height: desc}) {
     params
   }
   wasmParams: wasm_params(limit: 1, order_by: {height: desc}) {
     instantiate_default_permission
     code_upload_access
+  }
+  bdjuno_provider {
+    distribution_params {
+      params
+    }
+    mint_params {
+      params
+    }
+    gov_params {
+      deposit_params
+      height
+      one_row_id
+      tally_params
+      voting_params
+    }
+    staking_params {
+      params
+    }
   }
 }
     `;

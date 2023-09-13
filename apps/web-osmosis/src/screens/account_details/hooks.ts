@@ -45,6 +45,7 @@ const initialState: AccountDetailState = {
     commission: defaultTokenUnit,
     total: defaultTokenUnit,
   },
+  balanceLoading: true,
   rewards: {},
 };
 
@@ -177,7 +178,7 @@ const formatOtherTokens = (data?: Data) => {
     const availableAmount = formatToken(availableRawAmount.amount, x);
     const rewardsRawAmount = rewards.reduce((a, b) => {
       if (!b) return a;
-      const coins = R.pathOr<NonNullable<typeof b['coins']>>([], ['coins'], b);
+      const coins = R.pathOr<NonNullable<(typeof b)['coins']>>([], ['coins'], b);
       const denom = getDenom(coins, x);
       return Big(a).plus(denom.amount).toPrecision();
     }, '0');
