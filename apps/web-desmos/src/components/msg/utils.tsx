@@ -479,6 +479,36 @@ const customTypeToModel = {
     tagTheme: 'four',
     tagDisplay: 'txMsgDeletePost',
   },
+  '/desmos.posts.v3.MsgMovePost': {
+    model: MODELS.MsgMovePost,
+    content: COMPONENTS.MovePost,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgMovePost',
+  },
+  '/desmos.posts.v3.MsgRequestPostOwnerTransfer': {
+    model: MODELS.MsgRequestPostOwnerTransfer,
+    content: COMPONENTS.RequestPostOwnerTransfer,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgRequestPostOwnerTransfer',
+  },
+  '/desmos.posts.v3.MsgCancelPostOwnerTransferRequest': {
+    model: MODELS.MsgCancelPostOwnerTransferRequest,
+    content: COMPONENTS.CancelPostOwnerTransferRequest,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgCancelPostOwnerTransferRequest',
+  },
+  '/desmos.posts.v3.MsgAcceptPostOwnerTransferRequest': {
+    model: MODELS.MsgAcceptPostOwnerTransferRequest,
+    content: COMPONENTS.AcceptPostOwnerTransferRequest,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgAcceptPostOwnerTransferRequest',
+  },
+  '/desmos.posts.v3.MsgRefusePostOwnerTransferRequest': {
+    model: MODELS.MsgRefusePostOwnerTransferRequest,
+    content: COMPONENTS.RefusePostOwnerTransferRequest,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgRefusePostOwnerTransferRequest',
+  },
   '/desmos.posts.v2.MsgAddPostAttachment': {
     model: MODELS.MsgAddPostAttachment,
     content: COMPONENTS.AddPostAttachment,
@@ -679,6 +709,39 @@ const customTypeToModel = {
     content: COMPONENTS.SetUserPermissions,
     tagTheme: 'four',
     tagDisplay: 'txMsgSetUserPermissions',
+  },
+  // ========================
+  // tokenfactory
+  // ========================
+  '/desmos.tokenfactory.v1.MsgCreateDenom': {
+    model: MODELS.MsgCreateDenom,
+    content: COMPONENTS.CreateDenom,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgCreateDenom',
+  },
+  '/desmos.tokenfactory.v1.MsgMint': {
+    model: MODELS.MsgMint,
+    content: COMPONENTS.Mint,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgMint',
+  },
+  '/desmos.tokenfactory.v1.MsgBurn': {
+    model: MODELS.MsgBurn,
+    content: COMPONENTS.Burn,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgBurn',
+  },
+  '/desmos.tokenfactory.v1.MsgSetDenomMetadata': {
+    model: MODELS.MsgSetDenomMetadata,
+    content: COMPONENTS.SetDenomMetadata,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgSetDenomMetadata',
+  },
+  '/desmos.tokenfactory.v1.MsgUpdateParams': {
+    model: MODELS.MsgUpdateParams,
+    content: COMPONENTS.UpdateParams,
+    tagTheme: 'four',
+    tagDisplay: 'txMsgUpdateParams',
   },
 };
 type CustomTypeToModel = typeof customTypeToModel;

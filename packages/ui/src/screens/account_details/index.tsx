@@ -101,7 +101,7 @@ const AccountDetails = () => {
             />
             <OtherTokens className={classes.otherTokens} otherTokens={state.otherTokens} />
             <Staking className={classes.staking} rewards={state.rewards} />
-            <Transactions className={classes.transactions} />
+            <Transactions className={classes.transactions} loading={state.balanceLoading} />
           </span>
         </LoadAndExist>
       </Layout>

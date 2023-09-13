@@ -1,0 +1,28 @@
+query ValidatorsAddressList {
+  validator {
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+      consensusAddress: consensus_address
+    }
+    validatorDescriptions: validator_descriptions(limit: 1, order_by: {height: desc}) {
+      moniker
+      identity
+      avatarUrl: avatar_url
+    }
+  }
+}
+
+query ValidatorAddresses {
+  validator(where: {validator_info: {operator_address: {_is_null: false}, consensus_address: {_is_null: false}, self_delegate_address: {_is_null: false}}}) {
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+      consensusAddress: consensus_address
+    }
+    validatorDescriptions: validator_descriptions(limit: 1, order_by: {height: desc}) {
+      moniker
+      avatarUrl: avatar_url
+    }
+  }
+}

@@ -4,6 +4,7 @@ query Proposals ($limit: Int = 7, $offset: Int = 0) {
     proposalId: id
     status
     description
+    content
   }
   total: proposal_aggregate {
     aggregate {

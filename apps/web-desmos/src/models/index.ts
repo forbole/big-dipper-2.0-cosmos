@@ -10,6 +10,11 @@ export { default as MsgSetDefaultExternalAddress } from '@/models/msg/profiles/m
 export { default as MsgCreatePost } from '@/models/msg/posts/msg_create_post';
 export { default as MsgEditPost } from '@/models/msg/posts/msg_edit_post';
 export { default as MsgDeletePost } from '@/models/msg/posts/msg_delete_post';
+export { default as MsgMovePost } from '@/models/msg/posts/msg_move_post';
+export { default as MsgRequestPostOwnerTransfer } from '@/models/msg/posts/msg_request_post_owner_transfer';
+export { default as MsgCancelPostOwnerTransferRequest } from '@/models/msg/posts/msg_cancel_post_owner_transfer_request';
+export { default as MsgAcceptPostOwnerTransferRequest } from '@/models/msg/posts/msg_accept_post_owner_transfer_request';
+export { default as MsgRefusePostOwnerTransferRequest } from '@/models/msg/posts/msg_refuse_post_owner_transfer_request';
 export { default as MsgAddPostAttachment } from '@/models/msg/posts/msg_add_post_attachment';
 export { default as MsgRemovePostAttachment } from '@/models/msg/posts/msg_add_post_attachment';
 export { default as MsgAnswerPoll } from '@/models/msg/posts/msg_answer_poll';
@@ -39,4 +44,9 @@ export { default as MsgDeleteUserGroup } from '@/models/msg/subspaces/msg_delete
 export { default as MsgAddUserToUserGroup } from '@/models/msg/subspaces/msg_add_user_to_user_group';
 export { default as MsgRemoveUserFromUserGroup } from '@/models/msg/subspaces/msg_remove_user_from_user_group';
 export { default as MsgSetUserPermissions } from '@/models/msg/subspaces/msg_set_user_group_permissions';
+export { default as MsgCreateDenom } from '@/models/msg/tokenfactory/msg_create_denom';
+export { default as MsgMint } from '@/models/msg/tokenfactory/msg_mint';
+export { default as MsgBurn } from '@/models/msg/tokenfactory/msg_burn';
+export { default as MsgSetDenomMetadata } from '@/models/msg/tokenfactory/msg_set_denom_metadata';
+export { default as MsgUpdateParams } from '@/models/msg/tokenfactory/msg_update_params';
 export * from 'ui/models';

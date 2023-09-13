@@ -1,5 +1,40 @@
 # Unreleased
 
+## 2.16.3
+
+### Patch Changes
+
+- Updated dependencies [[`584138bbb`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/584138bbb2443b74d437546ad04327fa2f0dd003), [`18991b16b`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/18991b16bda5af4b993868ee85a280e8b39271ca)]:
+  - shared-utils@2.23.0
+  - ui@2.36.0
+
+## 2.16.2
+
+### Patch Changes
+
+- Updated dependencies [[`99fb1bdf8`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/99fb1bdf8be3e3baa022475903f0ebc8fc9f0619)]:
+  - shared-utils@2.22.0
+  - ui@2.35.0
+
+## 2.16.1
+
+### Patch Changes
+
+- Updated dependencies [[`d6d815915`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/d6d815915a397c857247b32882222918eaef14e5), [`1e919a3c7`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/1e919a3c7eff85ce9aef954d59dfe38212fd997a)]:
+  - shared-utils@2.21.0
+  - ui@2.34.0
+
+## 2.16.0
+
+### Minor Changes
+
+- [#1279](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1279) [`f7365dfe0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f7365dfe0ca3b6f0cbefcb580d255a7977f44a4f) Thanks [@rachelhox](https://github.com/rachelhox)! - feat: price chart component
+
+### Patch Changes
+
+- Updated dependencies [[`f7365dfe0`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/f7365dfe0ca3b6f0cbefcb580d255a7977f44a4f)]:
+  - ui@2.33.0
+
 ## 2.15.1
 
 ### Patch Changes

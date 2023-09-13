@@ -1,0 +1,163 @@
+{
+  "chainName": "jackal",
+  "title": "Jackal Block Explorer",
+  "extra": {
+    "profile": false,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/previews/jackal.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#FE4080",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#000000",
+        "paper": "#0F101C"
+      },
+      "divider": "#363A51",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#000000",
+          "surfaceOne": "#0F101C",
+          "surfaceTwo": "#181A2D",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#6AA6FF"
+        },
+        "primaryData": {
+          "one": "#D3356F",
+          "two": "#B443DB",
+          "three": "#6333ED",
+          "four": "#14AACB"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#915EFF",
+          "two": "#19B0C5",
+          "three": "#1EC490"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#6D6D6C",
+          "one": "#5ACF78",
+          "two": "#ED6295",
+          "three": "#19A1BF",
+          "four": "#8453C2",
+          "five": "#C2A353"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#5E5E5E",
+          "backgroundTwo": "#212123",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#D9D9D9",
+          "surfaceThree": "#4D4D4D",
+          "surfaceFour": "#414141",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#DDDDDD"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {},
+        "wallet": {}
+      }
+    }
+  },
+  "keplr": "",
+  "chains": [
+    {
+      "network": "jackal-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2022-10-27T16:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "jklvalcons",
+        "validator": "jklvaloper",
+        "account": "jkl"
+      },
+      "primaryTokenUnit": "ujkl",
+      "votingPowerTokenUnit": "ujkl",
+      "tokenUnits": {
+        "ujkl": {
+          "display": "jkl",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.jackal.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.jackal.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.jackal.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}
