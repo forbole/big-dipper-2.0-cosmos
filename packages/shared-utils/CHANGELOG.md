@@ -1,5 +1,11 @@
 # shared-utils
 
+## 2.23.0
+
+### Minor Changes
+
+- [#1296](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1296) [`584138bbb`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/584138bbb2443b74d437546ad04327fa2f0dd003) Thanks [@rachelhox](https://github.com/rachelhox)! - feat: add Archway Big Dipper
+
 ## 2.22.0
 
 ### Minor Changes

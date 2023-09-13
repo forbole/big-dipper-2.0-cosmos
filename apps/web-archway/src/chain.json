@@ -1,0 +1,163 @@
+{
+  "chainName": "archway",
+  "title": "Archway Block Explorer",
+  "extra": {
+    "profile": false,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/previews/archway.png",
+  "themes": {
+    "default": "dark",
+    "themeList": [
+      "dark",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "#FE4350",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#040516",
+        "paper": "#14142D"
+      },
+      "divider": "#363A51",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#C4C4C4"
+      },
+      "custom": {
+        "general": {
+          "background": "#040516",
+          "surfaceOne": "#14142D",
+          "surfaceTwo": "#0C1C3C",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#C4C4C4",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#6AA6FF"
+        },
+        "primaryData": {
+          "one": "#FE4350",
+          "two": "#EA5356",
+          "three": "#285ED5",
+          "four": "#183F9F"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#EA5356",
+          "two": "#285ED5",
+          "three": "#1EC490"
+        },
+        "condition": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E8E8E8",
+          "one": "#1EC490",
+          "two": "#EA5356",
+          "three": "#285ED5",
+          "four": "#E3AB55",
+          "five": "#C25396"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA897",
+          "three": "#E79726",
+          "four": "#F17053",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9950",
+          "nine": "#B49F37",
+          "ten": "#E9A852",
+          "eleven": "#E94687",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#5E5E5E",
+          "backgroundTwo": "#212123",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#D9D9D9",
+          "surfaceThree": "#4D4D4D",
+          "surfaceFour": "#414141",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#DDDDDD"
+        }
+      }
+    },
+    "light": {
+      "primary": {},
+      "background": {},
+      "text": {},
+      "custom": {
+        "general": {
+          "icon": "#999999"
+        },
+        "fonts": {},
+        "primaryData": {},
+        "results": {},
+        "tokenomics": {},
+        "condition": {},
+        "charts": {},
+        "tags": {},
+        "wallet": {}
+      }
+    }
+  },
+  "keplr": "",
+  "chains": [
+    {
+      "network": "archway-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2023-07-03T12:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "archwayvalcons",
+        "validator": "archwayvaloper",
+        "account": "archway"
+      },
+      "primaryTokenUnit": "aarch",
+      "votingPowerTokenUnit": "aarch",
+      "tokenUnits": {
+        "aarch": {
+          "display": "arch",
+          "exponent": 18
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.archway.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.archway.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.archway.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      }
+    }
+  ]
+}

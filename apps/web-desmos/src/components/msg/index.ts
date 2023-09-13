@@ -9,6 +9,11 @@ export { default as SetDefaultExternalAddress } from '@/components/msg/profiles/
 export { default as CreatePost } from '@/components/msg/posts/create_post';
 export { default as EditPost } from '@/components/msg/posts/edit_post';
 export { default as DeletePost } from '@/components/msg/posts/delete_post';
+export { default as MovePost } from '@/components/msg/posts/move_post';
+export { default as RequestPostOwnerTransfer } from '@/components/msg/posts/request_post_owner_transfer';
+export { default as CancelPostOwnerTransferRequest } from '@/components/msg/posts/cancel_post_owner_transfer_request';
+export { default as AcceptPostOwnerTransferRequest } from '@/components/msg/posts/accept_post_owner_transfer_request';
+export { default as RefusePostOwnerTransferRequest } from '@/components/msg/posts/refuse_post_owner_transfer_request';
 export { default as AddPostAttachment } from '@/components/msg/posts/add_post_attachment';
 export { default as RemovePostAttachment } from '@/components/msg/posts/remove_post_attachment';
 export { default as AnswerPoll } from '@/components/msg/posts/answer_poll';
@@ -38,4 +43,9 @@ export { default as DeleteUserGroup } from '@/components/msg/subspaces/delete_us
 export { default as AddUserToUserGroup } from '@/components/msg/subspaces/add_user_to_user_group';
 export { default as RemoveUserFromUserGroup } from '@/components/msg/subspaces/remove_user_from_user_group';
 export { default as SetUserPermissions } from '@/components/msg/subspaces/set_user_permissions';
+export { default as CreateDenom } from '@/components/msg/tokenfactory/create_denom';
+export { default as Mint } from '@/components/msg/tokenfactory/mint';
+export { default as Burn } from '@/components/msg/tokenfactory/burn';
+export { default as SetDenomMetadata } from '@/components/msg/tokenfactory/set_denom_metadata';
+export { default as UpdateParams } from '@/components/msg/tokenfactory/update_params';
 export * from 'ui/components/msg';

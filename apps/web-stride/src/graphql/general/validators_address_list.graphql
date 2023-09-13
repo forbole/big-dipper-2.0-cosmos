@@ -26,3 +26,24 @@ query ValidatorAddresses {
     }
   }
 }
+
+query ValidatorConsumerProviderAddresses {
+  ccv_validator(
+    where: {consumer_consensus_address: {_is_null: false}, provider_consensus_address: {_is_null: false}}
+  ) {
+    consumerOperatorAddress: consumer_operator_address
+    providerOperatorAddress: provider_operator_address
+    providerSelfDelegateAddress: provider_self_delegate_address
+    validator {
+      validatorDescriptions: validator_descriptions(
+        limit: 1
+        order_by: {height: desc}
+      ) {
+        moniker
+        avatarUrl: avatar_url
+        details
+        website
+      }
+    }
+  }
+}

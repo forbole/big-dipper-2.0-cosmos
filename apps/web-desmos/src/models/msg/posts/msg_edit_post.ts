@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import type { Categories } from '@/models/msg/types';
 
-class MsgCreatePost {
+class MsgEditPost {
   public category: Categories;
 
   public type: string;
@@ -17,14 +17,14 @@ class MsgCreatePost {
     this.editor = R.pathOr('', ['editor'], payload);
   }
 
-  static fromJson(json: object): MsgCreatePost {
+  static fromJson(json: object) {
     return {
-      category: 'profiles',
-      json,
+      category: 'posts',
       type: R.pathOr('', ['@type'], json),
+      json,
       editor: R.pathOr('', ['editor'], json),
     };
   }
 }
 
-export default MsgCreatePost;
+export default MsgEditPost;
