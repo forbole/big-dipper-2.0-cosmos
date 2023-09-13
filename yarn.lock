@@ -3701,6 +3701,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@keplr-wallet/common@npm:0.11.64":
+  version: 0.11.64
+  resolution: "@keplr-wallet/common@npm:0.11.64"
+  dependencies:
+    "@keplr-wallet/crypto": 0.11.64
+    buffer: ^6.0.3
+    delay: ^4.4.0
+  checksum: 418b7e1469c7e023f2ad8adf8f0925949b0fdac10da9bbdb4ff96a43f4054e877e7088bf876f6bdb2713656551e3d5d21038691d38f925d5321f8088bc580802
+  languageName: node
+  linkType: hard
+
 "@keplr-wallet/common@npm:0.12.14":
   version: 0.12.14
   resolution: "@keplr-wallet/common@npm:0.12.14"
@@ -3711,6 +3722,22 @@ __metadata:
     delay: ^4.4.0
     mobx: ^6.1.7
   checksum: 135d3827e461c671edc54f20919739901e5393e9aa7ebb6553e66d417bbcff905365489e0af55179ed172d223e530019e4f02cdc023a6e434a4b4cee0ec76ed2
+  languageName: node
+  linkType: hard
+
+"@keplr-wallet/crypto@npm:0.11.64":
+  version: 0.11.64
+  resolution: "@keplr-wallet/crypto@npm:0.11.64"
+  dependencies:
+    "@ethersproject/keccak256": ^5.5.0
+    bip32: ^2.0.6
+    bip39: ^3.0.3
+    bs58check: ^2.1.2
+    buffer: ^6.0.3
+    crypto-js: ^4.0.0
+    elliptic: ^6.5.3
+    sha.js: ^2.4.11
+  checksum: 803a60b674fe29c0f35f8e1a8d4424237f33e3fe31a25c77c9e4854764b4e4c6e2cace284f0858c26f3b966f96fd15b89d145a8d16896731b2a3443de1b8794a
   languageName: node
   linkType: hard
 
@@ -3730,6 +3757,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@keplr-wallet/provider@npm:0.11.64":
+  version: 0.11.64
+  resolution: "@keplr-wallet/provider@npm:0.11.64"
+  dependencies:
+    "@keplr-wallet/router": 0.11.64
+    "@keplr-wallet/types": 0.11.64
+    buffer: ^6.0.3
+    deepmerge: ^4.2.2
+    long: ^4.0.0
+  checksum: dd3cc233a964cf8f01642a923283313f570c7b208c9cf41f5af1d567c9793b23a8c052c369d7dc6c5e8f937ac5897eb8b5f49d265dd7db790e17decddc035e1e
+  languageName: node
+  linkType: hard
+
 "@keplr-wallet/provider@npm:0.12.14":
   version: 0.12.14
   resolution: "@keplr-wallet/provider@npm:0.12.14"
@@ -3743,10 +3783,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@keplr-wallet/router@npm:0.11.64":
+  version: 0.11.64
+  resolution: "@keplr-wallet/router@npm:0.11.64"
+  checksum: 4fc4ffc494936241f9d8b8b36cd03a76b233c6a62c45f1154dfc686d3b094c7dd4bdb53a8cbd76657f0f951c5833691cd330c51a7a3540d4dc074c5b9b1bfb6b
+  languageName: node
+  linkType: hard
+
 "@keplr-wallet/router@npm:0.12.14":
   version: 0.12.14
   resolution: "@keplr-wallet/router@npm:0.12.14"
   checksum: 2b456f018d053eacb0ad57c4948cfe69bb017b3132583d4888b7ee56e357c3d36ee522c4cac6d72b51940bd60a61c899db3c88c79d21b7801a4631193ad05e46
+  languageName: node
+  linkType: hard
+
+"@keplr-wallet/types@npm:0.11.64, @keplr-wallet/types@npm:^0.11.59":
+  version: 0.11.64
+  resolution: "@keplr-wallet/types@npm:0.11.64"
+  dependencies:
+    axios: ^0.27.2
+    long: ^4.0.0
+  checksum: d1d281cdb4c2f61ad46cad158559746927a65a4274170208c3ed712dd550bd623c058fea5cd08d0c1f7806c9856f3c901807f8946cd6cbc99f871b4ce03f94a9
   languageName: node
   linkType: hard
 
@@ -3756,6 +3813,21 @@ __metadata:
   dependencies:
     long: ^4.0.0
   checksum: 1578fdcf63e612bbec830f29864f21ccd20a0a148455e289947051d5e5861aa090a4ca3816ecab627024d031c03e82c4267468321bd8c5a734035a3ef91624eb
+  languageName: node
+  linkType: hard
+
+"@keplr-wallet/wc-client@npm:^0.11.59":
+  version: 0.11.64
+  resolution: "@keplr-wallet/wc-client@npm:0.11.64"
+  dependencies:
+    "@keplr-wallet/common": 0.11.64
+    "@keplr-wallet/provider": 0.11.64
+    "@keplr-wallet/types": 0.11.64
+    "@walletconnect/types": ^1.6.4
+    "@walletconnect/utils": ^1.6.4
+    buffer: ^6.0.3
+    deepmerge: ^4.2.2
+  checksum: c3232c2d5f02ee50d24193f4c548e719a9ab08b5c92d52a48dd26a8eed2ee200bd8e8bd9675ff0393a7265f395ef9bb20807ad6ab712efd2145b856616cf711c
   languageName: node
   linkType: hard
 
@@ -6666,6 +6738,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^0.27.2":
+  version: 0.27.2
+  resolution: "axios@npm:0.27.2"
+  dependencies:
+    follow-redirects: ^1.14.9
+    form-data: ^4.0.0
+  checksum: 38cb7540465fe8c4102850c4368053c21683af85c5fdf0ea619f9628abbcb59415d1e22ebc8a6390d2bbc9b58a9806c874f139767389c862ec9b772235f06854
+  languageName: node
+  linkType: hard
+
 "axios@npm:^1.4.0":
   version: 1.4.0
   resolution: "axios@npm:1.4.0"
@@ -9550,7 +9632,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.0, follow-redirects@npm:^1.15.0":
+"follow-redirects@npm:^1.14.0, follow-redirects@npm:^1.14.9, follow-redirects@npm:^1.15.0":
   version: 1.15.2
   resolution: "follow-redirects@npm:1.15.2"
   peerDependenciesMeta:

@@ -6000,6 +6000,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@keplr-wallet/common", [\
+        ["npm:0.11.64", {\
+          "packageLocation": "./.yarn/cache/@keplr-wallet-common-npm-0.11.64-bbd21a9492-418b7e1469.zip/node_modules/@keplr-wallet/common/",\
+          "packageDependencies": [\
+            ["@keplr-wallet/common", "npm:0.11.64"],\
+            ["@keplr-wallet/crypto", "npm:0.11.64"],\
+            ["buffer", "npm:6.0.3"],\
+            ["delay", "npm:4.4.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:0.12.14", {\
           "packageLocation": "./.yarn/cache/@keplr-wallet-common-npm-0.12.14-a01f0802cd-135d3827e4.zip/node_modules/@keplr-wallet/common/",\
           "packageDependencies": [\
@@ -6014,6 +6024,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@keplr-wallet/crypto", [\
+        ["npm:0.11.64", {\
+          "packageLocation": "./.yarn/cache/@keplr-wallet-crypto-npm-0.11.64-1bf07ec97d-803a60b674.zip/node_modules/@keplr-wallet/crypto/",\
+          "packageDependencies": [\
+            ["@keplr-wallet/crypto", "npm:0.11.64"],\
+            ["@ethersproject/keccak256", "npm:5.7.0"],\
+            ["bip32", "npm:2.0.6"],\
+            ["bip39", "npm:3.1.0"],\
+            ["bs58check", "npm:2.1.2"],\
+            ["buffer", "npm:6.0.3"],\
+            ["crypto-js", "npm:4.1.1"],\
+            ["elliptic", "npm:6.5.4"],\
+            ["sha.js", "npm:2.4.11"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:0.12.14", {\
           "packageLocation": "./.yarn/cache/@keplr-wallet-crypto-npm-0.12.14-a55c405bc6-8d5af8448e.zip/node_modules/@keplr-wallet/crypto/",\
           "packageDependencies": [\
@@ -6031,6 +6056,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@keplr-wallet/provider", [\
+        ["npm:0.11.64", {\
+          "packageLocation": "./.yarn/cache/@keplr-wallet-provider-npm-0.11.64-e09c5f50df-dd3cc233a9.zip/node_modules/@keplr-wallet/provider/",\
+          "packageDependencies": [\
+            ["@keplr-wallet/provider", "npm:0.11.64"],\
+            ["@keplr-wallet/router", "npm:0.11.64"],\
+            ["@keplr-wallet/types", "npm:0.11.64"],\
+            ["buffer", "npm:6.0.3"],\
+            ["deepmerge", "npm:4.3.1"],\
+            ["long", "npm:4.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:0.12.14", {\
           "packageLocation": "./.yarn/cache/@keplr-wallet-provider-npm-0.12.14-6451231f8f-f349fee9e8.zip/node_modules/@keplr-wallet/provider/",\
           "packageDependencies": [\
@@ -6045,6 +6082,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@keplr-wallet/router", [\
+        ["npm:0.11.64", {\
+          "packageLocation": "./.yarn/cache/@keplr-wallet-router-npm-0.11.64-0084fc534b-4fc4ffc494.zip/node_modules/@keplr-wallet/router/",\
+          "packageDependencies": [\
+            ["@keplr-wallet/router", "npm:0.11.64"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:0.12.14", {\
           "packageLocation": "./.yarn/cache/@keplr-wallet-router-npm-0.12.14-f91c88da91-2b456f018d.zip/node_modules/@keplr-wallet/router/",\
           "packageDependencies": [\
@@ -6054,6 +6098,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@keplr-wallet/types", [\
+        ["npm:0.11.64", {\
+          "packageLocation": "./.yarn/cache/@keplr-wallet-types-npm-0.11.64-9d6988d777-d1d281cdb4.zip/node_modules/@keplr-wallet/types/",\
+          "packageDependencies": [\
+            ["@keplr-wallet/types", "npm:0.11.64"],\
+            ["axios", "npm:0.27.2"],\
+            ["long", "npm:4.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:0.12.14", {\
           "packageLocation": "./.yarn/cache/@keplr-wallet-types-npm-0.12.14-0202aaaf01-1578fdcf63.zip/node_modules/@keplr-wallet/types/",\
           "packageDependencies": [\
@@ -6064,6 +6117,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@keplr-wallet/wc-client", [\
+        ["npm:0.11.64", {\
+          "packageLocation": "./.yarn/cache/@keplr-wallet-wc-client-npm-0.11.64-b28e14829b-c3232c2d5f.zip/node_modules/@keplr-wallet/wc-client/",\
+          "packageDependencies": [\
+            ["@keplr-wallet/wc-client", "npm:0.11.64"],\
+            ["@keplr-wallet/common", "npm:0.11.64"],\
+            ["@keplr-wallet/provider", "npm:0.11.64"],\
+            ["@keplr-wallet/types", "npm:0.11.64"],\
+            ["@walletconnect/types", "npm:1.8.0"],\
+            ["@walletconnect/utils", "npm:1.8.0"],\
+            ["buffer", "npm:6.0.3"],\
+            ["deepmerge", "npm:4.3.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:0.12.14", {\
           "packageLocation": "./.yarn/cache/@keplr-wallet-wc-client-npm-0.12.14-df36ed6bcf-9da7ea3c38.zip/node_modules/@keplr-wallet/wc-client/",\
           "packageDependencies": [\
@@ -9784,6 +9851,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["axios", "npm:0.21.4"],\
             ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.27.2", {\
+          "packageLocation": "./.yarn/cache/axios-npm-0.27.2-dbe3a48aea-38cb754046.zip/node_modules/axios/",\
+          "packageDependencies": [\
+            ["axios", "npm:0.27.2"],\
+            ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.2"],\
+            ["form-data", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -22447,8 +22523,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@graphql-tools/mock", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.7.20"],\
             ["@graphql-tools/schema", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.0.19"],\
             ["@jest/globals", "npm:29.5.0"],\
-            ["@keplr-wallet/types", "npm:0.11.59"],\
-            ["@keplr-wallet/wc-client", "npm:0.11.59"],\
+            ["@keplr-wallet/types", "npm:0.11.64"],\
+            ["@keplr-wallet/wc-client", "npm:0.11.64"],\
             ["@mui/icons-material", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.16"],\
             ["@mui/material", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.12.3"],\
             ["@next/eslint-plugin-next", "npm:13.4.1"],\
@@ -24410,8 +24486,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@graphql-tools/mock", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:8.7.20"],\
             ["@graphql-tools/schema", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:9.0.19"],\
             ["@jest/globals", "npm:29.5.0"],\
-            ["@keplr-wallet/types", "npm:0.11.59"],\
-            ["@keplr-wallet/wc-client", "npm:0.11.59"],\
+            ["@keplr-wallet/types", "npm:0.11.64"],\
+            ["@keplr-wallet/wc-client", "npm:0.11.64"],\
             ["@mui/icons-material", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.11.16"],\
             ["@mui/material", "virtual:9dce388d82c018b4a7af5edc7243e51f7023d1ab93a923b3959d0066ac6881c93b965a0932486426cbefa96c9c8e47849d5ff541d2404b8aca246480fa32f0d2#npm:5.12.3"],\
             ["@next/eslint-plugin-next", "npm:13.4.1"],\
