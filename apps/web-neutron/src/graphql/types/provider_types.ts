@@ -19495,7 +19495,7 @@ export type ValidatorDetailsQueryVariables = Exact<{
 }>;
 
 
-export type ValidatorDetailsQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', stakingPool: Array<{ __typename?: 'bdjuno_provider_staking_pool', height: any, bonded: string }>, validator: Array<{ __typename?: 'bdjuno_provider_validator', validatorDescriptions: Array<{ __typename?: 'bdjuno_provider_validator_description', details?: string | null, website?: string | null }>, validatorStatuses: Array<{ __typename?: 'bdjuno_provider_validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'bdjuno_provider_validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'bdjuno_provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null, maxRate: string } | null, validatorCommissions: Array<{ __typename?: 'bdjuno_provider_validator_commission', commission: any }>, validatorVotingPowers: Array<{ __typename?: 'bdjuno_provider_validator_voting_power', height: any, votingPower: any }> }>, slashingParams: Array<{ __typename?: 'bdjuno_provider_slashing_params', params: any }> } | null };
+export type ValidatorDetailsQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', ccv_validator_info?: { __typename?: 'provider_validator_info', validator: { __typename?: 'provider_validator', validatorDescriptions: Array<{ __typename?: 'provider_validator_description', details?: string | null, website?: string | null }>, validatorStatuses: Array<{ __typename?: 'provider_validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'provider_validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null, maxRate: string } | null, validatorCommissions: Array<{ __typename?: 'provider_validator_commission', commission: any }>, validatorVotingPowers: Array<{ __typename?: 'provider_validator_voting_power', height: any, votingPower: any }> } } | null }>, bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', stakingPool: Array<{ __typename?: 'bdjuno_provider_staking_pool', height: any, bonded: string }>, slashingParams: Array<{ __typename?: 'bdjuno_provider_slashing_params', params: any }> } | null };
 
 export type ValidatorConsensusAddressesListQueryVariables = Exact<{
   address: Scalars['String'];
@@ -20150,47 +20150,51 @@ export type ValidatorLastSeenListenerSubscriptionHookResult = ReturnType<typeof 
 export type ValidatorLastSeenListenerSubscriptionResult = Apollo.SubscriptionResult<ValidatorLastSeenListenerSubscription>;
 export const ValidatorDetailsDocument = gql`
     query ValidatorDetails($address: String) {
+  ccv_validator(where: {consumer_operator_address: {_eq: $address}}) {
+    ccv_validator_info {
+      validator {
+        validatorDescriptions: validator_descriptions(
+          order_by: {height: desc}
+          limit: 1
+        ) {
+          details
+          website
+        }
+        validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
+          status
+          jailed
+          height
+        }
+        validatorSigningInfos: validator_signing_infos(
+          order_by: {height: desc}
+          limit: 1
+        ) {
+          missedBlocksCounter: missed_blocks_counter
+          tombstoned
+        }
+        validatorInfo: validator_info {
+          operatorAddress: operator_address
+          selfDelegateAddress: self_delegate_address
+          maxRate: max_rate
+        }
+        validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
+          commission
+        }
+        validatorVotingPowers: validator_voting_powers(
+          offset: 0
+          limit: 1
+          order_by: {height: desc}
+        ) {
+          height
+          votingPower: voting_power
+        }
+      }
+    }
+  }
   bdjuno_provider {
     stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
       height
       bonded: bonded_tokens
-    }
-    validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
-      validatorDescriptions: validator_descriptions(
-        order_by: {height: desc}
-        limit: 1
-      ) {
-        details
-        website
-      }
-      validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
-        status
-        jailed
-        height
-      }
-      validatorSigningInfos: validator_signing_infos(
-        order_by: {height: desc}
-        limit: 1
-      ) {
-        missedBlocksCounter: missed_blocks_counter
-        tombstoned
-      }
-      validatorInfo: validator_info {
-        operatorAddress: operator_address
-        selfDelegateAddress: self_delegate_address
-        maxRate: max_rate
-      }
-      validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
-        commission
-      }
-      validatorVotingPowers: validator_voting_powers(
-        offset: 0
-        limit: 1
-        order_by: {height: desc}
-      ) {
-        height
-        votingPower: voting_power
-      }
     }
     slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
       params

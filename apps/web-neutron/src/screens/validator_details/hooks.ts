@@ -50,15 +50,20 @@ const initialState: ValidatorDetailsState = {
 // ============================
 const formatOverview = (data: ValidatorDetailsQuery) => {
   const operatorAddress =
-    data?.bdjuno_provider?.validator?.[0]?.validatorInfo?.operatorAddress ?? '';
+    data?.ccv_validator?.[0]?.ccv_validator_info?.validator?.validatorInfo?.operatorAddress ?? '';
   const selfDelegateAddress =
-    data?.bdjuno_provider?.validator?.[0]?.validatorInfo?.selfDelegateAddress ?? '';
+    data?.ccv_validator?.[0]?.ccv_validator_info?.validator?.validatorInfo?.selfDelegateAddress ??
+    '';
   const profile = {
     validator: operatorAddress,
     operatorAddress,
     selfDelegateAddress,
-    description: data.bdjuno_provider?.validator[0]?.validatorDescriptions?.[0]?.details ?? '',
-    website: data.bdjuno_provider?.validator[0]?.validatorDescriptions?.[0]?.website ?? '',
+    description:
+      data?.ccv_validator?.[0]?.ccv_validator_info?.validator?.validatorDescriptions?.[0]
+        ?.details ?? '',
+    website:
+      data?.ccv_validator?.[0]?.ccv_validator_info?.validator?.validatorDescriptions?.[0]
+        ?.website ?? '',
   };
 
   return profile;
@@ -71,20 +76,20 @@ const formatStatus = (data: ValidatorDetailsQuery) => {
   const slashingParams = SlashingParams.fromJson(
     data?.bdjuno_provider?.slashingParams?.[0]?.params ?? {}
   );
-  const missedBlockCounter =
-    data.bdjuno_provider?.validator[0]?.validatorSigningInfos?.[0]?.missedBlocksCounter ?? 0;
+  const validator = data?.ccv_validator?.[0]?.ccv_validator_info?.validator;
+  const missedBlockCounter = validator?.validatorSigningInfos?.[0]?.missedBlocksCounter ?? 0;
   const { signedBlockWindow } = slashingParams;
   const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
   const profile: StatusType = {
-    status: data.bdjuno_provider?.validator[0]?.validatorStatuses?.[0]?.status ?? 3,
-    jailed: data.bdjuno_provider?.validator[0]?.validatorStatuses?.[0]?.jailed ?? false,
-    tombstoned: data.bdjuno_provider?.validator[0]?.validatorSigningInfos?.[0]?.tombstoned ?? false,
-    commission: data.bdjuno_provider?.validator[0]?.validatorCommissions?.[0]?.commission ?? 0,
+    status: validator?.validatorStatuses?.[0]?.status ?? 3,
+    jailed: validator?.validatorStatuses?.[0]?.jailed ?? false,
+    tombstoned: validator?.validatorSigningInfos?.[0]?.tombstoned ?? false,
+    commission: validator?.validatorCommissions?.[0]?.commission ?? 0,
     condition,
     missedBlockCounter,
     signedBlockWindow,
-    maxRate: data?.bdjuno_provider?.validator?.[0]?.validatorInfo?.maxRate ?? '0',
+    maxRate: validator?.validatorInfo?.maxRate ?? '0',
   };
 
   return profile;
@@ -94,8 +99,9 @@ const formatStatus = (data: ValidatorDetailsQuery) => {
 // votingPower
 // ============================
 const formatVotingPower = (data: ValidatorDetailsQuery) => {
+  const validator = data?.ccv_validator?.[0]?.ccv_validator_info?.validator;
   const selfVotingPower =
-    (data.bdjuno_provider?.validator[0]?.validatorVotingPowers?.[0]?.votingPower ?? 0) /
+    (validator?.validatorVotingPowers?.[0]?.votingPower ?? 0) /
     10 ** (extra.votingPowerExponent ?? 0);
 
   const votingPower = {
@@ -104,7 +110,7 @@ const formatVotingPower = (data: ValidatorDetailsQuery) => {
       data?.bdjuno_provider?.stakingPool?.[0]?.bonded ?? 0,
       votingPowerTokenUnit
     ),
-    height: data.bdjuno_provider?.validator[0]?.validatorVotingPowers?.[0]?.height ?? 0,
+    height: validator?.validatorVotingPowers?.[0]?.height ?? 0,
   };
 
   return votingPower;
@@ -153,8 +159,9 @@ export const useValidatorDetails = () => {
 
 function formatAccountQuery(data: ValidatorDetailsQuery): Partial<ValidatorDetailsState> {
   const stateChange: Partial<ValidatorDetailsState> = {};
+  const validator = data?.ccv_validator?.[0]?.ccv_validator_info?.validator;
 
-  if (!data.bdjuno_provider?.validator.length) {
+  if (!validator) {
     stateChange.exists = false;
     return stateChange;
   }
