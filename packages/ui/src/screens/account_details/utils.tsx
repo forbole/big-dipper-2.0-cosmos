@@ -1,4 +1,6 @@
 import { useEffect, useMemo } from 'react';
+import { useRecoilValue } from 'recoil';
+import { readIsUserLoggedIn } from '@/recoil/user';
 import {
   useAccountBalancesQuery,
   useAccountCommissionQuery,
@@ -123,6 +125,7 @@ export const useUnbondingBalance = (address?: string) => {
 };
 
 export const useRewards = (address?: string) => {
+  const loggedIn = useRecoilValue(readIsUserLoggedIn);
   const defaultReturnValue = useMemo(() => ({ delegationRewards: [] }), []);
   const { data, error, refetch } = useAccountDelegationRewardsQuery({
     variables: {
@@ -133,5 +136,8 @@ export const useRewards = (address?: string) => {
   useEffect(() => {
     if (error) refetch();
   }, [error, refetch]);
+  useEffect(() => {
+    if (loggedIn) refetch();
+  }, [loggedIn, refetch]);
   return data ?? defaultReturnValue;
 };

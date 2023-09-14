@@ -10,4 +10,4 @@ export interface BlocksState {
   items: BlockType[];
 }
 
-export type ItemType = Override<BlockType, { proposer: AvatarName }>;
+export type ValidatorWithAvatar = Override<BlockType, { proposer: AvatarName }>;

@@ -19,9 +19,9 @@ describe('screen: TransactionDetails/MovePost', () => {
       category: 'posts',
       type: 'MsgMovePost',
       owner: 'owner',
-          post_id: '1',
-          subspace_id:'subspace-id-1',
-          target_subspace_id: 'subspace-id-2',
+      post_id: '1',
+      subspace_id: 'subspace-id-1',
+      target_subspace_id: 'subspace-id-2',
       json: {},
     };
     const component = renderer.create(

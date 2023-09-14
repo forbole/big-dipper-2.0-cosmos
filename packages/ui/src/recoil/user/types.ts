@@ -1,6 +1,6 @@
 import { PubKey } from '@/recoil/user/atom';
 
-export interface AtomState {
+export interface UserState {
   address: string;
   pubKey: PubKey;
   walletName: string;

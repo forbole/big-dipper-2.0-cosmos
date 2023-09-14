@@ -29,4 +29,8 @@ export interface ValidatorsState {
   items: ValidatorType[];
 }
 
-export type ItemType = Override<ValidatorType, { validator: AvatarName }>;
+export type {
+  ValidatorsCoinsConditionType,
+  ValidatorsAvatarNameType,
+} from 'ui/screens/validators/components/list/types';
+export type ValidatorWithAvatar = Override<ValidatorType, { validator: AvatarName }>;

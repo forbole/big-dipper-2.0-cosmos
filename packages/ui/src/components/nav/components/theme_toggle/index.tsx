@@ -19,8 +19,8 @@ const ThemeToggle: FC<ToggleProps> = ({ className }) => {
       <Switch
         className={cx(classes.switch, className)}
         disabled={disabled}
-        onChange={themeChange}
-        value={theme}
+        onClick={themeChange}
+        checked={theme === 'dark'}
       />
       <Typography variant="caption" className={classes.caption}>
         {t(theme)}

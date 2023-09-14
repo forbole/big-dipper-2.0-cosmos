@@ -1,4 +1,3 @@
-import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -8,6 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import LoginSuccessIcon from 'shared-utils/assets/icon-success.svg';
+import { useStyles } from '@/components/nav/components/connect_wallet/styles';
 
 type LoginSuccessDialogProps = {
   open: boolean;

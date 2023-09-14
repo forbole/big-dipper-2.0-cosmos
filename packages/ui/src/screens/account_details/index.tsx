@@ -9,12 +9,56 @@ import Overview from '@/screens/account_details/components/overview';
 import Staking from '@/screens/account_details/components/staking';
 import Transactions from '@/screens/account_details/components/transactions';
 import { useAccountDetails } from '@/screens/account_details/hooks';
+import { useValidators } from '@/screens/validators/components/list/hooks';
 import useStyles from '@/screens/account_details/styles';
+import useShallowMemo from '@/hooks/useShallowMemo';
+import { useProfilesRecoil } from '@/recoil/profiles/hooks';
+import { readIsUserLoggedIn } from '@/recoil/user/selectors';
+import { useRecoilValue } from 'recoil';
+import { useMemo } from 'react';
+import chainConfig from '@/chainConfig';
 
 const AccountDetails = () => {
   const { t } = useAppTranslation('accounts');
   const { classes } = useStyles();
   const { state } = useAccountDetails();
+  const { state: valState, delegationValidators, rewardValidators } = useValidators();
+  const { primaryTokenUnit } = chainConfig();
+
+  const validatorsMemo = useShallowMemo(valState.items.map((x) => x.validator));
+  const { profiles: dataProfiles } = useProfilesRecoil(validatorsMemo);
+
+  // full validator list
+  const validatorItems = useMemo(
+    () => valState.items.map((v, j) => ({ ...v, validator: dataProfiles?.[j] })),
+    [valState.items, dataProfiles]
+  );
+
+  // const redelegations Memo
+  const delegationsMemo = useShallowMemo(delegationValidators?.map((y) => y.validator)) ?? [];
+  const { profiles: delegationProfiles } = useProfilesRecoil(delegationsMemo);
+  const delegationItems = useMemo(
+    () =>
+      delegationValidators?.map((d, j) => ({
+        coins: d.coins?.[0],
+        validator: { ...delegationProfiles?.[j], status: d.status, condition: d.condition },
+      })) ?? [],
+    [delegationValidators, delegationProfiles]
+  );
+
+  // const rewards Memo
+  const rewardsMemo = useShallowMemo(rewardValidators?.map((z) => z.validator)) ?? [];
+  const { profiles: rewardProfiles } = useProfilesRecoil(rewardsMemo);
+  const rewardItems = useMemo(
+    () =>
+      rewardValidators?.map((d, j) => ({
+        coins: d.coins?.[0] ?? { amount: '0', denom: primaryTokenUnit },
+        validator: { ...rewardProfiles?.[j], status: d.status, condition: d.condition },
+      })) ?? [],
+    [rewardValidators, primaryTokenUnit, rewardProfiles]
+  );
+
+  const loggedIn = useRecoilValue(readIsUserLoggedIn);
 
   return (
     <>
@@ -50,6 +94,10 @@ const AccountDetails = () => {
               reward={state.balance.reward}
               commission={state.balance.commission}
               total={state.balance.total}
+              validators={validatorItems}
+              delegations={delegationItems}
+              rewards={rewardItems}
+              loggedIn={loggedIn}
             />
             <OtherTokens className={classes.otherTokens} otherTokens={state.otherTokens} />
             <Staking className={classes.staking} rewards={state.rewards} />

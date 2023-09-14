@@ -127,7 +127,6 @@
       }
     }
   },
-  "keplr": "",
   "chains": [
     {
       "network": "core-1",
@@ -153,6 +152,10 @@
         "graphql": "https://gql.persistence.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql.persistence.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc.persistence.forbole.com/websocket"
+      },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.persistence.forbole.com/",
+        "keplr": ""
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
@@ -183,6 +186,10 @@
         "graphql": "https://gql-testnet.persistence.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql-testnet.persistence.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc-testnet.persistence.forbole.com/websocket"
+      },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.persistence.forbole.com/",
+        "keplr": ""
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",

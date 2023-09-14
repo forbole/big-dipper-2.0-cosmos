@@ -5,7 +5,9 @@ import Name from '@/components/name';
 import MsgCancelPostOwnerTransferRequest from '@/models/msg/posts/msg_cancel_post_owner_transfer_request';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 
-const CancelPostOwnerTransferRequest: FC<{ message: MsgCancelPostOwnerTransferRequest }> = (props) => {
+const CancelPostOwnerTransferRequest: FC<{ message: MsgCancelPostOwnerTransferRequest }> = (
+  props
+) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

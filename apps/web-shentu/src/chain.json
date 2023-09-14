@@ -124,7 +124,6 @@
       }
     }
   },
-  "keplr": "{\"rpc\":\"https://rpc-certik.keplr.app\",\"rest\":\"https://lcd-certik.keplr.app\",\"chainId\":\"shentu-2.2\",\"chainName\":\"Shentu\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/shentu-2.2/chain.png\",\"stakeCurrency\":{\"coinDenom\":\"CTK\",\"coinMinimalDenom\":\"uctk\",\"coinDecimals\":6,\"coinGeckoId\":\"certik\"},\"walletUrl\":\"https://wallet.keplr.app/chains/shentu\",\"walletUrlForStaking\":\"https://wallet.keplr.app/chains/shentu\",\"bip44\":{\"coinType\":118},\"bech32Config\":{\"bech32PrefixAccAddr\":\"certik\",\"bech32PrefixAccPub\":\"certikpub\",\"bech32PrefixValAddr\":\"certikvaloper\",\"bech32PrefixValPub\":\"certikvaloperpub\",\"bech32PrefixConsAddr\":\"certikvalcons\",\"bech32PrefixConsPub\":\"certikvalconspub\"},\"currencies\":[{\"coinDenom\":\"CTK\",\"coinMinimalDenom\":\"uctk\",\"coinDecimals\":6,\"coinGeckoId\":\"certik\"}],\"feeCurrencies\":[{\"coinDenom\":\"CTK\",\"coinMinimalDenom\":\"uctk\",\"coinDecimals\":6,\"coinGeckoId\":\"certik\"}],\"features\":[]}",
   "chains": [
     {
       "network": "shentu-2.2",
@@ -150,6 +149,10 @@
         "graphql": "https://gql.certik.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql.certik.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc.certik.forbole.com/websocket"
+      },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.shentu.forbole.com/",
+        "keplr": "{\"rpc\":\"https://rpc-certik.keplr.app\",\"rest\":\"https://lcd-certik.keplr.app\",\"chainId\":\"shentu-2.2\",\"chainName\":\"Shentu\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/shentu-2.2/chain.png\",\"stakeCurrency\":{\"coinDenom\":\"CTK\",\"coinMinimalDenom\":\"uctk\",\"coinDecimals\":6,\"coinGeckoId\":\"certik\"},\"walletUrl\":\"https://wallet.keplr.app/chains/shentu\",\"walletUrlForStaking\":\"https://wallet.keplr.app/chains/shentu\",\"bip44\":{\"coinType\":118},\"bech32Config\":{\"bech32PrefixAccAddr\":\"certik\",\"bech32PrefixAccPub\":\"certikpub\",\"bech32PrefixValAddr\":\"certikvaloper\",\"bech32PrefixValPub\":\"certikvaloperpub\",\"bech32PrefixConsAddr\":\"certikvalcons\",\"bech32PrefixConsPub\":\"certikvalconspub\"},\"currencies\":[{\"coinDenom\":\"CTK\",\"coinMinimalDenom\":\"uctk\",\"coinDecimals\":6,\"coinGeckoId\":\"certik\"}],\"feeCurrencies\":[{\"coinDenom\":\"CTK\",\"coinMinimalDenom\":\"uctk\",\"coinDecimals\":6,\"coinGeckoId\":\"certik\"}],\"features\":[]}"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",

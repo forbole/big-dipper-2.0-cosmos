@@ -59,9 +59,10 @@ const useStyles = makeStyles<{ length: number }>()((theme, { length }) => ({
 }));
 
 /* types */
-type MiddleEllipsisProps = JSX.IntrinsicElements['span'] & {
+export type MiddleEllipsisProps = JSX.IntrinsicElements['span'] & {
   content?: string;
   ellipsisOnEnd?: boolean;
+  omitEnd?: boolean;
 };
 
 /* components */
@@ -69,6 +70,7 @@ const MiddleEllipsis: FC<MiddleEllipsisProps> = ({
   className,
   content,
   ellipsisOnEnd,
+  omitEnd,
   ...rest
 }) => {
   const midIndex = (content?.length ?? 0) / 2;
@@ -81,7 +83,7 @@ const MiddleEllipsis: FC<MiddleEllipsisProps> = ({
   return (
     <span className={cx(classes.root, className)} {...rest}>
       <span className={begin}>{beginning}</span>
-      <span className={end}>{ending}</span>
+      {!omitEnd && <span className={end}>{ending}</span>}
     </span>
   );
 };

@@ -713,31 +713,31 @@ const customTypeToModel = {
   // ========================
   // tokenfactory
   // ========================
-    '/desmos.tokenfactory.v1.MsgCreateDenom': {
+  '/desmos.tokenfactory.v1.MsgCreateDenom': {
     model: MODELS.MsgCreateDenom,
     content: COMPONENTS.CreateDenom,
     tagTheme: 'four',
     tagDisplay: 'txMsgCreateDenom',
   },
-    '/desmos.tokenfactory.v1.MsgMint': {
+  '/desmos.tokenfactory.v1.MsgMint': {
     model: MODELS.MsgMint,
     content: COMPONENTS.Mint,
     tagTheme: 'four',
     tagDisplay: 'txMsgMint',
   },
-    '/desmos.tokenfactory.v1.MsgBurn': {
+  '/desmos.tokenfactory.v1.MsgBurn': {
     model: MODELS.MsgBurn,
     content: COMPONENTS.Burn,
     tagTheme: 'four',
     tagDisplay: 'txMsgBurn',
   },
-    '/desmos.tokenfactory.v1.MsgSetDenomMetadata': {
+  '/desmos.tokenfactory.v1.MsgSetDenomMetadata': {
     model: MODELS.MsgSetDenomMetadata,
     content: COMPONENTS.SetDenomMetadata,
     tagTheme: 'four',
     tagDisplay: 'txMsgSetDenomMetadata',
   },
-    '/desmos.tokenfactory.v1.MsgUpdateParams': {
+  '/desmos.tokenfactory.v1.MsgUpdateParams': {
     model: MODELS.MsgUpdateParams,
     content: COMPONENTS.UpdateParams,
     tagTheme: 'four',

@@ -14,7 +14,8 @@ import KeplrIcon from 'shared-utils/assets/keplr-wallet.svg';
 import WalletConnectIcon from 'shared-utils/assets/wallet-connect.svg';
 
 // Get the keplr chain info from chainConfig
-const { keplr } = chainConfig();
+const { keplrConfig } = chainConfig();
+const keplr = keplrConfig?.keplr;
 
 let keplrCustomChainInfo: ChainInfo | undefined;
 if (keplr) {

@@ -5,7 +5,9 @@ import Name from '@/components/name';
 import MsgAcceptPostOwnerTransferRequest from '@/models/msg/posts/msg_accept_post_owner_transfer_request';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 
-const AcceptPostOwnerTransferRequest: FC<{ message: MsgAcceptPostOwnerTransferRequest }> = (props) => {
+const AcceptPostOwnerTransferRequest: FC<{ message: MsgAcceptPostOwnerTransferRequest }> = (
+  props
+) => {
   const { message } = props;
 
   const receiver = useProfileRecoil(message.receiver);

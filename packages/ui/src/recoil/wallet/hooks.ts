@@ -16,7 +16,6 @@ export const useWalletRecoil = () => {
     wallet.openPairConnectWalletDialog,
     wallet.openPairKeplrExtensionDialog,
     wallet.openSelectNetworkDialog,
-    wallet.walletConnectURI,
     wallet.walletSelection,
   ]);
 };

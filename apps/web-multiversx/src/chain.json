@@ -124,7 +124,6 @@
       }
     }
   },
-  "keplr": "",
   "chains": [
     {
       "network": "mainnet",
@@ -147,6 +146,10 @@
         }
       },
       "endpoints": {},
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.multiversx.forbole.com/",
+        "keplr": ""
+      },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
         "matomoSiteID": "8"

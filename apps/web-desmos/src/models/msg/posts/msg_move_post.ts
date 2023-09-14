@@ -21,7 +21,7 @@ class MsgMovePost {
     this.type = R.pathOr('', ['type'], payload);
     this.json = R.pathOr({}, ['json'], payload);
     this.owner = R.pathOr('', ['owner'], payload);
-    this.subspace_id  = R.pathOr('', ['subspace_id'], payload);
+    this.subspace_id = R.pathOr('', ['subspace_id'], payload);
     this.post_id = R.pathOr('', ['post_id'], payload);
     this.target_subspace_id = R.pathOr('', ['target_subspace_id'], payload);
   }

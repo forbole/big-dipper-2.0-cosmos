@@ -1,11 +1,14 @@
+import { ChainInfo, Window as KeplrWindow } from '@keplr-wallet/types';
+import { useState, useEffect, useCallback } from 'react';
+import { SetterOrUpdater, useRecoilState } from 'recoil';
 import chainConfig from '@/chainConfig';
-import { wcBridgeURL } from '@/components/nav/components/connect_wallet/api';
 import {
   getAccountKey,
   getCosmosClient,
   getOfflineSigner,
   getOfflineSignerAddress,
   getOfflineSignerPubKey,
+  getChangedOfflineSignerPubKey,
   isKeplrAvailable,
 } from '@/components/nav/components/connect_wallet/keplr_utils';
 import {
@@ -22,18 +25,31 @@ import {
   writeOpenLoginSuccessDialog,
   writeOpenPairConnectWalletDialog,
   writeOpenPairKeplrExtensionDialog,
-  writeWalletConnectURI,
   writeWalletSelection,
 } from '@/recoil/wallet';
-import { ADDRESS_KEY, CONNECTION_TYPE, PUBKEY_KEY, WALLET_NAME_KEY } from '@/utils/localstorage';
-import { ChainInfo, Window as KeplrWindow } from '@keplr-wallet/types';
-import { KeplrWalletConnectV1 } from '@keplr-wallet/wc-client';
-import WalletConnect from '@walletconnect/client';
-import { useState } from 'react';
-import { SetterOrUpdater, useRecoilState } from 'recoil';
+import {
+  ADDRESS_KEY,
+  CONNECTION_TYPE,
+  PUBKEY_KEY,
+  WALLET_NAME_KEY,
+  WC_SESSION_TOPIC,
+  WC_URI,
+  CHAIN_ID,
+} from '@/utils/localstorage';
+import {
+  useSetWalletConnectClient,
+  useWalletConnectClient,
+  useSetWalletConnectSession,
+} from '@/recoil/wallet_connect_client';
+import { writeWalletConnectURI } from '@/recoil/wallet_connect_uri';
+import {
+  ConnectClient,
+  InitWalletConnectClient,
+} from '@/components/nav/components/connect_wallet/wallet_connect_utils';
 
 // Get the keplr chain info from chainConfig
-const { keplr } = chainConfig();
+const { network, keplrConfig } = chainConfig();
+const keplr = keplrConfig?.keplr;
 
 let keplrCustomChainInfo: ChainInfo | undefined;
 if (keplr) {
@@ -44,78 +60,94 @@ if (keplr) {
 declare const window: KeplrWindow & typeof globalThis;
 
 const useConnectWalletList = () => {
+  const [tooltipOpen, setTooltipOpen] = useState(true);
   // UserState
   const [, setUserAddress] = useRecoilState(writeUserAddress) as [string, SetterOrUpdater<string>];
   const [, setUserIsLoggedIn] = useRecoilState(writeIsUserLoggedIn) as [
     boolean,
-    SetterOrUpdater<boolean>
+    SetterOrUpdater<boolean>,
   ];
   const [, setUserPubKey] = useRecoilState(writeUserPubKey) as [PubKey, SetterOrUpdater<PubKey>];
   const [, setWalletName] = useRecoilState(writeWalletName) as [string, SetterOrUpdater<string>];
 
   // WalletState
-  const [, setOpenLoginDialog] = useRecoilState(writeOpenLoginDialog) as [
+  const [openLoginDialog, setOpenLoginDialog] = useRecoilState(writeOpenLoginDialog) as [
     boolean,
-    SetterOrUpdater<boolean>
+    SetterOrUpdater<boolean>,
   ];
   const [, setWalletSelection] = useRecoilState(writeWalletSelection) as [
     string,
-    SetterOrUpdater<string>
+    SetterOrUpdater<string>,
   ];
   const [, setOpenInstallKeplrExtensionDialog] = useRecoilState(
     writeOpenInstallKeplrExtensionDialog
   ) as [boolean, SetterOrUpdater<boolean>];
   const [, setOpenPairKeplrExtensionDialog] = useRecoilState(writeOpenPairKeplrExtensionDialog) as [
     boolean,
-    SetterOrUpdater<boolean>
+    SetterOrUpdater<boolean>,
   ];
   const [, setOpenAuthorizeConnectionDialog] = useRecoilState(
     writeOpenAuthorizeConnectionDialog
   ) as [boolean, SetterOrUpdater<boolean>];
   const [, setOpenLoginSuccessDialog] = useRecoilState(writeOpenLoginSuccessDialog) as [
     boolean,
-    SetterOrUpdater<boolean>
+    SetterOrUpdater<boolean>,
   ];
   const [, setOpenPairConnectWalletDialog] = useRecoilState(writeOpenPairConnectWalletDialog) as [
     boolean,
-    SetterOrUpdater<boolean>
+    SetterOrUpdater<boolean>,
   ];
-  const [walletConnectURI, setWalletConnectURI] = useRecoilState(writeWalletConnectURI) as [
+  const [walletConnectURI] = useRecoilState(writeWalletConnectURI) as [
     string,
-    SetterOrUpdater<string>
+    SetterOrUpdater<string>,
   ];
 
   const [showWalletDetails, setShowWalletDetails] = useState(false);
-  const [wcClient, setWCClient] = useState<WalletConnect | undefined>();
   const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined);
 
-  const saveUserInfo = (
-    address: string,
-    pubkey: PubKey | undefined,
-    connectionType: string,
-    wallet: string
-  ) => {
-    localStorage.setItem(ADDRESS_KEY, address);
-    localStorage.setItem(PUBKEY_KEY, JSON.stringify(pubkey));
-    localStorage.setItem(CONNECTION_TYPE, connectionType);
-    localStorage.setItem(WALLET_NAME_KEY, wallet);
-    setUserAddress(address);
-    setUserPubKey(pubkey ?? { type: '', value: '' });
-    setWalletName(wallet);
-    setUserIsLoggedIn(true);
-    setErrorMsg(undefined);
-  };
+  // Wallet Connect Client
+  const setWalletConnectClient = useSetWalletConnectClient();
+  const walletConnectClient = useWalletConnectClient();
+
+  // Wallet Connect Session
+  const setWalletConnectSession = useSetWalletConnectSession();
+
+  const saveUserInfo = useCallback(
+    (
+      address: string,
+      pubkey: PubKey | undefined,
+      connectionType: string,
+      wallet: string,
+      chainID: string
+    ) => {
+      localStorage.setItem(ADDRESS_KEY, address);
+      localStorage.setItem(PUBKEY_KEY, JSON.stringify(pubkey));
+      localStorage.setItem(CONNECTION_TYPE, connectionType);
+      localStorage.setItem(WALLET_NAME_KEY, wallet);
+      localStorage.setItem(CHAIN_ID, chainID);
+      setUserAddress(address);
+      setUserPubKey(pubkey ?? { type: '', value: '' });
+      setWalletName(wallet);
+      setUserIsLoggedIn(true);
+      setErrorMsg(undefined);
+    },
+    [setUserAddress, setUserIsLoggedIn, setUserPubKey, setWalletName]
+  );
 
   const resetUserInfo = () => {
     localStorage.setItem(ADDRESS_KEY, '');
     localStorage.setItem(PUBKEY_KEY, '');
     localStorage.setItem(WALLET_NAME_KEY, '');
     localStorage.setItem(CONNECTION_TYPE, '');
+    localStorage.setItem(CHAIN_ID, '');
+    localStorage.setItem(WC_SESSION_TOPIC, '');
+    localStorage.setItem(WC_URI, '');
     setShowWalletDetails(false);
     setUserAddress('');
     setUserPubKey({ type: '', value: '' });
     setUserIsLoggedIn(false);
-    setWCClient(undefined);
+    setWalletConnectClient(undefined);
+    setWalletConnectSession(undefined);
     setErrorMsg(undefined);
   };
 
@@ -127,20 +159,46 @@ const useConnectWalletList = () => {
   // ------ Login/Logout hooks ------
   const handleLogin = () => {
     setOpenLoginDialog(true);
+    setTooltipOpen(false);
   };
 
-  const handleLogout = () => {
+  useEffect(() => {
+    if (openLoginDialog) {
+      setTooltipOpen(false);
+    }
+  }, [openLoginDialog, setOpenLoginDialog]);
+
+  const handleLogout = async () => {
     const connectionTypes = localStorage.getItem(CONNECTION_TYPE);
     if (connectionTypes === 'Wallet Connect') {
-      if (wcClient) {
-        wcClient.killSession();
+      if (walletConnectClient) {
+        const walletConnectSessionTopic = localStorage.getItem(WC_SESSION_TOPIC) ?? '';
+
+        await walletConnectClient.disconnect({
+          topic: walletConnectSessionTopic,
+          reason: {
+            code: 6000,
+            message: 'USER_DISCONNECTED',
+          },
+        });
+        // reset the values
+        resetUserInfo();
       } else {
-        const reconnector = initWalletConnectClient();
-        reconnector.killSession();
+        const client = await InitWalletConnectClient();
+        const walletConnectSessionTopic = localStorage.getItem(WC_SESSION_TOPIC) ?? '';
+        await client.disconnect({
+          topic: walletConnectSessionTopic,
+          reason: {
+            code: 6000,
+            message: 'USER_DISCONNECTED',
+          },
+        });
+        // reset the values
+        return resetUserInfo();
       }
     }
     // reset the values
-    resetUserInfo();
+    return resetUserInfo();
   };
 
   // ------ Connect wallet hooks ------
@@ -157,94 +215,6 @@ const useConnectWalletList = () => {
         break;
       default:
         break;
-    }
-  };
-
-  const connectKeplrWallet = async (connector: WalletConnect) => {
-    const keplrWallet = new KeplrWalletConnectV1(connector);
-    if (keplrWallet && keplrCustomChainInfo?.chainId) {
-      setOpenPairConnectWalletDialog(false);
-      setOpenAuthorizeConnectionDialog(true);
-      setErrorMsg(undefined);
-
-      try {
-        await keplrWallet.experimentalSuggestChain(keplrCustomChainInfo);
-      } catch (err) {
-        // Right now suggest the chain is not supported using wallet connect.
-        setErrorMsg(`Chain not supported by Keplr`);
-        return;
-      }
-
-      // enable connection and approve it inside the mobile app
-      // to obtain address, pubkey and wallet name
-      try {
-        await keplrWallet?.enable(keplrCustomChainInfo.chainId);
-      } catch (e) {
-        setErrorMsg(`${(e as Error)?.message}`);
-        return;
-      }
-
-      let keplrOfflineSigner;
-      try {
-        keplrOfflineSigner = keplrWallet.getOfflineSigner(keplrCustomChainInfo.chainId);
-      } catch (e) {
-        setErrorMsg(`${(e as Error)?.message}`);
-        return;
-      }
-
-      if (keplrOfflineSigner) {
-        const accounts2 = await keplrOfflineSigner.getAccounts();
-        const { address, pubkey } = accounts2[0];
-        const key = await keplrWallet.getKey(keplrCustomChainInfo.chainId);
-        saveUserInfo(address, pubkey as unknown as PubKey, 'Wallet Connect', key.name);
-
-        // continue to log in success screen
-        continueToLoginSuccessDialog();
-      } else {
-        setErrorMsg(`Chain not supported by Keplr`);
-      }
-    }
-  };
-
-  const initWalletConnectClient = (): WalletConnect => {
-    const client = new WalletConnect({
-      bridge: wcBridgeURL,
-      signingMethods: [
-        'keplr_enable_wallet_connect_v1',
-        'keplr_get_key_wallet_connect_v1',
-        'keplr_sign_amino_wallet_connect_v1',
-      ],
-      qrcodeModal: {
-        open: (uri: string) => {
-          setWalletConnectURI(uri);
-        },
-        close: () => setWalletConnectURI(''),
-      },
-    });
-    setWCClient(client);
-
-    return client;
-  };
-
-  const connectWalletConnect = async () => {
-    const connector = initWalletConnectClient();
-    if (connector.connected && keplrCustomChainInfo?.chainId) {
-      connectKeplrWallet(connector);
-    }
-
-    if (!connector.connected) {
-      // create new session
-      connector.createSession();
-
-      connector.on('connect', async (error) => {
-        if (error) {
-          setErrorMsg(`${error}`);
-        } else {
-          connectKeplrWallet(connector);
-        }
-      });
-
-      connector.on('disconnect', () => handleLogout());
     }
   };
 
@@ -267,10 +237,50 @@ const useConnectWalletList = () => {
     }
   };
 
-  const continueToWalletConnectPairingDialog = () => {
+  const continueToWalletConnectPairingDialog = async () => {
     setOpenLoginDialog(false);
     setOpenPairConnectWalletDialog(true);
-    connectWalletConnect();
+
+    const client = await InitWalletConnectClient();
+    setWalletConnectClient(client);
+
+    const { session, error } = await ConnectClient(client);
+    if (error) {
+      setErrorMsg((error as Error).message);
+      return;
+    }
+
+    if (session) {
+      // store wallet connect session and session topic
+      localStorage.setItem(WC_SESSION_TOPIC, session?.topic);
+      setWalletConnectSession(session);
+
+      setOpenPairConnectWalletDialog(false);
+      setOpenAuthorizeConnectionDialog(true);
+      setErrorMsg(undefined);
+
+      // Obtain account address
+      const account = Object.values(session.namespaces)
+        .map((namespace) => namespace.accounts)
+        .flat()
+        .map((address) => ({
+          address: address.split(':')[2],
+          algo: 'secp256k1',
+          pubkey: Uint8Array.from([]),
+        }));
+
+      if (account.length > 0) {
+        saveUserInfo(
+          account[0].address,
+          account[0].pubkey as unknown as PubKey, // currently can't obtain pubkey for wallet connect
+          'Wallet Connect',
+          'Wallet Connect',
+          keplrCustomChainInfo?.chainId ?? network
+        );
+      }
+    }
+
+    continueToLoginSuccessDialog();
   };
 
   const continueToAuthorizeKeplrConnectionDialog = async () => {
@@ -309,13 +319,23 @@ const useConnectWalletList = () => {
       }
 
       const offlineSignerPubKey = await getOfflineSignerPubKey(offlineSigner);
-      const cosmJS = getCosmosClient(offlineSignerAddress, offlineSigner);
+      const cosmJS = await getCosmosClient(
+        offlineSignerAddress,
+        keplrCustomChainInfo?.stakeCurrency?.coinMinimalDenom,
+        offlineSigner
+      );
 
       if (cosmJS) {
         const key = await getAccountKey(keplrCustomChainInfo.chainId);
 
         // store user info in state
-        saveUserInfo(offlineSignerAddress, offlineSignerPubKey, 'Keplr', key?.name ?? '');
+        saveUserInfo(
+          offlineSignerAddress,
+          offlineSignerPubKey,
+          'Keplr',
+          key?.name ?? '',
+          keplrCustomChainInfo.chainId
+        );
 
         // continue to Sign in success screen
         continueToLoginSuccessDialog();
@@ -326,6 +346,30 @@ const useConnectWalletList = () => {
       }
     }
   };
+
+  useEffect(() => {
+    const handleKeystoreChange = async () => {
+      const key = await getAccountKey(keplrCustomChainInfo?.chainId ?? network);
+
+      if (key) {
+        const changedPubKey = await getChangedOfflineSignerPubKey(key);
+        // store user info in state
+        saveUserInfo(
+          key?.bech32Address ?? '',
+          changedPubKey,
+          'Keplr',
+          key?.name ?? '',
+          keplrCustomChainInfo?.chainId ?? network
+        );
+      }
+    };
+
+    window.addEventListener('keplr_keystorechange', handleKeystoreChange);
+
+    return () => {
+      window.removeEventListener('keplr_keystorechange', handleKeystoreChange);
+    };
+  }, [saveUserInfo]);
 
   const continueToLoginSuccessDialog = () => {
     const address = localStorage.getItem(ADDRESS_KEY);
@@ -390,6 +434,7 @@ const useConnectWalletList = () => {
     errorMsg,
     showWalletDetails,
     walletConnectURI,
+    tooltipOpen: process.env.NEXT_PUBLIC_IS_E2E === 'true' ? false : tooltipOpen,
     continueToAuthorizeKeplrConnectionDialog,
     continueToKeplrExtensionPairingDialog,
     closeAuthorizeConnectionDialog,

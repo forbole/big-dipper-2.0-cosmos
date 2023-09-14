@@ -7,12 +7,12 @@ import AvatarName from '@/components/avatar_name';
 import { useList, useListRow } from '@/hooks/use_react_window';
 import SingleValidator from '@/screens/validators/components/list/components/mobile/component/single_validator';
 import VotingPower from '@/screens/validators/components/list/components/voting_power';
-import type { ItemType } from '@/screens/validators/components/list/types';
+import type { ValidatorWithAvatar } from '@/screens/validators/components/list/types';
 import { getValidatorStatus } from '@/utils/get_validator_status';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];
-  item: ItemType;
+  item: ValidatorWithAvatar;
   isLast: boolean;
   search: string;
   i: number;
@@ -63,7 +63,7 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, item, isLast,
 
 type MobileProps = {
   className?: string;
-  items: ItemType[];
+  items: ValidatorWithAvatar[];
   search: string;
 };
 

@@ -7,7 +7,9 @@ import Zoom from '@mui/material/Zoom';
 import Link from 'next/link';
 import { FC } from 'react';
 
-const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div'] & { displayAddress?: string }> = ({
+const AvatarName: FC<
+  AvatarName & JSX.IntrinsicElements['div'] & { displayAddress?: string; omitEnd?: boolean }
+> = ({
   className,
   address,
   name,
@@ -16,6 +18,7 @@ const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div'] & { displayAddres
   image,
   target,
   displayAddress,
+  omitEnd,
   ...props
 }) => {
   const { classes, cx } = useStyles();
@@ -34,7 +37,11 @@ const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div'] & { displayAddres
       <Link shallow href={href(adx)} target={target}>
         <span className={cx(classes.root, className)} {...props}>
           <Avatar className={classes.avatar} address={address} imageUrl={imageUrl ?? undefined} />
-          <MiddleEllipsis className={classes.text} content={name} />
+          <MiddleEllipsis
+            className={classes.text}
+            content={name}
+            omitEnd={omitEnd && name.length > 45}
+          />
         </span>
       </Link>
     </Tooltip>

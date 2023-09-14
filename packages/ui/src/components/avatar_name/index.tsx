@@ -1,13 +1,14 @@
 import Avatar from '@/components/avatar';
 import useStyles from '@/components/avatar_name/styles';
 import MiddleEllipsis from '@/components/MiddleEllipsis';
+import type { MiddleEllipsisProps } from '@/components/MiddleEllipsis';
 import { ADDRESS_DETAILS } from '@/utils/go_to_page';
 import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
 import Link from 'next/link';
 import { FC } from 'react';
 
-const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div']> = ({
+const AvatarName: FC<AvatarName & MiddleEllipsisProps & JSX.IntrinsicElements['div']> = ({
   className,
   address,
   name,
@@ -15,6 +16,7 @@ const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div']> = ({
   href = ADDRESS_DETAILS,
   image,
   target,
+  omitEnd,
   ...props
 }) => {
   const { classes, cx } = useStyles();
@@ -31,7 +33,11 @@ const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div']> = ({
       <Link shallow href={href(address)} target={target}>
         <span className={cx(classes.root, className)} {...props}>
           <Avatar className={classes.avatar} address={address} imageUrl={imageUrl ?? undefined} />
-          <MiddleEllipsis className={classes.text} content={name} />
+          <MiddleEllipsis
+            className={classes.text}
+            content={name}
+            omitEnd={omitEnd && name.length > 45}
+          />
         </span>
       </Link>
     </Tooltip>

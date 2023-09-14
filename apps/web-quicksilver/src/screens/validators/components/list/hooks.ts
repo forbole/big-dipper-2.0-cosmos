@@ -6,9 +6,10 @@ import chainConfig from '@/chainConfig';
 import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
 import { SlashingParams } from '@/models';
 import type {
-  ItemType,
+  ValidatorWithAvatar,
   ValidatorsState,
   ValidatorType,
+  ValidatorsCoinsConditionType,
 } from '@/screens/validators/components/list/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
@@ -156,8 +157,8 @@ export const useValidators = () => {
   }, []);
 
   const sortItems = useCallback(
-    (items: ItemType[]) => {
-      let sorted: ItemType[] = R.clone(items);
+    (items: ValidatorWithAvatar[]) => {
+      let sorted: ValidatorWithAvatar[] = R.clone(items);
 
       if (state.tab === 0) {
         sorted = sorted.filter((x) => x.status === 3);
@@ -202,6 +203,9 @@ export const useValidators = () => {
     [search, state.sortDirection, state.sortKey, state.tab]
   );
 
+  const [delegationValidators] = useState<ValidatorsCoinsConditionType[]>([]);
+  const rewardValidators = undefined as ValidatorsCoinsConditionType[] | undefined;
+
   return {
     state,
     handleTabChange,
@@ -209,5 +213,7 @@ export const useValidators = () => {
     handleSearch,
     sortItems,
     search,
+    delegationValidators,
+    rewardValidators,
   };
 };

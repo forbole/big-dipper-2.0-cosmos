@@ -11,12 +11,21 @@ import SortArrows from '@/components/sort_arrows';
 import { useGrid } from '@/hooks/use_react_window';
 import Condition from '@/screens/validators/components/list/components/condition';
 import useStyles from '@/screens/validators/components/list/components/desktop/styles';
-import { fetchColumns } from '@/screens/validators/components/list/components/desktop/utils';
+import {
+  fetchColumns,
+  fetchLoggedInColumns,
+} from '@/screens/validators/components/list/components/desktop/utils';
 import VotingPower from '@/screens/validators/components/list/components/voting_power';
 import VotingPowerExplanation from '@/screens/validators/components/list/components/voting_power_explanation';
-import type { ItemType } from '@/screens/validators/components/list/types';
+import type {
+  ValidatorWithAvatar,
+  ValidatorsAvatarNameType,
+} from '@/screens/validators/components/list/types';
 import { getValidatorConditionClass } from '@/utils/get_validator_condition';
 import { getValidatorStatus } from '@/utils/get_validator_status';
+import StakeButton from '@/screens/validators/components/list/components/staking/index';
+import { readIsUserLoggedIn } from '@/recoil/user';
+import { useRecoilValue } from 'recoil';
 
 type GridColumnProps = {
   column: ReturnType<typeof fetchColumns>[number];
@@ -71,10 +80,14 @@ type GridRowProps = {
   style: CSSProperties;
   rowIndex: number;
   align?: ComponentProps<typeof Typography>['align'];
-  item: ItemType;
+  item: ValidatorWithAvatar;
   search: string;
   i: number;
   valLength: number;
+  loggedIn: boolean;
+  validators?: ValidatorWithAvatar[];
+  delegations?: ValidatorsAvatarNameType[];
+  rewards?: ValidatorsAvatarNameType[];
 };
 
 const GridRow: FC<GridRowProps> = ({
@@ -86,6 +99,10 @@ const GridRow: FC<GridRowProps> = ({
   search,
   i,
   valLength,
+  loggedIn,
+  validators,
+  delegations,
+  rewards,
 }) => {
   const { classes, cx } = useStyles();
   const { name, address, imageUrl } = item.validator;
@@ -152,6 +169,21 @@ const GridRow: FC<GridRowProps> = ({
         </Typography>
       );
       break;
+    case 'staking':
+      formatItem = (
+        <StakeButton
+          address={address}
+          imageUrl={imageUrl ?? ''}
+          name={name ?? ''}
+          commission={`${numeral(item.commission).format('0.[00]')}%`}
+          validators={validators}
+          delegations={delegations}
+          rewards={rewards}
+          disabled={!loggedIn}
+          valRow
+        />
+      );
+      break;
     default:
       break;
   }
@@ -175,14 +207,19 @@ type DesktopProps = {
   sortDirection: 'desc' | 'asc';
   sortKey: string;
   handleSort: (key: string) => void;
-  items: ItemType[];
+  items: ValidatorWithAvatar[];
   search: string;
+  validators?: ValidatorWithAvatar[];
+  delegations?: ValidatorsAvatarNameType[];
+  rewards?: ValidatorsAvatarNameType[];
 };
 
 const Desktop: FC<DesktopProps> = (props) => {
   const { t } = useAppTranslation('validators');
   const { classes, cx } = useStyles();
-  const columns = fetchColumns(t);
+  const loggedIn = useRecoilValue(readIsUserLoggedIn);
+
+  const columns = fetchLoggedInColumns(t);
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   return (
@@ -240,6 +277,10 @@ const Desktop: FC<DesktopProps> = (props) => {
                     search={props.search}
                     valLength={props.items.length}
                     i={rowIndex}
+                    loggedIn={loggedIn}
+                    validators={props.validators}
+                    delegations={props.delegations}
+                    rewards={props.rewards}
                   />
                 );
               }}

@@ -124,7 +124,6 @@
       }
     }
   },
-  "keplr": "{\"rpc\":\"https://rpc-evmos.keplr.app\",\"rest\":\"https://lcd-evmos.keplr.app\",\"chainId\":\"evmos_9001-2\",\"chainName\":\"Evmos\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/evmos_9001/chain.png\",\"stakeCurrency\":{\"coinDenom\":\"EVMOS\",\"coinMinimalDenom\":\"aevmos\",\"coinDecimals\":18,\"coinGeckoId\":\"evmos\"},\"walletUrl\":\"https://wallet.keplr.app/chains/evmos\",\"walletUrlForStaking\":\"https://wallet.keplr.app/chains/evmos\",\"bip44\":{\"coinType\":60},\"bech32Config\":{\"bech32PrefixAccAddr\":\"evmos\",\"bech32PrefixAccPub\":\"evmospub\",\"bech32PrefixValAddr\":\"evmosvaloper\",\"bech32PrefixValPub\":\"evmosvaloperpub\",\"bech32PrefixConsAddr\":\"evmosvalcons\",\"bech32PrefixConsPub\":\"evmosvalconspub\"},\"currencies\":[{\"coinDenom\":\"EVMOS\",\"coinMinimalDenom\":\"aevmos\",\"coinDecimals\":18,\"coinGeckoId\":\"evmos\"}],\"feeCurrencies\":[{\"coinDenom\":\"EVMOS\",\"coinMinimalDenom\":\"aevmos\",\"coinDecimals\":18,\"coinGeckoId\":\"evmos\",\"gasPriceStep\":{\"low\":80000000000,\"average\":80000000000,\"high\":80000000000}}],\"features\":[\"eth-address-gen\",\"eth-key-sign\"]}",
   "chains": [
     {
       "network": "evmos_9001-2",
@@ -150,6 +149,10 @@
         "graphql": "https://gql.evmos.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql.evmos.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://evmos-archive-testnet.api.bdnodes.net:26657/websocket"
+      },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.evmos.forbole.com/",
+        "keplr": "{\"rpc\":\"https://rpc-evmos.keplr.app\",\"rest\":\"https://lcd-evmos.keplr.app\",\"chainId\":\"evmos_9001-2\",\"chainName\":\"Evmos\",\"chainSymbolImageUrl\":\"https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/evmos_9001/chain.png\",\"stakeCurrency\":{\"coinDenom\":\"EVMOS\",\"coinMinimalDenom\":\"aevmos\",\"coinDecimals\":18,\"coinGeckoId\":\"evmos\"},\"walletUrl\":\"https://wallet.keplr.app/chains/evmos\",\"walletUrlForStaking\":\"https://wallet.keplr.app/chains/evmos\",\"bip44\":{\"coinType\":60},\"bech32Config\":{\"bech32PrefixAccAddr\":\"evmos\",\"bech32PrefixAccPub\":\"evmospub\",\"bech32PrefixValAddr\":\"evmosvaloper\",\"bech32PrefixValPub\":\"evmosvaloperpub\",\"bech32PrefixConsAddr\":\"evmosvalcons\",\"bech32PrefixConsPub\":\"evmosvalconspub\"},\"currencies\":[{\"coinDenom\":\"EVMOS\",\"coinMinimalDenom\":\"aevmos\",\"coinDecimals\":18,\"coinGeckoId\":\"evmos\"}],\"feeCurrencies\":[{\"coinDenom\":\"EVMOS\",\"coinMinimalDenom\":\"aevmos\",\"coinDecimals\":18,\"coinGeckoId\":\"evmos\",\"gasPriceStep\":{\"low\":80000000000,\"average\":80000000000,\"high\":80000000000}}],\"features\":[\"eth-address-gen\",\"eth-key-sign\"]}"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
@@ -181,6 +184,10 @@
         "graphqlWebsocket": "wss://gql-testnet.evmos.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://evmos-archive-testnet.api.bdnodes.net:26657/websocket"
       },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.evmos.forbole.com/",
+        "keplr": ""
+      },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
         "matomoSiteID": "8"
@@ -206,6 +213,10 @@
         }
       },
       "endpoints": {},
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.evmos.forbole.com/",
+        "keplr": ""
+      },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
         "matomoSiteID": "8"

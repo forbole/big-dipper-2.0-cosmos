@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-export interface AtomState {
+export interface WalletState {
   openAuthorizeConnectionDialog: boolean;
   openInstallKeplrExtensionDialog: boolean;
   openLoginDialog: boolean;
@@ -8,11 +8,10 @@ export interface AtomState {
   openPairConnectWalletDialog: boolean;
   openPairKeplrExtensionDialog: boolean;
   openSelectNetworkDialog: boolean;
-  walletConnectURI: string;
   walletSelection: string;
 }
 
-const initialState: AtomState = {
+const initialState: WalletState = {
   openAuthorizeConnectionDialog: false,
   openInstallKeplrExtensionDialog: false,
   openLoginDialog: false,
@@ -20,11 +19,11 @@ const initialState: AtomState = {
   openPairConnectWalletDialog: false,
   openPairKeplrExtensionDialog: false,
   openSelectNetworkDialog: false,
-  walletConnectURI: '',
   walletSelection: '',
 };
 
-export const atomState = atom<AtomState>({
+export const atomState = atom<WalletState>({
   key: 'wallet',
   default: initialState,
+  dangerouslyAllowMutability: true,
 });

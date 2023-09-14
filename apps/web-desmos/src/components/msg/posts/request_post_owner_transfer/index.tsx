@@ -11,16 +11,19 @@ const RequestPostOwnerTransfer: FC<{ message: MsgRequestPostOwnerTransfer }> = (
   const sender = useProfileRecoil(message.sender);
   const receiver = useProfileRecoil(message.receiver);
 
-
   const senderMoniker = sender ? sender?.name : message.sender;
   const receiverMoniker = receiver ? receiver?.name : message.receiver;
-
 
   return (
     <Typography>
       <AppTrans
         i18nKey="message_contents:txMsgRequestPostOwnerTransfer"
-        components={[<Name address={message.sender} name={senderMoniker} />, <b />,<Name address={message.receiver} name={receiverMoniker} />, <b />]}
+        components={[
+          <Name address={message.sender} name={senderMoniker} />,
+          <b />,
+          <Name address={message.receiver} name={receiverMoniker} />,
+          <b />,
+        ]}
         values={{
           sender: senderMoniker,
           receiver: receiverMoniker,

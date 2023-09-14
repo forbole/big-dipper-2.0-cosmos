@@ -2,36 +2,685 @@
 
 exports[`screen: Validators/List matches snapshot 1`] = `
 .emotion-0 {
+  padding: 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+  -ms-flex-pack: right;
+  -webkit-justify-content: right;
+  justify-content: right;
+}
+
+.emotion-1 {
+  padding-right: 16px;
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.875rem;
+  letter-spacing: 1.25px;
+  text-transform: none;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #FF835B;
+  box-shadow: none;
+  padding: 6px 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #007FFF;
+  font-family: SF Pro;
+  line-height: 17px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  letter-spacing: -0.002em;
+}
+
+.emotion-2::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-2.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-2 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-2:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(255, 131, 91, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-2:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-2.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-2:hover {
+  box-shadow: none;
+}
+
+.emotion-2.Mui-focusVisible {
+  box-shadow: none;
+}
+
+.emotion-2:active {
+  box-shadow: none;
+}
+
+.emotion-2.Mui-disabled {
+  box-shadow: none;
+}
+
+.emotion-2:hover {
+  cursor: pointer;
+  background: #A1A1A1;
+}
+
+.emotion-2>h5 {
+  font-weight: 700;
+}
+
+.emotion-2.Mui-disabled {
+  color: #007FFF;
+  opacity: 50%;
+}
+
+.emotion-2.Mui-disabled>h5 {
+  font-weight: 700;
+}
+
+.emotion-3 {
+  margin: 0;
+  font-size: 0.875rem;
+  letter-spacing: 0.1px;
+  font-weight: 500;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  line-height: 1.334;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.emotion-5 .MuiTooltip-arrow {
+  color: #E8E8E8;
+}
+
+.emotion-6 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.875rem;
+  letter-spacing: 1.25px;
+  text-transform: none;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #FF835B;
+  box-shadow: none;
+  z-index: 150;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  background: #FF835B;
+  border-radius: 4px;
+  width: 86px;
+  height: 32px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-6::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-6.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-6 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-6:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(255, 131, 91, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-6:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-6.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-6:hover {
+  box-shadow: none;
+}
+
+.emotion-6.Mui-focusVisible {
+  box-shadow: none;
+}
+
+.emotion-6:active {
+  box-shadow: none;
+}
+
+.emotion-6.Mui-disabled {
+  box-shadow: none;
+}
+
+.emotion-6:hover {
+  cursor: pointer;
+  background: #FF835B;
+}
+
+.emotion-6 .text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emotion-6>svg {
+  fill: #FFFFFF;
+}
+
+.emotion-6>p {
+  font-weight: 700;
+}
+
+.emotion-6.Mui-disabled {
+  opacity: 50%;
+}
+
+.emotion-7 {
+  margin: 0;
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  color: #FFFFFF;
+}
+
+.emotion-8 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+}
+
+.emotion-9 {
+  padding-left: 16px;
+}
+
+.emotion-10 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.875rem;
+  letter-spacing: 1.25px;
+  text-transform: none;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #FF835B;
+  box-shadow: none;
+  padding: 6px 16px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: 1px solid #007FFF;
+  color: #007FFF;
+  font-family: SF Pro;
+  line-height: 17px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  letter-spacing: -0.002em;
+}
+
+.emotion-10::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-10.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-10 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-10:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(255, 131, 91, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-10:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-10.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-10:hover {
+  box-shadow: none;
+}
+
+.emotion-10.Mui-focusVisible {
+  box-shadow: none;
+}
+
+.emotion-10:active {
+  box-shadow: none;
+}
+
+.emotion-10.Mui-disabled {
+  box-shadow: none;
+}
+
+.emotion-10:hover {
+  cursor: pointer;
+  background: #A1A1A1;
+}
+
+.emotion-10>h5 {
+  font-weight: 700;
+}
+
+.emotion-10.Mui-disabled {
+  color: #007FFF;
+  opacity: 50%;
+}
+
+.emotion-10.Mui-disabled>h5 {
+  font-weight: 700;
+}
+
+.emotion-12 {
   min-height: 500px;
   height: 50vh;
 }
 
 @media (min-width:1280px) {
-  .emotion-0 {
+  .emotion-12 {
     min-height: 65vh;
   }
 }
 
-<div
-  exists={true}
-  id="LoadAndExist"
-  loading={true}
->
+<div>
   <div
-    id="Box"
+    className="emotion-0"
   >
     <div
-      handleSearch={[Function]}
-      handleTabChange={[Function]}
-      id="Tabs"
-      tab={1}
-    />
+      className="emotion-1"
+    >
+      <a
+        className="value"
+        href="/accounts"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onTouchStart={[Function]}
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation emotion-2"
+          disabled={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={-1}
+          type="button"
+        >
+          <h5
+            className="MuiTypography-root MuiTypography-h5 emotion-3"
+          >
+            validators:stakingDistribution
+          </h5>
+        </button>
+      </a>
+    </div>
+    <div>
+      <div>
+        <div
+          className="emotion-4"
+        >
+          <div
+            aria-label={null}
+            aria-labelledby=":r0:"
+            className="MuiBox-root emotion-5"
+            classes={
+              {
+                "amountButton": "css-1966qfi-amountButton",
+                "amountLabel": "css-tx6fty-amountLabel",
+                "amountSubLabel": "css-1tzj7ow-amountSubLabel",
+                "amountSubtitle": "css-132oiig-amountSubtitle",
+                "avatar": "css-15l8rcu-avatar",
+                "avatarText": "css-138thyt-avatarText",
+                "checkbox": "css-1kur7qx-checkbox",
+                "checklistItem": "css-18kq3hc-checklistItem",
+                "claimRewardsBox": "emotion-9",
+                "claimRewardsButton": "css-158opfx-claimRewardsButton",
+                "closeButton": "css-1xjyctj-closeButton",
+                "commissionLabel": "css-1b3uzqz-commissionLabel",
+                "commissionValue": "css-1gfg4ao-commissionValue",
+                "delegateButton": "css-1kpf7oa-delegateButton",
+                "delegateSubtitle": "css-qhsf02-delegateSubtitle",
+                "dialog": "css-loqfye-dialog",
+                "dialogActions": "css-1ykomsp-dialogActions",
+                "dialogContent": "css-1622o1o-dialogContent",
+                "dialogContentButton": "css-q0bt42-dialogContentButton",
+                "dropdownListItem": "css-1rvdjv1-dropdownListItem",
+                "errorMsg": "css-6nqjy-errorMsg",
+                "flexRow": "emotion-4",
+                "header": "css-94iy0b-header",
+                "iconContainer": "css-kp6m6f-iconContainer",
+                "iconRewards": "css-71busq-iconRewards",
+                "iconStaking": "css-141yix7-iconStaking",
+                "label": "css-12ydvnh-label",
+                "popper": "css-1j6yrde-popper",
+                "redelegateContent": "css-18vgiac-redelegateContent",
+                "rewardsTitle": "css-asmkft-rewardsTitle",
+                "staking": "css-15zlsu3-staking",
+                "stakingButton": "css-xip78d-stakingButton",
+                "stakingMenu": "css-1d3rkl8-stakingMenu",
+                "subtitle": "css-m3sxnd-subtitle",
+                "text": "css-rvt362-text",
+                "textField": "css-1lrsjy6-textField",
+                "title": "css-byz810-title",
+                "tooltip": "css-1fjzdob-tooltip",
+                "tooltipIcon": "css-d1xfdl-tooltipIcon",
+                "validatorAvatar": "css-1hvzmsl-validatorAvatar",
+                "validatorCard": "css-zqciid-validatorCard",
+                "validatorOption": "css-fwv9x8-validatorOption",
+                "validatorOptionSpan": "css-1qcufm2-validatorOptionSpan",
+              }
+            }
+            data-mui-internal-clone-element={true}
+            disabled={true}
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+          >
+            <button
+              className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation emotion-6"
+              disabled={true}
+              id="stake-button"
+              onBlur={[Function]}
+              onContextMenu={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={-1}
+              type="button"
+            >
+              <p
+                className="MuiTypography-root MuiTypography-body2 emotion-7"
+              >
+                validators:stake
+              </p>
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-8"
+                color="#999999"
+                data-testid="ExpandMoreIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            className="emotion-9"
+          >
+            <button
+              className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation emotion-10"
+              disabled={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onContextMenu={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={-1}
+              type="button"
+            >
+              <h5
+                className="MuiTypography-root MuiTypography-h5 emotion-3"
+              >
+                validators:claimRewards
+              </h5>
+            </button>
+          </div>
+        </div>
+        <div />
+      </div>
+    </div>
+  </div>
+  <div
+    exists={true}
+    id="LoadAndExist"
+    loading={true}
+  >
     <div
-      className="emotion-0"
+      id="Box"
     >
       <div
-        id="NoData"
+        handleSearch={[Function]}
+        handleTabChange={[Function]}
+        id="Tabs"
+        tab={1}
       />
+      <div
+        className="emotion-12"
+      >
+        <div
+          id="NoData"
+        />
+      </div>
     </div>
   </div>
 </div>

@@ -127,7 +127,6 @@
       }
     }
   },
-  "keplr": "",
   "chains": [
     {
       "network": "wormchain",
@@ -153,6 +152,10 @@
         "graphql": "https://gql.wormchain.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql.wormchain.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://rpc.wormchain.forbole.com/websocket"
+      },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.wormhole.forbole.com/",
+        "keplr": ""
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",

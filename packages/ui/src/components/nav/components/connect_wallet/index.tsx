@@ -1,3 +1,8 @@
+import Button from '@mui/material/Button';
+import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
+import LoginIcon from 'shared-utils/assets/icon-login.svg';
+import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
 import AuthorizeConnectionDialog from '@/components/nav/components/connect_wallet/authorize_connection';
 import useConnectWalletList from '@/components/nav/components/connect_wallet/hooks';
 import InstallKeplrExtensionDialog from '@/components/nav/components/connect_wallet/install_keplr_extension';
@@ -14,14 +19,9 @@ import {
   readOpenLoginSuccessDialog,
   readOpenPairConnectWalletDialog,
   readOpenPairKeplrExtensionDialog,
-  readWalletConnectURI,
 } from '@/recoil/wallet';
-import Button from '@mui/material/Button';
 import useAppTranslation from '@/hooks/useAppTranslation';
-import { FC } from 'react';
-import { useRecoilValue } from 'recoil';
-import LoginIcon from 'shared-utils/assets/icon-login.svg';
-import LogoutIcon from 'shared-utils/assets/icon-logout.svg';
+import { readWalletConnectURI } from '@/recoil/wallet_connect_uri';
 
 type ConnectWalletProps = {
   className?: string;
@@ -89,6 +89,7 @@ const ConnectWallet: FC<ConnectWalletProps> = () => {
       />
       <PairConnectWalletDialog
         open={openPairConnectWalletDialog}
+        errorMsg={errorMsg}
         walletConnectURI={walletConnectURI}
         onClose={closeWalletConnectDialog}
       />

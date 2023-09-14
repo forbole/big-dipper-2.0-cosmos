@@ -128,7 +128,6 @@
       }
     }
   },
-  "keplr": "",
   "chains": [
     {
       "network": "nomic-stakenet-2",
@@ -154,6 +153,10 @@
         "graphql": "https://gql.nomic.forbole.com/v1/graphql",
         "graphqlWebsocket": "wss://gql.nomic.forbole.com/v1/graphql",
         "publicRpcWebsocket": "wss://gql.nomic.forbole.com/v1/graphql"
+      },
+      "keplrConfig": {
+        "keplrRpc": "https://rpc.nomic.forbole.com/",
+        "keplr": ""
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",

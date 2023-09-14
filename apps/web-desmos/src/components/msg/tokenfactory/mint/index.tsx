@@ -6,7 +6,7 @@ import MsgMint from '@/models/msg/tokenfactory/msg_mint';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 
-const Mint: FC<{ message: MsgMint }> = props => {
+const Mint: FC<{ message: MsgMint }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

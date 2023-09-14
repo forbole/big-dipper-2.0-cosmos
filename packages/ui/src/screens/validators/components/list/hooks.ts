@@ -1,19 +1,28 @@
 import Big from 'big.js';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { SyntheticEvent, useCallback, useState } from 'react';
+import { SyntheticEvent, useCallback, useState, useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
 import chainConfig from '@/chainConfig';
-import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_types';
+import {
+  useValidatorsQuery,
+  ValidatorsQuery,
+  useAccountDelegationsQuery,
+} from '@/graphql/types/general_types';
+import { readIsUserLoggedIn } from '@/recoil/user';
 import { SlashingParams } from '@/models';
+import { ADDRESS_KEY } from '@/utils/localstorage';
 import type {
-  ItemType,
   ValidatorsState,
   ValidatorType,
+  ValidatorsCoinsConditionType,
+  ValidatorWithAvatar,
 } from '@/screens/validators/components/list/types';
+import { useRewards } from '@/screens/account_details/utils';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
 
-const { extra, votingPowerTokenUnit } = chainConfig();
+const { extra, votingPowerTokenUnit, primaryTokenUnit } = chainConfig();
 
 // ==========================
 // Parse data
@@ -90,6 +99,14 @@ export const useValidators = () => {
     sortKey: 'validator.name',
     sortDirection: 'asc',
   });
+  const [userAddress, setUserAddress] = useState<string>('');
+  const [delegationValidators, setDelegationValidators] = useState<
+    ValidatorsCoinsConditionType[] | undefined
+  >([]);
+  const [rewardValidators, setRewardValidators] = useState<
+    ValidatorsCoinsConditionType[] | undefined
+  >([]);
+  const loggedIn = useRecoilValue(readIsUserLoggedIn);
 
   const handleSetState = useCallback(
     (stateChange: (prevState: ValidatorsState) => ValidatorsState) => {
@@ -101,8 +118,12 @@ export const useValidators = () => {
     []
   );
 
+  useEffect(() => {
+    setUserAddress(localStorage.getItem(ADDRESS_KEY) ?? '');
+  }, []);
+
   // ==========================
-  // Fetch Data
+  // Fetch Validators Data
   // ==========================
   useValidatorsQuery({
     onCompleted: (data) => {
@@ -120,6 +141,60 @@ export const useValidators = () => {
       }));
     },
   });
+
+  // ==========================
+  // Fetch Relegation Data
+  // ==========================
+  const {
+    data: delegationsData,
+    loading: delegationsLoading,
+    error: delegationsError,
+  } = useAccountDelegationsQuery({
+    variables: {
+      address: userAddress,
+      // pass the validator set params here
+      limit: 50,
+    },
+  });
+
+  useEffect(() => {
+    if (delegationsData && delegationsData.delegations && state.items && loggedIn) {
+      const {
+        delegations: { delegations },
+      } = delegationsData;
+      const delegatedValidators = delegations?.map((data) => {
+        const target = state.items.find((x) => x.validator === data.validator_address);
+        return {
+          status: target?.status ?? 0,
+          condition: target?.condition ?? 0,
+          validator: data.validator_address ?? '',
+          coins: data.coins ?? {},
+        };
+      });
+      setDelegationValidators(delegatedValidators || []);
+    }
+  }, [delegationsData, delegationsLoading, delegationsError, state.items, loggedIn]);
+
+  // ==========================
+  // Fetch Rewards Data
+  // ==========================
+  const rewards = useRewards(userAddress);
+
+  useEffect(() => {
+    if (rewards && state.items && loggedIn) {
+      const { delegationRewards } = rewards;
+      const rewardsValidators = delegationRewards?.map((data) => {
+        const target = state.items.find((x) => x.validator === data?.validatorAddress);
+        return {
+          status: target?.status ?? 0,
+          condition: target?.condition ?? 0,
+          validator: data?.validatorAddress ?? '',
+          coins: data?.coins ? data?.coins : [{ denom: primaryTokenUnit, amount: '0' }],
+        };
+      });
+      setRewardValidators(rewardsValidators || []);
+    }
+  }, [state.items, loggedIn, rewards]);
 
   const handleTabChange = useCallback(
     (_event: SyntheticEvent<Element, globalThis.Event>, newValue: number) => {
@@ -154,8 +229,8 @@ export const useValidators = () => {
   }, []);
 
   const sortItems = useCallback(
-    (items: ItemType[]) => {
-      let sorted: ItemType[] = R.clone(items);
+    (items: ValidatorWithAvatar[]) => {
+      let sorted: ValidatorWithAvatar[] = R.clone(items);
 
       if (state.tab === 0) {
         sorted = sorted.filter((x) => x.status === 3);
@@ -202,6 +277,8 @@ export const useValidators = () => {
 
   return {
     state,
+    delegationValidators,
+    rewardValidators,
     handleTabChange,
     handleSort,
     handleSearch,

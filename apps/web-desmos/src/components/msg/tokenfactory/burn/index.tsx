@@ -6,7 +6,7 @@ import MsgBurn from '@/models/msg/tokenfactory/msg_burn';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { formatNumber, formatToken } from '@/utils/format_token';
 
-const Burn: FC<{ message: MsgBurn }> = props => {
+const Burn: FC<{ message: MsgBurn }> = (props) => {
   const { message } = props;
 
   const sender = useProfileRecoil(message.sender);

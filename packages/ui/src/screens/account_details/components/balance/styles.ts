@@ -10,6 +10,12 @@ const useStyles = makeStyles()((theme) => ({
       flexDirection: 'column',
     },
   },
+  titleWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'start',
+    justifyContent: 'space-between',
+  },
   chart: {
     height: '300px',
     [theme.breakpoints.up('md')]: {

@@ -1,15 +1,19 @@
-import { SigningCosmosClient } from '@cosmjs/launchpad';
-import { OfflineAminoSigner, OfflineDirectSigner } from '@keplr-wallet/types';
+import { SigningStargateClient, GasPrice } from '@cosmjs/stargate';
+import { OfflineAminoSigner, Key } from '@keplr-wallet/types';
 import { toBase64 } from '@cosmjs/encoding';
 import { PubKey } from '@/recoil/user/atom';
-import { keplrURL } from '@/components/nav/components/connect_wallet/api';
+import chainConfig from '@/chainConfig';
+
+// Get the keplr chain info from chainConfig
+const { keplrConfig } = chainConfig();
+const { keplrRpc } = keplrConfig || {};
 
 export const isKeplrAvailable = () => !!window.keplr;
 
 export const getAccountKey = (keplrChainID: string) => window.keplr?.getKey(keplrChainID);
 
 export const getOfflineSigner = (keplrChainID: string) => {
-  const offlineSigner = window.keplr?.getOfflineSigner(keplrChainID);
+  const offlineSigner = window.keplr?.getOfflineSignerOnlyAmino(keplrChainID);
   return offlineSigner;
 };
 
@@ -37,18 +41,21 @@ export const isEd25519PubKey = (pubKey: Uint8Array) => {
   return true;
 };
 
-export const getCosmosClient = (
-  address: string,
-  offlineSigner: OfflineAminoSigner & OfflineDirectSigner
+export const getCosmosClient = async (
+  _address: string,
+  mintDenom: string,
+  offlineSigner: OfflineAminoSigner
 ) => {
   // Initialize the gaia api with the offline signer that is injected by Keplr extension.
-  const cosmJS = new SigningCosmosClient(keplrURL, address, offlineSigner);
+  // using rpc endpoint instead of keplrURL
+  const cosmJS = await SigningStargateClient.connectWithSigner(keplrRpc, offlineSigner, {
+    gasPrice: GasPrice.fromString(`0.01${mintDenom}`),
+  });
+
   return cosmJS;
 };
 
-export const getOfflineSignerAddress = async (
-  offlineSigner: OfflineAminoSigner & OfflineDirectSigner
-) => {
+export const getOfflineSignerAddress = async (offlineSigner: OfflineAminoSigner) => {
   // You can get the address/public keys by `getAccounts` method.
   // It can return the array of address/public key.
   // But, currently, Keplr extension manages only one address/public key pair.
@@ -58,7 +65,7 @@ export const getOfflineSignerAddress = async (
 };
 
 export const getOfflineSignerPubKey = async (
-  offlineSigner: OfflineAminoSigner & OfflineDirectSigner
+  offlineSigner: OfflineAminoSigner
   // eslint-disable-next-line consistent-return
 ) => {
   const accounts = await offlineSigner.getAccounts();
@@ -71,4 +78,47 @@ export const getOfflineSignerPubKey = async (
     }
     return pubkey;
   }
+};
+
+export const getChangedOfflineSignerPubKey = async (
+  changedAccount: Key
+  // eslint-disable-next-line consistent-return
+) => {
+  let pubkey;
+  if (changedAccount.pubKey) {
+    if (isEd25519PubKey(changedAccount.pubKey)) {
+      pubkey = encodeEd25519PubKey(changedAccount.pubKey);
+    } else if (isSecp256k1PubKey(changedAccount.pubKey)) {
+      pubkey = encodeSecp256k1PubKey(changedAccount.pubKey);
+    }
+    return pubkey;
+  }
+};
+
+export const getClient = async (chainID: string, baseDenom: string) => {
+  let offlineSigner;
+  let offlineSignerAddress;
+  let client;
+
+  try {
+    offlineSigner = getOfflineSigner(chainID);
+  } catch (e) {
+    return (e as Error).message;
+  }
+
+  // get offline signer address
+  try {
+    if (!offlineSigner) throw new Error('offline signer is undefined');
+    offlineSignerAddress = await getOfflineSignerAddress(offlineSigner);
+  } catch (e) {
+    return (e as Error).message;
+  }
+
+  try {
+    client = await getCosmosClient(offlineSignerAddress, baseDenom, offlineSigner);
+  } catch (e) {
+    return (e as Error).message;
+  }
+
+  return client;
 };

@@ -2,7 +2,7 @@ import Big from 'big.js';
 import numeral from 'numeral';
 import chainConfig from '@/chainConfig';
 
-const { tokenUnits } = chainConfig();
+const { tokenUnits, primaryTokenUnit } = chainConfig();
 
 /**
  * Util to help me correctly transform a base denom amount
@@ -113,4 +113,38 @@ export const removeEndingZeros = (value: string) => {
     end -= 1;
   }
   return value.substring(0, end);
+};
+
+/**
+ * Util to transform a display denom amount
+ * in to a base denom amount
+ * @param input the number or string amount in display denom unit
+ * @returns string value in base denom unit
+ */
+export const displayToBaseUnit = (input: string | number) => {
+  if (typeof input === 'string') {
+    input = +input;
+  }
+  const power = tokenUnits?.[primaryTokenUnit].exponent;
+
+  const output = input * 10 ** power;
+
+  return `${output}`;
+};
+
+/**
+ * Util to transform a base denom amount
+ * into a display denom amount
+ * @param input the number or string amount in base denom unit
+ * @returns string value in display denom unit
+ */
+export const baseToDisplayUnit = (input: string | number) => {
+  if (typeof input === 'string') {
+    input = +input;
+  }
+  const power = tokenUnits?.[primaryTokenUnit].exponent;
+
+  const output = input / 10 ** power;
+
+  return `${output}`;
 };

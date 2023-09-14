@@ -89,5 +89,9 @@
   "loginSuccessMsg": "The system will automatically redirect to the previous \npage in 3 seconds.",
   "connectWalletConnect": "Connect Wallet Connect",
   "scanWalletConnectQR": "Please scan the QR with a WalletConnect compatible Wallet.",
-  "walletTitle": "Connected wallets"
+  "walletTitle": "Connected wallets",
+  "buttonTooltipText": "by connecting your wallet!",
+  "buttonTooltipButtonText": "Connect Now!",
+  "accountText1": "Is this your account?",
+  "accountText2": "<0>Connect</0> <1>your wallet,</1> <0>stake</0> <1>your assets, and start</1> <0>claiming rewards</0> <2>now!</2>"
 }
