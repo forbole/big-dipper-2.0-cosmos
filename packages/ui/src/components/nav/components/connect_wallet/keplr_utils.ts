@@ -6,7 +6,7 @@ import chainConfig from '@/chainConfig';
 
 // Get the keplr chain info from chainConfig
 const { keplrConfig } = chainConfig();
-const { keplrRpc, keplr } = keplrConfig || {};
+const { keplrRpc } = keplrConfig || {};
 
 export const isKeplrAvailable = () => !!window.keplr;
 
@@ -42,7 +42,7 @@ export const isEd25519PubKey = (pubKey: Uint8Array) => {
 };
 
 export const getCosmosClient = async (
-  address: string,
+  _address: string,
   mintDenom: string,
   offlineSigner: OfflineAminoSigner
 ) => {
@@ -53,12 +53,6 @@ export const getCosmosClient = async (
   });
 
   return cosmJS;
-};
-
-export const getKeplrAPI = () => {
-  const config = keplr ? JSON.parse(keplr) : '';
-  const apiURL: string = config.rest;
-  return apiURL;
 };
 
 export const getOfflineSignerAddress = async (offlineSigner: OfflineAminoSigner) => {

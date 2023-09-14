@@ -104,33 +104,37 @@ interface TransactionMsgDelegate {
 }
 
 interface TransactionMsgUndelegate {
-  typeUrl: '/cosmos.staking.v1beta1.MsgUndelegate'
+  typeUrl: '/cosmos.staking.v1beta1.MsgUndelegate';
   value: {
-    delegatorAddress: string
-    validatorAddress: string
-    amount: { amount: string; denom: string }
-  }
+    delegatorAddress: string;
+    validatorAddress: string;
+    amount: { amount: string; denom: string };
+  };
 }
 
 interface TransactionMsgRedelegate {
-  typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegate'
+  typeUrl: '/cosmos.staking.v1beta1.MsgBeginRedelegate';
   value: {
-    delegatorAddress: string
-    validatorSrcAddress: string
-    validatorDstAddress: string
-    amount: { amount: string; denom: string }
-  }
+    delegatorAddress: string;
+    validatorSrcAddress: string;
+    validatorDstAddress: string;
+    amount: { amount: string; denom: string };
+  };
 }
 
 interface TransactionMsgWithdrawReward {
-  typeUrl: '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward'
+  typeUrl: '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward';
   value: {
-    delegatorAddress: string
-    validatorAddress: string
-  }
+    delegatorAddress: string;
+    validatorAddress: string;
+  };
 }
 
-type TransactionMsg = TransactionMsgDelegate | TransactionMsgUndelegate | TransactionMsgRedelegate | TransactionMsgWithdrawReward; 
+type TransactionMsg =
+  | TransactionMsgDelegate
+  | TransactionMsgUndelegate
+  | TransactionMsgRedelegate
+  | TransactionMsgWithdrawReward;
 
 interface Transaction {
   msgs: TransactionMsg[];
