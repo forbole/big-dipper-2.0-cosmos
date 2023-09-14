@@ -5,9 +5,8 @@ import { PubKey } from '@/recoil/user/atom';
 import chainConfig from '@/chainConfig';
 
 // Get the keplr chain info from chainConfig
-const {
-  keplrConfig: { keplrRpc, keplr },
-} = chainConfig();
+const { keplrConfig } = chainConfig();
+const { keplrRpc, keplr } = keplrConfig || {};
 
 export const isKeplrAvailable = () => !!window.keplr;
 

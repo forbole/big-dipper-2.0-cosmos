@@ -10,10 +10,8 @@ import {
   walletConnectRelayURL,
 } from '@/components/nav/components/connect_wallet/utils';
 
-const {
-  network,
-  keplrConfig: { keplr },
-} = chainConfig();
+const { network, keplrConfig } = chainConfig();
+const keplr = keplrConfig?.keplr;
 
 let keplrCustomChainInfo: ChainInfo | undefined;
 if (keplr !== undefined && keplr !== '') {

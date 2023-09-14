@@ -48,10 +48,8 @@ import {
 } from '@/components/nav/components/connect_wallet/wallet_connect_utils';
 
 // Get the keplr chain info from chainConfig
-const {
-  network,
-  keplrConfig: { keplr },
-} = chainConfig();
+const { network, keplrConfig } = chainConfig();
+const keplr = keplrConfig?.keplr;
 
 let keplrCustomChainInfo: ChainInfo | undefined;
 if (keplr !== undefined && keplr !== '') {

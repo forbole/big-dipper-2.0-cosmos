@@ -1,9 +1,8 @@
 import { SigningStargateClient, calculateFee, GasPrice, StdFee } from '@cosmjs/stargate';
 import chainConfig from '@/chainConfig';
 
-const {
-  keplrConfig: { keplr },
-} = chainConfig();
+const { keplrConfig } = chainConfig();
+const keplr = keplrConfig?.keplr;
 
 export const estimateFee = async (
   client: SigningStargateClient,
