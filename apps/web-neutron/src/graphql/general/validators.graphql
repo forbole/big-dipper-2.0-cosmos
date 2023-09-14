@@ -45,6 +45,7 @@ query Validators {
 
 query ProviderCustomValidator($providerAddress: String) {
   ccv_validator(where: {provider_operator_address: {_eq: $providerAddress}}) {
+    consumer_operator_address
     ccv_validator_info {
       operator_address
       validator {

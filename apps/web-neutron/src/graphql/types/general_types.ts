@@ -19507,7 +19507,7 @@ export type ProviderCustomValidatorQueryVariables = Exact<{
 }>;
 
 
-export type ProviderCustomValidatorQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', ccv_validator_info?: { __typename?: 'provider_validator_info', operator_address: string, validator: { __typename?: 'provider_validator', validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, avatar_url?: string | null, validator_address: string, website?: string | null, details?: string | null }> } } | null }> };
+export type ProviderCustomValidatorQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', consumer_operator_address: string, ccv_validator_info?: { __typename?: 'provider_validator_info', operator_address: string, validator: { __typename?: 'provider_validator', validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, avatar_url?: string | null, validator_address: string, website?: string | null, details?: string | null }> } } | null }> };
 
 
 export const BlockDetailsDocument = gql`
@@ -20219,6 +20219,7 @@ export type ValidatorsQueryResult = Apollo.QueryResult<ValidatorsQuery, Validato
 export const ProviderCustomValidatorDocument = gql`
     query ProviderCustomValidator($providerAddress: String) {
   ccv_validator(where: {provider_operator_address: {_eq: $providerAddress}}) {
+    consumer_operator_address
     ccv_validator_info {
       operator_address
       validator {

@@ -28,10 +28,10 @@ const List: FC<ComponentDefault> = ({ className }) => {
     ]);
   });
 
-  const avatarNames: AvatarName[] = validatorsMemo.map((address: string) => {
+  const avatarNames: AvatarName[] = validatorsMemo.map((address, i) => {
     const [moniker, avatarUrl] = monikerMap.get(address) || ['', ''];
     return {
-      address,
+      address: state.items[i].consumerOperatorAddress,
       name: moniker,
       imageUrl: avatarUrl,
     };
