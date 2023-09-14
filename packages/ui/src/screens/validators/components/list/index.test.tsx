@@ -33,6 +33,8 @@ jest.mock('@/components/load_and_exist', () => (props: JSX.IntrinsicElements['di
   <div id="LoadAndExist" {...props} />
 ));
 
+jest.mock('@walletconnect/sign-client', () => ({}));
+
 jest.mock('@/screens/validators/components/list/hooks', () => ({
   useValidators: () => ({
     state: {
@@ -69,6 +71,7 @@ jest.mock('@/screens/validators/components/list/hooks', () => ({
     handleSort: () => jest.fn(),
     handleSearch: () => jest.fn(),
     sortItems: () => jest.fn(),
+    sortForbole: () => jest.fn(),
   }),
 }));
 
