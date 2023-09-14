@@ -7,6 +7,7 @@ import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_typ
 import { SlashingParams } from '@/models';
 import type {
   ItemType,
+  ValidatorsCoinsConditionType,
   ValidatorsState,
   ValidatorType,
 } from '@/screens/validators/components/list/types';
@@ -202,6 +203,9 @@ export const useValidators = () => {
     [search, state.sortDirection, state.sortKey, state.tab]
   );
 
+  const rewardValidators = undefined as ValidatorsCoinsConditionType[] | undefined;
+  const delegationValidators = undefined as ValidatorsCoinsConditionType[] | undefined;
+
   return {
     state,
     handleTabChange,
@@ -209,5 +213,7 @@ export const useValidators = () => {
     handleSearch,
     sortItems,
     search,
+    rewardValidators,
+    delegationValidators,
   };
 };

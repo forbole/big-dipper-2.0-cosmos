@@ -48,10 +48,8 @@ import {
 } from '@/components/nav/components/connect_wallet/wallet_connect_utils';
 
 // Get the keplr chain info from chainConfig
-const {
-  network,
-  keplrConfig: { keplr },
-} = chainConfig();
+const { network, keplrConfig } = chainConfig();
+const keplr = keplrConfig?.keplr;
 
 let keplrCustomChainInfo: ChainInfo | undefined;
 if (keplr !== undefined && keplr !== '') {
@@ -67,7 +65,7 @@ const useConnectWalletList = () => {
   const [, setUserAddress] = useRecoilState(writeUserAddress) as [string, SetterOrUpdater<string>];
   const [, setUserIsLoggedIn] = useRecoilState(writeIsUserLoggedIn) as [
     boolean,
-    SetterOrUpdater<boolean>
+    SetterOrUpdater<boolean>,
   ];
   const [, setUserPubKey] = useRecoilState(writeUserPubKey) as [PubKey, SetterOrUpdater<PubKey>];
   const [, setWalletName] = useRecoilState(writeWalletName) as [string, SetterOrUpdater<string>];
@@ -75,33 +73,33 @@ const useConnectWalletList = () => {
   // WalletState
   const [openLoginDialog, setOpenLoginDialog] = useRecoilState(writeOpenLoginDialog) as [
     boolean,
-    SetterOrUpdater<boolean>
+    SetterOrUpdater<boolean>,
   ];
   const [, setWalletSelection] = useRecoilState(writeWalletSelection) as [
     string,
-    SetterOrUpdater<string>
+    SetterOrUpdater<string>,
   ];
   const [, setOpenInstallKeplrExtensionDialog] = useRecoilState(
     writeOpenInstallKeplrExtensionDialog
   ) as [boolean, SetterOrUpdater<boolean>];
   const [, setOpenPairKeplrExtensionDialog] = useRecoilState(writeOpenPairKeplrExtensionDialog) as [
     boolean,
-    SetterOrUpdater<boolean>
+    SetterOrUpdater<boolean>,
   ];
   const [, setOpenAuthorizeConnectionDialog] = useRecoilState(
     writeOpenAuthorizeConnectionDialog
   ) as [boolean, SetterOrUpdater<boolean>];
   const [, setOpenLoginSuccessDialog] = useRecoilState(writeOpenLoginSuccessDialog) as [
     boolean,
-    SetterOrUpdater<boolean>
+    SetterOrUpdater<boolean>,
   ];
   const [, setOpenPairConnectWalletDialog] = useRecoilState(writeOpenPairConnectWalletDialog) as [
     boolean,
-    SetterOrUpdater<boolean>
+    SetterOrUpdater<boolean>,
   ];
   const [walletConnectURI] = useRecoilState(writeWalletConnectURI) as [
     string,
-    SetterOrUpdater<string>
+    SetterOrUpdater<string>,
   ];
 
   const [showWalletDetails, setShowWalletDetails] = useState(false);
@@ -436,7 +434,7 @@ const useConnectWalletList = () => {
     errorMsg,
     showWalletDetails,
     walletConnectURI,
-    tooltipOpen,
+    tooltipOpen: process.env.NEXT_PUBLIC_IS_E2E === 'true' ? false : tooltipOpen,
     continueToAuthorizeKeplrConnectionDialog,
     continueToKeplrExtensionPairingDialog,
     closeAuthorizeConnectionDialog,

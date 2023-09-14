@@ -9,6 +9,7 @@ import type {
   ItemType,
   ValidatorsState,
   ValidatorType,
+  ValidatorsCoinsConditionType,
 } from '@/screens/validators/components/list/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
@@ -202,6 +203,29 @@ export const useValidators = () => {
     [search, state.sortDirection, state.sortKey, state.tab]
   );
 
+  const [delegationValidators] = useState<ValidatorsCoinsConditionType[]>([]);
+  const rewardValidators = undefined as ValidatorsCoinsConditionType[] | undefined;
+
+  const sortForbole = useCallback((items: ItemType[]) => {
+    const sorted: ItemType[] = R.clone(items);
+
+    sorted.sort((a, b) => {
+      const compareA = a.validator.name.toLowerCase();
+      const compareB = b.validator.name.toLowerCase();
+
+      if (compareA === 'forbole' && compareB !== 'forbole') {
+        return -1;
+      }
+      if (compareA !== 'forbole' && compareB === 'forbole') {
+        return 1;
+      }
+
+      return 0;
+    });
+
+    return sorted;
+  }, []);
+
   return {
     state,
     handleTabChange,
@@ -209,5 +233,8 @@ export const useValidators = () => {
     handleSearch,
     sortItems,
     search,
+    sortForbole,
+    delegationValidators,
+    rewardValidators,
   };
 };

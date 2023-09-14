@@ -9,6 +9,7 @@ import type {
   ItemType,
   ValidatorsState,
   ValidatorType,
+  ValidatorsCoinsConditionType,
 } from '@/screens/validators/components/list/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
@@ -201,6 +202,9 @@ export const useValidators = () => {
     [search, state.sortDirection, state.sortKey, state.tab]
   );
 
+  const rewardValidators = undefined as ValidatorsCoinsConditionType[] | undefined;
+  const delegationValidators = undefined as ValidatorsCoinsConditionType[] | undefined;
+
   return {
     state,
     handleTabChange,
@@ -208,5 +212,7 @@ export const useValidators = () => {
     handleSearch,
     sortItems,
     search,
+    rewardValidators,
+    delegationValidators,
   };
 };
