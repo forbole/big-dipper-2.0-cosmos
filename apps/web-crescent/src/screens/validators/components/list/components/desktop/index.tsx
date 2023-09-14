@@ -174,6 +174,7 @@ type DesktopProps = {
   handleSort: (key: string) => void;
   items: ItemType[];
   search: string;
+  rewards: unknown;
 };
 
 const Desktop: FC<DesktopProps> = (props) => {
