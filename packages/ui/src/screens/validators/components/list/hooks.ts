@@ -100,10 +100,12 @@ export const useValidators = () => {
     sortDirection: 'asc',
   });
   const [userAddress, setUserAddress] = useState<string>('');
-  const [delegationValidators, setDelegationValidators] = useState<ValidatorsCoinsConditionType[]>(
-    []
-  );
-  const [rewardValidators, setRewardValidators] = useState<ValidatorsCoinsConditionType[]>([]);
+  const [delegationValidators, setDelegationValidators] = useState<
+    ValidatorsCoinsConditionType[] | undefined
+  >([]);
+  const [rewardValidators, setRewardValidators] = useState<
+    ValidatorsCoinsConditionType[] | undefined
+  >([]);
   const loggedIn = useRecoilValue(readIsUserLoggedIn);
 
   const handleSetState = useCallback(
