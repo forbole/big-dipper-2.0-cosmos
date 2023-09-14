@@ -174,6 +174,7 @@ type DesktopProps = {
   handleSort: (key: string) => void;
   items: ItemType[];
   search: string;
+  // eslint-disable-next-line react/no-unused-prop-types
   rewards: unknown;
 };
 
