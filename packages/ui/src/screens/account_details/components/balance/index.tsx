@@ -27,10 +27,10 @@ const { primaryTokenUnit, tokenUnits } = chainConfig();
 type BalanceProps = Parameters<typeof formatBalanceData>[0] & {
   className?: string;
   total: TokenUnit;
-  validators: ItemType[];
-  delegations: ValidatorsAvatarNameType[];
-  rewards: ValidatorsAvatarNameType[];
-  loggedIn: boolean;
+  validators?: ItemType[];
+  delegations?: ValidatorsAvatarNameType[];
+  rewards?: ValidatorsAvatarNameType[];
+  loggedIn?: boolean;
 };
 
 const Balance: FC<BalanceProps> = (props) => {
