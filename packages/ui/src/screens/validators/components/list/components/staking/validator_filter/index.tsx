@@ -8,13 +8,13 @@ import MiddleEllipsis from '@/components/MiddleEllipsis';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import useStyles from '@/screens/validators/components/list/components/staking/styles';
 import useValidatorFilterHook from '@/screens/validators/components/list/components/staking/validator_filter/hooks';
-import type { ItemType } from '@/screens/validators/components/list/types';
+import type { ValidatorWithAvatar } from '@/screens/validators/components/list/types';
 import { getValidatorConditionClass } from '@/utils/get_validator_condition';
 import ContributionIcon from 'shared-utils/assets/icon-contribution.svg';
 import Condition from '@/screens/validators/components/list/components/condition';
 
 interface ValidatorFilterInputProps {
-  options: ItemType[];
+  options: ValidatorWithAvatar[];
   setValidatorAddress: (address: string) => void;
   validatorAddress: string;
 }

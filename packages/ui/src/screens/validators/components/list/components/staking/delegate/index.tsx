@@ -14,7 +14,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import * as React from 'react';
 import { FC } from 'react';
 import ValidatorFilterInput from '@/screens/validators/components/list/components/staking/validator_filter';
-import type { ItemType } from '@/screens/validators/components/list/types';
+import type { ValidatorWithAvatar } from '@/screens/validators/components/list/types';
 import useStakingHooks from '@/screens/validators/components/list/components/staking/hooks';
 import CustomSnackbar from '@/components/snackbar';
 
@@ -25,7 +25,7 @@ type DelegateDialogProps = {
   validatorName: string;
   imageUrl: string;
   validatorCommission: string;
-  validators?: ItemType[];
+  validators?: ValidatorWithAvatar[];
 };
 
 const DelegateDialog: FC<DelegateDialogProps> = ({

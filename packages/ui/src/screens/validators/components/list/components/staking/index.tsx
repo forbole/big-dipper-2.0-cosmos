@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import ButtonTooltip from '@/components/button_tooltip';
 import type {
-  ItemType,
+  ValidatorWithAvatar,
   ValidatorsAvatarNameType,
 } from '@/screens/validators/components/list/types';
 import useConnectWalletList from '@/components/nav/components/connect_wallet/hooks';
@@ -26,7 +26,7 @@ type StakeButtonProps = {
   name: string;
   imageUrl?: string;
   commission: string;
-  validators?: ItemType[];
+  validators?: ValidatorWithAvatar[];
   delegations?: ValidatorsAvatarNameType[];
   rewards?: ValidatorsAvatarNameType[];
   disabled: boolean;

@@ -1,4 +1,4 @@
-import { ValidatorWithAvatar } from './types';
+import { ValidatorWithAvatar } from '@/screens/validators/components/list/types';
 
 export const sortForbole = (items: ValidatorWithAvatar[]) => {
   const sorted = [...items];

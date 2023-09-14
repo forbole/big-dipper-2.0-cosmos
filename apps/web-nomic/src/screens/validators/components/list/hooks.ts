@@ -4,7 +4,7 @@ import * as R from 'ramda';
 import { SyntheticEvent, useCallback, useState } from 'react';
 import type {
   ValidatorsCoinsConditionType,
-  ItemType,
+  ValidatorWithAvatar,
   ValidatorsState,
   ValidatorType,
 } from '@/screens/validators/components/list/types';
@@ -135,8 +135,8 @@ export const useValidators = () => {
   );
 
   const sortItems = useCallback(
-    (items: ItemType[]) => {
-      let sorted: ItemType[] = R.clone(items);
+    (items: ValidatorWithAvatar[]) => {
+      let sorted: ValidatorWithAvatar[] = R.clone(items);
 
       if (state.tab === 0) {
         sorted = sorted.filter((x) => x.inActiveSet === 'true');

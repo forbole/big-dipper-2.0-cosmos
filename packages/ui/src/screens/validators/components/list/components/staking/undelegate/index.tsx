@@ -15,7 +15,7 @@ import * as React from 'react';
 import { FC } from 'react';
 import AvatarNameFilterInput from '@/screens/validators/components/list/components/staking/avatar_name_filter';
 import type {
-  ItemType,
+  ValidatorWithAvatar,
   ValidatorsAvatarNameType,
 } from '@/screens/validators/components/list/types';
 import CustomSnackbar from '@/components/snackbar';
@@ -29,7 +29,7 @@ type UndelegateDialogProps = {
   imageUrl: string;
   validatorCommission: string;
   delegations?: ValidatorsAvatarNameType[];
-  validators?: ItemType[];
+  validators?: ValidatorWithAvatar[];
 };
 
 const UndelegateDialog: FC<UndelegateDialogProps> = ({

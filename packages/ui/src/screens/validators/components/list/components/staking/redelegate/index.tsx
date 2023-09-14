@@ -17,7 +17,7 @@ import Loading from '@/components/loading';
 import AvatarNameFilterInput from '@/screens/validators/components/list/components/staking/avatar_name_filter';
 import ValidatorFilterInput from '@/screens/validators/components/list/components/staking/validator_filter';
 import type {
-  ItemType,
+  ValidatorWithAvatar,
   ValidatorsAvatarNameType,
 } from '@/screens/validators/components/list/types';
 import CustomSnackbar from '@/components/snackbar';
@@ -31,7 +31,7 @@ type RedelegateDialogProps = {
   imageUrl: string;
   validatorCommission: string;
   delegations?: ValidatorsAvatarNameType[];
-  validators?: ItemType[];
+  validators?: ValidatorWithAvatar[];
 };
 
 const RedelegateDialog: FC<RedelegateDialogProps> = ({

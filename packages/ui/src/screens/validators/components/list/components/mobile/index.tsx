@@ -3,7 +3,7 @@ import { useList, useListRow } from '@/hooks/use_react_window';
 import Condition from '@/screens/validators/components/list/components/condition';
 import SingleValidator from '@/screens/validators/components/list/components/mobile/component/single_validator';
 import VotingPower from '@/screens/validators/components/list/components/voting_power';
-import type { ItemType } from '@/screens/validators/components/list/types';
+import type { ValidatorWithAvatar } from '@/screens/validators/components/list/types';
 import { getValidatorConditionClass } from '@/utils/get_validator_condition';
 import { getValidatorStatus } from '@/utils/get_validator_status';
 import Divider from '@mui/material/Divider';
@@ -14,7 +14,7 @@ import { ListChildComponentProps, VariableSizeList as List } from 'react-window'
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];
-  item: ItemType;
+  item: ValidatorWithAvatar;
   isLast: boolean;
   search: string;
   i: number;
@@ -66,7 +66,7 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, item, isLast,
 
 type MobileProps = {
   className?: string;
-  items: ItemType[];
+  items: ValidatorWithAvatar[];
   search: string;
 };
 

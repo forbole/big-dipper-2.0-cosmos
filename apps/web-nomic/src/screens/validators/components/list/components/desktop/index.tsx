@@ -12,7 +12,7 @@ import useStyles from '@/screens/validators/components/list/components/desktop/s
 import { fetchColumns } from '@/screens/validators/components/list/components/desktop/utils';
 import VotingPower from '@/screens/validators/components/list/components/voting_power';
 import VotingPowerExplanation from '@/screens/validators/components/list/components/voting_power_explanation';
-import type { ItemType } from '@/screens/validators/components/list/types';
+import type { ValidatorWithAvatar } from '@/screens/validators/components/list/types';
 import { getValidatorStatus } from '@/utils/get_validator_status';
 
 type GridColumnProps = {
@@ -68,7 +68,7 @@ type GridRowProps = {
   style: CSSProperties;
   rowIndex: number;
   align?: ComponentProps<typeof Typography>['align'];
-  item: ItemType;
+  item: ValidatorWithAvatar;
   search: string;
   i: number;
 };
@@ -148,7 +148,7 @@ type DesktopProps = {
   sortDirection: 'desc' | 'asc';
   sortKey: string;
   handleSort: (key: string) => void;
-  items: ItemType[];
+  items: ValidatorWithAvatar[];
   search: string;
   // eslint-disable-next-line react/no-unused-prop-types
   rewards: unknown[];

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type { ItemType } from '@/screens/validators/components/list/types';
+import type { ValidatorWithAvatar } from '@/screens/validators/components/list/types';
 
 const useValidatorFilterHook = (setValidatorAddress: (address: string) => void) => {
-  const [selectedOption, setSelectedOption] = React.useState<ItemType | null>(null);
+  const [selectedOption, setSelectedOption] = React.useState<ValidatorWithAvatar | null>(null);
 
-  const handleOnChange = (_: React.ChangeEvent<any>, value: ItemType | null) => {
+  const handleOnChange = (_: React.ChangeEvent<any>, value: ValidatorWithAvatar | null) => {
     setSelectedOption(value);
     if (value) {
       setValidatorAddress(value.validator.address);
@@ -13,7 +13,10 @@ const useValidatorFilterHook = (setValidatorAddress: (address: string) => void) 
     }
   };
 
-  const filterOptions = (options: ItemType[], { inputValue }: { inputValue: string }) => {
+  const filterOptions = (
+    options: ValidatorWithAvatar[],
+    { inputValue }: { inputValue: string }
+  ) => {
     const filteredOptions = options.filter(({ validator }) => {
       const address = validator.address.toLowerCase().replace(/ /g, '');
       const name = validator.name.toLowerCase().replace(/ /g, '');

@@ -18,7 +18,7 @@ import {
 import VotingPower from '@/screens/validators/components/list/components/voting_power';
 import VotingPowerExplanation from '@/screens/validators/components/list/components/voting_power_explanation';
 import type {
-  ItemType,
+  ValidatorWithAvatar,
   ValidatorsAvatarNameType,
 } from '@/screens/validators/components/list/types';
 import { getValidatorConditionClass } from '@/utils/get_validator_condition';
@@ -80,12 +80,12 @@ type GridRowProps = {
   style: CSSProperties;
   rowIndex: number;
   align?: ComponentProps<typeof Typography>['align'];
-  item: ItemType;
+  item: ValidatorWithAvatar;
   search: string;
   i: number;
   valLength: number;
   loggedIn: boolean;
-  validators?: ItemType[];
+  validators?: ValidatorWithAvatar[];
   delegations?: ValidatorsAvatarNameType[];
   rewards?: ValidatorsAvatarNameType[];
 };
@@ -207,9 +207,9 @@ type DesktopProps = {
   sortDirection: 'desc' | 'asc';
   sortKey: string;
   handleSort: (key: string) => void;
-  items: ItemType[];
+  items: ValidatorWithAvatar[];
   search: string;
-  validators?: ItemType[];
+  validators?: ValidatorWithAvatar[];
   delegations?: ValidatorsAvatarNameType[];
   rewards?: ValidatorsAvatarNameType[];
 };

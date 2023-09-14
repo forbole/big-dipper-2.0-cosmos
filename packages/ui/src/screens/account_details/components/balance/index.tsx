@@ -16,7 +16,7 @@ import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import { useRecoilValue } from 'recoil';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import type {
-  ItemType,
+  ValidatorWithAvatar,
   ValidatorsAvatarNameType,
 } from '@/screens/validators/components/list/types';
 import StakeButton from '@/screens/validators/components/list/components/staking/index';
@@ -27,7 +27,7 @@ const { primaryTokenUnit, tokenUnits } = chainConfig();
 type BalanceProps = Parameters<typeof formatBalanceData>[0] & {
   className?: string;
   total: TokenUnit;
-  validators?: ItemType[];
+  validators?: ValidatorWithAvatar[];
   delegations?: ValidatorsAvatarNameType[];
   rewards?: ValidatorsAvatarNameType[];
   loggedIn?: boolean;

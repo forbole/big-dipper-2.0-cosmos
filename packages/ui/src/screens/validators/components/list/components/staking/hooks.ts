@@ -18,7 +18,7 @@ import { coin } from '@cosmjs/proto-signing';
 import { ADDRESS_KEY, CHAIN_ID, CONNECTION_TYPE, WC_SESSION_TOPIC } from '@/utils/localstorage';
 import { readIsUserLoggedIn } from '@/recoil/user';
 import type {
-  ItemType,
+  ValidatorWithAvatar,
   ValidatorsAvatarNameType,
 } from '@/screens/validators/components/list/types';
 import { estimateFee } from '@/screens/validators/components/list/components/staking/utils/gas';
@@ -27,7 +27,7 @@ import { ISignClient } from '@walletconnect/types';
 
 interface UseStakingHooksOptions {
   rewards?: ValidatorsAvatarNameType[];
-  validators?: ItemType[];
+  validators?: ValidatorWithAvatar[];
   delegations?: ValidatorsAvatarNameType[];
 }
 

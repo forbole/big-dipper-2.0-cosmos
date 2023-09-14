@@ -31,7 +31,7 @@ export interface ValidatorsState {
   items: ValidatorType[];
 }
 
-export type ItemType = Override<ValidatorType, { validator: AvatarName }>;
+export type ValidatorWithAvatar = Override<ValidatorType, { validator: AvatarName }>;
 
 export interface ValidatorsAvatarNameType {
   validator: AvatarName & { condition: number; status: number };
