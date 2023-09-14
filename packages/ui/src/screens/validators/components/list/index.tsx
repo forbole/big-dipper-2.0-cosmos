@@ -20,6 +20,7 @@ import { FC, ReactNode, useMemo } from 'react';
 import Link from 'next/link';
 import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import chainConfig from '@/chainConfig';
+import { sortForbole } from './utils';
 
 const List: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();
@@ -33,7 +34,6 @@ const List: FC<ComponentDefault> = ({ className }) => {
     handleSearch,
     handleSort,
     sortItems,
-    sortForbole,
     search,
   } = useValidators();
   const { handleStakingDistribution } = useStakingDistribution();
@@ -49,7 +49,7 @@ const List: FC<ComponentDefault> = ({ className }) => {
   // full validator list
   const validatorItems = useMemo(
     () => sortForbole(state.items.map((v, j) => ({ ...v, validator: dataProfiles?.[j] }))),
-    [sortForbole, state.items, dataProfiles]
+    [state.items, dataProfiles]
   );
 
   // const redelegations Memo

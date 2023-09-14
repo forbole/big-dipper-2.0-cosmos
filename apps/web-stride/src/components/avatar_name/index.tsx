@@ -37,11 +37,11 @@ const AvatarName: FC<
       <Link shallow href={href(adx)} target={target}>
         <span className={cx(classes.root, className)} {...props}>
           <Avatar className={classes.avatar} address={address} imageUrl={imageUrl ?? undefined} />
-          {omitEnd && name.length > 45 ? (
-            <MiddleEllipsis className={classes.text} content={name} omitEnd />
-          ) : (
-            <MiddleEllipsis className={classes.text} content={name} />
-          )}
+          <MiddleEllipsis
+            className={classes.text}
+            content={name}
+            omitEnd={omitEnd && name.length > 45}
+          />
         </span>
       </Link>
     </Tooltip>

@@ -34,4 +34,4 @@ export interface ValidatorsAvatarNameType {
   coins: Coin;
 }
 
-export type ItemType = Override<ValidatorType, { validator: AvatarName }>;
+export type ValidatorWithAvatar = Override<ValidatorType, { validator: AvatarName }>;

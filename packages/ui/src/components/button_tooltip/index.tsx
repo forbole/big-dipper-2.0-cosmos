@@ -44,7 +44,7 @@ const ButtonTooltip: FC<ButtonToolTipProps> = ({
           <Box className={classes.textWithIcon}>
             {accountPage ? (
               <div>
-                {/* TODO: add Trans component to handle yello highlighting of accountText2 props */}
+                {/* @TODO: add Trans component to handle yellow highlighting of accountText2 props */}
                 <span className={classes.accountText1}>{`${accountText1}`}</span>
                 <AppTrans
                   i18nKey={accountText2}

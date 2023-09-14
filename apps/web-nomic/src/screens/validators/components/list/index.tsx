@@ -23,21 +23,8 @@ import { FC, ReactNode, useMemo } from 'react';
 
 const List: FC<ComponentDefault> = ({ className }) => {
   const { classes, cx } = useStyles();
-  //   const { t } = useAppTranslation();
   const display = useDisplayStyles().classes;
-  const {
-    state,
-    //   delegationValidators,
-    //   rewardValidators,
-    handleTabChange,
-    handleSearch,
-    handleSort,
-    sortItems,
-    //   sortForbole,
-    search,
-  } = useValidators();
-  //   const { handleStakingDistribution } = useStakingDistribution();
-  //   const { primaryTokenUnit } = chainConfig();
+  const { state, handleTabChange, handleSearch, handleSort, sortItems, search } = useValidators();
 
   const validatorsMemo = useShallowMemo(state.items.map((x) => x.validator));
   const { profiles: dataProfiles, loading } = useProfilesRecoil(validatorsMemo);
@@ -45,39 +32,6 @@ const List: FC<ComponentDefault> = ({ className }) => {
     () => sortItems(state.items.map((x, i) => ({ ...x, validator: dataProfiles?.[i] }))),
     [state.items, dataProfiles, sortItems]
   );
-
-  //   // full validator list
-  //   const validatorItems = useMemo(
-  //     () => sortForbole(state.items.map((v, j) => ({ ...v, validator: dataProfiles?.[j] }))),
-  //     [sortForbole, state.items, dataProfiles]
-  //   );
-
-  //   // const redelegations Memo
-  //   const delegationsMemo = useShallowMemo(delegationValidators?.map((y) => y.validator)) ?? [];
-  //   const { profiles: delegationProfiles } = useProfilesRecoil(delegationsMemo);
-  //   const delegationItems = useMemo(
-  //     () =>
-  //       delegationValidators?.map((d, j) => ({
-  //         coins: d.coins?.[0],
-  //         validator: { ...delegationProfiles?.[j], status: d.status, condition: d.condition },
-  //       })) ?? [],
-  //     [delegationValidators, delegationProfiles]
-  //   );
-
-  //   // const rewards Memo
-  //   const rewardsMemo = useShallowMemo(rewardValidators?.map((z) => z.validator)) ?? [];
-  //   const { profiles: rewardProfiles } = useProfilesRecoil(rewardsMemo);
-  //   const rewardItems = useMemo(
-  //     () =>
-  //       rewardValidators?.map((d, j) => ({
-  //         coins: d.coins?.[0] ?? { amount: '0', denom: primaryTokenUnit },
-  //         validator: { ...rewardProfiles?.[j], status: d.status, condition: d.condition },
-  //       })) ?? [],
-  //     [rewardValidators, primaryTokenUnit, rewardProfiles]
-  //   );
-
-  //   const loggedIn = useRecoilValue(readIsUserLoggedIn);
-  //   const address = useRecoilValue(readUserAddress);
 
   let list: ReactNode;
 

@@ -1,6 +1,6 @@
 const useStakingDistribution = () => {
   const handleStakingDistribution = () => {
-    // TO DO
+    // @TODO
   };
 
   return {

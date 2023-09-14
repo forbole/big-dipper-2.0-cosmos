@@ -275,26 +275,6 @@ export const useValidators = () => {
     [search, state.sortDirection, state.sortKey, state.tab]
   );
 
-  const sortForbole = useCallback((items: ItemType[]) => {
-    const sorted: ItemType[] = R.clone(items);
-
-    sorted.sort((a, b) => {
-      const compareA = a.validator.name.toLowerCase();
-      const compareB = b.validator.name.toLowerCase();
-
-      if (compareA === 'forbole' && compareB !== 'forbole') {
-        return -1;
-      }
-      if (compareA !== 'forbole' && compareB === 'forbole') {
-        return 1;
-      }
-
-      return 0;
-    });
-
-    return sorted;
-  }, []);
-
   return {
     state,
     delegationValidators,
@@ -303,7 +283,6 @@ export const useValidators = () => {
     handleSort,
     handleSearch,
     sortItems,
-    sortForbole,
     search,
   };
 };

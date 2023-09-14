@@ -7,7 +7,6 @@ import { useValidatorsQuery, ValidatorsQuery } from '@/graphql/types/general_typ
 import { SlashingParams } from '@/models';
 import type {
   ValidatorsCoinsConditionType,
-  ItemType,
   ValidatorsState,
   ValidatorType,
 } from '@/screens/validators/components/list/types';
@@ -185,26 +184,6 @@ export const useValidators = () => {
   const [delegationValidators] = useState<ValidatorsCoinsConditionType[]>([]);
   const rewardValidators = undefined as ValidatorsCoinsConditionType[] | undefined;
 
-  const sortForbole = useCallback((items: ItemType[]) => {
-    const sorted: ItemType[] = R.clone(items);
-
-    sorted.sort((a, b) => {
-      const compareA = a.validator.name.toLowerCase();
-      const compareB = b.validator.name.toLowerCase();
-
-      if (compareA === 'forbole' && compareB !== 'forbole') {
-        return -1;
-      }
-      if (compareA !== 'forbole' && compareB === 'forbole') {
-        return 1;
-      }
-
-      return 0;
-    });
-
-    return sorted;
-  }, []);
-
   return {
     state,
     delegationValidators,
@@ -213,7 +192,6 @@ export const useValidators = () => {
     handleSort,
     handleSearch,
     sortItems,
-    sortForbole,
     search,
   };
 };

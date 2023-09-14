@@ -52,7 +52,7 @@ const { network, keplrConfig } = chainConfig();
 const keplr = keplrConfig?.keplr;
 
 let keplrCustomChainInfo: ChainInfo | undefined;
-if (keplr !== undefined && keplr !== '') {
+if (keplr) {
   keplrCustomChainInfo = JSON.parse(keplr);
 }
 

@@ -6,9 +6,7 @@ const useAvatarNameFilterHook = (setValidatorAvatarAddress: (address: string) =>
   const handleOnChange = (_: React.ChangeEvent<any>, value: AvatarName | null) => {
     setSelectedOption(value);
     if (value) {
-      setValidatorAvatarAddress(value.address);
-    } else {
-      setValidatorAvatarAddress('');
+      setValidatorAvatarAddress(value?.address || '');
     }
   };
 

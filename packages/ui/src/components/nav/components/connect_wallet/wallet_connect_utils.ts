@@ -14,7 +14,7 @@ const { network, keplrConfig } = chainConfig();
 const keplr = keplrConfig?.keplr;
 
 let keplrCustomChainInfo: ChainInfo | undefined;
-if (keplr !== undefined && keplr !== '') {
+if (keplr) {
   keplrCustomChainInfo = JSON.parse(keplr);
 }
 
@@ -53,12 +53,12 @@ export async function ConnectClient(clientNew: ISignClient) {
       try {
         session = await approval();
       } catch (error) {
-        return { undefined, error };
+        return { error };
       }
     }
   } catch (error) {
-    return { undefined, error };
+    return { error };
   }
 
-  return { session, undefined };
+  return { session };
 }

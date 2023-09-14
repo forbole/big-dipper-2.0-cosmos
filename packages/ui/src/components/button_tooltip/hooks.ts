@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import { readIsUserLoggedIn } from '@/recoil/user';
 
@@ -10,9 +10,9 @@ const useButtonTooltipHook = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpen(false);
-  };
+  }, []);
 
   useEffect(() => {
     if (!loggedIn) {

@@ -69,7 +69,6 @@ jest.mock('@/screens/validators/components/list/hooks', () => ({
     handleSort: () => jest.fn(),
     handleSearch: () => jest.fn(),
     sortItems: () => jest.fn(),
-    sortForbole: () => jest.fn(),
   }),
 }));
 
