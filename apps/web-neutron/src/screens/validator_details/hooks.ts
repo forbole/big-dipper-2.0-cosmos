@@ -49,11 +49,8 @@ const initialState: ValidatorDetailsState = {
 // overview
 // ============================
 const formatOverview = (data: ValidatorDetailsQuery) => {
-  const operatorAddress =
-    data?.ccv_validator?.[0]?.ccv_validator_info?.validator?.validatorInfo?.operatorAddress ?? '';
-  const selfDelegateAddress =
-    data?.ccv_validator?.[0]?.ccv_validator_info?.validator?.validatorInfo?.selfDelegateAddress ??
-    '';
+  const operatorAddress = data?.ccv_validator?.[0]?.consumer_operator_address ?? '';
+  const selfDelegateAddress = data?.ccv_validator?.[0]?.consumer_self_delegate_address ?? '';
   const profile = {
     validator: operatorAddress,
     operatorAddress,

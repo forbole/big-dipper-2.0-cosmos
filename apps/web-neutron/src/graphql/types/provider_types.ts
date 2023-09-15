@@ -19495,7 +19495,7 @@ export type ValidatorDetailsQueryVariables = Exact<{
 }>;
 
 
-export type ValidatorDetailsQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', ccv_validator_info?: { __typename?: 'provider_validator_info', validator: { __typename?: 'provider_validator', validatorDescriptions: Array<{ __typename?: 'provider_validator_description', details?: string | null, website?: string | null }>, validatorStatuses: Array<{ __typename?: 'provider_validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'provider_validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null, maxRate: string } | null, validatorCommissions: Array<{ __typename?: 'provider_validator_commission', commission: any }>, validatorVotingPowers: Array<{ __typename?: 'provider_validator_voting_power', height: any, votingPower: any }> } } | null }>, bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', stakingPool: Array<{ __typename?: 'bdjuno_provider_staking_pool', height: any, bonded: string }>, slashingParams: Array<{ __typename?: 'bdjuno_provider_slashing_params', params: any }> } | null };
+export type ValidatorDetailsQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', consumer_operator_address: string, consumer_self_delegate_address: string, ccv_validator_info?: { __typename?: 'provider_validator_info', validator: { __typename?: 'provider_validator', validatorDescriptions: Array<{ __typename?: 'provider_validator_description', details?: string | null, website?: string | null }>, validatorStatuses: Array<{ __typename?: 'provider_validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'provider_validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'provider_validator_info', operatorAddress: string, selfDelegateAddress?: string | null, maxRate: string } | null, validatorCommissions: Array<{ __typename?: 'provider_validator_commission', commission: any }>, validatorVotingPowers: Array<{ __typename?: 'provider_validator_voting_power', height: any, votingPower: any }> } } | null }>, bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', stakingPool: Array<{ __typename?: 'bdjuno_provider_staking_pool', height: any, bonded: string }>, slashingParams: Array<{ __typename?: 'bdjuno_provider_slashing_params', params: any }> } | null };
 
 export type ValidatorConsensusAddressesListQueryVariables = Exact<{
   address: Scalars['String'];
@@ -20151,6 +20151,8 @@ export type ValidatorLastSeenListenerSubscriptionResult = Apollo.SubscriptionRes
 export const ValidatorDetailsDocument = gql`
     query ValidatorDetails($address: String) {
   ccv_validator(where: {consumer_operator_address: {_eq: $address}}) {
+    consumer_operator_address
+    consumer_self_delegate_address
     ccv_validator_info {
       validator {
         validatorDescriptions: validator_descriptions(

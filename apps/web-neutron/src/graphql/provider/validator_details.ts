@@ -35,6 +35,8 @@ export const ValidatorLastSeenListenerDocument = /* GraphQL */ `
 export const ValidatorDetailsDocument = /* GraphQL */ `
   query ValidatorDetails($address: String) {
     ccv_validator(where: { consumer_operator_address: { _eq: $address } }) {
+      consumer_operator_address
+      consumer_self_delegate_address
       ccv_validator_info {
         validator {
           validatorDescriptions: validator_descriptions(order_by: { height: desc }, limit: 1) {
