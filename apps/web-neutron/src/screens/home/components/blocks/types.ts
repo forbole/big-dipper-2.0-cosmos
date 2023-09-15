@@ -4,7 +4,7 @@ import {
 } from 'ui/src/screens/home/components/blocks/types';
 
 export type BlockType = BlockTypeBase & {
-  operatorAddress: string;
+  consumerOperatorAddress: string;
 };
 
 export type BlocksState = Omit<BlockStateBase, 'items'> & {

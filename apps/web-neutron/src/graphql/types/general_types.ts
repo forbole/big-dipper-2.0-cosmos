@@ -19422,7 +19422,7 @@ export type BlocksListenerSubscriptionVariables = Exact<{
 }>;
 
 
-export type BlocksListenerSubscription = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, validator?: { __typename?: 'validator', validatorInfo: Array<{ __typename?: 'validator_signing_info', operatorAddress: string, ccv_validator_signing_info?: { __typename?: 'ccv_validator', providerOperatorAddress: string } | null }> } | null }> };
+export type BlocksListenerSubscription = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, ccv_validator?: { __typename?: 'ccv_validator', consumer_operator_address: string } | null, validator?: { __typename?: 'validator', validatorInfo: Array<{ __typename?: 'validator_signing_info', operatorAddress: string, ccv_validator_signing_info?: { __typename?: 'ccv_validator', providerOperatorAddress: string } | null }> } | null }> };
 
 export type BlocksQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -19430,7 +19430,7 @@ export type BlocksQueryVariables = Exact<{
 }>;
 
 
-export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, ccv_validator?: { __typename?: 'ccv_validator', validator?: { __typename?: 'provider_validator', validatorInfo?: { __typename?: 'provider_validator_info', self_delegate_address?: string | null, operatorAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, identity?: string | null }> } | null } | null }> };
+export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, ccv_validator?: { __typename?: 'ccv_validator', consumer_operator_address: string, validator?: { __typename?: 'provider_validator', validatorInfo?: { __typename?: 'provider_validator_info', self_delegate_address?: string | null, operatorAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, identity?: string | null }> } | null } | null }> };
 
 export type ChainIdQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -19686,6 +19686,9 @@ export const BlocksListenerDocument = gql`
     txs: num_txs
     hash
     timestamp
+    ccv_validator {
+      consumer_operator_address
+    }
     validator {
       validatorInfo: validator_signing_infos {
         operatorAddress: validator_address
@@ -19729,6 +19732,7 @@ export const BlocksDocument = gql`
     hash
     timestamp
     ccv_validator {
+      consumer_operator_address
       validator {
         validatorInfo: validator_info {
           operatorAddress: operator_address

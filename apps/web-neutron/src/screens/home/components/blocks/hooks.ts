@@ -4,20 +4,20 @@ import {
   BlocksListenerSubscription,
   useBlocksListenerSubscription,
 } from '@/graphql/types/general_types';
-import type { BlocksState } from '@/screens/home/components/blocks/types';
+import type { BlocksState, ItemType } from '@/screens/home/components/blocks/types';
 
-const formatBlocks = (data: BlocksListenerSubscription) =>
+const formatBlocks = (data: BlocksListenerSubscription): ItemType[] =>
   data.blocks.map((x) => {
     const proposerAddress =
       x?.validator?.validatorInfo?.[0].ccv_validator_signing_info?.providerOperatorAddress ?? '';
-    const operatorAddress = x?.validator?.validatorInfo?.[0].operatorAddress ?? '';
+    const consumerOperatorAddress = x?.ccv_validator?.consumer_operator_address ?? '';
     return {
       height: x.height,
       txs: x.txs ?? 0,
       hash: x.hash,
       timestamp: x.timestamp,
       proposer: proposerAddress,
-      operatorAddress,
+      consumerOperatorAddress,
     };
   }) ?? [];
 

@@ -52,7 +52,7 @@ const BlockRow: FC<BlockRowProps> = ({ item }) => {
   const { profile } = useProviderCustomValidator(item.proposer);
   const name = profile?.name ?? item.proposer;
   const imageUrl = profile?.imageUrl ?? '';
-  const address = item.operatorAddress;
+  const address = item.consumerOperatorAddress;
 
   const formattedData = {
     height: (

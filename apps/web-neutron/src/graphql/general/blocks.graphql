@@ -4,6 +4,9 @@ subscription BlocksListener($limit: Int = 7, $offset: Int = 0) {
     txs: num_txs
     hash
     timestamp
+    ccv_validator {
+      consumer_operator_address
+    }
     validator {
       validatorInfo: validator_signing_infos {
         operatorAddress: validator_address
@@ -23,6 +26,7 @@ query Blocks($limit: Int = 7, $offset: Int = 0) {
     hash
     timestamp
     ccv_validator {
+      consumer_operator_address
       validator {
         validatorInfo: validator_info {
           operatorAddress: operator_address
