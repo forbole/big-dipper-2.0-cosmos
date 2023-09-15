@@ -17,7 +17,7 @@ import { ComponentProps, CSSProperties, FC, LegacyRef, ReactNode } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
-import { resolveProfileAddress } from '@/screens/blocks/utils';
+import { resolveProfile } from '@/screens/blocks/utils';
 
 type BlockItemProps = {
   item: ItemType;
@@ -29,7 +29,7 @@ type BlockItemProps = {
 
 const BlockItem: FC<BlockItemProps> = ({ item, rowIndex, column, style, align }) => {
   const profile = useProfileRecoil(item.proposer);
-  const { address, imageUrl, name } = resolveProfileAddress(item, profile);
+  const { address, imageUrl, name } = resolveProfile(item, profile);
   const { classes, cx } = useStyles();
   let formattedItem: ReactNode | null = null;
   switch (column) {

@@ -1,3 +1,3 @@
 import { ItemType } from '@/screens/blocks/types';
 
-export const resolveProfileAddress = (_item: ItemType, profile: AvatarName) => profile;
+export const resolveProfile = (_item: ItemType, profile: AvatarName) => profile;
