@@ -28,12 +28,14 @@ const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
     formattedData?.map((x) => {
       const proposerAddress =
         x?.validator?.validatorInfo[0].ccv_validator_signing_info?.providerOperatorAddress ?? '';
+      const consumerOperatorAddress = x?.ccv_validator?.consumer_operator_address ?? '';
       return {
         height: x.height,
         txs: x.txs ?? 0,
         hash: x.hash,
         timestamp: x.timestamp,
         proposer: proposerAddress,
+        consumerOperatorAddress,
       };
     }) ?? []
   );
@@ -47,12 +49,14 @@ const formatBlocksQuery = (data: BlocksQuery): BlockType[] => {
   return (
     formattedData?.map((x) => {
       const proposerAddress = x?.ccv_validator?.validator?.validatorInfo?.operatorAddress ?? '';
+      const consumerOperatorAddress = x?.ccv_validator?.consumer_operator_address ?? '';
       return {
         height: x.height,
         txs: x.txs ?? 0,
         hash: x.hash,
         timestamp: x.timestamp,
         proposer: proposerAddress,
+        consumerOperatorAddress,
       };
     }) ?? []
   );

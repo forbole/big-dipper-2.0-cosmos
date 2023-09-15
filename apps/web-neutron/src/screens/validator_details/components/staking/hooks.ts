@@ -92,15 +92,18 @@ export const formatUnbondings = (data: Undelegations[]) => {
 export const useStaking = (
   delegationsPage: number,
   redelegationsPage: number,
-  unbondingsPage: number
+  unbondingsPage: number,
+  address?: string
 ) => {
   const router = useRouter();
   const [state, setState] = useState<StakingState>({
     tab: 0,
   });
-  const validatorAddress = Array.isArray(router?.query?.address)
-    ? router.query.address[0]
-    : router?.query?.address ?? '';
+  const validatorAddress =
+    address ||
+    (Array.isArray(router?.query?.address)
+      ? router.query.address[0]
+      : router?.query?.address ?? '');
 
   // =====================================
   // delegations

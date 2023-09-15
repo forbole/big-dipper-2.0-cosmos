@@ -16,7 +16,7 @@ const { extra } = chainConfig();
  * @param address
  */
 export const useProfileRecoil = (address: string): AvatarName => {
-  const profiles = useRecoilValue(readProfile(address));
+  const profile = useRecoilValue(readProfile(address));
   const delegatorAddress = useRecoilValue(readDelegatorAddress(address));
 
   // ==========================
@@ -27,7 +27,7 @@ export const useProfileRecoil = (address: string): AvatarName => {
     skip: !extra.profile || !delegatorAddress,
   });
 
-  return profiles;
+  return profile;
 };
 
 /**

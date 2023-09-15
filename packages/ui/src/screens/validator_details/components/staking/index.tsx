@@ -35,7 +35,11 @@ export function formatCount(
   return numeral(page * ROWS_PER_PAGE + length).format('0,0');
 }
 
-const Staking: FC<ComponentDefault> = (props) => {
+type StakingProps = ComponentDefault & {
+  address?: string;
+};
+
+const Staking: FC<StakingProps> = ({ address, ...props }) => {
   const { classes, cx } = useStyles();
   const [delegationsPage, setDelegationsPage] = useState(0);
   const [redelegationsPage, setRedelegationsPage] = useState(0);
@@ -43,7 +47,8 @@ const Staking: FC<ComponentDefault> = (props) => {
   const { state, delegations, redelegations, unbondings, handleTabChange } = useStaking(
     delegationsPage,
     redelegationsPage,
-    unbondingsPage
+    unbondingsPage,
+    address
   );
 
   const tabs = [

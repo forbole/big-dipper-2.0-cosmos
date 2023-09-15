@@ -41,7 +41,7 @@ const ValidatorDetails = () => {
               status={status.status}
             />
             <Blocks className={classes.blocks} />
-            <Staking className={classes.staking} />
+            <Staking className={classes.staking} address={state.overview.operatorAddress} />
             <Transactions className={classes.transactions} />
           </span>
         </LoadAndExist>

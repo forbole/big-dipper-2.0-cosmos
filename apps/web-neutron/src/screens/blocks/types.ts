@@ -1,17 +1,14 @@
-export interface BlockType {
-  height: number;
-  txs: number;
-  timestamp: string;
-  proposer: string;
-  hash: string;
-}
+import {
+  BlockType as BlockTypeBase,
+  BlocksState as BlocksStateBase,
+} from 'ui/src/screens/blocks/types';
 
-export interface BlocksState {
-  loading: boolean;
-  exists: boolean;
-  hasNextPage: boolean;
-  isNextPageLoading: boolean;
+export type BlockType = BlockTypeBase & {
+  consumerOperatorAddress: string;
+};
+
+export type BlocksState = Omit<BlocksStateBase, 'items'> & {
   items: BlockType[];
-}
+};
 
 export type ItemType = BlockType;
