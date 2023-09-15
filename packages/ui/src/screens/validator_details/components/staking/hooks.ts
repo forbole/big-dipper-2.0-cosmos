@@ -16,31 +16,15 @@ import type {
 } from '@/screens/validator_details/components/staking/types';
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
+import {
+  Delegations,
+  Redelegations,
+  Undelegations,
+} from '@/screens/validator_details/components/staking/types';
 
 const { primaryTokenUnit } = chainConfig();
 
 export const ROWS_PER_PAGE = 10;
-
-export type Delegations = {
-  coins: MsgCoin[];
-  entries: Array<{
-    balance: string;
-  }>;
-};
-
-export type Redelegations = {
-  delegator_address: string;
-  validator_dst_address: string;
-  entries: Array<{
-    balance: string;
-  }>;
-};
-
-export type Undelegations = {
-  entries: Array<{
-    balance: string;
-  }>;
-};
 
 export const formatDelegations = (data: Delegations[]) =>
   data

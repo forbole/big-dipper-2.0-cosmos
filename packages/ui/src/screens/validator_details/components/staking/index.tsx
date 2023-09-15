@@ -39,7 +39,7 @@ type StakingProps = ComponentDefault & {
   address?: string;
 };
 
-const Staking: FC<StakingProps> = ({ address, ...props }) => {
+const Staking: FC<StakingProps> = ({ address, className }) => {
   const { classes, cx } = useStyles();
   const [delegationsPage, setDelegationsPage] = useState(0);
   const [redelegationsPage, setRedelegationsPage] = useState(0);
@@ -73,7 +73,7 @@ const Staking: FC<StakingProps> = ({ address, ...props }) => {
   ];
 
   return (
-    <Box className={cx(classes.root, props.className)}>
+    <Box className={cx(classes.root, className)}>
       <Tabs tab={state.tab} handleTabChange={handleTabChange} tabs={tabs} />
       {tabs.map((x) => (
         <TabPanel key={x.id} index={x.id} value={state.tab}>
