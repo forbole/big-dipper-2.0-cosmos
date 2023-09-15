@@ -21,14 +21,14 @@ const { primaryTokenUnit } = chainConfig();
 
 export const ROWS_PER_PAGE = 10;
 
-type Delegations = {
+export type Delegations = {
   coins: MsgCoin[];
   entries: Array<{
     balance: string;
   }>;
 };
 
-type Redelegations = {
+export type Redelegations = {
   delegator_address: string;
   validator_dst_address: string;
   entries: Array<{
@@ -36,7 +36,7 @@ type Redelegations = {
   }>;
 };
 
-type Undelegations = {
+export type Undelegations = {
   entries: Array<{
     balance: string;
   }>;

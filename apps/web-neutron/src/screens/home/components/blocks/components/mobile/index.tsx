@@ -20,7 +20,7 @@ const BlocksItem: FC<BlocksItemProps> = ({ item, i, isLast }) => {
   const { profile } = useProviderCustomValidator(item.proposer);
   const name = profile?.name ?? item.proposer;
   const imageUrl = profile?.imageUrl ?? '';
-  const address = profile?.address ?? item.proposer;
+  const address = item.consumerOperatorAddress;
   return (
     <Fragment key={`${i}-${item.hash}`}>
       <SingleBlockMobile

@@ -101,7 +101,8 @@ export const useStaking = (
   rewards: RewardsType,
   delegationsPage: number,
   redelegationsPage: number,
-  unbondingsPage: number
+  unbondingsPage: number,
+  addressParam: string
 ) => {
   const router = useRouter();
   const [state, setState] = useState<StakingState>({
@@ -142,9 +143,11 @@ export const useStaking = (
 
   const { data: valAddressesInfo } = useValidatorAddressesQuery();
 
-  const address = Array.isArray(router?.query?.address)
-    ? router.query.address[0]
-    : router?.query?.address ?? '';
+  const address =
+    addressParam ||
+    (Array.isArray(router?.query?.address)
+      ? router.query.address[0]
+      : router?.query?.address ?? '');
 
   const [providerAddress, setProviderAddress] = useState(address);
 
