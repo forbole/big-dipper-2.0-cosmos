@@ -10,12 +10,14 @@ const formatBlocks = (data: BlocksListenerSubscription) =>
   data.blocks.map((x) => {
     const proposerAddress =
       x?.validator?.validatorInfo?.[0].ccv_validator_signing_info?.providerOperatorAddress ?? '';
+    const operatorAddress = x?.validator?.validatorInfo?.[0].operatorAddress ?? '';
     return {
       height: x.height,
       txs: x.txs ?? 0,
       hash: x.hash,
       timestamp: x.timestamp,
       proposer: proposerAddress,
+      operatorAddress,
     };
   }) ?? [];
 
