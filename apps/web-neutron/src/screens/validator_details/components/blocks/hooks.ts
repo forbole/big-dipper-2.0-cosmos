@@ -20,14 +20,14 @@ type BlocksState = {
   signed: boolean;
 }[];
 
-export const useBlocks = () => {
+export const useBlocks = (address?: string) => {
   const [state, setState] = useState<BlocksState>([]);
 
   const router = useRouter();
 
   const { loading } = useLastHundredBlocksSubscription({
     variables: {
-      address: (router?.query?.address as string) ?? '',
+      address: address ?? (router?.query?.address as string) ?? '',
     },
     onData: (data) => {
       if (!data.data.data) return;

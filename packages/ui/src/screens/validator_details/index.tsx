@@ -40,7 +40,10 @@ const ValidatorDetails = () => {
               data={votingPower}
               status={status.status}
             />
-            <Blocks className={classes.blocks} />
+            <Blocks
+              className={classes.blocks}
+              address={cosmosAddress || state.overview.operatorAddress}
+            />
             <Staking
               className={classes.staking}
               address={cosmosAddress || state.overview.operatorAddress}
