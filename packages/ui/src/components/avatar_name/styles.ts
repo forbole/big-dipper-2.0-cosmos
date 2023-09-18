@@ -15,6 +15,7 @@ const useStyles = makeStyles()((theme) => ({
   noLink: {
     '&&': {
       cursor: 'default',
+      color: theme.palette.custom.fonts.fontOne,
       '&:hover': {
         cursor: 'default',
       },

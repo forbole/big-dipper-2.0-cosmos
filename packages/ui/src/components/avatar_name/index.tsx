@@ -17,9 +17,17 @@ const AvatarName: FC<AvatarNameProps> = ({
   image,
   target,
   location,
+  noLink,
   ...props
 }) => {
   const { classes, cx } = useStyles();
+
+  const content = (
+    <span className={cx(classes.root, { [classes.noLink]: noLink }, className)} {...props}>
+      <Avatar className={classes.avatar} address={address} imageUrl={imageUrl ?? undefined} />
+      <AddressEllipsis className={cx(classes.text, { [classes.noLink]: noLink })} content={name} />
+    </span>
+  );
 
   return (
     <Tooltip
@@ -30,12 +38,13 @@ const AvatarName: FC<AvatarNameProps> = ({
       PopperProps={{ className: classes.popper }}
       slotProps={{ tooltip: { className: classes.tooltip } }}
     >
-      <Link shallow href={href(address)} target={target}>
-        <span className={cx(classes.root, className)} {...props}>
-          <Avatar className={classes.avatar} address={address} imageUrl={imageUrl ?? undefined} />
-          <AddressEllipsis className={classes.text} content={name} />
-        </span>
-      </Link>
+      {noLink ? (
+        <div>{content}</div>
+      ) : (
+        <Link shallow href={href(address)} target={target}>
+          {content}
+        </Link>
+      )}
     </Tooltip>
   );
 };
