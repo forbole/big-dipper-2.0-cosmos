@@ -1,6 +1,6 @@
 import Avatar from '@/components/avatar';
 import useStyles from '@/components/avatar_name/styles';
-import MiddleEllipsis from '@/components/MiddleEllipsis';
+import AddressEllipsis from '@/components/AddressEllipsis';
 import { ADDRESS_DETAILS } from '@/utils/go_to_page';
 import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
@@ -31,7 +31,7 @@ const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div']> = ({
       <Link shallow href={href(address)} target={target}>
         <span className={cx(classes.root, className)} {...props}>
           <Avatar className={classes.avatar} address={address} imageUrl={imageUrl ?? undefined} />
-          <MiddleEllipsis className={classes.text} content={name} />
+          <AddressEllipsis className={classes.text} content={name} />
         </span>
       </Link>
     </Tooltip>
