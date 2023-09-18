@@ -6,8 +6,9 @@ import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
 import Link from 'next/link';
 import { FC } from 'react';
+import { AvatarNameProps } from '@/components/avatar_name/types';
 
-const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div'] & { displayAddress?: string }> = ({
+const AvatarName: FC<AvatarNameProps> = ({
   className,
   address,
   name,
@@ -15,12 +16,21 @@ const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div'] & { displayAddres
   href = ADDRESS_DETAILS,
   image,
   target,
+  location,
   displayAddress,
   ...props
 }) => {
+  const noLink = ['delegationRow', 'unboundingRow', 'redelegationRow'].includes(location as string);
   const { classes, cx } = useStyles();
 
   const adx = displayAddress || address;
+
+  const content = (
+    <span className={cx(classes.root, { [classes.noLink]: noLink }, className)} {...props}>
+      <Avatar className={classes.avatar} address={address} imageUrl={imageUrl ?? undefined} />
+      <AddressEllipsis className={classes.text} content={name} />
+    </span>
+  );
 
   return (
     <Tooltip
@@ -31,12 +41,13 @@ const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div'] & { displayAddres
       PopperProps={{ className: classes.popper }}
       slotProps={{ tooltip: { className: classes.tooltip } }}
     >
-      <Link shallow href={href(adx)} target={target}>
-        <span className={cx(classes.root, className)} {...props}>
-          <Avatar className={classes.avatar} address={address} imageUrl={imageUrl ?? undefined} />
-          <AddressEllipsis className={classes.text} content={name} />
-        </span>
-      </Link>
+      {noLink ? (
+        <div>{content}</div>
+      ) : (
+        <Link shallow href={href(adx)} target={target}>
+          {content}
+        </Link>
+      )}
     </Tooltip>
   );
 };

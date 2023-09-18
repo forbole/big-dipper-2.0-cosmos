@@ -6,8 +6,9 @@ import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
 import Link from 'next/link';
 import { FC } from 'react';
+import { AvatarNameProps } from '@/components/avatar_name/types';
 
-const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div']> = ({
+const AvatarName: FC<AvatarNameProps> = ({
   className,
   address,
   name,
@@ -15,6 +16,7 @@ const AvatarName: FC<AvatarName & JSX.IntrinsicElements['div']> = ({
   href = ADDRESS_DETAILS,
   image,
   target,
+  location,
   ...props
 }) => {
   const { classes, cx } = useStyles();

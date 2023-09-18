@@ -29,7 +29,7 @@ const UnbondingsItem: FC<UnbondingsItemProps> = ({ item, isLast }) => {
           <Typography variant="h4" className="label">
             {t('validator')}
           </Typography>
-          <AvatarName address={address} imageUrl={imageUrl} name={name} />
+          <AvatarName address={address} imageUrl={imageUrl} name={name} location="unboundingRow" />
         </div>
         <div className={classes.item}>
           <Typography variant="h4" className="label">

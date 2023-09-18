@@ -12,6 +12,14 @@ const useStyles = makeStyles()((theme) => ({
       cursor: 'pointer',
     },
   },
+  noLink: {
+    '&&': {
+      cursor: 'default',
+      '&:hover': {
+        cursor: 'default',
+      },
+    },
+  },
   avatar: {
     flex: `0 0 ${theme.spacing(3.5)}`,
   },

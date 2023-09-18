@@ -26,7 +26,7 @@ const DelegationsItem: FC<DelegationsItemProps> = ({ i, item, isLast }) => {
           <Typography variant="h4" className="label">
             {t('address')}
           </Typography>
-          <AvatarName name={name} address={address} imageUrl={imageUrl} />
+          <AvatarName name={name} address={address} imageUrl={imageUrl} location="delegationRow" />
         </div>
         <div className={classes.item}>
           <Typography variant="h4" className="label">
