@@ -235,7 +235,7 @@ export const useAccountDetails = () => {
 
   const [providerAddress, setProviderAddress] = useState(address);
 
-  const [_consumerAddress, setConsumerAddress] = useState(address);
+  const [, setConsumerAddress] = useState(address);
 
   useEffect(() => {
     let provider = '';
@@ -355,6 +355,3 @@ export const useAccountDetails = () => {
 
   return { state };
 };
-// function useBoundingBalance(_address?: string) {
-//   throw new Error('Function not implemented.');
-// }

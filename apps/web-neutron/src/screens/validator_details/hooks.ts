@@ -21,6 +21,7 @@ const initialTokenDenom: TokenUnit = {
 const initialState: ValidatorDetailsState = {
   exists: true,
   desmosProfile: null,
+  cosmosAddress: '',
   overview: {
     validator: '',
     operatorAddress: '',
@@ -157,6 +158,8 @@ export const useValidatorDetails = () => {
 function formatAccountQuery(data: ValidatorDetailsQuery): Partial<ValidatorDetailsState> {
   const stateChange: Partial<ValidatorDetailsState> = {};
   const validator = data?.ccv_validator?.[0]?.ccv_validator_info?.validator;
+  const cosmosAddress =
+    data?.ccv_validator?.[0]?.ccv_validator_info?.validator?.validatorInfo?.operatorAddress ?? '';
 
   if (!validator) {
     stateChange.exists = false;
@@ -167,6 +170,7 @@ function formatAccountQuery(data: ValidatorDetailsQuery): Partial<ValidatorDetai
 
   stateChange.status = formatStatus(data);
   stateChange.votingPower = formatVotingPower(data);
+  stateChange.cosmosAddress = cosmosAddress;
 
   return stateChange;
 }

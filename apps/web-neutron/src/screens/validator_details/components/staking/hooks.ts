@@ -105,6 +105,7 @@ export const useStaking = (
       pagination: false,
     },
   });
+
   useEffect(() => {
     if (delegationsLoading) return;
     if (delegationsError) {

@@ -28,6 +28,7 @@ export interface ValidatorDetailsState {
   exists: boolean;
   desmosProfile: DesmosProfile | null;
   overview: OverviewType;
+  cosmosAddress?: string;
   status: StatusType;
   votingPower: VotingPowerType;
 }
