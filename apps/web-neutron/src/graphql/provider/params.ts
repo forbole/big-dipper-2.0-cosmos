@@ -7,6 +7,9 @@ query Params {
     instantiate_default_permission
     code_upload_access
   }
+  ccv_consumer_params {
+        params
+  }
   bdjuno_provider {
     distribution_params {
       params

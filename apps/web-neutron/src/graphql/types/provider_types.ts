@@ -19474,7 +19474,7 @@ export type OnlineVotingPowerQuery = { bdjuno_provider?: { __typename?: 'bdjuno_
 export type ParamsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ParamsQuery = { slashingParams: Array<{ __typename?: 'slashing_params', params: any }>, wasmParams: Array<{ __typename?: 'wasm_params', instantiate_default_permission: number, code_upload_access: any }>, bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', distribution_params: Array<{ __typename?: 'bdjuno_provider_distribution_params', params: any }>, mint_params: Array<{ __typename?: 'bdjuno_provider_mint_params', params: any }>, gov_params: Array<{ __typename?: 'bdjuno_provider_gov_params', deposit_params: any, height: any, one_row_id: boolean, tally_params: any, voting_params: any }>, staking_params: Array<{ __typename?: 'bdjuno_provider_staking_params', params: any }> } | null };
+export type ParamsQuery = { slashingParams: Array<{ __typename?: 'slashing_params', params: any }>, wasmParams: Array<{ __typename?: 'wasm_params', instantiate_default_permission: number, code_upload_access: any }>, ccv_consumer_params: Array<{ __typename?: 'ccv_consumer_params', params: any }>, bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', distribution_params: Array<{ __typename?: 'bdjuno_provider_distribution_params', params: any }>, mint_params: Array<{ __typename?: 'bdjuno_provider_mint_params', params: any }>, gov_params: Array<{ __typename?: 'bdjuno_provider_gov_params', deposit_params: any, height: any, one_row_id: boolean, tally_params: any, voting_params: any }>, staking_params: Array<{ __typename?: 'bdjuno_provider_staking_params', params: any }> } | null };
 
 export type LastHundredBlocksSubscriptionVariables = Exact<{
   address?: InputMaybe<Scalars['String']>;
@@ -20022,6 +20022,9 @@ export const ParamsDocument = gql`
   wasmParams: wasm_params(limit: 1, order_by: {height: desc}) {
     instantiate_default_permission
     code_upload_access
+  }
+  ccv_consumer_params {
+    params
   }
   bdjuno_provider {
     distribution_params {
