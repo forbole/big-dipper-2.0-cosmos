@@ -60,3 +60,21 @@ query ProviderCustomValidator($providerAddress: String) {
   	}
   }
 }
+
+query ConsumerCustomValidator($consumerAddress: String) {
+  ccv_validator(where: {consumer_operator_address: {_eq: $consumerAddress}}) {
+    consumer_operator_address
+    ccv_validator_info {
+      operator_address
+      validator {
+        validatorDescriptions: validator_descriptions {
+          moniker
+          avatar_url
+          validator_address
+          website
+          details
+        }
+      }
+  	}
+  }
+}

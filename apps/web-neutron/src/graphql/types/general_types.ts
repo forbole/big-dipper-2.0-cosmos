@@ -19509,6 +19509,13 @@ export type ProviderCustomValidatorQueryVariables = Exact<{
 
 export type ProviderCustomValidatorQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', consumer_operator_address: string, ccv_validator_info?: { __typename?: 'provider_validator_info', operator_address: string, validator: { __typename?: 'provider_validator', validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, avatar_url?: string | null, validator_address: string, website?: string | null, details?: string | null }> } } | null }> };
 
+export type ConsumerCustomValidatorQueryVariables = Exact<{
+  consumerAddress?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ConsumerCustomValidatorQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', consumer_operator_address: string, ccv_validator_info?: { __typename?: 'provider_validator_info', operator_address: string, validator: { __typename?: 'provider_validator', validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, avatar_url?: string | null, validator_address: string, website?: string | null, details?: string | null }> } } | null }> };
+
 
 export const BlockDetailsDocument = gql`
     query BlockDetails($height: bigint, $signatureHeight: bigint) {
@@ -20267,3 +20274,50 @@ export function useProviderCustomValidatorLazyQuery(baseOptions?: Apollo.LazyQue
 export type ProviderCustomValidatorQueryHookResult = ReturnType<typeof useProviderCustomValidatorQuery>;
 export type ProviderCustomValidatorLazyQueryHookResult = ReturnType<typeof useProviderCustomValidatorLazyQuery>;
 export type ProviderCustomValidatorQueryResult = Apollo.QueryResult<ProviderCustomValidatorQuery, ProviderCustomValidatorQueryVariables>;
+export const ConsumerCustomValidatorDocument = gql`
+    query ConsumerCustomValidator($consumerAddress: String) {
+  ccv_validator(where: {consumer_operator_address: {_eq: $consumerAddress}}) {
+    consumer_operator_address
+    ccv_validator_info {
+      operator_address
+      validator {
+        validatorDescriptions: validator_descriptions {
+          moniker
+          avatar_url
+          validator_address
+          website
+          details
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useConsumerCustomValidatorQuery__
+ *
+ * To run a query within a React component, call `useConsumerCustomValidatorQuery` and pass it any options that fit your needs.
+ * When your component renders, `useConsumerCustomValidatorQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useConsumerCustomValidatorQuery({
+ *   variables: {
+ *      consumerAddress: // value for 'consumerAddress'
+ *   },
+ * });
+ */
+export function useConsumerCustomValidatorQuery(baseOptions?: Apollo.QueryHookOptions<ConsumerCustomValidatorQuery, ConsumerCustomValidatorQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ConsumerCustomValidatorQuery, ConsumerCustomValidatorQueryVariables>(ConsumerCustomValidatorDocument, options);
+      }
+export function useConsumerCustomValidatorLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ConsumerCustomValidatorQuery, ConsumerCustomValidatorQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ConsumerCustomValidatorQuery, ConsumerCustomValidatorQueryVariables>(ConsumerCustomValidatorDocument, options);
+        }
+export type ConsumerCustomValidatorQueryHookResult = ReturnType<typeof useConsumerCustomValidatorQuery>;
+export type ConsumerCustomValidatorLazyQueryHookResult = ReturnType<typeof useConsumerCustomValidatorLazyQuery>;
+export type ConsumerCustomValidatorQueryResult = Apollo.QueryResult<ConsumerCustomValidatorQuery, ConsumerCustomValidatorQueryVariables>;
