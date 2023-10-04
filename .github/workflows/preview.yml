@@ -61,8 +61,8 @@ jobs:
         env:
           PROJECT_NAME: ${{ matrix.project }}
           NEXT_PUBLIC_CHAIN_TYPE: ${{ github.event.inputs.chain_type }}
-      - name: Insall Vercel CLI
-        run: npm i -g vercel
+      - name: Install Vercel CLI
+        run: npm i -g vercel --legacy-peer-deps 
       - name: Generate vercel.json
         run: |
           node <<EOF > vercel.json
