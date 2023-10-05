@@ -20,6 +20,7 @@ const useStyles = makeStyles()((theme) => ({
     '&.open': {
       opacity: 1,
       visibility: 'visible',
+      overflow: 'auto',
     },
     '&.menu': {
       zIndex: 151,

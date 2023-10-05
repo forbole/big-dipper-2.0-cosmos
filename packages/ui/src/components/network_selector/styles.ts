@@ -19,6 +19,9 @@ const useStyles = makeStyles()((theme) => ({
       gap: 30,
       backgroundColor: theme.palette.custom.general.net_selector,
     },
+    '&.open-menu-margin': {
+      marginBottom: theme.spacing(27.5),
+    },
     cursor: 'pointer',
     '& .netIcon': {
       [theme.breakpoints.down(1025)]: {
@@ -90,6 +93,7 @@ const useStyles = makeStyles()((theme) => ({
         visibility: 'visible',
         opacity: 1,
       },
+      overflowY: 'auto',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',

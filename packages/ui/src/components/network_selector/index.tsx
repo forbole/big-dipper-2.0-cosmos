@@ -19,7 +19,7 @@ const isClient = typeof window === 'object';
 const NetworkSelector: FC<NetSelectorProps> = () => {
   const { classes, cx } = useStyles();
   const netNameLowercase = process.env.NEXT_PUBLIC_CHAIN_TYPE;
-  let netName: string = '';
+  let netName = '';
   let selectedNetwork: NetType = { name: '', link: '' };
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const { width } = getSize();
@@ -61,7 +61,10 @@ const NetworkSelector: FC<NetSelectorProps> = () => {
   if (windowWidth < 1025) {
     return (
       <ClickAwayListener onClickAway={() => setIsModalOpen(false)}>
-        <div className={cx(classes.root)} onClick={() => setIsModalOpen((prev) => !prev)}>
+        <div
+          className={cx(classes.root, isModalOpen ? 'open-menu-margin' : '')}
+          onClick={() => setIsModalOpen((prev) => !prev)}
+        >
           <IconConnected className="netIcon" />
           <div className={cx('netContent')}>
             <div className="currentNetName">{`${selectedNetwork.name}${
@@ -70,27 +73,30 @@ const NetworkSelector: FC<NetSelectorProps> = () => {
             <div className="currentNetLink">{selectedNetwork.link}</div>
           </div>
           <Arrow className={cx('arrowIcon', isModalOpen ? 'modalShow' : '')} />
-          <div className={cx('modal', isModalOpen ? 'modalShow' : '')}>
-            {networks.map((network, idx) => {
-              let isSelected = false;
-              if (selectedNetwork.name === network.name) isSelected = true;
-              return (
-                <a
-                  href={isSelected ? '#' : `https://${network.link}`}
-                  className={cx(
-                    'linkItem',
-                    selectedNetwork.name === network.name ? 'selectedItem' : ''
-                  )}
-                  key={`${network.name} ${idx}`}
-                >
-                  <div className="netName">{`${network.name} ${
-                    network.version ? network.version : ''
-                  }`}</div>
-                  <div className="netLink">{network.link}</div>
-                </a>
-              );
-            })}
-          </div>
+          {isModalOpen ? (
+            <div className={cx('modal', 'modalShow')}>
+              {networks.map((network, idx) => {
+                let isSelected = false;
+                if (selectedNetwork.name === network.name) isSelected = true;
+
+                return (
+                  <a
+                    href={isSelected ? '#' : `https://${network.link}`}
+                    className={cx(
+                      'linkItem',
+                      selectedNetwork.name === network.name ? 'selectedItem' : ''
+                    )}
+                    key={`${network.name} ${idx}`}
+                  >
+                    <div className="netName">{`${network.name} ${
+                      network.version ? network.version : ''
+                    }`}</div>
+                    <div className="netLink">{network.link}</div>
+                  </a>
+                );
+              })}
+            </div>
+          ) : null}
         </div>
       </ClickAwayListener>
     );

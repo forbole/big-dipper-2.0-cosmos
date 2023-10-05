@@ -6,6 +6,9 @@ const useStyles = makeStyles()((theme) => ({
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     padding: theme.spacing(3, 2),
+    background: theme.palette.background.default,
+    position: 'relative',
+    zIndex: 153,
   },
   a: {
     lineHeight: 0,
@@ -24,6 +27,8 @@ const useStyles = makeStyles()((theme) => ({
     display: 'flex',
     alignItems: 'center',
     minWidth: 0,
+    zIndex: 152,
+    background: theme.palette.background.default,
   },
   network: {
     zIndex: 150,
