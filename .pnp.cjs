@@ -190,7 +190,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.51.0"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.51.0"],\
             ["axios", "npm:1.3.3"],\
-            ["daysjs", "npm:1.0.2"],\
+            ["dayjs", "npm:1.11.7"],\
             ["dotenv", "npm:16.0.3"],\
             ["dotenv-cli", "npm:7.0.0"],\
             ["eslint", "npm:8.34.0"],\
@@ -8813,7 +8813,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.51.0"],\
             ["@typescript-eslint/parser", "virtual:680b866b1f607595b2b59758405cb64dff07d461aebb031486e5900d3b742457da054ab889d192b9338afd7b8895fdd9016de2dbb9d2a9b7e5b890949f153324#npm:5.51.0"],\
             ["axios", "npm:1.3.3"],\
-            ["daysjs", "npm:1.0.2"],\
+            ["dayjs", "npm:1.11.7"],\
             ["dotenv", "npm:16.0.3"],\
             ["dotenv-cli", "npm:7.0.0"],\
             ["eslint", "npm:8.34.0"],\
@@ -10095,15 +10095,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/dayjs-npm-1.11.7-d5cd5b2919-5003a7c1dd.zip/node_modules/dayjs/",\
           "packageDependencies": [\
             ["dayjs", "npm:1.11.7"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["daysjs", [\
-        ["npm:1.0.2", {\
-          "packageLocation": "./.yarn/unplugged/daysjs-npm-1.0.2-394f31efb3/node_modules/daysjs/",\
-          "packageDependencies": [\
-            ["daysjs", "npm:1.0.2"]\
           ],\
           "linkType": "HARD"\
         }]\

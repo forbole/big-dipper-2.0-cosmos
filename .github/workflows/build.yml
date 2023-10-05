@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+*"
 
 env:
   REPO: big-dipper-ui
@@ -24,9 +22,7 @@ jobs:
           fetch-depth: 0
       - name: Set Env
         run: |
-          echo "BUILD_SHA=${GITHUB_SHA::8}" >> $GITHUB_ENV
-          export FULL_IMAGE_NAME_WITH_GIT_TAG=${{ (startsWith(github.ref, 'refs/tags/') && format('{0}/{1}:{2}', env.ORG, env.REPO, github.ref_name)) || '' }}
-          echo "FULL_IMAGE_NAME_WITH_GIT_TAG=$FULL_IMAGE_NAME_WITH_GIT_TAG" >> $GITHUB_ENV
+          echo "TAG=`ruby -e 'puts File.read("apps/web-coreum/package.json").match(/"version": "(?<semver>(0|[1-9][0-9]*).(0|[1-9][0-9]*).(0|[1-9][0-9]*)-(0|[1-9][0-9]*))"/)[:semver]'`" >> $GITHUB_ENV
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Login to DockerHub
@@ -41,9 +37,8 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: |
-            ${{ env.ORG }}/${{ env.REPO }}:${{ env.BUILD_SHA }}
+            ${{ env.ORG }}/${{ env.REPO }}:${{ env.TAG }}
             ${{ env.ORG }}/${{ env.REPO }}:latest
-            ${{ env.FULL_IMAGE_NAME_WITH_GIT_TAG }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           push: true
@@ -52,12 +47,12 @@ jobs:
 
       - name: Update Devnet Deployment
         run: |-
-          curl -v -u "${{ secrets.KEEL_DEVNET_USERNAME }}:${{ secrets.KEEL_DEVNET_PASSWORD }}" -X POST ${{ env.DEVNET_WEBHOOK_ENDPOINT }}  -H "Content-Type: application/json" -d "{\"name\": \"${{ env.ORG }}/${{ env.REPO }}\", \"tag\": \"${{ env.BUILD_SHA }}\"}"
+          curl -v -u "${{ secrets.KEEL_DEVNET_USERNAME }}:${{ secrets.KEEL_DEVNET_PASSWORD }}" -X POST ${{ env.DEVNET_WEBHOOK_ENDPOINT }}  -H "Content-Type: application/json" -d "{\"name\": \"${{ env.ORG }}/${{ env.REPO }}\", \"tag\": \"${{ env.TAG }}\"}"
 
       - name: Update Testnet Deployment
         run: |-
-          curl -v -u "${{ secrets.KEEL_TESTNET_USERNAME }}:${{ secrets.KEEL_TESTNET_PASSWORD }}" -X POST ${{ env.TESTNET_WEBHOOK_ENDPOINT }} -H "Content-Type: application/json" -d "{\"name\": \"${{ env.ORG }}/${{ env.REPO }}\", \"tag\": \"${{ env.BUILD_SHA }}\"}"
+          curl -v -u "${{ secrets.KEEL_TESTNET_USERNAME }}:${{ secrets.KEEL_TESTNET_PASSWORD }}" -X POST ${{ env.TESTNET_WEBHOOK_ENDPOINT }} -H "Content-Type: application/json" -d "{\"name\": \"${{ env.ORG }}/${{ env.REPO }}\", \"tag\": \"${{ env.TAG }}\"}"
 
       - name: Update Mainnet Deployment
         run: |-
-          curl -v -u "${{ secrets.KEEL_MAINNET_USERNAME }}:${{ secrets.KEEL_MAINNET_PASSWORD }}" -X POST ${{ env.MAINNET_WEBHOOK_ENDPOINT }} -H "Content-Type: application/json" -d "{\"name\": \"${{ env.ORG }}/${{ env.REPO }}\", \"tag\": \"${{ env.BUILD_SHA }}\"}"
+          curl -v -u "${{ secrets.KEEL_MAINNET_USERNAME }}:${{ secrets.KEEL_MAINNET_PASSWORD }}" -X POST ${{ env.MAINNET_WEBHOOK_ENDPOINT }} -H "Content-Type: application/json" -d "{\"name\": \"${{ env.ORG }}/${{ env.REPO }}\", \"tag\": \"${{ env.TAG }}\"}"
