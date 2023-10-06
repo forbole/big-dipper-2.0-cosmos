@@ -264,6 +264,7 @@ export const useAccountDetails = () => {
   useEffect(() => {
     handleSetState((prevState) => ({
       ...prevState,
+      loading: false,
       overview: {
         address: address ?? '',
         withdrawalAddress: withdrawalAddress.withdrawalAddress?.address ?? '',

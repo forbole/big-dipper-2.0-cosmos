@@ -171,7 +171,7 @@ const formatOtherTokens = (data: Data) => {
     const availableRawAmount = getDenom(available, x);
     const availableAmount = formatToken(availableRawAmount.amount, x);
     const rewardsRawAmount = rewards.reduce((a, b) => {
-      const coins = R.pathOr<NonNullable<typeof b['coins']>>([], ['coins'], b);
+      const coins = R.pathOr<NonNullable<(typeof b)['coins']>>([], ['coins'], b);
       const denom = getDenom(coins, x);
       return Big(a).plus(denom.amount).toPrecision();
     }, '0');
@@ -308,6 +308,7 @@ export const useAccountDetails = () => {
   useEffect(() => {
     handleSetState((prevState) => ({
       ...prevState,
+      loading: false,
       overview: {
         address: address ?? '',
         withdrawalAddress: address ?? withdrawalAddress?.withdrawalAddress?.address ?? '',
