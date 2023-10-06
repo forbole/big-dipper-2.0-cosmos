@@ -6,12 +6,14 @@ import { ParamsQuery, useParamsQuery } from '@/graphql/types/provider_types';
 import { DistributionParams, GovParams, MintParams, SlashingParams, StakingParams } from '@/models';
 import type { ParamsState } from '@/screens/params/types';
 import { formatToken } from '@/utils/format_token';
+import { CCVConsumerParams } from '../../../packages/ui/src/models';
 
 const { primaryTokenUnit } = chainConfig();
 
 const initialState: ParamsState = {
   loading: true,
   exists: true,
+  ccvConsumer: null,
   staking: null,
   slashing: null,
   minting: null,
@@ -124,8 +126,30 @@ const formatGov = (data: ParamsQuery) => {
   return null;
 };
 
+const formatCCVConsumer = (data: ParamsQuery) => {
+  if (data?.ccv_consumer_params[0]?.params) {
+    const ccvConsumerParamsRaw = CCVConsumerParams.fromJson(
+      data?.ccv_consumer_params[0]?.params ?? {}
+    );
+    return {
+      enabled: ccvConsumerParamsRaw.enabled,
+      unbondingPeriod: ccvConsumerParamsRaw.unbondingPeriod,
+      ccvTimeoutPeriod: ccvConsumerParamsRaw.ccvTimeoutPeriod,
+      historicalEntries: ccvConsumerParamsRaw.historicalEntries,
+      softOptOutThreshold: ccvConsumerParamsRaw.softOptOutThreshold,
+      transferTimeoutPeriod: ccvConsumerParamsRaw.transferTimeoutPeriod,
+      consumerRedistributionFraction: ccvConsumerParamsRaw.consumerRedistributionFraction,
+      blocksPerDistributionTransmission: ccvConsumerParamsRaw.blocksPerDistributionTransmission,
+    };
+  }
+
+  return null;
+};
+
 const formatParam = (data: ParamsQuery) => {
   const results: Partial<ParamsState> = {};
+
+  results.ccvConsumer = formatCCVConsumer(data);
 
   results.staking = formatStaking(data);
 
