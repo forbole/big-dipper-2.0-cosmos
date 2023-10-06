@@ -15,26 +15,25 @@ import type {
   StakingState,
   UnbondingType,
 } from '@/screens/validator_details/components/staking/types';
-import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
 import {
   Delegations,
   Redelegations,
   Undelegations,
 } from '@/screens/validator_details/components/staking/types';
+import { formatProviderToken } from '../../../../../packages/ui/src/utils/format_provider_token';
 
-const { primaryTokenUnit } = chainConfig();
-
+const { provider } = chainConfig();
 export const ROWS_PER_PAGE = 10;
 
 export const formatDelegations = (data: Delegations[]) =>
   data
     .map<DelegationType>((x): UnbondingType => {
       const address = R.pathOr('', ['delegator_address'], x);
-      const delegation = getDenom(x.coins, primaryTokenUnit);
+      const delegation = getDenom(x.coins, provider.primaryTokenUnit);
       return {
         address,
-        amount: formatToken(delegation.amount, delegation.denom),
+        amount: formatProviderToken(delegation.amount, delegation.denom),
       };
     })
     .sort(R.comparator((a, b) => Big(a.amount?.value).gt(b.amount?.value)));
@@ -46,7 +45,7 @@ export const formatRedelegations = (data: Redelegations[]) => {
       results.push({
         address: x?.delegator_address ?? '',
         to: x?.validator_dst_address ?? '',
-        amount: formatToken(y.balance, primaryTokenUnit),
+        amount: formatProviderToken(y.balance, provider.primaryTokenUnit),
         completionTime: R.pathOr('', ['completion_time'], y),
       });
     });
@@ -62,7 +61,7 @@ export const formatUnbondings = (data: Undelegations[]) => {
     x?.entries?.forEach((y) => {
       results.push({
         address: R.pathOr('', ['delegator_address'], x),
-        amount: formatToken(y.balance, primaryTokenUnit),
+        amount: formatProviderToken(y.balance, provider.primaryTokenUnit),
         completionTime: R.pathOr('', ['completion_time'], y),
       });
     });

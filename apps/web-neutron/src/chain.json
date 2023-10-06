@@ -235,6 +235,15 @@
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
         "matomoSiteID": "8"
+      },
+      "provider": {
+      "primaryTokenUnit": "uatom",
+      "tokenUnits": {
+          "uatom": {
+            "display": "atom",
+            "exponent": 6
+        }
+        }
       }
     }
   ]
