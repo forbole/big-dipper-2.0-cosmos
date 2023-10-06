@@ -48,8 +48,10 @@
     "eslint-plugin-turbo": "^1.9.3",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
-    "next": "^13.5.4",
+    "next": "^13.4.1",
     "prettier": "2.8.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "turbo": "^1.9.3",
     "typescript": "^5.0.4"
   },
