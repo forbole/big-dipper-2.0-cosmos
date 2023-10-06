@@ -55,7 +55,8 @@
   },
   "packageManager": "yarn@3.5.0",
   "engines": {
-    "yarn": ">=1.22"
+    "yarn": ">=3.5",
+    "node": ">=18.17.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "npx prettier --write"
