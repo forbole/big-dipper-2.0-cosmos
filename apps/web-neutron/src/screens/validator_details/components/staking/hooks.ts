@@ -23,7 +23,7 @@ import {
 } from '@/screens/validator_details/components/staking/types';
 import { formatProviderToken } from '../../../../../packages/ui/src/utils/format_provider_token';
 
-const { provider } = chainConfig();
+const provider = chainConfig();
 export const ROWS_PER_PAGE = 10;
 
 export const formatDelegations = (data: Delegations[]) =>

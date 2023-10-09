@@ -18,9 +18,9 @@ const FormatRow: FC<{ rowAddress: string }> = ({ rowAddress }) => {
   const { profile } = useValidatorConsensusAddressesList(rowAddress);
   return (
     <AvatarName
-      address={profile?.address}
-      imageUrl={profile?.imageUrl}
-      name={profile?.name}
+      address={profile?.address ?? ''}
+      imageUrl={profile?.imageUrl ?? ''}
+      name={profile?.name ?? ''}
       href={VALIDATOR_DETAILS}
     />
   );

@@ -1,7 +1,7 @@
 import Big from 'big.js';
 import chainConfig from '../../chainConfig';
 
-const { provider } = chainConfig();
+const provider = chainConfig();
 
 /**
  * Util to help me correctly transform a base denom amount

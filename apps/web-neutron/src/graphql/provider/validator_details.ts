@@ -100,6 +100,8 @@ export const ValidatorConsensusAddressesListDocument = /* GraphQL */ `
         validator_descriptions {
           moniker
           avatar_url
+          website
+          details
         }
         validator_info {
           self_delegate_address

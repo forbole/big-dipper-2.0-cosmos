@@ -39,11 +39,11 @@ const useConsumerCustomValidator = (validator: string): consumerAddressProfileRe
   useEffect(() => {
     if (data && data?.ccv_validator?.length > 0) {
       const validatorDescription =
-        data.ccv_validator[0].ccv_validator_info.validator.validatorDescriptions[0];
-      const name = validatorDescription.moniker ?? '';
-      const imageUrl = validatorDescription.avatar_url ?? '';
-      const bio = validatorDescription.details ?? '';
-      const website = validatorDescription.website ?? '';
+        data?.ccv_validator[0]?.ccv_validator_info?.validator?.validatorDescriptions[0];
+      const name = validatorDescription?.moniker ?? '';
+      const imageUrl = validatorDescription?.avatar_url ?? '';
+      const bio = validatorDescription?.details ?? '';
+      const website = validatorDescription?.website ?? '';
       const address = validator;
       const res: Profile = {
         name,

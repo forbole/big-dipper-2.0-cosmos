@@ -47,7 +47,11 @@ const BlockItem: FC<BlockItemProps> = ({ item, rowIndex, column, style, align })
       break;
     case 'proposer':
       formattedItem = (
-        <AvatarName address={profile?.address} imageUrl={profile?.imageUrl} name={profile?.name} />
+        <AvatarName
+          address={profile?.address ?? ''}
+          imageUrl={profile?.imageUrl ?? ''}
+          name={profile?.name ?? ''}
+        />
       );
       break;
     case 'hash':

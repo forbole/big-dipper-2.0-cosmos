@@ -48,9 +48,9 @@ const Consensus: FC<ComponentDefault> = ({ className }) => {
           </Typography>
           {!state.loadingNewStep && state.proposer ? (
             <AvatarName
-              address={profile?.address}
-              imageUrl={profile?.imageUrl}
-              name={profile?.name}
+              address={profile?.address ?? ''}
+              imageUrl={profile?.imageUrl ?? ''}
+              name={profile?.name ?? ''}
             />
           ) : (
             '-'

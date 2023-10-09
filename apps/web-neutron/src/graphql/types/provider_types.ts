@@ -19502,7 +19502,7 @@ export type ValidatorConsensusAddressesListQueryVariables = Exact<{
 }>;
 
 
-export type ValidatorConsensusAddressesListQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', consumer_consensus_address: string, consumer_operator_address: string, consumer_self_delegate_address: string, provider_consensus_address: string, provider_operator_address: string, provider_self_delegate_address: string, validator?: { __typename?: 'provider_validator', validator_commissions: Array<{ __typename?: 'provider_validator_commission', commission: any, validator_address: string }>, validator_descriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, avatar_url?: string | null }>, validator_info?: { __typename?: 'provider_validator_info', self_delegate_address?: string | null } | null } | null }> };
+export type ValidatorConsensusAddressesListQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', consumer_consensus_address: string, consumer_operator_address: string, consumer_self_delegate_address: string, provider_consensus_address: string, provider_operator_address: string, provider_self_delegate_address: string, validator?: { __typename?: 'provider_validator', validator_commissions: Array<{ __typename?: 'provider_validator_commission', commission: any, validator_address: string }>, validator_descriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, avatar_url?: string | null, website?: string | null, details?: string | null }>, validator_info?: { __typename?: 'provider_validator_info', self_delegate_address?: string | null } | null } | null }> };
 
 export type ValidatorProviderOperatorAddressesListQueryVariables = Exact<{
   address: Scalars['String'];
@@ -20252,6 +20252,8 @@ export const ValidatorConsensusAddressesListDocument = gql`
       validator_descriptions {
         moniker
         avatar_url
+        website
+        details
       }
       validator_info {
         self_delegate_address

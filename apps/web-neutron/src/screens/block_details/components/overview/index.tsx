@@ -9,8 +9,9 @@ import type { OverviewType } from '@/screens/block_details/types';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import useValidatorConsensusAddressesList from '@/hooks/useValidatorConsensusAddressesList';
 import { VALIDATOR_DETAILS } from '@/utils/go_to_page';
+import { FC } from 'react';
 
-const Overview: FC<OverviewType & ComponentDefault> = (props, { className }) => {
+const Overview: FC<OverviewType & ComponentDefault> = (props: any, { className }) => {
   const { t } = useAppTranslation('blocks');
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
@@ -40,9 +41,9 @@ const Overview: FC<OverviewType & ComponentDefault> = (props, { className }) => 
           label: t('proposer'),
           detail: (
             <AvatarName
-              address={profile?.address}
-              imageUrl={profile?.imageUrl}
-              name={profile?.name}
+              address={profile?.address ?? ''}
+              imageUrl={profile?.imageUrl ?? ''}
+              name={profile?.name ?? ''}
               href={VALIDATOR_DETAILS}
             />
           ),
@@ -50,12 +51,12 @@ const Overview: FC<OverviewType & ComponentDefault> = (props, { className }) => 
         {
           key: 'time',
           label: t('time'),
-          detail: formatDayJs(dayjs.utc(props?.timestamp), dateFormat, timeFormat),
+          detail: formatDayJs(dayjs.utc(props?.timestamp ?? ''), dateFormat, timeFormat),
         },
         {
           key: 'txs',
           label: t('txs'),
-          detail: numeral(props?.txs).format('0,0'),
+          detail: numeral(props?.txs ?? '').format('0,0'),
         },
       ]}
     />

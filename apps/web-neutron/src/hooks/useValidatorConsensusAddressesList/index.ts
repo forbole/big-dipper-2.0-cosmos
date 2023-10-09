@@ -36,8 +36,8 @@ const useValidatorConsensusAddressesList = (validator: string): providerAddressP
     []
   );
   useEffect(() => {
-    if (data && data.ccv_validator.length > 0) {
-      const validatorDescription = data.ccv_validator[0]?.validator.validator_descriptions[0];
+    if (data && data?.ccv_validator?.length > 0) {
+      const validatorDescription = data?.ccv_validator[0]?.validator?.validator_descriptions[0];
       const name = validatorDescription?.moniker ?? '';
       const imageUrl = validatorDescription?.avatar_url ?? '';
       const bio = validatorDescription?.details ?? '';

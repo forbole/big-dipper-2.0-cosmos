@@ -43,7 +43,11 @@ const ListItem: FC<ListItemProps> = ({
     txs: numeral(item.txs).format('0,0'),
     time: <Timestamp timestamp={item.timestamp} />,
     proposer: (
-      <AvatarName address={profile?.address} imageUrl={profile?.imageUrl} name={profile?.name} />
+      <AvatarName
+        address={profile?.address ?? ''}
+        imageUrl={profile?.imageUrl ?? ''}
+        name={profile?.name ?? ''}
+      />
     ),
     hash: getMiddleEllipsis(item.hash, {
       beginning: 13,

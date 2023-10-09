@@ -20,7 +20,6 @@ const BlocksItem: FC<BlocksItemProps> = ({ item, i, isLast }) => {
   const { profile } = useProviderCustomValidator(item.proposer);
   const name = profile?.name ?? item.proposer;
   const imageUrl = profile?.imageUrl ?? '';
-  const address = item.consumerOperatorAddress;
   return (
     <Fragment key={`${i}-${item.hash}`}>
       <SingleBlockMobile
@@ -32,7 +31,12 @@ const BlocksItem: FC<BlocksItemProps> = ({ item, i, isLast }) => {
         txs={numeral(item.txs).format('0,0')}
         time={<Timestamp timestamp={item.timestamp} />}
         proposer={
-          <AvatarName address={address} imageUrl={imageUrl} name={name} href={VALIDATOR_DETAILS} />
+          <AvatarName
+            address={profile?.address ?? ''}
+            imageUrl={imageUrl}
+            name={name}
+            href={VALIDATOR_DETAILS}
+          />
         }
         hash={getMiddleEllipsis(item.hash, {
           beginning: 13,
