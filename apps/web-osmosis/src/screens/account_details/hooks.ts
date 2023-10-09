@@ -46,7 +46,6 @@ const initialState: AccountDetailState = {
     commission: defaultTokenUnit,
     total: defaultTokenUnit,
   },
-  balanceLoading: true,
   rewards: {},
 };
 
