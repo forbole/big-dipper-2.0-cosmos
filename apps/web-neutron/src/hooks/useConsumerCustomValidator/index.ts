@@ -29,15 +29,17 @@ const useConsumerCustomValidator = (validator: string): consumerAddressProfileRe
   });
   const [profile, setProfile] = useState<Profile>();
   const setAvatarName = useRecoilCallback(
-    ({ set }) => (address: string, avatarName: AvatarName | null) =>
-      set(writeProfile(address), prevState =>
-        R.equals(prevState, avatarName) ? prevState : avatarName
-      ),
+    ({ set }) =>
+      (address: string, avatarName: AvatarName | null) =>
+        set(writeProfile(address), (prevState) =>
+          R.equals(prevState, avatarName) ? prevState : avatarName
+        ),
     []
   );
   useEffect(() => {
-    if (data && data.validatorInfo.length > 0) {
-      const validatorDescription = data.validatorInfo[0].validator.validatorDescriptions[0];
+    if (data && data?.ccv_validator?.length > 0) {
+      const validatorDescription =
+        data.ccv_validator[0].ccv_validator_info.validator.validatorDescriptions[0];
       const name = validatorDescription.moniker ?? '';
       const imageUrl = validatorDescription.avatar_url ?? '';
       const bio = validatorDescription.details ?? '';

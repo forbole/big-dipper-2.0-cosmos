@@ -24,7 +24,7 @@ const Profile: FC<{ className?: string; profile: OverviewType }> = ({ className,
     website = `//${profile.website}`;
   }
 
-  const { consumerValidator } = useConsumerCustomValidator(profile.selfDelegateAddress);
+  useConsumerCustomValidator(profile.operatorAddress); // this one good
 
   return (
     <Box className={className}>
