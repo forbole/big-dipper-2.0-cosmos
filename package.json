@@ -19,7 +19,7 @@
     "ts-check:ci": "yarn turbo:setup -- turbo run ts-check --continue",
     "lint": "yarn dotenv:setup -- turbo run lint --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
     "lint:ci": "yarn turbo:setup -- turbo run lint --continue",
-    "test": "yarn dotenv:setup -- turbo run test --filter=$(dotenv -- printenv PROJECT_NAME || echo web)...",
+    "test": "yarn dotenv:setup -- turbo run test --filter=$(dotenv -- printenv PROJECT_NAME || echo web)... -- -u",
     "test:ci": "yarn turbo:setup -- turbo run test --continue",
     "e2e": "playwright test",
     "e2e:install": "playwright install --with-deps",

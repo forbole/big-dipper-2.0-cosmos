@@ -76,10 +76,9 @@ exports[`components: Pagination matches snapshot 1`] = `
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1025px) {
   .emotion-1 {
     height: 80px;
-    overflow: hidden;
   }
 }
 

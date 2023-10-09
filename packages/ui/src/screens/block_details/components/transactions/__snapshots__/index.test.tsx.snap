@@ -13,7 +13,7 @@ exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
   flex-direction: column;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-0 {
     height: 100%;
   }
@@ -23,7 +23,7 @@ exports[`screen: BlockDetails/Transactions matches snapshot 1`] = `
   margin-bottom: 16px;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-1 {
     display: -webkit-box;
     display: -webkit-flex;

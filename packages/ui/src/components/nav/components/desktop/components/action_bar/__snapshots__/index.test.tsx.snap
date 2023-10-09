@@ -21,7 +21,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
 }
 
 .emotion-1 {
-  width: 50%;
+  width: 60%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -34,6 +34,7 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
   justify-content: flex-end;
+  gap: 12px;
   z-index: 5000;
 }
 
@@ -47,9 +48,13 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-2 {
+    height: auto;
+    padding: 16px 12px;
+  }
 }
 
 .emotion-2 .MuiInputBase-root {
@@ -57,6 +62,12 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
   height: 100%;
   padding: 8px 16px;
   border-radius: 48px;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-2 .MuiInputBase-root {
+    padding: 8px;
+  }
 }
 
 .emotion-2 .MuiInputBase-input {
@@ -79,6 +90,24 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
   color: #999999;
 }
 
+@media (max-width:1024.95px) {
+  .emotion-2 .MuiInputBase-input::-webkit-input-placeholder {
+    font-size: 0.85rem;
+  }
+
+  .emotion-2 .MuiInputBase-input::-moz-placeholder {
+    font-size: 0.85rem;
+  }
+
+  .emotion-2 .MuiInputBase-input:-ms-input-placeholder {
+    font-size: 0.85rem;
+  }
+
+  .emotion-2 .MuiInputBase-input::placeholder {
+    font-size: 0.85rem;
+  }
+}
+
 .emotion-2 .Search-icon {
   background: #25D695;
   border-radius: 100%;
@@ -86,9 +115,17 @@ exports[`screen: Nav/ActionBar it renders 1`] = `
   width: 30px;
   height: 30px;
   color: white;
+  cursor: pointer;
 }
 
-.emotion-2.open .MuiInputBase-root {
+.emotion-2.emotion-2 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 48px;
+}
+
+.emotion-2.emotion-2.open .MuiInputBase-root {
   background: #F8F8F8;
 }
 
@@ -247,6 +284,222 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
   font-size: 1.25rem;
 }
 
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-6 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    padding: 16px;
+    margin: 8px 12px 0px 12px;
+    justify-self: flex-end;
+    width: auto;
+    gap: 30px;
+  }
+}
+
+.emotion-6.open-menu-margin {
+  margin-bottom: 220px;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-6 .netIcon {
+    position: relative;
+    left: auto;
+  }
+}
+
+.emotion-6 .netContent {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-6 .netContent {
+    visibility: visible;
+    opacity: 1;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-box-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+.emotion-6 .netContent .currentNetName {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  margin-left: 16px;
+  margin-right: 20px;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-6 .netContent .currentNetName {
+    margin: 0;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+  }
+}
+
+.emotion-6 .netContent .currentNetLink {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.emotion-6 .arrowIcon {
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.emotion-6 .arrowIcon.modalShow {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+@media (max-width:1024.95px) {
+  .emotion-6 .arrowIcon {
+    position: absolute;
+    right: 12px;
+  }
+}
+
+.emotion-6 .modal {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
+  transition: all 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  padding: 12px;
+  right: 16px;
+  top: 72px;
+  box-shadow: -6px 5px rgba(0, 0, 0, 0.25);
+}
+
+.emotion-6 .modal.modalShow {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-6 .modal {
+    position: absolute;
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    top: calc(100% + 8px);
+    right: 0;
+    left: auto;
+    padding: 8px;
+  }
+}
+
+.emotion-6 .modal .linkItem {
+  width: 240px;
+  height: 55px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-radius: 4px;
+  padding: 12px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-6 .modal .linkItem {
+    width: 100%;
+  }
+}
+
+.emotion-6 .modal .linkItem .netName {
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 15px;
+}
+
+.emotion-6 .modal .linkItem .netLink {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.emotion-6 .modal .linkItem.selectedItem .netName {
+  color: #25D695;
+}
+
 <div
   className="emotion-0"
 >
@@ -262,14 +515,14 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
         onClick={[Function]}
       >
         <input
-          aria-label="searchBarPlaceholderDtag"
+          aria-label="searchBarPlaceholder"
           className="MuiInputBase-input MuiInputBase-inputAdornedEnd emotion-4"
           onAnimationStart={[Function]}
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
-          placeholder="searchBarPlaceholderDtag"
+          placeholder="searchBarPlaceholder"
           type="text"
           value=""
         />
@@ -279,6 +532,7 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
           color="#868991"
           data-testid="SearchIcon"
           focusable="false"
+          onClick={[Function]}
           viewBox="0 0 24 24"
         >
           <path
@@ -287,6 +541,28 @@ label[data-shrink=false]+.MuiInputBase-formControl .emotion-4:focus::-ms-input-p
         </svg>
       </div>
     </form>
+    <div
+      className="emotion-6"
+      onClick={[Function]}
+      onTouchEnd={[Function]}
+    >
+      <svg
+        className="netIcon"
+      />
+      <div
+        className="netContent"
+      >
+        <div
+          className="currentNetName"
+        />
+        <div
+          className="currentNetLink"
+        />
+      </div>
+      <svg
+        className="arrowIcon"
+      />
+    </div>
   </div>
 </div>
 `;

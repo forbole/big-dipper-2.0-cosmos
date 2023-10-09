@@ -29,10 +29,8 @@ exports[`screen: TransactionDetails/MsgVote matches snapshot 1`] = `
       onClick={[Function]}
       onMouseEnter={[Function]}
       onTouchStart={[Function]}
-    >
-      #
-    </a>
-    {"vote":"no"}
+    />
+    {"vote":"no","proposal":"#"}
   </span>
 </p>
 `;

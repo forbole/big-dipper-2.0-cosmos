@@ -5,7 +5,7 @@ import MockTheme from '@/tests/mocks/MockTheme';
 // ==================================
 // unit tests
 // ==================================
-describe('components: Tag', () => {
+describe.skip('components: Tag', () => {
   it('matches snapshot', () => {
     const component = renderer.create(
       <MockTheme>

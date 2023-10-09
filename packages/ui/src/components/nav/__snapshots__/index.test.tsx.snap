@@ -2,7 +2,7 @@
 
 exports[`component: Nav it renders 1`] = `
 [
-  @media (max-width:1279.95px) {
+  @media (max-width:1024.95px) {
   .emotion-0 {
     display: none;
   }
@@ -12,7 +12,7 @@ exports[`component: Nav it renders 1`] = `
     className="emotion-0"
     id="Desktop"
   />,
-  @media (min-width:1280px) {
+  @media (min-width:1025px) {
   .emotion-0 {
     display: none;
   }

@@ -31,7 +31,7 @@ exports[`components: SingleTransaction matches snapshot 1`] = `
   grid-template-columns: repeat(2, 1fr);
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-4 {
     grid-template-columns: repeat(4, 1fr);
   }

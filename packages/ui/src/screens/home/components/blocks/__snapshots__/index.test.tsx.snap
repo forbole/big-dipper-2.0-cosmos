@@ -43,13 +43,13 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
   line-height: 1.2;
 }
 
-@media (max-width:1279.95px) {
+@media (max-width:1024.95px) {
   .emotion-3 {
     display: none;
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-4 {
     display: none;
   }
@@ -66,7 +66,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
   border-bottom-width: thin;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-5 {
     display: none;
   }
@@ -88,7 +88,7 @@ exports[`screen: Home/Blocks/Mobile matches snapshot 1`] = `
   justify-content: center;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-6 {
     display: none;
   }

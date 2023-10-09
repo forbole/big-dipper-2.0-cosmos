@@ -6,13 +6,29 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (min-width:768px) {
+  .emotion-0 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
 }
 
 .emotion-1 {
@@ -174,10 +190,12 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
 }
 
 .emotion-9 {
-  display: none;
+  display: block;
+  padding: 0;
+  width: 100%;
 }
 
-@media (min-width:1280px) {
+@media (min-width:768px) {
   .emotion-9 {
     display: block;
     width: 300px;
@@ -332,6 +350,7 @@ exports[`screen: Validators/Tabs matches snapshot 1`] = `
     className="emotion-9"
     id="Search"
     placeholder="searchValidator"
+    submitOnChange={true}
   />
 </div>
 `;

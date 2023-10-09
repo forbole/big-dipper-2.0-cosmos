@@ -84,13 +84,13 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
   cursor: pointer;
 }
 
-@media (max-width:1279.95px) {
+@media (max-width:1024.95px) {
   .emotion-6 {
     display: none;
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-7 {
     display: none;
   }

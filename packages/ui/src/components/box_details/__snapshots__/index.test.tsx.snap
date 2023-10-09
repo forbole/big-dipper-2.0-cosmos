@@ -12,6 +12,10 @@ exports[`components: BoxDetails matches snapshot 1`] = `
   background: #FFFFFF;
 }
 
+.emotion-0 h2 {
+  color: #25D695;
+}
+
 .emotion-1 {
   padding: 16px 0px;
   color: #414141;
@@ -31,6 +35,14 @@ exports[`components: BoxDetails matches snapshot 1`] = `
 
 .emotion-1 .label {
   margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.emotion-1 .detail {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
 }
 
 .emotion-1 .detail.MuiTypography-body1 {
@@ -85,6 +97,14 @@ exports[`components: BoxDetails matches snapshot 1`] = `
 
 .emotion-3 .label {
   margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.emotion-3 .detail {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
 }
 
 .emotion-3 .detail.MuiTypography-body1 {
@@ -176,6 +196,10 @@ exports[`components: BoxDetails matches snapshot with title actions 1`] = `
   background: #FFFFFF;
 }
 
+.emotion-0 h2 {
+  color: #25D695;
+}
+
 .emotion-1 {
   padding: 16px 0px;
   color: #414141;
@@ -195,6 +219,14 @@ exports[`components: BoxDetails matches snapshot with title actions 1`] = `
 
 .emotion-1 .label {
   margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.emotion-1 .detail {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
 }
 
 .emotion-1 .detail.MuiTypography-body1 {
@@ -249,6 +281,14 @@ exports[`components: BoxDetails matches snapshot with title actions 1`] = `
 
 .emotion-3 .label {
   margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.emotion-3 .detail {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
 }
 
 .emotion-3 .detail.MuiTypography-body1 {

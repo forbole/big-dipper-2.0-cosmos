@@ -24,7 +24,7 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
   margin-right: 16px;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-0 {
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
@@ -219,6 +219,20 @@ exports[`component: TransactionMessagesFilter it renders 1`] = `
       variant="body1"
     >
       profiles
+    </div>
+  </div>
+  <div
+    className="emotion-1"
+    id="MenuItem"
+    onClick={[Function]}
+    value="asset"
+  >
+    <div
+      id="Typography"
+      noWrap={true}
+      variant="body1"
+    >
+      asset
     </div>
   </div>
   <div

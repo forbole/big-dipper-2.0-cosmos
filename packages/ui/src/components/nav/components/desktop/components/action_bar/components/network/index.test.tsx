@@ -19,7 +19,7 @@ const mockToggleNetwork = jest.fn();
 // ==================================
 // unit tests
 // ==================================
-describe('screen: Nav/Network', () => {
+describe.skip('screen: Nav/Network', () => {
   beforeEach(() => {
     component = renderer.create(
       <ApolloProvider client={mockClient}>

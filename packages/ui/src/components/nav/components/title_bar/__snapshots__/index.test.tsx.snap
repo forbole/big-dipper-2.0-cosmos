@@ -2,7 +2,6 @@
 
 exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
 .emotion-0 {
-  padding: 8px 16px;
   display: grid;
 }
 
@@ -49,7 +48,7 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-2 {
     padding: 0;
   }
@@ -82,7 +81,7 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
       <p
         className="MuiTypography-root MuiTypography-body1 data emotion-3"
       >
-        $0
+        --
       </p>
     </div>
     <div
@@ -147,7 +146,6 @@ exports[`screen: Nav/TitleBar hook toggles correctly 1`] = `
 
 exports[`screen: Nav/TitleBar it renders 1`] = `
 .emotion-0 {
-  padding: 8px 16px;
   display: grid;
 }
 
@@ -194,7 +192,7 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-2 {
     padding: 0;
   }
@@ -227,7 +225,7 @@ exports[`screen: Nav/TitleBar it renders 1`] = `
       <p
         className="MuiTypography-root MuiTypography-body1 data emotion-3"
       >
-        $0
+        --
       </p>
     </div>
     <div

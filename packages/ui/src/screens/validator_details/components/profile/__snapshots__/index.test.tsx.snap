@@ -6,6 +6,15 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  gap: 1rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 .emotion-0 .bio__header {
@@ -31,7 +40,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
   color: #414141;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-0 .bio__content {
     margin-top: 8px;
   }
@@ -44,7 +53,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
   min-width: 60px;
 }
 
-@media (max-width:1279.95px) {
+@media (max-width:1024.95px) {
   .emotion-1 {
     display: none;
   }
@@ -62,14 +71,14 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
 }
 
 .emotion-2 .header__content {
-  margin-left: 8px;
+  margin-left: 16px;
 }
 
 .emotion-2 .MuiTypography-h2 {
   margin-bottom: 8px;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-2 .header__content {
     display: -webkit-box;
     display: -webkit-flex;
@@ -99,7 +108,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
   min-width: 60px;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-3 {
     display: none;
   }
@@ -126,7 +135,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
   margin: 16px 0px;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-5 {
     margin: 32px 0px;
   }
@@ -152,7 +161,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
   align-items: center;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-6 .label {
     margin-bottom: 0;
   }
@@ -186,7 +195,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
   color: #4092CD;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-6 {
     display: grid;
     grid-template-columns: 200px auto;

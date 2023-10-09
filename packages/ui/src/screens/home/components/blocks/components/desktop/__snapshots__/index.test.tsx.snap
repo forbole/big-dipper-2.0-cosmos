@@ -28,6 +28,14 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
   caption-side: bottom;
 }
 
+.emotion-1 .MuiTableBody-root {
+  overflow: hidden;
+}
+
+.emotion-1 .MuiTableBody-root .MuiTableRow-root .MuiTableCell-root:last-child {
+  min-width: 100px;
+}
+
 .emotion-1 .MuiTableBody-root .MuiTableCell-root {
   white-space: nowrap;
   height: auto;
@@ -232,8 +240,8 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
             style={
               {
                 "alignItems": "center",
-                "clipPath": "inset(0 0 0 0)",
-                "display": "flex",
+                "clipPath": "inset(0 50 0 50)",
+                "display": "inline-flex",
                 "height": "50px",
                 "overflow": "hidden",
               }
@@ -258,8 +266,8 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
             style={
               {
                 "alignItems": "center",
-                "clipPath": "inset(0 0 0 0)",
-                "display": "flex",
+                "clipPath": "inset(0 50 0 50)",
+                "display": "inline-flex",
                 "height": "50px",
                 "overflow": "hidden",
               }
@@ -281,8 +289,8 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
             style={
               {
                 "alignItems": "center",
-                "clipPath": "inset(0 0 0 0)",
-                "display": "flex",
+                "clipPath": "inset(0 50 0 50)",
+                "display": "inline-flex",
                 "height": "50px",
                 "overflow": "hidden",
               }
@@ -299,8 +307,8 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
             style={
               {
                 "alignItems": "center",
-                "clipPath": "inset(0 0 0 0)",
-                "display": "flex",
+                "clipPath": "inset(0 50 0 50)",
+                "display": "inline-flex",
                 "height": "50px",
                 "overflow": "hidden",
               }
@@ -317,8 +325,8 @@ exports[`screen: Home/Blocks/Desktop matches snapshot 1`] = `
             style={
               {
                 "alignItems": "center",
-                "clipPath": "inset(0 0 0 0)",
-                "display": "flex",
+                "clipPath": "inset(0 50 0 50)",
+                "display": "inline-flex",
                 "height": "50px",
                 "overflow": "hidden",
               }

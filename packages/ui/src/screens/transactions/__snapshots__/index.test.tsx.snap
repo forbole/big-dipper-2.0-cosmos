@@ -5,7 +5,7 @@ exports[`screen: Transactions matches snapshot 1`] = `
   padding: 16px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1025px) {
   .emotion-0 {
     padding: 16px 24px;
   }
@@ -27,6 +27,16 @@ exports[`screen: Transactions matches snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+}
+
+@media (max-width:400.95px) {
+  .emotion-1>h1 {
+    font-size: 1.75rem;
+  }
+
+  .emotion-1>h4 {
+    font-size: 0.75rem;
+  }
 }
 
 .emotion-2 {
@@ -239,7 +249,7 @@ exports[`screen: Transactions matches snapshot 1`] = `
   padding: 0px 0px 32pxpx 0px!important;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-11 {
     height: 100%;
     min-height: 65vh;

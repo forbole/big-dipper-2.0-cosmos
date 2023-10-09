@@ -6,7 +6,11 @@ exports[`component: TransactionsList it renders 1`] = `
   height: 100%;
 }
 
-@media (max-width:1279.95px) {
+.emotion-0:-webkit-scrollbar {
+  display: block;
+}
+
+@media (max-width:1024.95px) {
   .emotion-0 {
     display: none;
   }
@@ -29,7 +33,7 @@ exports[`component: TransactionsList it renders 1`] = `
   height: 100%;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-0 {
     display: none;
   }

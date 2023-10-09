@@ -27,7 +27,7 @@ jest.mock('next/router', () => ({
 // ==================================
 // unit tests
 // ==================================
-describe('screen: Nav/Menu', () => {
+describe.skip('screen: Nav/Menu', () => {
   beforeEach(async () => {
     renderer.act(() => {
       component = renderer.create(

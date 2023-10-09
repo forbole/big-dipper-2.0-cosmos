@@ -24,6 +24,7 @@ exports[`screen: Nav/Mobile it renders 1`] = `
 .emotion-1.open {
   opacity: 1;
   visibility: visible;
+  overflow: auto;
 }
 
 .emotion-1.menu {
@@ -32,10 +33,6 @@ exports[`screen: Nav/Mobile it renders 1`] = `
 
 .emotion-1.network {
   z-index: 1;
-}
-
-.emotion-2 {
-  padding: 16px;
 }
 
 <div>
@@ -52,10 +49,6 @@ exports[`screen: Nav/Mobile it renders 1`] = `
       isOpen={false}
       openNetwork={[Function]}
       toggleNavMenus={[Function]}
-    />
-    <div
-      className="emotion-2"
-      id="searchBar"
     />
   </div>
   <div

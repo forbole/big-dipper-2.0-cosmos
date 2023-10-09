@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`component: Layout it renders 1`] = `
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-0 {
     display: -webkit-box;
     display: -webkit-flex;
@@ -14,7 +14,7 @@ exports[`component: Layout it renders 1`] = `
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-1 {
     display: -webkit-box;
     display: -webkit-flex;
@@ -47,27 +47,21 @@ exports[`component: Layout it renders 1`] = `
   flex: 1;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1025px) {
   .emotion-3 {
     height: 80px;
-    overflow: hidden;
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-4 {
     position: relative;
-    z-index: 1299;
   }
 }
 
 <div
   className="emotion-0"
-  style={
-    {
-      "filter": "blur(4px)",
-    }
-  }
+  style={{}}
 >
   <div
     className="emotion-1"

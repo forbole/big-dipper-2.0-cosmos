@@ -10,7 +10,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   line-height: 1.2;
 }
 
-@media (max-width:1279.95px) {
+@media (max-width:1024.95px) {
   .emotion-1 {
     display: none;
   }
@@ -168,7 +168,7 @@ exports[`screen: ProfileDetails/Connections matches snapshot 1`] = `
   font-size: 1rem;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-17 {
     display: none;
   }

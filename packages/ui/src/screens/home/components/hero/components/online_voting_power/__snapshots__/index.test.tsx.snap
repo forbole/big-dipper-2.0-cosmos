@@ -3,7 +3,6 @@
 exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
 .emotion-0 {
   display: grid;
-  grid-template-columns: 1fr 1fr 3fr;
   height: 100%;
 }
 
@@ -69,6 +68,24 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
   font-size: 2.5rem;
 }
 
+@media (max-width:1024.95px) {
+  .emotion-5 .primary__data {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width:1024.95px) {
+  .emotion-5 .secondary__data {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width:1024.95px) {
+  .emotion-5 {
+    margin-bottom: 16px;
+  }
+}
+
 .emotion-6 {
   margin: 0;
   font-size: 1.25rem;
@@ -94,9 +111,24 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
     -ms-flex: 1;
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(2 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 8px;
 }
 
 .emotion-9 .label {
@@ -163,7 +195,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
         100.00%
       </h3>
       <p
-        className="MuiTypography-root MuiTypography-body1 emotion-7"
+        className="MuiTypography-root MuiTypography-body1 secondary__data emotion-7"
       >
         76,341,043
          /
@@ -238,7 +270,6 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 1`] = `
 exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
 .emotion-0 {
   display: grid;
-  grid-template-columns: 1fr 1fr 3fr;
   height: 100%;
 }
 
@@ -304,6 +335,24 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
   font-size: 2.5rem;
 }
 
+@media (max-width:1024.95px) {
+  .emotion-5 .primary__data {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width:1024.95px) {
+  .emotion-5 .secondary__data {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width:1024.95px) {
+  .emotion-5 {
+    margin-bottom: 16px;
+  }
+}
+
 .emotion-6 {
   margin: 0;
   font-size: 1.25rem;
@@ -329,9 +378,24 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
     -ms-flex: 1;
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(2 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 8px;
 }
 
 .emotion-9 .label {
@@ -398,7 +462,7 @@ exports[`screen: Home/OnlineVotingPower matches snapshot 2`] = `
         100.00%
       </h3>
       <p
-        className="MuiTypography-root MuiTypography-body1 emotion-7"
+        className="MuiTypography-root MuiTypography-body1 secondary__data emotion-7"
       >
         76,341,043
          /

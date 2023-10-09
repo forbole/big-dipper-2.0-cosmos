@@ -33,7 +33,7 @@ exports[`screen: TransactionDetails/DepositProposal matches snapshot 1`] = `
       #
       0
     </a>
-    {"amount":"2 DARIC"}
+    {"amount":"2 DARIC","proposal":"#0"}
   </span>
 </p>
 `;

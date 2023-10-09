@@ -105,6 +105,11 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 emotion-4"
+        style={
+          {
+            "color": "#2FB6E0",
+          }
+        }
       >
         255b
          
@@ -120,6 +125,11 @@ exports[`screen: Home/Tokenomics matches snapshot 1`] = `
     >
       <h4
         className="MuiTypography-root MuiTypography-h4 emotion-4"
+        style={
+          {
+            "color": "#FFC93D",
+          }
+        }
       >
         -459b
          

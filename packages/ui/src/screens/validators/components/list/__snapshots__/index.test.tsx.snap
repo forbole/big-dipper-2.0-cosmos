@@ -6,7 +6,7 @@ exports[`screen: Validators/List matches snapshot 1`] = `
   height: 50vh;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-0 {
     min-height: 65vh;
   }

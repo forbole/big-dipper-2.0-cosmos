@@ -9,7 +9,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
   gap: 8px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1025px) {
   .emotion-0 {
     padding: 16px 24px;
   }
@@ -19,7 +19,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
   color: #4092CD;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-0 {
     gap: 16px;
   }
@@ -31,7 +31,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
   gap: 16px;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-1 {
     grid-template-columns: 1.25fr 1fr;
   }
@@ -42,7 +42,7 @@ exports[`screen: Blocks/List matches snapshot 1`] = `
   height: 50vh;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-2 {
     min-height: 650px;
     height: 40vh;

@@ -48,7 +48,7 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-1 {
     height: 360px;
   }
@@ -82,7 +82,7 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-2 {
     padding-bottom: 28px;
   }
@@ -136,7 +136,7 @@ exports[`component: DesmosProfile matches snapshot 1`] = `
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-3 {
     width: 150px;
     height: 150px;

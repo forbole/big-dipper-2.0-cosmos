@@ -415,12 +415,251 @@ exports[`screen: Nav/Menu it renders 1`] = `
 }
 
 .emotion-1 {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-1 {
+    height: auto;
+    padding: 16px 12px;
+  }
+}
+
+.emotion-1 .MuiInputBase-root {
+  width: 100%;
+  height: 100%;
+  padding: 8px 16px;
+  border-radius: 48px;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-1 .MuiInputBase-root {
+    padding: 8px;
+  }
+}
+
+.emotion-1 .MuiInputBase-input {
+  text-overflow: ellipsis;
+}
+
+.emotion-1 .MuiInputBase-input::-webkit-input-placeholder {
+  color: #999999;
+}
+
+.emotion-1 .MuiInputBase-input::-moz-placeholder {
+  color: #999999;
+}
+
+.emotion-1 .MuiInputBase-input:-ms-input-placeholder {
+  color: #999999;
+}
+
+.emotion-1 .MuiInputBase-input::placeholder {
+  color: #999999;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-1 .MuiInputBase-input::-webkit-input-placeholder {
+    font-size: 0.85rem;
+  }
+
+  .emotion-1 .MuiInputBase-input::-moz-placeholder {
+    font-size: 0.85rem;
+  }
+
+  .emotion-1 .MuiInputBase-input:-ms-input-placeholder {
+    font-size: 0.85rem;
+  }
+
+  .emotion-1 .MuiInputBase-input::placeholder {
+    font-size: 0.85rem;
+  }
+}
+
+.emotion-1 .Search-icon {
+  background: #25D695;
+  border-radius: 100%;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.emotion-2 {
+  font-size: 1rem;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+  font-family: "Noto Sans",sans-serif;
+  font-weight: 400;
+  line-height: 1.4375em;
+  color: #000000;
+  box-sizing: border-box;
+  position: relative;
+  cursor: text;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-2.Mui-disabled {
+  color: rgba(0, 0, 0, 0.38);
+  cursor: default;
+}
+
+.emotion-2 {
+  border-radius: 12px;
+}
+
+.emotion-3 {
+  font: inherit;
+  letter-spacing: inherit;
+  color: currentColor;
+  padding: 4px 0 5px;
+  border: 0;
+  box-sizing: content-box;
+  background: none;
+  height: 1.4375em;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  min-width: 0;
+  width: 100%;
+  -webkit-animation-name: mui-auto-fill-cancel;
+  animation-name: mui-auto-fill-cancel;
+  -webkit-animation-duration: 10ms;
+  animation-duration: 10ms;
+}
+
+.emotion-3::-webkit-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-3::-moz-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-3:-ms-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-3::-ms-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-3:focus {
+  outline: 0;
+}
+
+.emotion-3:invalid {
+  box-shadow: none;
+}
+
+.emotion-3::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-3::-webkit-input-placeholder {
+  opacity: 0!important;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-3::-moz-placeholder {
+  opacity: 0!important;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:-ms-input-placeholder {
+  opacity: 0!important;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-3::-ms-input-placeholder {
+  opacity: 0!important;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-webkit-input-placeholder {
+  opacity: 0.42;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-moz-placeholder {
+  opacity: 0.42;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus:-ms-input-placeholder {
+  opacity: 0.42;
+}
+
+label[data-shrink=false]+.MuiInputBase-formControl .emotion-3:focus::-ms-input-placeholder {
+  opacity: 0.42;
+}
+
+.emotion-3.Mui-disabled {
+  opacity: 1;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.38);
+}
+
+.emotion-3:-webkit-autofill {
+  -webkit-animation-duration: 5000s;
+  animation-duration: 5000s;
+  -webkit-animation-name: mui-auto-fill;
+  animation-name: mui-auto-fill;
+}
+
+.emotion-3 {
+  padding: 8px 12px;
+}
+
+.emotion-4 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.25rem;
+}
+
+.emotion-5 {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
-.emotion-2 {
+.emotion-5 .searchbar {
+  padding: 8px;
+}
+
+.emotion-6 {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -429,7 +668,7 @@ exports[`screen: Nav/Menu it renders 1`] = `
   padding-bottom: 8px;
 }
 
-.emotion-3 {
+.emotion-7 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -492,86 +731,85 @@ exports[`screen: Nav/Menu it renders 1`] = `
   padding-right: 16px;
 }
 
-.emotion-3::-moz-focus-inner {
+.emotion-7::-moz-focus-inner {
   border-style: none;
 }
 
-.emotion-3.Mui-disabled {
+.emotion-7.Mui-disabled {
   pointer-events: none;
   cursor: default;
 }
 
 @media print {
-  .emotion-3 {
+  .emotion-7 {
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
 }
 
-.emotion-3:hover {
+.emotion-7:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.04);
 }
 
 @media (hover: none) {
-  .emotion-3:hover {
+  .emotion-7:hover {
     background-color: transparent;
   }
 }
 
-.emotion-3.Mui-selected {
+.emotion-7.Mui-selected {
   background-color: rgba(37, 214, 149, 0.08);
 }
 
-.emotion-3.Mui-selected.Mui-focusVisible {
+.emotion-7.Mui-selected.Mui-focusVisible {
   background-color: rgba(37, 214, 149, 0.2);
 }
 
-.emotion-3.Mui-selected:hover {
+.emotion-7.Mui-selected:hover {
   background-color: rgba(37, 214, 149, 0.12);
 }
 
 @media (hover: none) {
-  .emotion-3.Mui-selected:hover {
+  .emotion-7.Mui-selected:hover {
     background-color: rgba(37, 214, 149, 0.08);
   }
 }
 
-.emotion-3.Mui-focusVisible {
+.emotion-7.Mui-focusVisible {
   background-color: rgba(0, 0, 0, 0.12);
 }
 
-.emotion-3.Mui-disabled {
+.emotion-7.Mui-disabled {
   opacity: 0.38;
 }
 
-.emotion-3 .MuiListItemIcon-root {
-  min-width: 48px;
+.emotion-7.MuiListItemButton-gutters {
+  padding: 16px;
+  margin: 0 12px;
+  border-radius: 4px;
+  gap: 30px;
 }
 
-.emotion-3.MuiListItem-gutters {
-  padding: 16px 20px;
-}
-
-.emotion-3 .MuiListItemText-root {
+.emotion-7 .MuiListItemText-root {
   color: #999999;
+  margin: 0;
 }
 
-.emotion-3.active {
+.emotion-7 svg {
+  fill: none;
+}
+
+.emotion-7.active {
   background: hsla(158, 70.5%, 73.8%, 0.2);
 }
 
-.emotion-3.active .MuiListItemIcon-root svg {
-  fill: #25D695;
+.emotion-7.active .MuiListItemText-root {
   color: #25D695;
 }
 
-.emotion-3.active .MuiListItemText-root {
-  color: #25D695;
-}
-
-.emotion-4 {
+.emotion-8 {
   min-width: 56px;
   color: rgba(0, 0, 0, 0.54);
   -webkit-flex-shrink: 0;
@@ -581,9 +819,16 @@ exports[`screen: Nav/Menu it renders 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  min-width: 0;
 }
 
-.emotion-5 {
+@media (max-width:1024.95px) {
+  .emotion-8.active svg path {
+    fill: #25D695;
+  }
+}
+
+.emotion-9 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -592,12 +837,15 @@ exports[`screen: Nav/Menu it renders 1`] = `
   margin-bottom: 4px;
 }
 
-.emotion-5.emotion-5 * {
+.emotion-9.emotion-9 * {
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
 }
 
-.emotion-6 {
+.emotion-10 {
   margin: 0;
   font-size: 1rem;
   white-space: pre-wrap;
@@ -608,7 +856,7 @@ exports[`screen: Nav/Menu it renders 1`] = `
   display: block;
 }
 
-.emotion-7 {
+.emotion-11 {
   overflow: hidden;
   pointer-events: none;
   position: absolute;
@@ -620,7 +868,20 @@ exports[`screen: Nav/Menu it renders 1`] = `
   border-radius: inherit;
 }
 
-.emotion-35 {
+.emotion-38 {
+  min-width: 56px;
+  color: rgba(0, 0, 0, 0.54);
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  min-width: 0;
+}
+
+.emotion-39 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -635,87 +896,11 @@ exports[`screen: Nav/Menu it renders 1`] = `
   justify-content: center;
 }
 
-.emotion-35:hover {
+.emotion-39:hover {
   cursor: pointer;
 }
 
-.emotion-35 svg {
-  fill: #999999;
-}
-
-.emotion-35 svg path {
-  fill: #999999;
-}
-
-.emotion-36 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  min-width: 0;
-  margin-top: 4px;
-  margin-bottom: 4px;
-}
-
-.emotion-39 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  padding: 1rem;
-}
-
-.emotion-40 {
-  width: 50%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-40 .MuiTypography-caption {
-  margin: 0 0.3rem;
-}
-
-.emotion-41 {
-  margin: 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.4px;
-  font-family: "Noto Sans",sans-serif;
-  font-weight: 400;
-  line-height: 1.66;
-}
-
-.emotion-42 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  fill: currentColor;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-size: 1.25rem;
-}
-
 .emotion-43 {
-  width: 50%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -724,269 +909,271 @@ exports[`screen: Nav/Menu it renders 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
 }
 
-.emotion-43 svg {
-  width: 24px;
-  height: 24px;
+@media (max-width:1024.95px) {
+  .emotion-43 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    padding: 16px;
+    margin: 8px 12px 0px 12px;
+    justify-self: flex-end;
+    width: auto;
+    gap: 30px;
+  }
 }
 
-.emotion-43 .MuiTypography-caption {
-  margin: 0 0.3rem;
+.emotion-43.open-menu-margin {
+  margin-bottom: 220px;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-43 .netIcon {
+    position: relative;
+    left: auto;
+  }
+}
+
+.emotion-43 .netContent {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-43 .netContent {
+    visibility: visible;
+    opacity: 1;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-box-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+.emotion-43 .netContent .currentNetName {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  margin-left: 16px;
+  margin-right: 20px;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-43 .netContent .currentNetName {
+    margin: 0;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+  }
+}
+
+.emotion-43 .netContent .currentNetLink {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.emotion-43 .arrowIcon {
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.emotion-43 .arrowIcon.modalShow {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+@media (max-width:1024.95px) {
+  .emotion-43 .arrowIcon {
+    position: absolute;
+    right: 12px;
+  }
+}
+
+.emotion-43 .modal {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
+  transition: all 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  padding: 12px;
+  right: 16px;
+  top: 72px;
+  box-shadow: -6px 5px rgba(0, 0, 0, 0.25);
+}
+
+.emotion-43 .modal.modalShow {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-43 .modal {
+    position: absolute;
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    top: calc(100% + 8px);
+    right: 0;
+    left: auto;
+    padding: 8px;
+  }
+}
+
+.emotion-43 .modal .linkItem {
+  width: 240px;
+  height: 55px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-radius: 4px;
+  padding: 12px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-43 .modal .linkItem {
+    width: 100%;
+  }
+}
+
+.emotion-43 .modal .linkItem .netName {
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 15px;
+}
+
+.emotion-43 .modal .linkItem .netLink {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+
+.emotion-43 .modal .linkItem.selectedItem .netName {
+  color: #25D695;
 }
 
 <div
     className="emotion-0"
   >
+    <form
+      className="emotion-1 searchBar"
+      onSubmit={[Function]}
+    >
+      <div
+        className="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd emotion-2"
+        onClick={[Function]}
+      >
+        <input
+          aria-label="searchBarPlaceholder"
+          className="MuiInputBase-input MuiInputBase-inputAdornedEnd emotion-3"
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          placeholder="searchBarPlaceholder"
+          type="text"
+          value=""
+        />
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall Search-icon emotion-4"
+          color="#868991"
+          data-testid="SearchIcon"
+          focusable="false"
+          onClick={[Function]}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+          />
+        </svg>
+      </div>
+    </form>
     <div
-      className="emotion-1"
+      className="emotion-5"
     >
       <ul
-        className="MuiList-root MuiList-padding emotion-2"
+        className="MuiList-root MuiList-padding emotion-6"
       >
-        <a
-          className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-3"
-          href="/"
+        <div
+          aria-label="overview"
+          aria-labelledby={null}
+          data-mui-internal-clone-element={true}
           onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
           onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          onMouseUp={[Function]}
+          onMouseOver={[Function]}
           onTouchEnd={[Function]}
-          onTouchMove={[Function]}
           onTouchStart={[Function]}
-          tabIndex={0}
         >
-          <div
-            className="MuiListItemIcon-root emotion-4"
-          >
-            <svg
-              height={24}
-              width={24}
-            />
-          </div>
-          <div
-            className="MuiListItemText-root emotion-5"
-          >
-            <span
-              className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-6"
-            >
-              overview
-            </span>
-          </div>
-          <span
-            className="MuiTouchRipple-root emotion-7"
-          />
-        </a>
-        <a
-          className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-3"
-          href="/blocks"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-        >
-          <div
-            className="MuiListItemIcon-root emotion-4"
-          >
-            <svg
-              height={24}
-              width={24}
-            />
-          </div>
-          <div
-            className="MuiListItemText-root emotion-5"
-          >
-            <span
-              className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-6"
-            >
-              blocks
-            </span>
-          </div>
-          <span
-            className="MuiTouchRipple-root emotion-7"
-          />
-        </a>
-        <a
-          className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-3"
-          href="/transactions"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-        >
-          <div
-            className="MuiListItemIcon-root emotion-4"
-          >
-            <svg
-              height={24}
-              width={24}
-            />
-          </div>
-          <div
-            className="MuiListItemText-root emotion-5"
-          >
-            <span
-              className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-6"
-            >
-              transactions
-            </span>
-          </div>
-          <span
-            className="MuiTouchRipple-root emotion-7"
-          />
-        </a>
-        <a
-          className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-3"
-          href="/validators"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-        >
-          <div
-            className="MuiListItemIcon-root emotion-4"
-          >
-            <svg
-              height={24}
-              width={24}
-            />
-          </div>
-          <div
-            className="MuiListItemText-root emotion-5"
-          >
-            <span
-              className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-6"
-            >
-              validators
-            </span>
-          </div>
-          <span
-            className="MuiTouchRipple-root emotion-7"
-          />
-        </a>
-        <a
-          className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-3"
-          href="/proposals"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-        >
-          <div
-            className="MuiListItemIcon-root emotion-4"
-          >
-            <svg
-              height={24}
-              width={24}
-            />
-          </div>
-          <div
-            className="MuiListItemText-root emotion-5"
-          >
-            <span
-              className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-6"
-            >
-              proposals
-            </span>
-          </div>
-          <span
-            className="MuiTouchRipple-root emotion-7"
-          />
-        </a>
-        <a
-          className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-3"
-          href="/params"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-        >
-          <div
-            className="MuiListItemIcon-root emotion-4"
-          >
-            <svg
-              height={24}
-              width={24}
-            />
-          </div>
-          <div
-            className="MuiListItemText-root emotion-5"
-          >
-            <span
-              className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-6"
-            >
-              params
-            </span>
-          </div>
-          <span
-            className="MuiTouchRipple-root emotion-7"
-          />
-        </a>
-        <div>
-          <div
-            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-3"
+          <a
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-7"
+            href="/"
             onBlur={[Function]}
             onClick={[Function]}
             onContextMenu={[Function]}
@@ -995,85 +1182,380 @@ exports[`screen: Nav/Menu it renders 1`] = `
             onKeyDown={[Function]}
             onKeyUp={[Function]}
             onMouseDown={[Function]}
+            onMouseEnter={[Function]}
             onMouseLeave={[Function]}
             onMouseUp={[Function]}
             onTouchEnd={[Function]}
             onTouchMove={[Function]}
             onTouchStart={[Function]}
-            role="button"
             tabIndex={0}
           >
             <div
-              className="MuiListItemIcon-root emotion-4"
+              className="MuiListItemIcon-root emotion-8"
             >
-              <div
-                className="emotion-35"
-                role="button"
-              >
-                <svg />
-              </div>
+              <svg
+                height={21}
+                width={21}
+              />
             </div>
             <div
-              className="MuiListItemText-root emotion-36"
+              className="MuiListItemText-root emotion-9"
             >
               <span
-                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-6"
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-10"
               >
-                settings
+                overview
               </span>
             </div>
             <span
-              className="MuiTouchRipple-root emotion-7"
+              className="MuiTouchRipple-root emotion-11"
             />
+          </a>
+        </div>
+        <div
+          aria-label="blocks"
+          aria-labelledby={null}
+          data-mui-internal-clone-element={true}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+        >
+          <a
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-7"
+            href="/blocks"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+          >
+            <div
+              className="MuiListItemIcon-root emotion-8"
+            >
+              <svg
+                height={21}
+                width={21}
+              />
+            </div>
+            <div
+              className="MuiListItemText-root emotion-9"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-10"
+              >
+                blocks
+              </span>
+            </div>
+            <span
+              className="MuiTouchRipple-root emotion-11"
+            />
+          </a>
+        </div>
+        <div
+          aria-label="validators"
+          aria-labelledby={null}
+          data-mui-internal-clone-element={true}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+        >
+          <a
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-7"
+            href="/validators"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+          >
+            <div
+              className="MuiListItemIcon-root emotion-8"
+            >
+              <svg
+                height={21}
+                width={21}
+              />
+            </div>
+            <div
+              className="MuiListItemText-root emotion-9"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-10"
+              >
+                validators
+              </span>
+            </div>
+            <span
+              className="MuiTouchRipple-root emotion-11"
+            />
+          </a>
+        </div>
+        <div
+          aria-label="transactions"
+          aria-labelledby={null}
+          data-mui-internal-clone-element={true}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+        >
+          <a
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-7"
+            href="/transactions"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+          >
+            <div
+              className="MuiListItemIcon-root emotion-8"
+            >
+              <svg
+                height={21}
+                width={21}
+              />
+            </div>
+            <div
+              className="MuiListItemText-root emotion-9"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-10"
+              >
+                transactions
+              </span>
+            </div>
+            <span
+              className="MuiTouchRipple-root emotion-11"
+            />
+          </a>
+        </div>
+        <div
+          aria-label="proposals"
+          aria-labelledby={null}
+          data-mui-internal-clone-element={true}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+        >
+          <a
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-7"
+            href="/proposals"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+          >
+            <div
+              className="MuiListItemIcon-root emotion-8"
+            >
+              <svg
+                height={21}
+                width={21}
+              />
+            </div>
+            <div
+              className="MuiListItemText-root emotion-9"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-10"
+              >
+                proposals
+              </span>
+            </div>
+            <span
+              className="MuiTouchRipple-root emotion-11"
+            />
+          </a>
+        </div>
+        <div
+          aria-label="params"
+          aria-labelledby={null}
+          data-mui-internal-clone-element={true}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+        >
+          <a
+            className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-7"
+            href="/params"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+          >
+            <div
+              className="MuiListItemIcon-root emotion-8"
+            >
+              <svg
+                height={21}
+                width={21}
+              />
+            </div>
+            <div
+              className="MuiListItemText-root emotion-9"
+            >
+              <span
+                className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-10"
+              >
+                params
+              </span>
+            </div>
+            <span
+              className="MuiTouchRipple-root emotion-11"
+            />
+          </a>
+        </div>
+        <div
+          aria-label="settings"
+          aria-labelledby={null}
+          data-mui-internal-clone-element={true}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+        >
+          <div>
+            <div
+              className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters emotion-7"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onContextMenu={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              role="button"
+              tabIndex={0}
+            >
+              <div
+                className="MuiListItemIcon-root emotion-38"
+              >
+                <div
+                  className="emotion-39"
+                  role="button"
+                >
+                  <svg
+                    style={
+                      {
+                        "color": "none",
+                      }
+                    }
+                  />
+                </div>
+              </div>
+              <div
+                className="MuiListItemText-root emotion-9"
+              >
+                <span
+                  className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary emotion-10"
+                >
+                  settings
+                </span>
+              </div>
+              <span
+                className="MuiTouchRipple-root emotion-11"
+              />
+            </div>
           </div>
         </div>
-      </ul>
-    </div>
-    <div
-      className="emotion-39"
-    >
-      <div
-        aria-label="toggle language"
-        className="emotion-40"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        <svg />
-        <span
-          className="MuiTypography-root MuiTypography-caption emotion-41"
-        />
-        <svg
-          aria-hidden={true}
-          className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall emotion-42"
-          color="#868991"
-          data-testid="ExpandMoreOutlinedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
+        <div
+          className="emotion-43"
+          onClick={[Function]}
+          onTouchEnd={[Function]}
         >
-          <path
-            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"
+          <svg
+            className="netIcon"
           />
-        </svg>
-      </div>
-      <div
-        aria-label="light"
-        className="emotion-43"
-        onClick={[Function]}
-        role="button"
-        tabIndex={0}
-      >
-        <span
-          role="button"
-        >
-          <svg />
-        </span>
-        <span
-          className="MuiTypography-root MuiTypography-caption emotion-41"
-        >
-          light
-        </span>
-      </div>
+          <div
+            className="netContent"
+          >
+            <div
+              className="currentNetName"
+            />
+            <div
+              className="currentNetLink"
+            />
+          </div>
+          <svg
+            className="arrowIcon"
+          />
+        </div>
+      </ul>
     </div>
   </div>,
 ]

@@ -235,16 +235,15 @@ exports[`screen: Nav/Desktop it renders 1`] = `
   justify-content: flex-start;
   background: #F8F8F8;
   color: #414141;
-  width: calc(100% - 59px);
+  width: calc(100% - 77px);
   z-index: 1201;
   -webkit-transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms,margin 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
   transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms,margin 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1025px) {
   .emotion-1.emotion-1 {
     height: 80px;
-    overflow: hidden;
   }
 }
 
@@ -253,17 +252,40 @@ exports[`screen: Nav/Desktop it renders 1`] = `
 }
 
 .emotion-1.emotion-1.open {
-  margin-left: 230px;
-  width: calc(100% - 230px);
+  margin-left: 200px;
+  width: calc(100% - 200px);
   -webkit-transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms,margin 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
   transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms,margin 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
 }
 
 .emotion-2 {
+  position: fixed;
+  z-index: 1201;
+  cursor: pointer;
+  fill: none;
+  top: 24px;
+  left: 65px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
+  transition: all 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
+}
+
+.emotion-2.collapse {
+  left: 188px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.emotion-3 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  width: 230px;
+  width: 200px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -273,10 +295,10 @@ exports[`screen: Nav/Desktop it renders 1`] = `
   -webkit-transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
   transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
   overflow-x: hidden;
-  width: 59px;
+  width: 77px;
 }
 
-.emotion-3 {
+.emotion-4 {
   background-color: #FFFFFF;
   color: #000000;
   -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -304,14 +326,14 @@ exports[`screen: Nav/Desktop it renders 1`] = `
   -webkit-transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
   transition: width 225ms cubic-bezier(0.4, 0, 1, 1) 0ms;
   overflow-x: hidden;
-  width: 59px;
-}
-
-.emotion-3 {
-  background-image: none;
+  width: 77px;
 }
 
 .emotion-4 {
+  background-image: none;
+}
+
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -324,13 +346,14 @@ exports[`screen: Nav/Desktop it renders 1`] = `
   width: 216px;
   height: 70px;
   padding: 20px;
+  padding-left: 28px;
 }
 
-.emotion-4:hover {
+.emotion-5:hover {
   cursor: pointer;
 }
 
-.emotion-5 {
+.emotion-6 {
   display: grid;
 }
 
@@ -345,23 +368,26 @@ exports[`screen: Nav/Desktop it renders 1`] = `
     <div
       id="actionBar"
       isNetwork={false}
-      toggleNetwork={[Function]}
     />
   </header>
+  <svg
+    className="emotion-2"
+    onClick={[Function]}
+  />
   <div
-    className="MuiDrawer-root MuiDrawer-docked closed emotion-2"
+    className="MuiDrawer-root MuiDrawer-docked closed emotion-3"
   >
     <div
-      className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper closed MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft emotion-3"
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiDrawer-paper closed MuiDrawer-paperAnchorLeft MuiDrawer-paperAnchorDockedLeft emotion-4"
     >
       <div
-        className="emotion-4"
+        className="emotion-5"
         onClick={[Function]}
         role="button"
       >
         <svg />
         <div
-          className="emotion-5"
+          className="emotion-6"
         >
           <svg
             style={

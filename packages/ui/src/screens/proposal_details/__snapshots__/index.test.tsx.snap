@@ -9,20 +9,20 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
   gap: 8px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1025px) {
   .emotion-0 {
     padding: 16px 24px;
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-0 {
     gap: 16px;
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-1 {
     grid-column: 1/4;
   }
@@ -34,20 +34,20 @@ exports[`screen: ProposalDetails matches snapshot 1`] = `
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-2 {
     grid-column: 1/4;
     height: auto;
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-3 {
     grid-column: 1/4;
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-4 {
     grid-column: 1/4;
   }

@@ -5,10 +5,40 @@ exports[`component: layout/footer matches snapshot 1`] = `
   background: #FFFFFF;
   padding: 0px 24px;
   color: #000000;
+  width: calc(100% - 77px);
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: flex-end;
+  align-self: flex-end;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-0 {
+    width: 100%;
+  }
 }
 
 .emotion-0 .footer__closing--container a {
   color: #4092CD;
+}
+
+@media (max-width:1024.95px) {
+  .emotion-0 .footer__closing--container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+
+  .emotion-0 .footer__closing--container p {
+    font-size: 0.85rem;
+  }
 }
 
 .emotion-0 .MuiDivider-root {
@@ -83,7 +113,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
   display: none;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-0 .links__group a {
     border-bottom: none;
     padding: 0;
@@ -120,7 +150,7 @@ exports[`component: layout/footer matches snapshot 1`] = `
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-0 .MuiDivider-root {
     margin-top: 40px;
   }

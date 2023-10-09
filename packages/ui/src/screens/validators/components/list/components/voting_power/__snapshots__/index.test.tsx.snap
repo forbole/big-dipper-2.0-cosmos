@@ -24,7 +24,7 @@ exports[`screen: Validators/VotingPower matches snapshot 1`] = `
   color: #999999;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-1 {
     margin-bottom: 0;
   }
@@ -105,7 +105,7 @@ exports[`screen: Validators/VotingPower matches snapshot with topVotingPower set
   color: #20D494;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-1 {
     margin-bottom: 0;
   }

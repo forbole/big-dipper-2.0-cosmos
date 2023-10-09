@@ -9,7 +9,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
   gap: 8px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1025px) {
   .emotion-0 {
     padding: 16px 24px;
   }
@@ -19,7 +19,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
   color: #4092CD;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-0 {
     gap: 16px;
   }
@@ -29,7 +29,7 @@ exports[`screen: BlockDetails matches snapshot 1`] = `
   height: 450px;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-1 {
     height: 450px;
   }

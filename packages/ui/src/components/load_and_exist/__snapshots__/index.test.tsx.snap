@@ -136,6 +136,7 @@ exports[`components: LoadAndExist matches snapshot 1`] = `
   </div>,
   .emotion-0 {
   visibility: hidden;
+  display: none;
   height: 100%;
 }
 
@@ -217,6 +218,7 @@ exports[`components: LoadAndExist matches snapshot 1`] = `
   </div>,
   .emotion-0 {
   visibility: hidden;
+  display: none;
   height: 100%;
 }
 

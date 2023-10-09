@@ -128,6 +128,7 @@ exports[`screen: Nav/SettingList it renders 1`] = `
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  min-width: 0;
 }
 
 .emotion-2 {
@@ -149,14 +150,6 @@ exports[`screen: Nav/SettingList it renders 1`] = `
   cursor: pointer;
 }
 
-.emotion-2 svg {
-  fill: #999999;
-}
-
-.emotion-2 svg path {
-  fill: #999999;
-}
-
 .emotion-3 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
@@ -164,6 +157,14 @@ exports[`screen: Nav/SettingList it renders 1`] = `
   min-width: 0;
   margin-top: 4px;
   margin-bottom: 4px;
+}
+
+.emotion-3.emotion-3 * {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
 }
 
 .emotion-4 {
@@ -215,7 +216,13 @@ exports[`screen: Nav/SettingList it renders 1`] = `
         className="emotion-2"
         role="button"
       >
-        <svg />
+        <svg
+          style={
+            {
+              "color": "none",
+            }
+          }
+        />
       </div>
     </div>
     <div

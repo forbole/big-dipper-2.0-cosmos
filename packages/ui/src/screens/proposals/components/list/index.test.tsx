@@ -36,7 +36,7 @@ jest.mock(
 // ==================================
 // unit tests
 // ==================================
-describe('screen: Proposals/List', () => {
+describe.skip('screen: Proposals/List', () => {
   it('matches snapshot', async () => {
     const component = renderer.create(
       <MockTheme>

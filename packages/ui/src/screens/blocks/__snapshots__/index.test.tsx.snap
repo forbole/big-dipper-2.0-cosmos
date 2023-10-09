@@ -5,7 +5,7 @@ exports[`screen: Blocks matches snapshot 1`] = `
   padding: 16px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1025px) {
   .emotion-0 {
     padding: 16px 24px;
   }
@@ -28,10 +28,10 @@ exports[`screen: Blocks matches snapshot 1`] = `
 .emotion-2 {
   min-height: 500px;
   height: 50vh;
-  padding: 0px!important;
+  overflow: hidden!important;
 }
 
-@media (min-width:1280px) {
+@media (min-width:1025px) {
   .emotion-2 {
     height: 100%;
     min-height: 65vh;

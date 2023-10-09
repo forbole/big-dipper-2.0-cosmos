@@ -307,16 +307,6 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
 }
 
 .emotion-19 {
-  width: 100%;
-}
-
-@media (min-width:768px) {
-  .emotion-19 {
-    min-width: 300px;
-  }
-}
-
-.emotion-20 {
   margin: 0;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -327,19 +317,19 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
   border-bottom-width: thin;
 }
 
-.emotion-21 {
+.emotion-20 {
   height: 100%;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
-.emotion-22 {
+.emotion-21 {
   margin: 16px 0px;
 }
 
-@media (min-width:1280px) {
-  .emotion-22 {
+@media (min-width:1025px) {
+  .emotion-21 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -347,17 +337,17 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
     padding: 0px 16px;
   }
 
-  .emotion-22 .msg {
+  .emotion-21 .msg {
     margin-top: 4px;
   }
 }
 
-.emotion-23 {
+.emotion-22 {
   margin-bottom: 16px;
 }
 
-@media (min-width:1280px) {
-  .emotion-23 {
+@media (min-width:1025px) {
+  .emotion-22 {
     min-width: 200px;
     margin-bottom: 0;
     padding-right: 16px;
@@ -367,12 +357,12 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
   }
 }
 
-.emotion-25 {
+.emotion-24 {
   color: #4092CD;
   word-break: break-all;
 }
 
-.emotion-25:hover {
+.emotion-24:hover {
   cursor: pointer;
 }
 
@@ -481,18 +471,13 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
           raw
         </span>
       </label>
-      <div
-        callback={[MockFunction]}
-        className="emotion-19"
-        id="TransactionMessagesFilter"
-      />
     </div>
   </div>
   <hr
-    className="MuiDivider-root MuiDivider-fullWidth emotion-20"
+    className="MuiDivider-root MuiDivider-fullWidth emotion-19"
   />
   <div
-    className="emotion-21"
+    className="emotion-20"
   >
     <div
       className="List"
@@ -532,14 +517,14 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
         >
           <div>
             <div
-              className="emotion-22"
+              className="emotion-21"
             >
               <div
-                className="emotion-23"
+                className="emotion-22"
               >
                 <div
                   id="Tag"
-                  theme="two"
+                  theme="six"
                   value="message_labels:txSendLabel"
                 />
               </div>
@@ -554,7 +539,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
                     i18nKey="message_contents:txSendContent"
                   >
                     <a
-                      className="emotion-25"
+                      className="emotion-24"
                       href="/accounts/undefined"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -562,7 +547,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
                     />
                     <b />
                     <a
-                      className="emotion-25"
+                      className="emotion-24"
                       href="/accounts/undefined"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -574,7 +559,7 @@ exports[`screen: TransactionDetails/ Messages matches snapshot 1`] = `
               </span>
             </div>
             <hr
-              className="MuiDivider-root MuiDivider-fullWidth emotion-20"
+              className="MuiDivider-root MuiDivider-fullWidth emotion-19"
             />
           </div>
         </div>
