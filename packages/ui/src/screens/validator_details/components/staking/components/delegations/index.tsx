@@ -27,7 +27,6 @@ const Delegations: FC<DelegationsProps> = (props) => {
     },
     [handlePageChange, props]
   );
-
   const itemsMemo = useShallowMemo(props?.delegations?.data);
 
   let component = null;

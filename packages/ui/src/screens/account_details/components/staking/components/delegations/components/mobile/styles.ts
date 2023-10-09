@@ -32,14 +32,6 @@ const useStyles = makeStyles()((theme) => ({
       color: theme.palette.custom.fonts.highlight,
     },
   },
-  flex: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    '& > div': {
-      width: '50%',
-    },
-  },
 }));
 
 export default useStyles;
