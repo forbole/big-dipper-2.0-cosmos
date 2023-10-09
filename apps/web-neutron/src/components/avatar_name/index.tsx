@@ -3,7 +3,7 @@ import { AvatarNameProps } from '@/components/avatar_name/types';
 import AvatarNameBase from 'ui/src/components/avatar_name';
 
 const AvatarName: FC<AvatarNameProps> = ({ displayAddress, ...props }) => {
-  const noLink = ['delegationRow', 'unboundingRow', 'redelegationRow'].includes(
+  const noLink = ['delegationRow', 'unbondingRow', 'redelegationRow'].includes(
     props.location as string
   );
 
