@@ -48,13 +48,17 @@
     "eslint-plugin-turbo": "^1.9.3",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
+    "next": "^13.4.1",
     "prettier": "2.8.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "turbo": "^1.9.3",
     "typescript": "^5.0.4"
   },
   "packageManager": "yarn@3.5.0",
   "engines": {
-    "yarn": ">=1.22"
+    "yarn": ">=3.5",
+    "node": ">=18.17.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs,css,md}": "npx prettier --write"

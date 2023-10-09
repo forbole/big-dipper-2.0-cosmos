@@ -27,6 +27,7 @@ const defaultTokenUnit: TokenUnit = {
 
 const initialState: AccountDetailState = {
   loading: true,
+  balanceLoading: true,
   exists: true,
   desmosProfile: null,
   overview: {
@@ -126,7 +127,6 @@ const formatBalance = (data?: Data) => {
 // ==========================
 const formatAllBalance = (data?: Data) => {
   const stateChange: Partial<AccountDetailState> = {
-    loading: false,
     balanceLoading: false,
   };
 
@@ -265,6 +265,7 @@ export const useAccountDetails = () => {
   useEffect(() => {
     handleSetState((prevState) => ({
       ...prevState,
+      loading: false,
       overview: {
         address: address ?? '',
         withdrawalAddress: withdrawalAddress.withdrawalAddress?.address ?? '',
