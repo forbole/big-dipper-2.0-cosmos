@@ -18,8 +18,8 @@ interface providerAddressProfileResult {
 }
 
 /**
- * Accepts provider operator address and returns the appropriate profile
- * @param validator - the provider operator address of the validator
+ * Accepts validator consensus address and returns the appropriate profile
+ * @param validator - the consumer consensus address of the validator
  * @returns The return value is an object with the following properties:
  * name, address, imageUrl
  */
@@ -29,11 +29,10 @@ const useValidatorConsensusAddressesList = (validator: string): providerAddressP
   });
   const [profile, setProfile] = useState<Profile>();
   const setAvatarName = useRecoilCallback(
-    ({ set }) =>
-      (address: string, avatarName: AvatarName | null) =>
-        set(writeProfile(address), (prevState) =>
-          R.equals(prevState, avatarName) ? prevState : avatarName
-        ),
+    ({ set }) => (address: string, avatarName: AvatarName | null) =>
+      set(writeProfile(address), prevState =>
+        R.equals(prevState, avatarName) ? prevState : avatarName
+      ),
     []
   );
   useEffect(() => {
