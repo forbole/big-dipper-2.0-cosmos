@@ -23,7 +23,9 @@ const DelegationsRow: FC<DelegationsRowProps> = ({ item, i }) => {
   const reward = item.reward ? formatNumber(item.reward.value, item.reward.exponent) : '';
   const formattedItem = {
     identifier: i,
-    validator: <AvatarName name={name} address={address} imageUrl={imageUrl} />,
+    validator: (
+      <AvatarName name={name} address={address} imageUrl={imageUrl} location="delegationRow" />
+    ),
     amount: `${amount} ${item.amount?.displayDenom.toUpperCase()}`,
     commission: `${commission} %`,
     reward: `${reward} ${item.reward?.displayDenom.toUpperCase()}`,

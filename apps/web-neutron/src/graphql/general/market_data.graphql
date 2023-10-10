@@ -1,0 +1,9 @@
+query MarketData ($denom: String) {
+  tokenPrice: token_price(where: {unit_name: {_eq: $denom}}) {
+    marketCap: market_cap
+    price
+  }
+  supply {
+    coins
+  }
+}

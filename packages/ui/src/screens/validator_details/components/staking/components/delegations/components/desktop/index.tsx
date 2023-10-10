@@ -18,7 +18,9 @@ type DelegationsRowProps = {
 const DelegationsRow: FC<DelegationsRowProps> = ({ item }) => {
   const { name, address, imageUrl } = useProfileRecoil(item.address);
   const formattedItem = {
-    address: <AvatarName name={name} address={address} imageUrl={imageUrl} />,
+    address: (
+      <AvatarName name={name} address={address} imageUrl={imageUrl} location="delegationRow" />
+    ),
     amount: item.amount
       ? `${formatNumber(
           item.amount.value,

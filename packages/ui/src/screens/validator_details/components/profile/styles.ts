@@ -9,6 +9,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   bio: {
     display: 'flex',
+    gap: theme.spacing(2),
     '& .bio__header': {
       display: 'flex',
       alignItems: 'flex-start',

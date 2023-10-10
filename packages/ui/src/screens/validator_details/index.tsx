@@ -16,7 +16,7 @@ const ValidatorDetails = () => {
   const { t } = useAppTranslation('validators');
   const { classes } = useStyles();
   const { state, loading } = useValidatorDetails();
-  const { desmosProfile, exists, overview, status, votingPower } = state;
+  const { desmosProfile, exists, overview, status, votingPower, cosmosAddress } = state;
 
   return (
     <>
@@ -40,8 +40,14 @@ const ValidatorDetails = () => {
               data={votingPower}
               status={status.status}
             />
-            <Blocks className={classes.blocks} />
-            <Staking className={classes.staking} />
+            <Blocks
+              className={classes.blocks}
+              address={cosmosAddress || state.overview.operatorAddress}
+            />
+            <Staking
+              className={classes.staking}
+              address={cosmosAddress || state.overview.operatorAddress}
+            />
             <Transactions className={classes.transactions} />
           </span>
         </LoadAndExist>

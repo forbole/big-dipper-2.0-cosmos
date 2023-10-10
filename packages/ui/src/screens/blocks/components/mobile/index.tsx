@@ -16,6 +16,7 @@ import { FC } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { ListChildComponentProps, VariableSizeList as List } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
+import { resolveProfile } from '@/screens/blocks/utils';
 
 type ListItemProps = Pick<ListChildComponentProps, 'index' | 'style'> & {
   setRowHeight: Parameters<typeof useListRow>[1];
@@ -32,7 +33,8 @@ const ListItem: FC<ListItemProps> = ({
   item,
   isLast,
 }) => {
-  const { name, address, imageUrl } = useProfileRecoil(item.proposer);
+  const profile = useProfileRecoil(item.proposer);
+  const { address, name, imageUrl } = resolveProfile(item, profile);
   const formattedItem = {
     height: (
       <Link shallow prefetch={false} href={BLOCK_DETAILS(item.height)} className="value">

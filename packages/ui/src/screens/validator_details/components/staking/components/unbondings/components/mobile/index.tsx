@@ -30,7 +30,7 @@ const UnbondingsItem: FC<UnbondingsItemProps> = ({ i, item, isLast }) => {
           <Typography variant="h4" className="label">
             {t('address')}
           </Typography>
-          <AvatarName address={address} imageUrl={imageUrl} name={name} />
+          <AvatarName address={address} imageUrl={imageUrl} name={name} location="unbondingRow" />
         </div>
         <div className={classes.item}>
           <Typography variant="h4" className="label">

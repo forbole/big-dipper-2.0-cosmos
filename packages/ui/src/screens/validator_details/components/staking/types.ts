@@ -32,3 +32,24 @@ export type UnbondingsType = StakingType<UnbondingType>;
 export interface StakingState {
   tab: number;
 }
+
+export type Delegations = {
+  coins: MsgCoin[];
+  entries: Array<{
+    balance: string;
+  }>;
+};
+
+export type Redelegations = {
+  delegator_address: string;
+  validator_dst_address: string;
+  entries: Array<{
+    balance: string;
+  }>;
+};
+
+export type Undelegations = {
+  entries: Array<{
+    balance: string;
+  }>;
+};

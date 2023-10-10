@@ -16,31 +16,15 @@ import type {
 } from '@/screens/validator_details/components/staking/types';
 import { formatToken } from '@/utils/format_token';
 import { getDenom } from '@/utils/get_denom';
+import {
+  Delegations,
+  Redelegations,
+  Undelegations,
+} from '@/screens/validator_details/components/staking/types';
 
 const { primaryTokenUnit } = chainConfig();
 
 export const ROWS_PER_PAGE = 10;
-
-type Delegations = {
-  coins: MsgCoin[];
-  entries: Array<{
-    balance: string;
-  }>;
-};
-
-type Redelegations = {
-  delegator_address: string;
-  validator_dst_address: string;
-  entries: Array<{
-    balance: string;
-  }>;
-};
-
-type Undelegations = {
-  entries: Array<{
-    balance: string;
-  }>;
-};
 
 export const formatDelegations = (data: Delegations[]) =>
   data
@@ -57,7 +41,7 @@ export const formatDelegations = (data: Delegations[]) =>
 export const formatRedelegations = (data: Redelegations[]) => {
   const results: RedelegationType[] = [];
   data.forEach((x) => {
-    R.pathOr<NonNullable<typeof x['entries']>>([], ['entries'], x).forEach((y) => {
+    R.pathOr<NonNullable<(typeof x)['entries']>>([], ['entries'], x).forEach((y) => {
       results.push({
         address: x?.delegator_address ?? '',
         to: x?.validator_dst_address ?? '',
@@ -91,15 +75,18 @@ export const formatUnbondings = (data: Undelegations[]) => {
 export const useStaking = (
   delegationsPage: number,
   redelegationsPage: number,
-  unbondingsPage: number
+  unbondingsPage: number,
+  address?: string
 ) => {
   const router = useRouter();
   const [state, setState] = useState<StakingState>({
     tab: 0,
   });
-  const validatorAddress = Array.isArray(router?.query?.address)
-    ? router.query.address[0]
-    : router?.query?.address ?? '';
+  const validatorAddress =
+    address ||
+    (Array.isArray(router?.query?.address)
+      ? router.query.address[0]
+      : router?.query?.address ?? '');
 
   // =====================================
   // delegations

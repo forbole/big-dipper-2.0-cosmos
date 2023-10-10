@@ -1,0 +1,250 @@
+{
+  "chainName": "neutron",
+  "title": "Neutron Block Explorer",
+  "extra": {
+    "profile": false,
+    "graphqlWs": true
+  },
+  "previewImage": "https://s3.bigdipper.live/previews/neutron.png",
+  "themes": {
+    "default": "light",
+    "themeList": [
+      "dark",
+      "light",
+      "deuteranopia",
+      "tritanopia"
+    ],
+    "dark": {
+      "primary": {
+        "main": "rgba(253,59,76,0.7)",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#0A0A0A",
+        "paper": "#131316"
+      },
+      "divider": "#3D3D43",
+      "text": {
+        "primary": "#E6E6E6",
+        "secondary": "#AAAAAB"
+      },
+      "custom": {
+        "general": {
+          "background": "#0A0A0A",
+          "surfaceOne": "#131316",
+          "surfaceTwo": "#19191D",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#E6E6E6",
+          "fontTwo": "#AAAAAB",
+          "fontThree": "#818181",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#1D86FF"
+        },
+        "primaryData": {
+          "one": "#af2929",
+          "two": "#b44516",
+          "three": "#b14237",
+          "four": "#b16919"
+        },
+        "results": {
+          "pass": "#198a65",
+          "fail": "#b12a34"
+        },
+        "tokenomics": {
+          "one": "#50B6D7",
+          "two": "#F4CD69",
+          "three": "#45A884"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#6D6D6C",
+          "one": "#45A884",
+          "two": "#50B6D7",
+          "three": "#F4CD69",
+          "four": "#F2A46B",
+          "five": "#C975F0"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA896",
+          "three": "#E79725",
+          "four": "#F17052",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9949",
+          "nine": "#B49F36",
+          "ten": "#E9A851",
+          "eleven": "#E94686",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#5E5E5E",
+          "backgroundTwo": "#212123",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#D9D9D9",
+          "surfaceThree": "#4D4D4D",
+          "surfaceFour": "#414141",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#DDDDDD"
+        }
+      }
+    },
+    "light": {
+      "primary": {
+        "main": "#488D98",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
+      "custom": {
+        "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8",
+          "icon": "#999999"
+        },
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#0075FF"
+        },
+        "primaryData": {
+          "one": "#488D98",
+          "two": "#45A884",
+          "three": "#48A2B0",
+          "four": "#47B0AA"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#50B6D7",
+          "two": "#F4CD69",
+          "three": "#45A884"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#45A884",
+          "two": "#50B6D7",
+          "three": "#F4CD69",
+          "four": "#F2A46B",
+          "five": "#C975F0"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#E8E8E8",
+          "backgroundTwo": "#FFFFFF",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#E8E7E8",
+          "surfaceThree": "#BDBDBD",
+          "surfaceFour": "#A1A1A1",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#222222"
+        }
+      }
+    }
+  },
+  "keplr": "",
+  "chains": [
+    {
+      "network": "neutron-1",
+      "chainType": "Mainnet",
+      "genesis": {
+        "time": "2023-05-10T15:00:00",
+        "height": 1
+      },
+      "prefix": {
+        "consensus": "neutronvalcons",
+        "validator": "neutronvaloper",
+        "account": "neutron"
+      },
+      "primaryTokenUnit": "untrn",
+      "votingPowerTokenUnit": "untrn",
+      "tokenUnits": {
+        "untrn": {
+          "display": "ntrn",
+          "exponent": 6
+        }
+      },
+      "endpoints": {
+        "graphql": "https://gql.neutron.forbole.com/v1/graphql",
+        "graphqlWebsocket": "wss://gql.neutron.forbole.com/v1/graphql",
+        "publicRpcWebsocket": "wss://rpc.neutron.forbole.com/websocket"
+      },
+      "marketing": {
+        "matomoURL": "https://analytics.bigdipper.live",
+        "matomoSiteID": "8"
+      },
+      "provider": {
+      "primaryTokenUnit": "uatom",
+      "tokenUnits": {
+          "uatom": {
+            "display": "atom",
+            "exponent": 6
+        }
+        }
+      }
+    }
+  ]
+}

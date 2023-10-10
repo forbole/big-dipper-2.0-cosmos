@@ -1,0 +1,5 @@
+query Tokenomics{
+  supply: supply(order_by: {height: desc}, limit: 1) {
+    coins
+  }
+}

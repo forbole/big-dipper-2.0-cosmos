@@ -24,7 +24,7 @@ const DelegationsItem: FC<DelegationsItemProps> = ({ item, isLast }) => {
           <Typography variant="h4" className="label">
             {t('validator')}
           </Typography>
-          <AvatarName name={name} address={address} imageUrl={imageUrl} />
+          <AvatarName name={name} address={address} imageUrl={imageUrl} location="delegationRow" />
         </div>
         <div className={classes.flex}>
           <div className={classes.item}>

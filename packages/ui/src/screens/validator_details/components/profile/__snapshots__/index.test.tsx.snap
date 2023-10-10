@@ -6,6 +6,7 @@ exports[`screen: ValidatorDetails/Profile matches snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  gap: 16px;
 }
 
 .emotion-0 .bio__header {

@@ -1,0 +1,24 @@
+overwrite: true
+generates:
+  ./src/graphql/types/general_types.ts:
+    documents:
+      - 'src/graphql/general/*'
+    schema: https://gql.neutron.forbole.com/v1/graphql
+    config:
+      # omitOperationSuffix: true
+      skipTypeNameForRoot: true
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo' # To generate custom hooks per query
+  ./src/graphql/types/provider_types.ts:
+    documents:
+      - 'src/graphql/provider/*'
+    schema: https://gql.neutron.forbole.com/v1/graphql
+    config:
+      # omitOperationSuffix: true
+      skipTypeNameForRoot: true
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo' # To generate custom hooks per query

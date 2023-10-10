@@ -1,0 +1,10 @@
+{
+  "params.CCVConsumer": "CCV Consumer",
+  "params.unbondingPeriod": "Unbonding Period",
+  "params.ccvTimeoutPeriod": "CCV Timeout Period",
+  "params.historicalEntries": "Historical Entries",
+  "params.softOptOutThreshold": "Soft Opt Out Threshold",
+  "params.transferTimeoutPeriod": "Transfer Timeout Period",
+  "params.consumerRedistributionFraction": "Consumer Redistribution Fraction",
+  "params.blocksPerDistributionTransmission": "Blocks Per Distribution Transmission"
+}
