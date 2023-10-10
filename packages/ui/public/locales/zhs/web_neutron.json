@@ -1,0 +1,10 @@
+{
+  "params.CCVConsumer": "CCV 消费者",
+  "params.unbondingPeriod": "解除绑定期",
+  "params.ccvTimeoutPeriod": "CCV 超时时间",
+  "params.historicalEntries": "历史条目",
+  "params.softOptOutThreshold": "软选择退出阈值",
+  "params.transferTimeoutPeriod": "传输超时时间",
+  "params.consumerRedistributionFraction": "消费者重新分配分数",
+  "params.blocksPerDistributionTransmission": "每次分发传输的块数"
+}

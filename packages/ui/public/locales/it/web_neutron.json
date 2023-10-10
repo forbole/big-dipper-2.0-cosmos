@@ -1,0 +1,10 @@
+{
+  "params.CCVConsumer": "Consumatore CCV",
+  "params.unbondingPeriod": "Periodo di svincolo",
+  "params.ccvTimeoutPeriod": "Periodo di timeout CCV",
+  "params.historicalEntries": "Voci storiche",
+  "params.softOptOutThreshold": "Soglia di disattivazione soft",
+  "params.transferTimeoutPeriod": "Periodo di timeout del trasferimento",
+  "params.consumerRedistributionFraction": "Frazione di ridistribuzione del consumatore",
+  "params.blocksPerDistributionTransmission": "Blocchi per trasmissione di distribuzione"
+}
