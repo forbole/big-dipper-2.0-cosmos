@@ -21,7 +21,7 @@ import {
   Redelegations,
   Undelegations,
 } from '@/screens/validator_details/components/staking/types';
-import { formatProviderToken } from '../../../../../packages/ui/src/utils/format_provider_token';
+import { formatProviderToken } from '../../../../utils/format_provider_token';
 
 const provider = chainConfig();
 export const ROWS_PER_PAGE = 10;

@@ -50,9 +50,6 @@ const variants: Variants = {
 
 const BlockRow: FC<BlockRowProps> = ({ item }) => {
   const { profile } = useProviderCustomValidator(item.proposer);
-  const name = profile?.name ?? item.proposer;
-  const imageUrl = profile?.imageUrl ?? '';
-
   const formattedData = {
     height: (
       <Link shallow prefetch={false} href={BLOCK_DETAILS(item.height)} className="value">
@@ -64,8 +61,8 @@ const BlockRow: FC<BlockRowProps> = ({ item }) => {
     proposer: (
       <AvatarName
         address={profile?.address ?? ''}
-        imageUrl={imageUrl}
-        name={name}
+        imageUrl={profile?.imageUrl ?? ''}
+        name={profile?.name ?? ''}
         href={VALIDATOR_DETAILS}
       />
     ),

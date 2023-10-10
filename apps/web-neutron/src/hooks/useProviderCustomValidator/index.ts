@@ -44,7 +44,7 @@ const useProviderCustomValidator = (validator: string): providerAddressProfileRe
       const imageUrl = validatorDescription?.avatar_url ?? '';
       const bio = validatorDescription?.details ?? '';
       const website = validatorDescription?.website ?? '';
-      const address = validator;
+      const address = data?.ccv_validator[0]?.consumer_operator_address;
       const res: Profile = {
         name,
         address,

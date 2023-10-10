@@ -6,7 +6,7 @@ import { ParamsQuery, useParamsQuery } from '@/graphql/types/provider_types';
 import { DistributionParams, GovParams, MintParams, SlashingParams, StakingParams } from '@/models';
 import type { ParamsState } from '@/screens/params/types';
 import { formatToken } from '@/utils/format_token';
-import { CCVConsumerParams } from '../../../packages/ui/src/models';
+import CCVConsumerParams from '../../models/ccv_consumer_params';
 
 const { primaryTokenUnit } = chainConfig();
 
@@ -128,9 +128,7 @@ const formatGov = (data: ParamsQuery) => {
 
 const formatCCVConsumer = (data: ParamsQuery) => {
   if (data?.ccv_consumer_params[0]?.params) {
-    const ccvConsumerParamsRaw = CCVConsumerParams.fromJson(
-      data?.ccv_consumer_params[0]?.params ?? {}
-    );
+    const ccvConsumerParamsRaw = CCVConsumerParams(data?.ccv_consumer_params[0]?.params ?? {});
     return {
       enabled: ccvConsumerParamsRaw.enabled,
       unbondingPeriod: ccvConsumerParamsRaw.unbondingPeriod,

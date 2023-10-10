@@ -1,5 +1,5 @@
 import Big from 'big.js';
-import chainConfig from '../../chainConfig';
+import chainConfig from '@/chainConfig';
 
 const provider = chainConfig();
 
