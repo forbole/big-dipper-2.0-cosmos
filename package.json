@@ -1,6 +1,6 @@
 {
   "name": "big-dipper-2.0-cosmos",
-  "version": "3.2.4",
+  "version": "2.2.0",
   "license": "Apache-2.0",
   "private": true,
   "workspaces": [
