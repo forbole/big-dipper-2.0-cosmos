@@ -1,6 +1,6 @@
 {
   "name": "big-dipper-2.0-cosmos",
-  "version": "2.2.0",
+  "version": "3.2.4",
   "license": "Apache-2.0",
   "private": true,
   "workspaces": [
@@ -55,7 +55,7 @@
     "turbo": "^1.9.3",
     "typescript": "^5.0.4"
   },
-  "packageManager": "yarn@3.5.0",
+  "packageManager": "yarn@3.2.4",
   "engines": {
     "yarn": ">=3.5",
     "node": ">=18.17.1"
