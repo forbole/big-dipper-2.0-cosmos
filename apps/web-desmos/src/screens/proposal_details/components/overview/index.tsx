@@ -27,7 +27,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
   const { t } = useAppTranslation('proposals');
 
   let types: string[] = [];
-  if (overview.content.length > 1) {
+  if (Array.isArray(overview.content)) {
     overview.content.forEach((type: string) => {
       types.push(getProposalType(R.pathOr('', ['@type'], type)));
     });
