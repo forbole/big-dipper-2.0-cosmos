@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { FC, useCallback, useState, useMemo } from 'react';
+import { FC, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import Box from '@/components/box';
 import Markdown from '@/components/markdown';
@@ -26,7 +26,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
   const { classes, cx } = useStyles();
   const { t } = useAppTranslation('proposals');
 
-  let types: string[] = [];
+  const types: string[] = [];
   if (Array.isArray(overview.content)) {
     overview.content.forEach((type: string) => {
       types.push(getProposalType(R.pathOr('', ['@type'], type)));
