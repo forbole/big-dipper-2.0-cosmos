@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useState, useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import Box from '@/components/box';
 import Markdown from '@/components/markdown';
@@ -28,11 +28,11 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
 
   let types: string[] = [];
   if (overview.content.length > 1) {
-    for (let i = 0; i < overview.content.length; i++) {
-      types[i] = getProposalType(R.pathOr('', ['@type'], overview.content[i]));
-    }
+    overview.content.forEach((type: string) => {
+      types.push(getProposalType(R.pathOr('', ['@type'], type)));
+    });
   } else {
-    types[0] = getProposalType(R.pathOr('', ['@type'], overview.content));
+    types.push(getProposalType(R.pathOr('', ['@type'], overview.content)));
   }
 
   const { address: proposerAddress, name: proposerName } = useProfileRecoil(overview.proposer);
@@ -51,44 +51,44 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
 
   const getExtraDetails = useCallback(() => {
     let extraDetails = null;
-    types.map((type, index) => {
+    types.forEach((type: string) => {
       if (type === 'parameterChangeProposal') {
-        return (extraDetails = (
+        extraDetails = (
           <>
             <Typography variant="body1" className="label">
               {t('changes')}
             </Typography>
-            <ParamsChange changes={R.pathOr([], ['changes'], overview.content[index])} />
+            <ParamsChange changes={R.pathOr([], ['changes'], overview.content)} />
           </>
-        ));
+        );
       }
       if (type === 'softwareUpgradeProposal') {
-        return (extraDetails = (
+        extraDetails = (
           <>
             <Typography variant="body1" className="label">
               {t('plan')}
             </Typography>
             <SoftwareUpgrade
-              height={R.pathOr('0', ['plan', 'height'], overview.content[index])}
-              info={R.pathOr('', ['plan', 'info'], overview.content[index])}
-              name={R.pathOr('', ['plan', 'name'], overview.content[index])}
+              height={R.pathOr('0', ['plan', 'height'], overview.content)}
+              info={R.pathOr('', ['plan', 'info'], overview.content)}
+              name={R.pathOr('', ['plan', 'name'], overview.content)}
             />
           </>
-        ));
+        );
       }
       if (type === 'communityPoolSpendProposal') {
-        return (extraDetails = (
+        extraDetails = (
           <>
             <Typography variant="body1" className="label">
               {t('content')}
             </Typography>
             <CommunityPoolSpend
-              recipient={overview?.content[index]?.recipient}
+              recipient={overview?.content?.recipient}
               recipientMoniker={recipientMoniker}
               amountRequested={parsedAmountRequested}
             />
           </>
-        ));
+        );
       }
     });
 
