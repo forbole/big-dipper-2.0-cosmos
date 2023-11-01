@@ -26,10 +26,14 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
   const { classes, cx } = useStyles();
   const { t } = useAppTranslation('proposals');
 
-  const type =
-    R.pathOr('', [0, '@type'], overview.content) === ''
-      ? getProposalType(R.pathOr('', ['@type'], overview.content))
-      : getProposalType(R.pathOr('', [0, '@type'], overview.content));
+  let types: string[] = [];
+  if (overview.content.length > 1) {
+    for (let i = 0; i < overview.content.length; i++) {
+      types[i] = getProposalType(R.pathOr('', ['@type'], overview.content[i]));
+    }
+  } else {
+    types[0] = getProposalType(R.pathOr('', ['@type'], overview.content));
+  }
 
   const { address: proposerAddress, name: proposerName } = useProfileRecoil(overview.proposer);
   const { name: recipientName } = useProfileRecoil(overview?.content?.recipient);
@@ -47,45 +51,47 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
 
   const getExtraDetails = useCallback(() => {
     let extraDetails = null;
-    if (type === 'parameterChangeProposal') {
-      extraDetails = (
-        <>
-          <Typography variant="body1" className="label">
-            {t('changes')}
-          </Typography>
-          <ParamsChange changes={R.pathOr([], ['changes'], overview.content)} />
-        </>
-      );
-    } else if (type === 'softwareUpgradeProposal') {
-      extraDetails = (
-        <>
-          <Typography variant="body1" className="label">
-            {t('plan')}
-          </Typography>
-          <SoftwareUpgrade
-            height={R.pathOr('0', ['plan', 'height'], overview.content)}
-            info={R.pathOr('', ['plan', 'info'], overview.content)}
-            name={R.pathOr('', ['plan', 'name'], overview.content)}
-          />
-        </>
-      );
-    } else if (type === 'communityPoolSpendProposal') {
-      extraDetails = (
-        <>
-          <Typography variant="body1" className="label">
-            {t('content')}
-          </Typography>
-          <CommunityPoolSpend
-            recipient={overview?.content?.recipient}
-            recipientMoniker={recipientMoniker}
-            amountRequested={parsedAmountRequested}
-          />
-        </>
-      );
-    }
+    types.map((type, index) => {
+      if (type === 'parameterChangeProposal') {
+        return (extraDetails = (
+          <>
+            <Typography variant="body1" className="label">
+              {t('changes')}
+            </Typography>
+            <ParamsChange changes={R.pathOr([], ['changes'], overview.content[index])} />
+          </>
+        ));
+      } else if (type === 'softwareUpgradeProposal') {
+        return (extraDetails = (
+          <>
+            <Typography variant="body1" className="label">
+              {t('plan')}
+            </Typography>
+            <SoftwareUpgrade
+              height={R.pathOr('0', ['plan', 'height'], overview.content[index])}
+              info={R.pathOr('', ['plan', 'info'], overview.content[index])}
+              name={R.pathOr('', ['plan', 'name'], overview.content[index])}
+            />
+          </>
+        ));
+      } else if (type === 'communityPoolSpendProposal') {
+        return (extraDetails = (
+          <>
+            <Typography variant="body1" className="label">
+              {t('content')}
+            </Typography>
+            <CommunityPoolSpend
+              recipient={overview?.content[index]?.recipient}
+              recipientMoniker={recipientMoniker}
+              amountRequested={parsedAmountRequested}
+            />
+          </>
+        ));
+      }
+    });
 
     return extraDetails;
-  }, [overview.content, parsedAmountRequested, recipientMoniker, t, type]);
+  }, [overview.content, parsedAmountRequested, recipientMoniker, t, types]);
 
   const extra = getExtraDetails();
 
@@ -101,8 +107,14 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
         <Typography variant="body1" className="label">
           {t('type')}
         </Typography>
-        <Typography variant="body1" className="value">
-          {t(type)}
+        <Typography variant="body1">
+          {types.map((type) => {
+            return (
+              <Typography variant="body1" className="value">
+                {t(type)}
+              </Typography>
+            );
+          })}
         </Typography>
         <Typography variant="body1" className="label">
           {t('proposer')}
