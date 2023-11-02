@@ -27,16 +27,30 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
   const { classes, cx } = useStyles();
   const { t } = useAppTranslation('proposals');
 
-  const types: string[] = [];
-  const changes: [{ params: JSON; type: string }] = [{ params: {} as JSON, type: '' }];
-  if (Array.isArray(overview.content)) {
-    overview.content.forEach((type: { params: JSON; type: string }, index: number) => {
-      types.push(getProposalType(R.pathOr('', ['@type'], type)));
-      changes[index] = { params: type.params, type: R.pathOr('', ['@type'], type) };
-    });
-  } else {
-    types.push(getProposalType(R.pathOr('', ['@type'], overview.content)));
-  }
+  const types = useMemo(() => {
+    if (Array.isArray(overview.content)) {
+      const typeArray: string[] = [];
+      overview.content.forEach((type: { params: JSON; type: string }) =>
+        typeArray.push(getProposalType(R.pathOr('', ['@type'], type)))
+      );
+      return typeArray;
+    }
+    const typeArray: string[] = [];
+    typeArray.push(getProposalType(R.pathOr('', ['@type'], overview.content)));
+    return typeArray;
+  }, [overview.content]);
+
+  const changes = useMemo(() => {
+    const changeList: any[] = [];
+    if (Array.isArray(overview.content)) {
+      overview.content.forEach((type: { params: JSON; type: string }) => {
+        changeList.push({ params: type.params, type: R.pathOr('', ['@type'], type) });
+      });
+
+      return changeList;
+    }
+    return changeList;
+  }, [overview.content]);
 
   const { address: proposerAddress, name: proposerName } = useProfileRecoil(overview.proposer);
   const { name: recipientName } = useProfileRecoil(overview?.content?.recipient);
