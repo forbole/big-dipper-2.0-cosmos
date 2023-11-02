@@ -15,15 +15,10 @@ import CommunityPoolSpend from '@/screens/proposal_details/components/overview/c
 import UpdateParams from '@/screens/proposal_details/components/overview/components/update_params';
 import ParamsChange from '@/screens/proposal_details/components/overview/components/params_change';
 import SoftwareUpgrade from '@/screens/proposal_details/components/overview/components/software_upgrade';
-// import useStyles from '@/screens/proposal_details/components/overview/styles';
 import type { OverviewType } from '@/screens/proposal_details/types';
 import { getProposalType } from '@/screens/proposal_details/utils';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber, formatToken } from '@/utils/format_token';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import useStyles from './styles';
 
 const Overview: FC<{ className?: string; overview: OverviewType }> = ({ className, overview }) => {
@@ -103,27 +98,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
         extraDetails = (
           <>
             {changes.map((change) => (
-              <>
-                <Typography variant="body1" className="label">
-                  {t('changes')}
-                </Typography>
-                <Accordion className="accordion">
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Typography variant="body1" className="value">
-                      {JSON.stringify(change.type, null, 2).replace(/['"]+/g, '')}
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body1" className="value">
-                      {JSON.stringify(change.params, null, 2)}
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-              </>
+              <UpdateParams changes={change} className="accordion" />
             ))}
           </>
         );
