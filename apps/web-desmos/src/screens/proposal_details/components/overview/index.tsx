@@ -112,7 +112,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
         extraDetails = (
           <>
             {changes.map((change) => (
-              <UpdateParams changes={change} className="accordion" />
+              <UpdateParams changes={change} className="accordion" key={change.type} />
             ))}
           </>
         );
