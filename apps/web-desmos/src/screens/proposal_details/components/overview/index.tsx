@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import Box from '@/components/box';
 import Markdown from '@/components/markdown';
@@ -12,13 +12,14 @@ import SingleProposal from '@/components/single_proposal';
 import { useProfileRecoil } from '@/recoil/profiles/hooks';
 import { readDate, readTimeFormat } from '@/recoil/settings';
 import CommunityPoolSpend from '@/screens/proposal_details/components/overview/components/community_pool_spend';
+import UpdateParams from '@/screens/proposal_details/components/overview/components/update_params';
 import ParamsChange from '@/screens/proposal_details/components/overview/components/params_change';
 import SoftwareUpgrade from '@/screens/proposal_details/components/overview/components/software_upgrade';
-import useStyles from '@/screens/proposal_details/components/overview/styles';
 import type { OverviewType } from '@/screens/proposal_details/types';
 import { getProposalType } from '@/screens/proposal_details/utils';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber, formatToken } from '@/utils/format_token';
+import useStyles from './styles';
 
 const Overview: FC<{ className?: string; overview: OverviewType }> = ({ className, overview }) => {
   const dateFormat = useRecoilValue(readDate);
@@ -26,14 +27,30 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
   const { classes, cx } = useStyles();
   const { t } = useAppTranslation('proposals');
 
-  const types: string[] = [];
-  if (Array.isArray(overview.content)) {
-    overview.content.forEach((type: string) => {
-      types.push(getProposalType(R.pathOr('', ['@type'], type)));
-    });
-  } else {
-    types.push(getProposalType(R.pathOr('', ['@type'], overview.content)));
-  }
+  const types = useMemo(() => {
+    if (Array.isArray(overview.content)) {
+      const typeArray: string[] = [];
+      overview.content.forEach((type: { params: JSON; type: string }) =>
+        typeArray.push(getProposalType(R.pathOr('', ['@type'], type)))
+      );
+      return typeArray;
+    }
+    const typeArray: string[] = [];
+    typeArray.push(getProposalType(R.pathOr('', ['@type'], overview.content)));
+    return typeArray;
+  }, [overview.content]);
+
+  const changes = useMemo(() => {
+    const changeList: any[] = [];
+    if (Array.isArray(overview.content)) {
+      overview.content.forEach((type: { params: JSON; type: string }) => {
+        changeList.push({ params: type.params, type: R.pathOr('', ['@type'], type) });
+      });
+
+      return changeList;
+    }
+    return changeList;
+  }, [overview.content]);
 
   const { address: proposerAddress, name: proposerName } = useProfileRecoil(overview.proposer);
   const { name: recipientName } = useProfileRecoil(overview?.content?.recipient);
@@ -90,10 +107,19 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
           </>
         );
       }
-    });
 
+      if (type.includes('MsgUpdateParams')) {
+        extraDetails = (
+          <>
+            {changes.map((change) => (
+              <UpdateParams changes={change} className="accordion" key={change.type} />
+            ))}
+          </>
+        );
+      }
+    });
     return extraDetails;
-  }, [overview.content, parsedAmountRequested, recipientMoniker, t, types]);
+  }, [changes, overview.content, parsedAmountRequested, recipientMoniker, t, types]);
 
   const extra = getExtraDetails();
 
@@ -110,8 +136,8 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
           {t('type')}
         </Typography>
         <Typography variant="body1">
-          {types.map((type) => (
-            <Typography variant="body1" className="value">
+          {types.map((type: string) => (
+            <Typography variant="body1" className="value" key={type}>
               {t(type)}
             </Typography>
           ))}
