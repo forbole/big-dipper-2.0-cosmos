@@ -48,6 +48,9 @@ const formatValidators = (data: ValidatorsQuery): Partial<ValidatorsState> => {
         status: x?.validatorStatuses?.[0]?.status ?? 0,
         jailed: x?.validatorStatuses?.[0]?.jailed ?? false,
         tombstoned: x?.validatorSigningInfos?.[0]?.tombstoned ?? false,
+        avatarUrl: x?.validatorDescriptions?.[0].avatarUrl ?? '',
+        moniker: x?.validatorDescriptions?.[0].moniker ?? '',
+        identity: x?.validatorDescriptions?.[0].identity ?? '',
       };
     });
 
@@ -169,7 +172,7 @@ export const useValidators = () => {
         sorted = sorted.filter((x) => {
           const formattedSearch = search.toLowerCase().replace(/ /g, '');
           return (
-            x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch) ||
+            x.moniker.toLowerCase().replace(/ /g, '').includes(formattedSearch) ||
             x.validator.address.toLowerCase().includes(formattedSearch)
           );
         });

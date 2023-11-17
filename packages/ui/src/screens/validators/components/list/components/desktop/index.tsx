@@ -88,14 +88,16 @@ const GridRow: FC<GridRowProps> = ({
   valLength,
 }) => {
   const { classes, cx } = useStyles();
-  const { name, address, imageUrl } = item.validator;
+  const { avatarUrl, moniker } = item;
+  const { address } = item.validator;
+
   const { t } = useAppTranslation('validators');
   const { chainName } = chainConfig();
 
   if (search) {
     const formattedSearch = search.toLowerCase().replace(/ /g, '');
     if (
-      !name.toLowerCase().replace(/ /g, '').includes(formattedSearch) &&
+      !moniker.toLowerCase().replace(/ /g, '').includes(formattedSearch) &&
       !address.toLowerCase().includes(formattedSearch)
     ) {
       return null;
@@ -119,7 +121,7 @@ const GridRow: FC<GridRowProps> = ({
       formatItem = `#${i + 1}`;
       break;
     case 'validator':
-      formatItem = <AvatarName address={address} imageUrl={imageUrl} name={name} />;
+      formatItem = <AvatarName address={address} imageUrl={avatarUrl} name={moniker} />;
       break;
     case 'commission':
       formatItem = `${numeral(item.commission).format('0.[00]')}%`;
