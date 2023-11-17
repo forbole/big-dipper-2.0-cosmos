@@ -22,7 +22,12 @@ query Validators {
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission
     }
-    validatorSigningInfos: validator_signing_infos(order_by: {height: desc}, limit: 1) {
+    validatorDescriptions: validator_descriptions(order_by: {height: desc}, limit: 1){
+      moniker
+      avatar_url
+      identity
+    }
+    validatorSigningInfos: validator_signing_infos( order_by: {height: desc}, limit: 1) {
       missedBlocksCounter: missed_blocks_counter
     }
   }

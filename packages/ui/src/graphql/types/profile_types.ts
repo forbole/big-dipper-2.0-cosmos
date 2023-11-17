@@ -760,6 +760,10 @@ export type Query_Root = {
   profile_by_pk?: Maybe<Profile>;
   /** fetch data from the table: "profiles_params" */
   profiles_params: Array<Profiles_Params>;
+  /** fetch data from the table: "user_block" */
+  user_block: Array<User_Block>;
+  /** fetch data from the table: "user_relationship" */
+  user_relationship: Array<User_Relationship>;
 };
 
 
@@ -848,6 +852,24 @@ export type Query_RootProfiles_ParamsArgs = {
   where?: InputMaybe<Profiles_Params_Bool_Exp>;
 };
 
+
+export type Query_RootUser_BlockArgs = {
+  distinct_on?: InputMaybe<Array<User_Block_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<User_Block_Order_By>>;
+  where?: InputMaybe<User_Block_Bool_Exp>;
+};
+
+
+export type Query_RootUser_RelationshipArgs = {
+  distinct_on?: InputMaybe<Array<User_Relationship_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<User_Relationship_Order_By>>;
+  where?: InputMaybe<User_Relationship_Bool_Exp>;
+};
+
 export type Subscription_Root = {
   __typename?: 'subscription_root';
   /** fetch data from the table: "application_link" */
@@ -870,6 +892,10 @@ export type Subscription_Root = {
   profile_by_pk?: Maybe<Profile>;
   /** fetch data from the table: "profiles_params" */
   profiles_params: Array<Profiles_Params>;
+  /** fetch data from the table: "user_block" */
+  user_block: Array<User_Block>;
+  /** fetch data from the table: "user_relationship" */
+  user_relationship: Array<User_Relationship>;
 };
 
 
@@ -958,6 +984,24 @@ export type Subscription_RootProfiles_ParamsArgs = {
   where?: InputMaybe<Profiles_Params_Bool_Exp>;
 };
 
+
+export type Subscription_RootUser_BlockArgs = {
+  distinct_on?: InputMaybe<Array<User_Block_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<User_Block_Order_By>>;
+  where?: InputMaybe<User_Block_Bool_Exp>;
+};
+
+
+export type Subscription_RootUser_RelationshipArgs = {
+  distinct_on?: InputMaybe<Array<User_Relationship_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<User_Relationship_Order_By>>;
+  where?: InputMaybe<User_Relationship_Bool_Exp>;
+};
+
 /** Boolean expression to compare columns of type "timestamp". All fields are combined with logical 'AND'. */
 export type Timestamp_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['timestamp']>;
@@ -970,6 +1014,97 @@ export type Timestamp_Comparison_Exp = {
   _neq?: InputMaybe<Scalars['timestamp']>;
   _nin?: InputMaybe<Array<Scalars['timestamp']>>;
 };
+
+/** columns and relationships of "user_block" */
+export type User_Block = {
+  __typename?: 'user_block';
+  /** An object relationship */
+  blocked?: Maybe<Profile>;
+  blocked_address?: Maybe<Scalars['String']>;
+  /** An object relationship */
+  blocker?: Maybe<Profile>;
+  blocker_address?: Maybe<Scalars['String']>;
+  reason?: Maybe<Scalars['String']>;
+  subspace_id: Scalars['bigint'];
+};
+
+/** Boolean expression to filter rows from the table "user_block". All fields are combined with a logical 'AND'. */
+export type User_Block_Bool_Exp = {
+  _and?: InputMaybe<Array<User_Block_Bool_Exp>>;
+  _not?: InputMaybe<User_Block_Bool_Exp>;
+  _or?: InputMaybe<Array<User_Block_Bool_Exp>>;
+  blocked?: InputMaybe<Profile_Bool_Exp>;
+  blocked_address?: InputMaybe<String_Comparison_Exp>;
+  blocker?: InputMaybe<Profile_Bool_Exp>;
+  blocker_address?: InputMaybe<String_Comparison_Exp>;
+  reason?: InputMaybe<String_Comparison_Exp>;
+  subspace_id?: InputMaybe<Bigint_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "user_block". */
+export type User_Block_Order_By = {
+  blocked?: InputMaybe<Profile_Order_By>;
+  blocked_address?: InputMaybe<Order_By>;
+  blocker?: InputMaybe<Profile_Order_By>;
+  blocker_address?: InputMaybe<Order_By>;
+  reason?: InputMaybe<Order_By>;
+  subspace_id?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "user_block" */
+export enum User_Block_Select_Column {
+  /** column name */
+  BlockedAddress = 'blocked_address',
+  /** column name */
+  BlockerAddress = 'blocker_address',
+  /** column name */
+  Reason = 'reason',
+  /** column name */
+  SubspaceId = 'subspace_id'
+}
+
+/** columns and relationships of "user_relationship" */
+export type User_Relationship = {
+  __typename?: 'user_relationship';
+  /** An object relationship */
+  counterparty?: Maybe<Profile>;
+  counterparty_address: Scalars['String'];
+  /** An object relationship */
+  creator?: Maybe<Profile>;
+  creator_address: Scalars['String'];
+  subspace_id: Scalars['bigint'];
+};
+
+/** Boolean expression to filter rows from the table "user_relationship". All fields are combined with a logical 'AND'. */
+export type User_Relationship_Bool_Exp = {
+  _and?: InputMaybe<Array<User_Relationship_Bool_Exp>>;
+  _not?: InputMaybe<User_Relationship_Bool_Exp>;
+  _or?: InputMaybe<Array<User_Relationship_Bool_Exp>>;
+  counterparty?: InputMaybe<Profile_Bool_Exp>;
+  counterparty_address?: InputMaybe<String_Comparison_Exp>;
+  creator?: InputMaybe<Profile_Bool_Exp>;
+  creator_address?: InputMaybe<String_Comparison_Exp>;
+  subspace_id?: InputMaybe<Bigint_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "user_relationship". */
+export type User_Relationship_Order_By = {
+  counterparty?: InputMaybe<Profile_Order_By>;
+  counterparty_address?: InputMaybe<Order_By>;
+  creator?: InputMaybe<Profile_Order_By>;
+  creator_address?: InputMaybe<Order_By>;
+  subspace_id?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "user_relationship" */
+export enum User_Relationship_Select_Column {
+  /** column name */
+  CounterpartyAddress = 'counterparty_address',
+  /** column name */
+  CreatorAddress = 'creator_address',
+  /** column name */
+  SubspaceId = 'subspace_id'
+}
 
 export type DesmosProfileQueryVariables = Exact<{
   addresses?: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
