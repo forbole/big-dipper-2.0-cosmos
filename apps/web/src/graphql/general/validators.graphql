@@ -24,7 +24,7 @@ query Validators {
     }
     validatorDescriptions: validator_descriptions(order_by: {height: desc}, limit: 1){
       moniker
-      avatar_url
+      avatarUrl: avatar_url
       identity
     }
     validatorSigningInfos: validator_signing_infos( order_by: {height: desc}, limit: 1) {
