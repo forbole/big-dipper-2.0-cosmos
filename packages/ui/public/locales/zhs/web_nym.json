@@ -1,0 +1,5 @@
+{
+  "params.burnVoteVeto": "烧毁投票否决权",
+  "params.burnProposalDepositPrevote": "销毁提案 存款 预投票",
+  "params.minInitialDepositRatio": "最低初始存款比例"
+}
