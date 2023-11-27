@@ -11,7 +11,7 @@ import {
   useTokenPriceListenerSubscription,
 } from '@/graphql/types/general_types';
 
-const { primaryTokenUnit, tokenUnits } = chainConfig();
+const { priceTokenUnit, tokenUnits } = chainConfig();
 
 type DataBlocksState = {
   blockHeight: number;
@@ -79,7 +79,7 @@ export const useDataBlocks = () => {
   // ====================================
   useTokenPriceListenerSubscription({
     variables: {
-      denom: tokenUnits?.[primaryTokenUnit]?.display,
+      denom: tokenUnits?.[priceTokenUnit]?.display,
     },
     onData: (data) => {
       setState((prevState) => ({

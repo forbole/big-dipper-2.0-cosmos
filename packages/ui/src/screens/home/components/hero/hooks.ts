@@ -4,7 +4,7 @@ import chainConfig from '@/chainConfig';
 import { useTokenPriceHistoryQuery } from '@/graphql/types/general_types';
 import type { HeroState } from '@/screens/home/components/hero/types';
 
-const { primaryTokenUnit, tokenUnits } = chainConfig();
+const { priceTokenUnit, tokenUnits } = chainConfig();
 
 export const useHero = () => {
   const [state, setState] = useState<HeroState>({
@@ -23,7 +23,7 @@ export const useHero = () => {
   useTokenPriceHistoryQuery({
     variables: {
       limit: 48,
-      denom: tokenUnits?.[primaryTokenUnit]?.display,
+      denom: tokenUnits?.[priceTokenUnit]?.display,
     },
     onCompleted: (data) => {
       handleSetState((prevState) => {
