@@ -132,12 +132,12 @@ export const formatGov = (data: Gov, t: TFunction) => [
   {
     key: 'burnVoteVeto',
     label: t('burnVoteVeto'),
-    detail: `${data.burnVoteVeto}`,
+    detail: `${data.burnVoteVeto}`.toUpperCase(),
   },
   {
     key: 'burnProposalDepositPrevote',
     label: t('burnProposalDepositPrevote'),
-    detail: `${data.burnProposalDepositPrevote}`,
+    detail: `${data.burnProposalDepositPrevote}`.toUpperCase(),
   },
   {
     key: 'minDeposit',

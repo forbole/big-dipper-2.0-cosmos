@@ -2,6 +2,7 @@
   "chainName": "nym",
   "title": "NYM Block Explorer",
   "extra": {
+    "votingPowerExponent": 6,
     "profile": true,
     "graphqlWs": false
   },

@@ -112,7 +112,7 @@ const formatGov = (data: ParamsQuery) => {
       votingPeriod: govParamsRaw?.params?.votingPeriod ?? 0,
       burnVoteVeto: govParamsRaw?.params?.burnVoteVeto ?? false,
       vetoThreshold: govParamsRaw?.params?.vetoThreshold ?? '0',
-      maxDepositPeriod: govParamsRaw?.params?.maxDepositPeriod ?? 0, // dalej zmien type of this variables to correct one and then check if the values are showing in the state
+      maxDepositPeriod: govParamsRaw?.params?.maxDepositPeriod ?? 0,
       minInitialDepositRatio: govParamsRaw?.params?.minInitialDepositRatio ?? '',
       burnProposalDepositPrevote: govParamsRaw?.params?.burnProposalDepositPrevote ?? false,
     };
