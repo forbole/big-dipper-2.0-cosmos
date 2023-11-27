@@ -2,10 +2,12 @@ import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import { ParamsQuery, useParamsQuery } from '@/graphql/types/general_types';
-import { DistributionParams, MintParams, SlashingParams, StakingParams, GovParams } from '@/models';
+import { DistributionParams, MintParams, SlashingParams, StakingParams } from '@/models';
+import numeral from 'numeral';
 
-import type { ParamsState } from '@/screens/params/types';
 import { formatToken } from '@/utils/format_token';
+import type { ParamsState } from './types';
+import GovParams from '../../models/gov_params';
 
 const { primaryTokenUnit } = chainConfig();
 
@@ -100,8 +102,11 @@ const formatGov = (data: ParamsQuery) => {
   if (data.govParams.length) {
     const govParamsRaw = GovParams.fromJson(data?.govParams?.[0] ?? {});
     return {
-      quorum: govParamsRaw?.params?.quorum ?? '0',
-      threshold: govParamsRaw?.params?.threshold ?? '0',
+      quorum: numeral(numeral(govParamsRaw?.params?.quorum).format('0.[00]')).value() ?? 0,
+      // quorum: govParamsRaw?.params?.quorum ?? '0',
+      // threshold: govParamsRaw?.params?.threshold ?? '0',
+      threshold: numeral(numeral(govParamsRaw?.params?.threshold).format('0.[00]')).value() ?? 0,
+
       minDeposit:
         formatToken(
           govParamsRaw?.params?.minDeposit?.[0]?.amount ?? 0,
@@ -109,7 +114,8 @@ const formatGov = (data: ParamsQuery) => {
         ) ?? 0,
       votingPeriod: govParamsRaw?.params?.votingPeriod ?? 0,
       burnVoteVeto: govParamsRaw?.params?.burnVoteVeto ?? false,
-      vetoThreshold: govParamsRaw?.params?.vetoThreshold ?? '0',
+      vetoThreshold:
+        numeral(numeral(govParamsRaw?.params?.vetoThreshold).format('0.[00]')).value() ?? 0,
       maxDepositPeriod: govParamsRaw?.params?.maxDepositPeriod ?? 0,
       minInitialDepositRatio: govParamsRaw?.params?.minInitialDepositRatio ?? '',
       burnProposalDepositPrevote: govParamsRaw?.params?.burnProposalDepositPrevote ?? false,

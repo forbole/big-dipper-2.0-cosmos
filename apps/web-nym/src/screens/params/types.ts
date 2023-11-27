@@ -31,15 +31,12 @@ export interface Distribution {
 }
 
 export interface Gov {
-  quorum: string;
-  threshold: string;
-  minDeposit: Array<{
-    denom: string;
-    amount: string;
-  }>;
+  quorum: number;
+  threshold: number;
+  minDeposit: TokenUnit;
   votingPeriod: number;
   burnVoteVeto: boolean;
-  vetoThreshold: string;
+  vetoThreshold: number;
   maxDepositPeriod: number;
   minInitialDepositRatio: string;
   burnProposalDepositPrevote: boolean;

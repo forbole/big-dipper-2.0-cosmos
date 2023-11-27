@@ -1,7 +1,7 @@
-import type { Distribution, Gov, Minting, Slashing, Staking } from '@/screens/params/types';
 import { nanoToSeconds, secondsToDays } from '@/utils/time';
 import type { TFunction } from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
+import type { Distribution, Minting, Slashing, Staking, Gov } from './types';
 
 const convertBySeconds = (seconds: number, t: TFunction) => {
   const SECONDS_IN_DAY = 86400;
