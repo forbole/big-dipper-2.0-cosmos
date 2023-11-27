@@ -8430,6 +8430,8 @@ export type Token_Price = {
   market_cap: Scalars['bigint'];
   price: Scalars['numeric'];
   timestamp: Scalars['timestamp'];
+  /** An object relationship */
+  token_unit: Token_Unit;
   unit_name: Scalars['String'];
 };
 
@@ -8463,12 +8465,34 @@ export type Token_Price_Aggregate_FieldsCountArgs = {
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
+/** order by aggregate values of table "token_price" */
+export type Token_Price_Aggregate_Order_By = {
+  avg?: InputMaybe<Token_Price_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Token_Price_Max_Order_By>;
+  min?: InputMaybe<Token_Price_Min_Order_By>;
+  stddev?: InputMaybe<Token_Price_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<Token_Price_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<Token_Price_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<Token_Price_Sum_Order_By>;
+  var_pop?: InputMaybe<Token_Price_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<Token_Price_Var_Samp_Order_By>;
+  variance?: InputMaybe<Token_Price_Variance_Order_By>;
+};
+
 /** aggregate avg on columns */
 export type Token_Price_Avg_Fields = {
   __typename?: 'token_price_avg_fields';
   id?: Maybe<Scalars['Float']>;
   market_cap?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "token_price" */
+export type Token_Price_Avg_Order_By = {
+  id?: InputMaybe<Order_By>;
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "token_price". All fields are combined with a logical 'AND'. */
@@ -8480,6 +8504,7 @@ export type Token_Price_Bool_Exp = {
   market_cap?: InputMaybe<Bigint_Comparison_Exp>;
   price?: InputMaybe<Numeric_Comparison_Exp>;
   timestamp?: InputMaybe<Timestamp_Comparison_Exp>;
+  token_unit?: InputMaybe<Token_Unit_Bool_Exp>;
   unit_name?: InputMaybe<String_Comparison_Exp>;
 };
 
@@ -8489,6 +8514,8 @@ export type Token_Price_History = {
   market_cap: Scalars['bigint'];
   price: Scalars['numeric'];
   timestamp: Scalars['timestamp'];
+  /** An object relationship */
+  token_unit: Token_Unit;
   unit_name: Scalars['String'];
 };
 
@@ -8522,11 +8549,32 @@ export type Token_Price_History_Aggregate_FieldsCountArgs = {
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
+/** order by aggregate values of table "token_price_history" */
+export type Token_Price_History_Aggregate_Order_By = {
+  avg?: InputMaybe<Token_Price_History_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Token_Price_History_Max_Order_By>;
+  min?: InputMaybe<Token_Price_History_Min_Order_By>;
+  stddev?: InputMaybe<Token_Price_History_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<Token_Price_History_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<Token_Price_History_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<Token_Price_History_Sum_Order_By>;
+  var_pop?: InputMaybe<Token_Price_History_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<Token_Price_History_Var_Samp_Order_By>;
+  variance?: InputMaybe<Token_Price_History_Variance_Order_By>;
+};
+
 /** aggregate avg on columns */
 export type Token_Price_History_Avg_Fields = {
   __typename?: 'token_price_history_avg_fields';
   market_cap?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "token_price_history" */
+export type Token_Price_History_Avg_Order_By = {
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "token_price_history". All fields are combined with a logical 'AND'. */
@@ -8537,6 +8585,7 @@ export type Token_Price_History_Bool_Exp = {
   market_cap?: InputMaybe<Bigint_Comparison_Exp>;
   price?: InputMaybe<Numeric_Comparison_Exp>;
   timestamp?: InputMaybe<Timestamp_Comparison_Exp>;
+  token_unit?: InputMaybe<Token_Unit_Bool_Exp>;
   unit_name?: InputMaybe<String_Comparison_Exp>;
 };
 
@@ -8549,6 +8598,14 @@ export type Token_Price_History_Max_Fields = {
   unit_name?: Maybe<Scalars['String']>;
 };
 
+/** order by max() on columns of table "token_price_history" */
+export type Token_Price_History_Max_Order_By = {
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+  timestamp?: InputMaybe<Order_By>;
+  unit_name?: InputMaybe<Order_By>;
+};
+
 /** aggregate min on columns */
 export type Token_Price_History_Min_Fields = {
   __typename?: 'token_price_history_min_fields';
@@ -8558,11 +8615,20 @@ export type Token_Price_History_Min_Fields = {
   unit_name?: Maybe<Scalars['String']>;
 };
 
+/** order by min() on columns of table "token_price_history" */
+export type Token_Price_History_Min_Order_By = {
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+  timestamp?: InputMaybe<Order_By>;
+  unit_name?: InputMaybe<Order_By>;
+};
+
 /** Ordering options when selecting data from "token_price_history". */
 export type Token_Price_History_Order_By = {
   market_cap?: InputMaybe<Order_By>;
   price?: InputMaybe<Order_By>;
   timestamp?: InputMaybe<Order_By>;
+  token_unit?: InputMaybe<Token_Unit_Order_By>;
   unit_name?: InputMaybe<Order_By>;
 };
 
@@ -8585,11 +8651,23 @@ export type Token_Price_History_Stddev_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
+/** order by stddev() on columns of table "token_price_history" */
+export type Token_Price_History_Stddev_Order_By = {
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+};
+
 /** aggregate stddev_pop on columns */
 export type Token_Price_History_Stddev_Pop_Fields = {
   __typename?: 'token_price_history_stddev_pop_fields';
   market_cap?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "token_price_history" */
+export type Token_Price_History_Stddev_Pop_Order_By = {
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -8599,11 +8677,23 @@ export type Token_Price_History_Stddev_Samp_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
+/** order by stddev_samp() on columns of table "token_price_history" */
+export type Token_Price_History_Stddev_Samp_Order_By = {
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+};
+
 /** aggregate sum on columns */
 export type Token_Price_History_Sum_Fields = {
   __typename?: 'token_price_history_sum_fields';
   market_cap?: Maybe<Scalars['bigint']>;
   price?: Maybe<Scalars['numeric']>;
+};
+
+/** order by sum() on columns of table "token_price_history" */
+export type Token_Price_History_Sum_Order_By = {
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -8613,6 +8703,12 @@ export type Token_Price_History_Var_Pop_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
+/** order by var_pop() on columns of table "token_price_history" */
+export type Token_Price_History_Var_Pop_Order_By = {
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+};
+
 /** aggregate var_samp on columns */
 export type Token_Price_History_Var_Samp_Fields = {
   __typename?: 'token_price_history_var_samp_fields';
@@ -8620,11 +8716,23 @@ export type Token_Price_History_Var_Samp_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
+/** order by var_samp() on columns of table "token_price_history" */
+export type Token_Price_History_Var_Samp_Order_By = {
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+};
+
 /** aggregate variance on columns */
 export type Token_Price_History_Variance_Fields = {
   __typename?: 'token_price_history_variance_fields';
   market_cap?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "token_price_history" */
+export type Token_Price_History_Variance_Order_By = {
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** aggregate max on columns */
@@ -8637,6 +8745,15 @@ export type Token_Price_Max_Fields = {
   unit_name?: Maybe<Scalars['String']>;
 };
 
+/** order by max() on columns of table "token_price" */
+export type Token_Price_Max_Order_By = {
+  id?: InputMaybe<Order_By>;
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+  timestamp?: InputMaybe<Order_By>;
+  unit_name?: InputMaybe<Order_By>;
+};
+
 /** aggregate min on columns */
 export type Token_Price_Min_Fields = {
   __typename?: 'token_price_min_fields';
@@ -8647,12 +8764,22 @@ export type Token_Price_Min_Fields = {
   unit_name?: Maybe<Scalars['String']>;
 };
 
+/** order by min() on columns of table "token_price" */
+export type Token_Price_Min_Order_By = {
+  id?: InputMaybe<Order_By>;
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+  timestamp?: InputMaybe<Order_By>;
+  unit_name?: InputMaybe<Order_By>;
+};
+
 /** Ordering options when selecting data from "token_price". */
 export type Token_Price_Order_By = {
   id?: InputMaybe<Order_By>;
   market_cap?: InputMaybe<Order_By>;
   price?: InputMaybe<Order_By>;
   timestamp?: InputMaybe<Order_By>;
+  token_unit?: InputMaybe<Token_Unit_Order_By>;
   unit_name?: InputMaybe<Order_By>;
 };
 
@@ -8678,12 +8805,26 @@ export type Token_Price_Stddev_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
+/** order by stddev() on columns of table "token_price" */
+export type Token_Price_Stddev_Order_By = {
+  id?: InputMaybe<Order_By>;
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+};
+
 /** aggregate stddev_pop on columns */
 export type Token_Price_Stddev_Pop_Fields = {
   __typename?: 'token_price_stddev_pop_fields';
   id?: Maybe<Scalars['Float']>;
   market_cap?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "token_price" */
+export type Token_Price_Stddev_Pop_Order_By = {
+  id?: InputMaybe<Order_By>;
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -8694,12 +8835,26 @@ export type Token_Price_Stddev_Samp_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
+/** order by stddev_samp() on columns of table "token_price" */
+export type Token_Price_Stddev_Samp_Order_By = {
+  id?: InputMaybe<Order_By>;
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+};
+
 /** aggregate sum on columns */
 export type Token_Price_Sum_Fields = {
   __typename?: 'token_price_sum_fields';
   id?: Maybe<Scalars['Int']>;
   market_cap?: Maybe<Scalars['bigint']>;
   price?: Maybe<Scalars['numeric']>;
+};
+
+/** order by sum() on columns of table "token_price" */
+export type Token_Price_Sum_Order_By = {
+  id?: InputMaybe<Order_By>;
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_pop on columns */
@@ -8710,6 +8865,13 @@ export type Token_Price_Var_Pop_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
+/** order by var_pop() on columns of table "token_price" */
+export type Token_Price_Var_Pop_Order_By = {
+  id?: InputMaybe<Order_By>;
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+};
+
 /** aggregate var_samp on columns */
 export type Token_Price_Var_Samp_Fields = {
   __typename?: 'token_price_var_samp_fields';
@@ -8718,12 +8880,26 @@ export type Token_Price_Var_Samp_Fields = {
   price?: Maybe<Scalars['Float']>;
 };
 
+/** order by var_samp() on columns of table "token_price" */
+export type Token_Price_Var_Samp_Order_By = {
+  id?: InputMaybe<Order_By>;
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
+};
+
 /** aggregate variance on columns */
 export type Token_Price_Variance_Fields = {
   __typename?: 'token_price_variance_fields';
   id?: Maybe<Scalars['Float']>;
   market_cap?: Maybe<Scalars['Float']>;
   price?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "token_price" */
+export type Token_Price_Variance_Order_By = {
+  id?: InputMaybe<Order_By>;
+  market_cap?: InputMaybe<Order_By>;
+  price?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "token" */
@@ -8739,9 +8915,59 @@ export type Token_Unit = {
   denom: Scalars['String'];
   exponent: Scalars['Int'];
   price_id?: Maybe<Scalars['String']>;
+  /** An object relationship */
+  token: Token;
   token_name: Scalars['String'];
   /** An object relationship */
   token_price?: Maybe<Token_Price>;
+  /** An array relationship */
+  token_price_histories: Array<Token_Price_History>;
+  /** An aggregate relationship */
+  token_price_histories_aggregate: Token_Price_History_Aggregate;
+  /** An array relationship */
+  token_prices: Array<Token_Price>;
+  /** An aggregate relationship */
+  token_prices_aggregate: Token_Price_Aggregate;
+};
+
+
+/** columns and relationships of "token_unit" */
+export type Token_UnitToken_Price_HistoriesArgs = {
+  distinct_on?: InputMaybe<Array<Token_Price_History_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Token_Price_History_Order_By>>;
+  where?: InputMaybe<Token_Price_History_Bool_Exp>;
+};
+
+
+/** columns and relationships of "token_unit" */
+export type Token_UnitToken_Price_Histories_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Token_Price_History_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Token_Price_History_Order_By>>;
+  where?: InputMaybe<Token_Price_History_Bool_Exp>;
+};
+
+
+/** columns and relationships of "token_unit" */
+export type Token_UnitToken_PricesArgs = {
+  distinct_on?: InputMaybe<Array<Token_Price_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Token_Price_Order_By>>;
+  where?: InputMaybe<Token_Price_Bool_Exp>;
+};
+
+
+/** columns and relationships of "token_unit" */
+export type Token_UnitToken_Prices_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Token_Price_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Token_Price_Order_By>>;
+  where?: InputMaybe<Token_Price_Bool_Exp>;
 };
 
 /** aggregated selection of "token_unit" */
@@ -8809,8 +9035,11 @@ export type Token_Unit_Bool_Exp = {
   denom?: InputMaybe<String_Comparison_Exp>;
   exponent?: InputMaybe<Int_Comparison_Exp>;
   price_id?: InputMaybe<String_Comparison_Exp>;
+  token?: InputMaybe<Token_Bool_Exp>;
   token_name?: InputMaybe<String_Comparison_Exp>;
   token_price?: InputMaybe<Token_Price_Bool_Exp>;
+  token_price_histories?: InputMaybe<Token_Price_History_Bool_Exp>;
+  token_prices?: InputMaybe<Token_Price_Bool_Exp>;
 };
 
 /** aggregate max on columns */
@@ -8853,8 +9082,11 @@ export type Token_Unit_Order_By = {
   denom?: InputMaybe<Order_By>;
   exponent?: InputMaybe<Order_By>;
   price_id?: InputMaybe<Order_By>;
+  token?: InputMaybe<Token_Order_By>;
   token_name?: InputMaybe<Order_By>;
   token_price?: InputMaybe<Token_Price_Order_By>;
+  token_price_histories_aggregate?: InputMaybe<Token_Price_History_Aggregate_Order_By>;
+  token_prices_aggregate?: InputMaybe<Token_Price_Aggregate_Order_By>;
 };
 
 /** select columns of table "token_unit" */
