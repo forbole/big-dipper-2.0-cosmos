@@ -43,7 +43,7 @@ class GovParams {
           [],
           ['params', 'min_deposit'],
           data
-        ).map(x => ({
+        ).map((x) => ({
           denom: x.denom,
           amount: String(x.amount),
         })),

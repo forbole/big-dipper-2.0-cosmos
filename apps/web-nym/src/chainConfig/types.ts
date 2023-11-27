@@ -11,6 +11,7 @@ export interface ChainSettings {
     account: string;
   };
   primaryTokenUnit: string;
+  priceTokenUnit: string;
   votingPowerTokenUnit: string;
   tokenUnits: {
     [token: string]: {

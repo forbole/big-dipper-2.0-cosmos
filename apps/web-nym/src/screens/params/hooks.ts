@@ -1,4 +1,3 @@
-import numeral from 'numeral';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 import chainConfig from '@/chainConfig';
@@ -7,7 +6,6 @@ import { DistributionParams, MintParams, SlashingParams, StakingParams, GovParam
 
 import type { ParamsState } from '@/screens/params/types';
 import { formatToken } from '@/utils/format_token';
-// import { GovParams } from './models';
 
 const { primaryTokenUnit } = chainConfig();
 
