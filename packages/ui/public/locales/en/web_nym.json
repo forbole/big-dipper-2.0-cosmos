@@ -1,0 +1,5 @@
+{
+  "params.burnVoteVeto": "Burn Vote Veto",
+  "params.burnProposalDepositPrevote": "Burn Proposal Deposit Prevote",
+  "params.minInitialDepositRatio": "Min Initial Deposit Ratio"
+}

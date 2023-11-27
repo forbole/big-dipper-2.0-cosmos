@@ -31,12 +31,18 @@ export interface Distribution {
 }
 
 export interface Gov {
-  minDeposit: TokenUnit;
-  maxDepositPeriod: number;
-  quorum: number;
-  threshold: number;
-  vetoThreshold: number;
+  quorum: string;
+  threshold: string;
+  minDeposit: Array<{
+    denom: string;
+    amount: string;
+  }>;
   votingPeriod: number;
+  burnVoteVeto: boolean;
+  vetoThreshold: string;
+  maxDepositPeriod: number;
+  minInitialDepositRatio: string;
+  burnProposalDepositPrevote: boolean;
 }
 
 export interface ParamsState {

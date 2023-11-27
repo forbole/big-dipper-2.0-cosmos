@@ -3,9 +3,11 @@ import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import { ParamsQuery, useParamsQuery } from '@/graphql/types/general_types';
-import { DistributionParams, GovParams, MintParams, SlashingParams, StakingParams } from '@/models';
+import { DistributionParams, MintParams, SlashingParams, StakingParams, GovParams } from '@/models';
+
 import type { ParamsState } from '@/screens/params/types';
 import { formatToken } from '@/utils/format_token';
+// import { GovParams } from './models';
 
 const { primaryTokenUnit } = chainConfig();
 
@@ -98,22 +100,23 @@ const formatDistribution = (data: ParamsQuery) => {
 // ================================
 const formatGov = (data: ParamsQuery) => {
   if (data.govParams.length) {
-    const govParamsRaw = GovParams.fromJson(data?.govParams?.[0]?.params ?? {});
+    const govParamsRaw = GovParams.fromJson(data?.govParams?.[0] ?? {});
     return {
+      quorum: govParamsRaw?.params?.quorum ?? '0',
+      threshold: govParamsRaw?.params?.threshold ?? '0',
       minDeposit:
         formatToken(
-          govParamsRaw.depositParams.minDeposit?.[0]?.amount ?? 0,
-          govParamsRaw.depositParams.minDeposit?.[0]?.denom ?? primaryTokenUnit
+          govParamsRaw?.params?.minDeposit?.[0]?.amount ?? 0,
+          govParamsRaw?.params?.minDeposit?.[0]?.denom ?? primaryTokenUnit
         ) ?? 0,
-      maxDepositPeriod: govParamsRaw.depositParams.maxDepositPeriod,
-      quorum: numeral(numeral(govParamsRaw.tallyParams.quorum).format('0.[00]')).value() ?? 0,
-      threshold: numeral(numeral(govParamsRaw.tallyParams.threshold).format('0.[00]')).value() ?? 0,
-      vetoThreshold:
-        numeral(numeral(govParamsRaw.tallyParams.vetoThreshold).format('0.[00]')).value() ?? 0,
-      votingPeriod: govParamsRaw.votingParams.votingPeriod,
+      votingPeriod: govParamsRaw?.params?.votingPeriod ?? 0,
+      burnVoteVeto: govParamsRaw?.params?.burnVoteVeto ?? false,
+      vetoThreshold: govParamsRaw?.params?.vetoThreshold ?? '0',
+      maxDepositPeriod: govParamsRaw?.params?.maxDepositPeriod ?? 0, // dalej zmien type of this variables to correct one and then check if the values are showing in the state
+      minInitialDepositRatio: govParamsRaw?.params?.minInitialDepositRatio ?? '',
+      burnProposalDepositPrevote: govParamsRaw?.params?.burnProposalDepositPrevote ?? false,
     };
   }
-
   return null;
 };
 

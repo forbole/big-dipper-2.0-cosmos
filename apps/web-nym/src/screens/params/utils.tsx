@@ -1,4 +1,4 @@
-import type { Distribution, Gov, Minting, Oracle, Slashing, Staking } from '@/screens/params/types';
+import type { Distribution, Gov, Minting, Slashing, Staking } from '@/screens/params/types';
 import { nanoToSeconds, secondsToDays } from '@/utils/time';
 import type { TFunction } from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
@@ -130,14 +130,31 @@ export const formatDistribution = (data: Distribution, t: TFunction) => [
 
 export const formatGov = (data: Gov, t: TFunction) => [
   {
+    key: 'burnVoteVeto',
+    label: t('burnVoteVeto'),
+    detail: `${data.burnVoteVeto}`,
+  },
+  {
+    key: 'burnProposalDepositPrevote',
+    label: t('burnProposalDepositPrevote'),
+    detail: `${data.burnProposalDepositPrevote}`,
+  },
+  {
     key: 'minDeposit',
     label: t('minDeposit'),
-    detail: `${data.minDeposit.value} ${data.minDeposit.displayDenom.toUpperCase()}`,
+    detail: `${numeral(data.minDeposit.value).format(
+      '0.[00]'
+    )} ${data.minDeposit.displayDenom.toUpperCase()}`,
   },
   {
     key: 'maxDepositPeriod',
     label: t('maxDepositPeriod'),
     detail: convertBySeconds(nanoToSeconds(data.maxDepositPeriod), t),
+  },
+  {
+    key: 'minInitialDepositRatio',
+    label: t('minInitialDepositRatio'),
+    detail: `${numeral(data.minInitialDepositRatio).format('0.[00]')}`,
   },
   {
     key: 'quorum',
