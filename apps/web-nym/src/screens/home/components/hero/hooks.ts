@@ -5,6 +5,7 @@ import { useTokenPriceHistoryQuery } from '@/graphql/types/general_types';
 import type { HeroState } from '@/screens/home/components/hero/types';
 
 const { priceTokenUnit, tokenUnits } = chainConfig();
+const limit = 48;
 
 export const useHero = () => {
   const [state, setState] = useState<HeroState>({
@@ -22,7 +23,7 @@ export const useHero = () => {
 
   useTokenPriceHistoryQuery({
     variables: {
-      limit: 48,
+      limit,
       denom: tokenUnits?.[priceTokenUnit]?.display,
     },
     onCompleted: (data) => {
@@ -31,7 +32,7 @@ export const useHero = () => {
           ...prevState,
           loading: false,
           tokenPriceHistory:
-            data.tokenPrice.length === 48
+            data.tokenPrice.length === limit
               ? [...data.tokenPrice].reverse().map((x) => ({
                   time: x.timestamp,
                   value: x.price,

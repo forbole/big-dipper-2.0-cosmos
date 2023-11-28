@@ -103,10 +103,7 @@ const formatGov = (data: ParamsQuery) => {
     const govParamsRaw = GovParams.fromJson(data?.govParams?.[0] ?? {});
     return {
       quorum: numeral(numeral(govParamsRaw?.params?.quorum).format('0.[00]')).value() ?? 0,
-      // quorum: govParamsRaw?.params?.quorum ?? '0',
-      // threshold: govParamsRaw?.params?.threshold ?? '0',
       threshold: numeral(numeral(govParamsRaw?.params?.threshold).format('0.[00]')).value() ?? 0,
-
       minDeposit:
         formatToken(
           govParamsRaw?.params?.minDeposit?.[0]?.amount ?? 0,
