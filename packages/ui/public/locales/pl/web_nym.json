@@ -1,0 +1,5 @@
+{
+  "params.burnVoteVeto": "Spal głos weto",
+  "params.burnProposalDepositPrevote": "Spal depozyt propozycji przed głosowaniem",
+  "params.minInitialDepositRatio": "Min początkowy stosunek depozytu"
+}
