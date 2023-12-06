@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useRecoilCallback } from 'recoil';
 import { AtomState as ValidatorAtomState } from 'ui/recoil/validators';
-import { useValidatorsAddressListQuery } from '@/graphql/types/general_types';
+import { useValidatorAddressesQuery } from '@/graphql/types/general_types';
 import { atomFamilyState as profileAtomFamilyState } from '@/recoil/profiles/atom';
 import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
 import { atomFamilyState as validatorAtomState } from '@/recoil/validators/atom';
 
 export const useValidatorRecoil = () => {
-  const { loading: loadingValidator, data } = useValidatorsAddressListQuery();
+  const { loading: loadingValidator, data } = useValidatorAddressesQuery();
   const setValidatorAtomState = useRecoilCallback(
     ({ set }) =>
       (consensusAddress: string, newState: ValidatorAtomState) =>
