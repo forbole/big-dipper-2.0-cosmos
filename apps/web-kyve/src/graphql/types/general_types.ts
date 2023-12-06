@@ -9509,52 +9509,6 @@ export function useCustomValidatorLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
 export type CustomValidatorQueryHookResult = ReturnType<typeof useCustomValidatorQuery>;
 export type CustomValidatorLazyQueryHookResult = ReturnType<typeof useCustomValidatorLazyQuery>;
 export type CustomValidatorQueryResult = Apollo.QueryResult<CustomValidatorQuery, CustomValidatorQueryVariables>;
-export const ValidatorsAddressListDocument = gql`
-    query ValidatorsAddressList {
-  validator {
-    validatorInfo: validator_info {
-      operatorAddress: operator_address
-      selfDelegateAddress: self_delegate_address
-      consensusAddress: consensus_address
-    }
-    validatorDescriptions: validator_descriptions(
-      limit: 1
-      order_by: {height: desc}
-    ) {
-      moniker
-      identity
-      avatarUrl: avatar_url
-    }
-  }
-}
-    `;
-
-/**
- * __useValidatorsAddressListQuery__
- *
- * To run a query within a React component, call `useValidatorsAddressListQuery` and pass it any options that fit your needs.
- * When your component renders, `useValidatorsAddressListQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useValidatorsAddressListQuery({
- *   variables: {
- *   },
- * });
- */
-export function useValidatorsAddressListQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>(ValidatorsAddressListDocument, options);
-      }
-export function useValidatorsAddressListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>(ValidatorsAddressListDocument, options);
-        }
-export type ValidatorsAddressListQueryHookResult = ReturnType<typeof useValidatorsAddressListQuery>;
-export type ValidatorsAddressListLazyQueryHookResult = ReturnType<typeof useValidatorsAddressListLazyQuery>;
-export type ValidatorsAddressListQueryResult = Apollo.QueryResult<ValidatorsAddressListQuery, ValidatorsAddressListQueryVariables>;
 export const ValidatorAddressesDocument = gql`
     query ValidatorAddresses {
   validator(
