@@ -40,8 +40,8 @@ const ValidatorDetails = () => {
               data={votingPower}
               status={status.status}
             />
-            <Blocks className={classes.blocks} />
-            <Staking className={classes.staking} />
+            <Blocks className={classes.blocks} address={state.overview.operatorAddress} />
+            <Staking className={classes.staking} address={state.overview.operatorAddress} />
             <Transactions className={classes.transactions} />
           </span>
         </LoadAndExist>
