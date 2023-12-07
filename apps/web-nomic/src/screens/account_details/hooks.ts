@@ -160,8 +160,13 @@ export const useAccountDetails = () => {
     skip: !extra.profile || !address,
   });
   useEffect(
-    () => setState((prevState) => ({ ...prevState, desmosProfile: dataDesmosProfile?.[0] })),
-    [dataDesmosProfile]
+    () =>
+      setState((prevState) => ({
+        ...prevState,
+        desmosProfile: dataDesmosProfile?.[0],
+        loading: loadingDesmosProfile,
+      })),
+    [dataDesmosProfile, loadingDesmosProfile]
   );
 
   const available = useAvailableBalances(address);
@@ -174,22 +179,6 @@ export const useAccountDetails = () => {
 
     handleSetState((prevState) => ({ ...prevState, ...formatAllBalance(formattedRawData) }));
   }, [available, delegation, handleSetState]);
-
-  // // ==========================
-  // // Fetch Data
-  // // ==========================
-  // const withdrawalAddress = useWithdrawalAddress(address);
-  // useEffect(() => {
-  //   handleSetState((prevState) => ({
-  //     ...prevState,
-  //     overview: {
-  //       address: address ?? '',
-  //       withdrawalAddress: withdrawalAddress?.withdrawalAddress?.address ?? '',
-  //     },
-  //   }));
-  // }, [address, handleSetState, withdrawalAddress]);
-
-  if (loadingDesmosProfile) state.loading = true;
 
   return { state };
 };

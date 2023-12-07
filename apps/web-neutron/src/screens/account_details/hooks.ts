@@ -289,8 +289,13 @@ export const useAccountDetails = () => {
     skip: !extra.profile || !address,
   });
   useEffect(
-    () => setState((prevState) => ({ ...prevState, desmosProfile: dataDesmosProfile?.[0] })),
-    [dataDesmosProfile]
+    () =>
+      setState((prevState) => ({
+        ...prevState,
+        desmosProfile: dataDesmosProfile?.[0],
+        loading: loadingDesmosProfile,
+      })),
+    [dataDesmosProfile, loadingDesmosProfile]
   );
 
   const commission = useCommission(providerAddress);
@@ -350,8 +355,6 @@ export const useAccountDetails = () => {
     withdrawalAddress?.bdjuno_provider?.withdrawalAddress?.address,
     providerAddress,
   ]);
-
-  if (loadingDesmosProfile) state.loading = true;
 
   return { state };
 };

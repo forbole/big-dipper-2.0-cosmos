@@ -259,8 +259,13 @@ export const useAccountDetails = () => {
     skip: !extra.profile || !address,
   });
   useEffect(
-    () => setState((prevState) => ({ ...prevState, desmosProfile: dataDesmosProfile?.[0] })),
-    [dataDesmosProfile]
+    () =>
+      setState((prevState) => ({
+        ...prevState,
+        desmosProfile: dataDesmosProfile?.[0],
+        loading: loadingDesmosProfile,
+      })),
+    [dataDesmosProfile, loadingDesmosProfile]
   );
 
   const commission = useCommission(providerAddress);
@@ -316,10 +321,5 @@ export const useAccountDetails = () => {
     }));
   }, [handleSetState, address, withdrawalAddress?.withdrawalAddress?.address, providerAddress]);
 
-  if (loadingDesmosProfile) state.loading = true;
-
   return { state };
 };
-// function useBoundingBalance(_address?: string) {
-//   throw new Error('Function not implemented.');
-// }
