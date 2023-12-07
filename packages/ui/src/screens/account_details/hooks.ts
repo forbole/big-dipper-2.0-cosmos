@@ -285,6 +285,3 @@ export const useAccountDetails = () => {
 
   return { state };
 };
-// function useBoundingBalance(_address?: string) {
-//   throw new Error('Function not implemented.');
-// }
