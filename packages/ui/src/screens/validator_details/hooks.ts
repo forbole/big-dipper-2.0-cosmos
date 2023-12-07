@@ -137,11 +137,16 @@ export const useValidatorDetails = () => {
     skip: !extra.profile || !state.overview.selfDelegateAddress,
   });
   useEffect(
-    () => setState((prevState) => ({ ...prevState, desmosProfile: dataDesmosProfile?.[0] })),
-    [dataDesmosProfile]
+    () =>
+      setState((prevState) => ({
+        ...prevState,
+        desmosProfile: dataDesmosProfile?.[0],
+        loading: loadingDesmosProfile,
+      })),
+    [dataDesmosProfile, loadingDesmosProfile]
   );
 
-  return { state, loading: loading || loadingDesmosProfile };
+  return { state, loading };
 };
 
 function formatAccountQuery(data: ValidatorDetailsQuery): Partial<ValidatorDetailsState> {
