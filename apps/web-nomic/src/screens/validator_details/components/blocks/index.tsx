@@ -69,11 +69,7 @@ const BlockBox: FC<BlockBoxProps> = ({ i, item, state }) => {
   );
 };
 
-type BlocksProps = ComponentDefault & {
-  address?: string;
-};
-
-const Blocks: FC<BlocksProps> = ({ className, address }) => {
+const Blocks: FC<ComponentDefault> = ({ className }) => {
   const { t } = useAppTranslation('validators');
   const { state, loading } = useBlocks();
   const { classes, cx } = useStyles();
