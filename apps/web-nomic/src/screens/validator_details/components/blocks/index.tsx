@@ -23,7 +23,6 @@ const BlockBox: FC<BlockBoxProps> = ({ i, item, state }) => {
   const { classes, cx } = useStyles();
   return (
     <Tooltip
-      key={item.height}
       enterTouchDelay={50}
       title={
         <Box className={classes.toolTip}>
@@ -60,7 +59,6 @@ const BlockBox: FC<BlockBoxProps> = ({ i, item, state }) => {
       placement="top"
     >
       <div
-        key={item.txs}
         className={cx(classes.singleBlock, {
           signed: state[i].signed,
         })}
