@@ -20,7 +20,7 @@ export interface Minting {
   reductionFactor: string;
   genesisEpochProvisions: string;
   reductionPeriodInEpochs: number;
-  mintingRewardsDistributionStartEpoch: string;
+  mintingRewardsDistributionStartEpoch: number;
 }
 
 export interface Distribution {
