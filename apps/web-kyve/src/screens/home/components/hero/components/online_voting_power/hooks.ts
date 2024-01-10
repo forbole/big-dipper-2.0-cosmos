@@ -22,7 +22,7 @@ const formatOnlineVotingPower = (data: OnlineVotingPowerQuery) => {
   return {
     activeValidators,
     votingPower,
-    totalVotingPower: bonded,
+    totalVotingPower: Number(bonded),
   };
 };
 
