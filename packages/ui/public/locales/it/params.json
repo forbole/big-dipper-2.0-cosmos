@@ -32,5 +32,10 @@
   "quorum": "Quorum",
   "threshold": "Soglia",
   "vetoThreshold": "Soglia di veto",
-  "votingPeriod": "Periodo di votazione"
+  "votingPeriod": "Periodo di votazione",
+  "epochIdentifier": "Identificatore dell'epoca",
+  "reductionFactor": "Fattore di riduzione",
+  "genesisEpochProvisions": "Disposizioni di Genesis Epoch",
+  "reductionPeriodInEpochs": "Periodo di riduzione in epoche",
+  "mintingRewardsDistributionStartEpoch": "Epoca iniziale distribuzione premi conio"
 }

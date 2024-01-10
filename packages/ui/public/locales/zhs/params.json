@@ -32,5 +32,10 @@
   "quorum": "法定人数",
   "threshold": "门槛",
   "vetoThreshold": "否决门槛",
-  "votingPeriod": "投票期"
+  "votingPeriod": "投票期",
+  "epochIdentifier": "纪元标识符",
+  "reductionFactor": "缩减因子",
+  "genesisEpochProvisions": "创世纪元规定",
+  "reductionPeriodInEpochs": "减少纪元的周期",
+  "mintingRewardsDistributionStartEpoch": "铸造奖励分配开始纪元"
 }
