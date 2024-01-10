@@ -32,5 +32,10 @@
   "quorum": "Quorum",
   "threshold": "Threshold",
   "vetoThreshold": "Veto Threshold",
-  "votingPeriod": "Voting Period"
+  "votingPeriod": "Voting Period",
+  "epochIdentifier": "Epoch Identifier",
+  "reductionFactor": "Reduction Factor",
+  "genesisEpochProvisions": "Genesis Epoch Provisions",
+  "reductionPeriodInEpochs": "Reduction Period In Epochs",
+  "mintingRewardsDistributionStartEpoch": "Minting Rewards Distribution Start Epoch"
 }

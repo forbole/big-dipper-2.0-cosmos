@@ -32,5 +32,10 @@
   "quorum": "Kworum",
   "threshold": "Próg",
   "vetoThreshold": "Próg weta",
-  "votingPeriod": "Okres głosowania"
+  "votingPeriod": "Okres głosowania",
+  "epochIdentifier": "Identyfikator epoki",
+  "reductionFactor": "Współczynnik redukcji",
+  "genesisEpochProvisions": "Zaopatrzenie epoki genesis",
+  "reductionPeriodInEpochs": "Okres redukcji w epokach",
+  "mintingRewardsDistributionStartEpoch": "Epoka rozpoczęcia dystrybucji mint nagród"
 }
