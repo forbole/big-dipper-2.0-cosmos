@@ -6,7 +6,7 @@
     "graphqlWs": true
   },
   "previewImage": "https://s3.bigdipper.live/previews/neutron.png",
- "themes": {
+  "themes": {
     "default": "light",
     "themeList": [
       "dark",
