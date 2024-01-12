@@ -31,5 +31,6 @@
   "powerChange": "<0>{{change}}</0> a blocco ",
   "validators": "Validatori",
   "priceHistory": "Prezzo (~48 ore)",
-  "dataFrom": "Dati da"
+  "dataFrom": "Dati da",
+  "notAvailable": "Non disponibile"
 }

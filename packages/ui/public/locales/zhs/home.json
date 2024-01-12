@@ -31,5 +31,6 @@
   "powerChange": "<0>{{change}}</0> 在区块 ",
   "validators": "验证人",
   "priceHistory": "价格（~48 小时）",
-  "dataFrom": "数据来自"
+  "dataFrom": "数据来自",
+  "notAvailable": "不可用"
 }

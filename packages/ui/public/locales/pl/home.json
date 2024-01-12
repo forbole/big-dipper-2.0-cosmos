@@ -31,5 +31,6 @@
   "powerChange": "<0>{{change}}</0> na wysokości ",
   "validators": "Walidatorzy",
   "priceHistory": "Cena (~48h)",
-  "dataFrom": "Dane z"
+  "dataFrom": "Dane z",
+  "notAvailable": "Niedostępne"
 }
