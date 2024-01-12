@@ -17,6 +17,7 @@ import { FC, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
+import FilterTxsByType from '@/components/transaction_message_filter_detailed';
 
 const Desktop: FC<TransactionsListState> = ({
   className,
@@ -76,9 +77,18 @@ const Desktop: FC<TransactionsListState> = ({
 
                 return (
                   <div style={style} className={classes.cell}>
-                    <Typography variant="h4" align={align}>
-                      {t(key)}
-                    </Typography>
+                    {key === 'type' ? (
+                      <>
+                        <Typography variant="h4" align={align}>
+                          {t(key)}
+                        </Typography>
+                        <FilterTxsByType />
+                      </>
+                    ) : (
+                      <Typography variant="h4" align={align}>
+                        {t(key)}
+                      </Typography>
+                    )}
                   </div>
                 );
               }}
