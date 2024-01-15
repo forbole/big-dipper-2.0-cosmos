@@ -9,6 +9,7 @@ const initialState: AtomState = {
   dateFormat: 'locale',
   timeFormat: '12-hour',
   txListFormat: 'compact',
+  filterMsgTypes: '{}',
 };
 
 export const atomState = atom<AtomState>({

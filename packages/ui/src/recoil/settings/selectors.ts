@@ -1,7 +1,14 @@
 import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
 import { atomState } from '@/recoil/settings/atom';
 import type { Date, TimeFormat, Theme, Tx } from '@/recoil/settings/types';
-import { DATE_KEY, setItem, THEME_KEY, TX_KEY, TIME_FORMAT_KEY } from '@/utils/localstorage';
+import {
+  DATE_KEY,
+  setItem,
+  THEME_KEY,
+  TX_KEY,
+  TIME_FORMAT_KEY,
+  FILTER_MSG_TYPES_KEY,
+} from '@/utils/localstorage';
 import { mergeStateChange } from '@/utils/merge_state_change';
 
 const getTheme: ReadOnlySelectorOptions<Theme>['get'] = ({ get }): Theme => {
@@ -107,4 +114,27 @@ export const writeTx = selector({
 export const readTx = selector({
   key: 'settings.read.tx',
   get: getTx,
+});
+
+const getFilterMsgTypes: ReadOnlySelectorOptions<string>['get'] = ({ get }) => {
+  const state = get(atomState);
+  return state.filterMsgTypes;
+};
+
+export const writeFilterMsgTypes = selector({
+  key: 'settings.write.filterMsgTypes',
+  get: getFilterMsgTypes,
+  set: ({ get, set }, newMsgFilter) => {
+    if (newMsgFilter instanceof DefaultValue) return;
+    const prevState = get(atomState);
+    const newState = mergeStateChange(prevState, {
+      msgTypes: newMsgFilter,
+    });
+    set(atomState, newState);
+  },
+});
+
+export const readFilterMsgTypes = selector({
+  key: 'settings.read.filterMsgTypes',
+  get: getFilterMsgTypes,
 });

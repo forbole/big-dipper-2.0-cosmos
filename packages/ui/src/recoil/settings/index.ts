@@ -9,6 +9,7 @@ export {
   writeTimeFormat,
   writeTheme,
   writeTx,
+  writeFilterMsgTypes,
 } from '@/recoil/settings/selectors';
 export type { AtomState, Date, Theme, Tx, TimeFormat } from '@/recoil/settings/types';
 export {
