@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useMsgFiler = () => {
+export const useMsgFilter = () => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {

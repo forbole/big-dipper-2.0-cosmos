@@ -3,76 +3,36 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
-import { useRouter } from 'next/router';
-import { FC } from 'react';
+import { FC, useState, ChangeEvent } from 'react';
 import FilterTxsIcon from 'shared-utils/assets/icon-filter-transactions.svg';
 import Search from '@/components/search';
-import { useMsgFiler } from '@/components/transaction_message_filter_detailed/hooks';
+import { useMsgFilter } from '@/components/transaction_message_filter_detailed/hooks';
+import { SetterOrUpdater, useRecoilState } from 'recoil';
+import { writeMsgTypes } from '@/recoil/settings';
 import useStyles from './styles';
+import { MsgTypeList } from './utils';
 
-const FilterTxsByType: FC<ComponentDefault> = (props) => {
+const FilterTxsByType: FC<ComponentDefault> = props => {
   const { classes, cx } = useStyles();
-  const router = useRouter();
   const { t } = useAppTranslation('common');
-  const { open, handleOpen, handleCancel } = useMsgFiler();
+  const { open, handleOpen, handleCancel } = useMsgFilter();
+  const [queryMsgTypeList, setQueryMsgTypeList] = useState([] as string[]);
+  const [msgTypes, setMsgTypes] = useRecoilState(writeMsgTypes) as [
+    string,
+    SetterOrUpdater<string>
+  ];
 
-  const sss3 = {
-    Staking: ['Delegate', 'Redelegate', 'Undelegate', 'Withdraw Rewards'],
-    Bank: ['Send', 'MultiSend'],
-    Crisis: ['Verify Invariant'],
-    Slashing: ['Unjail'],
-    Distribution: [
-      'Fund Community Pool',
-      'Withdraw Delegator Rewards',
-      'Set Withdraw Address',
-      'Withdraw Validator Commission',
-    ],
-    Governance: ['Deposit', 'Submit Proposal', 'Vote'],
-  };
-
-  const categoryList = ['Staking', 'Bank', 'Crisis', 'Slashing', 'Distribution', 'Governance'];
-  const msgTypeList = {
-    Staking: {
-      Delegate: {
-        msg: '/cosmos.staking.v1beta1.MsgDelegate',
-        display: 'Delegate',
-      },
-      Redelegate: {
-        msg: '/cosmos.staking.v1beta1.MsgBeginRedelegate',
-        display: 'Redelegate',
-      },
-      Undelegate: {
-        msg: '/cosmos.staking.v1beta1.MsgUndelegate',
-        display: 'Undelegate',
-      },
-      CreateValidator: {
-        msg: '/cosmos.staking.v1beta1.MsgCreateValidator',
-        display: 'Create Validator',
-      },
-      EditValidator: {
-        msg: '/cosmos.staking.v1beta1.MsgEditValidator',
-        display: 'Edit Validator',
-      },
-    },
-    Bank: {
-      Send: {
-        msg: '/cosmos.bank.v1beta1.MsgSend',
-        display: 'Send',
-      },
-      MultiSend: {
-        msg: '/cosmos.bank.v1beta1.MsgMultiSend',
-        display: 'Multi Send',
-      },
-    },
-    Crisis: ['Verify Invariant'],
-    Slashing: ['Unjail'],
-    Distribution: [
-      'Fund Community Pool',
-      'Withdraw Delegator Rewards',
-      'Set Withdraw Address',
-      'Withdraw Validator Commission',
-    ],
-    Governance: ['Deposit', 'Submit Proposal', 'Vote'],
+  const handleMsgTypeSelection = (event: ChangeEvent<HTMLInputElement>) => {
+    let msgList = queryMsgTypeList;
+    if (!msgList.includes(event.target.value)) {
+      msgList.push(event.target.value);
+      setQueryMsgTypeList(msgList);
+    } else {
+      msgList = msgList.filter(v => v !== event.target.value);
+      setQueryMsgTypeList(msgList);
+    }
+    setMsgTypes(() => event.target.value);
+    console.log(msgTypes);
   };
 
   return (
@@ -100,23 +60,25 @@ const FilterTxsByType: FC<ComponentDefault> = (props) => {
           </div>
         </DialogTitle>
         <DialogContent dividers>
-          {categoryList.map((option) => (
+          {Object.entries(MsgTypeList).map(msgType => (
             <div>
               <div className={classes.moduleName}>
-                <Typography>{option}</Typography>
+                <Typography>{msgType[0]}</Typography>
               </div>
               <div className="row">
                 <form className="col-md-6">
-                  {sss3[option]?.map((type) => (
+                  {Object.values(msgType[1]).map((tp, ind) => (
                     <div className={classes.msgType}>
                       <input
                         type="checkbox"
-                        id="messageType"
-                        name="messageType"
-                        value="messageType"
+                        id={`msg_type_${tp.display}`}
+                        name={`msg_type_${tp.display}`}
+                        value={tp.msg}
+                        className={classes.checkbox}
+                        onClick={e => handleMsgTypeSelection(e)}
                       />
                       <label htmlFor="messageType" className={classes.msgOption}>
-                        <div className="col-md-6">{type}</div>
+                        <div className="col-md-6">{tp.display}</div>
                       </label>
                     </div>
                   ))}

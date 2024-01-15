@@ -1,6 +1,6 @@
 import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(theme => ({
   icon: {
     display: 'inline-flex',
     position: 'absolute',
@@ -54,6 +54,9 @@ const useStyles = makeStyles()((theme) => ({
   },
   msgType: {
     display: 'flex',
+  },
+  checkbox: {
+    marginRight: '8px',
   },
 }));
 
