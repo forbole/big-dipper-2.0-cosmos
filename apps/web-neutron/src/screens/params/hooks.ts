@@ -14,50 +14,8 @@ const initialState: ParamsState = {
   loading: true,
   exists: true,
   ccvConsumer: null,
-  staking: null,
-  slashing: null,
   minting: null,
   distribution: null,
-  gov: null,
-};
-
-// ================================
-// staking
-// ================================
-const formatStaking = (data: ParamsQuery) => {
-  if (data.bdjuno_provider?.staking_params.length) {
-    const stakingParamsRaw = StakingParams.fromJson(
-      data?.bdjuno_provider?.staking_params?.[0]?.params ?? {}
-    );
-    return {
-      bondDenom: stakingParamsRaw.bondDenom,
-      unbondingTime: stakingParamsRaw.unbondingTime,
-      maxEntries: stakingParamsRaw.maxEntries,
-      historicalEntries: stakingParamsRaw.historicalEntries,
-      maxValidators: stakingParamsRaw.maxValidators,
-    };
-  }
-
-  return null;
-};
-
-// ================================
-// slashing
-// ================================
-const formatSlashing = (data: ParamsQuery) => {
-  if (data.bdjuno_provider?.staking_params.length) {
-    const slashingParamsRaw = SlashingParams.fromJson(
-      data?.bdjuno_provider?.staking_params?.[0]?.params ?? {}
-    );
-    return {
-      downtimeJailDuration: slashingParamsRaw.downtimeJailDuration,
-      minSignedPerWindow: slashingParamsRaw.minSignedPerWindow,
-      signedBlockWindow: slashingParamsRaw.signedBlockWindow,
-      slashFractionDoubleSign: slashingParamsRaw.slashFractionDoubleSign,
-      slashFractionDowntime: slashingParamsRaw.slashFractionDowntime,
-    };
-  }
-  return null;
 };
 
 // ================================
@@ -102,30 +60,6 @@ const formatDistribution = (data: ParamsQuery) => {
   return null;
 };
 
-// ================================
-// distribution
-// ================================
-
-const formatGov = (data: ParamsQuery) => {
-  if (data.bdjuno_provider?.gov_params.length) {
-    const govParamsRaw = GovParams.fromJson(data?.bdjuno_provider?.gov_params?.[0] ?? {});
-    return {
-      minDeposit: formatToken(
-        govParamsRaw.depositParams.minDeposit?.[0]?.amount ?? 0,
-        govParamsRaw.depositParams.minDeposit?.[0]?.denom ?? primaryTokenUnit
-      ),
-      maxDepositPeriod: govParamsRaw.depositParams.maxDepositPeriod,
-      quorum: numeral(numeral(govParamsRaw.tallyParams.quorum).format('0.[00]')).value() ?? 0,
-      threshold: numeral(numeral(govParamsRaw.tallyParams.threshold).format('0.[00]')).value() ?? 0,
-      vetoThreshold:
-        numeral(numeral(govParamsRaw.tallyParams.vetoThreshold).format('0.[00]')).value() ?? 0,
-      votingPeriod: govParamsRaw.votingParams.votingPeriod,
-    };
-  }
-
-  return null;
-};
-
 const formatCCVConsumer = (data: ParamsQuery) => {
   if (data?.ccv_consumer_params[0]?.params) {
     const ccvConsumerParamsRaw = CCVConsumerParams(data?.ccv_consumer_params[0]?.params ?? {});
@@ -149,15 +83,9 @@ const formatParam = (data: ParamsQuery) => {
 
   results.ccvConsumer = formatCCVConsumer(data);
 
-  results.staking = formatStaking(data);
-
-  results.slashing = formatSlashing(data);
-
   results.minting = formatMint(data);
 
   results.distribution = formatDistribution(data);
-
-  results.gov = formatGov(data);
 
   return results;
 };

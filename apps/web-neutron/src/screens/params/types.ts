@@ -1,19 +1,3 @@
-export interface Staking {
-  bondDenom: string;
-  unbondingTime: number;
-  maxEntries: number;
-  historicalEntries: number;
-  maxValidators: number;
-}
-
-export interface Slashing {
-  downtimeJailDuration: number;
-  minSignedPerWindow: number;
-  signedBlockWindow: number;
-  slashFractionDoubleSign: number;
-  slashFractionDowntime: number;
-}
-
 export interface Minting {
   blocksPerYear: number;
   goalBonded: number;
@@ -28,15 +12,6 @@ export interface Distribution {
   bonusProposerReward: number;
   communityTax: number;
   withdrawAddressEnabled: boolean;
-}
-
-export interface Gov {
-  minDeposit: TokenUnit;
-  maxDepositPeriod: number;
-  quorum: number;
-  threshold: number;
-  vetoThreshold: number;
-  votingPeriod: number;
 }
 
 export interface CCVConsumer {
@@ -54,9 +29,6 @@ export interface ParamsState {
   loading: boolean;
   exists: boolean;
   ccvConsumer: CCVConsumer | null;
-  staking: Staking | null;
-  slashing: Slashing | null;
   minting: Minting | null;
   distribution: Distribution | null;
-  gov: Gov | null;
 }
