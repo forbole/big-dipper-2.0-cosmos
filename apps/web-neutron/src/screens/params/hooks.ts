@@ -1,14 +1,9 @@
-import numeral from 'numeral';
 import * as R from 'ramda';
 import { useCallback, useState } from 'react';
-import chainConfig from '@/chainConfig';
 import { ParamsQuery, useParamsQuery } from '@/graphql/types/provider_types';
-import { DistributionParams, GovParams, MintParams, SlashingParams, StakingParams } from '@/models';
+import { DistributionParams, MintParams } from '@/models';
 import type { ParamsState } from '@/screens/params/types';
-import { formatToken } from '@/utils/format_token';
 import CCVConsumerParams from '../../models/ccv_consumer_params';
-
-const { primaryTokenUnit } = chainConfig();
 
 const initialState: ParamsState = {
   loading: true,
