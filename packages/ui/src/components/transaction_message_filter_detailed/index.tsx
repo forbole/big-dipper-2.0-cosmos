@@ -8,16 +8,15 @@ import FilterTxsIcon from 'shared-utils/assets/icon-filter-transactions.svg';
 import Search from '@/components/search';
 import { useMsgFilter } from '@/components/transaction_message_filter_detailed/hooks';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { writeMsgTypes } from '@/recoil/settings';
+import { writeFilterMsgTypes } from '@/recoil/settings';
 import useStyles from './styles';
-import { MsgTypeList } from './utils';
 
-const FilterTxsByType: FC<ComponentDefault> = props => {
+const FilterTxsByType: FC<ComponentDefault> = (props) => {
   const { classes, cx } = useStyles();
   const { t } = useAppTranslation('common');
-  const { open, handleOpen, handleCancel } = useMsgFilter();
+  const { data, open, handleOpen, handleCancel } = useMsgFilter();
   const [queryMsgTypeList, setQueryMsgTypeList] = useState([] as string[]);
-  const [msgTypes, setMsgTypes] = useRecoilState(writeMsgTypes) as [
+  const [msgTypes, setMsgTypes] = useRecoilState(writeFilterMsgTypes) as [
     string,
     SetterOrUpdater<string>
   ];
@@ -28,12 +27,22 @@ const FilterTxsByType: FC<ComponentDefault> = props => {
       msgList.push(event.target.value);
       setQueryMsgTypeList(msgList);
     } else {
-      msgList = msgList.filter(v => v !== event.target.value);
+      msgList = msgList.filter((v) => v !== event.target.value);
       setQueryMsgTypeList(msgList);
     }
     setMsgTypes(() => event.target.value);
     console.log(msgTypes);
   };
+
+  const formatMsgTypes = (msgTypes) => {
+    const categories = [...new Set(msgTypes.map((msgType) => msgType.module))];
+    return categories.reduce((acc, module) => {
+      const msgs = msgTypes.filter((msgType) => msgType.module === module);
+      return [...acc, { module, msgTypes: msgs }];
+    }, []);
+  };
+
+  const formattedMsgData = formatMsgTypes(data.msgTypes);
 
   return (
     <>
@@ -60,25 +69,39 @@ const FilterTxsByType: FC<ComponentDefault> = props => {
           </div>
         </DialogTitle>
         <DialogContent dividers>
-          {Object.entries(MsgTypeList).map(msgType => (
+          {formattedMsgData.map((msgData) => (
             <div>
               <div className={classes.moduleName}>
-                <Typography>{msgType[0]}</Typography>
+                {msgData.module.includes('ibc') ? (
+                  <Typography>
+                    {msgData.module.charAt(0).toUpperCase() +
+                      msgData.module.charAt(1).toUpperCase() +
+                      msgData.module.charAt(2).toUpperCase() +
+                      msgData.module.slice(3)}
+                  </Typography>
+                ) : (
+                  <Typography>{msgData.module}</Typography>
+                )}
               </div>
               <div className="row">
                 <form className="col-md-6">
-                  {Object.values(msgType[1]).map((tp, ind) => (
+                  {msgData.msgTypes.map((msg) => (
                     <div className={classes.msgType}>
                       <input
                         type="checkbox"
-                        id={`msg_type_${tp.display}`}
-                        name={`msg_type_${tp.display}`}
-                        value={tp.msg}
+                        id={`msg_type_${msg.label}`}
+                        name={`msg_type_${msg.label}`}
+                        value={msg.type}
                         className={classes.checkbox}
-                        onClick={e => handleMsgTypeSelection(e)}
+                        onClick={(e) => handleMsgTypeSelection(e)}
                       />
                       <label htmlFor="messageType" className={classes.msgOption}>
-                        <div className="col-md-6">{tp.display}</div>
+                        <div className="col-md-6">
+                          {msg.label
+                            .substring(3)
+                            .match(/[A-Z][a-z]+|[0-9]+/g)
+                            .join(' ')}
+                        </div>
                       </label>
                     </div>
                   ))}

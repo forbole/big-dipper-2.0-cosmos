@@ -1,6 +1,6 @@
 import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles()(theme => ({
+const useStyles = makeStyles()((theme) => ({
   icon: {
     display: 'inline-flex',
     position: 'absolute',
@@ -43,6 +43,7 @@ const useStyles = makeStyles()(theme => ({
     fontWeight: 590,
     lineHeight: '20px',
     letterSpacing: '-0.544px',
+    textTransform: 'capitalize',
   },
   msgOption: {
     color: theme.palette.custom.fonts.fontFour,
