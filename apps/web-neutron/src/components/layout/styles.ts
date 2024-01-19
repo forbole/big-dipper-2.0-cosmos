@@ -38,12 +38,13 @@ const useStyles = makeStyles()((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
+    textAlign: 'center',
     color: theme.palette.custom.fonts.fontOne,
     backgroundColor: theme.palette.custom.wallet.backgroundTwo,
     padding: theme.spacing(1.5),
     marginTop: theme.spacing(2),
     marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
   },
 }));
 

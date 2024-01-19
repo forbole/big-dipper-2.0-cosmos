@@ -38,9 +38,11 @@ const Layout = (props: LayoutProps) => {
         <div className={classes.children}>
           <div className={classes.appBarPlaceholder} />
           {!!bannerLinks.length && <Banner />}
-          <div className={classes.content}>
-            <Typography variant="h4"> {t('stakingDataIsSourcedFromCosmoshub')}</Typography>
-          </div>
+          {navTitle === 'Validators' ? (
+            <div className={classes.content}>
+              <Typography variant="h4"> {t('stakingDataIsSourcedFromCosmoshub')}</Typography>
+            </div>
+          ) : null}
           <div className={cx(className, 'main-content')}>{children}</div>
         </div>
       </div>
