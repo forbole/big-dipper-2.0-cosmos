@@ -237,11 +237,11 @@
         "matomoSiteID": "8"
       },
       "provider": {
-        "primaryTokenUnit": "uatom",
-        "tokenUnits": {
-            "uatom": {
-              "display": "atom",
-              "exponent": 6
+      "primaryTokenUnit": "uatom",
+      "tokenUnits": {
+          "uatom": {
+            "display": "atom",
+            "exponent": 6
         }
         }
       }

@@ -1,7 +1,7 @@
 import { CSSObject } from '@emotion/react';
 import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(theme => ({
   root: {
     [theme.breakpoints.up('lg')]: {
       display: 'flex',
@@ -21,9 +21,7 @@ const useStyles = makeStyles()((theme) => ({
       zIndex: 1299,
     },
   },
-  appBarPlaceholder: {
-    ...(theme.mixins.toolbar as CSSObject),
-  },
+  appBarPlaceholder: theme.mixins.toolbar as CSSObject,
   children: {
     flexGrow: 1,
     display: 'flex',
