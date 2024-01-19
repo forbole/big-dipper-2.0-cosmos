@@ -6,5 +6,6 @@
   "params.softOptOutThreshold": "软选择退出阈值",
   "params.transferTimeoutPeriod": "传输超时时间",
   "params.consumerRedistributionFraction": "消费者重新分配分数",
-  "params.blocksPerDistributionTransmission": "每次分发传输的块数"
+  "params.blocksPerDistributionTransmission": "每次分发传输的块数",
+  "validators.stakeDataIsSourcedFromCosmoshub": "质押数据来源于 Cosmos Hub，因为 Neutron 是一条消费者链。"
 }
