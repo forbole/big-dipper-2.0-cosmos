@@ -9,6 +9,8 @@ import Search from '@/components/search';
 import { useMsgFilter } from '@/components/transaction_message_filter_detailed/hooks';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 import { writeFilterMsgTypes } from '@/recoil/settings';
+import DialogActions from '@mui/material/DialogActions';
+import Button from '@mui/material/Button';
 import useStyles from './styles';
 
 const FilterTxsByType: FC<ComponentDefault> = (props) => {
@@ -30,19 +32,23 @@ const FilterTxsByType: FC<ComponentDefault> = (props) => {
       msgList = msgList.filter((v) => v !== event.target.value);
       setQueryMsgTypeList(msgList);
     }
-    setMsgTypes(() => event.target.value);
-    console.log(msgTypes);
   };
 
   const formatMsgTypes = (msgTypes) => {
-    const categories = [...new Set(msgTypes.map((msgType) => msgType.module))];
+    const categories = [...new Set(msgTypes?.map((msgType) => msgType.module))];
     return categories.reduce((acc, module) => {
       const msgs = msgTypes.filter((msgType) => msgType.module === module);
       return [...acc, { module, msgTypes: msgs }];
     }, []);
   };
 
-  const formattedMsgData = formatMsgTypes(data.msgTypes);
+  const formattedMsgData = formatMsgTypes(data?.msgTypes);
+
+  const handleFormSubmit = () => {
+    const str = queryMsgTypeList.join(',');
+    const query = `{${str}}`;
+    setMsgTypes(() => query);
+  };
 
   return (
     <>
@@ -94,6 +100,7 @@ const FilterTxsByType: FC<ComponentDefault> = (props) => {
                         value={msg.type}
                         className={classes.checkbox}
                         onClick={(e) => handleMsgTypeSelection(e)}
+                        key={`msg_type_${msg.label}`}
                       />
                       <label htmlFor="messageType" className={classes.msgOption}>
                         <div className="col-md-6">
@@ -110,6 +117,11 @@ const FilterTxsByType: FC<ComponentDefault> = (props) => {
             </div>
           ))}
         </DialogContent>
+        <DialogActions>
+          <Button onClick={handleFormSubmit} color="primary">
+            Filter
+          </Button>
+        </DialogActions>
       </Dialog>
     </>
   );
