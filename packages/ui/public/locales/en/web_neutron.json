@@ -7,5 +7,6 @@
   "params.transferTimeoutPeriod": "Transfer Timeout Period",
   "params.consumerRedistributionFraction": "Consumer Redistribution Fraction",
   "params.blocksPerDistributionTransmission": "Blocks Per Distribution Transmission",
-  "validators.stakingDataIsSourcedFromCosmoshub": "The staking data is sourced from Cosmos Hub, as Neutron is a consumer chain."
+  "validators.stakingDataIsSourcedFromCosmoshub": "The staking data is sourced from Cosmos Hub, as Neutron is a consumer chain.",
+  "validators.comingSoon": "Coming soon"
 }
