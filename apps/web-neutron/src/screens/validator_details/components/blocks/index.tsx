@@ -11,7 +11,7 @@ const Blocks: FC<ComponentDefault> = ({ className }) => {
     <Box className={cx(classes.root, className)}>
       <Typography variant="h2">{t('lastBlocks')}</Typography>
       <div className={classes.content}>
-        <Typography variant="h4">{t('notAvailable')}</Typography>
+        <Typography variant="h4">{t('comingSoon')}</Typography>
       </div>
     </Box>
   );
