@@ -8,6 +8,8 @@ import {
 } from '@/graphql/types/general_types';
 import type { TransactionState } from '@/screens/account_details/components/transactions/types';
 import { convertMsgType } from '@/utils/convert_msg_type';
+import { useRecoilValue } from 'recoil';
+import { readFilterMsgTypes } from '@/recoil/settings';
 
 const LIMIT = 50;
 
@@ -50,6 +52,7 @@ export function useTransactions() {
     isNextPageLoading: true,
     offsetCount: 0,
   });
+  const msgTypes = useRecoilValue(readFilterMsgTypes);
   const isFirst = useRef(true);
 
   // reset state when address changes
@@ -79,6 +82,7 @@ export function useTransactions() {
       limit: LIMIT + 1, // to check if more exist
       offset: 0,
       address: `{${router?.query?.address ?? ''}}`,
+      types: msgTypes,
     },
     onCompleted: (data) => {
       const itemsLength = data.messagesByAddress.length;

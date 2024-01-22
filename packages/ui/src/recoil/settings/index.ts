@@ -5,6 +5,7 @@ export {
   readTimeFormat,
   readTheme,
   readTx,
+  readFilterMsgTypes,
   writeDate,
   writeTimeFormat,
   writeTheme,
