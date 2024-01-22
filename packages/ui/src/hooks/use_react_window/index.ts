@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState, useMemo } from 'react';
 import type { VariableSizeGrid } from 'react-window';
 import useShallowMemo from '@/hooks/useShallowMemo';
 
@@ -60,6 +60,26 @@ export const useGrid = (
   const gridRef = useRef<VariableSizeGrid>();
   const columnRef = useRef<VariableSizeGrid>();
   const columnsMemo = useShallowMemo(columns);
+  const [openFilterMsg, setOpenFilterMsg] = useState(false);
+
+  const handleOpen = () => {
+    setOpenFilterMsg(true);
+  };
+
+  const handleCancel = () => {
+    handleClose();
+  };
+
+  const handleClose = () => {
+    setOpenFilterMsg(false);
+  };
+
+  const onButtonClick = useCallback((newValue: boolean) => {
+    setOpenFilterMsg((prevState) => ({
+      ...prevState,
+      openFilterMsg: newValue,
+    }));
+  }, []);
 
   const onResize = useCallback(() => {
     if (gridRef.current !== null) {
@@ -88,5 +108,10 @@ export const useGrid = (
     onResize,
     getColumnWidth,
     getRowHeight,
+    openFilterMsg,
+    handleOpen,
+    handleClose,
+    handleCancel,
+    onButtonClick,
   };
 };

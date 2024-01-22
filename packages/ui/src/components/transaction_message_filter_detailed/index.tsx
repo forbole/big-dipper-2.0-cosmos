@@ -3,20 +3,26 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
-import { FC, useState, ChangeEvent } from 'react';
+import { FC, useState, ChangeEvent, useMemo } from 'react';
 import FilterTxsIcon from 'shared-utils/assets/icon-filter-transactions.svg';
 import Search from '@/components/search';
 import { useMsgFilter } from '@/components/transaction_message_filter_detailed/hooks';
-import { SetterOrUpdater, useRecoilState } from 'recoil';
+import { SetterOrUpdater, useRecoilState, useRecoilCallback } from 'recoil';
 import { writeFilterMsgTypes } from '@/recoil/settings';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import useStyles from './styles';
 
-const FilterTxsByType: FC<ComponentDefault> = (props) => {
+type FilterTxsByTypeProps = ComponentDefault & {
+  open?: boolean;
+  handleOpen?: () => void;
+  handleCancel?: () => void;
+};
+
+const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCancel }) => {
   const { classes, cx } = useStyles();
   const { t } = useAppTranslation('common');
-  const { data, open, handleOpen, handleCancel } = useMsgFilter();
+  const { messageFilter, filterMsgTypeList } = useMsgFilter();
   const [queryMsgTypeList, setQueryMsgTypeList] = useState([] as string[]);
   const [msgTypes, setMsgTypes] = useRecoilState(writeFilterMsgTypes) as [
     string,
@@ -34,20 +40,11 @@ const FilterTxsByType: FC<ComponentDefault> = (props) => {
     }
   };
 
-  const formatMsgTypes = (msgTypes) => {
-    const categories = [...new Set(msgTypes?.map((msgType) => msgType.module))];
-    return categories.reduce((acc, module) => {
-      const msgs = msgTypes.filter((msgType) => msgType.module === module);
-      return [...acc, { module, msgTypes: msgs }];
-    }, []);
-  };
-
-  const formattedMsgData = formatMsgTypes(data?.msgTypes);
-
   const handleFormSubmit = () => {
     const str = queryMsgTypeList.join(',');
     const query = `{${str}}`;
     setMsgTypes(() => query);
+    console.log(query);
   };
 
   return (
@@ -55,7 +52,7 @@ const FilterTxsByType: FC<ComponentDefault> = (props) => {
       <div
         onClick={handleOpen}
         role="button"
-        className={cx(props.className, classes.icon)}
+        className={classes.icon}
         tabIndex={0}
         aria-label="filter-txs-by-type"
       >
@@ -69,13 +66,13 @@ const FilterTxsByType: FC<ComponentDefault> = (props) => {
           <div>
             <Search
               className={classes.searchBar}
-              callback={null}
+              callback={filterMsgTypeList}
               placeholder={t('searchType') ?? undefined}
             />
           </div>
         </DialogTitle>
         <DialogContent dividers>
-          {formattedMsgData.map((msgData) => (
+          {messageFilter.map((msgData) => (
             <div>
               <div className={classes.moduleName}>
                 {msgData.module.includes('ibc') ? (
