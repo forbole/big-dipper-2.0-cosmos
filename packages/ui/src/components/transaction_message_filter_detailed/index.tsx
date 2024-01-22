@@ -11,6 +11,8 @@ import { SetterOrUpdater, useRecoilState, useRecoilCallback } from 'recoil';
 import { writeFilterMsgTypes } from '@/recoil/settings';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
+// import { useSearchBar } from '@/components/nav/components/search_bar/hooks';
+import { useMsgSearchBar } from '@/components/transaction_message_filter_detailed/components/msg_search_bar/hooks';
 import useStyles from './styles';
 
 type FilterTxsByTypeProps = ComponentDefault & {
@@ -22,30 +24,12 @@ type FilterTxsByTypeProps = ComponentDefault & {
 const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCancel }) => {
   const { classes, cx } = useStyles();
   const { t } = useAppTranslation('common');
-  const { messageFilter, filterMsgTypeList } = useMsgFilter();
-  const [queryMsgTypeList, setQueryMsgTypeList] = useState([] as string[]);
-  const [msgTypes, setMsgTypes] = useRecoilState(writeFilterMsgTypes) as [
-    string,
-    SetterOrUpdater<string>
-  ];
-
-  const handleMsgTypeSelection = (event: ChangeEvent<HTMLInputElement>) => {
-    let msgList = queryMsgTypeList;
-    if (!msgList.includes(event.target.value)) {
-      msgList.push(event.target.value);
-      setQueryMsgTypeList(msgList);
-    } else {
-      msgList = msgList.filter((v) => v !== event.target.value);
-      setQueryMsgTypeList(msgList);
-    }
-  };
-
-  const handleFormSubmit = () => {
-    const str = queryMsgTypeList.join(',');
-    const query = `{${str}}`;
-    setMsgTypes(() => query);
-    console.log(query);
-  };
+  const {
+    messageFilter,
+    filterMsgTypeList,
+    handleFilterTxs,
+    handleMsgTypeSelection,
+  } = useMsgFilter();
 
   return (
     <>
@@ -72,7 +56,7 @@ const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCan
           </div>
         </DialogTitle>
         <DialogContent dividers>
-          {messageFilter.map((msgData) => (
+          {messageFilter.map(msgData => (
             <div>
               <div className={classes.moduleName}>
                 {msgData.module.includes('ibc') ? (
@@ -88,7 +72,7 @@ const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCan
               </div>
               <div className="row">
                 <form className="col-md-6">
-                  {msgData.msgTypes.map((msg) => (
+                  {msgData.msgTypes.map(msg => (
                     <div className={classes.msgType}>
                       <input
                         type="checkbox"
@@ -96,7 +80,7 @@ const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCan
                         name={`msg_type_${msg.label}`}
                         value={msg.type}
                         className={classes.checkbox}
-                        onClick={(e) => handleMsgTypeSelection(e)}
+                        onClick={e => handleMsgTypeSelection(e)}
                         key={`msg_type_${msg.label}`}
                       />
                       <label htmlFor="messageType" className={classes.msgOption}>
@@ -115,7 +99,7 @@ const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCan
           ))}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleFormSubmit} color="primary">
+          <Button onClick={handleFilterTxs} color="primary">
             Filter
           </Button>
         </DialogActions>
