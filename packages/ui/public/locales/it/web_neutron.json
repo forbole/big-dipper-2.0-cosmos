@@ -6,5 +6,6 @@
   "params.softOptOutThreshold": "Soglia di disattivazione soft",
   "params.transferTimeoutPeriod": "Periodo di timeout del trasferimento",
   "params.consumerRedistributionFraction": "Frazione di ridistribuzione del consumatore",
-  "params.blocksPerDistributionTransmission": "Blocchi per trasmissione di distribuzione"
+  "params.blocksPerDistributionTransmission": "Blocchi per trasmissione di distribuzione",
+  "validators.stakingDataIsSourcedFromCosmoshub": "I dati di staking provengono da Cosmos Hub, poiché Neutron è una catena di consumatori."
 }

@@ -23,14 +23,14 @@ import {
 } from '@/screens/validator_details/components/staking/types';
 import { formatProviderToken } from '../../../../utils/format_provider_token';
 
-const provider = chainConfig();
+const config = chainConfig();
 export const ROWS_PER_PAGE = 10;
 
 export const formatDelegations = (data: Delegations[]) =>
   data
     .map<DelegationType>((x): UnbondingType => {
       const address = R.pathOr('', ['delegator_address'], x);
-      const delegation = getDenom(x.coins, provider.primaryTokenUnit);
+      const delegation = getDenom(x.coins, config.provider.primaryTokenUnit);
       return {
         address,
         amount: formatProviderToken(delegation.amount, delegation.denom),
@@ -45,7 +45,7 @@ export const formatRedelegations = (data: Redelegations[]) => {
       results.push({
         address: x?.delegator_address ?? '',
         to: x?.validator_dst_address ?? '',
-        amount: formatProviderToken(y.balance, provider.primaryTokenUnit),
+        amount: formatProviderToken(y.balance, config.provider.primaryTokenUnit),
         completionTime: R.pathOr('', ['completion_time'], y),
       });
     });
@@ -61,7 +61,7 @@ export const formatUnbondings = (data: Undelegations[]) => {
     x?.entries?.forEach((y) => {
       results.push({
         address: R.pathOr('', ['delegator_address'], x),
-        amount: formatProviderToken(y.balance, provider.primaryTokenUnit),
+        amount: formatProviderToken(y.balance, config.provider.primaryTokenUnit),
         completionTime: R.pathOr('', ['completion_time'], y),
       });
     });
