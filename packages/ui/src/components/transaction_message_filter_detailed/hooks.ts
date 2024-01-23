@@ -27,6 +27,7 @@ export const useMsgFilter = () => {
 
   const msgTypeList = useMemo(() => {
     const msgs = formatMsgTypes(data?.msgTypes);
+    msgs.sort((a, b) => a.module.localeCompare(b.module));
     setMessageFilter(msgs);
   }, [data]);
 
@@ -35,16 +36,20 @@ export const useMsgFilter = () => {
   const filterMsgTypeList = useMemo(
     () => async (value: string, clear?: () => void) => {
       const parsedValue = value.replace(/\s+/g, '');
-      const msgs = messageFilter.filter(
-        (v: { module: string; msgTypes }) =>
-          v.msgTypes.forEach(ms => ms?.type === parsedValue) || v.module === parsedValue
-      );
-      setMessageFilter(msgs);
-      if (clear) {
-        clear();
+      if (parsedValue === '' || parsedValue === null) {
+        const msgs = formatMsgTypes(data?.msgTypes);
+        msgs.sort((a, b) => a.module.localeCompare(b.module));
+        setMessageFilter(msgs);
+      } else {
+        const msgs = messageFilter.filter(
+          (v: { module: string; msgTypes }) =>
+            v.msgTypes.forEach(ms => ms?.type.includes(parsedValue)) ||
+            v.module.includes(parsedValue)
+        );
+        setMessageFilter(msgs);
       }
     },
-    [messageFilter]
+    [messageFilter, data]
   );
 
   const handleFilterTxs = () => {

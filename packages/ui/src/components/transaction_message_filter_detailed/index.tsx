@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, useState, ChangeEvent, useMemo } from 'react';
 import FilterTxsIcon from 'shared-utils/assets/icon-filter-transactions.svg';
-import Search from '@/components/search';
 import { useMsgFilter } from '@/components/transaction_message_filter_detailed/hooks';
 import { SetterOrUpdater, useRecoilState, useRecoilCallback } from 'recoil';
 import { writeFilterMsgTypes } from '@/recoil/settings';
@@ -13,6 +12,7 @@ import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 // import { useSearchBar } from '@/components/nav/components/search_bar/hooks';
 import { useMsgSearchBar } from '@/components/transaction_message_filter_detailed/components/msg_search_bar/hooks';
+import Search from '@/components/transaction_message_filter_detailed/components/search';
 import useStyles from './styles';
 
 type FilterTxsByTypeProps = ComponentDefault & {
@@ -31,7 +31,6 @@ const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCan
     handleMsgTypeSelection,
   } = useMsgFilter();
 
-  messageFilter.sort((a, b) => a.module.localeCompare(b.module));
   return (
     <>
       <div
