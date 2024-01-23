@@ -1,13 +1,15 @@
 import * as R from 'ramda';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { convertMsgsToModels } from '@/components/msg/utils';
 import {
-  TransactionsListenerSubscription,
-  useTransactionsListenerSubscription,
-  useTransactionsQuery,
+  useMessagesByTypesListenerSubscription,
+  MessagesByTypesListenerSubscription,
+  useMessagesByTypesQuery,
 } from '@/graphql/types/general_types';
 import type { TransactionsState } from '@/screens/transactions/types';
 import { convertMsgType } from '@/utils/convert_msg_type';
+import { useRecoilValue } from 'recoil';
+import { readFilterMsgTypes } from '@/recoil/settings';
 
 // This is a bandaid as it can get extremely
 // expensive if there is too much data
@@ -20,30 +22,56 @@ const uniqueAndSort = R.pipe(
   R.sort(R.descend((r) => r?.height))
 );
 
-const formatTransactions = (data: TransactionsListenerSubscription): TransactionsState['items'] => {
-  let formattedData = data.transactions;
-  if (data.transactions.length === 51) {
-    formattedData = data.transactions.slice(0, 51);
+const formatTransactions = (
+  data: MessagesByTypesListenerSubscription
+): TransactionsState['items'] => {
+  let formattedData = data?.messagesByTypes;
+  if (data?.messagesByTypes.length === 51) {
+    formattedData = data?.messagesByTypes.slice(0, 51);
   }
 
-  return formattedData.map((x) => {
-    const messages = convertMsgsToModels(x);
+  //   return formattedData?.map((x) => {
+  //     const messages = convertMsgsToModels(x.transaction);
+  //     console.log(messages);
+  //     const msgType =
+  //       x.transaction?.messages?.map((eachMsg: unknown) => {
+  //         const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
+  //         return eachMsgType ?? '';
+  //       }) ?? [];
+  //     console.log(msgType);
+  //     const convertedMsgType = convertMsgType(msgType);
+  //     console.log(convertMsgType);
+  //     return {
+  //       height: x.transaction?.height,
+  //       hash: x.transaction?.hash,
+  //       type: convertedMsgType,
+  //       messages: {
+  //         count: x.transaction?.messages.length,
+  //         items: messages,
+  //       },
+  //       success: x.transaction?.success,
+  //       timestamp: x.transaction?.block.timestamp,
+  //     };
+  //   });
+  // };
+  return formattedData?.map((x) => {
+    const messages = convertMsgsToModels(x.transaction);
     const msgType =
-      x.messages?.map((eachMsg: unknown) => {
+      x.transaction?.messages?.map((eachMsg: unknown) => {
         const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
         return eachMsgType ?? '';
       }) ?? [];
     const convertedMsgType = convertMsgType(msgType);
     return {
-      height: x.height,
-      hash: x.hash,
+      height: x.transaction?.height,
+      hash: x.transaction?.hash,
       type: convertedMsgType,
       messages: {
-        count: x.messages.length,
+        count: x.transaction?.messages.length,
         items: messages,
       },
-      success: x.success,
-      timestamp: x.block.timestamp,
+      success: x.transaction?.success,
+      timestamp: x.transaction?.block.timestamp,
     };
   });
 };
@@ -56,6 +84,7 @@ export const useTransactions = () => {
     isNextPageLoading: true,
     items: [],
   });
+  const msgTypes = useRecoilValue(readFilterMsgTypes);
 
   const handleSetState = (stateChange: (prevState: TransactionsState) => TransactionsState) => {
     setState((prevState) => {
@@ -64,15 +93,26 @@ export const useTransactions = () => {
     });
   };
 
+  useEffect(() => {
+    setState((prevState) => ({
+      ...prevState,
+      loading: true,
+      items: [],
+      hasNextPage: false,
+      isNextPageLoading: false,
+    }));
+  }, [msgTypes]);
   // ================================
   // tx subscription
   // ================================
-  useTransactionsListenerSubscription({
+  useMessagesByTypesListenerSubscription({
     variables: {
       limit: 1,
       offset: 0,
+      types: msgTypes,
     },
     onData: (data) => {
+      console.log(data);
       const newItems = uniqueAndSort([
         ...(data.data.data ? formatTransactions(data.data.data) : []),
         ...state.items,
@@ -89,16 +129,18 @@ export const useTransactions = () => {
   // tx query
   // ================================
   const LIMIT = 51;
-  const transactionQuery = useTransactionsQuery({
+  const transactionQuery = useMessagesByTypesQuery({
     variables: {
       limit: LIMIT,
       offset: 1,
+      types: msgTypes,
     },
     onError: () => {
       handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
     onCompleted: (data) => {
-      const itemsLength = data.transactions.length;
+      console.log(data);
+      const itemsLength = data.messagesByTypes.length;
       const newItems = uniqueAndSort([...state.items, ...formatTransactions(data)]);
       handleSetState((prevState) => ({
         ...prevState,
@@ -118,10 +160,11 @@ export const useTransactions = () => {
         variables: {
           offset: state.items.length,
           limit: LIMIT,
+          type: msgTypes,
         },
       })
       .then(({ data }) => {
-        const itemsLength = data.transactions.length;
+        const itemsLength = data?.messagesByTypes.length;
         const newItems = uniqueAndSort([
           ...state.items,
           ...formatTransactions(data),
