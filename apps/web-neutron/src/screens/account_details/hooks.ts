@@ -313,11 +313,7 @@ export const useAccountDetails = () => {
       delegationRewards?: any;
     } = {};
     formattedRawData.commission = R.pathOr({ coins: [] }, ['commission'], commission);
-    formattedRawData.accountBalances = R.pathOr(
-      { coins: [] },
-      ['bdjuno_provider', 'accountBalances'],
-      available
-    );
+    formattedRawData.accountBalances = R.pathOr({ coins: [] }, ['accountBalances'], available);
     formattedRawData.delegationBalance = R.pathOr(
       { coins: [] },
       ['bdjuno_provider', 'delegationBalance'],

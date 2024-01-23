@@ -18,16 +18,6 @@ export const AccountWithdrawalAddressDocument = /* GraphQL */ `
   }
 `;
 
-export const AccountBalancesDocument = /* GraphQL */ `
-  query AccountBalances($address: String!) {
-    bdjuno_provider {
-      accountBalances: action_account_balance(address: $address) {
-        coins
-      }
-    }
-  }
-`;
-
 export const AccountDelegationBalanceDocument = /* GraphQL */ `
   query AccountDelegationBalance($address: String!) {
     bdjuno_provider {
