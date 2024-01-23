@@ -68,7 +68,7 @@ export function useTransactions() {
         offsetCount: 0,
       }));
     }
-  }, [router?.query?.address]);
+  }, [router?.query?.address, msgTypes]);
 
   const handleSetState = (stateChange: (prevState: TransactionState) => TransactionState) => {
     setState((prevState) => {
