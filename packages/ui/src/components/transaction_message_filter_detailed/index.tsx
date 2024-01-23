@@ -10,9 +10,7 @@ import { SetterOrUpdater, useRecoilState, useRecoilCallback } from 'recoil';
 import { writeFilterMsgTypes } from '@/recoil/settings';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
-// import { useSearchBar } from '@/components/nav/components/search_bar/hooks';
-import { useMsgSearchBar } from '@/components/transaction_message_filter_detailed/components/msg_search_bar/hooks';
-import Search from '@/components/transaction_message_filter_detailed/components/search';
+import MsgSearch from '@/components/transaction_message_filter_detailed/components/msg_search';
 import useStyles from './styles';
 
 type FilterTxsByTypeProps = ComponentDefault & {
@@ -48,7 +46,7 @@ const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCan
             <Typography variant="h2">{t('filter')}</Typography>
           </div>
           <div>
-            <Search
+            <MsgSearch
               className={classes.searchBar}
               callback={filterMsgTypeList}
               placeholder={t('searchType') ?? undefined}
