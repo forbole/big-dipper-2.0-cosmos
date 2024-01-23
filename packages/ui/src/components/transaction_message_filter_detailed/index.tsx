@@ -31,6 +31,7 @@ const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCan
     handleMsgTypeSelection,
   } = useMsgFilter();
 
+  messageFilter.sort((a, b) => a.module.localeCompare(b.module));
   return (
     <>
       <div
