@@ -1,12 +1,12 @@
 import { useEffect, useMemo } from 'react';
 import {
-  useAccountBalancesQuery,
   useAccountCommissionQuery,
   useAccountDelegationBalanceQuery,
   useAccountDelegationRewardsQuery,
   useAccountUnbondingBalanceQuery,
   useAccountWithdrawalAddressQuery,
 } from '@/graphql/types/provider_types';
+import { useAccountBalancesQuery } from '@/graphql/types/general_types';
 import { toValidatorAddress } from '@/utils/prefix_convert';
 
 export const useCommission = (address?: string) => {

@@ -553,7 +553,6 @@ export type Bdjuno_Provider__Text_Comparison_Exp = {
 
 export type Bdjuno_Provider_Account = {
   __typename?: 'bdjuno_provider_account';
-  address: Scalars['String'];
   feeGrantAllowancesByGranterAddress: Array<Bdjuno_Provider_Fee_Grant_Allowance>;
   feeGrantAllowancesByGranterAddress_aggregate: Bdjuno_Provider_Fee_Grant_Allowance_Aggregate;
   fee_grant_allowances: Array<Bdjuno_Provider_Fee_Grant_Allowance>;
@@ -1653,7 +1652,6 @@ export type Bdjuno_Provider_Community_Pool_Variance_Fields = {
 export type Bdjuno_Provider_Distribution_Params = {
   __typename?: 'bdjuno_provider_distribution_params';
   height: Scalars['bdjuno_provider_bigint'];
-  one_row_id: Scalars['Boolean'];
   params: Scalars['bdjuno_provider_jsonb'];
 };
 
@@ -3095,6 +3093,14 @@ export type Bdjuno_Provider_Messages_By_Address_Args = {
   types?: InputMaybe<Scalars['bdjuno_provider__text']>;
 };
 
+export type Bdjuno_Provider_Messages_By_Single_Address_Args = {
+  address?: InputMaybe<Scalars['String']>;
+  apikey?: InputMaybe<Scalars['String']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  types?: InputMaybe<Scalars['bdjuno_provider__text']>;
+};
+
 export type Bdjuno_Provider_Mint_Params = {
   __typename?: 'bdjuno_provider_mint_params';
   height: Scalars['bdjuno_provider_bigint'];
@@ -4346,7 +4352,7 @@ export type Bdjuno_Provider_Proposal_Tally_Result_Variance_Order_By = {
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot';
   height: Scalars['bdjuno_provider_bigint'];
-  id: Scalars['Int'];
+  id: Scalars['bdjuno_provider_bigint'];
   jailed: Scalars['Boolean'];
   proposal?: Maybe<Bdjuno_Provider_Proposal>;
   proposal_id?: Maybe<Scalars['Int']>;
@@ -4419,7 +4425,7 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Bool_Exp = {
   _not?: InputMaybe<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Bool_Exp>;
   _or?: InputMaybe<Array<Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Bool_Exp>>;
   height?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
-  id?: InputMaybe<Bdjuno_Provider_Int_Comparison_Exp>;
+  id?: InputMaybe<Bdjuno_Provider_Bigint_Comparison_Exp>;
   jailed?: InputMaybe<Bdjuno_Provider_Boolean_Comparison_Exp>;
   proposal?: InputMaybe<Bdjuno_Provider_Proposal_Bool_Exp>;
   proposal_id?: InputMaybe<Bdjuno_Provider_Int_Comparison_Exp>;
@@ -4432,7 +4438,7 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Bool_Exp = {
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Max_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_max_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['bdjuno_provider_bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
   status?: Maybe<Scalars['Int']>;
   validator_address?: Maybe<Scalars['String']>;
@@ -4451,7 +4457,7 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Max_Order_By = {
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Min_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_min_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['bdjuno_provider_bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
   status?: Maybe<Scalars['Int']>;
   validator_address?: Maybe<Scalars['String']>;
@@ -4543,7 +4549,7 @@ export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Stddev_Samp_Order
 export type Bdjuno_Provider_Proposal_Validator_Status_Snapshot_Sum_Fields = {
   __typename?: 'bdjuno_provider_proposal_validator_status_snapshot_sum_fields';
   height?: Maybe<Scalars['bdjuno_provider_bigint']>;
-  id?: Maybe<Scalars['Int']>;
+  id?: Maybe<Scalars['bdjuno_provider_bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
   status?: Maybe<Scalars['Int']>;
   voting_power?: Maybe<Scalars['bdjuno_provider_bigint']>;
@@ -8387,6 +8393,8 @@ export type Bdjuno_Providerquery_Root = {
   message_aggregate: Bdjuno_Provider_Message_Aggregate;
   messages_by_address: Array<Bdjuno_Provider_Message>;
   messages_by_address_aggregate: Bdjuno_Provider_Message_Aggregate;
+  messages_by_single_address: Array<Bdjuno_Provider_Message>;
+  messages_by_single_address_aggregate: Bdjuno_Provider_Message_Aggregate;
   mint_params: Array<Bdjuno_Provider_Mint_Params>;
   mint_params_aggregate: Bdjuno_Provider_Mint_Params_Aggregate;
   mint_params_by_pk?: Maybe<Bdjuno_Provider_Mint_Params>;
@@ -8488,12 +8496,14 @@ export type Bdjuno_Providerquery_RootAccount_By_PkArgs = {
 
 export type Bdjuno_Providerquery_RootAction_Account_BalanceArgs = {
   address: Scalars['String'];
+  apikey?: InputMaybe<Scalars['String']>;
   height?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type Bdjuno_Providerquery_RootAction_DelegationArgs = {
   address: Scalars['String'];
+  apikey?: InputMaybe<Scalars['String']>;
   count_total?: InputMaybe<Scalars['Boolean']>;
   height?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -8503,12 +8513,14 @@ export type Bdjuno_Providerquery_RootAction_DelegationArgs = {
 
 export type Bdjuno_Providerquery_RootAction_Delegation_RewardArgs = {
   address: Scalars['String'];
+  apikey?: InputMaybe<Scalars['String']>;
   height?: InputMaybe<Scalars['Int']>;
 };
 
 
 export type Bdjuno_Providerquery_RootAction_Delegation_TotalArgs = {
   address: Scalars['String'];
+  apikey?: InputMaybe<Scalars['String']>;
   height?: InputMaybe<Scalars['Int']>;
 };
 
@@ -8520,6 +8532,7 @@ export type Bdjuno_Providerquery_RootAction_Delegator_Withdraw_AddressArgs = {
 
 export type Bdjuno_Providerquery_RootAction_RedelegationArgs = {
   address: Scalars['String'];
+  apikey?: InputMaybe<Scalars['String']>;
   count_total?: InputMaybe<Scalars['Boolean']>;
   height?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -8529,6 +8542,7 @@ export type Bdjuno_Providerquery_RootAction_RedelegationArgs = {
 
 export type Bdjuno_Providerquery_RootAction_Unbonding_DelegationArgs = {
   address: Scalars['String'];
+  apikey?: InputMaybe<Scalars['String']>;
   count_total?: InputMaybe<Scalars['Boolean']>;
   height?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -8538,6 +8552,7 @@ export type Bdjuno_Providerquery_RootAction_Unbonding_DelegationArgs = {
 
 export type Bdjuno_Providerquery_RootAction_Unbonding_Delegation_TotalArgs = {
   address: Scalars['String'];
+  apikey?: InputMaybe<Scalars['String']>;
   height?: InputMaybe<Scalars['Int']>;
 };
 
@@ -8869,6 +8884,26 @@ export type Bdjuno_Providerquery_RootMessages_By_Address_AggregateArgs = {
 };
 
 
+export type Bdjuno_Providerquery_RootMessages_By_Single_AddressArgs = {
+  args: Bdjuno_Provider_Messages_By_Single_Address_Args;
+  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Bdjuno_Provider_Message_Order_By>>;
+  where?: InputMaybe<Bdjuno_Provider_Message_Bool_Exp>;
+};
+
+
+export type Bdjuno_Providerquery_RootMessages_By_Single_Address_AggregateArgs = {
+  args: Bdjuno_Provider_Messages_By_Single_Address_Args;
+  distinct_on?: InputMaybe<Array<Bdjuno_Provider_Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Bdjuno_Provider_Message_Order_By>>;
+  where?: InputMaybe<Bdjuno_Provider_Message_Bool_Exp>;
+};
+
+
 export type Bdjuno_Providerquery_RootMint_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Bdjuno_Provider_Mint_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -9039,7 +9074,7 @@ export type Bdjuno_Providerquery_RootProposal_Validator_Status_Snapshot_Aggregat
 
 
 export type Bdjuno_Providerquery_RootProposal_Validator_Status_Snapshot_By_PkArgs = {
-  id: Scalars['Int'];
+  id: Scalars['bdjuno_provider_bigint'];
 };
 
 
@@ -9487,6 +9522,8 @@ export type Block = {
   total_gas?: Maybe<Scalars['bigint']>;
   /** An array relationship */
   transactions: Array<Transaction>;
+  /** An aggregate relationship */
+  transactions_aggregate: Transaction_Aggregate;
   /** An object relationship */
   validator?: Maybe<Validator>;
 };
@@ -9514,6 +9551,16 @@ export type BlockPre_Commits_AggregateArgs = {
 
 /** columns and relationships of "block" */
 export type BlockTransactionsArgs = {
+  distinct_on?: InputMaybe<Array<Transaction_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Transaction_Order_By>>;
+  where?: InputMaybe<Transaction_Bool_Exp>;
+};
+
+
+/** columns and relationships of "block" */
+export type BlockTransactions_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Transaction_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -9558,6 +9605,7 @@ export type Block_Bool_Exp = {
   timestamp?: InputMaybe<Timestamp_Comparison_Exp>;
   total_gas?: InputMaybe<Bigint_Comparison_Exp>;
   transactions?: InputMaybe<Transaction_Bool_Exp>;
+  transactions_aggregate?: InputMaybe<Transaction_Aggregate_Bool_Exp>;
   validator?: InputMaybe<Validator_Bool_Exp>;
 };
 
@@ -10493,6 +10541,12 @@ export type Messages_By_Address_Args = {
   limit?: InputMaybe<Scalars['bigint']>;
   offset?: InputMaybe<Scalars['bigint']>;
   types?: InputMaybe<Scalars['_text']>;
+};
+
+export type Messages_Types_By_Address_Args = {
+  addresses?: InputMaybe<Scalars['_text']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
 };
 
 /** columns and relationships of "modules" */
@@ -11593,6 +11647,207 @@ export type Provider_Double_Sign_Vote_Variance_Order_By = {
   round?: InputMaybe<Order_By>;
   type?: InputMaybe<Order_By>;
   validator_index?: InputMaybe<Order_By>;
+};
+
+/** columns and relationships of "message" */
+export type Provider_Message = {
+  __typename?: 'provider_message';
+  height: Scalars['bigint'];
+  index: Scalars['bigint'];
+  involved_accounts_addresses: Scalars['_text'];
+  partition_id: Scalars['bigint'];
+  transaction_hash: Scalars['String'];
+  type: Scalars['String'];
+  value: Scalars['jsonb'];
+};
+
+
+/** columns and relationships of "message" */
+export type Provider_MessageValueArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregated selection of "message" */
+export type Provider_Message_Aggregate = {
+  __typename?: 'provider_message_aggregate';
+  aggregate?: Maybe<Provider_Message_Aggregate_Fields>;
+  nodes: Array<Provider_Message>;
+};
+
+/** aggregate fields of "message" */
+export type Provider_Message_Aggregate_Fields = {
+  __typename?: 'provider_message_aggregate_fields';
+  avg?: Maybe<Provider_Message_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Provider_Message_Max_Fields>;
+  min?: Maybe<Provider_Message_Min_Fields>;
+  stddev?: Maybe<Provider_Message_Stddev_Fields>;
+  stddev_pop?: Maybe<Provider_Message_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Provider_Message_Stddev_Samp_Fields>;
+  sum?: Maybe<Provider_Message_Sum_Fields>;
+  var_pop?: Maybe<Provider_Message_Var_Pop_Fields>;
+  var_samp?: Maybe<Provider_Message_Var_Samp_Fields>;
+  variance?: Maybe<Provider_Message_Variance_Fields>;
+};
+
+
+/** aggregate fields of "message" */
+export type Provider_Message_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Provider_Message_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Provider_Message_Avg_Fields = {
+  __typename?: 'provider_message_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "message". All fields are combined with a logical 'AND'. */
+export type Provider_Message_Bool_Exp = {
+  _and?: InputMaybe<Array<Provider_Message_Bool_Exp>>;
+  _not?: InputMaybe<Provider_Message_Bool_Exp>;
+  _or?: InputMaybe<Array<Provider_Message_Bool_Exp>>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  index?: InputMaybe<Bigint_Comparison_Exp>;
+  involved_accounts_addresses?: InputMaybe<_Text_Comparison_Exp>;
+  partition_id?: InputMaybe<Bigint_Comparison_Exp>;
+  transaction_hash?: InputMaybe<String_Comparison_Exp>;
+  type?: InputMaybe<String_Comparison_Exp>;
+  value?: InputMaybe<Jsonb_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Provider_Message_Max_Fields = {
+  __typename?: 'provider_message_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  index?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Provider_Message_Min_Fields = {
+  __typename?: 'provider_message_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  index?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
+  transaction_hash?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "message". */
+export type Provider_Message_Order_By = {
+  height?: InputMaybe<Order_By>;
+  index?: InputMaybe<Order_By>;
+  involved_accounts_addresses?: InputMaybe<Order_By>;
+  partition_id?: InputMaybe<Order_By>;
+  transaction_hash?: InputMaybe<Order_By>;
+  type?: InputMaybe<Order_By>;
+  value?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "message" */
+export enum Provider_Message_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Index = 'index',
+  /** column name */
+  InvolvedAccountsAddresses = 'involved_accounts_addresses',
+  /** column name */
+  PartitionId = 'partition_id',
+  /** column name */
+  TransactionHash = 'transaction_hash',
+  /** column name */
+  Type = 'type',
+  /** column name */
+  Value = 'value'
+}
+
+/** aggregate stddev on columns */
+export type Provider_Message_Stddev_Fields = {
+  __typename?: 'provider_message_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Provider_Message_Stddev_Pop_Fields = {
+  __typename?: 'provider_message_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Provider_Message_Stddev_Samp_Fields = {
+  __typename?: 'provider_message_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** Streaming cursor of the table "message" */
+export type Provider_Message_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Provider_Message_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Provider_Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Provider_Message_Stream_Cursor_Value_Input = {
+  height?: InputMaybe<Scalars['bigint']>;
+  index?: InputMaybe<Scalars['bigint']>;
+  involved_accounts_addresses?: InputMaybe<Scalars['_text']>;
+  partition_id?: InputMaybe<Scalars['bigint']>;
+  transaction_hash?: InputMaybe<Scalars['String']>;
+  type?: InputMaybe<Scalars['String']>;
+  value?: InputMaybe<Scalars['jsonb']>;
+};
+
+/** aggregate sum on columns */
+export type Provider_Message_Sum_Fields = {
+  __typename?: 'provider_message_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  index?: Maybe<Scalars['bigint']>;
+  partition_id?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Provider_Message_Var_Pop_Fields = {
+  __typename?: 'provider_message_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Provider_Message_Var_Samp_Fields = {
+  __typename?: 'provider_message_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Provider_Message_Variance_Fields = {
+  __typename?: 'provider_message_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  index?: Maybe<Scalars['Float']>;
+  partition_id?: Maybe<Scalars['Float']>;
+};
+
+export type Provider_Messages_By_Address_Args = {
+  addresses?: InputMaybe<Scalars['_text']>;
+  limit?: InputMaybe<Scalars['bigint']>;
+  offset?: InputMaybe<Scalars['bigint']>;
+  types?: InputMaybe<Scalars['_text']>;
 };
 
 /** columns and relationships of "pre_commit" */
@@ -12947,6 +13202,14 @@ export type Provider_Provider_Query = {
   provider_double_sign_evidence: Array<Provider_Double_Sign_Evidence>;
   /** fetch data from the table: "double_sign_vote" */
   provider_double_sign_vote: Array<Provider_Double_Sign_Vote>;
+  /** fetch data from the table: "message" */
+  provider_message: Array<Provider_Message>;
+  /** fetch aggregated fields from the table: "message" */
+  provider_message_aggregate: Provider_Message_Aggregate;
+  /** execute function "messages_by_address" which returns "message" */
+  provider_messages_by_address: Array<Provider_Message>;
+  /** execute function "messages_by_address" and query aggregates on result of table type "message" */
+  provider_messages_by_address_aggregate: Provider_Message_Aggregate;
   /** fetch data from the table: "pre_commit" */
   provider_pre_commit: Array<Provider_Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
@@ -13059,6 +13322,44 @@ export type Provider_Provider_QueryProvider_Double_Sign_VoteArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Provider_Double_Sign_Vote_Order_By>>;
   where?: InputMaybe<Provider_Double_Sign_Vote_Bool_Exp>;
+};
+
+
+export type Provider_Provider_QueryProvider_MessageArgs = {
+  distinct_on?: InputMaybe<Array<Provider_Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Provider_Message_Order_By>>;
+  where?: InputMaybe<Provider_Message_Bool_Exp>;
+};
+
+
+export type Provider_Provider_QueryProvider_Message_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Provider_Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Provider_Message_Order_By>>;
+  where?: InputMaybe<Provider_Message_Bool_Exp>;
+};
+
+
+export type Provider_Provider_QueryProvider_Messages_By_AddressArgs = {
+  args: Provider_Messages_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Provider_Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Provider_Message_Order_By>>;
+  where?: InputMaybe<Provider_Message_Bool_Exp>;
+};
+
+
+export type Provider_Provider_QueryProvider_Messages_By_Address_AggregateArgs = {
+  args: Provider_Messages_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Provider_Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Provider_Message_Order_By>>;
+  where?: InputMaybe<Provider_Message_Bool_Exp>;
 };
 
 
@@ -13340,6 +13641,16 @@ export type Provider_Provider_Subscription = {
   provider_double_sign_vote: Array<Provider_Double_Sign_Vote>;
   /** fetch data from the table in a streaming manner: "double_sign_vote" */
   provider_double_sign_vote_stream: Array<Provider_Double_Sign_Vote>;
+  /** fetch data from the table: "message" */
+  provider_message: Array<Provider_Message>;
+  /** fetch aggregated fields from the table: "message" */
+  provider_message_aggregate: Provider_Message_Aggregate;
+  /** fetch data from the table in a streaming manner: "message" */
+  provider_message_stream: Array<Provider_Message>;
+  /** execute function "messages_by_address" which returns "message" */
+  provider_messages_by_address: Array<Provider_Message>;
+  /** execute function "messages_by_address" and query aggregates on result of table type "message" */
+  provider_messages_by_address_aggregate: Provider_Message_Aggregate;
   /** fetch data from the table: "pre_commit" */
   provider_pre_commit: Array<Provider_Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
@@ -13516,6 +13827,51 @@ export type Provider_Provider_SubscriptionProvider_Double_Sign_Vote_StreamArgs =
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Provider_Double_Sign_Vote_Stream_Cursor_Input>>;
   where?: InputMaybe<Provider_Double_Sign_Vote_Bool_Exp>;
+};
+
+
+export type Provider_Provider_SubscriptionProvider_MessageArgs = {
+  distinct_on?: InputMaybe<Array<Provider_Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Provider_Message_Order_By>>;
+  where?: InputMaybe<Provider_Message_Bool_Exp>;
+};
+
+
+export type Provider_Provider_SubscriptionProvider_Message_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Provider_Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Provider_Message_Order_By>>;
+  where?: InputMaybe<Provider_Message_Bool_Exp>;
+};
+
+
+export type Provider_Provider_SubscriptionProvider_Message_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Provider_Message_Stream_Cursor_Input>>;
+  where?: InputMaybe<Provider_Message_Bool_Exp>;
+};
+
+
+export type Provider_Provider_SubscriptionProvider_Messages_By_AddressArgs = {
+  args: Provider_Messages_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Provider_Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Provider_Message_Order_By>>;
+  where?: InputMaybe<Provider_Message_Bool_Exp>;
+};
+
+
+export type Provider_Provider_SubscriptionProvider_Messages_By_Address_AggregateArgs = {
+  args: Provider_Messages_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Provider_Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Provider_Message_Order_By>>;
+  where?: InputMaybe<Provider_Message_Bool_Exp>;
 };
 
 
@@ -14278,6 +14634,8 @@ export type Provider_Validator = {
   /** An aggregate relationship */
   pre_commits_aggregate: Provider_Pre_Commit_Aggregate;
   /** An array relationship */
+  proposal_validator_status_snapshots: Array<Provider_Proposal_Validator_Status_Snapshot>;
+  /** An array relationship */
   validator_commissions: Array<Provider_Validator_Commission>;
   /** An array relationship */
   validator_descriptions: Array<Provider_Validator_Description>;
@@ -14335,6 +14693,16 @@ export type Provider_ValidatorPre_Commits_AggregateArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Provider_Pre_Commit_Order_By>>;
   where?: InputMaybe<Provider_Pre_Commit_Bool_Exp>;
+};
+
+
+/** columns and relationships of "validator" */
+export type Provider_ValidatorProposal_Validator_Status_SnapshotsArgs = {
+  distinct_on?: InputMaybe<Array<Provider_Proposal_Validator_Status_Snapshot_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Provider_Proposal_Validator_Status_Snapshot_Order_By>>;
+  where?: InputMaybe<Provider_Proposal_Validator_Status_Snapshot_Bool_Exp>;
 };
 
 
@@ -14428,6 +14796,7 @@ export type Provider_Validator_Bool_Exp = {
   double_sign_votes?: InputMaybe<Provider_Double_Sign_Vote_Bool_Exp>;
   pre_commits?: InputMaybe<Provider_Pre_Commit_Bool_Exp>;
   pre_commits_aggregate?: InputMaybe<Pre_Commit_Aggregate_Bool_Exp>;
+  proposal_validator_status_snapshots?: InputMaybe<Provider_Proposal_Validator_Status_Snapshot_Bool_Exp>;
   validator_commissions?: InputMaybe<Provider_Validator_Commission_Bool_Exp>;
   validator_descriptions?: InputMaybe<Provider_Validator_Description_Bool_Exp>;
   validator_info?: InputMaybe<Provider_Validator_Info_Bool_Exp>;
@@ -14851,6 +15220,7 @@ export type Provider_Validator_Order_By = {
   consensus_pubkey?: InputMaybe<Order_By>;
   double_sign_votes_aggregate?: InputMaybe<Provider_Double_Sign_Vote_Aggregate_Order_By>;
   pre_commits_aggregate?: InputMaybe<Provider_Pre_Commit_Aggregate_Order_By>;
+  proposal_validator_status_snapshots_aggregate?: InputMaybe<Provider_Proposal_Validator_Status_Snapshot_Aggregate_Order_By>;
   validator_commissions_aggregate?: InputMaybe<Provider_Validator_Commission_Aggregate_Order_By>;
   validator_descriptions_aggregate?: InputMaybe<Provider_Validator_Description_Aggregate_Order_By>;
   validator_info?: InputMaybe<Provider_Validator_Info_Order_By>;
@@ -15817,6 +16187,8 @@ export type Query_Root = {
   message: Array<Message>;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
+  /** execute function "messages_types_by_address" which returns "message" */
+  messages_types_by_address: Array<Message>;
   /** fetch data from the table: "modules" */
   modules: Array<Modules>;
   /** fetch data from the table: "modules" using primary key columns */
@@ -15840,6 +16212,8 @@ export type Query_Root = {
   token_unit: Array<Token_Unit>;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
+  /** fetch aggregated fields from the table: "transaction" */
+  transaction_aggregate: Transaction_Aggregate;
   /** fetch data from the table: "validator" */
   validator: Array<Validator>;
   /** fetch data from the table: "validator" using primary key columns */
@@ -16035,6 +16409,16 @@ export type Query_RootMessages_By_AddressArgs = {
 };
 
 
+export type Query_RootMessages_Types_By_AddressArgs = {
+  args: Messages_Types_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
 export type Query_RootModulesArgs = {
   distinct_on?: InputMaybe<Array<Modules_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -16122,6 +16506,15 @@ export type Query_RootToken_UnitArgs = {
 
 
 export type Query_RootTransactionArgs = {
+  distinct_on?: InputMaybe<Array<Transaction_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Transaction_Order_By>>;
+  where?: InputMaybe<Transaction_Bool_Exp>;
+};
+
+
+export type Query_RootTransaction_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Transaction_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -16379,6 +16772,8 @@ export type Subscription_Root = {
   message_stream: Array<Message>;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
+  /** execute function "messages_types_by_address" which returns "message" */
+  messages_types_by_address: Array<Message>;
   /** fetch data from the table: "modules" */
   modules: Array<Modules>;
   /** fetch data from the table: "modules" using primary key columns */
@@ -16418,6 +16813,8 @@ export type Subscription_Root = {
   token_unit_stream: Array<Token_Unit>;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
+  /** fetch aggregated fields from the table: "transaction" */
+  transaction_aggregate: Transaction_Aggregate;
   /** fetch data from the table in a streaming manner: "transaction" */
   transaction_stream: Array<Transaction>;
   /** fetch data from the table: "validator" */
@@ -16709,6 +17106,16 @@ export type Subscription_RootMessages_By_AddressArgs = {
 };
 
 
+export type Subscription_RootMessages_Types_By_AddressArgs = {
+  args: Messages_Types_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
 export type Subscription_RootModulesArgs = {
   distinct_on?: InputMaybe<Array<Modules_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -16852,6 +17259,15 @@ export type Subscription_RootToken_Unit_StreamArgs = {
 
 
 export type Subscription_RootTransactionArgs = {
+  distinct_on?: InputMaybe<Array<Transaction_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Transaction_Order_By>>;
+  where?: InputMaybe<Transaction_Bool_Exp>;
+};
+
+
+export type Subscription_RootTransaction_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Transaction_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -17669,6 +18085,63 @@ export type TransactionSigner_InfosArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
+/** aggregated selection of "transaction" */
+export type Transaction_Aggregate = {
+  __typename?: 'transaction_aggregate';
+  aggregate?: Maybe<Transaction_Aggregate_Fields>;
+  nodes: Array<Transaction>;
+};
+
+export type Transaction_Aggregate_Bool_Exp = {
+  bool_and?: InputMaybe<Transaction_Aggregate_Bool_Exp_Bool_And>;
+  bool_or?: InputMaybe<Transaction_Aggregate_Bool_Exp_Bool_Or>;
+  count?: InputMaybe<Transaction_Aggregate_Bool_Exp_Count>;
+};
+
+export type Transaction_Aggregate_Bool_Exp_Bool_And = {
+  arguments: Transaction_Select_Column_Transaction_Aggregate_Bool_Exp_Bool_And_Arguments_Columns;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+  filter?: InputMaybe<Transaction_Bool_Exp>;
+  predicate: Boolean_Comparison_Exp;
+};
+
+export type Transaction_Aggregate_Bool_Exp_Bool_Or = {
+  arguments: Transaction_Select_Column_Transaction_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+  filter?: InputMaybe<Transaction_Bool_Exp>;
+  predicate: Boolean_Comparison_Exp;
+};
+
+export type Transaction_Aggregate_Bool_Exp_Count = {
+  arguments?: InputMaybe<Array<Transaction_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+  filter?: InputMaybe<Transaction_Bool_Exp>;
+  predicate: Int_Comparison_Exp;
+};
+
+/** aggregate fields of "transaction" */
+export type Transaction_Aggregate_Fields = {
+  __typename?: 'transaction_aggregate_fields';
+  avg?: Maybe<Transaction_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Transaction_Max_Fields>;
+  min?: Maybe<Transaction_Min_Fields>;
+  stddev?: Maybe<Transaction_Stddev_Fields>;
+  stddev_pop?: Maybe<Transaction_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Transaction_Stddev_Samp_Fields>;
+  sum?: Maybe<Transaction_Sum_Fields>;
+  var_pop?: Maybe<Transaction_Var_Pop_Fields>;
+  var_samp?: Maybe<Transaction_Var_Samp_Fields>;
+  variance?: Maybe<Transaction_Variance_Fields>;
+};
+
+
+/** aggregate fields of "transaction" */
+export type Transaction_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Transaction_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** order by aggregate values of table "transaction" */
 export type Transaction_Aggregate_Order_By = {
   avg?: InputMaybe<Transaction_Avg_Order_By>;
@@ -17682,6 +18155,14 @@ export type Transaction_Aggregate_Order_By = {
   var_pop?: InputMaybe<Transaction_Var_Pop_Order_By>;
   var_samp?: InputMaybe<Transaction_Var_Samp_Order_By>;
   variance?: InputMaybe<Transaction_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Transaction_Avg_Fields = {
+  __typename?: 'transaction_avg_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "transaction" */
@@ -17712,6 +18193,17 @@ export type Transaction_Bool_Exp = {
   success?: InputMaybe<Boolean_Comparison_Exp>;
 };
 
+/** aggregate max on columns */
+export type Transaction_Max_Fields = {
+  __typename?: 'transaction_max_fields';
+  gas_used?: Maybe<Scalars['bigint']>;
+  gas_wanted?: Maybe<Scalars['bigint']>;
+  hash?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  memo?: Maybe<Scalars['String']>;
+  raw_log?: Maybe<Scalars['String']>;
+};
+
 /** order by max() on columns of table "transaction" */
 export type Transaction_Max_Order_By = {
   gas_used?: InputMaybe<Order_By>;
@@ -17720,6 +18212,17 @@ export type Transaction_Max_Order_By = {
   height?: InputMaybe<Order_By>;
   memo?: InputMaybe<Order_By>;
   raw_log?: InputMaybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Transaction_Min_Fields = {
+  __typename?: 'transaction_min_fields';
+  gas_used?: Maybe<Scalars['bigint']>;
+  gas_wanted?: Maybe<Scalars['bigint']>;
+  hash?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  memo?: Maybe<Scalars['String']>;
+  raw_log?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "transaction" */
@@ -17778,6 +18281,26 @@ export enum Transaction_Select_Column {
   Success = 'success'
 }
 
+/** select "transaction_aggregate_bool_exp_bool_and_arguments_columns" columns of table "transaction" */
+export enum Transaction_Select_Column_Transaction_Aggregate_Bool_Exp_Bool_And_Arguments_Columns {
+  /** column name */
+  Success = 'success'
+}
+
+/** select "transaction_aggregate_bool_exp_bool_or_arguments_columns" columns of table "transaction" */
+export enum Transaction_Select_Column_Transaction_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns {
+  /** column name */
+  Success = 'success'
+}
+
+/** aggregate stddev on columns */
+export type Transaction_Stddev_Fields = {
+  __typename?: 'transaction_stddev_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** order by stddev() on columns of table "transaction" */
 export type Transaction_Stddev_Order_By = {
   gas_used?: InputMaybe<Order_By>;
@@ -17785,11 +18308,27 @@ export type Transaction_Stddev_Order_By = {
   height?: InputMaybe<Order_By>;
 };
 
+/** aggregate stddev_pop on columns */
+export type Transaction_Stddev_Pop_Fields = {
+  __typename?: 'transaction_stddev_pop_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** order by stddev_pop() on columns of table "transaction" */
 export type Transaction_Stddev_Pop_Order_By = {
   gas_used?: InputMaybe<Order_By>;
   gas_wanted?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Transaction_Stddev_Samp_Fields = {
+  __typename?: 'transaction_stddev_samp_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "transaction" */
@@ -17823,11 +18362,27 @@ export type Transaction_Stream_Cursor_Value_Input = {
   success?: InputMaybe<Scalars['Boolean']>;
 };
 
+/** aggregate sum on columns */
+export type Transaction_Sum_Fields = {
+  __typename?: 'transaction_sum_fields';
+  gas_used?: Maybe<Scalars['bigint']>;
+  gas_wanted?: Maybe<Scalars['bigint']>;
+  height?: Maybe<Scalars['bigint']>;
+};
+
 /** order by sum() on columns of table "transaction" */
 export type Transaction_Sum_Order_By = {
   gas_used?: InputMaybe<Order_By>;
   gas_wanted?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Transaction_Var_Pop_Fields = {
+  __typename?: 'transaction_var_pop_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "transaction" */
@@ -17837,11 +18392,27 @@ export type Transaction_Var_Pop_Order_By = {
   height?: InputMaybe<Order_By>;
 };
 
+/** aggregate var_samp on columns */
+export type Transaction_Var_Samp_Fields = {
+  __typename?: 'transaction_var_samp_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** order by var_samp() on columns of table "transaction" */
 export type Transaction_Var_Samp_Order_By = {
   gas_used?: InputMaybe<Order_By>;
   gas_wanted?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Transaction_Variance_Fields = {
+  __typename?: 'transaction_variance_fields';
+  gas_used?: Maybe<Scalars['Float']>;
+  gas_wanted?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "transaction" */
@@ -19403,13 +19974,6 @@ export type AccountWithdrawalAddressQueryVariables = Exact<{
 
 export type AccountWithdrawalAddressQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', withdrawalAddress: { __typename?: 'bdjuno_provider_ActionAddress', address: string } } | null };
 
-export type AccountBalancesQueryVariables = Exact<{
-  address: Scalars['String'];
-}>;
-
-
-export type AccountBalancesQuery = { bdjuno_provider?: { __typename?: 'bdjuno_providerquery_root', accountBalances?: { __typename?: 'bdjuno_provider_ActionBalance', coins?: Array<any | null> | null } | null } | null };
-
 export type AccountDelegationBalanceQueryVariables = Exact<{
   address: Scalars['String'];
 }>;
@@ -19626,43 +20190,6 @@ export function useAccountWithdrawalAddressLazyQuery(baseOptions?: Apollo.LazyQu
 export type AccountWithdrawalAddressQueryHookResult = ReturnType<typeof useAccountWithdrawalAddressQuery>;
 export type AccountWithdrawalAddressLazyQueryHookResult = ReturnType<typeof useAccountWithdrawalAddressLazyQuery>;
 export type AccountWithdrawalAddressQueryResult = Apollo.QueryResult<AccountWithdrawalAddressQuery, AccountWithdrawalAddressQueryVariables>;
-export const AccountBalancesDocument = gql`
-    query AccountBalances($address: String!) {
-  bdjuno_provider {
-    accountBalances: action_account_balance(address: $address) {
-      coins
-    }
-  }
-}
-    `;
-
-/**
- * __useAccountBalancesQuery__
- *
- * To run a query within a React component, call `useAccountBalancesQuery` and pass it any options that fit your needs.
- * When your component renders, `useAccountBalancesQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useAccountBalancesQuery({
- *   variables: {
- *      address: // value for 'address'
- *   },
- * });
- */
-export function useAccountBalancesQuery(baseOptions: Apollo.QueryHookOptions<AccountBalancesQuery, AccountBalancesQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AccountBalancesQuery, AccountBalancesQueryVariables>(AccountBalancesDocument, options);
-      }
-export function useAccountBalancesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountBalancesQuery, AccountBalancesQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AccountBalancesQuery, AccountBalancesQueryVariables>(AccountBalancesDocument, options);
-        }
-export type AccountBalancesQueryHookResult = ReturnType<typeof useAccountBalancesQuery>;
-export type AccountBalancesLazyQueryHookResult = ReturnType<typeof useAccountBalancesLazyQuery>;
-export type AccountBalancesQueryResult = Apollo.QueryResult<AccountBalancesQuery, AccountBalancesQueryVariables>;
 export const AccountDelegationBalanceDocument = gql`
     query AccountDelegationBalance($address: String!) {
   bdjuno_provider {
