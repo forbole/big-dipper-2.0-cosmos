@@ -299,7 +299,7 @@ export const useAccountDetails = () => {
   );
 
   const commission = useCommission(providerAddress);
-  const available = useAvailableBalances(address);
+  const available = useAvailableBalances(providerAddress);
   const delegation = useDelegationBalance(providerAddress);
   const unbonding = useUnbondingBalance(providerAddress);
   const rewards = useRewards(providerAddress);
@@ -313,11 +313,7 @@ export const useAccountDetails = () => {
       delegationRewards?: any;
     } = {};
     formattedRawData.commission = R.pathOr({ coins: [] }, ['commission'], commission);
-    formattedRawData.accountBalances = R.pathOr(
-      { coins: [] },
-      ['accountBalances'],
-      available
-    );
+    formattedRawData.accountBalances = R.pathOr({ coins: [] }, ['accountBalances'], available);
     formattedRawData.delegationBalance = R.pathOr(
       { coins: [] },
       ['bdjuno_provider', 'delegationBalance'],
