@@ -87,10 +87,13 @@ export const useTransactions = () => {
   const msgTypes = useRecoilValue(readFilterMsgTypes);
 
   const handleSetState = (stateChange: (prevState: TransactionsState) => TransactionsState) => {
-    setState((prevState) => {
-      const newState = stateChange(prevState);
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
+    setState(
+      (prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      },
+      [msgTypes]
+    );
   };
 
   useEffect(() => {
@@ -160,7 +163,7 @@ export const useTransactions = () => {
         variables: {
           offset: state.items.length,
           limit: LIMIT,
-          type: msgTypes,
+          // type: msgTypes,
         },
       })
       .then(({ data }) => {

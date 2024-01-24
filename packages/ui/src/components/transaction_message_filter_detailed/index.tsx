@@ -6,27 +6,22 @@ import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC, useState, ChangeEvent, useMemo } from 'react';
 import FilterTxsIcon from 'shared-utils/assets/icon-filter-transactions.svg';
 import { useMsgFilter } from '@/components/transaction_message_filter_detailed/hooks';
-import { SetterOrUpdater, useRecoilState, useRecoilCallback } from 'recoil';
-import { writeFilterMsgTypes } from '@/recoil/settings';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import MsgSearch from '@/components/transaction_message_filter_detailed/components/msg_search';
 import useStyles from './styles';
 
-type FilterTxsByTypeProps = ComponentDefault & {
-  open?: boolean;
-  handleOpen?: () => void;
-  handleCancel?: () => void;
-};
-
-const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCancel }) => {
-  const { classes, cx } = useStyles();
+const FilterTxsByType: FC<ComponentDefault> = () => {
+  const { classes } = useStyles();
   const { t } = useAppTranslation('common');
   const {
+    open,
     messageFilter,
     filterMsgTypeList,
     handleFilterTxs,
     handleMsgTypeSelection,
+    handleCancel,
+    handleOpen,
   } = useMsgFilter();
 
   return (
@@ -37,6 +32,7 @@ const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCan
         className={classes.icon}
         tabIndex={0}
         aria-label="filter-txs-by-type"
+        key="filter-txs-by-type"
       >
         <FilterTxsIcon />
       </div>
@@ -54,7 +50,7 @@ const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCan
           </div>
         </DialogTitle>
         <DialogContent dividers>
-          {messageFilter.map(msgData => (
+          {messageFilter.map((msgData) => (
             <div>
               <div className={classes.moduleName}>
                 {msgData.module.includes('ibc') ? (
@@ -70,7 +66,7 @@ const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCan
               </div>
               <div className="row">
                 <form className="col-md-6">
-                  {msgData.msgTypes.map(msg => (
+                  {msgData.msgTypes.map((msg) => (
                     <div className={classes.msgType}>
                       <input
                         type="checkbox"
@@ -78,7 +74,7 @@ const FilterTxsByType: FC<FilterTxsByTypeProps> = ({ open, handleOpen, handleCan
                         name={`msg_type_${msg.label}`}
                         value={msg.type}
                         className={classes.checkbox}
-                        onClick={e => handleMsgTypeSelection(e)}
+                        onClick={(e) => handleMsgTypeSelection(e)}
                         key={`msg_type_${msg.label}`}
                       />
                       <label htmlFor="messageType" className={classes.msgOption}>
