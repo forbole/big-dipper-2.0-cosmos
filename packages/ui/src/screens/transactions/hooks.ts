@@ -30,30 +30,6 @@ const formatTransactions = (
     formattedData = data?.messagesByTypes.slice(0, 51);
   }
 
-  //   return formattedData?.map((x) => {
-  //     const messages = convertMsgsToModels(x.transaction);
-  //     console.log(messages);
-  //     const msgType =
-  //       x.transaction?.messages?.map((eachMsg: unknown) => {
-  //         const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
-  //         return eachMsgType ?? '';
-  //       }) ?? [];
-  //     console.log(msgType);
-  //     const convertedMsgType = convertMsgType(msgType);
-  //     console.log(convertMsgType);
-  //     return {
-  //       height: x.transaction?.height,
-  //       hash: x.transaction?.hash,
-  //       type: convertedMsgType,
-  //       messages: {
-  //         count: x.transaction?.messages.length,
-  //         items: messages,
-  //       },
-  //       success: x.transaction?.success,
-  //       timestamp: x.transaction?.block.timestamp,
-  //     };
-  //   });
-  // };
   return formattedData?.map((x) => {
     const messages = convertMsgsToModels(x.transaction);
     const msgType =
@@ -110,14 +86,11 @@ export const useTransactions = () => {
   // ================================
   useMessagesByTypesListenerSubscription({
     variables: {
-      limit: 1,
-      offset: 0,
-      types: msgTypes,
+      types: msgTypes ?? '{}',
     },
     onData: (data) => {
-      console.log(data);
       const newItems = uniqueAndSort([
-        ...(data.data.data ? formatTransactions(data.data.data) : []),
+        ...(data?.data?.data ? formatTransactions(data.data.data) : []),
         ...state.items,
       ]);
       handleSetState((prevState) => ({
@@ -136,13 +109,12 @@ export const useTransactions = () => {
     variables: {
       limit: LIMIT,
       offset: 1,
-      types: msgTypes,
+      types: msgTypes ?? '{}',
     },
     onError: () => {
       handleSetState((prevState) => ({ ...prevState, loading: false }));
     },
     onCompleted: (data) => {
-      console.log(data);
       const itemsLength = data.messagesByTypes.length;
       const newItems = uniqueAndSort([...state.items, ...formatTransactions(data)]);
       handleSetState((prevState) => ({
