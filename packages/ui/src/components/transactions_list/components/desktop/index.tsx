@@ -26,16 +26,7 @@ const Desktop: FC<TransactionsListState> = ({
   isItemLoaded,
   transactions,
 }) => {
-  const {
-    gridRef,
-    columnRef,
-    onResize,
-    getColumnWidth,
-    getRowHeight,
-    openFilterMsg,
-    handleOpen,
-    handleCancel,
-  } = useGrid(columns);
+  const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
 
   const { classes, cx } = useStyles();
   const { t } = useAppTranslation('transactions');
@@ -91,11 +82,7 @@ const Desktop: FC<TransactionsListState> = ({
                         <Typography variant="h4" align={align}>
                           {t(key)}
                         </Typography>
-                        <FilterTxsByType
-                          open={openFilterMsg}
-                          handleOpen={handleOpen}
-                          handleCancel={handleCancel}
-                        />
+                        <FilterTxsByType />
                       </>
                     ) : (
                       <Typography variant="h4" align={align}>
