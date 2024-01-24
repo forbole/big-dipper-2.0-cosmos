@@ -10,6 +10,7 @@ const initialState: AtomState = {
   timeFormat: '12-hour',
   txListFormat: 'compact',
   filterMsgTypes: [''],
+  openDialog: false,
 };
 
 export const atomState = atom<AtomState>({

@@ -9,4 +9,5 @@ export interface AtomState {
   timeFormat: TimeFormat;
   txListFormat: Tx;
   filterMsgTypes: string[];
+  openDialog: boolean;
 }

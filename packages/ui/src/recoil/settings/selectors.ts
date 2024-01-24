@@ -138,3 +138,26 @@ export const readFilterMsgTypes = selector({
   key: 'settings.read.filterMsgTypes',
   get: getFilterMsgTypes,
 });
+
+const getOpenDialog: ReadOnlySelectorOptions<boolean>['get'] = ({ get }) => {
+  const state = get(atomState);
+  return state.openDialog;
+};
+
+export const writeOpenDialog = selector({
+  key: 'settings.write.openDialog',
+  get: getOpenDialog,
+  set: ({ get, set }, newOpenDialogValue) => {
+    if (newOpenDialogValue instanceof DefaultValue) return;
+    const prevState = get(atomState);
+    const newState = mergeStateChange(prevState, {
+      openDialog: newOpenDialogValue,
+    });
+    set(atomState, newState);
+  },
+});
+
+export const readOpenDialog = selector({
+  key: 'settings.read.openDialog',
+  get: getOpenDialog,
+});
