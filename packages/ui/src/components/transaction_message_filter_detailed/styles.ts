@@ -14,6 +14,7 @@ const useStyles = makeStyles()((theme) => ({
         fill: theme.palette.custom.general.icon,
       },
     },
+    zIndex: '1',
   },
   header: {
     display: 'flex',
@@ -32,6 +33,7 @@ const useStyles = makeStyles()((theme) => ({
       width: '500px',
       height: '650px',
     },
+    zIndex: '1',
   },
   moduleName: {
     display: 'flex',
