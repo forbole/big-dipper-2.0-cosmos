@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, ChangeEvent } from 'react';
 import { useMessageTypesQuery } from '@/graphql/types/general_types';
-import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { writeFilterMsgTypes } from '@/recoil/settings';
+import { SetterOrUpdater, useRecoilState, useRecoilValue } from 'recoil';
+import { writeFilterMsgTypes, writeOpenDialog, readOpenDialog } from '@/recoil/settings';
 
 type MsgsTypes = {
   __typename: string;
@@ -11,19 +11,22 @@ type MsgsTypes = {
 };
 
 export const useMsgFilter = () => {
-  const [open, setOpen] = useState(false);
   const { data, error, loading, refetch } = useMessageTypesQuery();
   const [messageFilter, setMessageFilter] = useState([] as string[]);
   const [queryMsgTypeList, setQueryMsgTypeList] = useState([] as string[]);
   const [_, setMsgTypes] = useRecoilState(writeFilterMsgTypes) as [string, SetterOrUpdater<string>];
+  const [openDialog, setOpenDialog] = useRecoilState(writeOpenDialog) as [
+    boolean,
+    SetterOrUpdater<boolean>
+  ];
 
   /* If there is an error, refetch the data. */
   useEffect(() => {
     if (error) refetch();
-  }, [error, refetch]);
+  }, [error, refetch, openDialog]);
 
   const handleOpen = () => {
-    setOpen(true);
+    setOpenDialog(true);
   };
 
   const handleCancel = () => {
@@ -31,7 +34,7 @@ export const useMsgFilter = () => {
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setOpenDialog(false);
   };
 
   const formatMsgTypes = (messages: MsgsTypes[]) => {
@@ -115,7 +118,6 @@ export const useMsgFilter = () => {
   );
 
   return {
-    open,
     data,
     loading,
     exists,

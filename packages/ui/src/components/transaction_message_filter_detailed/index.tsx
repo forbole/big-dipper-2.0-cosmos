@@ -3,19 +3,20 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
-import { FC, useState, ChangeEvent, useMemo } from 'react';
+import { FC } from 'react';
 import FilterTxsIcon from 'shared-utils/assets/icon-filter-transactions.svg';
 import { useMsgFilter } from '@/components/transaction_message_filter_detailed/hooks';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import MsgSearch from '@/components/transaction_message_filter_detailed/components/msg_search';
+import { useRecoilValue } from 'recoil';
+import { readOpenDialog } from '@/recoil/settings';
 import useStyles from './styles';
 
 const FilterTxsByType: FC<ComponentDefault> = () => {
   const { classes } = useStyles();
   const { t } = useAppTranslation('common');
   const {
-    open,
     messageFilter,
     filterMsgTypeList,
     handleFilterTxs,
@@ -23,6 +24,8 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
     handleCancel,
     handleOpen,
   } = useMsgFilter();
+
+  const open = useRecoilValue(readOpenDialog);
 
   return (
     <>
