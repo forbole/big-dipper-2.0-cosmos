@@ -9,15 +9,14 @@ import Staking from '@/screens/validator_details/components/staking';
 import Transactions from '@/screens/validator_details/components/transactions';
 import ValidatorOverview from '@/screens/validator_details/components/validator_overview';
 import VotingPower from '@/screens/validator_details/components/voting_power';
-import { useValidatorDetails } from '@/screens/validator_details/hooks';
+import { useValidatorDetails, useValidatorVPDetails } from '@/screens/validator_details/hooks';
 import useStyles from '@/screens/validator_details/styles';
 
 const ValidatorDetails = () => {
   const { t } = useAppTranslation('validators');
   const { classes } = useStyles();
   const { state, loading } = useValidatorDetails();
-  const { desmosProfile, exists, overview, status, votingPower, cosmosAddress } = state;
-
+  const { desmosProfile, exists, overview, status, cosmosAddress } = state;
   return (
     <>
       <NextSeo
@@ -27,7 +26,8 @@ const ValidatorDetails = () => {
         }}
       />
       <Layout navTitle={t('validatorDetails') ?? undefined}>
-        <LoadAndExist exists={exists} loading={loading}>
+        {/* <LoadAndExist exists={exists} loading={loading}> */}
+        <div>
           <span className={classes.root}>
             {desmosProfile ? (
               <DesmosProfile className={classes.profile} {...desmosProfile} />
@@ -35,11 +35,7 @@ const ValidatorDetails = () => {
               <Profile className={classes.profile} profile={overview} />
             )}
             <ValidatorOverview className={classes.address} overview={overview} status={status} />
-            <VotingPower
-              className={classes.votingPower}
-              data={votingPower}
-              status={status.status}
-            />
+            <VotingPower className={classes.votingPower} />
             <Blocks
               className={classes.blocks}
               address={cosmosAddress || state.overview.operatorAddress}
@@ -50,7 +46,8 @@ const ValidatorDetails = () => {
             />
             <Transactions className={classes.transactions} />
           </span>
-        </LoadAndExist>
+        </div>
+        {/* </LoadAndExist> */}
       </Layout>
     </>
   );

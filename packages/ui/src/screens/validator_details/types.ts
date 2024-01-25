@@ -22,6 +22,7 @@ export interface VotingPowerType {
   height: number;
   overall: TokenUnit;
   self: number;
+  validatorStatus: number;
 }
 
 export interface ValidatorDetailsState {
@@ -30,5 +31,10 @@ export interface ValidatorDetailsState {
   overview: OverviewType;
   cosmosAddress?: string;
   status: StatusType;
+  votingPower: VotingPowerType;
+}
+
+export interface ValidatorVPState {
+  validatorVPExists: boolean;
   votingPower: VotingPowerType;
 }

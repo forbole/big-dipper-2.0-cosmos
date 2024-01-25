@@ -2,10 +2,19 @@ import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
 import chainConfig from '@/chainConfig';
-import { useValidatorDetailsQuery, ValidatorDetailsQuery } from '@/graphql/types/general_types';
+import {
+  useValidatorDetailsQuery,
+  ValidatorDetailsQuery,
+  useValidatorVotingPowersQuery,
+  ValidatorVotingPowersQuery,
+} from '@/graphql/types/general_types';
 import { useDesmosProfile } from '@/hooks/use_desmos_profile';
 import { SlashingParams } from '@/models';
-import { StatusType, ValidatorDetailsState } from '@/screens/validator_details/types';
+import {
+  StatusType,
+  ValidatorDetailsState,
+  ValidatorVPState,
+} from '@/screens/validator_details/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
 
@@ -42,9 +51,19 @@ const initialState: ValidatorDetailsState = {
     height: 0,
     overall: initialTokenDenom,
     self: 0,
+    validatorStatus: 0,
   },
 };
 
+const initialVPState = {
+  validatorVPExists: true,
+  votingPower: {
+    height: 0,
+    overall: initialTokenDenom,
+    self: 0,
+    validatorStatus: 0,
+  },
+};
 // ============================
 // overview
 // ============================
@@ -160,7 +179,60 @@ function formatAccountQuery(data: ValidatorDetailsQuery): Partial<ValidatorDetai
   stateChange.overview = formatOverview(data);
 
   stateChange.status = formatStatus(data);
-  stateChange.votingPower = formatVotingPower(data);
+  // stateChange.votingPower = formatVotingPower(data);
 
   return stateChange;
 }
+
+export const useValidatorVotingPowerDetails = () => {
+  const router = useRouter();
+  const [state, setState] = useState<ValidatorVPState>(initialVPState);
+
+  const handleSetState = useCallback(
+    (stateChange: (prevState: ValidatorVPState) => ValidatorVPState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
+
+  function formatVotingPowerNew(data: ValidatorVotingPowersQuery): Partial<ValidatorVPState> {
+    const stateChange: Partial<ValidatorVPState> = {};
+    if (!data.validator.length) {
+      stateChange.validatorVPExists = false;
+      return stateChange;
+    }
+
+    const selfVotingPower =
+      (data.validator[0]?.validatorVotingPowers?.[0]?.votingPower ?? 0) /
+      10 ** (extra.votingPowerExponent ?? 0);
+
+    const votingPower = {
+      self: selfVotingPower,
+      overall: formatToken(data?.stakingPool?.[0]?.bonded ?? 0, votingPowerTokenUnit),
+      height: data.validator[0]?.validatorVotingPowers?.[0]?.height ?? 0,
+      validatorStatus: data.validator[0]?.validatorStatuses[0]?.status,
+    };
+
+    stateChange.votingPower = votingPower;
+    stateChange.validatorVPExists = true;
+
+    return stateChange;
+  }
+
+  // ==========================
+  // Fetch Data
+  // ==========================
+  const { loading } = useValidatorVotingPowersQuery({
+    variables: {
+      address: router.query.address as string,
+    },
+    onCompleted: (data) => {
+      handleSetState((prevState) => ({ ...prevState, ...formatVotingPowerNew(data) }));
+    },
+  });
+
+  return { state, loading };
+};
