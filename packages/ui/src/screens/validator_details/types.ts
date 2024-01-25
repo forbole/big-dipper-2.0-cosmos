@@ -38,3 +38,9 @@ export interface ValidatorVPState {
   validatorVPExists: boolean;
   votingPower: VotingPowerType;
 }
+
+export interface ValidatorOverviewState {
+  exists: boolean;
+  overview: OverviewType;
+  status: StatusType;
+}

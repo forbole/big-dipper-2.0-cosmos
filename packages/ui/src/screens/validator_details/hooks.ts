@@ -7,6 +7,8 @@ import {
   ValidatorDetailsQuery,
   useValidatorVotingPowersQuery,
   ValidatorVotingPowersQuery,
+  useValidatorInfoQuery,
+  ValidatorInfoQuery,
 } from '@/graphql/types/general_types';
 import { useDesmosProfile } from '@/hooks/use_desmos_profile';
 import { SlashingParams } from '@/models';
@@ -14,6 +16,7 @@ import {
   StatusType,
   ValidatorDetailsState,
   ValidatorVPState,
+  ValidatorOverviewState,
 } from '@/screens/validator_details/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
@@ -55,13 +58,34 @@ const initialState: ValidatorDetailsState = {
   },
 };
 
-const initialVPState = {
+const initialVotingPowerState = {
   validatorVPExists: true,
   votingPower: {
     height: 0,
     overall: initialTokenDenom,
     self: 0,
     validatorStatus: 0,
+  },
+};
+
+const initialValidatorOverviewState = {
+  exists: true,
+  overview: {
+    validator: '',
+    operatorAddress: '',
+    selfDelegateAddress: '',
+    description: '',
+    website: '',
+  },
+  status: {
+    status: 0,
+    jailed: false,
+    tombstoned: false,
+    condition: 0,
+    commission: 0,
+    missedBlockCounter: 0,
+    signedBlockWindow: 0,
+    maxRate: '0',
   },
 };
 // ============================
@@ -79,47 +103,6 @@ const formatOverview = (data: ValidatorDetailsQuery) => {
   };
 
   return profile;
-};
-
-// ============================
-// status
-// ============================
-const formatStatus = (data: ValidatorDetailsQuery) => {
-  const slashingParams = SlashingParams.fromJson(data?.slashingParams?.[0]?.params ?? {});
-  const missedBlockCounter =
-    data.validator[0]?.validatorSigningInfos?.[0]?.missedBlocksCounter ?? 0;
-  const { signedBlockWindow } = slashingParams;
-  const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
-
-  const profile: StatusType = {
-    status: data.validator[0]?.validatorStatuses?.[0]?.status ?? 3,
-    jailed: data.validator[0]?.validatorStatuses?.[0]?.jailed ?? false,
-    tombstoned: data.validator[0]?.validatorSigningInfos?.[0]?.tombstoned ?? false,
-    commission: data.validator[0]?.validatorCommissions?.[0]?.commission ?? 0,
-    condition,
-    missedBlockCounter,
-    signedBlockWindow,
-    maxRate: data?.validator?.[0]?.validatorInfo?.maxRate ?? '0',
-  };
-
-  return profile;
-};
-
-// ============================
-// votingPower
-// ============================
-const formatVotingPower = (data: ValidatorDetailsQuery) => {
-  const selfVotingPower =
-    (data.validator[0]?.validatorVotingPowers?.[0]?.votingPower ?? 0) /
-    10 ** (extra.votingPowerExponent ?? 0);
-
-  const votingPower = {
-    self: selfVotingPower,
-    overall: formatToken(data?.stakingPool?.[0]?.bonded ?? 0, votingPowerTokenUnit),
-    height: data.validator[0]?.validatorVotingPowers?.[0]?.height ?? 0,
-  };
-
-  return votingPower;
 };
 
 export const useValidatorDetails = () => {
@@ -178,7 +161,7 @@ function formatAccountQuery(data: ValidatorDetailsQuery): Partial<ValidatorDetai
 
   stateChange.overview = formatOverview(data);
 
-  stateChange.status = formatStatus(data);
+  // stateChange.status = formatStatus(data);
   // stateChange.votingPower = formatVotingPower(data);
 
   return stateChange;
@@ -186,7 +169,7 @@ function formatAccountQuery(data: ValidatorDetailsQuery): Partial<ValidatorDetai
 
 export const useValidatorVotingPowerDetails = () => {
   const router = useRouter();
-  const [state, setState] = useState<ValidatorVPState>(initialVPState);
+  const [state, setState] = useState<ValidatorVPState>(initialVotingPowerState);
 
   const handleSetState = useCallback(
     (stateChange: (prevState: ValidatorVPState) => ValidatorVPState) => {
@@ -198,7 +181,7 @@ export const useValidatorVotingPowerDetails = () => {
     []
   );
 
-  function formatVotingPowerNew(data: ValidatorVotingPowersQuery): Partial<ValidatorVPState> {
+  function formatVotingPower(data: ValidatorVotingPowersQuery): Partial<ValidatorVPState> {
     const stateChange: Partial<ValidatorVPState> = {};
     if (!data.validator.length) {
       stateChange.validatorVPExists = false;
@@ -230,7 +213,77 @@ export const useValidatorVotingPowerDetails = () => {
       address: router.query.address as string,
     },
     onCompleted: (data) => {
-      handleSetState((prevState) => ({ ...prevState, ...formatVotingPowerNew(data) }));
+      handleSetState((prevState) => ({ ...prevState, ...formatVotingPower(data) }));
+    },
+  });
+
+  return { state, loading };
+};
+
+export const useValidatorOverviewDetails = () => {
+  // her enow
+  const router = useRouter();
+  const [state, setState] = useState<ValidatorOverviewState>(initialValidatorOverviewState);
+
+  const handleSetState = useCallback(
+    (stateChange: (prevState: ValidatorOverviewState) => ValidatorOverviewState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
+
+  function formatValidatorOverview(data: ValidatorInfoQuery): Partial<ValidatorOverviewState> {
+    const stateChange: Partial<ValidatorOverviewState> = {};
+    if (!data.validator.length) {
+      stateChange.exists = false;
+      return stateChange;
+    }
+
+    const operatorAddress = data?.validator?.[0]?.validatorInfo?.operatorAddress ?? '';
+    const selfDelegateAddress = data?.validator?.[0]?.validatorInfo?.selfDelegateAddress ?? '';
+    const overview = {
+      validator: operatorAddress,
+      operatorAddress,
+      selfDelegateAddress,
+      description: data.validator[0]?.validatorDescriptions?.[0]?.details ?? '',
+      website: data.validator[0]?.validatorDescriptions?.[0]?.website ?? '',
+    };
+
+    const slashingParams = SlashingParams.fromJson(data?.slashingParams?.[0]?.params ?? {});
+    const missedBlockCounter =
+      data.validator[0]?.validatorSigningInfos?.[0]?.missedBlocksCounter ?? 0;
+    const { signedBlockWindow } = slashingParams;
+    const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
+
+    const status: StatusType = {
+      status: data.validator[0]?.validatorStatuses?.[0]?.status ?? 3,
+      jailed: data.validator[0]?.validatorStatuses?.[0]?.jailed ?? false,
+      tombstoned: data.validator[0]?.validatorSigningInfos?.[0]?.tombstoned ?? false,
+      commission: data.validator[0]?.validatorCommissions?.[0]?.commission ?? 0,
+      condition,
+      missedBlockCounter,
+      signedBlockWindow,
+      maxRate: data?.validator?.[0]?.validatorInfo?.maxRate ?? '0',
+    };
+
+    stateChange.exists = true;
+    stateChange.overview = overview;
+    stateChange.status = status;
+    return stateChange;
+  }
+
+  // ==========================
+  // Fetch Data
+  // ==========================
+  const { loading } = useValidatorInfoQuery({
+    variables: {
+      address: router.query.address as string,
+    },
+    onCompleted: (data) => {
+      handleSetState((prevState) => ({ ...prevState, ...formatValidatorOverview(data) }));
     },
   });
 
