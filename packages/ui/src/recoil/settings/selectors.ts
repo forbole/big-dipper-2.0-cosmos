@@ -7,7 +7,6 @@ import {
   THEME_KEY,
   TX_KEY,
   TIME_FORMAT_KEY,
-  FILTER_MSG_TYPES_KEY,
 } from '@/utils/localstorage';
 import { mergeStateChange } from '@/utils/merge_state_change';
 
