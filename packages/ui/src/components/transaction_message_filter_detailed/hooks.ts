@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState, ChangeEvent } from 'react';
+import { useEffect, useMemo, useState, ChangeEvent, useCallback } from 'react';
 import { useMessageTypesQuery } from '@/graphql/types/general_types';
-import { SetterOrUpdater, useRecoilState, useRecoilValue } from 'recoil';
-import { writeFilterMsgTypes, writeOpenDialog, readOpenDialog } from '@/recoil/settings';
+import { SetterOrUpdater, useRecoilState } from 'recoil';
+import { writeFilterMsgTypes, writeOpenDialog } from '@/recoil/settings';
 
 type MsgsTypes = {
   __typename: string;
@@ -15,7 +15,7 @@ export const useMsgFilter = () => {
   const [messageFilter, setMessageFilter] = useState([] as string[]);
   const [queryMsgTypeList, setQueryMsgTypeList] = useState([] as string[]);
   const [_, setMsgTypes] = useRecoilState(writeFilterMsgTypes) as [string, SetterOrUpdater<string>];
-  const [openDialog, setOpenDialog] = useRecoilState(writeOpenDialog) as [
+  const [__, setOpenDialog] = useRecoilState(writeOpenDialog) as [
     boolean,
     SetterOrUpdater<boolean>
   ];
@@ -23,7 +23,7 @@ export const useMsgFilter = () => {
   /* If there is an error, refetch the data. */
   useEffect(() => {
     if (error) refetch();
-  }, [error, refetch, messageFilter]);
+  }, [error, refetch]);
 
   const handleOpen = () => {
     setOpenDialog(true);
@@ -76,7 +76,6 @@ export const useMsgFilter = () => {
     const str = queryMsgTypeList.join(',');
     const query = `{${str}}`;
     setMsgTypes(() => query);
-    console.log(query);
     handleClose();
   };
 
@@ -97,30 +96,29 @@ export const useMsgFilter = () => {
     setMessageFilter(msgs);
   }, [data]);
 
-  // const exists = useMemo(() => loading || !!data?.length, [loading, data]);
-
-  const filterMsgTypeList = useMemo(
-    () => async (value: string) => {
-      const parsedValue = value.replace(/\s+/g, '');
+  const filterMsgTypeList = useCallback(
+    (value: string) => {
+      const parsedValue = value.replace(/\s+/g, '').toLowerCase();
       if (parsedValue === '' || parsedValue === null) {
         const msgs = formatMsgTypes(data?.msgTypes);
         msgs.sort((a, b) => a.module.localeCompare(b.module));
         setMessageFilter(msgs);
       } else {
-        const msgs = messageFilter.filter(
+        const msgList = formatMsgTypes(data?.msgTypes);
+        msgList.sort((a, b) => a.module.localeCompare(b.module));
+        const msgs = msgList.filter(
           (v: { module: string; msgTypes: [{ type: string; label: string }] }) =>
-            v.msgTypes.some((ms) => ms.type.includes(parsedValue))
+            v.msgTypes.some((ms) => ms.type.toLowerCase().indexOf(parsedValue) !== -1)
         );
         setMessageFilter(msgs);
       }
     },
-    [data?.msgTypes, messageFilter]
+    [data]
   );
 
   return {
     data,
     loading,
-    // exists,
     msgTypeList,
     messageFilter,
     filterMsgTypeList,

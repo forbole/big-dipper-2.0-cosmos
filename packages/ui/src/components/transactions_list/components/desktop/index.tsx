@@ -19,8 +19,6 @@ import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import FilterTxsByType from '@/components/transaction_message_filter_detailed';
 
-import { readOpenDialog } from '@/recoil/settings';
-
 const Desktop: FC<TransactionsListState> = ({
   className,
   itemCount,
@@ -31,7 +29,6 @@ const Desktop: FC<TransactionsListState> = ({
   const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
   const { classes, cx } = useStyles();
   const { t } = useAppTranslation('transactions');
-  // const openDialog = useRecoilValue(readOpenDialog);
 
   const items = useMemo(
     () =>
@@ -93,6 +90,9 @@ const Desktop: FC<TransactionsListState> = ({
       <AutoSizer onResize={onResize}>
         {({ height, width }) => (
           <>
+            {/* ======================================= */}
+            {/* Table Header */}
+            {/* ======================================= */}
             <Grid
               ref={mergeRefs(gridRef, columnRef as LegacyRef<Grid>)}
               columnCount={columns.length}
@@ -104,7 +104,9 @@ const Desktop: FC<TransactionsListState> = ({
             >
               {renderHeaderCell}
             </Grid>
+            {/* ======================================= */}
             {/* Table Body */}
+            {/* ======================================= */}
             <InfiniteLoader
               isItemLoaded={isItemLoaded ?? (() => true)}
               itemCount={itemCount}

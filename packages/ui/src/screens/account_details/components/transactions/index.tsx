@@ -1,11 +1,11 @@
 import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
-import { FC } from 'react';
-import { useRecoilValue } from 'recoil';
+import { FC, useEffect } from 'react';
+import { useRecoilValue, SetterOrUpdater, useRecoilState } from 'recoil';
 import Box from '@/components/box';
 import TransactionsList from '@/components/transactions_list';
 import TransactionsListDetails from '@/components/transactions_list_details';
-import { readTx } from '@/recoil/settings';
+import { readTx, writeFilterMsgTypes } from '@/recoil/settings';
 import { useTransactions } from '@/screens/account_details/components/transactions/hooks';
 import useStyles from '@/screens/account_details/components/transactions/styles';
 
@@ -19,6 +19,12 @@ const Transactions: FC<ComponentDefault & { loading: boolean }> = (props) => {
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
   const isItemLoaded = (index: number) => !state.hasNextPage || index < state.data.length;
   const itemCount = state.hasNextPage ? state.data.length + 1 : state.data.length;
+  const [_, setMsgTypes] = useRecoilState(writeFilterMsgTypes) as [string, SetterOrUpdater<string>];
+
+  useEffect(() => {
+    setMsgTypes('{}');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Box className={cx(classes.root, props.className)}>
