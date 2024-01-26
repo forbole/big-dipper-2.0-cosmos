@@ -17,7 +17,7 @@ import { FC, LegacyRef, useMemo } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
-import FilterTxsByType from '@/components/transaction_message_filter_detailed';
+import FilterTxsByType from '@/components/transaction_type_filter';
 
 const Desktop: FC<TransactionsListState> = ({
   className,

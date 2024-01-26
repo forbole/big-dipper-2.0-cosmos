@@ -3,7 +3,7 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { FC } from 'react';
 import useStyles from '@/components/search/styles';
-import { useMsgSearch } from '@/components/transaction_message_filter_detailed/components/msg_search/hooks';
+import { useMsgSearch } from '@/components/transaction_type_filter/components/msg_search/hooks';
 
 type MsgSearchProps = {
   className?: string;

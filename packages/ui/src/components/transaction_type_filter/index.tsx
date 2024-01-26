@@ -5,10 +5,10 @@ import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import FilterTxsIcon from 'shared-utils/assets/icon-filter-transactions.svg';
-import { useMsgFilter } from '@/components/transaction_message_filter_detailed/hooks';
+import { useTransactionTypeFilter } from '@/components/transaction_type_filter/hooks';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
-import MsgSearch from '@/components/transaction_message_filter_detailed/components/msg_search';
+import MsgSearch from '@/components/transaction_type_filter/components/msg_search';
 import { useRecoilValue } from 'recoil';
 import { readOpenDialog } from '@/recoil/transactions_filter';
 import useStyles from './styles';
@@ -17,13 +17,13 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
   const { classes } = useStyles();
   const { t } = useAppTranslation('common');
   const {
-    messageFilter,
-    filterMsgTypeList,
+    filteredTypes,
+    txTypeSearchFilter,
     handleFilterTxs,
-    handleMsgTypeSelection,
+    handleTxTypeSelection,
     handleCancel,
     handleOpen,
-  } = useMsgFilter();
+  } = useTransactionTypeFilter();
 
   const open = useRecoilValue(readOpenDialog);
 
@@ -47,13 +47,13 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
           <div>
             <MsgSearch
               className={classes.searchBar}
-              callback={filterMsgTypeList}
+              callback={txTypeSearchFilter}
               placeholder={t('searchType') ?? undefined}
             />
           </div>
         </DialogTitle>
         <DialogContent dividers>
-          {messageFilter.map((msgData) => (
+          {filteredTypes.map((msgData) => (
             <div>
               <div className={classes.moduleName}>
                 {msgData.module.includes('ibc') ? (
@@ -77,7 +77,7 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
                         name={`msg_type_${msg.label}`}
                         value={msg.type}
                         className={classes.checkbox}
-                        onClick={(e) => handleMsgTypeSelection(e)}
+                        onClick={(e) => handleTxTypeSelection(e)}
                         key={`msg_type_${msg.label}`}
                       />
                       <label htmlFor="messageType" className={classes.msgOption}>

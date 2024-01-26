@@ -10,11 +10,11 @@ type MsgsTypes = {
   label: string;
 };
 
-export const useMsgFilter = () => {
+export const useTransactionTypeFilter = () => {
   const { data, error, loading, refetch } = useMessageTypesQuery();
-  const [messageFilter, setMessageFilter] = useState([] as string[]);
-  const [queryMsgTypeList, setQueryMsgTypeList] = useState([] as string[]);
-  const [_, setMsgTypes] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
+  const [filteredTypes, setFilteredTypes] = useState([] as string[]);
+  const [txsFilter, setTxsFilter] = useState([] as string[]);
+  const [_, setFilter] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
   const [__, setOpenDialog] = useRecoilState(writeOpenDialog) as [
     boolean,
     SetterOrUpdater<boolean>
@@ -37,7 +37,7 @@ export const useMsgFilter = () => {
     setOpenDialog(false);
   };
 
-  const formatMsgTypes = (messages: MsgsTypes[]) => {
+  const formatTypes = (messages: MsgsTypes[]) => {
     // merge v1 and v1beta1 MsgVote type into one
     const filteredMsgVotes = messages?.filter((msg) => msg.label === 'MsgVote');
     if (filteredMsgVotes?.length > 1) {
@@ -73,44 +73,44 @@ export const useMsgFilter = () => {
   };
 
   const handleFilterTxs = () => {
-    const str = queryMsgTypeList.join(',');
+    const str = txsFilter.join(',');
     const query = `{${str}}`;
-    setMsgTypes(() => query);
+    setFilter(() => query);
     handleClose();
   };
 
-  const handleMsgTypeSelection = (event: ChangeEvent<HTMLInputElement>) => {
-    let msgList = queryMsgTypeList;
+  const handleTxTypeSelection = (event: ChangeEvent<HTMLInputElement>) => {
+    let msgList = txsFilter;
     if (!msgList.includes(event.target.value)) {
       msgList.push(event.target.value);
-      setQueryMsgTypeList(msgList);
+      setTxsFilter(msgList);
     } else {
       msgList = msgList.filter((v) => v !== event.target.value);
-      setQueryMsgTypeList(msgList);
+      setTxsFilter(msgList);
     }
   };
 
   const msgTypeList = useMemo(() => {
-    const msgs = formatMsgTypes(data?.msgTypes);
-    msgs.sort((a, b) => a.module.localeCompare(b.module));
-    setMessageFilter(msgs);
+    const typesList = formatTypes(data?.msgTypes);
+    typesList.sort((a, b) => a.module.localeCompare(b.module));
+    setFilteredTypes(typesList);
   }, [data]);
 
-  const filterMsgTypeList = useCallback(
+  const txTypeSearchFilter = useCallback(
     (value: string) => {
       const parsedValue = value.replace(/\s+/g, '').toLowerCase();
       if (parsedValue === '' || parsedValue === null) {
-        const msgs = formatMsgTypes(data?.msgTypes);
-        msgs.sort((a, b) => a.module.localeCompare(b.module));
-        setMessageFilter(msgs);
+        const typesList = formatTypes(data?.msgTypes);
+        typesList.sort((a, b) => a.module.localeCompare(b.module));
+        setFilteredTypes(typesList);
       } else {
-        const msgList = formatMsgTypes(data?.msgTypes);
-        msgList.sort((a, b) => a.module.localeCompare(b.module));
-        const msgs = msgList.filter(
+        const typesList = formatTypes(data?.msgTypes);
+        typesList.sort((a, b) => a.module.localeCompare(b.module));
+        const types = typesList.filter(
           (v: { module: string; msgTypes: [{ type: string; label: string }] }) =>
             v.msgTypes.some((ms) => ms.type.toLowerCase().indexOf(parsedValue) !== -1)
         );
-        setMessageFilter(msgs);
+        setFilteredTypes(types);
       }
     },
     [data]
@@ -120,11 +120,11 @@ export const useMsgFilter = () => {
     data,
     loading,
     msgTypeList,
-    messageFilter,
-    filterMsgTypeList,
+    filteredTypes,
+    txTypeSearchFilter,
     handleCancel,
     handleOpen,
     handleFilterTxs,
-    handleMsgTypeSelection,
+    handleTxTypeSelection,
   };
 };
