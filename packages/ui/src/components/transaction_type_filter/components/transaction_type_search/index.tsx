@@ -3,17 +3,17 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { FC } from 'react';
 import useStyles from '@/components/search/styles';
-import { useMsgSearch } from '@/components/transaction_type_filter/components/msg_search/hooks';
+import { useTxTypeSearch } from '@/components/transaction_type_filter/components/transaction_type_search/hooks';
 
-type MsgSearchProps = {
+type TxTypeSearchProps = {
   className?: string;
   placeholder: string;
   callback: (value: string) => void;
 };
 
-const MsgSearch: FC<MsgSearchProps> = ({ className, placeholder, callback }) => {
+const TxTypeSearch: FC<TxTypeSearchProps> = ({ className, placeholder, callback }) => {
   const { classes, cx } = useStyles();
-  const { handleOnSubmit, handleOnChange, handleKeyDown, value } = useMsgSearch(callback);
+  const { handleOnSubmit, handleOnChange, handleKeyDown, value } = useTxTypeSearch(callback);
   return (
     <form className={cx(classes.root, className)} onSubmit={handleOnSubmit}>
       <InputBase
@@ -34,4 +34,4 @@ const MsgSearch: FC<MsgSearchProps> = ({ className, placeholder, callback }) => 
   );
 };
 
-export default MsgSearch;
+export default TxTypeSearch;

@@ -8,7 +8,7 @@ import FilterTxsIcon from 'shared-utils/assets/icon-filter-transactions.svg';
 import { useTransactionTypeFilter } from '@/components/transaction_type_filter/hooks';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
-import MsgSearch from '@/components/transaction_type_filter/components/msg_search';
+import TxTypeSearch from '@/components/transaction_type_filter/components/transaction_type_search';
 import { useRecoilValue } from 'recoil';
 import { readOpenDialog } from '@/recoil/transactions_filter';
 import useStyles from './styles';
@@ -45,7 +45,7 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
             <Typography variant="h2">{t('filter')}</Typography>
           </div>
           <div>
-            <MsgSearch
+            <TxTypeSearch
               className={classes.searchBar}
               callback={txTypeSearchFilter}
               placeholder={t('searchType') ?? undefined}

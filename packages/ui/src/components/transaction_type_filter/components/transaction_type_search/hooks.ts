@@ -1,6 +1,6 @@
 import { ChangeEventHandler, KeyboardEventHandler, useState } from 'react';
 
-export const useMsgSearch = (callback: (value: string, clear?: () => void) => void) => {
+export const useTxTypeSearch = (callback: (value: string, clear?: () => void) => void) => {
   const [value, setValue] = useState('');
   const handleOnChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     const newValue = e?.target?.value ?? '';
