@@ -1,19 +1,20 @@
 import { NextSeo } from 'next-seo';
 import useAppTranslation from '@/hooks/useAppTranslation';
-import { useRecoilValue } from 'recoil';
+import { SetterOrUpdater, useRecoilState, useRecoilValue  } from 'recoil';
 import Box from '@/components/box';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
 import TransactionsList from '@/components/transactions_list';
 import TransactionsListDetails from '@/components/transactions_list_details';
-import { readTx } from '@/recoil/settings';
+import { readTx, writeFilterMsgTypes, writeOpenDialog, readOpenDialog } from '@/recoil/settings';
 import { useTransactions } from '@/screens/transactions/hooks';
 import useStyles from '@/screens/transactions/styles';
+import { useEffect, useMemo } from 'react';
 
 const Transactions = () => {
   const txListFormat = useRecoilValue(readTx);
   const { t } = useAppTranslation('transactions');
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
   const { state, loadNextPage } = useTransactions();
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
   const isItemLoaded = (index: number) => !state.hasNextPage || index < state.items.length;
@@ -50,7 +51,7 @@ const Transactions = () => {
                 isItemLoaded={isItemLoaded}
               />
             )}
-          </Box>
+          </Box>{' '}
         </LoadAndExist>
       </Layout>
     </>

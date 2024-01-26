@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { useCallback, useEffect, useRef, useState, useMemo } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import type { VariableSizeGrid } from 'react-window';
 import useShallowMemo from '@/hooks/useShallowMemo';
 

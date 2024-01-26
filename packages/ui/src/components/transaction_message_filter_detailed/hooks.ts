@@ -23,7 +23,7 @@ export const useMsgFilter = () => {
   /* If there is an error, refetch the data. */
   useEffect(() => {
     if (error) refetch();
-  }, [error, refetch, openDialog]);
+  }, [error, refetch, messageFilter]);
 
   const handleOpen = () => {
     setOpenDialog(true);
@@ -97,7 +97,7 @@ export const useMsgFilter = () => {
     setMessageFilter(msgs);
   }, [data]);
 
-  const exists = useMemo(() => loading || !!data?.length, [loading, data]);
+  // const exists = useMemo(() => loading || !!data?.length, [loading, data]);
 
   const filterMsgTypeList = useMemo(
     () => async (value: string) => {
@@ -120,7 +120,7 @@ export const useMsgFilter = () => {
   return {
     data,
     loading,
-    exists,
+    // exists,
     msgTypeList,
     messageFilter,
     filterMsgTypeList,
