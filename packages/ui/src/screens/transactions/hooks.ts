@@ -135,7 +135,6 @@ export const useTransactions = () => {
         variables: {
           offset: state.items.length,
           limit: LIMIT,
-          // type: msgTypes,
         },
       })
       .then(({ data }) => {

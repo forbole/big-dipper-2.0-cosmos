@@ -116,7 +116,7 @@ export const readTx = selector({
   get: getTx,
 });
 
-const getFilterMsgTypes: ReadOnlySelectorOptions<string[]>['get'] = ({ get }) => {
+const getFilterMsgTypes: ReadOnlySelectorOptions<string>['get'] = ({ get }) => {
   const state = get(atomState);
   return state.filterMsgTypes;
 };

@@ -9,7 +9,7 @@ const initialState: AtomState = {
   dateFormat: 'locale',
   timeFormat: '12-hour',
   txListFormat: 'compact',
-  filterMsgTypes: [''],
+  filterMsgTypes: '{}',
   openDialog: false,
 };
 
