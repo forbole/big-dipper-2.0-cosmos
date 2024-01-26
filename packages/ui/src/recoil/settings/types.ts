@@ -8,6 +8,4 @@ export interface AtomState {
   dateFormat: Date;
   timeFormat: TimeFormat;
   txListFormat: Tx;
-  filterMsgTypes: string;
-  openDialog: boolean;
 }

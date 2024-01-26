@@ -35,8 +35,6 @@ export const useSettingsRecoil = () => {
         dateFormat: savedDate,
         timeFormat: savedTimeFormat,
         txListFormat: savedTx,
-        filterMsgTypes: '{}',
-        openDialog: false,
       };
       setSettings(initSettings);
     }

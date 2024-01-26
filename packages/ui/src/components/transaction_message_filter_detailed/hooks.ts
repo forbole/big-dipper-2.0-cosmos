@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, ChangeEvent, useCallback } from 'react';
 import { useMessageTypesQuery } from '@/graphql/types/general_types';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { writeFilterMsgTypes, writeOpenDialog } from '@/recoil/settings';
+import { writeFilterMsgTypes, writeOpenDialog } from '@/recoil/transactions_filter';
 
 type MsgsTypes = {
   __typename: string;

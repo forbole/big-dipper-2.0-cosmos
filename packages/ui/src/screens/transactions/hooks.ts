@@ -9,7 +9,7 @@ import {
 import type { TransactionsState } from '@/screens/transactions/types';
 import { convertMsgType } from '@/utils/convert_msg_type';
 import { useRecoilValue } from 'recoil';
-import { readFilterMsgTypes } from '@/recoil/settings';
+import { readFilterMsgTypes } from '@/recoil/transactions_filter';
 
 // This is a bandaid as it can get extremely
 // expensive if there is too much data

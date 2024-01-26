@@ -10,7 +10,7 @@ import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import MsgSearch from '@/components/transaction_message_filter_detailed/components/msg_search';
 import { useRecoilValue } from 'recoil';
-import { readOpenDialog } from '@/recoil/settings';
+import { readOpenDialog } from '@/recoil/transactions_filter';
 import useStyles from './styles';
 
 const FilterTxsByType: FC<ComponentDefault> = () => {

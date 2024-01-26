@@ -5,7 +5,8 @@ import { useRecoilValue, SetterOrUpdater, useRecoilState } from 'recoil';
 import Box from '@/components/box';
 import TransactionsList from '@/components/transactions_list';
 import TransactionsListDetails from '@/components/transactions_list_details';
-import { readTx, writeFilterMsgTypes } from '@/recoil/settings';
+import { readTx } from '@/recoil/settings';
+import { writeFilterMsgTypes } from '@/recoil/transactions_filter';
 import { useTransactions } from '@/screens/account_details/components/transactions/hooks';
 import useStyles from '@/screens/account_details/components/transactions/styles';
 
