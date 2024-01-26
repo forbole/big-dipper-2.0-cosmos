@@ -11,10 +11,10 @@ export const useTxsFilterRecoil = () => {
   useEffect(() => {
     if (isClient) {
       const initTxsFilter: AtomState = {
-        filterMsgTypes: '{}',
+        filter: '{}',
         openDialog: false,
       };
       setTxsFilter(initTxsFilter);
     }
-  }, [setTxsFilter, txsFilter.filterMsgTypes, txsFilter.openDialog]);
+  }, [setTxsFilter, txsFilter.filter, txsFilter.openDialog]);
 };

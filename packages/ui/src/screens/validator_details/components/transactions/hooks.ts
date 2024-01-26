@@ -9,7 +9,7 @@ import {
 import type { TransactionState } from '@/screens/validator_details/components/transactions/types';
 import { convertMsgType } from '@/utils/convert_msg_type';
 import { useRecoilValue } from 'recoil';
-import { readFilterMsgTypes } from '@/recoil/transactions_filter';
+import { readFilter } from '@/recoil/transactions_filter';
 
 const LIMIT = 50;
 
@@ -52,7 +52,7 @@ export function useTransactions() {
     isNextPageLoading: true,
     offsetCount: 0,
   });
-  const msgTypes = useRecoilValue(readFilterMsgTypes);
+  const msgTypes = useRecoilValue(readFilter);
 
   useEffect(() => {
     setState((prevState) => ({

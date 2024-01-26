@@ -1,4 +1,4 @@
 export interface AtomState {
-  filterMsgTypes: string;
+  filter: string;
   openDialog: boolean;
 }

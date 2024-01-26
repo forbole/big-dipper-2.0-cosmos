@@ -2,7 +2,7 @@ import { atom } from 'recoil';
 import type { AtomState } from '@/recoil/transactions_filter/types';
 
 const initialState: AtomState = {
-  filterMsgTypes: '{}',
+  filter: '{}',
   openDialog: false,
 };
 

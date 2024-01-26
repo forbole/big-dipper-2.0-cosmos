@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, ChangeEvent, useCallback } from 'react';
 import { useMessageTypesQuery } from '@/graphql/types/general_types';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { writeFilterMsgTypes, writeOpenDialog } from '@/recoil/transactions_filter';
+import { writeFilter, writeOpenDialog } from '@/recoil/transactions_filter';
 
 type MsgsTypes = {
   __typename: string;
@@ -14,7 +14,7 @@ export const useMsgFilter = () => {
   const { data, error, loading, refetch } = useMessageTypesQuery();
   const [messageFilter, setMessageFilter] = useState([] as string[]);
   const [queryMsgTypeList, setQueryMsgTypeList] = useState([] as string[]);
-  const [_, setMsgTypes] = useRecoilState(writeFilterMsgTypes) as [string, SetterOrUpdater<string>];
+  const [_, setMsgTypes] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
   const [__, setOpenDialog] = useRecoilState(writeOpenDialog) as [
     boolean,
     SetterOrUpdater<boolean>

@@ -2,27 +2,27 @@ import { DefaultValue, ReadOnlySelectorOptions, selector } from 'recoil';
 import { atomState } from '@/recoil/transactions_filter/atom';
 import { mergeStateChange } from '@/utils/merge_state_change';
 
-const getFilterMsgTypes: ReadOnlySelectorOptions<string>['get'] = ({ get }) => {
+const getFilter: ReadOnlySelectorOptions<string>['get'] = ({ get }) => {
   const state = get(atomState);
-  return state.filterMsgTypes;
+  return state.filter;
 };
 
-export const writeFilterMsgTypes = selector({
-  key: 'txsFilter.write.filterMsgTypes',
-  get: getFilterMsgTypes,
-  set: ({ get, set }, newMsgFilter) => {
-    if (newMsgFilter instanceof DefaultValue) return;
+export const writeFilter = selector({
+  key: 'txsFilter.write.filter',
+  get: getFilter,
+  set: ({ get, set }, newFilter) => {
+    if (newFilter instanceof DefaultValue) return;
     const prevState = get(atomState);
     const newState = mergeStateChange(prevState, {
-      filterMsgTypes: newMsgFilter,
+      filter: newFilter,
     });
     set(atomState, newState);
   },
 });
 
-export const readFilterMsgTypes = selector({
-  key: 'txsFilter.read.filterMsgTypes',
-  get: getFilterMsgTypes,
+export const readFilter = selector({
+  key: 'txsFilter.read.filter',
+  get: getFilter,
 });
 
 const getOpenDialog: ReadOnlySelectorOptions<boolean>['get'] = ({ get }) => {
