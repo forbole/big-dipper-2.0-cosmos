@@ -12983,6 +12983,13 @@ export type ValidatorVotingPowersQueryVariables = Exact<{
 
 export type ValidatorVotingPowersQuery = { validator: Array<{ __typename?: 'validator', validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', height: any, votingPower: any }>, validatorStatuses: Array<{ __typename?: 'validator_status', status: number }> }>, stakingPool: Array<{ __typename?: 'staking_pool', height: any, bonded: string }> };
 
+export type ValidatorAddressQueryVariables = Exact<{
+  address?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ValidatorAddressQuery = { validator: Array<{ __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null }> };
+
 export type ValidatorDelegationsQueryVariables = Exact<{
   validatorAddress: Scalars['String'];
   offset?: InputMaybe<Scalars['Int']>;
@@ -14817,6 +14824,44 @@ export function useValidatorVotingPowersLazyQuery(baseOptions?: Apollo.LazyQuery
 export type ValidatorVotingPowersQueryHookResult = ReturnType<typeof useValidatorVotingPowersQuery>;
 export type ValidatorVotingPowersLazyQueryHookResult = ReturnType<typeof useValidatorVotingPowersLazyQuery>;
 export type ValidatorVotingPowersQueryResult = Apollo.QueryResult<ValidatorVotingPowersQuery, ValidatorVotingPowersQueryVariables>;
+export const ValidatorAddressDocument = gql`
+    query ValidatorAddress($address: String) {
+  validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorAddressQuery__
+ *
+ * To run a query within a React component, call `useValidatorAddressQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorAddressQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorAddressQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useValidatorAddressQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorAddressQuery, ValidatorAddressQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorAddressQuery, ValidatorAddressQueryVariables>(ValidatorAddressDocument, options);
+      }
+export function useValidatorAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorAddressQuery, ValidatorAddressQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorAddressQuery, ValidatorAddressQueryVariables>(ValidatorAddressDocument, options);
+        }
+export type ValidatorAddressQueryHookResult = ReturnType<typeof useValidatorAddressQuery>;
+export type ValidatorAddressLazyQueryHookResult = ReturnType<typeof useValidatorAddressLazyQuery>;
+export type ValidatorAddressQueryResult = Apollo.QueryResult<ValidatorAddressQuery, ValidatorAddressQueryVariables>;
 export const ValidatorDelegationsDocument = gql`
     query ValidatorDelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
   delegations: action_validator_delegations(

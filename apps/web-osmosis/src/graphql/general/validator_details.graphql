@@ -144,3 +144,12 @@ query ValidatorVotingPowers($address: String) {
     bonded: bonded_tokens
   }
 }
+
+query ValidatorAddress($address: String) {
+  validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorInfo: validator_info {
+        operatorAddress: operator_address
+        selfDelegateAddress: self_delegate_address
+    }
+  }
+}
