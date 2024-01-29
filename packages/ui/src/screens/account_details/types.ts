@@ -23,16 +23,24 @@ export interface RewardsType {
   [value: string]: TokenUnit;
 }
 
-export interface AccountDetailState {
+export interface AccountBalanceState {
   loading: boolean;
-  balanceLoading: boolean;
   exists: boolean;
-  desmosProfile: DesmosProfile | null;
-  overview: OverviewType;
   balance: BalanceType;
   otherTokens: {
     data: OtherTokenType[];
     count: number;
   };
   rewards: RewardsType;
+}
+
+export interface AccountDesmosProfileState {
+  exists: boolean;
+  loading: boolean;
+  desmosProfile: DesmosProfile | null;
+}
+
+export interface AccountWithdrawalAddressState {
+  loading: boolean;
+  overview: OverviewType;
 }

@@ -8,13 +8,15 @@ import OtherTokens from '@/screens/account_details/components/other_tokens';
 import Overview from '@/screens/account_details/components/overview';
 import Staking from '@/screens/account_details/components/staking';
 import Transactions from '@/screens/account_details/components/transactions';
-import { useAccountDetails } from '@/screens/account_details/hooks';
+import { useAccountProfileDetails, useAccountBalance } from '@/screens/account_details/hooks';
 import useStyles from '@/screens/account_details/styles';
 
 const AccountDetails = () => {
   const { t } = useAppTranslation('accounts');
   const { classes } = useStyles();
-  const { state } = useAccountDetails();
+  const { profileState } = useAccountProfileDetails();
+  const accountBalance = useAccountBalance();
+  const { state } = accountBalance;
 
   return (
     <>
@@ -25,23 +27,19 @@ const AccountDetails = () => {
         }}
       />
       <Layout navTitle={t('accountDetails') ?? undefined}>
-        <LoadAndExist loading={state.loading} exists={state.exists}>
+        <LoadAndExist loading={profileState.loading} exists={profileState.exists}>
           <span className={classes.root}>
-            {!!state.desmosProfile && (
+            {!!profileState.desmosProfile && (
               <DesmosProfile
-                dtag={state.desmosProfile.dtag}
-                nickname={state.desmosProfile.nickname}
-                imageUrl={state.desmosProfile.imageUrl}
-                bio={state.desmosProfile.bio}
-                connections={state.desmosProfile.connections}
-                coverUrl={state.desmosProfile.coverUrl}
+                dtag={profileState.desmosProfile.dtag}
+                nickname={profileState.desmosProfile.nickname}
+                imageUrl={profileState.desmosProfile.imageUrl}
+                bio={profileState.desmosProfile.bio}
+                connections={profileState.desmosProfile.connections}
+                coverUrl={profileState.desmosProfile.coverUrl}
               />
             )}
-            <Overview
-              className={classes.overview}
-              withdrawalAddress={state.overview.withdrawalAddress}
-              address={state.overview.address}
-            />
+            <Overview className={classes.overview} />
             <Balance
               className={classes.balance}
               available={state.balance.available}
@@ -50,10 +48,15 @@ const AccountDetails = () => {
               reward={state.balance.reward}
               commission={state.balance.commission}
               total={state.balance.total}
+              loading={state.loading}
             />
-            <OtherTokens className={classes.otherTokens} otherTokens={state.otherTokens} />
-            <Staking className={classes.staking} rewards={state.rewards} />
-            <Transactions className={classes.transactions} loading={state.balanceLoading} />
+            <OtherTokens
+              className={classes.otherTokens}
+              otherTokens={state.otherTokens}
+              loading={state.loading}
+            />
+            <Staking className={classes.staking} />
+            <Transactions className={classes.transactions} />
           </span>
         </LoadAndExist>
       </Layout>
