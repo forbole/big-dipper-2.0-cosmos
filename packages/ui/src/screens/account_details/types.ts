@@ -44,3 +44,8 @@ export interface AccountWithdrawalAddressState {
   loading: boolean;
   overview: OverviewType;
 }
+
+export interface AccountRewardsState {
+  loading: boolean;
+  rewards: RewardsType;
+}

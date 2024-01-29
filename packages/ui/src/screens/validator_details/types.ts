@@ -42,3 +42,8 @@ export interface ValidatorProfileState {
   operatorAddress: string;
   selfDelegateAddress: string;
 }
+
+export interface ValidatorExistsState {
+  exists: boolean;
+  loading: boolean;
+}

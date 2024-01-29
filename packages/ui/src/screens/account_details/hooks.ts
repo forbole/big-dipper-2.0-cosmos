@@ -10,6 +10,7 @@ import type {
   AccountWithdrawalAddressState,
   AccountDesmosProfileState,
   AccountBalanceState,
+  AccountRewardsState,
 } from '@/screens/account_details/types';
 import {
   useAccountWithdrawalAddress,
@@ -63,7 +64,7 @@ const withdrawalAddrInitialState: AccountWithdrawalAddressState = {
   },
 };
 
-const rewardsInitialState = {
+const rewardsInitialState: AccountRewardsState = {
   loading: true,
   rewards: {},
 };
@@ -346,12 +347,15 @@ export const useAccountRewards = () => {
   const router = useRouter();
   const [state, setState] = useState(rewardsInitialState);
 
-  const handleSetState = useCallback((stateChange: prevState) => {
-    setState((prevState) => {
-      const newState = stateChange(prevState);
-      return R.equals(prevState, newState) ? prevState : newState;
-    });
-  }, []);
+  const handleSetState = useCallback(
+    (stateChange: (prevState: AccountRewardsState) => AccountRewardsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
   const address = Array.isArray(router.query.address)
     ? router.query.address[0]
     : router.query.address ?? '';
