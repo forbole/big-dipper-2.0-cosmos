@@ -5,7 +5,6 @@ import Tag from '@/components/tag';
 import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
 import useStyles from '@/screens/validator_details/components/validator_overview/styles';
 import { getCondition } from '@/screens/validator_details/components/validator_overview/utils';
-import type { OverviewType, StatusType } from '@/screens/validator_details/types';
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getValidatorStatus } from '@/utils/get_validator_status';
@@ -18,11 +17,8 @@ import Link from 'next/link';
 import numeral from 'numeral';
 import { FC } from 'react';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
-import LoadAndExist from '@/components/load_and_exist';
-import {
-  useValidatorDetails,
-  useValidatorOverviewDetails,
-} from '@/screens/validator_details/hooks';
+import Loading from '@/components/loading';
+import { useValidatorOverviewDetails } from '@/screens/validator_details/hooks';
 
 type ValidatorOverviewProps = {
   className?: string;
@@ -34,7 +30,7 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ className }) => {
   const { t } = useAppTranslation('validators');
   const { handleCopyToClipboard } = useAddress(t);
   const { state, loading } = useValidatorOverviewDetails();
-  const { overview, status, exists } = state;
+  const { overview, status } = state;
 
   const statusTheme = getValidatorStatus(status.status, status.jailed, status.tombstoned);
   const condition = getCondition(status.condition, status.status);
@@ -116,7 +112,10 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ className }) => {
       ),
       value: (
         <Typography variant="body1" className="value">
-          {Big(status.maxRate)?.times(100).toFixed(2)}%
+          {Big(status.maxRate)
+            ?.times(100)
+            .toFixed(2)}
+          %
         </Typography>
       ),
     },
@@ -124,65 +123,69 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ className }) => {
 
   return (
     <Box className={className}>
-      <LoadAndExist exists={exists} loading={loading}>
-        <div className={classes.addressRoot}>
-          <div className={cx(classes.copyText, classes.item)}>
-            <Typography variant="body1" className="label">
-              {t('operatorAddress')}
-            </Typography>
-            <div className="detail">
-              <CopyIcon
-                onClick={() => handleCopyToClipboard(overview.operatorAddress)}
-                className={classes.actionIcons}
-              />
-              <Typography variant="body1" className="value">
-                <span className={display.hiddenUntilLg}>{overview.operatorAddress}</span>
-                <span className={display.hiddenWhenLg}>
-                  {getMiddleEllipsis(overview.operatorAddress, {
-                    beginning: 15,
-                    ending: 5,
-                  })}
-                </span>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <div className={classes.addressRoot}>
+            <div className={cx(classes.copyText, classes.item)}>
+              <Typography variant="body1" className="label">
+                {t('operatorAddress')}
               </Typography>
+              <div className="detail">
+                <CopyIcon
+                  onClick={() => handleCopyToClipboard(overview.operatorAddress)}
+                  className={classes.actionIcons}
+                />
+                <Typography variant="body1" className="value">
+                  <span className={display.hiddenUntilLg}>{overview.operatorAddress}</span>
+                  <span className={display.hiddenWhenLg}>
+                    {getMiddleEllipsis(overview.operatorAddress, {
+                      beginning: 15,
+                      ending: 5,
+                    })}
+                  </span>
+                </Typography>
+              </div>
             </div>
-          </div>
 
-          <div className={cx(classes.copyText, classes.item)}>
-            <Typography variant="body1" className="label">
-              {t('selfDelegateAddress')}
-            </Typography>
-            <div className="detail">
-              <CopyIcon
-                className={classes.actionIcons}
-                onClick={() => handleCopyToClipboard(overview.selfDelegateAddress)}
-              />
-              <Link
-                shallow
-                prefetch={false}
-                href={ACCOUNT_DETAILS(overview.selfDelegateAddress)}
-                className="value"
-              >
-                <span className={display.hiddenUntilLg}>{overview.selfDelegateAddress}</span>
-                <span className={display.hiddenWhenLg}>
-                  {getMiddleEllipsis(overview.selfDelegateAddress, {
-                    beginning: 15,
-                    ending: 5,
-                  })}
-                </span>
-              </Link>
+            <div className={cx(classes.copyText, classes.item)}>
+              <Typography variant="body1" className="label">
+                {t('selfDelegateAddress')}
+              </Typography>
+              <div className="detail">
+                <CopyIcon
+                  className={classes.actionIcons}
+                  onClick={() => handleCopyToClipboard(overview.selfDelegateAddress)}
+                />
+                <Link
+                  shallow
+                  prefetch={false}
+                  href={ACCOUNT_DETAILS(overview.selfDelegateAddress)}
+                  className="value"
+                >
+                  <span className={display.hiddenUntilLg}>{overview.selfDelegateAddress}</span>
+                  <span className={display.hiddenWhenLg}>
+                    {getMiddleEllipsis(overview.selfDelegateAddress, {
+                      beginning: 15,
+                      ending: 5,
+                    })}
+                  </span>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-        <Divider className={classes.divider} />
-        <div className={classes.statusRoot}>
-          {statusItems.map((x) => (
-            <div key={x.key} className={classes.statusItem}>
-              {x.name}
-              {x.value}
-            </div>
-          ))}
-        </div>
-      </LoadAndExist>
+          <Divider className={classes.divider} />
+          <div className={classes.statusRoot}>
+            {statusItems.map(x => (
+              <div key={x.key} className={classes.statusItem}>
+                {x.name}
+                {x.value}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </Box>
   );
 };

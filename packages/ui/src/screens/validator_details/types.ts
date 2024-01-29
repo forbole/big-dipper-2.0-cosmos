@@ -25,15 +25,6 @@ export interface VotingPowerType {
   validatorStatus: number;
 }
 
-export interface ValidatorDetailsState {
-  exists: boolean;
-  desmosProfile: DesmosProfile | null;
-  overview: OverviewType;
-  cosmosAddress?: string;
-  status: StatusType;
-  votingPower: VotingPowerType;
-}
-
 export interface ValidatorVPState {
   validatorVPExists: boolean;
   votingPower: VotingPowerType;
@@ -43,4 +34,11 @@ export interface ValidatorOverviewState {
   exists: boolean;
   overview: OverviewType;
   status: StatusType;
+}
+
+export interface ValidatorProfileState {
+  exists: boolean;
+  desmosProfile: DesmosProfile | null;
+  operatorAddress: string;
+  selfDelegateAddress: string;
 }

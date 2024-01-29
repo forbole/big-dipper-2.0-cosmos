@@ -80,12 +80,15 @@ const Blocks: FC<BlocksProps> = ({ className, address }) => {
   return (
     <Box className={cx(classes.root, className)}>
       <Typography variant="h2">{t('lastBlocks')}</Typography>
-      {loading && <Loading />}
-      <div className={classes.blocks}>
-        {state.map((x, i) => (
-          <BlockBox key={x.height} i={i} item={x} state={state} />
-        ))}
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className={classes.blocks}>
+          {state.map((x, i) => (
+            <BlockBox key={x.height} i={i} item={x} state={state} />
+          ))}
+        </div>
+      )}
     </Box>
   );
 };

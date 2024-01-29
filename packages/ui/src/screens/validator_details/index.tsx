@@ -2,21 +2,20 @@ import { NextSeo } from 'next-seo';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import DesmosProfile from '@/components/desmos_profile';
 import Layout from '@/components/layout';
-import LoadAndExist from '@/components/load_and_exist';
 import Blocks from '@/screens/validator_details/components/blocks';
 import Profile from '@/screens/validator_details/components/profile';
 import Staking from '@/screens/validator_details/components/staking';
 import Transactions from '@/screens/validator_details/components/transactions';
 import ValidatorOverview from '@/screens/validator_details/components/validator_overview';
 import VotingPower from '@/screens/validator_details/components/voting_power';
-import { useValidatorDetails, useValidatorVPDetails } from '@/screens/validator_details/hooks';
+import { useValidatorProfileDetails } from '@/screens/validator_details/hooks';
 import useStyles from '@/screens/validator_details/styles';
 
 const ValidatorDetails = () => {
   const { t } = useAppTranslation('validators');
   const { classes } = useStyles();
-  const { state, loading } = useValidatorDetails();
-  const { desmosProfile, exists, overview, status, cosmosAddress } = state;
+  const { state, loading } = useValidatorProfileDetails();
+  const { exists, desmosProfile, operatorAddress } = state;
   return (
     <>
       <NextSeo
@@ -26,28 +25,20 @@ const ValidatorDetails = () => {
         }}
       />
       <Layout navTitle={t('validatorDetails') ?? undefined}>
-        {/* <LoadAndExist exists={exists} loading={loading}> */}
         <div>
           <span className={classes.root}>
-            {desmosProfile ? (
-              <DesmosProfile className={classes.profile} {...desmosProfile} />
+            {exists && desmosProfile ? (
+              <DesmosProfile className={classes.profile} {...desmosProfile} loading={loading} />
             ) : (
-              <Profile className={classes.profile} profile={overview} />
+              <Profile className={classes.profile} />
             )}
             <ValidatorOverview className={classes.address} />
             <VotingPower className={classes.votingPower} />
-            <Blocks
-              className={classes.blocks}
-              address={cosmosAddress || state.overview.operatorAddress}
-            />
-            <Staking
-              className={classes.staking}
-              address={cosmosAddress || state.overview.operatorAddress}
-            />
+            <Blocks className={classes.blocks} address={operatorAddress} />
+            <Staking className={classes.staking} address={operatorAddress} />
             <Transactions className={classes.transactions} />
           </span>
         </div>
-        {/* </LoadAndExist> */}
       </Layout>
     </>
   );
