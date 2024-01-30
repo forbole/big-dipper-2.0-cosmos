@@ -17,7 +17,6 @@ import {
   ValidatorVPState,
   ValidatorProfileState,
   ValidatorOverviewState,
-  ValidatorExistsState,
 } from '@/screens/validator_details/types';
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
@@ -69,18 +68,13 @@ const initialValidatorProfileState: ValidatorProfileState = {
   selfDelegateAddress: '',
 };
 
-const initialValidatorExistsState: ValidatorExistsState = {
-  exists: true,
-  loading: true,
-};
-
 export const useValidatorVotingPowerDetails = () => {
   const router = useRouter();
   const [state, setState] = useState<ValidatorVPState>(initialVotingPowerState);
 
   const handleSetState = useCallback(
     (stateChange: (prevState: ValidatorVPState) => ValidatorVPState) => {
-      setState((prevState) => {
+      setState(prevState => {
         const newState = stateChange(prevState);
         return R.equals(prevState, newState) ? prevState : newState;
       });
@@ -95,8 +89,8 @@ export const useValidatorVotingPowerDetails = () => {
     variables: {
       address: router.query.address as string,
     },
-    onCompleted: (data) => {
-      handleSetState((prevState) => ({ ...prevState, ...formatValidatorVotingPower(data) }));
+    onCompleted: data => {
+      handleSetState(prevState => ({ ...prevState, ...formatValidatorVotingPower(data) }));
     },
   });
 
@@ -109,7 +103,7 @@ export const useValidatorOverviewDetails = () => {
 
   const handleSetState = useCallback(
     (stateChange: (prevState: ValidatorOverviewState) => ValidatorOverviewState) => {
-      setState((prevState) => {
+      setState(prevState => {
         const newState = stateChange(prevState);
         return R.equals(prevState, newState) ? prevState : newState;
       });
@@ -124,41 +118,12 @@ export const useValidatorOverviewDetails = () => {
     variables: {
       address: router.query.address as string,
     },
-    onCompleted: (data) => {
-      handleSetState((prevState) => ({ ...prevState, ...formatValidatorOverview(data) }));
+    onCompleted: data => {
+      handleSetState(prevState => ({ ...prevState, ...formatValidatorOverview(data) }));
     },
   });
 
   return { state, loading };
-};
-
-export const useValidatorExists = () => {
-  const [state, setState] = useState<ValidatorExistsState>(initialValidatorExistsState);
-  const router = useRouter();
-
-  const handleSetState = useCallback(
-    (stateChange: (prevState: ValidatorExistsState) => ValidatorExistsState) => {
-      setState((prevState) => {
-        const newState = stateChange(prevState);
-        return R.equals(prevState, newState) ? prevState : newState;
-      });
-    },
-    []
-  );
-
-  // ==========================
-  // Fetch Data
-  // ==========================
-  useValidatorAddressQuery({
-    variables: {
-      address: router.query.address as string,
-    },
-    onCompleted: (data) => {
-      handleSetState((prevState) => ({ ...prevState, exists: true, loading: false }));
-    },
-  });
-
-  return { validator: state };
 };
 
 export const useValidatorProfileDetails = () => {
@@ -167,7 +132,7 @@ export const useValidatorProfileDetails = () => {
 
   const handleSetState = useCallback(
     (stateChange: (prevState: ValidatorProfileState) => ValidatorProfileState) => {
-      setState((prevState) => {
+      setState(prevState => {
         const newState = stateChange(prevState);
         return R.equals(prevState, newState) ? prevState : newState;
       });
@@ -182,8 +147,8 @@ export const useValidatorProfileDetails = () => {
     variables: {
       address: router.query.address as string,
     },
-    onCompleted: (data) => {
-      handleSetState((prevState) => ({ ...prevState, ...formatValidatorAddress(data) }));
+    onCompleted: data => {
+      handleSetState(prevState => ({ ...prevState, ...formatValidatorAddress(data) }));
     },
   });
 
@@ -196,7 +161,7 @@ export const useValidatorProfileDetails = () => {
   });
   useEffect(
     () =>
-      setState((prevState) => ({
+      setState(prevState => ({
         ...prevState,
         desmosProfile: dataDesmosProfile?.[0],
         loading: loadingDesmosProfile,
