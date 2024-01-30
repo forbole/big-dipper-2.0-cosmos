@@ -16,7 +16,7 @@ const AccountDetails = () => {
   const { classes } = useStyles();
   const { profileState } = useAccountProfileDetails();
   const accountBalance = useAccountBalance();
-  const { state } = accountBalance;
+  const { state: accountBalanceState } = accountBalance;
 
   return (
     <>
@@ -27,7 +27,7 @@ const AccountDetails = () => {
         }}
       />
       <Layout navTitle={t('accountDetails') ?? undefined}>
-        <LoadAndExist loading={profileState.loading} exists={profileState.exists}>
+        <LoadAndExist loading={profileState.loading} exists={accountBalanceState.exists}>
           <span className={classes.root}>
             {!!profileState.desmosProfile && (
               <DesmosProfile
@@ -40,23 +40,31 @@ const AccountDetails = () => {
               />
             )}
             <Overview className={classes.overview} />
-            <Balance
-              className={classes.balance}
-              available={state.balance.available}
-              delegate={state.balance.delegate}
-              unbonding={state.balance.unbonding}
-              reward={state.balance.reward}
-              commission={state.balance.commission}
-              total={state.balance.total}
-              loading={state.loading}
-            />
-            <OtherTokens
-              className={classes.otherTokens}
-              otherTokens={state.otherTokens}
-              loading={state.loading}
-            />
-            <Staking className={classes.staking} />
-            <Transactions className={classes.transactions} />
+            {!profileState.loading ? (
+              <>
+                <Balance
+                  className={classes.balance}
+                  available={accountBalanceState.balance.available}
+                  delegate={accountBalanceState.balance.delegate}
+                  unbonding={accountBalanceState.balance.unbonding}
+                  reward={accountBalanceState.balance.reward}
+                  commission={accountBalanceState.balance.commission}
+                  total={accountBalanceState.balance.total}
+                  loading={accountBalanceState.loading}
+                />
+                <OtherTokens
+                  className={classes.otherTokens}
+                  otherTokens={accountBalanceState.otherTokens}
+                  loading={accountBalanceState.loading}
+                />
+              </>
+            ) : null}
+            {!profileState.loading && !accountBalanceState.loading ? (
+              <>
+                <Staking className={classes.staking} />
+                <Transactions className={classes.transactions} />
+              </>
+            ) : null}
           </span>
         </LoadAndExist>
       </Layout>
