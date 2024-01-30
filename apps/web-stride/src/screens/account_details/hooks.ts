@@ -5,9 +5,12 @@ import { useCallback, useEffect, useState } from 'react';
 import chainConfig from '@/chainConfig';
 import { useDesmosProfile } from '@/hooks/use_desmos_profile';
 import type {
-  AccountDetailState,
   BalanceType,
   OtherTokenType,
+  AccountWithdrawalAddressState,
+  AccountDesmosProfileState,
+  AccountBalanceState,
+  AccountRewardsState,
 } from '@/screens/account_details/types';
 import {
   useAccountWithdrawalAddress,
@@ -30,15 +33,9 @@ const defaultTokenUnit: TokenUnit = {
   exponent: 0,
 };
 
-const initialState: AccountDetailState = {
+const balanceInitialState: AccountBalanceState = {
   loading: true,
-  balanceLoading: true,
   exists: true,
-  desmosProfile: null,
-  overview: {
-    address: '',
-    withdrawalAddress: '',
-  },
   otherTokens: {
     count: 0,
     data: [],
@@ -54,6 +51,25 @@ const initialState: AccountDetailState = {
   rewards: {},
 };
 
+const desmosProfileInitialState: AccountDesmosProfileState = {
+  loading: true,
+  exists: true,
+  desmosProfile: null,
+};
+
+const withdrawalAddrInitialState: AccountWithdrawalAddressState = {
+  loading: true,
+  overview: {
+    address: '',
+    withdrawalAddress: '',
+  },
+};
+
+const rewardsInitialState: AccountRewardsState = {
+  loading: true,
+  rewards: {},
+};
+
 type Data = {
   delegationRewards?: unknown;
   accountBalances?: unknown;
@@ -62,10 +78,14 @@ type Data = {
   commission?: unknown;
 };
 
+type RewardsData = {
+  delegationRewards?: unknown;
+};
+
 // ============================
-// rewards
+// Format rewards
 // ============================
-const formatRewards = (_data: Data) => {
+const formatRewards = (_data: Data | RewardsData) => {
   const rewardsDict: { [key: string]: TokenUnit } = {};
   // log all the rewards
   // data?.delegationRewards?.forEach((x) => {
@@ -79,7 +99,7 @@ const formatRewards = (_data: Data) => {
 };
 
 // ============================
-// balance
+// Format balance
 // ============================
 const formatBalance = (data: Data): BalanceType => {
   const available = getDenom(R.pathOr([], ['accountBalances', 'coins'], data), primaryTokenUnit);
@@ -91,7 +111,7 @@ const formatBalance = (data: Data): BalanceType => {
   const unbondingAmount = formatToken(unbonding.amount, primaryTokenUnit);
 
   const rewards = '0';
-  // data.delegationRewards?.reduce((a: BigSource, b: unknown) => {
+  // data.delegationRewards?.reduce((a, b) => {
   //   if (!b) return a;
   //   const coins = R.pathOr([], ['coins'], b);
   //   const dsmCoins = getDenom(coins, primaryTokenUnit);
@@ -100,14 +120,14 @@ const formatBalance = (data: Data): BalanceType => {
   // }, '0') ?? '0';
   const rewardsAmount = formatToken(rewards, primaryTokenUnit);
 
-  //   const commission = getDenom(
-  //     R.pathOr<NonNullable<NonNullable<typeof data['commission']>['coins']>>(
-  //       [],
-  //       ['commission', 'coins'],
-  //       data
-  //     ),
-  //     primaryTokenUnit
-  //   );
+  // const commission = getDenom(
+  //   R.pathOr<NonNullable<NonNullable<(typeof data)['commission']>['coins']>>(
+  //     [],
+  //     ['commission', 'coins'],
+  //     data
+  //   ),
+  //   primaryTokenUnit
+  // );
   const commissionAmount = formatToken(0, primaryTokenUnit);
 
   const total = Big(availableAmount.value)
@@ -135,7 +155,7 @@ const formatBalance = (data: Data): BalanceType => {
 };
 
 // ============================
-// other tokens
+// Format other tokens
 // ============================
 const formatOtherTokens = (data: Data) => {
   // Loop through balance and delegation to figure out what the other tokens are
@@ -194,30 +214,127 @@ const formatOtherTokens = (data: Data) => {
 };
 
 // ==========================
-// Format Data
+// Format Balance Data
 // ==========================
 const formatAllBalance = (data: Data) => {
-  const stateChange: Partial<AccountDetailState> = {
-    balanceLoading: false,
+  const stateChange: Partial<AccountBalanceState> = {
+    loading: false,
   };
-
   stateChange.rewards = formatRewards(data);
 
   stateChange.balance = formatBalance(data);
-
-  formatOtherTokens(data);
 
   stateChange.otherTokens = formatOtherTokens(data);
 
   return stateChange;
 };
 
-export const useAccountDetails = () => {
+export const useAccountProfileDetails = () => {
   const router = useRouter();
-  const [state, setState] = useState<AccountDetailState>(initialState);
+  const [state, setState] = useState<AccountDesmosProfileState>(desmosProfileInitialState);
+
+  const address = Array.isArray(router.query.address)
+    ? router.query.address[0]
+    : router.query.address ?? '';
+
+  // ==========================
+  // Desmos Profile
+  // ==========================
+  const { data: dataDesmosProfile, loading: loadingDesmosProfile } = useDesmosProfile({
+    addresses: [address],
+    skip: !extra.profile || !address,
+  });
+  useEffect(
+    () =>
+      setState((prevState) => ({
+        ...prevState,
+        desmosProfile: dataDesmosProfile?.[0],
+        loading: loadingDesmosProfile,
+      })),
+    [dataDesmosProfile, loadingDesmosProfile]
+  );
+
+  return { profileState: state };
+};
+
+export const useAccountBalance = () => {
+  const router = useRouter();
+  const [state, setState] = useState<AccountBalanceState>(balanceInitialState);
 
   const handleSetState = useCallback(
-    (stateChange: (prevState: AccountDetailState) => AccountDetailState) => {
+    (stateChange: (prevState: AccountBalanceState) => AccountBalanceState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
+
+  const { data: valAddressesInfo } = useValidatorConsumerProviderAddressesQuery();
+
+  const address = Array.isArray(router.query.address)
+    ? router.query.address[0]
+    : router.query.address ?? '';
+
+  const [providerAddress, setProviderAddress] = useState(address);
+
+  useEffect(() => {
+    let provider = '';
+    if (valAddressesInfo?.ccv_validator) {
+      if (providerAddress.startsWith(prefix.validator)) {
+        const matchingValidator = valAddressesInfo.ccv_validator.find(
+          (x) => x.consumerOperatorAddress === providerAddress
+        );
+        if (matchingValidator) {
+          provider = matchingValidator.providerOperatorAddress ?? '';
+        } else {
+          provider = address;
+        }
+        setProviderAddress(provider);
+      }
+    }
+  }, [address, providerAddress, valAddressesInfo]);
+
+  const commission = useCommission(providerAddress);
+  const available = useAvailableBalances(providerAddress);
+  const delegation = useDelegationBalance(providerAddress);
+  const unbonding = useUnbondingBalance(providerAddress);
+  const rewards = useRewards(providerAddress);
+
+  useEffect(() => {
+    const formattedRawData: {
+      commission?: any;
+      accountBalances?: any;
+      delegationBalance?: any;
+      unbondingBalance?: any;
+      delegationRewards?: any;
+    } = {};
+    formattedRawData.commission = R.pathOr({ coins: [] }, ['commission'], commission);
+    formattedRawData.accountBalances = R.pathOr({ coins: [] }, ['accountBalances'], available);
+    formattedRawData.delegationBalance = R.pathOr({ coins: [] }, ['delegationBalance'], delegation);
+    formattedRawData.unbondingBalance = R.pathOr({ coins: [] }, ['unbondingBalance'], unbonding);
+    formattedRawData.delegationRewards = R.pathOr([], ['delegationRewards'], rewards);
+    const formatAccountBalance = formatAllBalance(formattedRawData);
+
+    if (Object.keys(formatAccountBalance).length > 0) {
+      handleSetState((prevState) => ({
+        ...prevState,
+        ...formatAccountBalance,
+        loading: false,
+      }));
+    }
+  }, [commission, available, delegation, unbonding, rewards, handleSetState]);
+
+  return { state };
+};
+
+export const useAccountWithdrawalAddressHook = () => {
+  const router = useRouter();
+  const [state, setState] = useState<AccountWithdrawalAddressState>(withdrawalAddrInitialState);
+
+  const handleSetState = useCallback(
+    (stateChange: (prevState: AccountWithdrawalAddressState) => AccountWithdrawalAddressState) => {
       setState((prevState) => {
         const newState = stateChange(prevState);
         return R.equals(prevState, newState) ? prevState : newState;
@@ -252,61 +369,6 @@ export const useAccountDetails = () => {
   }, [address, providerAddress, valAddressesInfo]);
 
   // ==========================
-  // Desmos Profile
-  // ==========================
-  const { data: dataDesmosProfile, loading: loadingDesmosProfile } = useDesmosProfile({
-    addresses: [address],
-    skip: !extra.profile || !address,
-  });
-  useEffect(
-    () =>
-      setState((prevState) => ({
-        ...prevState,
-        desmosProfile: dataDesmosProfile?.[0],
-        loading: loadingDesmosProfile,
-      })),
-    [dataDesmosProfile, loadingDesmosProfile]
-  );
-
-  const commission = useCommission(providerAddress);
-  const available = useAvailableBalances(providerAddress);
-  const delegation = useDelegationBalance(providerAddress);
-  const unbonding = useUnbondingBalance(providerAddress);
-  const rewards = useRewards(providerAddress);
-
-  useEffect(() => {
-    const formattedRawData: {
-      commission?: any;
-      accountBalances?: any;
-      delegationBalance?: any;
-      unbondingBalance?: any;
-      delegationRewards?: any;
-    } = {};
-    formattedRawData.commission = R.pathOr({ coins: [] }, ['commission'], commission);
-    formattedRawData.accountBalances = R.pathOr(
-      { coins: [] },
-      ['bdjuno_provider', 'accountBalances'],
-      available
-    );
-    formattedRawData.delegationBalance = R.pathOr(
-      { coins: [] },
-      ['bdjuno_provider', 'delegationBalance'],
-      delegation
-    );
-    formattedRawData.unbondingBalance = R.pathOr(
-      { coins: [] },
-      ['bdjuno_provider', 'unbondingBalance'],
-      unbonding
-    );
-    formattedRawData.delegationRewards = R.pathOr(
-      [],
-      ['bdjuno_provider', 'delegationRewards'],
-      rewards
-    );
-    handleSetState((prevState) => ({ ...prevState, ...formatAllBalance(formattedRawData) }));
-  }, [commission, available, delegation, unbonding, rewards, handleSetState]);
-
-  // ==========================
   // Fetch Data
   // ==========================
   const withdrawalAddress = useAccountWithdrawalAddress(providerAddress);
@@ -320,6 +382,63 @@ export const useAccountDetails = () => {
       },
     }));
   }, [handleSetState, address, withdrawalAddress?.withdrawalAddress?.address, providerAddress]);
+
+  return { state };
+};
+
+export const useAccountRewards = () => {
+  const router = useRouter();
+  const [state, setState] = useState(rewardsInitialState);
+
+  const handleSetState = useCallback(
+    (stateChange: (prevState: AccountRewardsState) => AccountRewardsState) => {
+      setState((prevState) => {
+        const newState = stateChange(prevState);
+        return R.equals(prevState, newState) ? prevState : newState;
+      });
+    },
+    []
+  );
+  const { data: valAddressesInfo } = useValidatorConsumerProviderAddressesQuery();
+
+  const address = Array.isArray(router.query.address)
+    ? router.query.address[0]
+    : router.query.address ?? '';
+
+  const [providerAddress, setProviderAddress] = useState(address);
+
+  useEffect(() => {
+    let provider = '';
+    if (valAddressesInfo?.ccv_validator) {
+      if (providerAddress.startsWith(prefix.validator)) {
+        const matchingValidator = valAddressesInfo.ccv_validator.find(
+          (x) => x.consumerOperatorAddress === providerAddress
+        );
+        if (matchingValidator) {
+          provider = matchingValidator.providerOperatorAddress ?? '';
+        } else {
+          provider = address;
+        }
+        setProviderAddress(provider);
+      }
+    }
+  }, [address, providerAddress, valAddressesInfo]);
+
+  const rewards = useRewards(providerAddress);
+
+  useEffect(() => {
+    const formattedRawData: {
+      delegationRewards?: any;
+    } = {};
+    formattedRawData.delegationRewards = R.pathOr([], ['delegationRewards'], rewards);
+    const updatedRewards = formatRewards(formattedRawData);
+
+    handleSetState((prevState) => ({
+      ...prevState,
+      rewards: updatedRewards,
+      loading: false,
+    }));
+  }, [rewards, handleSetState]);
 
   return { state };
 };

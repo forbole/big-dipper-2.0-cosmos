@@ -11,9 +11,8 @@ query Params {
   distributionParams: distribution_params(limit: 1, order_by: {height: desc}) {
     params
   }
-  govParams: gov_params (limit: 1, order_by: {height: desc}) {
-    depositParams: deposit_params
-    tallyParams: tally_params
-    votingParams: voting_params
+  govParams: gov_params(limit: 1, order_by: {height: desc}) {
+    params
+    height
   }
 }
