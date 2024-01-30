@@ -194,6 +194,8 @@ export type Account = {
   proposals_aggregate: Proposal_Aggregate;
   /** An array relationship */
   validator_infos: Array<Validator_Info>;
+  /** An aggregate relationship */
+  validator_infos_aggregate: Validator_Info_Aggregate;
   /** An object relationship */
   vesting_account?: Maybe<Vesting_Account>;
   /** An array relationship */
@@ -243,6 +245,16 @@ export type AccountProposals_AggregateArgs = {
 
 /** columns and relationships of "account" */
 export type AccountValidator_InfosArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Info_Order_By>>;
+  where?: InputMaybe<Validator_Info_Bool_Exp>;
+};
+
+
+/** columns and relationships of "account" */
+export type AccountValidator_Infos_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -2742,6 +2754,8 @@ export type Query_Root = {
   validator_description_by_pk?: Maybe<Validator_Description>;
   /** fetch data from the table: "validator_info" */
   validator_info: Array<Validator_Info>;
+  /** fetch aggregated fields from the table: "validator_info" */
+  validator_info_aggregate: Validator_Info_Aggregate;
   /** fetch data from the table: "validator_info" using primary key columns */
   validator_info_by_pk?: Maybe<Validator_Info>;
   /** fetch data from the table: "validator_signing_info" */
@@ -3287,6 +3301,15 @@ export type Query_RootValidator_Description_By_PkArgs = {
 
 
 export type Query_RootValidator_InfoArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Info_Order_By>>;
+  where?: InputMaybe<Validator_Info_Bool_Exp>;
+};
+
+
+export type Query_RootValidator_Info_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3851,6 +3874,8 @@ export type Subscription_Root = {
   validator_description_by_pk?: Maybe<Validator_Description>;
   /** fetch data from the table: "validator_info" */
   validator_info: Array<Validator_Info>;
+  /** fetch aggregated fields from the table: "validator_info" */
+  validator_info_aggregate: Validator_Info_Aggregate;
   /** fetch data from the table: "validator_info" using primary key columns */
   validator_info_by_pk?: Maybe<Validator_Info>;
   /** fetch data from the table: "validator_signing_info" */
@@ -4310,6 +4335,15 @@ export type Subscription_RootValidator_Description_By_PkArgs = {
 
 
 export type Subscription_RootValidator_InfoArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Info_Order_By>>;
+  where?: InputMaybe<Validator_Info_Bool_Exp>;
+};
+
+
+export type Subscription_RootValidator_Info_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -5181,6 +5215,8 @@ export type Validator = {
   validator_info?: Maybe<Validator_Info>;
   /** An array relationship */
   validator_infos: Array<Validator_Info>;
+  /** An aggregate relationship */
+  validator_infos_aggregate: Validator_Info_Aggregate;
   /** An array relationship */
   validator_signing_infos: Array<Validator_Signing_Info>;
   /** An array relationship */
@@ -5275,6 +5311,16 @@ export type ValidatorValidator_InfosArgs = {
 
 
 /** columns and relationships of "validator" */
+export type ValidatorValidator_Infos_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Info_Order_By>>;
+  where?: InputMaybe<Validator_Info_Bool_Exp>;
+};
+
+
+/** columns and relationships of "validator" */
 export type ValidatorValidator_Signing_InfosArgs = {
   distinct_on?: InputMaybe<Array<Validator_Signing_Info_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -5349,7 +5395,7 @@ export type Validator_Commission = {
   __typename?: 'validator_commission';
   commission: Scalars['numeric'];
   height: Scalars['bigint'];
-  min_self_delegation: Scalars['bigint'];
+  min_self_delegation: Scalars['String'];
   /** An object relationship */
   validator: Validator;
   validator_address: Scalars['String'];
@@ -5374,7 +5420,6 @@ export type Validator_Commission_Aggregate_Order_By = {
 export type Validator_Commission_Avg_Order_By = {
   commission?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
-  min_self_delegation?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "validator_commission". All fields are combined with a logical 'AND'. */
@@ -5384,7 +5429,7 @@ export type Validator_Commission_Bool_Exp = {
   _or?: InputMaybe<Array<Validator_Commission_Bool_Exp>>;
   commission?: InputMaybe<Numeric_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
-  min_self_delegation?: InputMaybe<Bigint_Comparison_Exp>;
+  min_self_delegation?: InputMaybe<String_Comparison_Exp>;
   validator?: InputMaybe<Validator_Bool_Exp>;
   validator_address?: InputMaybe<String_Comparison_Exp>;
 };
@@ -5430,49 +5475,42 @@ export enum Validator_Commission_Select_Column {
 export type Validator_Commission_Stddev_Order_By = {
   commission?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
-  min_self_delegation?: InputMaybe<Order_By>;
 };
 
 /** order by stddev_pop() on columns of table "validator_commission" */
 export type Validator_Commission_Stddev_Pop_Order_By = {
   commission?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
-  min_self_delegation?: InputMaybe<Order_By>;
 };
 
 /** order by stddev_samp() on columns of table "validator_commission" */
 export type Validator_Commission_Stddev_Samp_Order_By = {
   commission?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
-  min_self_delegation?: InputMaybe<Order_By>;
 };
 
 /** order by sum() on columns of table "validator_commission" */
 export type Validator_Commission_Sum_Order_By = {
   commission?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
-  min_self_delegation?: InputMaybe<Order_By>;
 };
 
 /** order by var_pop() on columns of table "validator_commission" */
 export type Validator_Commission_Var_Pop_Order_By = {
   commission?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
-  min_self_delegation?: InputMaybe<Order_By>;
 };
 
 /** order by var_samp() on columns of table "validator_commission" */
 export type Validator_Commission_Var_Samp_Order_By = {
   commission?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
-  min_self_delegation?: InputMaybe<Order_By>;
 };
 
 /** order by variance() on columns of table "validator_commission" */
 export type Validator_Commission_Variance_Order_By = {
   commission?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
-  min_self_delegation?: InputMaybe<Order_By>;
 };
 
 /** columns and relationships of "validator_description" */
@@ -5624,6 +5662,7 @@ export type Validator_Info = {
   /** An object relationship */
   account?: Maybe<Account>;
   consensus_address: Scalars['String'];
+  height: Scalars['bigint'];
   max_change_rate: Scalars['String'];
   max_rate: Scalars['String'];
   operator_address: Scalars['String'];
@@ -5632,11 +5671,60 @@ export type Validator_Info = {
   validator: Validator;
 };
 
+/** aggregated selection of "validator_info" */
+export type Validator_Info_Aggregate = {
+  __typename?: 'validator_info_aggregate';
+  aggregate?: Maybe<Validator_Info_Aggregate_Fields>;
+  nodes: Array<Validator_Info>;
+};
+
+/** aggregate fields of "validator_info" */
+export type Validator_Info_Aggregate_Fields = {
+  __typename?: 'validator_info_aggregate_fields';
+  avg?: Maybe<Validator_Info_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Validator_Info_Max_Fields>;
+  min?: Maybe<Validator_Info_Min_Fields>;
+  stddev?: Maybe<Validator_Info_Stddev_Fields>;
+  stddev_pop?: Maybe<Validator_Info_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Validator_Info_Stddev_Samp_Fields>;
+  sum?: Maybe<Validator_Info_Sum_Fields>;
+  var_pop?: Maybe<Validator_Info_Var_Pop_Fields>;
+  var_samp?: Maybe<Validator_Info_Var_Samp_Fields>;
+  variance?: Maybe<Validator_Info_Variance_Fields>;
+};
+
+
+/** aggregate fields of "validator_info" */
+export type Validator_Info_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Validator_Info_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
 /** order by aggregate values of table "validator_info" */
 export type Validator_Info_Aggregate_Order_By = {
+  avg?: InputMaybe<Validator_Info_Avg_Order_By>;
   count?: InputMaybe<Order_By>;
   max?: InputMaybe<Validator_Info_Max_Order_By>;
   min?: InputMaybe<Validator_Info_Min_Order_By>;
+  stddev?: InputMaybe<Validator_Info_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<Validator_Info_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<Validator_Info_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<Validator_Info_Sum_Order_By>;
+  var_pop?: InputMaybe<Validator_Info_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<Validator_Info_Var_Samp_Order_By>;
+  variance?: InputMaybe<Validator_Info_Variance_Order_By>;
+};
+
+/** aggregate avg on columns */
+export type Validator_Info_Avg_Fields = {
+  __typename?: 'validator_info_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "validator_info" */
+export type Validator_Info_Avg_Order_By = {
+  height?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "validator_info". All fields are combined with a logical 'AND'. */
@@ -5646,6 +5734,7 @@ export type Validator_Info_Bool_Exp = {
   _or?: InputMaybe<Array<Validator_Info_Bool_Exp>>;
   account?: InputMaybe<Account_Bool_Exp>;
   consensus_address?: InputMaybe<String_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
   max_change_rate?: InputMaybe<String_Comparison_Exp>;
   max_rate?: InputMaybe<String_Comparison_Exp>;
   operator_address?: InputMaybe<String_Comparison_Exp>;
@@ -5653,18 +5742,42 @@ export type Validator_Info_Bool_Exp = {
   validator?: InputMaybe<Validator_Bool_Exp>;
 };
 
+/** aggregate max on columns */
+export type Validator_Info_Max_Fields = {
+  __typename?: 'validator_info_max_fields';
+  consensus_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  max_change_rate?: Maybe<Scalars['String']>;
+  max_rate?: Maybe<Scalars['String']>;
+  operator_address?: Maybe<Scalars['String']>;
+  self_delegate_address?: Maybe<Scalars['String']>;
+};
+
 /** order by max() on columns of table "validator_info" */
 export type Validator_Info_Max_Order_By = {
   consensus_address?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
   max_change_rate?: InputMaybe<Order_By>;
   max_rate?: InputMaybe<Order_By>;
   operator_address?: InputMaybe<Order_By>;
   self_delegate_address?: InputMaybe<Order_By>;
 };
 
+/** aggregate min on columns */
+export type Validator_Info_Min_Fields = {
+  __typename?: 'validator_info_min_fields';
+  consensus_address?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['bigint']>;
+  max_change_rate?: Maybe<Scalars['String']>;
+  max_rate?: Maybe<Scalars['String']>;
+  operator_address?: Maybe<Scalars['String']>;
+  self_delegate_address?: Maybe<Scalars['String']>;
+};
+
 /** order by min() on columns of table "validator_info" */
 export type Validator_Info_Min_Order_By = {
   consensus_address?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
   max_change_rate?: InputMaybe<Order_By>;
   max_rate?: InputMaybe<Order_By>;
   operator_address?: InputMaybe<Order_By>;
@@ -5675,6 +5788,7 @@ export type Validator_Info_Min_Order_By = {
 export type Validator_Info_Order_By = {
   account?: InputMaybe<Account_Order_By>;
   consensus_address?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
   max_change_rate?: InputMaybe<Order_By>;
   max_rate?: InputMaybe<Order_By>;
   operator_address?: InputMaybe<Order_By>;
@@ -5687,6 +5801,8 @@ export enum Validator_Info_Select_Column {
   /** column name */
   ConsensusAddress = 'consensus_address',
   /** column name */
+  Height = 'height',
+  /** column name */
   MaxChangeRate = 'max_change_rate',
   /** column name */
   MaxRate = 'max_rate',
@@ -5695,6 +5811,83 @@ export enum Validator_Info_Select_Column {
   /** column name */
   SelfDelegateAddress = 'self_delegate_address'
 }
+
+/** aggregate stddev on columns */
+export type Validator_Info_Stddev_Fields = {
+  __typename?: 'validator_info_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "validator_info" */
+export type Validator_Info_Stddev_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Validator_Info_Stddev_Pop_Fields = {
+  __typename?: 'validator_info_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "validator_info" */
+export type Validator_Info_Stddev_Pop_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Validator_Info_Stddev_Samp_Fields = {
+  __typename?: 'validator_info_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "validator_info" */
+export type Validator_Info_Stddev_Samp_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Validator_Info_Sum_Fields = {
+  __typename?: 'validator_info_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** order by sum() on columns of table "validator_info" */
+export type Validator_Info_Sum_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Validator_Info_Var_Pop_Fields = {
+  __typename?: 'validator_info_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "validator_info" */
+export type Validator_Info_Var_Pop_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Validator_Info_Var_Samp_Fields = {
+  __typename?: 'validator_info_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "validator_info" */
+export type Validator_Info_Var_Samp_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Validator_Info_Variance_Fields = {
+  __typename?: 'validator_info_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "validator_info" */
+export type Validator_Info_Variance_Order_By = {
+  height?: InputMaybe<Order_By>;
+};
 
 /** Ordering options when selecting data from "validator". */
 export type Validator_Order_By = {
@@ -7649,12 +7842,54 @@ export type ValidatorLastSeenListenerSubscriptionVariables = Exact<{
 
 export type ValidatorLastSeenListenerSubscription = { preCommit: Array<{ __typename?: 'pre_commit', height: any, timestamp: any }> };
 
-export type ValidatorDetailsQueryVariables = Exact<{
+export type ValidatorDescriptionQueryVariables = Exact<{
   address?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type ValidatorDetailsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', height: any, bonded: string }>, validator: Array<{ __typename?: 'validator', validatorDescriptions: Array<{ __typename?: 'validator_description', details?: string | null, website?: string | null }>, validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, maxRate: string } | null, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }>, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', height: any, votingPower: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
+export type ValidatorDescriptionQuery = { validator: Array<{ __typename?: 'validator', validatorDescriptions: Array<{ __typename?: 'validator_description', details?: string | null, website?: string | null }> }> };
+
+export type ValidatorStatusesQueryVariables = Exact<{
+  address?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ValidatorStatusesQuery = { validator: Array<{ __typename?: 'validator', validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
+
+export type ValidatorSigningInfosQueryVariables = Exact<{
+  address?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ValidatorSigningInfosQuery = { validator: Array<{ __typename?: 'validator', validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }> }> };
+
+export type ValidatorInfoQueryVariables = Exact<{
+  address?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ValidatorInfoQuery = { validator: Array<{ __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, maxRate: string } | null, validatorDescriptions: Array<{ __typename?: 'validator_description', details?: string | null, website?: string | null }>, validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
+
+export type ValidatorCommissionQueryVariables = Exact<{
+  address?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ValidatorCommissionQuery = { validator: Array<{ __typename?: 'validator', validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }> }> };
+
+export type ValidatorVotingPowersQueryVariables = Exact<{
+  address?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ValidatorVotingPowersQuery = { validator: Array<{ __typename?: 'validator', validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', height: any, votingPower: any }>, validatorStatuses: Array<{ __typename?: 'validator_status', status: number }> }>, stakingPool: Array<{ __typename?: 'staking_pool', height: any, bonded: string }> };
+
+export type ValidatorAddressQueryVariables = Exact<{
+  address?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ValidatorAddressQuery = { validator: Array<{ __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null }> };
 
 export type ValidatorDelegationsQueryVariables = Exact<{
   validatorAddress: Scalars['String'];
@@ -7690,11 +7925,6 @@ export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ValidatorsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', bondedTokens: string }>, validator: Array<{ __typename?: 'validator', validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
-
-export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type ValidatorsAddressListQuery = { validator: Array<{ __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, identity?: string | null, avatarUrl?: string | null }> }> };
 
 export type ValidatorAddressesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -9142,13 +9372,138 @@ export function useValidatorLastSeenListenerSubscription(baseOptions?: Apollo.Su
       }
 export type ValidatorLastSeenListenerSubscriptionHookResult = ReturnType<typeof useValidatorLastSeenListenerSubscription>;
 export type ValidatorLastSeenListenerSubscriptionResult = Apollo.SubscriptionResult<ValidatorLastSeenListenerSubscription>;
-export const ValidatorDetailsDocument = gql`
-    query ValidatorDetails($address: String) {
-  stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
-    height
-    bonded: bonded_tokens
-  }
+export const ValidatorDescriptionDocument = gql`
+    query ValidatorDescription($address: String) {
   validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorDescriptions: validator_descriptions(
+      order_by: {height: desc}
+      limit: 1
+    ) {
+      details
+      website
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorDescriptionQuery__
+ *
+ * To run a query within a React component, call `useValidatorDescriptionQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorDescriptionQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorDescriptionQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useValidatorDescriptionQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorDescriptionQuery, ValidatorDescriptionQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorDescriptionQuery, ValidatorDescriptionQueryVariables>(ValidatorDescriptionDocument, options);
+      }
+export function useValidatorDescriptionLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorDescriptionQuery, ValidatorDescriptionQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorDescriptionQuery, ValidatorDescriptionQueryVariables>(ValidatorDescriptionDocument, options);
+        }
+export type ValidatorDescriptionQueryHookResult = ReturnType<typeof useValidatorDescriptionQuery>;
+export type ValidatorDescriptionLazyQueryHookResult = ReturnType<typeof useValidatorDescriptionLazyQuery>;
+export type ValidatorDescriptionQueryResult = Apollo.QueryResult<ValidatorDescriptionQuery, ValidatorDescriptionQueryVariables>;
+export const ValidatorStatusesDocument = gql`
+    query ValidatorStatuses($address: String) {
+  validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
+      status
+      jailed
+      height
+    }
+  }
+  slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
+    params
+  }
+}
+    `;
+
+/**
+ * __useValidatorStatusesQuery__
+ *
+ * To run a query within a React component, call `useValidatorStatusesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorStatusesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorStatusesQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useValidatorStatusesQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorStatusesQuery, ValidatorStatusesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorStatusesQuery, ValidatorStatusesQueryVariables>(ValidatorStatusesDocument, options);
+      }
+export function useValidatorStatusesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorStatusesQuery, ValidatorStatusesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorStatusesQuery, ValidatorStatusesQueryVariables>(ValidatorStatusesDocument, options);
+        }
+export type ValidatorStatusesQueryHookResult = ReturnType<typeof useValidatorStatusesQuery>;
+export type ValidatorStatusesLazyQueryHookResult = ReturnType<typeof useValidatorStatusesLazyQuery>;
+export type ValidatorStatusesQueryResult = Apollo.QueryResult<ValidatorStatusesQuery, ValidatorStatusesQueryVariables>;
+export const ValidatorSigningInfosDocument = gql`
+    query ValidatorSigningInfos($address: String) {
+  validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorSigningInfos: validator_signing_infos(
+      order_by: {height: desc}
+      limit: 1
+    ) {
+      missedBlocksCounter: missed_blocks_counter
+      tombstoned
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorSigningInfosQuery__
+ *
+ * To run a query within a React component, call `useValidatorSigningInfosQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorSigningInfosQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorSigningInfosQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useValidatorSigningInfosQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorSigningInfosQuery, ValidatorSigningInfosQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorSigningInfosQuery, ValidatorSigningInfosQueryVariables>(ValidatorSigningInfosDocument, options);
+      }
+export function useValidatorSigningInfosLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorSigningInfosQuery, ValidatorSigningInfosQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorSigningInfosQuery, ValidatorSigningInfosQueryVariables>(ValidatorSigningInfosDocument, options);
+        }
+export type ValidatorSigningInfosQueryHookResult = ReturnType<typeof useValidatorSigningInfosQuery>;
+export type ValidatorSigningInfosLazyQueryHookResult = ReturnType<typeof useValidatorSigningInfosLazyQuery>;
+export type ValidatorSigningInfosQueryResult = Apollo.QueryResult<ValidatorSigningInfosQuery, ValidatorSigningInfosQueryVariables>;
+export const ValidatorInfoDocument = gql`
+    query ValidatorInfo($address: String) {
+  validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+      maxRate: max_rate
+    }
     validatorDescriptions: validator_descriptions(
       order_by: {height: desc}
       limit: 1
@@ -9168,21 +9523,8 @@ export const ValidatorDetailsDocument = gql`
       missedBlocksCounter: missed_blocks_counter
       tombstoned
     }
-    validatorInfo: validator_info {
-      operatorAddress: operator_address
-      selfDelegateAddress: self_delegate_address
-      maxRate: max_rate
-    }
     validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
       commission
-    }
-    validatorVotingPowers: validator_voting_powers(
-      offset: 0
-      limit: 1
-      order_by: {height: desc}
-    ) {
-      height
-      votingPower: voting_power
     }
   }
   slashingParams: slashing_params(order_by: {height: desc}, limit: 1) {
@@ -9192,32 +9534,156 @@ export const ValidatorDetailsDocument = gql`
     `;
 
 /**
- * __useValidatorDetailsQuery__
+ * __useValidatorInfoQuery__
  *
- * To run a query within a React component, call `useValidatorDetailsQuery` and pass it any options that fit your needs.
- * When your component renders, `useValidatorDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useValidatorInfoQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorInfoQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useValidatorDetailsQuery({
+ * const { data, loading, error } = useValidatorInfoQuery({
  *   variables: {
  *      address: // value for 'address'
  *   },
  * });
  */
-export function useValidatorDetailsQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>) {
+export function useValidatorInfoQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorInfoQuery, ValidatorInfoQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>(ValidatorDetailsDocument, options);
+        return Apollo.useQuery<ValidatorInfoQuery, ValidatorInfoQueryVariables>(ValidatorInfoDocument, options);
       }
-export function useValidatorDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>) {
+export function useValidatorInfoLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorInfoQuery, ValidatorInfoQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>(ValidatorDetailsDocument, options);
+          return Apollo.useLazyQuery<ValidatorInfoQuery, ValidatorInfoQueryVariables>(ValidatorInfoDocument, options);
         }
-export type ValidatorDetailsQueryHookResult = ReturnType<typeof useValidatorDetailsQuery>;
-export type ValidatorDetailsLazyQueryHookResult = ReturnType<typeof useValidatorDetailsLazyQuery>;
-export type ValidatorDetailsQueryResult = Apollo.QueryResult<ValidatorDetailsQuery, ValidatorDetailsQueryVariables>;
+export type ValidatorInfoQueryHookResult = ReturnType<typeof useValidatorInfoQuery>;
+export type ValidatorInfoLazyQueryHookResult = ReturnType<typeof useValidatorInfoLazyQuery>;
+export type ValidatorInfoQueryResult = Apollo.QueryResult<ValidatorInfoQuery, ValidatorInfoQueryVariables>;
+export const ValidatorCommissionDocument = gql`
+    query ValidatorCommission($address: String) {
+  validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorCommissions: validator_commissions(order_by: {height: desc}, limit: 1) {
+      commission
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorCommissionQuery__
+ *
+ * To run a query within a React component, call `useValidatorCommissionQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorCommissionQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorCommissionQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useValidatorCommissionQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorCommissionQuery, ValidatorCommissionQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorCommissionQuery, ValidatorCommissionQueryVariables>(ValidatorCommissionDocument, options);
+      }
+export function useValidatorCommissionLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorCommissionQuery, ValidatorCommissionQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorCommissionQuery, ValidatorCommissionQueryVariables>(ValidatorCommissionDocument, options);
+        }
+export type ValidatorCommissionQueryHookResult = ReturnType<typeof useValidatorCommissionQuery>;
+export type ValidatorCommissionLazyQueryHookResult = ReturnType<typeof useValidatorCommissionLazyQuery>;
+export type ValidatorCommissionQueryResult = Apollo.QueryResult<ValidatorCommissionQuery, ValidatorCommissionQueryVariables>;
+export const ValidatorVotingPowersDocument = gql`
+    query ValidatorVotingPowers($address: String) {
+  validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorVotingPowers: validator_voting_powers(
+      offset: 0
+      limit: 1
+      order_by: {height: desc}
+    ) {
+      height
+      votingPower: voting_power
+    }
+    validatorStatuses: validator_statuses(order_by: {height: desc}, limit: 1) {
+      status
+    }
+  }
+  stakingPool: staking_pool(order_by: {height: desc}, limit: 1, offset: 0) {
+    height
+    bonded: bonded_tokens
+  }
+}
+    `;
+
+/**
+ * __useValidatorVotingPowersQuery__
+ *
+ * To run a query within a React component, call `useValidatorVotingPowersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorVotingPowersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorVotingPowersQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useValidatorVotingPowersQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorVotingPowersQuery, ValidatorVotingPowersQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorVotingPowersQuery, ValidatorVotingPowersQueryVariables>(ValidatorVotingPowersDocument, options);
+      }
+export function useValidatorVotingPowersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorVotingPowersQuery, ValidatorVotingPowersQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorVotingPowersQuery, ValidatorVotingPowersQueryVariables>(ValidatorVotingPowersDocument, options);
+        }
+export type ValidatorVotingPowersQueryHookResult = ReturnType<typeof useValidatorVotingPowersQuery>;
+export type ValidatorVotingPowersLazyQueryHookResult = ReturnType<typeof useValidatorVotingPowersLazyQuery>;
+export type ValidatorVotingPowersQueryResult = Apollo.QueryResult<ValidatorVotingPowersQuery, ValidatorVotingPowersQueryVariables>;
+export const ValidatorAddressDocument = gql`
+    query ValidatorAddress($address: String) {
+  validator(where: {validator_info: {operator_address: {_eq: $address}}}) {
+    validatorInfo: validator_info {
+      operatorAddress: operator_address
+      selfDelegateAddress: self_delegate_address
+    }
+  }
+}
+    `;
+
+/**
+ * __useValidatorAddressQuery__
+ *
+ * To run a query within a React component, call `useValidatorAddressQuery` and pass it any options that fit your needs.
+ * When your component renders, `useValidatorAddressQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useValidatorAddressQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useValidatorAddressQuery(baseOptions?: Apollo.QueryHookOptions<ValidatorAddressQuery, ValidatorAddressQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ValidatorAddressQuery, ValidatorAddressQueryVariables>(ValidatorAddressDocument, options);
+      }
+export function useValidatorAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ValidatorAddressQuery, ValidatorAddressQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ValidatorAddressQuery, ValidatorAddressQueryVariables>(ValidatorAddressDocument, options);
+        }
+export type ValidatorAddressQueryHookResult = ReturnType<typeof useValidatorAddressQuery>;
+export type ValidatorAddressLazyQueryHookResult = ReturnType<typeof useValidatorAddressLazyQuery>;
+export type ValidatorAddressQueryResult = Apollo.QueryResult<ValidatorAddressQuery, ValidatorAddressQueryVariables>;
 export const ValidatorDelegationsDocument = gql`
     query ValidatorDelegations($validatorAddress: String!, $offset: Int = 0, $limit: Int = 10, $pagination: Boolean! = true) {
   delegations: action_validator_delegations(
