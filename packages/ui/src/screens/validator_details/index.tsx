@@ -8,16 +8,22 @@ import Staking from '@/screens/validator_details/components/staking';
 import Transactions from '@/screens/validator_details/components/transactions';
 import ValidatorOverview from '@/screens/validator_details/components/validator_overview';
 import VotingPower from '@/screens/validator_details/components/voting_power';
-import { useValidatorProfileDetails, useValidatorExists } from '@/screens/validator_details/hooks';
+import {
+  useValidatorProfileDetails,
+  useValidatorOverviewDetails,
+  useValidatorVotingPowerDetails,
+} from '@/screens/validator_details/hooks';
 import useStyles from '@/screens/validator_details/styles';
 import LoadAndExist from '@/components/load_and_exist';
 
 const ValidatorDetails = () => {
   const { t } = useAppTranslation('validators');
   const { classes } = useStyles();
-  const { validator } = useValidatorExists();
   const { state, loading } = useValidatorProfileDetails();
   const { exists, desmosProfile, operatorAddress } = state;
+  const { state: validatorOverviewState, loading: validatorOverviewLoading } =
+    useValidatorOverviewDetails();
+  const { state: validatorVPState, loading: validatorVPLoading } = useValidatorVotingPowerDetails();
 
   return (
     <>
@@ -28,19 +34,41 @@ const ValidatorDetails = () => {
         }}
       />
       <Layout navTitle={t('validatorDetails') ?? undefined}>
-        <LoadAndExist loading={state.loading} exists={validator.exists}>
+        <LoadAndExist loading={loading} exists={state.exists}>
           <div>
             <span className={classes.root}>
               {exists && desmosProfile ? (
                 <DesmosProfile className={classes.profile} {...desmosProfile} loading={loading} />
               ) : (
-                <Profile className={classes.profile} />
+                <Profile
+                  className={classes.profile}
+                  profile={validatorOverviewState.overview}
+                  loading={loading}
+                />
               )}
-              <ValidatorOverview className={classes.address} />
-              <VotingPower className={classes.votingPower} />
-              <Blocks className={classes.blocks} address={operatorAddress} />
-              <Staking className={classes.staking} address={operatorAddress} />
-              <Transactions className={classes.transactions} />
+              {!loading ? (
+                <>
+                  <ValidatorOverview
+                    className={classes.address}
+                    overview={validatorOverviewState.overview}
+                    status={validatorOverviewState.status}
+                    loading={validatorOverviewLoading}
+                  />
+                  <VotingPower
+                    className={classes.votingPower}
+                    data={validatorVPState.votingPower}
+                    status={validatorVPState.votingPower.validatorStatus}
+                    loading={validatorVPLoading}
+                  />
+                </>
+              ) : null}
+              {!loading && !validatorOverviewLoading && !validatorVPLoading ? (
+                <>
+                  <Blocks className={classes.blocks} address={operatorAddress} />
+                  <Staking className={classes.staking} address={operatorAddress} />
+                  <Transactions className={classes.transactions} />
+                </>
+              ) : null}
             </span>
           </div>
         </LoadAndExist>

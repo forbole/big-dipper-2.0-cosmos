@@ -9,21 +9,23 @@ import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import { FC } from 'react';
 import Loading from '@/components/loading';
-import { useValidatorOverviewDetails } from '@/screens/validator_details/hooks';
+import type { OverviewType } from '@/screens/validator_details/types';
 
-const Profile: FC<{ className?: string }> = ({ className }) => {
+const Profile: FC<{ className?: string; profile: OverviewType; loading: boolean }> = ({
+  className,
+  profile,
+  loading,
+}) => {
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
   const { t } = useAppTranslation('validators');
-  const { state, loading } = useValidatorOverviewDetails();
-  const { overview } = state;
-  const { imageUrl, name } = useProfileRecoil(overview.validator);
+  const { imageUrl, name } = useProfileRecoil(profile.validator);
 
   const pattern = /^((http|https|ftp):\/\/)/;
-  let { website } = overview;
+  let { website } = profile;
 
-  if (!pattern.test(overview.website)) {
-    website = `//${overview.website}`;
+  if (!pattern.test(profile.website)) {
+    website = `//${profile.website}`;
   }
 
   return (
@@ -34,7 +36,7 @@ const Profile: FC<{ className?: string }> = ({ className }) => {
         <>
           <div className={classes.bio}>
             <Avatar
-              address={overview.operatorAddress}
+              address={profile.operatorAddress}
               imageUrl={imageUrl ?? undefined}
               className={cx(classes.avatar, display.hiddenUntilLg)}
             />
@@ -45,7 +47,7 @@ const Profile: FC<{ className?: string }> = ({ className }) => {
                 {/* ======================== */}
                 <div className={classes.header}>
                   <Avatar
-                    address={overview.operatorAddress}
+                    address={profile.operatorAddress}
                     imageUrl={imageUrl ?? undefined}
                     className={cx(classes.avatar, display.hiddenWhenLg)}
                   />
@@ -57,9 +59,9 @@ const Profile: FC<{ className?: string }> = ({ className }) => {
               {/* ======================== */}
               {/* bio */}
               {/* ======================== */}
-              {overview.description && (
+              {profile.description && (
                 <div className="bio__content">
-                  <Markdown markdown={overview.description} />
+                  <Markdown markdown={profile.description} />
                 </div>
               )}
             </div>
@@ -79,7 +81,7 @@ const Profile: FC<{ className?: string }> = ({ className }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                {overview.website}
+                {profile.website}
               </Typography>
             </div>
           </div>

@@ -18,20 +18,25 @@ import numeral from 'numeral';
 import { FC } from 'react';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import Loading from '@/components/loading';
-import { useValidatorOverviewDetails } from '@/screens/validator_details/hooks';
+import type { OverviewType, StatusType } from '@/screens/validator_details/types';
 
 type ValidatorOverviewProps = {
   className?: string;
+  status: StatusType;
+  overview: OverviewType;
+  loading: boolean;
 };
 
-const ValidatorOverview: FC<ValidatorOverviewProps> = ({ className }) => {
+const ValidatorOverview: FC<ValidatorOverviewProps> = ({
+  status,
+  overview,
+  className,
+  loading,
+}) => {
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
   const { t } = useAppTranslation('validators');
   const { handleCopyToClipboard } = useAddress(t);
-  const { state, loading } = useValidatorOverviewDetails();
-  const { overview, status } = state;
-
   const statusTheme = getValidatorStatus(status.status, status.jailed, status.tombstoned);
   const condition = getCondition(status.condition, status.status);
 
@@ -112,10 +117,7 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ className }) => {
       ),
       value: (
         <Typography variant="body1" className="value">
-          {Big(status.maxRate)
-            ?.times(100)
-            .toFixed(2)}
-          %
+          {Big(status.maxRate)?.times(100).toFixed(2)}%
         </Typography>
       ),
     },
@@ -177,7 +179,7 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({ className }) => {
           </div>
           <Divider className={classes.divider} />
           <div className={classes.statusRoot}>
-            {statusItems.map(x => (
+            {statusItems.map((x) => (
               <div key={x.key} className={classes.statusItem}>
                 {x.name}
                 {x.value}
