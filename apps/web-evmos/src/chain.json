@@ -3,7 +3,8 @@
   "title": "Evmos Block Explorer",
   "extra": {
     "profile": false,
-    "graphqlWs": true
+    "graphqlWs": true,
+    "votingPowerExponent": 18
   },
   "previewImage": "https://s3.bigdipper.live/evmos.png",
   "themes": {

@@ -128,7 +128,7 @@ export const useStaking = (
         .filter((x) => x.validatorInfo)
         .map((x) => ({
           validator: x.validatorInfo?.operatorAddress ?? '',
-          commission: (x.validatorCommissions?.[0]?.commission ?? 0) * 100,
+          commission: (x?.validatorCommissions?.[0]?.commission ?? 0) * 100,
         }));
 
       setValidatorsCommission(formattedItems);
@@ -331,7 +331,7 @@ export const useStaking = (
   );
 
   return {
-    state,
+    stakingState: state,
     delegations: {
       loading: delegationsLoading,
       count: delegationsPagination,

@@ -32,11 +32,11 @@ const formatOnlineVotingPower = (data: OnlineVotingPowerQuery) => {
 };
 
 export const useOnlineVotingPower = () => {
-  const [state, setState] = useState(initialState);
+  const [onlineVPstate, setOnlineVPState] = useState(initialState);
 
   const handleSetState = useCallback(
     (stateChange: (prevState: OnlineVotingPowerState) => OnlineVotingPowerState) => {
-      setState((prevState) => {
+      setOnlineVPState((prevState) => {
         const newState = stateChange(prevState);
         return R.equals(prevState, newState) ? prevState : newState;
       });
@@ -54,6 +54,6 @@ export const useOnlineVotingPower = () => {
   });
 
   return {
-    state,
+    onlineVPstate,
   };
 };

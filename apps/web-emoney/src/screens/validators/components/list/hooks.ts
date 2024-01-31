@@ -13,12 +13,12 @@ import type {
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
 
-const { votingPowerTokenUnit } = chainConfig();
+const { extra, votingPowerTokenUnit } = chainConfig();
 
 // ==========================
 // Parse data
 // ==========================
-const formatValidators = (data: ValidatorsQuery) => {
+const formatValidators = (data: ValidatorsQuery): Partial<ValidatorsState> => {
   const slashingParams = SlashingParams.fromJson(data?.slashingParams?.[0]?.params ?? {});
   const votingPowerOverall =
     numeral(
@@ -31,10 +31,10 @@ const formatValidators = (data: ValidatorsQuery) => {
     .filter((x) => x.validatorInfo)
     .map((x) => {
       const votingPower =
-        numeral(
-          formatToken(x?.validatorVotingPowers?.[0]?.votingPower ?? 0, votingPowerTokenUnit).value
-        ).value() ?? 0;
-      const votingPowerPercent = numeral((votingPower / (votingPowerOverall ?? 0)) * 100).value();
+        (x?.validatorVotingPowers?.[0]?.votingPower ?? 0) / 10 ** (extra.votingPowerExponent ?? 0);
+      const votingPowerPercent = votingPowerOverall
+        ? numeral((votingPower / votingPowerOverall) * 100).value()
+        : 0;
 
       const missedBlockCounter = x?.validatorSigningInfos?.[0]?.missedBlocksCounter ?? 0;
       const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
@@ -112,7 +112,13 @@ export const useValidators = () => {
         ...formatValidators(data),
       }));
     },
-    onError: () => handleSetState((prevState) => ({ ...prevState, loading: false })),
+    onError: () => {
+      handleSetState((prevState) => ({
+        ...prevState,
+        loading: false,
+        exists: false,
+      }));
+    },
   });
 
   const handleTabChange = useCallback(
@@ -125,20 +131,27 @@ export const useValidators = () => {
     []
   );
 
-  const handleSort = (key: string) => {
-    if (key === state.sortKey) {
-      setState((prevState) => ({
-        ...prevState,
-        sortDirection: prevState.sortDirection === 'asc' ? 'desc' : 'asc',
-      }));
-    } else {
-      setState((prevState) => ({
-        ...prevState,
-        sortKey: key,
-        sortDirection: 'asc', // new key so we start the sort by asc
-      }));
-    }
-  };
+  const handleSort = useCallback(
+    (key: string) => {
+      if (key === state.sortKey) {
+        setState((prevState) => ({
+          ...prevState,
+          sortDirection: prevState.sortDirection === 'asc' ? 'desc' : 'asc',
+        }));
+      } else {
+        setState((prevState) => ({
+          ...prevState,
+          sortKey: key,
+          sortDirection: 'asc', // new key so we start the sort by asc
+        }));
+      }
+    },
+    [state.sortKey]
+  );
+
+  const handleSearch = useCallback((value: string) => {
+    setSearch(value);
+  }, []);
 
   const sortItems = useCallback(
     (items: ItemType[]) => {
@@ -150,6 +163,16 @@ export const useValidators = () => {
 
       if (state.tab === 1) {
         sorted = sorted.filter((x) => x.status !== 3);
+      }
+
+      if (search) {
+        sorted = sorted.filter((x) => {
+          const formattedSearch = search.toLowerCase().replace(/ /g, '');
+          return (
+            x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch) ||
+            x.validator.address.toLowerCase().includes(formattedSearch)
+          );
+        });
       }
 
       if (state.sortKey && state.sortDirection) {
@@ -174,12 +197,8 @@ export const useValidators = () => {
 
       return sorted;
     },
-    [state.sortDirection, state.sortKey, state.tab]
+    [search, state.sortDirection, state.sortKey, state.tab]
   );
-
-  const handleSearch = useCallback((value: string) => {
-    setSearch(value);
-  }, []);
 
   return {
     state,

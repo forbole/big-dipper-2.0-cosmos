@@ -23,19 +23,20 @@ import {
 } from 'react-share';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import ShareIcon from 'shared-utils/assets/icon-share.svg';
+import { useAccountWithdrawalAddr } from '@/screens/account_details/hooks';
 
 type OverviewProps = {
   className?: string;
-  withdrawalAddress: string;
-  address: string;
 };
 
-const Overview: FC<OverviewProps> = ({ className, address, withdrawalAddress }) => {
+const Overview: FC<OverviewProps> = ({ className }) => {
   const { location } = useWindowOrigin();
   const { classes, cx } = useStyles();
   const display = useDisplayStyles().classes;
   const { t } = useAppTranslation('accounts');
   const { open, handleClose, handleOpen, handleCopyToClipboard } = useOverview(t);
+  const { state } = useAccountWithdrawalAddr();
+  const { address, withdrawalAddress } = state.overview;
 
   const url = `${location}/accounts/${address}`;
   const hashTags = ['bigdipperexplorer', 'bigdipper'];

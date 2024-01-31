@@ -7,21 +7,24 @@ import Tabs from '@/screens/account_details/components/staking/components/tabs';
 import Unbondings from '@/screens/account_details/components/staking/components/unbondings';
 import { useStaking } from '@/screens/account_details/components/staking/hooks';
 import useStyles from '@/screens/account_details/components/staking/styles';
-import type { RewardsType } from '@/screens/account_details/types';
 import { formatCount } from '@/screens/validator_details/components/staking';
+import Loading from '@/components/loading';
+import { useAccountRewards } from '@/screens/account_details/hooks';
 
 type StakingProps = {
   className?: string;
-  rewards: RewardsType;
 };
 
-const Staking: FC<StakingProps> = ({ rewards, className }) => {
+const Staking: FC<StakingProps> = ({ className }) => {
   const { classes, cx } = useStyles();
   const [delegationsPage, setDelegationsPage] = useState(0);
   const [redelegationsPage, setRedelegationsPage] = useState(0);
   const [unbondingsPage, setUnbondingsPage] = useState(0);
-  const { state, delegations, redelegations, unbondings, handleTabChange } = useStaking(
-    rewards,
+  const accountRewards = useAccountRewards();
+  const { state } = accountRewards;
+
+  const { stakingState, delegations, redelegations, unbondings, handleTabChange } = useStaking(
+    state.rewards,
     delegationsPage,
     redelegationsPage,
     unbondingsPage
@@ -50,12 +53,18 @@ const Staking: FC<StakingProps> = ({ rewards, className }) => {
 
   return (
     <Box className={cx(classes.root, className)}>
-      <Tabs tab={state.tab} handleTabChange={handleTabChange} tabs={tabs} />
-      {tabs.map((x) => (
-        <TabPanel key={x.id} index={x.id} value={state.tab}>
-          {x.component}
-        </TabPanel>
-      ))}
+      {state.loading ? (
+        <Loading />
+      ) : (
+        <>
+          <Tabs tab={stakingState.tab} handleTabChange={handleTabChange} tabs={tabs} />
+          {tabs.map((x) => (
+            <TabPanel key={x.id} index={x.id} value={stakingState.tab}>
+              {x.component}
+            </TabPanel>
+          ))}
+        </>
+      )}
     </Box>
   );
 };
