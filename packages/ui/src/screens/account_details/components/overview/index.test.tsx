@@ -21,10 +21,7 @@ describe('screen: AccountDetails/Overview', () => {
   it('matches snapshot', () => {
     component = renderer.create(
       <MockTheme>
-        <Overview
-          withdrawalAddress="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
-          address="desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz"
-        />
+        <Overview />
       </MockTheme>
     );
     const tree = component?.toJSON();
