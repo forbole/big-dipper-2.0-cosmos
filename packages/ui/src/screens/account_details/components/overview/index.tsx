@@ -23,7 +23,7 @@ import {
 } from 'react-share';
 import CopyIcon from 'shared-utils/assets/icon-copy.svg';
 import ShareIcon from 'shared-utils/assets/icon-share.svg';
-import { useAccountWithdrawalAddressHook } from '@/screens/account_details/hooks';
+import { useAccountWithdrawalAddr } from '@/screens/account_details/hooks';
 
 type OverviewProps = {
   className?: string;
@@ -35,7 +35,7 @@ const Overview: FC<OverviewProps> = ({ className }) => {
   const display = useDisplayStyles().classes;
   const { t } = useAppTranslation('accounts');
   const { open, handleClose, handleOpen, handleCopyToClipboard } = useOverview(t);
-  const { state } = useAccountWithdrawalAddressHook();
+  const { state } = useAccountWithdrawalAddr();
   const { address, withdrawalAddress } = state.overview;
 
   const url = `${location}/accounts/${address}`;

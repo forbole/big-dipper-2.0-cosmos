@@ -329,7 +329,7 @@ export const useAccountBalance = () => {
   return { state };
 };
 
-export const useAccountWithdrawalAddressHook = () => {
+export const useAccountWithdrawalAddr = () => {
   const router = useRouter();
   const [state, setState] = useState<AccountWithdrawalAddressState>(withdrawalAddrInitialState);
 
