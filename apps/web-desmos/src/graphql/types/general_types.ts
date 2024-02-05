@@ -3069,6 +3069,142 @@ export type Message_Sum_Order_By = {
   partition_id?: InputMaybe<Order_By>;
 };
 
+/** columns and relationships of "message_type" */
+export type Message_Type = {
+  __typename?: 'message_type';
+  height: Scalars['bigint'];
+  label: Scalars['String'];
+  module: Scalars['String'];
+  type: Scalars['String'];
+};
+
+/** aggregated selection of "message_type" */
+export type Message_Type_Aggregate = {
+  __typename?: 'message_type_aggregate';
+  aggregate?: Maybe<Message_Type_Aggregate_Fields>;
+  nodes: Array<Message_Type>;
+};
+
+/** aggregate fields of "message_type" */
+export type Message_Type_Aggregate_Fields = {
+  __typename?: 'message_type_aggregate_fields';
+  avg?: Maybe<Message_Type_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Message_Type_Max_Fields>;
+  min?: Maybe<Message_Type_Min_Fields>;
+  stddev?: Maybe<Message_Type_Stddev_Fields>;
+  stddev_pop?: Maybe<Message_Type_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Message_Type_Stddev_Samp_Fields>;
+  sum?: Maybe<Message_Type_Sum_Fields>;
+  var_pop?: Maybe<Message_Type_Var_Pop_Fields>;
+  var_samp?: Maybe<Message_Type_Var_Samp_Fields>;
+  variance?: Maybe<Message_Type_Variance_Fields>;
+};
+
+
+/** aggregate fields of "message_type" */
+export type Message_Type_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Message_Type_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Message_Type_Avg_Fields = {
+  __typename?: 'message_type_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "message_type". All fields are combined with a logical 'AND'. */
+export type Message_Type_Bool_Exp = {
+  _and?: InputMaybe<Array<Message_Type_Bool_Exp>>;
+  _not?: InputMaybe<Message_Type_Bool_Exp>;
+  _or?: InputMaybe<Array<Message_Type_Bool_Exp>>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  label?: InputMaybe<String_Comparison_Exp>;
+  module?: InputMaybe<String_Comparison_Exp>;
+  type?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Message_Type_Max_Fields = {
+  __typename?: 'message_type_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  label?: Maybe<Scalars['String']>;
+  module?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Message_Type_Min_Fields = {
+  __typename?: 'message_type_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  label?: Maybe<Scalars['String']>;
+  module?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "message_type". */
+export type Message_Type_Order_By = {
+  height?: InputMaybe<Order_By>;
+  label?: InputMaybe<Order_By>;
+  module?: InputMaybe<Order_By>;
+  type?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "message_type" */
+export enum Message_Type_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Label = 'label',
+  /** column name */
+  Module = 'module',
+  /** column name */
+  Type = 'type'
+}
+
+/** aggregate stddev on columns */
+export type Message_Type_Stddev_Fields = {
+  __typename?: 'message_type_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Message_Type_Stddev_Pop_Fields = {
+  __typename?: 'message_type_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Message_Type_Stddev_Samp_Fields = {
+  __typename?: 'message_type_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Message_Type_Sum_Fields = {
+  __typename?: 'message_type_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Message_Type_Var_Pop_Fields = {
+  __typename?: 'message_type_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Message_Type_Var_Samp_Fields = {
+  __typename?: 'message_type_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Message_Type_Variance_Fields = {
+  __typename?: 'message_type_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** aggregate var_pop on columns */
 export type Message_Var_Pop_Fields = {
   __typename?: 'message_var_pop_fields';
@@ -3119,6 +3255,18 @@ export type Messages_By_Address_Args = {
   limit?: InputMaybe<Scalars['bigint']>;
   offset?: InputMaybe<Scalars['bigint']>;
   types?: InputMaybe<Scalars['_text']>;
+};
+
+export type Messages_By_Type_Args = {
+  limit?: InputMaybe<Scalars['bigint']>;
+  offset?: InputMaybe<Scalars['bigint']>;
+  types?: InputMaybe<Scalars['_text']>;
+};
+
+export type Messages_Types_By_Address_Args = {
+  addresses?: InputMaybe<Scalars['_text']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
 };
 
 /** columns and relationships of "mint_params" */
@@ -3728,9 +3876,9 @@ export type Proposal = {
   __typename?: 'proposal';
   content: Scalars['jsonb'];
   deposit_end_time?: Maybe<Scalars['timestamp']>;
-  description: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
   id: Scalars['Int'];
-  metadata: Scalars['String'];
+  metadata?: Maybe<Scalars['String']>;
   /** An array relationship */
   proposal_deposits: Array<Proposal_Deposit>;
   /** An aggregate relationship */
@@ -3752,6 +3900,7 @@ export type Proposal = {
   staking_pool_snapshot?: Maybe<Proposal_Staking_Pool_Snapshot>;
   status?: Maybe<Scalars['String']>;
   submit_time: Scalars['timestamp'];
+  summary?: Maybe<Scalars['String']>;
   title: Scalars['String'];
   /** An array relationship */
   validator_status_snapshots: Array<Proposal_Validator_Status_Snapshot>;
@@ -3922,6 +4071,7 @@ export type Proposal_Bool_Exp = {
   staking_pool_snapshot?: InputMaybe<Proposal_Staking_Pool_Snapshot_Bool_Exp>;
   status?: InputMaybe<String_Comparison_Exp>;
   submit_time?: InputMaybe<Timestamp_Comparison_Exp>;
+  summary?: InputMaybe<String_Comparison_Exp>;
   title?: InputMaybe<String_Comparison_Exp>;
   validator_status_snapshots?: InputMaybe<Proposal_Validator_Status_Snapshot_Bool_Exp>;
   voting_end_time?: InputMaybe<Timestamp_Comparison_Exp>;
@@ -4178,6 +4328,7 @@ export type Proposal_Max_Fields = {
   proposer_address?: Maybe<Scalars['String']>;
   status?: Maybe<Scalars['String']>;
   submit_time?: Maybe<Scalars['timestamp']>;
+  summary?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   voting_end_time?: Maybe<Scalars['timestamp']>;
   voting_start_time?: Maybe<Scalars['timestamp']>;
@@ -4192,6 +4343,7 @@ export type Proposal_Max_Order_By = {
   proposer_address?: InputMaybe<Order_By>;
   status?: InputMaybe<Order_By>;
   submit_time?: InputMaybe<Order_By>;
+  summary?: InputMaybe<Order_By>;
   title?: InputMaybe<Order_By>;
   voting_end_time?: InputMaybe<Order_By>;
   voting_start_time?: InputMaybe<Order_By>;
@@ -4207,6 +4359,7 @@ export type Proposal_Min_Fields = {
   proposer_address?: Maybe<Scalars['String']>;
   status?: Maybe<Scalars['String']>;
   submit_time?: Maybe<Scalars['timestamp']>;
+  summary?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   voting_end_time?: Maybe<Scalars['timestamp']>;
   voting_start_time?: Maybe<Scalars['timestamp']>;
@@ -4221,6 +4374,7 @@ export type Proposal_Min_Order_By = {
   proposer_address?: InputMaybe<Order_By>;
   status?: InputMaybe<Order_By>;
   submit_time?: InputMaybe<Order_By>;
+  summary?: InputMaybe<Order_By>;
   title?: InputMaybe<Order_By>;
   voting_end_time?: InputMaybe<Order_By>;
   voting_start_time?: InputMaybe<Order_By>;
@@ -4242,6 +4396,7 @@ export type Proposal_Order_By = {
   staking_pool_snapshot?: InputMaybe<Proposal_Staking_Pool_Snapshot_Order_By>;
   status?: InputMaybe<Order_By>;
   submit_time?: InputMaybe<Order_By>;
+  summary?: InputMaybe<Order_By>;
   title?: InputMaybe<Order_By>;
   validator_status_snapshots_aggregate?: InputMaybe<Proposal_Validator_Status_Snapshot_Aggregate_Order_By>;
   voting_end_time?: InputMaybe<Order_By>;
@@ -4266,6 +4421,8 @@ export enum Proposal_Select_Column {
   Status = 'status',
   /** column name */
   SubmitTime = 'submit_time',
+  /** column name */
+  Summary = 'summary',
   /** column name */
   Title = 'title',
   /** column name */
@@ -5388,10 +5545,22 @@ export type Query_Root = {
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
   message_aggregate: Message_Aggregate;
+  /** fetch data from the table: "message_type" */
+  message_type: Array<Message_Type>;
+  /** fetch aggregated fields from the table: "message_type" */
+  message_type_aggregate: Message_Type_Aggregate;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
   /** execute function "messages_by_address" and query aggregates on result of table type "message" */
   messages_by_address_aggregate: Message_Aggregate;
+  /** execute function "messages_by_type" which returns "message" */
+  messages_by_type: Array<Message>;
+  /** execute function "messages_by_type" and query aggregates on result of table type "message" */
+  messages_by_type_aggregate: Message_Aggregate;
+  /** execute function "messages_types_by_address" which returns "message" */
+  messages_types_by_address: Array<Message>;
+  /** execute function "messages_types_by_address" and query aggregates on result of table type "message" */
+  messages_types_by_address_aggregate: Message_Aggregate;
   /** fetch data from the table: "mint_params" */
   mint_params: Array<Mint_Params>;
   /** fetch aggregated fields from the table: "mint_params" */
@@ -5933,6 +6102,24 @@ export type Query_RootMessage_AggregateArgs = {
 };
 
 
+export type Query_RootMessage_TypeArgs = {
+  distinct_on?: InputMaybe<Array<Message_Type_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Type_Order_By>>;
+  where?: InputMaybe<Message_Type_Bool_Exp>;
+};
+
+
+export type Query_RootMessage_Type_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Message_Type_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Type_Order_By>>;
+  where?: InputMaybe<Message_Type_Bool_Exp>;
+};
+
+
 export type Query_RootMessages_By_AddressArgs = {
   args: Messages_By_Address_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
@@ -5945,6 +6132,46 @@ export type Query_RootMessages_By_AddressArgs = {
 
 export type Query_RootMessages_By_Address_AggregateArgs = {
   args: Messages_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
+export type Query_RootMessages_By_TypeArgs = {
+  args: Messages_By_Type_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
+export type Query_RootMessages_By_Type_AggregateArgs = {
+  args: Messages_By_Type_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
+export type Query_RootMessages_Types_By_AddressArgs = {
+  args: Messages_Types_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
+export type Query_RootMessages_Types_By_Address_AggregateArgs = {
+  args: Messages_Types_By_Address_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -7235,10 +7462,22 @@ export type Subscription_Root = {
   message: Array<Message>;
   /** fetch aggregated fields from the table: "message" */
   message_aggregate: Message_Aggregate;
+  /** fetch data from the table: "message_type" */
+  message_type: Array<Message_Type>;
+  /** fetch aggregated fields from the table: "message_type" */
+  message_type_aggregate: Message_Type_Aggregate;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
   /** execute function "messages_by_address" and query aggregates on result of table type "message" */
   messages_by_address_aggregate: Message_Aggregate;
+  /** execute function "messages_by_type" which returns "message" */
+  messages_by_type: Array<Message>;
+  /** execute function "messages_by_type" and query aggregates on result of table type "message" */
+  messages_by_type_aggregate: Message_Aggregate;
+  /** execute function "messages_types_by_address" which returns "message" */
+  messages_types_by_address: Array<Message>;
+  /** execute function "messages_types_by_address" and query aggregates on result of table type "message" */
+  messages_types_by_address_aggregate: Message_Aggregate;
   /** fetch data from the table: "mint_params" */
   mint_params: Array<Mint_Params>;
   /** fetch aggregated fields from the table: "mint_params" */
@@ -7694,6 +7933,24 @@ export type Subscription_RootMessage_AggregateArgs = {
 };
 
 
+export type Subscription_RootMessage_TypeArgs = {
+  distinct_on?: InputMaybe<Array<Message_Type_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Type_Order_By>>;
+  where?: InputMaybe<Message_Type_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessage_Type_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Message_Type_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Type_Order_By>>;
+  where?: InputMaybe<Message_Type_Bool_Exp>;
+};
+
+
 export type Subscription_RootMessages_By_AddressArgs = {
   args: Messages_By_Address_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
@@ -7706,6 +7963,46 @@ export type Subscription_RootMessages_By_AddressArgs = {
 
 export type Subscription_RootMessages_By_Address_AggregateArgs = {
   args: Messages_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessages_By_TypeArgs = {
+  args: Messages_By_Type_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessages_By_Type_AggregateArgs = {
+  args: Messages_By_Type_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessages_Types_By_AddressArgs = {
+  args: Messages_Types_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessages_Types_By_Address_AggregateArgs = {
+  args: Messages_Types_By_Address_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -11967,6 +12264,29 @@ export type MarketDataQueryVariables = Exact<{
 
 export type MarketDataQuery = { communityPool: Array<{ __typename?: 'community_pool', coins: any }>, inflation: Array<{ __typename?: 'inflation', value: any }>, tokenPrice: Array<{ __typename?: 'token_price', price: any, marketCap: any }>, supply: Array<{ __typename?: 'supply', coins: any }>, bondedTokens: Array<{ __typename?: 'staking_pool', bonded_tokens: any }>, distributionParams: Array<{ __typename?: 'distribution_params', params: any }> };
 
+export type MessageTypesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MessageTypesQuery = { msgTypes: Array<{ __typename?: 'message_type', type: string, module: string, label: string }> };
+
+export type MessagesByTypesListenerSubscriptionVariables = Exact<{
+  types?: InputMaybe<Scalars['_text']>;
+  limit?: InputMaybe<Scalars['bigint']>;
+  offset?: InputMaybe<Scalars['bigint']>;
+}>;
+
+
+export type MessagesByTypesListenerSubscription = { messagesByTypes: Array<{ __typename?: 'message', transaction?: { __typename?: 'transaction', height: any, hash: string, success: boolean, messages: any, logs?: any | null, block: { __typename?: 'block', height: any, timestamp: any } } | null }> };
+
+export type MessagesByTypesQueryVariables = Exact<{
+  types?: InputMaybe<Scalars['_text']>;
+  limit?: InputMaybe<Scalars['bigint']>;
+  offset?: InputMaybe<Scalars['bigint']>;
+}>;
+
+
+export type MessagesByTypesQuery = { messagesByTypes: Array<{ __typename?: 'message', transaction?: { __typename?: 'transaction', height: any, hash: string, success: boolean, messages: any, logs?: any | null, block: { __typename?: 'block', height: any, timestamp: any } } | null }> };
+
 export type GetMessagesByAddressQueryVariables = Exact<{
   address?: InputMaybe<Scalars['_text']>;
   limit?: InputMaybe<Scalars['bigint']>;
@@ -11992,7 +12312,7 @@ export type ProposalDetailsQueryVariables = Exact<{
 }>;
 
 
-export type ProposalDetailsQuery = { proposal: Array<{ __typename?: 'proposal', title: string, description: string, status?: string | null, content: any, proposer: string, proposalId: number, submitTime: any, depositEndTime?: any | null, votingStartTime?: any | null, votingEndTime?: any | null }> };
+export type ProposalDetailsQuery = { proposal: Array<{ __typename?: 'proposal', title: string, description?: string | null, status?: string | null, content: any, proposer: string, proposalId: number, submitTime: any, depositEndTime?: any | null, votingStartTime?: any | null, votingEndTime?: any | null }> };
 
 export type ProposalDetailsTallyQueryVariables = Exact<{
   proposalId?: InputMaybe<Scalars['Int']>;
@@ -12021,7 +12341,7 @@ export type ProposalsQueryVariables = Exact<{
 }>;
 
 
-export type ProposalsQuery = { proposals: Array<{ __typename?: 'proposal', title: string, status?: string | null, description: string, proposalId: number }>, total: { __typename?: 'proposal_aggregate', aggregate?: { __typename?: 'proposal_aggregate_fields', count: number } | null } };
+export type ProposalsQuery = { proposals: Array<{ __typename?: 'proposal', title: string, status?: string | null, description?: string | null, proposalId: number }>, total: { __typename?: 'proposal_aggregate', aggregate?: { __typename?: 'proposal_aggregate_fields', count: number } | null } };
 
 export type TokenPriceListenerSubscriptionVariables = Exact<{
   denom?: InputMaybe<Scalars['String']>;
@@ -12121,11 +12441,6 @@ export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ValidatorsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', bondedTokens: any }>, validator: Array<{ __typename?: 'validator', validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
-
-export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type ValidatorsAddressListQuery = { validator: Array<{ __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, identity?: string | null, avatarUrl?: string | null }> }> };
 
 export type ValidatorAddressesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -12868,6 +13183,135 @@ export function useMarketDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type MarketDataQueryHookResult = ReturnType<typeof useMarketDataQuery>;
 export type MarketDataLazyQueryHookResult = ReturnType<typeof useMarketDataLazyQuery>;
 export type MarketDataQueryResult = Apollo.QueryResult<MarketDataQuery, MarketDataQueryVariables>;
+export const MessageTypesDocument = gql`
+    query MessageTypes {
+  msgTypes: message_type {
+    type
+    module
+    label
+  }
+}
+    `;
+
+/**
+ * __useMessageTypesQuery__
+ *
+ * To run a query within a React component, call `useMessageTypesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMessageTypesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMessageTypesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useMessageTypesQuery(baseOptions?: Apollo.QueryHookOptions<MessageTypesQuery, MessageTypesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MessageTypesQuery, MessageTypesQueryVariables>(MessageTypesDocument, options);
+      }
+export function useMessageTypesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MessageTypesQuery, MessageTypesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MessageTypesQuery, MessageTypesQueryVariables>(MessageTypesDocument, options);
+        }
+export type MessageTypesQueryHookResult = ReturnType<typeof useMessageTypesQuery>;
+export type MessageTypesLazyQueryHookResult = ReturnType<typeof useMessageTypesLazyQuery>;
+export type MessageTypesQueryResult = Apollo.QueryResult<MessageTypesQuery, MessageTypesQueryVariables>;
+export const MessagesByTypesListenerDocument = gql`
+    subscription MessagesByTypesListener($types: _text = "{}", $limit: bigint = 50, $offset: bigint = 0) {
+  messagesByTypes: messages_by_type(
+    args: {types: $types, limit: $limit, offset: $offset}
+  ) {
+    transaction {
+      height
+      hash
+      success
+      messages
+      logs
+      block {
+        height
+        timestamp
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useMessagesByTypesListenerSubscription__
+ *
+ * To run a query within a React component, call `useMessagesByTypesListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useMessagesByTypesListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMessagesByTypesListenerSubscription({
+ *   variables: {
+ *      types: // value for 'types'
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useMessagesByTypesListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<MessagesByTypesListenerSubscription, MessagesByTypesListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<MessagesByTypesListenerSubscription, MessagesByTypesListenerSubscriptionVariables>(MessagesByTypesListenerDocument, options);
+      }
+export type MessagesByTypesListenerSubscriptionHookResult = ReturnType<typeof useMessagesByTypesListenerSubscription>;
+export type MessagesByTypesListenerSubscriptionResult = Apollo.SubscriptionResult<MessagesByTypesListenerSubscription>;
+export const MessagesByTypesDocument = gql`
+    query MessagesByTypes($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
+  messagesByTypes: messages_by_type(
+    args: {types: $types, limit: $limit, offset: $offset}
+  ) {
+    transaction {
+      height
+      hash
+      success
+      messages
+      logs
+      block {
+        height
+        timestamp
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useMessagesByTypesQuery__
+ *
+ * To run a query within a React component, call `useMessagesByTypesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMessagesByTypesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMessagesByTypesQuery({
+ *   variables: {
+ *      types: // value for 'types'
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useMessagesByTypesQuery(baseOptions?: Apollo.QueryHookOptions<MessagesByTypesQuery, MessagesByTypesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MessagesByTypesQuery, MessagesByTypesQueryVariables>(MessagesByTypesDocument, options);
+      }
+export function useMessagesByTypesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MessagesByTypesQuery, MessagesByTypesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MessagesByTypesQuery, MessagesByTypesQueryVariables>(MessagesByTypesDocument, options);
+        }
+export type MessagesByTypesQueryHookResult = ReturnType<typeof useMessagesByTypesQuery>;
+export type MessagesByTypesLazyQueryHookResult = ReturnType<typeof useMessagesByTypesLazyQuery>;
+export type MessagesByTypesQueryResult = Apollo.QueryResult<MessagesByTypesQuery, MessagesByTypesQueryVariables>;
 export const GetMessagesByAddressDocument = gql`
     query GetMessagesByAddress($address: _text, $limit: bigint = 50, $offset: bigint = 0, $types: _text = "{}") {
   messagesByAddress: messages_by_address(
