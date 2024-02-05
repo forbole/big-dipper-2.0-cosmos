@@ -1699,7 +1699,7 @@ export type Messages_By_Address_Args = {
   types?: InputMaybe<Scalars['_text']>;
 };
 
-export type Messages_By_Types_Args = {
+export type Messages_By_Type_Args = {
   limit?: InputMaybe<Scalars['bigint']>;
   offset?: InputMaybe<Scalars['bigint']>;
   types?: InputMaybe<Scalars['_text']>;
@@ -3435,8 +3435,8 @@ export type Query_Root = {
   message_type_aggregate: Message_Type_Aggregate;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
-  /** execute function "messages_by_types" which returns "message" */
-  messages_by_types: Array<Message>;
+  /** execute function "messages_by_type" which returns "message" */
+  messages_by_type: Array<Message>;
   /** execute function "messages_types_by_address" which returns "message" */
   messages_types_by_address: Array<Message>;
   /** fetch data from the table: "mint_params" */
@@ -3513,6 +3513,8 @@ export type Query_Root = {
   token_unit: Array<Token_Unit>;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
+  /** execute function "transactions_by_type" which returns "message" */
+  transactions_by_type: Array<Message>;
   /** fetch data from the table: "validator" */
   validator: Array<Validator>;
   /** fetch data from the table: "validator" using primary key columns */
@@ -3829,8 +3831,8 @@ export type Query_RootMessages_By_AddressArgs = {
 };
 
 
-export type Query_RootMessages_By_TypesArgs = {
-  args: Messages_By_Types_Args;
+export type Query_RootMessages_By_TypeArgs = {
+  args: Messages_By_Type_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4143,6 +4145,16 @@ export type Query_RootTransactionArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Transaction_Order_By>>;
   where?: InputMaybe<Transaction_Bool_Exp>;
+};
+
+
+export type Query_RootTransactions_By_TypeArgs = {
+  args: Transactions_By_Type_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
 };
 
 
@@ -4654,8 +4666,8 @@ export type Subscription_Root = {
   message_type_aggregate: Message_Type_Aggregate;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
-  /** execute function "messages_by_types" which returns "message" */
-  messages_by_types: Array<Message>;
+  /** execute function "messages_by_type" which returns "message" */
+  messages_by_type: Array<Message>;
   /** execute function "messages_types_by_address" which returns "message" */
   messages_types_by_address: Array<Message>;
   /** fetch data from the table: "mint_params" */
@@ -4732,6 +4744,8 @@ export type Subscription_Root = {
   token_unit: Array<Token_Unit>;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
+  /** execute function "transactions_by_type" which returns "message" */
+  transactions_by_type: Array<Message>;
   /** fetch data from the table: "validator" */
   validator: Array<Validator>;
   /** fetch data from the table: "validator" using primary key columns */
@@ -4962,8 +4976,8 @@ export type Subscription_RootMessages_By_AddressArgs = {
 };
 
 
-export type Subscription_RootMessages_By_TypesArgs = {
-  args: Messages_By_Types_Args;
+export type Subscription_RootMessages_By_TypeArgs = {
+  args: Messages_By_Type_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -5276,6 +5290,16 @@ export type Subscription_RootTransactionArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Transaction_Order_By>>;
   where?: InputMaybe<Transaction_Bool_Exp>;
+};
+
+
+export type Subscription_RootTransactions_By_TypeArgs = {
+  args: Transactions_By_Type_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
 };
 
 
@@ -6103,6 +6127,12 @@ export type Transaction_Variance_Order_By = {
   gas_used?: InputMaybe<Order_By>;
   gas_wanted?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
+};
+
+export type Transactions_By_Type_Args = {
+  limit?: InputMaybe<Scalars['bigint']>;
+  offset?: InputMaybe<Scalars['bigint']>;
+  types?: InputMaybe<Scalars['_text']>;
 };
 
 /** columns and relationships of "validator" */
@@ -8569,7 +8599,7 @@ export type MessageTypesLazyQueryHookResult = ReturnType<typeof useMessageTypesL
 export type MessageTypesQueryResult = Apollo.QueryResult<MessageTypesQuery, MessageTypesQueryVariables>;
 export const MessagesByTypesListenerDocument = gql`
     subscription MessagesByTypesListener($types: _text = "{}", $limit: bigint = 50, $offset: bigint = 0) {
-  messagesByTypes: messages_by_types(
+  messagesByTypes: messages_by_type(
     args: {types: $types, limit: $limit, offset: $offset}
   ) {
     transaction {
@@ -8613,7 +8643,7 @@ export type MessagesByTypesListenerSubscriptionHookResult = ReturnType<typeof us
 export type MessagesByTypesListenerSubscriptionResult = Apollo.SubscriptionResult<MessagesByTypesListenerSubscription>;
 export const MessagesByTypesDocument = gql`
     query MessagesByTypes($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
-  messagesByTypes: messages_by_types(
+  messagesByTypes: messages_by_type(
     args: {types: $types, limit: $limit, offset: $offset}
   ) {
     transaction {
