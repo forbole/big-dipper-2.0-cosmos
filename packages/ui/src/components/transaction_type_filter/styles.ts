@@ -115,7 +115,7 @@ const useStyles = makeStyles()(theme => ({
     '& svg': {
       height: '16px',
       width: '16px',
-      marginLeft: '8px',
+      marginRight: '8px',
       marginTop: '-3px',
     },
   },
