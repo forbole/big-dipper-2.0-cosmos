@@ -43,7 +43,7 @@ const useStyles = makeStyles()(theme => ({
     paddingBottom: theme.spacing(1),
     '& .MuiTypography-root': {
       display: 'flex',
-      color: 'rgba(255, 131, 91, 1)',
+      color: theme.palette.primary.main,
       fontSize: '16px',
       fontStyle: 'normal',
       fontWeight: 590,
@@ -54,15 +54,7 @@ const useStyles = makeStyles()(theme => ({
   },
   moduleNameTypography: {
     display: 'flex',
-    paddingTop: theme.spacing(1.25),
-    color: 'rgba(255, 131, 91, 1)',
-    fontFamily: 'SF Pro',
     fontSize: '16px',
-    fontStyle: 'normal',
-    fontWeight: 590,
-    lineHeight: '20px',
-    letterSpacing: '-0.544px',
-    textTransform: 'capitalize',
   },
   msgOption: {
     color: theme.palette.custom.fonts.fontFour,
