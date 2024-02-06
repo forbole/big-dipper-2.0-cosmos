@@ -14,6 +14,7 @@ export const useTransactionTypeFilter = () => {
   const { data, error, loading, refetch } = useMessageTypesQuery();
   const [filteredTypes, setFilteredTypes] = useState([] as string[]);
   const [txsFilter, setTxsFilter] = useState([] as string[]);
+  const [selectAllChecked, setSelectAllChecked] = useState(false);
   const [_, setFilter] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
   const [__, setOpenDialog] = useRecoilState(writeOpenDialog) as [
     boolean,
@@ -39,10 +40,10 @@ export const useTransactionTypeFilter = () => {
 
   const formatTypes = (messages: MsgsTypes[]) => {
     // merge v1 and v1beta1 MsgVote type into one
-    const filteredMsgVotes = messages?.filter((msg) => msg.label === 'MsgVote');
+    const filteredMsgVotes = messages?.filter(msg => msg.label === 'MsgVote');
     if (filteredMsgVotes?.length > 1) {
       messages = [
-        ...messages.filter((msg) => msg.label !== 'MsgVote'),
+        ...messages.filter(msg => msg.label !== 'MsgVote'),
         {
           __typename: 'message_type',
           type: 'cosmos.gov.v1beta1.MsgVote,cosmos.gov.v1.MsgVote',
@@ -53,10 +54,10 @@ export const useTransactionTypeFilter = () => {
     }
 
     // merge v1 and v1beta1 MsgSubmitProposal type into one
-    const filteredMsgSubmitProposals = messages?.filter((msg) => msg.label === 'MsgSubmitProposal');
+    const filteredMsgSubmitProposals = messages?.filter(msg => msg.label === 'MsgSubmitProposal');
     if (filteredMsgSubmitProposals?.length > 1) {
       messages = [
-        ...messages.filter((msg) => msg.label !== 'MsgSubmitProposal'),
+        ...messages.filter(msg => msg.label !== 'MsgSubmitProposal'),
         {
           __typename: 'message_type',
           type: 'cosmos.gov.v1beta1.MsgSubmitProposal,cosmos.gov.v1.MsgSubmitProposal',
@@ -65,9 +66,9 @@ export const useTransactionTypeFilter = () => {
         },
       ];
     }
-    const categories = [...new Set(messages?.map((msgType) => msgType?.module))];
+    const categories = [...new Set(messages?.map(msgType => msgType?.module))];
     return categories.reduce((acc, module) => {
-      const msgs = messages?.filter((msgType) => msgType?.module === module);
+      const msgs = messages?.filter(msgType => msgType?.module === module);
       return [...acc, { module, msgTypes: msgs }];
     }, []);
   };
@@ -76,17 +77,32 @@ export const useTransactionTypeFilter = () => {
     const str = txsFilter.join(',');
     const query = `{${str}}`;
     setFilter(() => query);
+    setSelectAllChecked(false);
     handleClose();
   };
 
   const handleTxTypeSelection = (event: ChangeEvent<HTMLInputElement>) => {
-    let msgList = txsFilter;
-    if (!msgList.includes(event.target.value)) {
-      msgList.push(event.target.value);
-      setTxsFilter(msgList);
+    const { checked } = event.target;
+    if (checked) {
+      let msgList = txsFilter;
+      if (!msgList.includes(event?.target?.value)) {
+        msgList.push(event?.target?.value);
+        setTxsFilter(msgList);
+      } else {
+        msgList = msgList.filter(v => v !== event?.target?.value);
+        setTxsFilter(msgList);
+      }
+    }
+  };
+
+  const handleSelectAllTxTypes = (event: ChangeEvent<HTMLInputElement>) => {
+    const { checked } = event.target;
+    if (checked) {
+      setTxsFilter(filteredTypes);
+      setSelectAllChecked(true);
     } else {
-      msgList = msgList.filter((v) => v !== event.target.value);
-      setTxsFilter(msgList);
+      // setTxsFilter([]);
+      setSelectAllChecked(false);
     }
   };
 
@@ -108,7 +124,7 @@ export const useTransactionTypeFilter = () => {
         typesList.sort((a, b) => a.module.localeCompare(b.module));
         const types = typesList.filter(
           (v: { module: string; msgTypes: [{ type: string; label: string }] }) =>
-            v.msgTypes.some((ms) => ms.type.toLowerCase().indexOf(parsedValue) !== -1)
+            v.msgTypes.some(ms => ms.type.toLowerCase().indexOf(parsedValue) !== -1)
         );
         setFilteredTypes(types);
       }
@@ -121,10 +137,12 @@ export const useTransactionTypeFilter = () => {
     loading,
     msgTypeList,
     filteredTypes,
+    selectAllChecked,
     txTypeSearchFilter,
     handleCancel,
     handleOpen,
     handleFilterTxs,
     handleTxTypeSelection,
+    handleSelectAllTxTypes,
   };
 };

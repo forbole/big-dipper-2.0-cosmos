@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import TxTypeSearch from '@/components/transaction_type_filter/components/transaction_type_search';
 import { useRecoilValue } from 'recoil';
 import { readOpenDialog } from '@/recoil/transactions_filter';
+import Checkbox from '@mui/material/Checkbox';
 import useStyles from './styles';
 
 const FilterTxsByType: FC<ComponentDefault> = () => {
@@ -19,8 +20,10 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
   const {
     filteredTypes,
     txTypeSearchFilter,
+    selectAllChecked,
     handleFilterTxs,
     handleTxTypeSelection,
+    handleSelectAllTxTypes,
     handleCancel,
     handleOpen,
   } = useTransactionTypeFilter();
@@ -51,12 +54,22 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
               placeholder={t('searchType') ?? undefined}
             />
           </div>
+          <div className={classes.selectAll}>
+            <Typography variant="h2">{t('selectAll')}</Typography>
+            <Checkbox
+              type="checkbox"
+              id="msg_type_select_all"
+              name="msg_type_select_all"
+              onClick={e => handleSelectAllTxTypes(e)}
+              key="msg_type_select_all"
+            />
+          </div>
         </DialogTitle>
-        <DialogContent dividers>
-          {filteredTypes.map((msgData) => (
+        <DialogContent>
+          {filteredTypes.map(msgData => (
             <div>
               <div className={classes.moduleName}>
-                {msgData.module.includes('ibc') ? (
+                {msgData?.module?.includes('ibc') ? (
                   <Typography>
                     {msgData.module.charAt(0).toUpperCase() +
                       msgData.module.charAt(1).toUpperCase() +
@@ -64,29 +77,30 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
                       msgData.module.slice(3)}
                   </Typography>
                 ) : (
-                  <Typography>{msgData.module}</Typography>
+                  <Typography>{msgData?.module}</Typography>
                 )}
               </div>
-              <div className="row">
-                <form className="col-md-6">
-                  {msgData.msgTypes.map((msg) => (
+              <div>
+                <form>
+                  {msgData.msgTypes.map(msg => (
                     <div className={classes.msgType}>
-                      <input
-                        type="checkbox"
-                        id={`msg_type_${msg.label}`}
-                        name={`msg_type_${msg.label}`}
-                        value={msg.type}
-                        className={classes.checkbox}
-                        onClick={(e) => handleTxTypeSelection(e)}
-                        key={`msg_type_${msg.label}`}
-                      />
-                      <label htmlFor="messageType" className={classes.msgOption}>
-                        <div className="col-md-6">
+                      <label className={classes.msgOption}>
+                        <Checkbox
+                          // checked={selectAllChecked}
+                          type="checkbox"
+                          id={`msg_type_${msg.label}`}
+                          name={`msg_type_${msg.label}`}
+                          value={msg.type}
+                          className={classes.checkBox}
+                          onClick={e => handleTxTypeSelection(e)}
+                          key={`msg_type_${msg.label}`}
+                        />
+                        <Typography className={classes.msgLabel}>
                           {msg.label
                             .substring(3)
                             .match(/[A-Z][a-z]+|[0-9]+/g)
                             .join(' ')}
-                        </div>
+                        </Typography>
                       </label>
                     </div>
                   ))}
