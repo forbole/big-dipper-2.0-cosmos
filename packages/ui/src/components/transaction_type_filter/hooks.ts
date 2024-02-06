@@ -3,7 +3,7 @@ import { useMessageTypesQuery } from '@/graphql/types/general_types';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 import { writeFilter, writeOpenDialog } from '@/recoil/transactions_filter';
 
-type MsgsTypes = {
+type MessageType = {
   __typename: string;
   type: string;
   module: string;
@@ -38,41 +38,65 @@ export const useTransactionTypeFilter = () => {
     setOpenDialog(false);
   };
 
-  const formatTypes = (messages: MsgsTypes[]) => {
-    // merge v1 and v1beta1 MsgVote type into one
-    const filteredMsgVotes = messages?.filter(msg => msg.label === 'MsgVote');
-    if (filteredMsgVotes?.length > 1) {
-      messages = [
-        ...messages.filter(msg => msg.label !== 'MsgVote'),
-        {
-          __typename: 'message_type',
-          type: 'cosmos.gov.v1beta1.MsgVote,cosmos.gov.v1.MsgVote',
-          module: 'gov',
-          label: 'MsgVote',
-        },
-      ];
-    }
+  const mergeMessagesByLabel = (
+    messages: MessageType[],
+    labels: string[],
+    mergedTypes: string[],
+    mergedModule: string
+  ): MessageType[] => {
+    const updatedMessages: MessageType[] = [];
 
-    // merge v1 and v1beta1 MsgSubmitProposal type into one
-    const filteredMsgSubmitProposals = messages?.filter(msg => msg.label === 'MsgSubmitProposal');
-    if (filteredMsgSubmitProposals?.length > 1) {
-      messages = [
-        ...messages.filter(msg => msg.label !== 'MsgSubmitProposal'),
-        {
+    messages.forEach(msg => {
+      const index = labels.indexOf(msg.label);
+      if (
+        index !== -1 &&
+        updatedMessages.filter(updatedMsg => updatedMsg.label === msg.label).length < 2
+      ) {
+        updatedMessages.push({
           __typename: 'message_type',
-          type: 'cosmos.gov.v1beta1.MsgSubmitProposal,cosmos.gov.v1.MsgSubmitProposal',
-          module: 'gov',
-          label: 'MsgSubmitProposal',
-        },
-      ];
-    }
-    const categories = [...new Set(messages?.map(msgType => msgType?.module))];
-    return categories.reduce((acc, module) => {
-      const msgs = messages?.filter(msgType => msgType?.module === module);
-      return [...acc, { module, msgTypes: msgs }];
-    }, []);
+          type: mergedTypes[index],
+          module: mergedModule,
+          label: msg.label,
+        });
+      } else {
+        updatedMessages.push(msg);
+      }
+    });
+
+    return updatedMessages;
   };
 
+  const formatTypes = useCallback((messages: MessageType[] | null | undefined) => {
+    if (!messages) {
+      return [];
+    }
+
+    let updatedMessages = [...messages];
+
+    updatedMessages = mergeMessagesByLabel(
+      updatedMessages,
+      ['MsgDeposit', 'MsgVote', 'MsgSubmitProposal'],
+      [
+        'cosmos.gov.v1beta1.MsgDeposit,cosmos.gov.v1.MsgDeposit',
+        'cosmos.gov.v1beta1.MsgVote,cosmos.gov.v1.MsgVote',
+        'cosmos.gov.v1beta1.MsgSubmitProposal,cosmos.gov.v1.MsgSubmitProposal',
+      ],
+      'gov'
+    );
+
+    const moduleMessagesMap: { [key: string]: MessageType[] } = {};
+
+    updatedMessages.forEach(msgType => {
+      if (!moduleMessagesMap[msgType.module]) {
+        moduleMessagesMap[msgType.module] = [];
+      }
+      if (!moduleMessagesMap[msgType.module].some(msg => msg.label === msgType.label)) {
+        moduleMessagesMap[msgType.module].push(msgType);
+      }
+    });
+
+    return Object.entries(moduleMessagesMap).map(([module, msgTypes]) => ({ module, msgTypes }));
+  }, []);
   const handleFilterTxs = () => {
     const str = txsFilter.join(',');
     const query = `{${str}}`;
@@ -106,7 +130,7 @@ export const useTransactionTypeFilter = () => {
     const typesList = formatTypes(data?.msgTypes);
     typesList.sort((a, b) => a.module.localeCompare(b.module));
     setFilteredTypes(typesList);
-  }, [data]);
+  }, [data?.msgTypes, formatTypes]);
 
   const txTypeSearchFilter = useCallback(
     (value: string) => {
@@ -125,7 +149,7 @@ export const useTransactionTypeFilter = () => {
         setFilteredTypes(types);
       }
     },
-    [data]
+    [data?.msgTypes, formatTypes]
   );
 
   return {
