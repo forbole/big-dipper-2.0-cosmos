@@ -12,16 +12,16 @@ type MsgsTypes = {
 
 export const useTransactionTypeFilter = () => {
   const { data, error, loading, refetch } = useMessageTypesQuery();
-  const [filteredTypes, setFilteredTypes] = useState([] as string[]);
-  const [txsFilter, setTxsFilter] = useState([] as string[]);
-  const [selectAllChecked, setSelectAllChecked] = useState(false);
+  const [filteredTypes, setFilteredTypes] = useState<any[]>([]);
+  const [txsFilter, setTxsFilter] = useState<string[]>([]);
+  const [selectAllChecked, setSelectAllChecked] = useState<boolean>(false);
   const [_, setFilter] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
   const [__, setOpenDialog] = useRecoilState(writeOpenDialog) as [
     boolean,
     SetterOrUpdater<boolean>
   ];
 
-  /* If there is an error, refetch the data. */
+  // Fetch data if there's an error
   useEffect(() => {
     if (error) refetch();
   }, [error, refetch]);
@@ -82,27 +82,23 @@ export const useTransactionTypeFilter = () => {
   };
 
   const handleTxTypeSelection = (event: ChangeEvent<HTMLInputElement>) => {
-    const { checked } = event.target;
+    const { checked, value } = event.target;
     if (checked) {
-      let msgList = txsFilter;
-      if (!msgList.includes(event?.target?.value)) {
-        msgList.push(event?.target?.value);
-        setTxsFilter(msgList);
-      } else {
-        msgList = msgList.filter(v => v !== event?.target?.value);
-        setTxsFilter(msgList);
-      }
+      setTxsFilter(prevFilter => [...prevFilter, value]);
+    } else {
+      setTxsFilter(prevFilter => prevFilter.filter(item => item !== value));
+      setSelectAllChecked(false); // Uncheck "Select All" if any checkbox is unchecked individually
     }
   };
 
   const handleSelectAllTxTypes = (event: ChangeEvent<HTMLInputElement>) => {
     const { checked } = event.target;
+    setSelectAllChecked(checked);
     if (checked) {
-      setTxsFilter(filteredTypes);
-      setSelectAllChecked(true);
+      const allTypes = filteredTypes.flatMap(msgData => msgData.msgTypes.map(msg => msg.type));
+      setTxsFilter(allTypes);
     } else {
-      // setTxsFilter([]);
-      setSelectAllChecked(false);
+      setTxsFilter([]);
     }
   };
 
@@ -137,6 +133,7 @@ export const useTransactionTypeFilter = () => {
     loading,
     msgTypeList,
     filteredTypes,
+    txsFilter,
     selectAllChecked,
     txTypeSearchFilter,
     handleCancel,

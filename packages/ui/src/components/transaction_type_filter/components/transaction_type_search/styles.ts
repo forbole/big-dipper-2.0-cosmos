@@ -5,7 +5,8 @@ const useStyles = makeStyles()(theme => ({
     '& .MuiInputBase-root': {
       width: '300px',
       height: '32px',
-      background: theme.palette.mode === 'dark' ? '#282828' : theme.palette.background.paper,
+      background:
+        theme.palette.mode === 'dark' ? theme.palette.divider : theme.palette.background.paper,
       padding: theme.spacing(0.4, 1.2),
       borderRadius: '8px',
     },

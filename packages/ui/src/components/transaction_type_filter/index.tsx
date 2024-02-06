@@ -1,9 +1,9 @@
+import React, { FC } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
-import { FC } from 'react';
 import FilterTxsIcon from 'shared-utils/assets/icon-filter-transactions.svg';
 import { useTransactionTypeFilter } from '@/components/transaction_type_filter/hooks';
 import DialogActions from '@mui/material/DialogActions';
@@ -12,12 +12,14 @@ import TxTypeSearch from '@/components/transaction_type_filter/components/transa
 import { useRecoilValue } from 'recoil';
 import { readOpenDialog } from '@/recoil/transactions_filter';
 import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import useStyles from './styles';
 
 const FilterTxsByType: FC<ComponentDefault> = () => {
   const { classes } = useStyles();
   const { t } = useAppTranslation('common');
   const {
+    txsFilter,
     filteredTypes,
     txTypeSearchFilter,
     selectAllChecked,
@@ -55,13 +57,15 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
             />
           </div>
           <div className={classes.selectAll}>
-            <Typography variant="h2">{t('selectAll')}</Typography>
-            <Checkbox
-              type="checkbox"
-              id="msg_type_select_all"
-              name="msg_type_select_all"
-              onClick={e => handleSelectAllTxTypes(e)}
-              key="msg_type_select_all"
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={selectAllChecked}
+                  onChange={handleSelectAllTxTypes}
+                  color="primary"
+                />
+              }
+              label={t('selectAll')}
             />
           </div>
         </DialogTitle>
@@ -82,18 +86,17 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
               </div>
               <div>
                 <form>
-                  {msgData.msgTypes.map(msg => (
-                    <div className={classes.msgType}>
+                  {msgData?.msgTypes?.map((msg, index) => (
+                    <div key={index} className={classes.msgType}>
                       <label className={classes.msgOption}>
                         <Checkbox
-                          // checked={selectAllChecked}
                           type="checkbox"
                           id={`msg_type_${msg.label}`}
                           name={`msg_type_${msg.label}`}
                           value={msg.type}
                           className={classes.checkBox}
-                          onClick={e => handleTxTypeSelection(e)}
-                          key={`msg_type_${msg.label}`}
+                          checked={selectAllChecked || txsFilter.includes(msg.type)}
+                          onChange={e => handleTxTypeSelection(e)}
                         />
                         <Typography className={classes.msgLabel}>
                           {msg.label
