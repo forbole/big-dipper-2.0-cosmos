@@ -1,9 +1,9 @@
 import InputAdornment from '@mui/material/InputAdornment';
 import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
 import { FC } from 'react';
-import useStyles from '@/components/search/styles';
 import { useTxTypeSearch } from '@/components/transaction_type_filter/components/transaction_type_search/hooks';
+import useStyles from '@/components/transaction_type_filter/components/transaction_type_search/styles';
+import IconSearch from 'shared-utils/assets/icon-search.svg';
 
 type TxTypeSearchProps = {
   className?: string;
@@ -26,7 +26,7 @@ const TxTypeSearch: FC<TxTypeSearchProps> = ({ className, placeholder, callback 
         }}
         startAdornment={
           <InputAdornment position="start">
-            <SearchIcon fontSize="small" />
+            <IconSearch className={classes.iconSearch} />
           </InputAdornment>
         }
       />

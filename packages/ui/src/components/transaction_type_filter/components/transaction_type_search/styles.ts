@@ -3,10 +3,11 @@ import { makeStyles } from 'tss-react/mui';
 const useStyles = makeStyles()(theme => ({
   root: {
     '& .MuiInputBase-root': {
-      width: '100%',
-      background: theme.palette.background.paper,
+      width: '300px',
+      height: '32px',
+      background: theme.palette.mode === 'dark' ? '#282828' : theme.palette.background.paper,
       padding: theme.spacing(0.4, 1.2),
-      borderRadius: theme.shape.borderRadius,
+      borderRadius: '8px',
     },
     '& .MuiInputBase-input': {
       textOverflow: 'ellipsis',
@@ -14,6 +15,9 @@ const useStyles = makeStyles()(theme => ({
         color: theme.palette.custom.fonts.fontFour,
       },
     },
+  },
+  iconSearch: {
+    fill: 'none',
   },
 }));
 
