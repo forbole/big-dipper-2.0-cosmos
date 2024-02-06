@@ -91,5 +91,6 @@
   "scanWalletConnectQR": "Please scan the QR with a WalletConnect compatible Wallet.",
   "walletTitle": "Connected wallets",
   "searchType": "Wyszukaj typ",
+  "selectAll": "Wybierz wszystko",
   "filtr": "Filtruj"
 }

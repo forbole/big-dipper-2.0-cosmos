@@ -89,5 +89,6 @@
   "scanWalletConnectQR": "Please scan the QR with a WalletConnect compatible Wallet.",
   "walletTitle": "Connected wallets",
   "searchType": "搜尋類型",
+  "selectAll": "全選",
   "filter": "過濾器"
 }
