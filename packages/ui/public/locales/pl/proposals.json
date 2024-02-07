@@ -27,6 +27,7 @@
   "votingEndTime": "Czas zakończenia głosowania",
   "votingStartTime": "Czas rozpoczęcia głosowania",
   "content": "Treść",
+  "metadata": "Metadata",
   "textProposal": "Propozycja tekst",
   "parameterChangeProposal": "Propozycja zmiany parametru",
   "communityPoolSpendProposal": "Propozycja wydatkowania puli społeczności",
