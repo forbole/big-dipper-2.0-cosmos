@@ -3257,7 +3257,7 @@ export type Messages_By_Address_Args = {
   types?: InputMaybe<Scalars['_text']>;
 };
 
-export type Messages_By_Types_Args = {
+export type Messages_By_Type_Args = {
   limit?: InputMaybe<Scalars['bigint']>;
   offset?: InputMaybe<Scalars['bigint']>;
   types?: InputMaybe<Scalars['_text']>;
@@ -5553,10 +5553,10 @@ export type Query_Root = {
   messages_by_address: Array<Message>;
   /** execute function "messages_by_address" and query aggregates on result of table type "message" */
   messages_by_address_aggregate: Message_Aggregate;
-  /** execute function "messages_by_types" which returns "message" */
-  messages_by_types: Array<Message>;
-  /** execute function "messages_by_types" and query aggregates on result of table type "message" */
-  messages_by_types_aggregate: Message_Aggregate;
+  /** execute function "messages_by_type" which returns "message" */
+  messages_by_type: Array<Message>;
+  /** execute function "messages_by_type" and query aggregates on result of table type "message" */
+  messages_by_type_aggregate: Message_Aggregate;
   /** execute function "messages_types_by_address" which returns "message" */
   messages_types_by_address: Array<Message>;
   /** execute function "messages_types_by_address" and query aggregates on result of table type "message" */
@@ -6140,8 +6140,8 @@ export type Query_RootMessages_By_Address_AggregateArgs = {
 };
 
 
-export type Query_RootMessages_By_TypesArgs = {
-  args: Messages_By_Types_Args;
+export type Query_RootMessages_By_TypeArgs = {
+  args: Messages_By_Type_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -6150,8 +6150,8 @@ export type Query_RootMessages_By_TypesArgs = {
 };
 
 
-export type Query_RootMessages_By_Types_AggregateArgs = {
-  args: Messages_By_Types_Args;
+export type Query_RootMessages_By_Type_AggregateArgs = {
+  args: Messages_By_Type_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -7470,10 +7470,10 @@ export type Subscription_Root = {
   messages_by_address: Array<Message>;
   /** execute function "messages_by_address" and query aggregates on result of table type "message" */
   messages_by_address_aggregate: Message_Aggregate;
-  /** execute function "messages_by_types" which returns "message" */
-  messages_by_types: Array<Message>;
-  /** execute function "messages_by_types" and query aggregates on result of table type "message" */
-  messages_by_types_aggregate: Message_Aggregate;
+  /** execute function "messages_by_type" which returns "message" */
+  messages_by_type: Array<Message>;
+  /** execute function "messages_by_type" and query aggregates on result of table type "message" */
+  messages_by_type_aggregate: Message_Aggregate;
   /** execute function "messages_types_by_address" which returns "message" */
   messages_types_by_address: Array<Message>;
   /** execute function "messages_types_by_address" and query aggregates on result of table type "message" */
@@ -7971,8 +7971,8 @@ export type Subscription_RootMessages_By_Address_AggregateArgs = {
 };
 
 
-export type Subscription_RootMessages_By_TypesArgs = {
-  args: Messages_By_Types_Args;
+export type Subscription_RootMessages_By_TypeArgs = {
+  args: Messages_By_Type_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -7981,8 +7981,8 @@ export type Subscription_RootMessages_By_TypesArgs = {
 };
 
 
-export type Subscription_RootMessages_By_Types_AggregateArgs = {
-  args: Messages_By_Types_Args;
+export type Subscription_RootMessages_By_Type_AggregateArgs = {
+  args: Messages_By_Type_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -12289,7 +12289,7 @@ export type ProposalDetailsQueryVariables = Exact<{
 }>;
 
 
-export type ProposalDetailsQuery = { proposal: Array<{ __typename?: 'proposal', title: string, description?: string | null, status?: string | null, content: any, proposer: string, proposalId: number, submitTime: any, depositEndTime?: any | null, votingStartTime?: any | null, votingEndTime?: any | null }> };
+export type ProposalDetailsQuery = { proposal: Array<{ __typename?: 'proposal', title: string, description?: string | null, status?: string | null, content: any, metadata?: string | null, proposer: string, proposalId: number, submitTime: any, depositEndTime?: any | null, votingStartTime?: any | null, votingEndTime?: any | null }> };
 
 export type ProposalDetailsTallyQueryVariables = Exact<{
   proposalId?: InputMaybe<Scalars['Int']>;
@@ -13361,6 +13361,7 @@ export const ProposalDetailsDocument = gql`
     content
     proposalId: id
     submitTime: submit_time
+    metadata
     depositEndTime: deposit_end_time
     votingStartTime: voting_start_time
     votingEndTime: voting_end_time

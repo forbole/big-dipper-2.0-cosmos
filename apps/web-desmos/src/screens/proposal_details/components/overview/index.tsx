@@ -132,16 +132,20 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
       />
       <Divider />
       <div className={classes.content}>
-        <Typography variant="body1" className="label">
-          {t('type')}
-        </Typography>
-        <Typography variant="body1">
-          {types.map((type: string) => (
-            <Typography variant="body1" className="value" key={type}>
-              {t(type)}
+        {!!(types.length > 0) && (
+          <>
+            <Typography variant="body1" className="label">
+              {t('type')}
             </Typography>
-          ))}
-        </Typography>
+            <Typography variant="body1">
+              {types.map((type: string) => (
+                <Typography variant="body1" className="value" key={type}>
+                  {t(type)}
+                </Typography>
+              ))}
+            </Typography>
+          </>
+        )}
         <Typography variant="body1" className="label">
           {t('proposer')}
         </Typography>
@@ -190,6 +194,14 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
           {t('description')}
         </Typography>
         <Markdown markdown={overview.description} />
+        {!!overview.metadata && (
+          <>
+            <Typography variant="body1" className="label">
+              {t('metadata')}
+            </Typography>
+            <Markdown markdown={overview?.metadata} />
+          </>
+        )}
         {extra}
       </div>
     </Box>
