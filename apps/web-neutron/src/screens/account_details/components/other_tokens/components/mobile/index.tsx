@@ -18,10 +18,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
     <div className={className}>
       {items?.map((x, i) => {
         const available = formatNumber(x.available.value, x.available.exponent);
-        const reward = x.reward ? formatNumber(x.reward.value, x.reward.exponent) : '';
-        const commission = x.commission
-          ? formatNumber(x.commission.value, x.commission.exponent)
-          : '';
+
         const isLast = !items || i === items.length - 1;
         return (
           // eslint-disable-next-line react/no-array-index-key
@@ -48,7 +45,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
                   {t('reward')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {reward}
+                 0
                 </Typography>
               </div>
               <div className={classes.item}>
@@ -56,7 +53,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
                   {t('commission')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {commission}
+                  0
                 </Typography>
               </div>
             </div>

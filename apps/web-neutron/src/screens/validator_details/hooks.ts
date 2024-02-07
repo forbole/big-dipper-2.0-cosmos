@@ -47,7 +47,7 @@ const initialState: ValidatorDetailsState = {
 };
 
 // ============================
-// overview
+// Overview
 // ============================
 const formatOverview = (data: ValidatorDetailsQuery) => {
   const operatorAddress = data?.ccv_validator?.[0]?.consumer_operator_address ?? '';
@@ -68,7 +68,7 @@ const formatOverview = (data: ValidatorDetailsQuery) => {
 };
 
 // ============================
-// status
+// Status
 // ============================
 const formatStatus = (data: ValidatorDetailsQuery) => {
   const slashingParams = SlashingParams.fromJson(
@@ -94,7 +94,7 @@ const formatStatus = (data: ValidatorDetailsQuery) => {
 };
 
 // ============================
-// votingPower
+// Voting Power
 // ============================
 const formatVotingPower = (data: ValidatorDetailsQuery) => {
   const validator = data?.ccv_validator?.[0]?.ccv_validator_info?.validator;
@@ -172,7 +172,6 @@ function formatAccountQuery(data: ValidatorDetailsQuery): Partial<ValidatorDetai
   }
 
   stateChange.overview = formatOverview(data);
-
   stateChange.status = formatStatus(data);
   stateChange.votingPower = formatVotingPower(data);
   stateChange.cosmosAddress = cosmosAddress;
