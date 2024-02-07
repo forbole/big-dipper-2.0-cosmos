@@ -132,7 +132,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
       />
       <Divider />
       <div className={classes.content}>
-        {!!(types.length > 0) && (
+        {types.length > 0 && (
           <>
             <Typography variant="body1" className="label">
               {t('type')}
