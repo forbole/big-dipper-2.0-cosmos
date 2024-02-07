@@ -8895,7 +8895,7 @@ export type MessageTypesQueryHookResult = ReturnType<typeof useMessageTypesQuery
 export type MessageTypesLazyQueryHookResult = ReturnType<typeof useMessageTypesLazyQuery>;
 export type MessageTypesQueryResult = Apollo.QueryResult<MessageTypesQuery, MessageTypesQueryVariables>;
 export const MessagesByTypesListenerDocument = gql`
-    subscription MessagesByTypesListener($types: _text = "{}", $limit: bigint = 50, $offset: bigint = 0) {
+    subscription MessagesByTypesListener($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
   messagesByTypes: messages_by_type(
     args: {types: $types, limit: $limit, offset: $offset}
   ) {

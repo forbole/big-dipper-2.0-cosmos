@@ -12153,6 +12153,11 @@ export type ValidatorsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type ValidatorsQuery = { stakingPool: Array<{ __typename?: 'staking_pool', bondedTokens: string }>, validator: Array<{ __typename?: 'validator', validatorStatuses: Array<{ __typename?: 'validator_status', status: number, jailed: boolean, height: any }>, validatorSigningInfos: Array<{ __typename?: 'validator_signing_info', tombstoned: boolean, missedBlocksCounter: any }>, validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null } | null, validatorVotingPowers: Array<{ __typename?: 'validator_voting_power', votingPower: any }>, validatorCommissions: Array<{ __typename?: 'validator_commission', commission: any }> }>, slashingParams: Array<{ __typename?: 'slashing_params', params: any }> };
 
+export type ValidatorsAddressListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ValidatorsAddressListQuery = { validator: Array<{ __typename?: 'validator', validatorInfo?: { __typename?: 'validator_info', operatorAddress: string, selfDelegateAddress?: string | null, consensusAddress: string } | null, validatorDescriptions: Array<{ __typename?: 'validator_description', moniker?: string | null, identity?: string | null, avatarUrl?: string | null }> }> };
+
 export type ValidatorAddressesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -12938,7 +12943,7 @@ export type MessageTypesQueryHookResult = ReturnType<typeof useMessageTypesQuery
 export type MessageTypesLazyQueryHookResult = ReturnType<typeof useMessageTypesLazyQuery>;
 export type MessageTypesQueryResult = Apollo.QueryResult<MessageTypesQuery, MessageTypesQueryVariables>;
 export const MessagesByTypesListenerDocument = gql`
-    subscription MessagesByTypesListener($types: _text = "{}", $limit: bigint = 50, $offset: bigint = 0) {
+    subscription MessagesByTypesListener($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
   messagesByTypes: messages_by_type(
     args: {types: $types, limit: $limit, offset: $offset}
   ) {
