@@ -36,53 +36,42 @@ export const useTransactionTypeFilter = () => {
 
   const handleClose = () => {
     setOpenDialog(false);
+    setTxsFilter([]);
   };
 
-  const mergeMessagesByLabel = (
-    messages: MessageType[],
-    labels: string[],
-    mergedTypes: string[],
-    mergedModule: string
-  ): MessageType[] => {
-    const updatedMessages: MessageType[] = [];
+  const mergeMessagesByLabel = (messages: MessageType[]): MessageType[] => {
+    const labelMap: { [key: string]: string } = {};
 
-    messages.forEach(msg => {
-      const index = labels.indexOf(msg.label);
-      if (
-        index !== -1 &&
-        updatedMessages.filter(updatedMsg => updatedMsg.label === msg.label).length < 2
-      ) {
-        updatedMessages.push({
-          __typename: 'message_type',
-          type: mergedTypes[index],
-          module: mergedModule,
-          label: msg.label,
-        });
+    messages.forEach(message => {
+      if (!labelMap[message.label]) {
+        labelMap[message.label] = message.type;
       } else {
-        updatedMessages.push(msg);
+        labelMap[message.label] += `,${message.type}`;
       }
     });
 
-    return updatedMessages;
+    const reducedMessages: MessageType[] = [];
+
+    Object.entries(labelMap).forEach(([label, type]) => {
+      reducedMessages.push({
+        __typename: 'message_type',
+        type,
+        module: messages.find(msg => msg.label === label)?.module || '',
+        label,
+      });
+    });
+
+    return reducedMessages;
   };
 
-  const formatTypes = useCallback((messages: MessageType[] | null | undefined) => {
+  const formatTypes = useCallback((messages: MessageType[] | null | undefined): MessageType[] => {
     if (!messages) {
       return [];
     }
 
     let updatedMessages = [...messages];
 
-    updatedMessages = mergeMessagesByLabel(
-      updatedMessages,
-      ['MsgDeposit', 'MsgVote', 'MsgSubmitProposal'],
-      [
-        'cosmos.gov.v1beta1.MsgDeposit,cosmos.gov.v1.MsgDeposit',
-        'cosmos.gov.v1beta1.MsgVote,cosmos.gov.v1.MsgVote',
-        'cosmos.gov.v1beta1.MsgSubmitProposal,cosmos.gov.v1.MsgSubmitProposal',
-      ],
-      'gov'
-    );
+    updatedMessages = mergeMessagesByLabel(updatedMessages);
 
     const moduleMessagesMap: { [key: string]: MessageType[] } = {};
 
@@ -97,6 +86,7 @@ export const useTransactionTypeFilter = () => {
 
     return Object.entries(moduleMessagesMap).map(([module, msgTypes]) => ({ module, msgTypes }));
   }, []);
+
   const handleFilterTxs = () => {
     const str = txsFilter.join(',');
     const query = `{${str}}`;
