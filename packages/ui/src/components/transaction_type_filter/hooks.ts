@@ -12,7 +12,7 @@ type MessageType = {
 
 export const useTransactionTypeFilter = () => {
   const { data, error, loading, refetch } = useMessageTypesQuery();
-  const [filteredTypes, setFilteredTypes] = useState<any[]>([]);
+  const [filteredTypes, setFilteredTypes] = useState<string[]>([]);
   const [txsFilter, setTxsFilter] = useState<string[]>([]);
   const [selectAllChecked, setSelectAllChecked] = useState<boolean>(false);
   const [_, setFilter] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];

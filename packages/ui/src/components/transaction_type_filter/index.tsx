@@ -70,7 +70,7 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
           </div>
         </DialogTitle>
         <DialogContent>
-          {filteredTypes.map(msgData => (
+          {filteredTypes?.map(msgData => (
             <div>
               <div className={classes.moduleName}>
                 {msgData?.module?.includes('ibc') ? (
@@ -91,15 +91,15 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
                       <label className={classes.msgOption}>
                         <Checkbox
                           type="checkbox"
-                          id={`msg_type_${msg.label}`}
-                          name={`msg_type_${msg.label}`}
-                          value={msg.type}
+                          id={`msg_type_${msg?.label}`}
+                          name={`msg_type_${msg?.label}`}
+                          value={msg?.type}
                           className={classes.checkBox}
                           checked={selectAllChecked || txsFilter.includes(msg.type)}
                           onChange={e => handleTxTypeSelection(e)}
                         />
                         <Typography className={classes.msgLabel}>
-                          {msg.label
+                          {msg?.label
                             .substring(3)
                             .match(/[A-Z][a-z]+|[0-9]+/g)
                             .join(' ')}
