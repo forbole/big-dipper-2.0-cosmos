@@ -39,6 +39,7 @@ describe('screen: ValidatorDetails/Profile', () => {
             description: 'description',
             website: '',
           }}
+          loading={false}
         />
       </MockTheme>
     );

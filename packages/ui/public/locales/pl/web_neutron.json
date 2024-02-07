@@ -6,5 +6,6 @@
   "params.softOptOutThreshold": "Próg rezygnacji",
   "params.transferTimeoutPeriod": "Okres limitu czasu transferu",
   "params.consumerRedistributionFraction": "Frakcja redystrybucji konsumentów",
-  "params.blocksPerDistributionTransmission": "Bloki na transmisję dystrybucyjną"
+  "params.blocksPerDistributionTransmission": "Bloki na transmisję dystrybucyjną",
+  "validators.stakingDataIsSourcedFromCosmoshub": "Dane dotyczące stakingu pochodzą z Cosmos Hub, ponieważ Neutron jest siecią konsumencką."
 }

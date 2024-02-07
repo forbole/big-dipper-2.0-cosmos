@@ -12,9 +12,9 @@ const provider = chainConfig();
  */
 export const formatProviderToken = (
   value: number | string | null | undefined,
-  denom = ''
+  denom: string
 ): TokenUnit => {
-  const selectedDenom = provider?.tokenUnits[denom];
+  const selectedDenom = provider?.provider?.tokenUnits[denom];
 
   if (typeof value !== 'string' && typeof value !== 'number') {
     value = '0';

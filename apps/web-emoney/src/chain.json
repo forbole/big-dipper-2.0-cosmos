@@ -3,7 +3,8 @@
   "title": "e-Money Block Explorer",
   "extra": {
     "profile": true,
-    "graphqlWs": true
+    "graphqlWs": true,
+    "votingPowerExponent": 6
   },
   "previewImage": "https://s3.bigdipper.live/emoney.png",
   "themes": {

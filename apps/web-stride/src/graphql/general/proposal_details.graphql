@@ -24,7 +24,7 @@ query ProposalDetailsTally($proposalId: Int) {
     bondedTokens: bonded_tokens
   }
   quorum: gov_params (limit: 1, order_by: {height: desc}) {
-   params
+    tallyParams: params 
   }
 }
 

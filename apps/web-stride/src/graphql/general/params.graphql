@@ -11,7 +11,8 @@ query Params {
   distributionParams: distribution_params(limit: 1, order_by: {height: desc}) {
     params
   }
-  govParams: gov_params (limit: 1, order_by: {height: desc}) {
+  govParams: gov_params(limit: 1, order_by: {height: desc}) {
     params
+    height
   }
 }

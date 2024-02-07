@@ -27,6 +27,7 @@
   "votingEndTime": "投票結束時間",
   "votingStartTime": "投票開始時間",
   "content": "內容",
+  "metadata": "元資料",
   "textProposal": "文本議案",
   "parameterChangeProposal": "參數變更議案",
   "communityPoolSpendProposal": "社群池支出議案",

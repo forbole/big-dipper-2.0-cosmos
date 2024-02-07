@@ -125,12 +125,12 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
         <span
           className="emotion-6"
         >
-          desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz
+          desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93
         </span>
         <span
           className="emotion-7"
         >
-          desmos1jrld5g99...y94nz
+          desmos1hfhkduej...j4g93
         </span>
       </p>
     </div>
@@ -156,12 +156,12 @@ exports[`screen: AccountDetails/Overview matches snapshot 1`] = `
         <span
           className="emotion-6"
         >
-          desmos1jrld5g998gqm4yx26l6cvhxz7y5adgxquy94nz
+          desmos1hfhkduejung7g29wv863x369rndf3hu5xj4g93
         </span>
         <span
           className="emotion-7"
         >
-          desmos1jrld5g99...y94nz
+          desmos1hfhkduej...j4g93
         </span>
       </p>
     </div>

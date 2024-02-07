@@ -31,5 +31,6 @@
   "powerChange": "<0>{{change}}</0> at block ",
   "validators": "Validators",
   "priceHistory": "Price (~48h)",
-  "dataFrom": "Data from"
+  "dataFrom": "Data from",
+  "notAvailable": "Not available"
 }

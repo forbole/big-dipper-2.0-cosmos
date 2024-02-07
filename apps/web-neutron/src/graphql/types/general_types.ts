@@ -20195,6 +20195,13 @@ export type Wasm_Params_Variance_Fields = {
   instantiate_default_permission?: Maybe<Scalars['Float']>;
 };
 
+export type AccountBalancesQueryVariables = Exact<{
+  address: Scalars['String'];
+}>;
+
+
+export type AccountBalancesQuery = { accountBalances?: { __typename?: 'ActionBalance', coins?: Array<any | null> | null } | null };
+
 export type BlockDetailsQueryVariables = Exact<{
   height?: InputMaybe<Scalars['bigint']>;
   signatureHeight?: InputMaybe<Scalars['bigint']>;
@@ -20346,6 +20353,41 @@ export type ConsumerCustomValidatorQueryVariables = Exact<{
 export type ConsumerCustomValidatorQuery = { ccv_validator: Array<{ __typename?: 'ccv_validator', consumer_operator_address: string, ccv_validator_info?: { __typename?: 'provider_validator_info', operator_address: string, validator: { __typename?: 'provider_validator', validatorDescriptions: Array<{ __typename?: 'provider_validator_description', moniker?: string | null, avatar_url?: string | null, validator_address: string, website?: string | null, details?: string | null }> } } | null }> };
 
 
+export const AccountBalancesDocument = gql`
+    query AccountBalances($address: String!) {
+  accountBalances: action_account_balance(address: $address) {
+    coins
+  }
+}
+    `;
+
+/**
+ * __useAccountBalancesQuery__
+ *
+ * To run a query within a React component, call `useAccountBalancesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountBalancesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountBalancesQuery({
+ *   variables: {
+ *      address: // value for 'address'
+ *   },
+ * });
+ */
+export function useAccountBalancesQuery(baseOptions: Apollo.QueryHookOptions<AccountBalancesQuery, AccountBalancesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AccountBalancesQuery, AccountBalancesQueryVariables>(AccountBalancesDocument, options);
+      }
+export function useAccountBalancesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AccountBalancesQuery, AccountBalancesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AccountBalancesQuery, AccountBalancesQueryVariables>(AccountBalancesDocument, options);
+        }
+export type AccountBalancesQueryHookResult = ReturnType<typeof useAccountBalancesQuery>;
+export type AccountBalancesLazyQueryHookResult = ReturnType<typeof useAccountBalancesLazyQuery>;
+export type AccountBalancesQueryResult = Apollo.QueryResult<AccountBalancesQuery, AccountBalancesQueryVariables>;
 export const BlockDetailsDocument = gql`
     query BlockDetails($height: bigint, $signatureHeight: bigint) {
   transaction(where: {height: {_eq: $height}}) {

@@ -147,7 +147,7 @@ export interface ChainConfig extends ChainSettings {
   keplr: string | undefined;
   provider: {
     primaryTokenUnit: string;
-    tokenunits: {
+    tokenUnits: {
       [token: string]: {
         display: string;
         exponent: number;

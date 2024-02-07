@@ -306,7 +306,7 @@ export const useStaking = (
   );
 
   return {
-    state,
+    stakingState: state,
     delegations: {
       loading: delegationsLoading,
       count: delegationsPagination,

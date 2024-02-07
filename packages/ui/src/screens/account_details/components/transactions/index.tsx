@@ -10,7 +10,7 @@ import { writeFilter } from '@/recoil/transactions_filter';
 import { useTransactions } from '@/screens/account_details/components/transactions/hooks';
 import useStyles from '@/screens/account_details/components/transactions/styles';
 
-const Transactions: FC<ComponentDefault & { loading: boolean }> = (props) => {
+const Transactions: FC<ComponentDefault> = (props) => {
   const txListFormat = useRecoilValue(readTx);
   const { classes, cx } = useStyles();
   const { t } = useAppTranslation('validators');
@@ -39,7 +39,7 @@ const Transactions: FC<ComponentDefault & { loading: boolean }> = (props) => {
             isNextPageLoading={state.isNextPageLoading}
             loadNextPage={loadNextPage}
             loadMoreItems={loadMoreItems}
-            isItemLoaded={isItemLoaded || !props.loading}
+            isItemLoaded={isItemLoaded}
           />
         ) : (
           <TransactionsListDetails
@@ -49,7 +49,7 @@ const Transactions: FC<ComponentDefault & { loading: boolean }> = (props) => {
             isNextPageLoading={state.isNextPageLoading}
             loadNextPage={loadNextPage}
             loadMoreItems={loadMoreItems}
-            isItemLoaded={isItemLoaded || !props.loading}
+            isItemLoaded={isItemLoaded}
           />
         )}
       </div>

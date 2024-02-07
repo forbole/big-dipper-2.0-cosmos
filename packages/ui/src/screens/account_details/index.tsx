@@ -8,13 +8,15 @@ import OtherTokens from '@/screens/account_details/components/other_tokens';
 import Overview from '@/screens/account_details/components/overview';
 import Staking from '@/screens/account_details/components/staking';
 import Transactions from '@/screens/account_details/components/transactions';
-import { useAccountDetails } from '@/screens/account_details/hooks';
+import { useAccountProfileDetails, useAccountBalance } from '@/screens/account_details/hooks';
 import useStyles from '@/screens/account_details/styles';
 
 const AccountDetails = () => {
   const { t } = useAppTranslation('accounts');
   const { classes } = useStyles();
-  const { state } = useAccountDetails();
+  const { profileState } = useAccountProfileDetails();
+  const accountBalance = useAccountBalance();
+  const { state: accountBalanceState } = accountBalance;
 
   return (
     <>
@@ -25,35 +27,44 @@ const AccountDetails = () => {
         }}
       />
       <Layout navTitle={t('accountDetails') ?? undefined}>
-        <LoadAndExist loading={state.loading} exists={state.exists}>
+        <LoadAndExist loading={profileState.loading} exists={accountBalanceState.exists}>
           <span className={classes.root}>
-            {!!state.desmosProfile && (
+            {!!profileState.desmosProfile && (
               <DesmosProfile
-                dtag={state.desmosProfile.dtag}
-                nickname={state.desmosProfile.nickname}
-                imageUrl={state.desmosProfile.imageUrl}
-                bio={state.desmosProfile.bio}
-                connections={state.desmosProfile.connections}
-                coverUrl={state.desmosProfile.coverUrl}
+                dtag={profileState.desmosProfile.dtag}
+                nickname={profileState.desmosProfile.nickname}
+                imageUrl={profileState.desmosProfile.imageUrl}
+                bio={profileState.desmosProfile.bio}
+                connections={profileState.desmosProfile.connections}
+                coverUrl={profileState.desmosProfile.coverUrl}
               />
             )}
-            <Overview
-              className={classes.overview}
-              withdrawalAddress={state.overview.withdrawalAddress}
-              address={state.overview.address}
-            />
-            <Balance
-              className={classes.balance}
-              available={state.balance.available}
-              delegate={state.balance.delegate}
-              unbonding={state.balance.unbonding}
-              reward={state.balance.reward}
-              commission={state.balance.commission}
-              total={state.balance.total}
-            />
-            <OtherTokens className={classes.otherTokens} otherTokens={state.otherTokens} />
-            <Staking className={classes.staking} rewards={state.rewards} />
-            <Transactions className={classes.transactions} loading={state.balanceLoading} />
+            <Overview className={classes.overview} />
+            {!profileState.loading ? (
+              <>
+                <Balance
+                  className={classes.balance}
+                  available={accountBalanceState.balance.available}
+                  delegate={accountBalanceState.balance.delegate}
+                  unbonding={accountBalanceState.balance.unbonding}
+                  reward={accountBalanceState.balance.reward}
+                  commission={accountBalanceState.balance.commission}
+                  total={accountBalanceState.balance.total}
+                  loading={accountBalanceState.loading}
+                />
+                <OtherTokens
+                  className={classes.otherTokens}
+                  otherTokens={accountBalanceState.otherTokens}
+                  loading={accountBalanceState.loading}
+                />
+              </>
+            ) : null}
+            {!profileState.loading && !accountBalanceState.loading ? (
+              <>
+                <Staking className={classes.staking} />
+                <Transactions className={classes.transactions} />
+              </>
+            ) : null}
           </span>
         </LoadAndExist>
       </Layout>
