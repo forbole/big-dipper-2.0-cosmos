@@ -3,7 +3,7 @@ import { useMessageTypesQuery } from '@/graphql/types/general_types';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
 import { writeFilter, writeOpenDialog } from '@/recoil/transactions_filter';
 
-type MessageType = {
+export type MessageType = {
   __typename: string;
   type: string;
   module: string;
@@ -12,7 +12,9 @@ type MessageType = {
 
 export const useTransactionTypeFilter = () => {
   const { data, error, loading, refetch } = useMessageTypesQuery();
-  const [filteredTypes, setFilteredTypes] = useState<string[]>([]);
+  const [filteredTypes, setFilteredTypes] = useState<{ module: string; msgTypes: MessageType[] }[]>(
+    []
+  );
   const [txsFilter, setTxsFilter] = useState<string[]>([]);
   const [selectAllChecked, setSelectAllChecked] = useState<boolean>(false);
   const [_, setFilter] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
@@ -39,10 +41,10 @@ export const useTransactionTypeFilter = () => {
     setTxsFilter([]);
   };
 
-  const mergeMessagesByLabel = (messages: MessageType[]): MessageType[] => {
+  const mergeMessagesByLabel = (messages: MessageType[] | undefined): MessageType[] => {
     const labelMap: { [key: string]: string } = {};
 
-    messages.forEach(message => {
+    messages?.forEach((message) => {
       if (!labelMap[message.label]) {
         labelMap[message.label] = message.type;
       } else {
@@ -56,7 +58,7 @@ export const useTransactionTypeFilter = () => {
       reducedMessages.push({
         __typename: 'message_type',
         type,
-        module: messages.find(msg => msg.label === label)?.module || '',
+        module: messages?.find((msg) => msg.label === label)?.module || '',
         label,
       });
     });
@@ -64,33 +66,36 @@ export const useTransactionTypeFilter = () => {
     return reducedMessages;
   };
 
-  const formatTypes = useCallback((messages: MessageType[] | null | undefined): MessageType[] => {
-    if (!messages) {
-      return [];
-    }
-
-    let updatedMessages = [...messages];
-
-    updatedMessages = mergeMessagesByLabel(updatedMessages);
-
-    const moduleMessagesMap: { [key: string]: MessageType[] } = {};
-
-    updatedMessages.forEach(msgType => {
-      if (!moduleMessagesMap[msgType.module]) {
-        moduleMessagesMap[msgType.module] = [];
+  const formatTypes = useCallback(
+    (messages: MessageType[] | null | undefined): { module: string; msgTypes: MessageType[] }[] => {
+      if (!messages) {
+        return [];
       }
-      if (!moduleMessagesMap[msgType.module].some(msg => msg.label === msgType.label)) {
-        moduleMessagesMap[msgType.module].push(msgType);
-      }
-    });
 
-    return Object.entries(moduleMessagesMap).map(([module, msgTypes]) => ({ module, msgTypes }));
-  }, []);
+      let updatedMessages = [...messages];
+
+      updatedMessages = mergeMessagesByLabel(updatedMessages);
+
+      const moduleMessagesMap: { [key: string]: MessageType[] } = {};
+
+      updatedMessages.forEach((msgType) => {
+        if (!moduleMessagesMap[msgType.module]) {
+          moduleMessagesMap[msgType.module] = [];
+        }
+        if (!moduleMessagesMap[msgType.module].some((msg) => msg.label === msgType.label)) {
+          moduleMessagesMap[msgType.module].push(msgType);
+        }
+      });
+
+      return Object.entries(moduleMessagesMap).map(([module, msgTypes]) => ({ module, msgTypes }));
+    },
+    []
+  );
 
   const handleFilterTxs = () => {
     const str = txsFilter.join(',');
     const query = `{${str}}`;
-    setFilter(() => query);
+    setFilter(query);
     setSelectAllChecked(false);
     handleClose();
   };
@@ -98,9 +103,9 @@ export const useTransactionTypeFilter = () => {
   const handleTxTypeSelection = (event: ChangeEvent<HTMLInputElement>) => {
     const { checked, value } = event.target;
     if (checked) {
-      setTxsFilter(prevFilter => [...prevFilter, value]);
+      setTxsFilter((prevFilter) => [...prevFilter, value]);
     } else {
-      setTxsFilter(prevFilter => prevFilter.filter(item => item !== value));
+      setTxsFilter((prevFilter) => prevFilter.filter((item) => item !== value));
       setSelectAllChecked(false); // Uncheck "Select All" if any checkbox is unchecked individually
     }
   };
@@ -109,7 +114,7 @@ export const useTransactionTypeFilter = () => {
     const { checked } = event.target;
     setSelectAllChecked(checked);
     if (checked) {
-      const allTypes = filteredTypes.flatMap(msgData => msgData.msgTypes.map(msg => msg.type));
+      const allTypes = filteredTypes.flatMap((msgData) => msgData.msgTypes.map((msg) => msg.type));
       setTxsFilter(allTypes);
     } else {
       setTxsFilter([]);
@@ -117,7 +122,7 @@ export const useTransactionTypeFilter = () => {
   };
 
   const msgTypeList = useMemo(() => {
-    const typesList = formatTypes(data?.msgTypes);
+    const typesList = formatTypes(data?.msgTypes as MessageType[]);
     typesList.sort((a, b) => a.module.localeCompare(b.module));
     setFilteredTypes(typesList);
   }, [data?.msgTypes, formatTypes]);
@@ -126,15 +131,15 @@ export const useTransactionTypeFilter = () => {
     (value: string) => {
       const parsedValue = value.replace(/\s+/g, '').toLowerCase();
       if (parsedValue === '' || parsedValue === null) {
-        const typesList = formatTypes(data?.msgTypes);
+        const typesList = formatTypes(data?.msgTypes as MessageType[]);
         typesList.sort((a, b) => a.module.localeCompare(b.module));
         setFilteredTypes(typesList);
       } else {
-        const typesList = formatTypes(data?.msgTypes);
+        const typesList = formatTypes(data?.msgTypes as MessageType[]);
         typesList.sort((a, b) => a.module.localeCompare(b.module));
         const types = typesList.filter(
-          (v: { module: string; msgTypes: [{ type: string; label: string }] }) =>
-            v.msgTypes.some(ms => ms.type.toLowerCase().indexOf(parsedValue) !== -1)
+          (v: { module: string; msgTypes: { type: string; label: string }[] }) =>
+            v.msgTypes.some((ms) => ms.type.toLowerCase().indexOf(parsedValue) !== -1)
         );
         setFilteredTypes(types);
       }

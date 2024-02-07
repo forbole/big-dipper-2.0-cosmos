@@ -5,7 +5,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import FilterTxsIcon from 'shared-utils/assets/icon-filter-transactions.svg';
-import { useTransactionTypeFilter } from '@/components/transaction_type_filter/hooks';
+import { useTransactionTypeFilter, MessageType } from '@/components/transaction_type_filter/hooks';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import TxTypeSearch from '@/components/transaction_type_filter/components/transaction_type_search';
@@ -15,7 +15,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import useStyles from './styles';
 
-const FilterTxsByType: FC<ComponentDefault> = () => {
+const FilterTxsByType: FC = () => {
   const { classes } = useStyles();
   const { t } = useAppTranslation('common');
   const {
@@ -30,7 +30,7 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
     handleOpen,
   } = useTransactionTypeFilter();
 
-  const open = useRecoilValue(readOpenDialog);
+  const open = useRecoilValue(readOpenDialog) ?? false;
 
   return (
     <>
@@ -51,9 +51,8 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
           </div>
           <div>
             <TxTypeSearch
-              className={classes.searchBar}
               callback={txTypeSearchFilter}
-              placeholder={t('searchType') ?? undefined}
+              placeholder={t('searchType') || ''} // Provide a default value
             />
           </div>
           <div className={classes.selectAll}>
@@ -70,41 +69,40 @@ const FilterTxsByType: FC<ComponentDefault> = () => {
           </div>
         </DialogTitle>
         <DialogContent>
-          {filteredTypes?.map(msgData => (
-            <div>
+          {filteredTypes?.map((msgData) => (
+            <div key={msgData?.module}>
               <div className={classes.moduleName}>
-                {msgData?.module?.includes('ibc') ? (
-                  <Typography>
-                    {msgData.module.charAt(0).toUpperCase() +
+                <Typography>
+                  {msgData?.module?.includes('ibc')
+                    ? msgData.module.charAt(0).toUpperCase() +
                       msgData.module.charAt(1).toUpperCase() +
                       msgData.module.charAt(2).toUpperCase() +
-                      msgData.module.slice(3)}
-                  </Typography>
-                ) : (
-                  <Typography>{msgData?.module}</Typography>
-                )}
+                      msgData.module.slice(3)
+                    : msgData?.module}
+                </Typography>
               </div>
               <div>
                 <form>
-                  {msgData?.msgTypes?.map((msg, index) => (
-                    <div key={index} className={classes.msgType}>
-                      <label className={classes.msgOption}>
+                  {msgData?.msgTypes?.map((msg: MessageType) => (
+                    <div key={msg?.type} className={classes.msgType}>
+                      <span className={classes.msgOption}>
                         <Checkbox
-                          type="checkbox"
                           id={`msg_type_${msg?.label}`}
                           name={`msg_type_${msg?.label}`}
                           value={msg?.type}
                           className={classes.checkBox}
                           checked={selectAllChecked || txsFilter.includes(msg.type)}
-                          onChange={e => handleTxTypeSelection(e)}
+                          onChange={(e) => handleTxTypeSelection(e)}
                         />
                         <Typography className={classes.msgLabel}>
                           {msg?.label
-                            .substring(3)
-                            .match(/[A-Z][a-z]+|[0-9]+/g)
-                            .join(' ')}
+                            ? msg?.label
+                                .substring(3)
+                                .match(/[A-Z][a-z]+|[0-9]+/g)
+                                ?.join(' ')
+                            : ''}
                         </Typography>
-                      </label>
+                      </span>
                     </div>
                   ))}
                 </form>

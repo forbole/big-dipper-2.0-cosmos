@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { convertMsgsToModels } from '@/components/msg/utils';
 import {
   useMessagesByTypesListenerSubscription,
@@ -25,29 +25,31 @@ const uniqueAndSort = R.pipe(
 const formatTransactions = (
   data: MessagesByTypesListenerSubscription
 ): TransactionsState['items'] => {
-  let formattedData = data?.messagesByTypes;
-  if (data?.messagesByTypes.length === 51) {
-    formattedData = data?.messagesByTypes.slice(0, 51);
+  if (!data?.messagesByTypes) return [];
+
+  let formattedData = data.messagesByTypes;
+  if (data.messagesByTypes.length === 51) {
+    formattedData = data.messagesByTypes.slice(0, 51);
   }
 
-  return formattedData?.map((x) => {
+  return formattedData.map((x) => {
     const messages = convertMsgsToModels(x.transaction);
     const msgType =
-      x.transaction?.messages?.map((eachMsg: unknown) => {
+      x.transaction?.messages?.map((eachMsg: any) => {
         const eachMsgType = R.pathOr('none type', ['@type'], eachMsg);
         return eachMsgType ?? '';
       }) ?? [];
     const convertedMsgType = convertMsgType(msgType);
     return {
-      height: x.transaction?.height,
-      hash: x.transaction?.hash,
+      height: x.transaction?.height ?? 0,
+      hash: x.transaction?.hash ?? '',
       type: convertedMsgType,
       messages: {
-        count: x.transaction?.messages.length,
+        count: x.transaction?.messages?.length ?? 0,
         items: messages,
       },
-      success: x.transaction?.success,
-      timestamp: x.transaction?.block.timestamp,
+      success: x.transaction?.success ?? false,
+      timestamp: x.transaction?.block?.timestamp ?? '',
     };
   });
 };
@@ -62,25 +64,25 @@ export const useTransactions = () => {
   });
   const msgTypes = useRecoilValue(readFilter);
 
-  const handleSetState = (stateChange: (prevState: TransactionsState) => TransactionsState) => {
-    setState(
-      (prevState) => {
+  const handleSetState = useCallback(
+    (stateChange: (prevState: TransactionsState) => TransactionsState) => {
+      setState((prevState) => {
         const newState = stateChange(prevState);
         return R.equals(prevState, newState) ? prevState : newState;
-      },
-      [msgTypes]
-    );
-  };
+      });
+    },
+    []
+  );
 
   useEffect(() => {
-    setState((prevState) => ({
+    handleSetState((prevState) => ({
       ...prevState,
       loading: true,
       items: [],
       hasNextPage: false,
       isNextPageLoading: false,
     }));
-  }, [msgTypes]);
+  }, [handleSetState, msgTypes]);
   // ================================
   // tx subscription
   // ================================
@@ -116,7 +118,7 @@ export const useTransactions = () => {
     },
     onCompleted: (data) => {
       const itemsLength = data.messagesByTypes.length;
-      const newItems = uniqueAndSort([...state.items, ...formatTransactions(data)]);
+      const newItems = uniqueAndSort([...state.items, ...(formatTransactions(data) ?? [])]);
       handleSetState((prevState) => ({
         ...prevState,
         loading: false,
@@ -139,11 +141,7 @@ export const useTransactions = () => {
       })
       .then(({ data }) => {
         const itemsLength = data?.messagesByTypes.length;
-        const newItems = uniqueAndSort([
-          ...state.items,
-          ...formatTransactions(data),
-        ]) as TransactionsState['items'];
-        // set new state
+        const newItems = uniqueAndSort([...state.items, ...(formatTransactions(data) ?? [])]);
         handleSetState((prevState) => ({
           ...prevState,
           items: newItems,
