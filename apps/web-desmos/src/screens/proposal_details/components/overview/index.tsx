@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { FC, useCallback, useMemo } from 'react';
+import { FC, useMemo, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import Box from '@/components/box';
 import Markdown from '@/components/markdown';
@@ -19,6 +19,7 @@ import type { OverviewType } from '@/screens/proposal_details/types';
 import { getProposalType } from '@/screens/proposal_details/utils';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber, formatToken } from '@/utils/format_token';
+import MetadataLoader from './components/metadata_loader';
 import useStyles from './styles';
 
 const Overview: FC<{ className?: string; overview: OverviewType }> = ({ className, overview }) => {
@@ -199,7 +200,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
             <Typography variant="body1" className="label">
               {t('metadata')}
             </Typography>
-            <Markdown markdown={overview?.metadata} />
+            <MetadataLoader metadata={overview.metadata} />
           </>
         )}
         {extra}
