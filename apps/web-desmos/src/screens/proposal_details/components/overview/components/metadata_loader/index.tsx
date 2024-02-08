@@ -7,14 +7,13 @@ interface MetadataLoaderProps {
 
 // Checks if a string is a valid URL
 const isValidUrl = (url: string) => {
-  const pattern = /^(ftp|http|https):\/\/[^ "]+$/;
+  const pattern = /^(ftp|http|https|ipfs):\/\/[^ "]+$/;
   return pattern.test(url);
 };
 
 const MetadataLoader: React.FC<MetadataLoaderProps> = ({ metadata }) => {
   const [metadataContent, setMetadataContent] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -41,7 +40,7 @@ const MetadataLoader: React.FC<MetadataLoaderProps> = ({ metadata }) => {
         setMetadataContent(text);
       } catch (err) {
         if (!isMounted) return; // Exit if the component is unmounted
-        setError(`Error fetching metadata: ${err}`);
+        setMetadataContent(metadata);
       } finally {
         setLoading(false);
       }
@@ -56,10 +55,6 @@ const MetadataLoader: React.FC<MetadataLoaderProps> = ({ metadata }) => {
 
   if (loading) {
     return <Loading />;
-  }
-
-  if (error) {
-    return <code>{error}</code>;
   }
 
   if (metadataContent) {
