@@ -55,15 +55,11 @@ const FilterTxsByType: FC = () => {
             />
           </div>
           <div className={classes.selectAll}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={selectAllChecked}
-                  onChange={handleSelectAllTxTypes}
-                  color="primary"
-                />
-              }
-              label={t('selectAll')}
+            <Typography className={classes.selectAllText}>{t('selectAll')}</Typography>
+            <Checkbox
+              checked={selectAllChecked}
+              onChange={handleSelectAllTxTypes}
+              color="primary"
             />
           </div>
         </DialogTitle>
