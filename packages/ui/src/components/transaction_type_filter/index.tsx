@@ -40,7 +40,6 @@ const FilterTxsByType: FC = () => {
         className={classes.icon}
         tabIndex={0}
         aria-label="filter-txs-by-type"
-        key="filter-txs-by-type"
       >
         <FilterTxsIcon />
       </div>
@@ -112,7 +111,7 @@ const FilterTxsByType: FC = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleFilterTxs} color="primary">
-            Filter
+            {t('filter')}
           </Button>
         </DialogActions>
       </Dialog>
