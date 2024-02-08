@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { FC, useCallback, useMemo } from 'react';
+import { FC, useMemo, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import Box from '@/components/box';
 import Markdown from '@/components/markdown';
@@ -19,6 +19,7 @@ import type { OverviewType } from '@/screens/proposal_details/types';
 import { getProposalType } from '@/screens/proposal_details/utils';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber, formatToken } from '@/utils/format_token';
+import MetadataLoader from './components/metadata_loader';
 import useStyles from './styles';
 
 const Overview: FC<{ className?: string; overview: OverviewType }> = ({ className, overview }) => {
@@ -132,16 +133,20 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
       />
       <Divider />
       <div className={classes.content}>
-        <Typography variant="body1" className="label">
-          {t('type')}
-        </Typography>
-        <Typography variant="body1">
-          {types.map((type: string) => (
-            <Typography variant="body1" className="value" key={type}>
-              {t(type)}
+        {types.length > 0 && (
+          <>
+            <Typography variant="body1" className="label">
+              {t('type')}
             </Typography>
-          ))}
-        </Typography>
+            <Typography variant="body1">
+              {types.map((type: string) => (
+                <Typography variant="body1" className="value" key={type}>
+                  {t(type)}
+                </Typography>
+              ))}
+            </Typography>
+          </>
+        )}
         <Typography variant="body1" className="label">
           {t('proposer')}
         </Typography>
@@ -190,6 +195,14 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
           {t('description')}
         </Typography>
         <Markdown markdown={overview.description} />
+        {!!overview.metadata && (
+          <>
+            <Typography variant="body1" className="label">
+              {t('metadata')}
+            </Typography>
+            <MetadataLoader metadata={overview.metadata} />
+          </>
+        )}
         {extra}
       </div>
     </Box>

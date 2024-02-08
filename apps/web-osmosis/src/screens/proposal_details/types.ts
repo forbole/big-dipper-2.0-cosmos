@@ -3,6 +3,7 @@ export interface OverviewType {
   id: number;
   proposer: string;
   description: string;
+  metadata: string;
   status: string;
   submitTime: string;
   depositEndTime: string;
