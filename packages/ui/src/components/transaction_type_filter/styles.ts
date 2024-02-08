@@ -1,6 +1,6 @@
 import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles()(theme => ({
+const useStyles = makeStyles()((theme) => ({
   icon: {
     display: 'inline-flex',
     position: 'absolute',
@@ -110,6 +110,15 @@ const useStyles = makeStyles()(theme => ({
       marginRight: '8px',
       marginTop: '-3px',
     },
+  },
+  columnContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+  },
+  column: {
+    flexBasis: 'calc(50% - 20px)',
   },
 }));
 

@@ -80,30 +80,58 @@ const FilterTxsByType: FC = () => {
                     : msgData?.module}
                 </Typography>
               </div>
-              <div>
-                <form>
-                  {msgData?.msgTypes?.map((msg: MessageType) => (
-                    <div key={msg?.type} className={classes.msgType}>
-                      <span className={classes.msgOption}>
-                        <Checkbox
-                          id={`msg_type_${msg?.label}`}
-                          name={`msg_type_${msg?.label}`}
-                          value={msg?.type}
-                          className={classes.checkBox}
-                          checked={selectAllChecked || txsFilter.includes(msg.type)}
-                          onChange={(e) => handleTxTypeSelection(e)}
-                        />
-                        <Typography className={classes.msgLabel}>
-                          {msg?.label
-                            ? msg?.label
-                                .substring(3)
-                                .match(/[A-Z][a-z]+|[0-9]+/g)
-                                ?.join(' ')
-                            : ''}
-                        </Typography>
-                      </span>
-                    </div>
-                  ))}
+              <div className={classes.columnContainer}>
+                <form className={classes.column}>
+                  {msgData?.msgTypes
+                    ?.slice(0, Math.ceil(msgData.msgTypes.length / 2))
+                    .map((msg: MessageType) => (
+                      <div key={msg?.type} className={classes.msgType}>
+                        <span className={classes.msgOption}>
+                          <Checkbox
+                            id={`msg_type_${msg?.label}`}
+                            name={`msg_type_${msg?.label}`}
+                            value={msg?.type}
+                            className={classes.checkBox}
+                            checked={selectAllChecked || txsFilter.includes(msg.type)}
+                            onChange={(e) => handleTxTypeSelection(e)}
+                          />
+                          <Typography className={classes.msgLabel}>
+                            {msg?.label
+                              ? msg?.label
+                                  .substring(3)
+                                  .match(/[A-Z][a-z]+|[0-9]+/g)
+                                  ?.join(' ')
+                              : ''}
+                          </Typography>
+                        </span>
+                      </div>
+                    ))}
+                </form>
+                <form className={classes.column}>
+                  {msgData?.msgTypes
+                    ?.slice(Math.ceil(msgData.msgTypes.length / 2))
+                    .map((msg: MessageType) => (
+                      <div key={msg?.type} className={classes.msgType}>
+                        <span className={classes.msgOption}>
+                          <Checkbox
+                            id={`msg_type_${msg?.label}`}
+                            name={`msg_type_${msg?.label}`}
+                            value={msg?.type}
+                            className={classes.checkBox}
+                            checked={selectAllChecked || txsFilter.includes(msg.type)}
+                            onChange={(e) => handleTxTypeSelection(e)}
+                          />
+                          <Typography className={classes.msgLabel}>
+                            {msg?.label
+                              ? msg?.label
+                                  .substring(3)
+                                  .match(/[A-Z][a-z]+|[0-9]+/g)
+                                  ?.join(' ')
+                              : ''}
+                          </Typography>
+                        </span>
+                      </div>
+                    ))}
                 </form>
               </div>
             </div>
