@@ -20,7 +20,7 @@ const Transactions: FC<ComponentDefault> = (props) => {
   const loadMoreItems = state.isNextPageLoading ? () => null : loadNextPage;
   const isItemLoaded = (index: number) => !state.hasNextPage || index < state.data.length;
   const itemCount = state.hasNextPage ? state.data.length + 1 : state.data.length;
-  const [_, setMsgTypes] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
+  const [, setMsgTypes] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
 
   useEffect(() => {
     setMsgTypes('{}');

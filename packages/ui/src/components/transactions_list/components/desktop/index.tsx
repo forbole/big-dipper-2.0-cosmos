@@ -33,18 +33,10 @@ const useRenderHeaderCell = ({
 
   return (
     <div style={style} className={classes.cell}>
-      {isTypeKey ? (
-        <>
-          <Typography variant="h4" align={align}>
-            {t(key)}
-          </Typography>
-          <FilterTxsByType />
-        </>
-      ) : (
-        <Typography variant="h4" align={align}>
-          {t(key)}
-        </Typography>
-      )}
+      <Typography variant="h4" align={align}>
+        {t(key)}
+      </Typography>
+      {isTypeKey && <FilterTxsByType />}
     </div>
   );
 };
