@@ -12,7 +12,6 @@ import TxTypeSearch from '@/components/transaction_type_filter/components/transa
 import { useRecoilValue } from 'recoil';
 import { readOpenDialog } from '@/recoil/transactions_filter';
 import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import useStyles from './styles';
 
 const FilterTxsByType: FC = () => {
