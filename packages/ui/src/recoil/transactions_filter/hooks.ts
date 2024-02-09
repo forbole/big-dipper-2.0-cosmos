@@ -13,8 +13,9 @@ export const useTxsFilterRecoil = () => {
       const initTxsFilter: AtomState = {
         filter: '{}',
         openDialog: false,
+        selectedMsgTypes: [],
       };
       setTxsFilter(initTxsFilter);
     }
-  }, [setTxsFilter, txsFilter.filter, txsFilter.openDialog]);
+  }, [setTxsFilter, txsFilter.filter, txsFilter.openDialog, txsFilter.selectedMsgTypes]);
 };

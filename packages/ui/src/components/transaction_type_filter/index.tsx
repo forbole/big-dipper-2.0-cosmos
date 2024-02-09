@@ -10,7 +10,7 @@ import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import TxTypeSearch from '@/components/transaction_type_filter/components/transaction_type_search';
 import { useRecoilValue } from 'recoil';
-import { readOpenDialog } from '@/recoil/transactions_filter';
+import { readOpenDialog, readSelectedMsgTypes } from '@/recoil/transactions_filter';
 import Checkbox from '@mui/material/Checkbox';
 import useStyles from './styles';
 
@@ -18,7 +18,6 @@ const FilterTxsByType: FC = () => {
   const { classes } = useStyles();
   const { t } = useAppTranslation('common');
   const {
-    txsFilter,
     filteredTypes,
     txTypeSearchFilter,
     selectAllChecked,
@@ -30,6 +29,7 @@ const FilterTxsByType: FC = () => {
   } = useTransactionTypeFilter();
 
   const open = useRecoilValue(readOpenDialog) ?? false;
+  const selectedMsgTypes = useRecoilValue(readSelectedMsgTypes);
 
   return (
     <>
@@ -87,7 +87,7 @@ const FilterTxsByType: FC = () => {
                             name={`msg_type_${msg?.label}`}
                             value={msg?.type}
                             className={classes.checkBox}
-                            checked={selectAllChecked || txsFilter.includes(msg.type)}
+                            checked={selectAllChecked || selectedMsgTypes.includes(msg.type)}
                             onChange={(e) => handleTxTypeSelection(e)}
                           />
                           <Typography className={classes.msgLabel}>
@@ -113,7 +113,7 @@ const FilterTxsByType: FC = () => {
                             name={`msg_type_${msg?.label}`}
                             value={msg?.type}
                             className={classes.checkBox}
-                            checked={selectAllChecked || txsFilter.includes(msg.type)}
+                            checked={selectAllChecked || selectedMsgTypes.includes(msg.type)}
                             onChange={(e) => handleTxTypeSelection(e)}
                           />
                           <Typography className={classes.msgLabel}>

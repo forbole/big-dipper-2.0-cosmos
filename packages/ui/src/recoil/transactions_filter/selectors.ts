@@ -47,3 +47,26 @@ export const readOpenDialog = selector({
   key: 'txsFilter.read.openDialog',
   get: getOpenDialog,
 });
+
+const getSelectedMsgTypes: ReadOnlySelectorOptions<string[]>['get'] = ({ get }) => {
+  const state = get(atomState);
+  return state.selectedMsgTypes;
+};
+
+export const writeSelectedMsgTypes = selector({
+  key: 'txsFilter.write.selectedMsgTypes',
+  get: getSelectedMsgTypes,
+  set: ({ get, set }, newSelectedMsgTypes) => {
+    if (newSelectedMsgTypes instanceof DefaultValue) return;
+    const prevState = get(atomState);
+    const newState = mergeStateChange(prevState, {
+      selectedMsgTypes: newSelectedMsgTypes,
+    });
+    set(atomState, newState);
+  },
+});
+
+export const readSelectedMsgTypes = selector({
+  key: 'txsFilter.read.selectedMsgTypes',
+  get: getSelectedMsgTypes,
+});

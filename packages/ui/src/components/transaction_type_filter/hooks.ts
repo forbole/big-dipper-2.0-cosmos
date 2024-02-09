@@ -1,7 +1,8 @@
+// useTransactionTypeFilter hook
 import { useEffect, useMemo, useState, ChangeEvent, useCallback } from 'react';
 import { useMessageTypesQuery } from '@/graphql/types/general_types';
 import { SetterOrUpdater, useRecoilState } from 'recoil';
-import { writeFilter, writeOpenDialog } from '@/recoil/transactions_filter';
+import { writeFilter, writeOpenDialog, writeSelectedMsgTypes } from '@/recoil/transactions_filter';
 
 export type MessageType = {
   __typename: string;
@@ -15,9 +16,15 @@ export const useTransactionTypeFilter = () => {
   const [filteredTypes, setFilteredTypes] = useState<{ module: string; msgTypes: MessageType[] }[]>(
     []
   );
-  const [txsFilter, setTxsFilter] = useState<string[]>([]);
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [selectAllChecked, setSelectAllChecked] = useState<boolean>(false);
-  const [_, setFilter] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
+  // db message query filter
+  const [, setFilter] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
+  // checkbox message type filter
+  const [, setSelectedMsgs] = useRecoilState(writeSelectedMsgTypes) as [
+    string[],
+    SetterOrUpdater<string[]>
+  ];
   const [__, setOpenDialog] = useRecoilState(writeOpenDialog) as [
     boolean,
     SetterOrUpdater<boolean>
@@ -33,12 +40,7 @@ export const useTransactionTypeFilter = () => {
   };
 
   const handleCancel = () => {
-    handleClose();
-  };
-
-  const handleClose = () => {
     setOpenDialog(false);
-    setTxsFilter([]);
   };
 
   const mergeMessagesByLabel = (messages: MessageType[] | undefined): MessageType[] => {
@@ -87,26 +89,32 @@ export const useTransactionTypeFilter = () => {
         }
       });
 
-      return Object.entries(moduleMessagesMap).map(([module, msgTypes]) => ({ module, msgTypes }));
+      return Object.entries(moduleMessagesMap).map(([module, msgTypes]) => ({
+        module,
+        msgTypes,
+      }));
     },
     []
   );
 
   const handleFilterTxs = () => {
-    const str = txsFilter.join(',');
+    const str = selectedFilters.join(',');
     const query = `{${str}}`;
     setFilter(query);
+    setSelectedFilters(selectedFilters);
     setSelectAllChecked(false);
-    handleClose();
+    handleCancel(); // Close dialog after filtering
   };
 
   const handleTxTypeSelection = (event: ChangeEvent<HTMLInputElement>) => {
     const { checked, value } = event.target;
     if (checked) {
-      setTxsFilter((prevFilter) => [...prevFilter, value]);
+      setSelectedFilters((prevFilters) => [...prevFilters, value]);
+      setSelectedMsgs((prevFilters) => [...prevFilters, value]);
     } else {
-      setTxsFilter((prevFilter) => prevFilter.filter((item) => item !== value));
-      setSelectAllChecked(false); // Uncheck "Select All" if any checkbox is unchecked individually
+      setSelectedFilters((prevFilters) => prevFilters.filter((item) => item !== value));
+      setSelectedMsgs((prevFilters) => prevFilters.filter((item) => item !== value));
+      setSelectAllChecked(false);
     }
   };
 
@@ -115,9 +123,11 @@ export const useTransactionTypeFilter = () => {
     setSelectAllChecked(checked);
     if (checked) {
       const allTypes = filteredTypes.flatMap((msgData) => msgData.msgTypes.map((msg) => msg.type));
-      setTxsFilter(allTypes);
+      setSelectedFilters(allTypes);
+      setSelectedMsgs(allTypes);
     } else {
-      setTxsFilter([]);
+      setSelectedFilters([]);
+      setSelectedMsgs([]);
     }
   };
 
@@ -146,13 +156,12 @@ export const useTransactionTypeFilter = () => {
     },
     [data?.msgTypes, formatTypes]
   );
-
   return {
     data,
     loading,
     msgTypeList,
     filteredTypes,
-    txsFilter,
+    selectedFilters,
     selectAllChecked,
     txTypeSearchFilter,
     handleCancel,

@@ -5,5 +5,7 @@ export {
   writeFilter,
   writeOpenDialog,
   readOpenDialog,
+  readSelectedMsgTypes,
+  writeSelectedMsgTypes,
 } from '@/recoil/transactions_filter/selectors';
 export type { AtomState } from '@/recoil/transactions_filter/types';

@@ -7,7 +7,7 @@ import LoadAndExist from '@/components/load_and_exist';
 import TransactionsList from '@/components/transactions_list';
 import TransactionsListDetails from '@/components/transactions_list_details';
 import { readTx } from '@/recoil/settings';
-import { writeFilter } from '@/recoil/transactions_filter';
+import { writeFilter, writeSelectedMsgTypes } from '@/recoil/transactions_filter';
 import { useTransactions } from '@/screens/transactions/hooks';
 import useStyles from '@/screens/transactions/styles';
 import { useEffect } from 'react';
@@ -21,9 +21,13 @@ const Transactions = () => {
   const isItemLoaded = (index: number) => !state.hasNextPage || index < state.items.length;
   const itemCount = state.hasNextPage ? state.items.length + 1 : state.items.length;
   const [, setMsgTypes] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
-
+  const [, setSelectedMsgs] = useRecoilState(writeSelectedMsgTypes) as [
+    string[],
+    SetterOrUpdater<string[]>
+  ];
   useEffect(() => {
     setMsgTypes('{}');
+    setSelectedMsgs([]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
