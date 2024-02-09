@@ -7,7 +7,7 @@ query ProposalDetails($proposalId: Int) {
     content
     proposalId: id
     submitTime: submit_time
-    proposalType: proposal_type
+    metadata
     depositEndTime: deposit_end_time
     votingStartTime: voting_start_time
     votingEndTime: voting_end_time
@@ -25,7 +25,7 @@ query ProposalDetailsTally($proposalId: Int) {
     bondedTokens: bonded_tokens
   }
   quorum: gov_params (limit: 1, order_by: {height: desc}) {
-    tallyParams: tally_params 
+    tallyParams: params 
   }
 }
 
