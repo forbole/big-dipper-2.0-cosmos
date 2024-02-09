@@ -52,8 +52,7 @@ export const useVotesGraph = () => {
   });
 
   const foramtProposalTally = (data: ProposalDetailsTallyQuery) => {
-    const quorumRaw = data.quorum?.[0]?.params?.quorum ?? '0';
-
+    const quorumRaw = data.quorum?.[0]?.tallyParams?.quorum ?? '0';
     return {
       votes: {
         yes: formatToken(data?.proposalTallyResult?.[0]?.yes ?? '0', votingPowerTokenUnit),
