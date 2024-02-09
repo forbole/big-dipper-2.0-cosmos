@@ -95,7 +95,7 @@ const formatDistribution = (data: ParamsQuery) => {
 };
 
 // ================================
-// distribution
+// gov
 // ================================
 
 const formatGov = (data: ParamsQuery) => {
