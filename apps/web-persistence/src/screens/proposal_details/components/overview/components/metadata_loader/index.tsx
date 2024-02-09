@@ -11,6 +11,20 @@ const isValidUrl = (url: string) => {
   return pattern.test(url);
 };
 
+// Checks if a string is a IPFS URL
+const isIPFSUrl = (url: string) => {
+  const pattern = /^(ipfs):\/\/[^ "]+$/;
+  return pattern.test(url);
+};
+
+// Removes ipfs prefix from metadata
+const removeIPFSPrefix = (metadata: string): string => {
+  if (metadata.startsWith('ipfs://')) {
+    return metadata.substring('ipfs://'.length);
+  }
+  return metadata;
+};
+
 const MetadataLoader: React.FC<MetadataLoaderProps> = ({ metadata }) => {
   const [metadataContent, setMetadataContent] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -24,10 +38,15 @@ const MetadataLoader: React.FC<MetadataLoaderProps> = ({ metadata }) => {
           setMetadataContent(metadata);
           return;
         }
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 10000); // Abort the fetch after 10 seconds
-        const response = await fetch(metadata, { signal: controller.signal });
-        clearTimeout(timeoutId); // Clear the timeout
+
+        let response: Response;
+        if (!isIPFSUrl(metadata)) {
+          response = await fetch(metadata);
+        } else {
+          const modifiedMetadata = removeIPFSPrefix(metadata);
+          response = await fetch(`https://ipfs.io/ipfs/${modifiedMetadata}`);
+        }
+
         if (!isMounted) {
           setMetadataContent(metadata);
           return;
@@ -36,6 +55,7 @@ const MetadataLoader: React.FC<MetadataLoaderProps> = ({ metadata }) => {
           setMetadataContent(metadata);
           return;
         }
+
         const text = await response.text();
         setMetadataContent(text);
       } catch (err) {

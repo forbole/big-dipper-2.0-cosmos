@@ -151,7 +151,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
           {t('proposer')}
         </Typography>
         <Name name={proposerMoniker} address={proposerAddress} />
-        {!!overview.submitTime && (
+        {overview?.submitTime && (
           <>
             <Typography variant="body1" className="label">
               {t('submitTime')}
@@ -161,7 +161,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
             </Typography>
           </>
         )}
-        {!!overview.depositEndTime && (
+        {overview?.depositEndTime && (
           <>
             <Typography variant="body1" className="label">
               {t('depositEndTime')}
@@ -171,7 +171,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
             </Typography>
           </>
         )}
-        {!!overview.votingStartTime && (
+        {overview?.votingStartTime && (
           <>
             <Typography variant="body1" className="label">
               {t('votingStartTime')}
@@ -181,7 +181,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
             </Typography>
           </>
         )}
-        {!!overview.votingEndTime && (
+        {overview?.votingEndTime && (
           <>
             <Typography variant="body1" className="label">
               {t('votingEndTime')}
@@ -195,7 +195,7 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
           {t('description')}
         </Typography>
         <Markdown markdown={overview.description} />
-        {!!overview.metadata && (
+        {overview?.metadata && (
           <>
             <Typography variant="body1" className="label">
               {t('metadata')}
