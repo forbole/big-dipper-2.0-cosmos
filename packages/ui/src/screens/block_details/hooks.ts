@@ -36,7 +36,7 @@ export const useBlockDetails = () => {
   // ==========================
   // Fetch Data
   // ==========================
-  useBlockDetailsQuery({
+  useBlockDetailsQuery?.({
     variables: {
       height: numeral(router.query.height).value(),
       signatureHeight: (numeral(router.query.height).value() ?? 0) + 1,
@@ -44,7 +44,7 @@ export const useBlockDetails = () => {
     onCompleted: (data) => {
       handleSetState((prevState) => ({ ...prevState, ...formatRaws(data) }));
     },
-  });
+  }) || {};
 
   useEffect(() => {
     // reset every call

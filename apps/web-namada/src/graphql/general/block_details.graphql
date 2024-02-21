@@ -1,0 +1,9 @@
+query BlockDetails($height: bigint) {
+  block(limit: 1, where: {height: {_eq: $height}}) {
+    height
+    hash
+    timestamp
+    txs: num_txs
+    proposerAddress: proposer_address
+  }
+}

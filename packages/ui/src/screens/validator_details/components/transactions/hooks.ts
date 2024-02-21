@@ -58,25 +58,26 @@ export function useTransactions() {
     });
   };
 
-  const transactionQuery = useGetMessagesByAddressQuery({
-    variables: {
-      limit: LIMIT + 1, // to check if more exist
-      offset: 0,
-      address: `{${router?.query?.address ?? ''}}`,
-    },
-    onCompleted: (data) => {
-      const itemsLength = data.messagesByAddress.length;
-      const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
-      const stateChange: TransactionState = {
-        data: newItems,
-        hasNextPage: itemsLength === 51,
-        isNextPageLoading: false,
-        offsetCount: state.offsetCount + LIMIT,
-      };
+  const transactionQuery =
+    useGetMessagesByAddressQuery?.({
+      variables: {
+        limit: LIMIT + 1, // to check if more exist
+        offset: 0,
+        address: `{${router?.query?.address ?? ''}}`,
+      },
+      onCompleted: (data) => {
+        const itemsLength = data.messagesByAddress.length;
+        const newItems = R.uniq([...state.data, ...formatTransactions(data)]);
+        const stateChange: TransactionState = {
+          data: newItems,
+          hasNextPage: itemsLength === 51,
+          isNextPageLoading: false,
+          offsetCount: state.offsetCount + LIMIT,
+        };
 
-      handleSetState((prevState) => ({ ...prevState, ...stateChange }));
-    },
-  });
+        handleSetState((prevState) => ({ ...prevState, ...stateChange }));
+      },
+    }) || {};
 
   const loadNextPage = async () => {
     handleSetState((prevState) => ({ ...prevState, isNextPageLoading: true }));

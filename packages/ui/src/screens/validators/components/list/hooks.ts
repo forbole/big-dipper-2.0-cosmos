@@ -104,7 +104,7 @@ export const useValidators = () => {
   // ==========================
   // Fetch Data
   // ==========================
-  useValidatorsQuery({
+  useValidatorsQuery?.({
     onCompleted: (data) => {
       handleSetState((prevState) => ({
         ...prevState,

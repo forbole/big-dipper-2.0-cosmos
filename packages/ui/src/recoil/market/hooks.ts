@@ -16,10 +16,10 @@ const { primaryTokenUnit, tokenUnits } = chainConfig();
 export function useMarketRecoil() {
   const [market, setMarket] = useRecoilState(writeMarket) as [
     AtomState,
-    SetterOrUpdater<AtomState>
+    SetterOrUpdater<AtomState>,
   ];
 
-  useMarketDataQuery({
+  useMarketDataQuery?.({
     variables: {
       denom: tokenUnits?.[primaryTokenUnit]?.display,
     },

@@ -113,7 +113,7 @@ export const useStaking = (
   // ==========================
   // Fetch Data
   // ==========================
-  useValidatorsQuery({
+  useValidatorsQuery?.({
     onCompleted: (data) => {
       formatValidators(data);
     },
@@ -150,20 +150,20 @@ export const useStaking = (
     loading: delegationsLoading,
     error: delegationsError,
     refetch: delegationsRefetch,
-  } = useAccountDelegationsQuery({
+  } = useAccountDelegationsQuery?.({
     variables: {
       address,
       limit: ROWS_PER_PAGE,
       offset: delegationsPage * ROWS_PER_PAGE,
     },
-  });
+  }) || {};
   useEffect(() => {
     if (delegationsLoading) return;
     if (delegationsError) {
       delegationsRefetch({ pagination: false });
     }
   }, [delegationsError, delegationsLoading, delegationsRefetch]);
-  useAccountDelegationsQuery({
+  useAccountDelegationsQuery?.({
     variables: {
       address,
       limit: ROWS_PER_PAGE,
@@ -176,7 +176,7 @@ export const useStaking = (
     data: dData,
     error: dError,
     refetch: dRefetch,
-  } = useAccountDelegationsQuery({
+  } = useAccountDelegationsQuery?.({
     variables: {
       address,
       limit: 0,
@@ -184,7 +184,7 @@ export const useStaking = (
       pagination: true,
     },
     skip: delegationsPagination !== undefined,
-  });
+  }) || {};
   useEffect(() => {
     if (dError) {
       dRefetch();
@@ -201,20 +201,20 @@ export const useStaking = (
     loading: redelegationsLoading,
     error: redelegationsError,
     refetch: redelegationsRefetch,
-  } = useAccountRedelegationsQuery({
+  } = useAccountRedelegationsQuery?.({
     variables: {
       address,
       limit: ROWS_PER_PAGE,
       offset: redelegationsPage * ROWS_PER_PAGE,
     },
-  });
+  }) || {};
   useEffect(() => {
     if (redelegationsLoading) return;
     if (redelegationsError) {
       redelegationsRefetch({ pagination: false });
     }
   }, [redelegationsError, redelegationsLoading, redelegationsRefetch]);
-  useAccountRedelegationsQuery({
+  useAccountRedelegationsQuery?.({
     variables: {
       address,
       limit: ROWS_PER_PAGE,
@@ -227,7 +227,7 @@ export const useStaking = (
     data: rData,
     error: rError,
     refetch: rRefetch,
-  } = useAccountRedelegationsQuery({
+  } = useAccountRedelegationsQuery?.({
     variables: {
       address,
       limit: 0,
@@ -235,7 +235,7 @@ export const useStaking = (
       pagination: true,
     },
     skip: redelegationsPagination !== undefined,
-  });
+  }) || {};
   useEffect(() => {
     if (rError) {
       rRefetch();
@@ -252,20 +252,20 @@ export const useStaking = (
     loading: undelegationsLoading,
     error: undelegationsError,
     refetch: undelegationsRefetch,
-  } = useAccountUndelegationsQuery({
+  } = useAccountUndelegationsQuery?.({
     variables: {
       address,
       limit: ROWS_PER_PAGE,
       offset: unbondingsPage * ROWS_PER_PAGE,
     },
-  });
+  }) || {};
   useEffect(() => {
     if (undelegationsLoading) return;
     if (undelegationsError) {
       undelegationsRefetch({ pagination: false });
     }
   }, [undelegationsError, undelegationsLoading, undelegationsRefetch]);
-  useAccountUndelegationsQuery({
+  useAccountUndelegationsQuery?.({
     variables: {
       address,
       limit: ROWS_PER_PAGE,
@@ -278,7 +278,7 @@ export const useStaking = (
     data: uData,
     error: uError,
     refetch: uRefetch,
-  } = useAccountUndelegationsQuery({
+  } = useAccountUndelegationsQuery?.({
     variables: {
       address,
       limit: 0,
@@ -286,7 +286,7 @@ export const useStaking = (
       pagination: true,
     },
     skip: undelegationsPagination !== undefined,
-  });
+  }) || {};
   useEffect(() => {
     if (uError) {
       uRefetch();

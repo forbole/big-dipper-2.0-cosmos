@@ -34,6 +34,8 @@ import shentuIconLight from 'shared-utils/assets/icons/shentu-light.svg?url';
 import sifchainIconLight from 'shared-utils/assets/icons/sifchain-light.svg?url';
 import solanaIconDark from 'shared-utils/assets/icons/solana-dark.svg?url';
 import solanaIconLight from 'shared-utils/assets/icons/solana-light.svg?url';
+import namadaIconLight from 'shared-utils/assets/icons/namada-light.png?url';
+import namadaIconDark from 'shared-utils/assets/icons/namada-light.png?url';
 import strideIconDark from 'shared-utils/assets/icons/stride-dark.svg?url';
 import wormholeIconDark from 'shared-utils/assets/icons/wormhole.svg?url';
 import celestiaIconDark from 'shared-utils/assets/icons/celestia-both.svg?url';
@@ -240,6 +242,15 @@ const ChainIcon = ({
       [iconDark, iconLight] =
         type === 'icon' ? [solanaIconDark, solanaIconLight] : [solanaLogoLight, solanaLogoLight];
       break;
+    case 'namada': {
+      // @TODO
+      const namadaLogoLight = namadaIconLight;
+      const namadaLogoDark = namadaIconDark;
+
+      [iconDark, iconLight] =
+        type === 'icon' ? [namadaIconDark, namadaIconLight] : [namadaLogoDark, namadaLogoLight];
+      break;
+    }
     case 'stride':
       [iconDark, iconLight] =
         type === 'icon' ? [strideIconDark, strideIconDark] : [strideLogoDark, strideLogoLight];

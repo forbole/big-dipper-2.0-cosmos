@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screen: Validators/List matches snapshot 1`] = `
+.emotion-0 {
+  min-height: 500px;
+  height: 50vh;
+}
+
+@media (min-width:1280px) {
+  .emotion-0 {
+    min-height: 65vh;
+  }
+}
+
+@media (max-width:1279.95px) {
+  .emotion-1 {
+    display: none;
+  }
+}
+
+@media (min-width:1280px) {
+  .emotion-2 {
+    display: none;
+  }
+}
+
+.emotion-2.emotion-2 {
+  height: 100%;
+}
+
+<div
+  exists={true}
+  id="LoadAndExist"
+  loading={false}
+>
+  <div
+    id="Box"
+  >
+    <div
+      handleSearch={[Function]}
+      handleTabChange={[Function]}
+      id="Tabs"
+      tab={0}
+    />
+    <div
+      className="emotion-0"
+    >
+      <div
+        className="emotion-1"
+        handleSort={[Function]}
+        id="Desktop"
+        items={
+          [
+            {
+              "commission": 10,
+              "condition": -Infinity,
+              "jailed": false,
+              "liquidStaking": "Yes",
+              "status": 3,
+              "tombstoned": false,
+              "topVotingPower": true,
+              "validator": {
+                "address": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
+                "imageUrl": "",
+                "name": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
+              },
+              "votingPower": 22,
+              "votingPowerPercent": 5.593712118482551e-10,
+            },
+          ]
+        }
+        search=""
+        sortDirection="asc"
+        sortKey="validator.name"
+      />
+      <div
+        className="emotion-2"
+        id="Mobile"
+        items={
+          [
+            {
+              "commission": 10,
+              "condition": -Infinity,
+              "jailed": false,
+              "liquidStaking": "Yes",
+              "status": 3,
+              "tombstoned": false,
+              "topVotingPower": true,
+              "validator": {
+                "address": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
+                "imageUrl": "",
+                "name": "desmosvaloper1njm853h4h9vh8xge3v9mf7nnukzhgt6z6dwsr3",
+              },
+              "votingPower": 22,
+              "votingPowerPercent": 5.593712118482551e-10,
+            },
+          ]
+        }
+        search=""
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -71,7 +71,7 @@ function useBigDipperNetworks(skipChainId = false) {
   }, [isCompleted, data]);
 
   // Fetch the chain ID using a GraphQL query
-  const chainIdQuery = useChainIdQuery({ skip: skipChainId });
+  const chainIdQuery = useChainIdQuery?.({ skip: skipChainId }) || {};
 
   // Refetch the query if there's an error and loading is completed
   const shouldRefetchChainId = !!chainIdQuery.error && !chainIdQuery.loading;

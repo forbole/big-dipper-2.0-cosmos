@@ -7,7 +7,7 @@ import type { AtomState as ProfileAtomState } from '@/recoil/profiles/types';
 import { atomFamilyState as validatorAtomState } from '@/recoil/validators/atom';
 
 export const useValidatorRecoil = () => {
-  const { loading: loadingValidator, data } = useValidatorAddressesQuery();
+  const { loading: loadingValidator, data } = useValidatorAddressesQuery?.() || {};
   const setValidatorAtomState = useRecoilCallback(
     ({ set }) =>
       (consensusAddress: string, newState: ValidatorAtomState) =>

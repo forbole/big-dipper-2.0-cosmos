@@ -56,7 +56,7 @@ export const useBlocks = () => {
   // ================================
   // block subscription
   // ================================
-  useBlocksListenerSubscription({
+  useBlocksListenerSubscription?.({
     variables: {
       limit: 1,
       offset: 0,
@@ -78,26 +78,27 @@ export const useBlocks = () => {
   // block query
   // ================================
   const LIMIT = 51;
-  const blockQuery = useBlocksQuery({
-    variables: {
-      limit: LIMIT,
-      offset: 1,
-    },
-    onCompleted: (data) => {
-      const itemsLength = data.blocks.length;
-      const newItems = uniqueAndSort([...state.items, ...formatBlocks(data)]);
-      handleSetState((prevState) => ({
-        ...prevState,
-        loading: false,
-        items: newItems,
-        hasNextPage: itemsLength === 51,
-        isNextPageLoading: false,
-      }));
-    },
-    onError: () => {
-      handleSetState((prevState) => ({ ...prevState, loading: false }));
-    },
-  });
+  const blockQuery =
+    useBlocksQuery?.({
+      variables: {
+        limit: LIMIT,
+        offset: 1,
+      },
+      onCompleted: (data) => {
+        const itemsLength = data.blocks.length;
+        const newItems = uniqueAndSort([...state.items, ...formatBlocks(data)]);
+        handleSetState((prevState) => ({
+          ...prevState,
+          loading: false,
+          items: newItems,
+          hasNextPage: itemsLength === 51,
+          isNextPageLoading: false,
+        }));
+      },
+      onError: () => {
+        handleSetState((prevState) => ({ ...prevState, loading: false }));
+      },
+    }) || {};
 
   const loadNextPage = async () => {
     handleSetState((prevState) => ({ ...prevState, isNextPageLoading: true }));

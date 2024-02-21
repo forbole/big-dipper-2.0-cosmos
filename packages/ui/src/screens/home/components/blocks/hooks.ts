@@ -34,7 +34,7 @@ export const useBlocks = () => {
   // ================================
   // block subscription
   // ================================
-  useBlocksListenerSubscription({
+  useBlocksListenerSubscription?.({
     onData: (data) => {
       handleSetState((prevState) => ({
         ...prevState,
