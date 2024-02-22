@@ -930,6 +930,7 @@ export type Transaction = {
   memo?: Maybe<Scalars['String']>;
   raw_log?: Maybe<Scalars['String']>;
   success: Scalars['Boolean'];
+  tx_type: Scalars['String'];
 };
 
 /** order by aggregate values of table "transaction" */
@@ -967,6 +968,7 @@ export type Transaction_Bool_Exp = {
   memo?: InputMaybe<String_Comparison_Exp>;
   raw_log?: InputMaybe<String_Comparison_Exp>;
   success?: InputMaybe<Boolean_Comparison_Exp>;
+  tx_type?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** order by max() on columns of table "transaction" */
@@ -977,6 +979,7 @@ export type Transaction_Max_Order_By = {
   height?: InputMaybe<Order_By>;
   memo?: InputMaybe<Order_By>;
   raw_log?: InputMaybe<Order_By>;
+  tx_type?: InputMaybe<Order_By>;
 };
 
 /** order by min() on columns of table "transaction" */
@@ -987,6 +990,7 @@ export type Transaction_Min_Order_By = {
   height?: InputMaybe<Order_By>;
   memo?: InputMaybe<Order_By>;
   raw_log?: InputMaybe<Order_By>;
+  tx_type?: InputMaybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "transaction". */
@@ -999,6 +1003,7 @@ export type Transaction_Order_By = {
   memo?: InputMaybe<Order_By>;
   raw_log?: InputMaybe<Order_By>;
   success?: InputMaybe<Order_By>;
+  tx_type?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "transaction" */
@@ -1016,7 +1021,9 @@ export enum Transaction_Select_Column {
   /** column name */
   RawLog = 'raw_log',
   /** column name */
-  Success = 'success'
+  Success = 'success',
+  /** column name */
+  TxType = 'tx_type'
 }
 
 /** order by stddev() on columns of table "transaction" */
@@ -1057,6 +1064,7 @@ export type Transaction_Stream_Cursor_Value_Input = {
   memo?: InputMaybe<Scalars['String']>;
   raw_log?: InputMaybe<Scalars['String']>;
   success?: InputMaybe<Scalars['Boolean']>;
+  tx_type?: InputMaybe<Scalars['String']>;
 };
 
 /** order by sum() on columns of table "transaction" */
@@ -1177,7 +1185,7 @@ export type BlockDetailsQueryVariables = Exact<{
 }>;
 
 
-export type BlockDetailsQuery = { transaction: Array<{ __typename?: 'transaction', height: any, hash: string, success: boolean }>, block: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, proposerAddress?: string | null }> };
+export type BlockDetailsQuery = { transaction: Array<{ __typename?: 'transaction', height: any, hash: string, success: boolean, tx_type: string }>, block: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, proposerAddress?: string | null }> };
 
 export type BlocksQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -1194,6 +1202,7 @@ export const BlockDetailsDocument = gql`
     height
     hash
     success
+    tx_type
   }
   block(limit: 1, where: {height: {_eq: $height}}) {
     height

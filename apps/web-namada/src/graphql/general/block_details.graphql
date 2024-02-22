@@ -3,6 +3,7 @@ query BlockDetails($height: bigint) {
     height
     hash
     success
+    tx_type
   }
   block(limit: 1, where: {height: {_eq: $height}}) {
     height

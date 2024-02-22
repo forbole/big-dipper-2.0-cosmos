@@ -2,10 +2,8 @@ import { useRouter } from 'next/router';
 import numeral from 'numeral';
 import * as R from 'ramda';
 import { useCallback, useEffect, useState } from 'react';
-import { convertMsgsToModels } from '@/components/msg/utils';
 import { BlockDetailsQuery, useBlockDetailsQuery } from '@/graphql/types/general_types';
 import type { BlockDetailState } from '@/screens/block_details/types';
-import { convertMsgType } from '@/utils/convert_msg_type';
 
 export const useBlockDetails = () => {
   const router = useRouter();
@@ -93,21 +91,15 @@ const formatSignatures = (data: BlockDetailsQuery) => {
 // ==========================
 const formatTransactions = (data: BlockDetailsQuery, stateChange: Partial<BlockDetailState>) => {
   const transactions = (data.transaction || []).map((x) => {
-    const messages = convertMsgsToModels(x);
-    const msgType = messages.map((eachMsg) => {
-      const eachMsgType = eachMsg?.type ?? 'none type';
-      return eachMsgType ?? '';
-    });
-    const convertedMsgType = convertMsgType(msgType);
     return {
-      type: convertedMsgType,
+      type: x.tx_type,
       height: x.height,
       hash: x.hash,
       success: x.success,
       timestamp: stateChange.overview?.timestamp ?? '',
       messages: {
         count: x.messages?.length || 0,
-        items: messages || [],
+        items: [],
       },
     };
   });
