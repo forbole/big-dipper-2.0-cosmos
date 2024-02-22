@@ -1,4 +1,9 @@
 query BlockDetails($height: bigint) {
+  transaction(where: {height: {_eq: $height}}) {
+    height
+    hash
+    success
+  }
   block(limit: 1, where: {height: {_eq: $height}}) {
     height
     hash

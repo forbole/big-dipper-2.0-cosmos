@@ -1177,7 +1177,7 @@ export type BlockDetailsQueryVariables = Exact<{
 }>;
 
 
-export type BlockDetailsQuery = { block: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, proposerAddress?: string | null }> };
+export type BlockDetailsQuery = { transaction: Array<{ __typename?: 'transaction', height: any, hash: string, success: boolean }>, block: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, proposerAddress?: string | null }> };
 
 export type BlocksQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -1190,6 +1190,11 @@ export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, h
 
 export const BlockDetailsDocument = gql`
     query BlockDetails($height: bigint) {
+  transaction(where: {height: {_eq: $height}}) {
+    height
+    hash
+    success
+  }
   block(limit: 1, where: {height: {_eq: $height}}) {
     height
     hash

@@ -106,8 +106,8 @@ const formatTransactions = (data: BlockDetailsQuery, stateChange: Partial<BlockD
       success: x.success,
       timestamp: stateChange.overview?.timestamp ?? '',
       messages: {
-        count: x.messages.length,
-        items: messages,
+        count: x.messages?.length || 0,
+        items: messages || [],
       },
     };
   });
