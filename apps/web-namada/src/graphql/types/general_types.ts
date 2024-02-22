@@ -15,6 +15,7 @@ export type Scalars = {
   Float: number;
   bigint: any;
   jsonb: any;
+  numeric: any;
   timestamp: any;
 };
 
@@ -396,6 +397,19 @@ export type Message_Stream_Cursor_Value_Input = {
   value?: InputMaybe<Scalars['jsonb']>;
 };
 
+/** Boolean expression to compare columns of type "numeric". All fields are combined with logical 'AND'. */
+export type Numeric_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['numeric']>;
+  _gt?: InputMaybe<Scalars['numeric']>;
+  _gte?: InputMaybe<Scalars['numeric']>;
+  _in?: InputMaybe<Array<Scalars['numeric']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['numeric']>;
+  _lte?: InputMaybe<Scalars['numeric']>;
+  _neq?: InputMaybe<Scalars['numeric']>;
+  _nin?: InputMaybe<Array<Scalars['numeric']>>;
+};
+
 /** column ordering options */
 export enum Order_By {
   /** in ascending order, nulls last */
@@ -710,6 +724,26 @@ export type Query_Root = {
   validator: Array<Validator>;
   /** fetch data from the table: "validator" using primary key columns */
   validator_by_pk?: Maybe<Validator>;
+  /** fetch data from the table: "validator_commission" */
+  validator_commission: Array<Validator_Commission>;
+  /** fetch data from the table: "validator_commission" using primary key columns */
+  validator_commission_by_pk?: Maybe<Validator_Commission>;
+  /** fetch data from the table: "validator_info" */
+  validator_info: Array<Validator_Info>;
+  /** fetch data from the table: "validator_info" using primary key columns */
+  validator_info_by_pk?: Maybe<Validator_Info>;
+  /** fetch data from the table: "validator_status" */
+  validator_status: Array<Validator_Status>;
+  /** fetch aggregated fields from the table: "validator_status" */
+  validator_status_aggregate: Validator_Status_Aggregate;
+  /** fetch data from the table: "validator_status" using primary key columns */
+  validator_status_by_pk?: Maybe<Validator_Status>;
+  /** fetch data from the table: "validator_voting_power" */
+  validator_voting_power: Array<Validator_Voting_Power>;
+  /** fetch aggregated fields from the table: "validator_voting_power" */
+  validator_voting_power_aggregate: Validator_Voting_Power_Aggregate;
+  /** fetch data from the table: "validator_voting_power" using primary key columns */
+  validator_voting_power_by_pk?: Maybe<Validator_Voting_Power>;
 };
 
 
@@ -776,6 +810,80 @@ export type Query_RootValidator_By_PkArgs = {
   consensus_address: Scalars['String'];
 };
 
+
+export type Query_RootValidator_CommissionArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Commission_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Commission_Order_By>>;
+  where?: InputMaybe<Validator_Commission_Bool_Exp>;
+};
+
+
+export type Query_RootValidator_Commission_By_PkArgs = {
+  validator_address: Scalars['String'];
+};
+
+
+export type Query_RootValidator_InfoArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Info_Order_By>>;
+  where?: InputMaybe<Validator_Info_Bool_Exp>;
+};
+
+
+export type Query_RootValidator_Info_By_PkArgs = {
+  consensus_address: Scalars['String'];
+};
+
+
+export type Query_RootValidator_StatusArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Status_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Status_Order_By>>;
+  where?: InputMaybe<Validator_Status_Bool_Exp>;
+};
+
+
+export type Query_RootValidator_Status_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Status_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Status_Order_By>>;
+  where?: InputMaybe<Validator_Status_Bool_Exp>;
+};
+
+
+export type Query_RootValidator_Status_By_PkArgs = {
+  validator_address: Scalars['String'];
+};
+
+
+export type Query_RootValidator_Voting_PowerArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Voting_Power_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Voting_Power_Order_By>>;
+  where?: InputMaybe<Validator_Voting_Power_Bool_Exp>;
+};
+
+
+export type Query_RootValidator_Voting_Power_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Voting_Power_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Voting_Power_Order_By>>;
+  where?: InputMaybe<Validator_Voting_Power_Bool_Exp>;
+};
+
+
+export type Query_RootValidator_Voting_Power_By_PkArgs = {
+  validator_address: Scalars['String'];
+};
+
 export type Subscription_Root = {
   __typename?: 'subscription_root';
   /** fetch data from the table: "block" */
@@ -802,8 +910,36 @@ export type Subscription_Root = {
   validator: Array<Validator>;
   /** fetch data from the table: "validator" using primary key columns */
   validator_by_pk?: Maybe<Validator>;
+  /** fetch data from the table: "validator_commission" */
+  validator_commission: Array<Validator_Commission>;
+  /** fetch data from the table: "validator_commission" using primary key columns */
+  validator_commission_by_pk?: Maybe<Validator_Commission>;
+  /** fetch data from the table in a streaming manner: "validator_commission" */
+  validator_commission_stream: Array<Validator_Commission>;
+  /** fetch data from the table: "validator_info" */
+  validator_info: Array<Validator_Info>;
+  /** fetch data from the table: "validator_info" using primary key columns */
+  validator_info_by_pk?: Maybe<Validator_Info>;
+  /** fetch data from the table in a streaming manner: "validator_info" */
+  validator_info_stream: Array<Validator_Info>;
+  /** fetch data from the table: "validator_status" */
+  validator_status: Array<Validator_Status>;
+  /** fetch aggregated fields from the table: "validator_status" */
+  validator_status_aggregate: Validator_Status_Aggregate;
+  /** fetch data from the table: "validator_status" using primary key columns */
+  validator_status_by_pk?: Maybe<Validator_Status>;
+  /** fetch data from the table in a streaming manner: "validator_status" */
+  validator_status_stream: Array<Validator_Status>;
   /** fetch data from the table in a streaming manner: "validator" */
   validator_stream: Array<Validator>;
+  /** fetch data from the table: "validator_voting_power" */
+  validator_voting_power: Array<Validator_Voting_Power>;
+  /** fetch aggregated fields from the table: "validator_voting_power" */
+  validator_voting_power_aggregate: Validator_Voting_Power_Aggregate;
+  /** fetch data from the table: "validator_voting_power" using primary key columns */
+  validator_voting_power_by_pk?: Maybe<Validator_Voting_Power>;
+  /** fetch data from the table in a streaming manner: "validator_voting_power" */
+  validator_voting_power_stream: Array<Validator_Voting_Power>;
 };
 
 
@@ -899,10 +1035,112 @@ export type Subscription_RootValidator_By_PkArgs = {
 };
 
 
+export type Subscription_RootValidator_CommissionArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Commission_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Commission_Order_By>>;
+  where?: InputMaybe<Validator_Commission_Bool_Exp>;
+};
+
+
+export type Subscription_RootValidator_Commission_By_PkArgs = {
+  validator_address: Scalars['String'];
+};
+
+
+export type Subscription_RootValidator_Commission_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Validator_Commission_Stream_Cursor_Input>>;
+  where?: InputMaybe<Validator_Commission_Bool_Exp>;
+};
+
+
+export type Subscription_RootValidator_InfoArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Info_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Info_Order_By>>;
+  where?: InputMaybe<Validator_Info_Bool_Exp>;
+};
+
+
+export type Subscription_RootValidator_Info_By_PkArgs = {
+  consensus_address: Scalars['String'];
+};
+
+
+export type Subscription_RootValidator_Info_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Validator_Info_Stream_Cursor_Input>>;
+  where?: InputMaybe<Validator_Info_Bool_Exp>;
+};
+
+
+export type Subscription_RootValidator_StatusArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Status_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Status_Order_By>>;
+  where?: InputMaybe<Validator_Status_Bool_Exp>;
+};
+
+
+export type Subscription_RootValidator_Status_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Status_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Status_Order_By>>;
+  where?: InputMaybe<Validator_Status_Bool_Exp>;
+};
+
+
+export type Subscription_RootValidator_Status_By_PkArgs = {
+  validator_address: Scalars['String'];
+};
+
+
+export type Subscription_RootValidator_Status_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Validator_Status_Stream_Cursor_Input>>;
+  where?: InputMaybe<Validator_Status_Bool_Exp>;
+};
+
+
 export type Subscription_RootValidator_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Validator_Stream_Cursor_Input>>;
   where?: InputMaybe<Validator_Bool_Exp>;
+};
+
+
+export type Subscription_RootValidator_Voting_PowerArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Voting_Power_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Voting_Power_Order_By>>;
+  where?: InputMaybe<Validator_Voting_Power_Bool_Exp>;
+};
+
+
+export type Subscription_RootValidator_Voting_Power_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Validator_Voting_Power_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Validator_Voting_Power_Order_By>>;
+  where?: InputMaybe<Validator_Voting_Power_Bool_Exp>;
+};
+
+
+export type Subscription_RootValidator_Voting_Power_By_PkArgs = {
+  validator_address: Scalars['String'];
+};
+
+
+export type Subscription_RootValidator_Voting_Power_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Validator_Voting_Power_Stream_Cursor_Input>>;
+  where?: InputMaybe<Validator_Voting_Power_Bool_Exp>;
 };
 
 /** Boolean expression to compare columns of type "timestamp". All fields are combined with logical 'AND'. */
@@ -1150,6 +1388,100 @@ export type Validator_Bool_Exp = {
   pre_commits_aggregate?: InputMaybe<Pre_Commit_Aggregate_Bool_Exp>;
 };
 
+/** columns and relationships of "validator_commission" */
+export type Validator_Commission = {
+  __typename?: 'validator_commission';
+  commission: Scalars['numeric'];
+  height: Scalars['bigint'];
+  validator_address: Scalars['String'];
+};
+
+/** Boolean expression to filter rows from the table "validator_commission". All fields are combined with a logical 'AND'. */
+export type Validator_Commission_Bool_Exp = {
+  _and?: InputMaybe<Array<Validator_Commission_Bool_Exp>>;
+  _not?: InputMaybe<Validator_Commission_Bool_Exp>;
+  _or?: InputMaybe<Array<Validator_Commission_Bool_Exp>>;
+  commission?: InputMaybe<Numeric_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  validator_address?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "validator_commission". */
+export type Validator_Commission_Order_By = {
+  commission?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  validator_address?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "validator_commission" */
+export enum Validator_Commission_Select_Column {
+  /** column name */
+  Commission = 'commission',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  ValidatorAddress = 'validator_address'
+}
+
+/** Streaming cursor of the table "validator_commission" */
+export type Validator_Commission_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Validator_Commission_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Validator_Commission_Stream_Cursor_Value_Input = {
+  commission?: InputMaybe<Scalars['numeric']>;
+  height?: InputMaybe<Scalars['bigint']>;
+  validator_address?: InputMaybe<Scalars['String']>;
+};
+
+/** columns and relationships of "validator_info" */
+export type Validator_Info = {
+  __typename?: 'validator_info';
+  consensus_address: Scalars['String'];
+  max_change_rate: Scalars['String'];
+};
+
+/** Boolean expression to filter rows from the table "validator_info". All fields are combined with a logical 'AND'. */
+export type Validator_Info_Bool_Exp = {
+  _and?: InputMaybe<Array<Validator_Info_Bool_Exp>>;
+  _not?: InputMaybe<Validator_Info_Bool_Exp>;
+  _or?: InputMaybe<Array<Validator_Info_Bool_Exp>>;
+  consensus_address?: InputMaybe<String_Comparison_Exp>;
+  max_change_rate?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "validator_info". */
+export type Validator_Info_Order_By = {
+  consensus_address?: InputMaybe<Order_By>;
+  max_change_rate?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "validator_info" */
+export enum Validator_Info_Select_Column {
+  /** column name */
+  ConsensusAddress = 'consensus_address',
+  /** column name */
+  MaxChangeRate = 'max_change_rate'
+}
+
+/** Streaming cursor of the table "validator_info" */
+export type Validator_Info_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Validator_Info_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Validator_Info_Stream_Cursor_Value_Input = {
+  consensus_address?: InputMaybe<Scalars['String']>;
+  max_change_rate?: InputMaybe<Scalars['String']>;
+};
+
 /** Ordering options when selecting data from "validator". */
 export type Validator_Order_By = {
   blocks_aggregate?: InputMaybe<Block_Aggregate_Order_By>;
@@ -1166,6 +1498,164 @@ export enum Validator_Select_Column {
   ConsensusPubkey = 'consensus_pubkey'
 }
 
+/** columns and relationships of "validator_status" */
+export type Validator_Status = {
+  __typename?: 'validator_status';
+  height: Scalars['bigint'];
+  jailed: Scalars['Boolean'];
+  status: Scalars['Int'];
+  validator_address: Scalars['String'];
+};
+
+/** aggregated selection of "validator_status" */
+export type Validator_Status_Aggregate = {
+  __typename?: 'validator_status_aggregate';
+  aggregate?: Maybe<Validator_Status_Aggregate_Fields>;
+  nodes: Array<Validator_Status>;
+};
+
+/** aggregate fields of "validator_status" */
+export type Validator_Status_Aggregate_Fields = {
+  __typename?: 'validator_status_aggregate_fields';
+  avg?: Maybe<Validator_Status_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Validator_Status_Max_Fields>;
+  min?: Maybe<Validator_Status_Min_Fields>;
+  stddev?: Maybe<Validator_Status_Stddev_Fields>;
+  stddev_pop?: Maybe<Validator_Status_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Validator_Status_Stddev_Samp_Fields>;
+  sum?: Maybe<Validator_Status_Sum_Fields>;
+  var_pop?: Maybe<Validator_Status_Var_Pop_Fields>;
+  var_samp?: Maybe<Validator_Status_Var_Samp_Fields>;
+  variance?: Maybe<Validator_Status_Variance_Fields>;
+};
+
+
+/** aggregate fields of "validator_status" */
+export type Validator_Status_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Validator_Status_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Validator_Status_Avg_Fields = {
+  __typename?: 'validator_status_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "validator_status". All fields are combined with a logical 'AND'. */
+export type Validator_Status_Bool_Exp = {
+  _and?: InputMaybe<Array<Validator_Status_Bool_Exp>>;
+  _not?: InputMaybe<Validator_Status_Bool_Exp>;
+  _or?: InputMaybe<Array<Validator_Status_Bool_Exp>>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  jailed?: InputMaybe<Boolean_Comparison_Exp>;
+  status?: InputMaybe<Int_Comparison_Exp>;
+  validator_address?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Validator_Status_Max_Fields = {
+  __typename?: 'validator_status_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  status?: Maybe<Scalars['Int']>;
+  validator_address?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Validator_Status_Min_Fields = {
+  __typename?: 'validator_status_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  status?: Maybe<Scalars['Int']>;
+  validator_address?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "validator_status". */
+export type Validator_Status_Order_By = {
+  height?: InputMaybe<Order_By>;
+  jailed?: InputMaybe<Order_By>;
+  status?: InputMaybe<Order_By>;
+  validator_address?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "validator_status" */
+export enum Validator_Status_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Jailed = 'jailed',
+  /** column name */
+  Status = 'status',
+  /** column name */
+  ValidatorAddress = 'validator_address'
+}
+
+/** aggregate stddev on columns */
+export type Validator_Status_Stddev_Fields = {
+  __typename?: 'validator_status_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Validator_Status_Stddev_Pop_Fields = {
+  __typename?: 'validator_status_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Validator_Status_Stddev_Samp_Fields = {
+  __typename?: 'validator_status_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+};
+
+/** Streaming cursor of the table "validator_status" */
+export type Validator_Status_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Validator_Status_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Validator_Status_Stream_Cursor_Value_Input = {
+  height?: InputMaybe<Scalars['bigint']>;
+  jailed?: InputMaybe<Scalars['Boolean']>;
+  status?: InputMaybe<Scalars['Int']>;
+  validator_address?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregate sum on columns */
+export type Validator_Status_Sum_Fields = {
+  __typename?: 'validator_status_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  status?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate var_pop on columns */
+export type Validator_Status_Var_Pop_Fields = {
+  __typename?: 'validator_status_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Validator_Status_Var_Samp_Fields = {
+  __typename?: 'validator_status_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Validator_Status_Variance_Fields = {
+  __typename?: 'validator_status_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  status?: Maybe<Scalars['Float']>;
+};
+
 /** Streaming cursor of the table "validator" */
 export type Validator_Stream_Cursor_Input = {
   /** Stream column input with initial value */
@@ -1178,6 +1668,162 @@ export type Validator_Stream_Cursor_Input = {
 export type Validator_Stream_Cursor_Value_Input = {
   consensus_address?: InputMaybe<Scalars['String']>;
   consensus_pubkey?: InputMaybe<Scalars['String']>;
+};
+
+/** columns and relationships of "validator_voting_power" */
+export type Validator_Voting_Power = {
+  __typename?: 'validator_voting_power';
+  /** An object relationship */
+  block?: Maybe<Block>;
+  height: Scalars['bigint'];
+  validator_address: Scalars['String'];
+  voting_power: Scalars['bigint'];
+};
+
+/** aggregated selection of "validator_voting_power" */
+export type Validator_Voting_Power_Aggregate = {
+  __typename?: 'validator_voting_power_aggregate';
+  aggregate?: Maybe<Validator_Voting_Power_Aggregate_Fields>;
+  nodes: Array<Validator_Voting_Power>;
+};
+
+/** aggregate fields of "validator_voting_power" */
+export type Validator_Voting_Power_Aggregate_Fields = {
+  __typename?: 'validator_voting_power_aggregate_fields';
+  avg?: Maybe<Validator_Voting_Power_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Validator_Voting_Power_Max_Fields>;
+  min?: Maybe<Validator_Voting_Power_Min_Fields>;
+  stddev?: Maybe<Validator_Voting_Power_Stddev_Fields>;
+  stddev_pop?: Maybe<Validator_Voting_Power_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Validator_Voting_Power_Stddev_Samp_Fields>;
+  sum?: Maybe<Validator_Voting_Power_Sum_Fields>;
+  var_pop?: Maybe<Validator_Voting_Power_Var_Pop_Fields>;
+  var_samp?: Maybe<Validator_Voting_Power_Var_Samp_Fields>;
+  variance?: Maybe<Validator_Voting_Power_Variance_Fields>;
+};
+
+
+/** aggregate fields of "validator_voting_power" */
+export type Validator_Voting_Power_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Validator_Voting_Power_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Validator_Voting_Power_Avg_Fields = {
+  __typename?: 'validator_voting_power_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "validator_voting_power". All fields are combined with a logical 'AND'. */
+export type Validator_Voting_Power_Bool_Exp = {
+  _and?: InputMaybe<Array<Validator_Voting_Power_Bool_Exp>>;
+  _not?: InputMaybe<Validator_Voting_Power_Bool_Exp>;
+  _or?: InputMaybe<Array<Validator_Voting_Power_Bool_Exp>>;
+  block?: InputMaybe<Block_Bool_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  validator_address?: InputMaybe<String_Comparison_Exp>;
+  voting_power?: InputMaybe<Bigint_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Validator_Voting_Power_Max_Fields = {
+  __typename?: 'validator_voting_power_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  validator_address?: Maybe<Scalars['String']>;
+  voting_power?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Validator_Voting_Power_Min_Fields = {
+  __typename?: 'validator_voting_power_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  validator_address?: Maybe<Scalars['String']>;
+  voting_power?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "validator_voting_power". */
+export type Validator_Voting_Power_Order_By = {
+  block?: InputMaybe<Block_Order_By>;
+  height?: InputMaybe<Order_By>;
+  validator_address?: InputMaybe<Order_By>;
+  voting_power?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "validator_voting_power" */
+export enum Validator_Voting_Power_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  ValidatorAddress = 'validator_address',
+  /** column name */
+  VotingPower = 'voting_power'
+}
+
+/** aggregate stddev on columns */
+export type Validator_Voting_Power_Stddev_Fields = {
+  __typename?: 'validator_voting_power_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Validator_Voting_Power_Stddev_Pop_Fields = {
+  __typename?: 'validator_voting_power_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Validator_Voting_Power_Stddev_Samp_Fields = {
+  __typename?: 'validator_voting_power_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
+};
+
+/** Streaming cursor of the table "validator_voting_power" */
+export type Validator_Voting_Power_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Validator_Voting_Power_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Validator_Voting_Power_Stream_Cursor_Value_Input = {
+  height?: InputMaybe<Scalars['bigint']>;
+  validator_address?: InputMaybe<Scalars['String']>;
+  voting_power?: InputMaybe<Scalars['bigint']>;
+};
+
+/** aggregate sum on columns */
+export type Validator_Voting_Power_Sum_Fields = {
+  __typename?: 'validator_voting_power_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+  voting_power?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Validator_Voting_Power_Var_Pop_Fields = {
+  __typename?: 'validator_voting_power_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Validator_Voting_Power_Var_Samp_Fields = {
+  __typename?: 'validator_voting_power_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Validator_Voting_Power_Variance_Fields = {
+  __typename?: 'validator_voting_power_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+  voting_power?: Maybe<Scalars['Float']>;
 };
 
 export type BlockDetailsQueryVariables = Exact<{
@@ -1194,6 +1840,21 @@ export type BlocksQueryVariables = Exact<{
 
 
 export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, proposerAddress?: string | null }> };
+
+export type TransactionDetailsQueryVariables = Exact<{
+  hash?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type TransactionDetailsQuery = { transaction: Array<{ __typename?: 'transaction', hash: string, height: any, gasUsed?: any | null, gasWanted?: any | null, success: boolean, memo?: string | null, rawLog?: string | null, block?: { __typename?: 'block', timestamp: any } | null }> };
+
+export type TransactionsQueryVariables = Exact<{
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+}>;
+
+
+export type TransactionsQuery = { transactions: Array<{ __typename?: 'transaction', height: any, hash: string, success: boolean, tx_type: string, block?: { __typename?: 'block', timestamp: any } | null }> };
 
 
 export const BlockDetailsDocument = gql`
@@ -1281,3 +1942,93 @@ export function useBlocksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Blo
 export type BlocksQueryHookResult = ReturnType<typeof useBlocksQuery>;
 export type BlocksLazyQueryHookResult = ReturnType<typeof useBlocksLazyQuery>;
 export type BlocksQueryResult = Apollo.QueryResult<BlocksQuery, BlocksQueryVariables>;
+export const TransactionDetailsDocument = gql`
+    query TransactionDetails($hash: String) {
+  transaction(where: {hash: {_eq: $hash}}, limit: 1) {
+    hash: hash
+    height: height
+    block: block {
+      timestamp: timestamp
+    }
+    gasUsed: gas_used
+    gasWanted: gas_wanted
+    success: success
+    memo: memo
+    rawLog: raw_log
+  }
+}
+    `;
+
+/**
+ * __useTransactionDetailsQuery__
+ *
+ * To run a query within a React component, call `useTransactionDetailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTransactionDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTransactionDetailsQuery({
+ *   variables: {
+ *      hash: // value for 'hash'
+ *   },
+ * });
+ */
+export function useTransactionDetailsQuery(baseOptions?: Apollo.QueryHookOptions<TransactionDetailsQuery, TransactionDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TransactionDetailsQuery, TransactionDetailsQueryVariables>(TransactionDetailsDocument, options);
+      }
+export function useTransactionDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TransactionDetailsQuery, TransactionDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TransactionDetailsQuery, TransactionDetailsQueryVariables>(TransactionDetailsDocument, options);
+        }
+export type TransactionDetailsQueryHookResult = ReturnType<typeof useTransactionDetailsQuery>;
+export type TransactionDetailsLazyQueryHookResult = ReturnType<typeof useTransactionDetailsLazyQuery>;
+export type TransactionDetailsQueryResult = Apollo.QueryResult<TransactionDetailsQuery, TransactionDetailsQueryVariables>;
+export const TransactionsDocument = gql`
+    query Transactions($limit: Int = 7, $offset: Int = 0) {
+  transactions: transaction(
+    limit: $limit
+    offset: $offset
+    order_by: {height: desc}
+  ) {
+    height
+    hash
+    success
+    block {
+      timestamp
+    }
+    tx_type
+  }
+}
+    `;
+
+/**
+ * __useTransactionsQuery__
+ *
+ * To run a query within a React component, call `useTransactionsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTransactionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTransactionsQuery({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useTransactionsQuery(baseOptions?: Apollo.QueryHookOptions<TransactionsQuery, TransactionsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<TransactionsQuery, TransactionsQueryVariables>(TransactionsDocument, options);
+      }
+export function useTransactionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TransactionsQuery, TransactionsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<TransactionsQuery, TransactionsQueryVariables>(TransactionsDocument, options);
+        }
+export type TransactionsQueryHookResult = ReturnType<typeof useTransactionsQuery>;
+export type TransactionsLazyQueryHookResult = ReturnType<typeof useTransactionsLazyQuery>;
+export type TransactionsQueryResult = Apollo.QueryResult<TransactionsQuery, TransactionsQueryVariables>;
