@@ -10,8 +10,7 @@
     "default": "dark",
     "themeList": [
       "dark",
-      "deuteranopia",
-      "tritanopia"
+      "light"
     ],
     "dark": {
       "primary": {
@@ -109,21 +108,98 @@
       }
     },
     "light": {
-      "primary": {},
-      "background": {},
-      "text": {},
+      "primary": {
+        "main": "#FF835B",
+        "contrastText": "#FFFFFF"
+      },
+      "background": {
+        "default": "#F8F8F8",
+        "paper": "#FFFFFF"
+      },
+      "divider": "#E8E8E8",
+      "text": {
+        "primary": "#000000",
+        "secondary": "#414141"
+      },
       "custom": {
         "general": {
+          "background": "#F8F8F8",
+          "surfaceOne": "#FFFFFF",
+          "surfaceTwo": "#F8F8F8",
           "icon": "#999999"
         },
-        "fonts": {},
-        "primaryData": {},
-        "results": {},
-        "tokenomics": {},
-        "condition": {},
-        "charts": {},
-        "tags": {},
-        "wallet": {}
+        "fonts": {
+          "fontOne": "#000000",
+          "fontTwo": "#414141",
+          "fontThree": "#777777",
+          "fontFour": "#999999",
+          "fontFive": "#FFFFFF",
+          "highlight": "#4092CD"
+        },
+        "primaryData": {
+          "one": "#F87255",
+          "two": "#FA9147",
+          "three": "#20D494",
+          "four": "#2FB6E0"
+        },
+        "results": {
+          "pass": "#1EC490",
+          "fail": "#FD3B4C"
+        },
+        "tokenomics": {
+          "one": "#2FB6E0",
+          "two": "#FFC93D",
+          "three": "#20D494"
+        },
+        "condition": {
+          "zero": "#E6E6E6",
+          "one": "#1EC490",
+          "two": "#FF9338",
+          "three": "#FF608A"
+        },
+        "charts": {
+          "zero": "#E6E6E6",
+          "one": "#20D494",
+          "two": "#FF8732",
+          "three": "#F44747",
+          "four": "#2FB6E0",
+          "five": "#E95EB1"
+        },
+        "tags": {
+          "zero": "#E8E8E8",
+          "one": "#2460FA",
+          "two": "#2BA891",
+          "three": "#E79720",
+          "four": "#F17047",
+          "five": "#DA4B4B",
+          "six": "#9438DC",
+          "seven": "#1A869D",
+          "eight": "#2C9944",
+          "nine": "#B49F31",
+          "ten": "#E9A846",
+          "eleven": "#E94681",
+          "twelve": "#C15EC4",
+          "thirteen": "#C388D9",
+          "fourteen": "#46AEE9",
+          "fifteen": "#58BC91",
+          "sixteen": "#90BC58",
+          "seventeen": "#E99E8E",
+          "eighteen": "#F0A479",
+          "nineteen": "#D37763",
+          "twenty": "#D9C788"
+        },
+        "wallet": {
+          "background": "#E8E8E8",
+          "backgroundTwo": "#FFFFFF",
+          "surfaceOne": "#5E5C5C",
+          "surfaceTwo": "#E8E7E8",
+          "surfaceThree": "#BDBDBD",
+          "surfaceFour": "#A1A1A1",
+          "surfaceFive": "#777777",
+          "divider": "#34383E",
+          "textPrimary": "#000000",
+          "textSecondary": "#222222"
+        }
       }
     }
   },
@@ -150,7 +226,7 @@
       },
       "endpoints": {
         "graphql": "/namada/gql",
-        "graphqlWebsocket": "wss://gql.crescent.forbole.com/v1/graphql",
+        "graphqlWebsocket": "",
         "publicRpcWebsocket": "wss://rpc.crescent.forbole.com/websocket"
       },
       "marketing": {
