@@ -44,7 +44,7 @@ export const useOnlineVotingPower = () => {
     []
   );
 
-  useOnlineVotingPowerQuery({
+  useOnlineVotingPowerQuery?.({
     onCompleted: (data) => {
       handleSetState((prevState) => ({
         ...prevState,

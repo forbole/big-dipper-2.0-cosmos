@@ -86,14 +86,15 @@ export const useValidatorVotingPowerDetails = () => {
   // ==========================
   // Fetch Data
   // ==========================
-  const { loading } = useValidatorVotingPowersQuery({
-    variables: {
-      address: router.query.address as string,
-    },
-    onCompleted: (data) => {
-      handleSetState((prevState) => ({ ...prevState, ...formatValidatorVotingPower(data) }));
-    },
-  });
+  const { loading } =
+    useValidatorVotingPowersQuery?.({
+      variables: {
+        address: router.query.address as string,
+      },
+      onCompleted: (data) => {
+        handleSetState((prevState) => ({ ...prevState, ...formatValidatorVotingPower(data) }));
+      },
+    }) || {};
 
   return { state, loading };
 };
@@ -115,14 +116,15 @@ export const useValidatorOverviewDetails = () => {
   // ==========================
   // Fetch Data
   // ==========================
-  const { loading } = useValidatorInfoQuery({
-    variables: {
-      address: router.query.address as string,
-    },
-    onCompleted: (data) => {
-      handleSetState((prevState) => ({ ...prevState, ...formatValidatorOverview(data) }));
-    },
-  });
+  const { loading } =
+    useValidatorInfoQuery?.({
+      variables: {
+        address: router.query.address as string,
+      },
+      onCompleted: (data) => {
+        handleSetState((prevState) => ({ ...prevState, ...formatValidatorOverview(data) }));
+      },
+    }) || {};
 
   return { state, loading };
 };
@@ -144,14 +146,15 @@ export const useValidatorProfileDetails = () => {
   // ==========================
   // Fetch Data
   // ==========================
-  const { loading } = useValidatorAddressQuery({
-    variables: {
-      address: router.query.address as string,
-    },
-    onCompleted: (data) => {
-      handleSetState((prevState) => ({ ...prevState, ...formatValidatorAddress(data) }));
-    },
-  });
+  const { loading } =
+    useValidatorAddressQuery?.({
+      variables: {
+        address: router.query.address as string,
+      },
+      onCompleted: (data) => {
+        handleSetState((prevState) => ({ ...prevState, ...formatValidatorAddress(data) }));
+      },
+    }) || {};
 
   // ==========================
   // Desmos Profile

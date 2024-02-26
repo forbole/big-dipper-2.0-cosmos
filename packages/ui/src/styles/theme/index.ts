@@ -21,7 +21,7 @@ export const common = (theme: ThemeOptions) =>
     mixins: {
       toolbar: {
         '@media (min-width: 1280px)': {
-          height: '160px',
+          height: '100px',
           overflow: 'hidden',
         },
       },

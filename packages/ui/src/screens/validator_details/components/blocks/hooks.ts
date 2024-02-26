@@ -25,15 +25,16 @@ export const useBlocks = (address?: string) => {
 
   const router = useRouter();
 
-  const { loading } = useLastHundredBlocksSubscription({
-    variables: {
-      address: address ?? (router?.query?.address as string) ?? '',
-    },
-    onData: (data) => {
-      if (!data.data.data) return;
-      setState(formatLastHundredBlocks(data.data.data));
-    },
-  });
+  const { loading } =
+    useLastHundredBlocksSubscription?.({
+      variables: {
+        address: address ?? (router?.query?.address as string) ?? '',
+      },
+      onData: (data) => {
+        if (!data.data.data) return;
+        setState(formatLastHundredBlocks(data.data.data));
+      },
+    }) || {};
 
   return {
     state,

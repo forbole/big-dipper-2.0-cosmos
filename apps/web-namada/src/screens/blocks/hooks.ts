@@ -27,7 +27,7 @@ const formatBlocks = (data: BlocksListenerSubscription): BlockType[] => {
     formattedData?.map((x) => {
       const proposerAddress =
         x?.validator?.validatorInfo?.operatorAddress ?? x.proposerAddress ?? '';
-      console.log('debug: hooks.ts: proposerAddress', proposerAddress);
+
       return {
         height: x.height,
         txs: x.txs ?? 0,

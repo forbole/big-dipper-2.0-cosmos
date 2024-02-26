@@ -14,12 +14,12 @@
     ],
     "dark": {
       "primary": {
-        "main": "#FFC780",
+        "main": "#FFFC38",
         "contrastText": "#FFFFFF"
       },
       "background": {
-        "default": "#1F0E0B",
-        "paper": "#2E150F"
+        "default": "#000",
+        "paper": "#222"
       },
       "divider": "#4D4441",
       "text": {

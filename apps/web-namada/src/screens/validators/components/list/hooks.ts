@@ -13,12 +13,12 @@ import type {
 import { formatToken } from '@/utils/format_token';
 import { getValidatorCondition } from '@/utils/get_validator_condition';
 
-const { votingPowerTokenUnit } = chainConfig();
+const { extra, votingPowerTokenUnit } = chainConfig();
 
 // ==========================
 // Parse data
 // ==========================
-const formatValidators = (data: ValidatorsQuery) => {
+const formatValidators = (data: ValidatorsQuery): Partial<ValidatorsState> => {
   const slashingParams = SlashingParams.fromJson(data?.slashingParams?.[0]?.params ?? {});
   const votingPowerOverall =
     numeral(
@@ -27,40 +27,30 @@ const formatValidators = (data: ValidatorsQuery) => {
 
   const { signedBlockWindow } = slashingParams;
 
-  let formattedItems: ValidatorType[] = data.validator
-    .filter((x) => x.validatorInfo)
-    .map((x) => {
-      const votingPower = x?.validatorVotingPowers?.[0]?.votingPower ?? 0;
-      const votingPowerPercent = numeral((votingPower / (votingPowerOverall ?? 0)) * 100).value();
+  const formattedItems: ValidatorType[] = data.validator.map((x) => {
+    const votingPower =
+      (x?.validatorVotingPowers?.[0]?.votingPower ?? 0) / 10 ** (extra.votingPowerExponent ?? 0);
+    const votingPowerPercent = votingPowerOverall
+      ? numeral((votingPower / votingPowerOverall) * 100).value()
+      : 0;
 
-      const missedBlockCounter = x?.validatorSigningInfos?.[0]?.missedBlocksCounter ?? 0;
-      const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
+    const missedBlockCounter = x?.validatorSigningInfos?.[0]?.missedBlocksCounter ?? 0;
+    const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
-      const liquidStakingReturn = x?.validatorLiquidStaking?.[0]?.liquidStaking;
-      let liquidStaking = 'N/A';
-      if (liquidStakingReturn !== undefined) {
-        if (liquidStakingReturn) {
-          liquidStaking = 'Yes';
-        } else {
-          liquidStaking = 'No';
-        }
-      }
-
-      return {
-        validator: x.validatorInfo?.operatorAddress ?? '',
-        votingPower: votingPower ?? 0,
-        votingPowerPercent: votingPowerPercent ?? 0,
-        liquidStaking,
-        commission: (x?.validatorCommissions?.[0]?.commission ?? 0) * 100,
-        condition,
-        status: x?.validatorStatuses?.[0]?.status ?? 0,
-        jailed: x?.validatorStatuses?.[0]?.jailed ?? false,
-        tombstoned: x?.validatorSigningInfos?.[0]?.tombstoned ?? false,
-      };
-    });
+    return {
+      validator: x.validatorCommissions?.[0]?.validator_address ?? '',
+      votingPower: votingPower ?? 0,
+      votingPowerPercent: votingPowerPercent ?? 0,
+      commission: (x?.validatorCommissions?.[0]?.commission ?? 0) * 100,
+      condition,
+      status: x?.validatorStatuses?.[0]?.status ?? 0,
+      jailed: x?.validatorStatuses?.[0]?.jailed ?? false,
+      tombstoned: false,
+    };
+  });
 
   // get the top 34% validators
-  formattedItems = formattedItems.sort((a, b) => (a.votingPower > b.votingPower ? -1 : 1));
+  formattedItems.sort((a, b) => (a.votingPower > b.votingPower ? -1 : 1));
 
   // add key to indicate they are part of top 34%
   let cumulativeVotingPower = Big(0);
@@ -120,7 +110,13 @@ export const useValidators = () => {
         ...formatValidators(data),
       }));
     },
-    onError: () => handleSetState((prevState) => ({ ...prevState, loading: false })),
+    onError: () => {
+      handleSetState((prevState) => ({
+        ...prevState,
+        loading: false,
+        exists: false,
+      }));
+    },
   });
 
   const handleTabChange = useCallback(
@@ -151,6 +147,10 @@ export const useValidators = () => {
     [state.sortKey]
   );
 
+  const handleSearch = useCallback((value: string) => {
+    setSearch(value);
+  }, []);
+
   const sortItems = useCallback(
     (items: ItemType[]) => {
       let sorted: ItemType[] = R.clone(items);
@@ -161,6 +161,16 @@ export const useValidators = () => {
 
       if (state.tab === 1) {
         sorted = sorted.filter((x) => x.status !== 3);
+      }
+
+      if (search) {
+        sorted = sorted.filter((x) => {
+          const formattedSearch = search.toLowerCase().replace(/ /g, '');
+          return (
+            x.validator.name.toLowerCase().replace(/ /g, '').includes(formattedSearch) ||
+            x.validator.address.toLowerCase().includes(formattedSearch)
+          );
+        });
       }
 
       if (state.sortKey && state.sortDirection) {
@@ -185,12 +195,8 @@ export const useValidators = () => {
 
       return sorted;
     },
-    [state.sortDirection, state.sortKey, state.tab]
+    [search, state.sortDirection, state.sortKey, state.tab]
   );
-
-  const handleSearch = useCallback((value: string) => {
-    setSearch(value);
-  }, []);
 
   return {
     state,
