@@ -63,7 +63,12 @@ const Footer: FC<{ className?: string }> = ({ className }) => {
             <div>
               <p className="footer__donate--excerpt">{t('common:donateExcerpt')}</p>
               <a href={donateLink.url} target="_blank" rel="noreferrer">
-                <Button className="footer__donate-button" variant="contained" color="primary">
+                <Button
+                  className="footer__donate-button"
+                  variant="contained"
+                  color="primary"
+                  sx={{ color: '#000' }}
+                >
                   {t('common:donate')}
                 </Button>
               </a>
