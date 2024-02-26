@@ -42,7 +42,7 @@
           "highlight": "#6AA6FF"
         },
         "primaryData": {
-          "one": "#FFC780",
+          "one": "#8a8820",
           "two": "#ECA54C",
           "three": "#D17A0C",
           "four": "#D1530C"
@@ -226,7 +226,7 @@
       },
       "endpoints": {
         "graphql": "/namada/gql",
-        "graphqlWebsocket": "",
+        "graphqlWebsocket": "ws://154.91.1.75:8080/v1/graphql",
         "publicRpcWebsocket": "wss://rpc.crescent.forbole.com/websocket"
       },
       "marketing": {
