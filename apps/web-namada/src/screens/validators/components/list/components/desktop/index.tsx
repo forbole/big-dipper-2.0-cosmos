@@ -106,8 +106,14 @@ const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, searc
 
   const status = getValidatorStatus(item.status, item.jailed, item.tombstoned);
   const condition = item.status === 3 ? getValidatorConditionClass(item.condition) : undefined;
-  const percentDisplay =
-    item.status === 3 ? `${numeral(item.votingPowerPercent.toFixed(6)).format('0.[00]')}%` : '0%';
+  const percentDisplay = (() => {
+    if (typeof item.votingPowerPercent !== 'number') return '';
+
+    return item.status === 3
+      ? `${numeral(item.votingPowerPercent.toFixed(6)).format('0.[00]')}%`
+      : '0%';
+  })();
+
   const votingPower = numeral(item.votingPower).format('0,0');
 
   let formatItem: ReactNode = null;

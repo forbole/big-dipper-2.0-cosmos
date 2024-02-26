@@ -27,27 +27,30 @@ const formatValidators = (data: ValidatorsQuery): Partial<ValidatorsState> => {
 
   const { signedBlockWindow } = slashingParams;
 
-  const formattedItems: ValidatorType[] = data.validator.map((x) => {
-    const votingPower =
-      (x?.validatorVotingPowers?.[0]?.votingPower ?? 0) / 10 ** (extra.votingPowerExponent ?? 0);
-    const votingPowerPercent = votingPowerOverall
-      ? numeral((votingPower / votingPowerOverall) * 100).value()
-      : 0;
+  const formattedItems: ValidatorType[] = data.validator
+    .map((x) => {
+      const votingPower =
+        (x?.validatorVotingPowers?.[0]?.votingPower ?? 0) / 10 ** (extra.votingPowerExponent ?? 0);
+      const votingPowerPercent =
+        votingPowerOverall && votingPower
+          ? numeral((votingPower / votingPowerOverall) * 100).value()
+          : undefined;
 
-    const missedBlockCounter = x?.validatorSigningInfos?.[0]?.missedBlocksCounter ?? 0;
-    const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
+      const missedBlockCounter = x?.validatorSigningInfos?.[0]?.missedBlocksCounter ?? 0;
+      const condition = getValidatorCondition(signedBlockWindow, missedBlockCounter);
 
-    return {
-      validator: x.validatorCommissions?.[0]?.validator_address ?? '',
-      votingPower: votingPower ?? 0,
-      votingPowerPercent: votingPowerPercent ?? 0,
-      commission: (x?.validatorCommissions?.[0]?.commission ?? 0) * 100,
-      condition,
-      status: x?.validatorStatuses?.[0]?.status ?? 0,
-      jailed: x?.validatorStatuses?.[0]?.jailed ?? false,
-      tombstoned: false,
-    };
-  });
+      return {
+        validator: x.validatorCommissions?.[0]?.validator_address ?? '',
+        votingPower: votingPower ?? 0,
+        votingPowerPercent,
+        commission: (x?.validatorCommissions?.[0]?.commission ?? 0) * 100,
+        condition,
+        status: x?.validatorStatuses?.[0]?.status ?? 0,
+        jailed: x?.validatorStatuses?.[0]?.jailed ?? false,
+        tombstoned: false,
+      };
+    })
+    .filter((x) => x.validator);
 
   // get the top 34% validators
   formattedItems.sort((a, b) => (a.votingPower > b.votingPower ? -1 : 1));
@@ -57,7 +60,7 @@ const formatValidators = (data: ValidatorsQuery): Partial<ValidatorsState> => {
   let reached = false;
   formattedItems.forEach((x) => {
     if (x.status === 3) {
-      const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
+      const totalVp = cumulativeVotingPower.add(x.votingPowerPercent || 0);
       if (totalVp.lte(34) && !reached) {
         x.topVotingPower = true;
       }

@@ -2440,6 +2440,13 @@ export type LatestBlockHeightListenerSubscriptionVariables = Exact<{
 
 export type LatestBlockHeightListenerSubscription = { height: Array<{ __typename?: 'block', height: any }> };
 
+export type LatestBlockTimestampQueryVariables = Exact<{
+  offset?: InputMaybe<Scalars['Int']>;
+}>;
+
+
+export type LatestBlockTimestampQuery = { block: Array<{ __typename?: 'block', timestamp: any }> };
+
 export type BlocksQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -2552,6 +2559,41 @@ export function useLatestBlockHeightListenerSubscription(baseOptions?: Apollo.Su
       }
 export type LatestBlockHeightListenerSubscriptionHookResult = ReturnType<typeof useLatestBlockHeightListenerSubscription>;
 export type LatestBlockHeightListenerSubscriptionResult = Apollo.SubscriptionResult<LatestBlockHeightListenerSubscription>;
+export const LatestBlockTimestampDocument = gql`
+    query LatestBlockTimestamp($offset: Int = 0) {
+  block: block(order_by: {height: desc}, limit: 1, offset: $offset) {
+    timestamp
+  }
+}
+    `;
+
+/**
+ * __useLatestBlockTimestampQuery__
+ *
+ * To run a query within a React component, call `useLatestBlockTimestampQuery` and pass it any options that fit your needs.
+ * When your component renders, `useLatestBlockTimestampQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useLatestBlockTimestampQuery({
+ *   variables: {
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useLatestBlockTimestampQuery(baseOptions?: Apollo.QueryHookOptions<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>(LatestBlockTimestampDocument, options);
+      }
+export function useLatestBlockTimestampLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>(LatestBlockTimestampDocument, options);
+        }
+export type LatestBlockTimestampQueryHookResult = ReturnType<typeof useLatestBlockTimestampQuery>;
+export type LatestBlockTimestampLazyQueryHookResult = ReturnType<typeof useLatestBlockTimestampLazyQuery>;
+export type LatestBlockTimestampQueryResult = Apollo.QueryResult<LatestBlockTimestampQuery, LatestBlockTimestampQueryVariables>;
 export const BlocksDocument = gql`
     query Blocks($limit: Int = 7, $offset: Int = 0) {
   blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
