@@ -18,6 +18,7 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import FilterTxsByType from '@/components/transaction_type_filter';
+import NoData from '@/components/no_data';
 
 const useRenderHeaderCell = ({
   columnIndex,
@@ -86,6 +87,14 @@ const Desktop: FC<TransactionsListState> = ({
 
   // Default isItemLoaded function
   const defaultIsItemLoaded = () => true;
+
+  // Render NoData component if itemCount is 0
+  const noDataComponent =
+    itemCount === 0 ? (
+      <div className={classes.noData}>
+        <NoData />
+      </div>
+    ) : null;
 
   return (
     <div className={cx(classes.root, className)}>
@@ -177,6 +186,7 @@ const Desktop: FC<TransactionsListState> = ({
           </>
         )}
       </AutoSizer>
+      {noDataComponent}
     </div>
   );
 };

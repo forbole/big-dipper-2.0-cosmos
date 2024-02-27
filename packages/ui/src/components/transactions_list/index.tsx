@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import Loading from '@/components/loading';
-import NoData from '@/components/no_data';
 import Desktop from '@/components/transactions_list/components/desktop';
 import Mobile from '@/components/transactions_list/components/mobile';
 import type { TransactionsListState } from '@/components/transactions_list/types';
@@ -30,7 +29,7 @@ const TransactionsList: FC<TransactionsListState> = (props) => {
   };
 
   if (!itemCount) {
-    return isNextPageLoading ? <Loading /> : <NoData />;
+    if (isNextPageLoading) return <Loading />;
   }
 
   return (
