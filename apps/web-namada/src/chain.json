@@ -226,7 +226,7 @@
       },
       "endpoints": {
         "graphql": "https://gql.namada.forbole.com/v1/graphql",
-        "graphqlWebsocket": "wss://gql.crescent.forbole.com/v1/graphql"
+        "graphqlWebsocket": "wss://gql.namada.forbole.com/v1/graphql"
       },
       "marketing": {
         "matomoURL": "https://analytics.bigdipper.live",
