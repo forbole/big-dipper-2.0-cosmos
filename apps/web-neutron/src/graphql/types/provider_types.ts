@@ -10382,6 +10382,8 @@ export type Message = {
   index: Scalars['bigint'];
   involved_accounts_addresses: Scalars['_text'];
   /** An object relationship */
+  message_type?: Maybe<Message_Type>;
+  /** An object relationship */
   transaction?: Maybe<Transaction>;
   /** An object relationship */
   transactionByPartitionIdTransactionHash?: Maybe<Transaction>;
@@ -10425,6 +10427,7 @@ export type Message_Bool_Exp = {
   height?: InputMaybe<Bigint_Comparison_Exp>;
   index?: InputMaybe<Bigint_Comparison_Exp>;
   involved_accounts_addresses?: InputMaybe<_Text_Comparison_Exp>;
+  message_type?: InputMaybe<Message_Type_Bool_Exp>;
   transaction?: InputMaybe<Transaction_Bool_Exp>;
   transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Bool_Exp>;
   transaction_hash?: InputMaybe<String_Comparison_Exp>;
@@ -10453,6 +10456,7 @@ export type Message_Order_By = {
   height?: InputMaybe<Order_By>;
   index?: InputMaybe<Order_By>;
   involved_accounts_addresses?: InputMaybe<Order_By>;
+  message_type?: InputMaybe<Message_Type_Order_By>;
   transaction?: InputMaybe<Transaction_Order_By>;
   transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Order_By>;
   transaction_hash?: InputMaybe<Order_By>;

@@ -1334,6 +1334,8 @@ export type Message = {
   index: Scalars['bigint'];
   involved_accounts_addresses: Scalars['_text'];
   /** An object relationship */
+  message_type?: Maybe<Message_Type>;
+  /** An object relationship */
   transaction?: Maybe<Transaction>;
   /** An object relationship */
   transactionByPartitionIdTransactionHash?: Maybe<Transaction>;
@@ -1377,6 +1379,7 @@ export type Message_Bool_Exp = {
   height?: InputMaybe<Bigint_Comparison_Exp>;
   index?: InputMaybe<Bigint_Comparison_Exp>;
   involved_accounts_addresses?: InputMaybe<_Text_Comparison_Exp>;
+  message_type?: InputMaybe<Message_Type_Bool_Exp>;
   transaction?: InputMaybe<Transaction_Bool_Exp>;
   transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Bool_Exp>;
   transaction_hash?: InputMaybe<String_Comparison_Exp>;
@@ -1405,6 +1408,7 @@ export type Message_Order_By = {
   height?: InputMaybe<Order_By>;
   index?: InputMaybe<Order_By>;
   involved_accounts_addresses?: InputMaybe<Order_By>;
+  message_type?: InputMaybe<Message_Type_Order_By>;
   transaction?: InputMaybe<Transaction_Order_By>;
   transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Order_By>;
   transaction_hash?: InputMaybe<Order_By>;
@@ -1617,6 +1621,12 @@ export type Messages_By_Type_Args = {
   limit?: InputMaybe<Scalars['bigint']>;
   offset?: InputMaybe<Scalars['bigint']>;
   types?: InputMaybe<Scalars['_text']>;
+};
+
+export type Messages_Types_By_Address_Args = {
+  addresses?: InputMaybe<Scalars['_text']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
 };
 
 /** columns and relationships of "mint_params" */
@@ -2976,6 +2986,8 @@ export type Query_Root = {
   messages_by_address: Array<Message>;
   /** execute function "messages_by_type" which returns "message" */
   messages_by_type: Array<Message>;
+  /** execute function "messages_types_by_address" which returns "message" */
+  messages_types_by_address: Array<Message>;
   /** fetch data from the table: "mint_params" */
   mint_params: Array<Mint_Params>;
   /** fetch data from the table: "modules" */
@@ -3014,8 +3026,6 @@ export type Query_Root = {
   software_upgrade_plan_aggregate: Software_Upgrade_Plan_Aggregate;
   /** fetch data from the table: "staking_params" */
   staking_params: Array<Staking_Params>;
-  /** fetch aggregated fields from the table: "staking_params" */
-  staking_params_aggregate: Staking_Params_Aggregate;
   /** fetch data from the table: "staking_pool" */
   staking_pool: Array<Staking_Pool>;
   /** fetch data from the table: "supply" */
@@ -3338,6 +3348,16 @@ export type Query_RootMessages_By_TypeArgs = {
 };
 
 
+export type Query_RootMessages_Types_By_AddressArgs = {
+  args: Messages_Types_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
 export type Query_RootMint_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Mint_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -3485,15 +3505,6 @@ export type Query_RootSoftware_Upgrade_Plan_AggregateArgs = {
 
 
 export type Query_RootStaking_ParamsArgs = {
-  distinct_on?: InputMaybe<Array<Staking_Params_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Staking_Params_Order_By>>;
-  where?: InputMaybe<Staking_Params_Bool_Exp>;
-};
-
-
-export type Query_RootStaking_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Staking_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3923,42 +3934,6 @@ export type Staking_ParamsParamsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
-/** aggregated selection of "staking_params" */
-export type Staking_Params_Aggregate = {
-  __typename?: 'staking_params_aggregate';
-  aggregate?: Maybe<Staking_Params_Aggregate_Fields>;
-  nodes: Array<Staking_Params>;
-};
-
-/** aggregate fields of "staking_params" */
-export type Staking_Params_Aggregate_Fields = {
-  __typename?: 'staking_params_aggregate_fields';
-  avg?: Maybe<Staking_Params_Avg_Fields>;
-  count: Scalars['Int'];
-  max?: Maybe<Staking_Params_Max_Fields>;
-  min?: Maybe<Staking_Params_Min_Fields>;
-  stddev?: Maybe<Staking_Params_Stddev_Fields>;
-  stddev_pop?: Maybe<Staking_Params_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Staking_Params_Stddev_Samp_Fields>;
-  sum?: Maybe<Staking_Params_Sum_Fields>;
-  var_pop?: Maybe<Staking_Params_Var_Pop_Fields>;
-  var_samp?: Maybe<Staking_Params_Var_Samp_Fields>;
-  variance?: Maybe<Staking_Params_Variance_Fields>;
-};
-
-
-/** aggregate fields of "staking_params" */
-export type Staking_Params_Aggregate_FieldsCountArgs = {
-  columns?: InputMaybe<Array<Staking_Params_Select_Column>>;
-  distinct?: InputMaybe<Scalars['Boolean']>;
-};
-
-/** aggregate avg on columns */
-export type Staking_Params_Avg_Fields = {
-  __typename?: 'staking_params_avg_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
 /** Boolean expression to filter rows from the table "staking_params". All fields are combined with a logical 'AND'. */
 export type Staking_Params_Bool_Exp = {
   _and?: InputMaybe<Array<Staking_Params_Bool_Exp>>;
@@ -3966,18 +3941,6 @@ export type Staking_Params_Bool_Exp = {
   _or?: InputMaybe<Array<Staking_Params_Bool_Exp>>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   params?: InputMaybe<Jsonb_Comparison_Exp>;
-};
-
-/** aggregate max on columns */
-export type Staking_Params_Max_Fields = {
-  __typename?: 'staking_params_max_fields';
-  height?: Maybe<Scalars['bigint']>;
-};
-
-/** aggregate min on columns */
-export type Staking_Params_Min_Fields = {
-  __typename?: 'staking_params_min_fields';
-  height?: Maybe<Scalars['bigint']>;
 };
 
 /** Ordering options when selecting data from "staking_params". */
@@ -3993,48 +3956,6 @@ export enum Staking_Params_Select_Column {
   /** column name */
   Params = 'params'
 }
-
-/** aggregate stddev on columns */
-export type Staking_Params_Stddev_Fields = {
-  __typename?: 'staking_params_stddev_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate stddev_pop on columns */
-export type Staking_Params_Stddev_Pop_Fields = {
-  __typename?: 'staking_params_stddev_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate stddev_samp on columns */
-export type Staking_Params_Stddev_Samp_Fields = {
-  __typename?: 'staking_params_stddev_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate sum on columns */
-export type Staking_Params_Sum_Fields = {
-  __typename?: 'staking_params_sum_fields';
-  height?: Maybe<Scalars['bigint']>;
-};
-
-/** aggregate var_pop on columns */
-export type Staking_Params_Var_Pop_Fields = {
-  __typename?: 'staking_params_var_pop_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate var_samp on columns */
-export type Staking_Params_Var_Samp_Fields = {
-  __typename?: 'staking_params_var_samp_fields';
-  height?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate variance on columns */
-export type Staking_Params_Variance_Fields = {
-  __typename?: 'staking_params_variance_fields';
-  height?: Maybe<Scalars['Float']>;
-};
 
 /** columns and relationships of "staking_pool" */
 export type Staking_Pool = {
@@ -4125,6 +4046,8 @@ export type Subscription_Root = {
   messages_by_address: Array<Message>;
   /** execute function "messages_by_type" which returns "message" */
   messages_by_type: Array<Message>;
+  /** execute function "messages_types_by_address" which returns "message" */
+  messages_types_by_address: Array<Message>;
   /** fetch data from the table: "mint_params" */
   mint_params: Array<Mint_Params>;
   /** fetch data from the table: "modules" */
@@ -4163,8 +4086,6 @@ export type Subscription_Root = {
   software_upgrade_plan_aggregate: Software_Upgrade_Plan_Aggregate;
   /** fetch data from the table: "staking_params" */
   staking_params: Array<Staking_Params>;
-  /** fetch aggregated fields from the table: "staking_params" */
-  staking_params_aggregate: Staking_Params_Aggregate;
   /** fetch data from the table: "staking_pool" */
   staking_pool: Array<Staking_Pool>;
   /** fetch data from the table: "supply" */
@@ -4401,6 +4322,16 @@ export type Subscription_RootMessages_By_TypeArgs = {
 };
 
 
+export type Subscription_RootMessages_Types_By_AddressArgs = {
+  args: Messages_Types_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
 export type Subscription_RootMint_ParamsArgs = {
   distinct_on?: InputMaybe<Array<Mint_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -4548,15 +4479,6 @@ export type Subscription_RootSoftware_Upgrade_Plan_AggregateArgs = {
 
 
 export type Subscription_RootStaking_ParamsArgs = {
-  distinct_on?: InputMaybe<Array<Staking_Params_Select_Column>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  order_by?: InputMaybe<Array<Staking_Params_Order_By>>;
-  where?: InputMaybe<Staking_Params_Bool_Exp>;
-};
-
-
-export type Subscription_RootStaking_Params_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Staking_Params_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -6956,6 +6878,13 @@ export type MessageTypesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type MessageTypesQuery = { msgTypes: Array<{ __typename?: 'message_type', type: string, module: string, label: string }> };
 
+export type MsgTypesByAddressQueryVariables = Exact<{
+  addresses?: InputMaybe<Scalars['_text']>;
+}>;
+
+
+export type MsgTypesByAddressQuery = { msgTypes: Array<{ __typename?: 'message', message_type?: { __typename?: 'message_type', label: string, module: string, type: string } | null }> };
+
 export type MessagesByTypesListenerSubscriptionVariables = Exact<{
   types?: InputMaybe<Scalars['_text']>;
   limit?: InputMaybe<Scalars['bigint']>;
@@ -7948,6 +7877,45 @@ export function useMessageTypesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type MessageTypesQueryHookResult = ReturnType<typeof useMessageTypesQuery>;
 export type MessageTypesLazyQueryHookResult = ReturnType<typeof useMessageTypesLazyQuery>;
 export type MessageTypesQueryResult = Apollo.QueryResult<MessageTypesQuery, MessageTypesQueryVariables>;
+export const MsgTypesByAddressDocument = gql`
+    query MsgTypesByAddress($addresses: _text = "{}") {
+  msgTypes: messages_types_by_address(args: {addresses: $addresses}) {
+    message_type {
+      label
+      module
+      type
+    }
+  }
+}
+    `;
+
+/**
+ * __useMsgTypesByAddressQuery__
+ *
+ * To run a query within a React component, call `useMsgTypesByAddressQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMsgTypesByAddressQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMsgTypesByAddressQuery({
+ *   variables: {
+ *      addresses: // value for 'addresses'
+ *   },
+ * });
+ */
+export function useMsgTypesByAddressQuery(baseOptions?: Apollo.QueryHookOptions<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>(MsgTypesByAddressDocument, options);
+      }
+export function useMsgTypesByAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>(MsgTypesByAddressDocument, options);
+        }
+export type MsgTypesByAddressQueryHookResult = ReturnType<typeof useMsgTypesByAddressQuery>;
+export type MsgTypesByAddressLazyQueryHookResult = ReturnType<typeof useMsgTypesByAddressLazyQuery>;
+export type MsgTypesByAddressQueryResult = Apollo.QueryResult<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>;
 export const MessagesByTypesListenerDocument = gql`
     subscription MessagesByTypesListener($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
   messagesByTypes: messages_by_type(

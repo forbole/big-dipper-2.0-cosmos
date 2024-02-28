@@ -2848,6 +2848,8 @@ export type Message = {
   height: Scalars['bigint'];
   index: Scalars['bigint'];
   involved_accounts_addresses: Scalars['_text'];
+  /** An object relationship */
+  message_type?: Maybe<Message_Type>;
   partition_id: Scalars['bigint'];
   /** An object relationship */
   transaction?: Maybe<Transaction>;
@@ -2932,6 +2934,7 @@ export type Message_Bool_Exp = {
   height?: InputMaybe<Bigint_Comparison_Exp>;
   index?: InputMaybe<Bigint_Comparison_Exp>;
   involved_accounts_addresses?: InputMaybe<_Text_Comparison_Exp>;
+  message_type?: InputMaybe<Message_Type_Bool_Exp>;
   partition_id?: InputMaybe<Bigint_Comparison_Exp>;
   transaction?: InputMaybe<Transaction_Bool_Exp>;
   transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Bool_Exp>;
@@ -2983,6 +2986,7 @@ export type Message_Order_By = {
   height?: InputMaybe<Order_By>;
   index?: InputMaybe<Order_By>;
   involved_accounts_addresses?: InputMaybe<Order_By>;
+  message_type?: InputMaybe<Message_Type_Order_By>;
   partition_id?: InputMaybe<Order_By>;
   transaction?: InputMaybe<Transaction_Order_By>;
   transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Order_By>;
@@ -4088,10 +4092,9 @@ export type Proposal_Deposit = {
   depositor?: Maybe<Account>;
   depositor_address?: Maybe<Scalars['String']>;
   height?: Maybe<Scalars['bigint']>;
-  /** An object relationship */
-  proposal: Proposal;
   proposal_id: Scalars['Int'];
   timestamp?: Maybe<Scalars['timestamptz']>;
+  transaction_hash: Scalars['String'];
 };
 
 /** aggregated selection of "proposal_deposit" */
@@ -4162,9 +4165,9 @@ export type Proposal_Deposit_Bool_Exp = {
   depositor?: InputMaybe<Account_Bool_Exp>;
   depositor_address?: InputMaybe<String_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
-  proposal?: InputMaybe<Proposal_Bool_Exp>;
   proposal_id?: InputMaybe<Int_Comparison_Exp>;
   timestamp?: InputMaybe<Timestamptz_Comparison_Exp>;
+  transaction_hash?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
@@ -4174,6 +4177,7 @@ export type Proposal_Deposit_Max_Fields = {
   height?: Maybe<Scalars['bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
   timestamp?: Maybe<Scalars['timestamptz']>;
+  transaction_hash?: Maybe<Scalars['String']>;
 };
 
 /** order by max() on columns of table "proposal_deposit" */
@@ -4182,6 +4186,7 @@ export type Proposal_Deposit_Max_Order_By = {
   height?: InputMaybe<Order_By>;
   proposal_id?: InputMaybe<Order_By>;
   timestamp?: InputMaybe<Order_By>;
+  transaction_hash?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -4191,6 +4196,7 @@ export type Proposal_Deposit_Min_Fields = {
   height?: Maybe<Scalars['bigint']>;
   proposal_id?: Maybe<Scalars['Int']>;
   timestamp?: Maybe<Scalars['timestamptz']>;
+  transaction_hash?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "proposal_deposit" */
@@ -4199,6 +4205,7 @@ export type Proposal_Deposit_Min_Order_By = {
   height?: InputMaybe<Order_By>;
   proposal_id?: InputMaybe<Order_By>;
   timestamp?: InputMaybe<Order_By>;
+  transaction_hash?: InputMaybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "proposal_deposit". */
@@ -4208,9 +4215,9 @@ export type Proposal_Deposit_Order_By = {
   depositor?: InputMaybe<Account_Order_By>;
   depositor_address?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
-  proposal?: InputMaybe<Proposal_Order_By>;
   proposal_id?: InputMaybe<Order_By>;
   timestamp?: InputMaybe<Order_By>;
+  transaction_hash?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "proposal_deposit" */
@@ -4224,7 +4231,9 @@ export enum Proposal_Deposit_Select_Column {
   /** column name */
   ProposalId = 'proposal_id',
   /** column name */
-  Timestamp = 'timestamp'
+  Timestamp = 'timestamp',
+  /** column name */
+  TransactionHash = 'transaction_hash'
 }
 
 /** aggregate stddev on columns */
@@ -4437,8 +4446,6 @@ export type Proposal_Staking_Pool_Snapshot = {
   bonded_tokens: Scalars['bigint'];
   height: Scalars['bigint'];
   not_bonded_tokens: Scalars['bigint'];
-  /** An object relationship */
-  proposal: Proposal;
   proposal_id: Scalars['Int'];
 };
 
@@ -4489,7 +4496,6 @@ export type Proposal_Staking_Pool_Snapshot_Bool_Exp = {
   bonded_tokens?: InputMaybe<Bigint_Comparison_Exp>;
   height?: InputMaybe<Bigint_Comparison_Exp>;
   not_bonded_tokens?: InputMaybe<Bigint_Comparison_Exp>;
-  proposal?: InputMaybe<Proposal_Bool_Exp>;
   proposal_id?: InputMaybe<Int_Comparison_Exp>;
 };
 
@@ -4516,7 +4522,6 @@ export type Proposal_Staking_Pool_Snapshot_Order_By = {
   bonded_tokens?: InputMaybe<Order_By>;
   height?: InputMaybe<Order_By>;
   not_bonded_tokens?: InputMaybe<Order_By>;
-  proposal?: InputMaybe<Proposal_Order_By>;
   proposal_id?: InputMaybe<Order_By>;
 };
 
@@ -4646,8 +4651,6 @@ export type Proposal_Tally_Result = {
   height: Scalars['bigint'];
   no: Scalars['String'];
   no_with_veto: Scalars['String'];
-  /** An object relationship */
-  proposal: Proposal;
   proposal_id: Scalars['Int'];
   yes: Scalars['String'];
 };
@@ -4719,7 +4722,6 @@ export type Proposal_Tally_Result_Bool_Exp = {
   height?: InputMaybe<Bigint_Comparison_Exp>;
   no?: InputMaybe<String_Comparison_Exp>;
   no_with_veto?: InputMaybe<String_Comparison_Exp>;
-  proposal?: InputMaybe<Proposal_Bool_Exp>;
   proposal_id?: InputMaybe<Int_Comparison_Exp>;
   yes?: InputMaybe<String_Comparison_Exp>;
 };
@@ -4772,7 +4774,6 @@ export type Proposal_Tally_Result_Order_By = {
   height?: InputMaybe<Order_By>;
   no?: InputMaybe<Order_By>;
   no_with_veto?: InputMaybe<Order_By>;
-  proposal?: InputMaybe<Proposal_Order_By>;
   proposal_id?: InputMaybe<Order_By>;
   yes?: InputMaybe<Order_By>;
 };
@@ -5231,6 +5232,7 @@ export type Proposal_Vote = {
   proposal_id: Scalars['Int'];
   timestamp?: Maybe<Scalars['timestamptz']>;
   voter_address: Scalars['String'];
+  weight: Scalars['String'];
 };
 
 /** aggregated selection of "proposal_vote" */
@@ -5303,6 +5305,7 @@ export type Proposal_Vote_Bool_Exp = {
   proposal_id?: InputMaybe<Int_Comparison_Exp>;
   timestamp?: InputMaybe<Timestamptz_Comparison_Exp>;
   voter_address?: InputMaybe<String_Comparison_Exp>;
+  weight?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** aggregate max on columns */
@@ -5313,6 +5316,7 @@ export type Proposal_Vote_Max_Fields = {
   proposal_id?: Maybe<Scalars['Int']>;
   timestamp?: Maybe<Scalars['timestamptz']>;
   voter_address?: Maybe<Scalars['String']>;
+  weight?: Maybe<Scalars['String']>;
 };
 
 /** order by max() on columns of table "proposal_vote" */
@@ -5322,6 +5326,7 @@ export type Proposal_Vote_Max_Order_By = {
   proposal_id?: InputMaybe<Order_By>;
   timestamp?: InputMaybe<Order_By>;
   voter_address?: InputMaybe<Order_By>;
+  weight?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -5332,6 +5337,7 @@ export type Proposal_Vote_Min_Fields = {
   proposal_id?: Maybe<Scalars['Int']>;
   timestamp?: Maybe<Scalars['timestamptz']>;
   voter_address?: Maybe<Scalars['String']>;
+  weight?: Maybe<Scalars['String']>;
 };
 
 /** order by min() on columns of table "proposal_vote" */
@@ -5341,6 +5347,7 @@ export type Proposal_Vote_Min_Order_By = {
   proposal_id?: InputMaybe<Order_By>;
   timestamp?: InputMaybe<Order_By>;
   voter_address?: InputMaybe<Order_By>;
+  weight?: InputMaybe<Order_By>;
 };
 
 /** Ordering options when selecting data from "proposal_vote". */
@@ -5352,6 +5359,7 @@ export type Proposal_Vote_Order_By = {
   proposal_id?: InputMaybe<Order_By>;
   timestamp?: InputMaybe<Order_By>;
   voter_address?: InputMaybe<Order_By>;
+  weight?: InputMaybe<Order_By>;
 };
 
 /** select columns of table "proposal_vote" */
@@ -5365,7 +5373,9 @@ export enum Proposal_Vote_Select_Column {
   /** column name */
   Timestamp = 'timestamp',
   /** column name */
-  VoterAddress = 'voter_address'
+  VoterAddress = 'voter_address',
+  /** column name */
+  Weight = 'weight'
 }
 
 /** aggregate stddev on columns */
@@ -12269,6 +12279,13 @@ export type MessageTypesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type MessageTypesQuery = { msgTypes: Array<{ __typename?: 'message_type', type: string, module: string, label: string }> };
 
+export type MsgTypesByAddressQueryVariables = Exact<{
+  addresses?: InputMaybe<Scalars['_text']>;
+}>;
+
+
+export type MsgTypesByAddressQuery = { msgTypes: Array<{ __typename?: 'message', message_type?: { __typename?: 'message_type', label: string, module: string, type: string } | null }> };
+
 export type MessagesByTypesListenerSubscriptionVariables = Exact<{
   types?: InputMaybe<Scalars['_text']>;
   limit?: InputMaybe<Scalars['bigint']>;
@@ -13261,6 +13278,45 @@ export function useMessageTypesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type MessageTypesQueryHookResult = ReturnType<typeof useMessageTypesQuery>;
 export type MessageTypesLazyQueryHookResult = ReturnType<typeof useMessageTypesLazyQuery>;
 export type MessageTypesQueryResult = Apollo.QueryResult<MessageTypesQuery, MessageTypesQueryVariables>;
+export const MsgTypesByAddressDocument = gql`
+    query MsgTypesByAddress($addresses: _text = "{}") {
+  msgTypes: messages_types_by_address(args: {addresses: $addresses}) {
+    message_type {
+      label
+      module
+      type
+    }
+  }
+}
+    `;
+
+/**
+ * __useMsgTypesByAddressQuery__
+ *
+ * To run a query within a React component, call `useMsgTypesByAddressQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMsgTypesByAddressQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMsgTypesByAddressQuery({
+ *   variables: {
+ *      addresses: // value for 'addresses'
+ *   },
+ * });
+ */
+export function useMsgTypesByAddressQuery(baseOptions?: Apollo.QueryHookOptions<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>(MsgTypesByAddressDocument, options);
+      }
+export function useMsgTypesByAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>(MsgTypesByAddressDocument, options);
+        }
+export type MsgTypesByAddressQueryHookResult = ReturnType<typeof useMsgTypesByAddressQuery>;
+export type MsgTypesByAddressLazyQueryHookResult = ReturnType<typeof useMsgTypesByAddressLazyQuery>;
+export type MsgTypesByAddressQueryResult = Apollo.QueryResult<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>;
 export const MessagesByTypesListenerDocument = gql`
     subscription MessagesByTypesListener($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
   messagesByTypes: messages_by_type(
