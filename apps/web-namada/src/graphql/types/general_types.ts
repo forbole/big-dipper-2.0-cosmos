@@ -2481,7 +2481,7 @@ export type TransactionsListenerSubscriptionVariables = Exact<{
 }>;
 
 
-export type TransactionsListenerSubscription = { transactions: Array<{ __typename?: 'transaction', height: any, hash: string, success: boolean, block?: { __typename?: 'block', timestamp: any } | null }> };
+export type TransactionsListenerSubscription = { transactions: Array<{ __typename?: 'transaction', height: any, hash: string, success: boolean, tx_type: string, block?: { __typename?: 'block', timestamp: any } | null }> };
 
 export type TransactionsQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -2785,6 +2785,7 @@ export const TransactionsListenerDocument = gql`
     block {
       timestamp
     }
+    tx_type
   }
 }
     `;

@@ -6,6 +6,7 @@ subscription TransactionsListener($limit: Int = 7, $offset: Int = 0) {
     block {
       timestamp
     }
+    tx_type
   }
 }
 

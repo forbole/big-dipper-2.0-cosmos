@@ -19,9 +19,10 @@ const formatTransactions = (data: TransactionsListenerSubscription) =>
     return {
       height: x.height,
       hash: x.hash,
-      type: convertedMsgType,
+      type: [x.tx_type],
       success: x.success,
       timestamp: x.block?.timestamp,
+      tx_type: x.tx_type,
       messages: 0,
     };
   }) ?? [];
