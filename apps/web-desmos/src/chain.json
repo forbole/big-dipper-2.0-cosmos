@@ -3,8 +3,7 @@
   "title": "Desmos Block Explorer",
   "extra": {
     "profile": true,
-    "graphqlWs": false,
-    "votingPowerExponent": 6
+    "graphqlWs": false
   },
   "previewImage": "https://s3.bigdipper.live/desmos.png",
   "themes": {
