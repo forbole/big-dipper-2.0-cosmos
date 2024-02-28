@@ -53,6 +53,9 @@ const useStyles = makeStyles()((theme) => ({
       cursor: 'pointer',
     },
   },
+  loading: {
+    marginTop: theme.spacing(25),
+  },
   moduleName: {
     paddingBottom: theme.spacing(1),
     paddingTop: theme.spacing(3),
