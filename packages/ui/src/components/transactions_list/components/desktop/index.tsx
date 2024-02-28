@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import React, { FC, MutableRefObject } from 'react';
+import React, { FC, MutableRefObject, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
@@ -49,7 +49,7 @@ const Desktop: FC<TransactionsListState> = ({
   isItemLoaded,
   transactions,
 }) => {
-  const { gridRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
+  const { gridRef, onResize, getColumnWidth, getRowHeight, columnRef } = useGrid(columns);
   const { classes, cx } = useStyles();
 
   const items = transactions.map((x) => ({
@@ -77,14 +77,6 @@ const Desktop: FC<TransactionsListState> = ({
     messages: numeral(x.messages.count).format('0,0'),
   }));
 
-  // Function to forward the ref
-  const forwardRef = (node: Grid<any> | null) => {
-    if (gridRef && typeof gridRef !== 'function') {
-      // Update the type assertion to ensure compatibility
-      (gridRef as MutableRefObject<Grid<any> | null>).current = node!;
-    }
-  };
-
   // Default isItemLoaded function
   const defaultIsItemLoaded = () => true;
 
@@ -105,7 +97,7 @@ const Desktop: FC<TransactionsListState> = ({
             {/* Table Header */}
             {/* ======================================= */}
             <Grid
-              ref={forwardRef}
+              ref={columnRef as LegacyRef<Grid>}
               columnCount={columns.length}
               columnWidth={(index) => getColumnWidth(width ?? 0, index)}
               height={50}
