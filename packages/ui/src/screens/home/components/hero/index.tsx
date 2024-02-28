@@ -6,6 +6,7 @@ import { useHero } from '@/screens/home/components/hero/hooks';
 import { FC } from 'react';
 
 const Hero: FC<ComponentDefault> = (props) => {
+  return null;
   const { state } = useHero();
   let component = null;
   if (!state.loading) {
