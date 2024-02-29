@@ -106,7 +106,7 @@ const GridRow: FC<GridRowProps> = ({
   const condition = item.status === 3 ? getValidatorConditionClass(item.condition) : undefined;
   const percentDisplay =
     // eslint-disable-next-line no-nested-ternary
-    item.status === 3
+    item.status === 0
       ? chainName === 'wormhole'
         ? `${numeral(item.votingPower.toFixed(6)).format('0.[00]')}%`
         : `${numeral(item.votingPowerPercent.toFixed(6)).format('0.[00]')}%`
