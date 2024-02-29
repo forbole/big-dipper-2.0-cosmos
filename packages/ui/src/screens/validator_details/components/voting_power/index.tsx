@@ -23,11 +23,11 @@ const VotingPower: FC<VotingPowerProps> = ({ className, data, status, loading })
   const { onlineVPstate } = useOnlineVotingPower();
   const { chainName } = chainConfig();
 
-  const validatorVotingPower = status === 3 ? numeral(data.self).format('0,0') : '0';
+  const validatorVotingPower = status === 0 ? numeral(data.self).format('0,0') : '0';
 
   const votingPowerPercent =
     // eslint-disable-next-line no-nested-ternary
-    status === 3
+    status === 0
       ? chainName === 'wormhole'
         ? numeral((Number(validatorVotingPower) / onlineVPstate.activeValidators) * 100)
         : numeral((data.self / (numeral(data.overall.value).value() ?? 0)) * 100)

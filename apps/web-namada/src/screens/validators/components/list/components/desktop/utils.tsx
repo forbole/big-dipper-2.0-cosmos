@@ -43,17 +43,6 @@ export const fetchColumns = (
     width: 12,
   },
   {
-    key: 'condition',
-    align: 'center',
-    width: 10,
-    component: (
-      <Typography variant="h4" className="label popover">
-        {t('condition')}
-        <InfoPopover content={<ConditionExplanation />} />
-      </Typography>
-    ),
-  },
-  {
     key: 'liquidStaking',
     sortKey: 'liquidStaking',
     align: 'left',

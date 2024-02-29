@@ -103,7 +103,7 @@ const GridRow: FC<GridRowProps> = ({
   }
 
   const status = getValidatorStatus(item.status, item.jailed, item.tombstoned);
-  const condition = item.status === 3 ? getValidatorConditionClass(item.condition) : undefined;
+  const condition = item.status === 0 ? getValidatorConditionClass(item.condition) : undefined;
   const percentDisplay =
     // eslint-disable-next-line no-nested-ternary
     item.status === 0
