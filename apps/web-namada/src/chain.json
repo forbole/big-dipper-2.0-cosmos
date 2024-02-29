@@ -5,7 +5,7 @@
     "profile": true,
     "graphqlWs": true
   },
-  "previewImage": "https://s3.bigdipper.live/crescent.png",
+  "previewImage": "/images/namada.png",
   "themes": {
     "default": "dark",
     "themeList": [
