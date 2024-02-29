@@ -488,7 +488,7 @@ export const convertMsgsToModels = (messagesRaw?: any[] | null) => {
       return {
         value: msg.value,
         type: msg.type,
-        json: msg.value,
+        json: { value: msg.value, type: msg.type, transaction_hash: msg.transaction_hash },
         transaction_hash: msg.transaction_hash,
       };
     }) ?? [];
