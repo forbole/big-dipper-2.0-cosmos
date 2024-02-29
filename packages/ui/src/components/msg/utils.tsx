@@ -115,7 +115,7 @@ const defaultTypeToModel = {
     tagTheme: 'seven',
     tagDisplay: 'txDepositLabel',
   },
-  '/cosmos.gov.v1beta1.MsgVote': {
+  tx_vote_proposal: {
     model: MODELS.MsgVote,
     content: COMPONENTS.Vote,
     tagTheme: 'seven',
@@ -482,26 +482,15 @@ export const getMessageByType = <TMessage,>(message: TMessage, viewRaw: boolean,
   };
 };
 
-export const convertMsgsToModels = (
-  transaction?: {
-    messages?: Array<{
-      '@type': string;
-    }>;
-    logs?: Array<Log>;
-  } | null
-) => {
+export const convertMsgsToModels = (messagesRaw?: any[] | null) => {
   const messages =
-    transaction?.messages?.map((msg: object, i: number) => {
-      const model = getMessageModelByType(R.pathOr<string>('', ['@type'], msg));
-      if (model === MODELS.MsgWithdrawDelegatorReward) {
-        const log = transaction?.logs?.[i];
-        return MODELS.MsgWithdrawDelegatorReward.fromJson(msg, log);
-      }
-      if (model === MODELS.MsgWithdrawValidatorCommission) {
-        const log = transaction?.logs?.[i];
-        return MODELS.MsgWithdrawValidatorCommission.fromJson(msg, log);
-      }
-      return model.fromJson(msg);
+    messagesRaw?.map((msg: object) => {
+      return {
+        value: msg.value,
+        type: msg.type,
+        json: msg.value,
+        transaction_hash: msg.transaction_hash,
+      };
     }) ?? [];
 
   return messages;

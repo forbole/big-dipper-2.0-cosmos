@@ -11,4 +11,9 @@ query TransactionDetails($hash: String) {
     memo: memo
     rawLog: raw_log
   }
+  message(where: {transaction: {hash: {_eq: $hash}}}) {
+    type
+    value
+    transaction_hash
+  }
 }

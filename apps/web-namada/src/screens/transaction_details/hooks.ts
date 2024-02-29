@@ -42,7 +42,7 @@ const formatLogs = (data: TransactionDetailsQuery) => {
 // messages
 // =============================
 const formatMessages = (data: TransactionDetailsQuery) => {
-  const messages = convertMsgsToModels(data.transaction[0]);
+  const messages = convertMsgsToModels(data.message);
   return {
     filterBy: 'none',
     viewRaw: false,
