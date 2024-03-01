@@ -32,7 +32,7 @@ const DepositProposal: FC<{ message: MsgDeposit }> = (props) => {
     );
 
   const depositor = useProfileRecoil(message.depositor);
-  const depositorMoniker = depositor ? depositor?.name : message.depositor;
+  const depositorMoniker = depositor ? depositor?.name : message.voter;
 
   return (
     <Typography>

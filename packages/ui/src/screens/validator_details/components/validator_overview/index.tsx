@@ -77,7 +77,7 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({
         </Typography>
       ),
       value:
-        status.status === 3 ? (
+        status.status === 0 ? (
           <div className="condition__body">
             <InfoPopover
               content={

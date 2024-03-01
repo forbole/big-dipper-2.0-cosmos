@@ -14,6 +14,7 @@ export const getValidatorCondition = (signedBlockWindow: number, missedBlockCoun
  */
 export const getValidatorConditionClass = (condition: number) => {
   let conditionClass = '';
+  if (typeof condition !== 'number' || Number.isNaN(condition)) return '';
   if (condition > 90) {
     conditionClass = 'green';
   } else if (condition > 70 && condition < 90) {

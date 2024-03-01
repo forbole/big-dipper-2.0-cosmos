@@ -105,11 +105,11 @@ const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, searc
   }
 
   const status = getValidatorStatus(item.status, item.jailed, item.tombstoned);
-  const condition = item.status === 3 ? getValidatorConditionClass(item.condition) : undefined;
+  const condition = item.status === 0 ? getValidatorConditionClass(item.condition) : undefined;
   const percentDisplay = (() => {
     if (typeof item.votingPowerPercent !== 'number') return '';
 
-    return item.status === 3
+    return item.status === 0
       ? `${numeral(item.votingPowerPercent.toFixed(6)).format('0.[00]')}%`
       : '0%';
   })();
@@ -143,9 +143,6 @@ const GridRow: FC<GridRowProps> = ({ column, style, rowIndex, align, item, searc
           {t(status.status)}
         </Typography>
       );
-      break;
-    case 'condition':
-      formatItem = <Condition className={condition} />;
       break;
     case 'liquidStaking':
       formatItem =

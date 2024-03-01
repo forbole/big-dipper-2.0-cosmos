@@ -2,7 +2,6 @@ import { NextSeo } from 'next-seo';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import Layout from '@/components/layout';
 import LoadAndExist from '@/components/load_and_exist';
-import Logs from '@/screens/transaction_details/components/logs';
 import Messages from '@/screens/transaction_details/components/messages';
 import Overview from '@/screens/transaction_details/components/overview';
 import { useTransactionDetails } from '@/screens/transaction_details/hooks';
@@ -28,6 +27,13 @@ const TransactionDetails = () => {
           <span className={classes.root}>
             <Overview data={overview} />
           </span>
+          <Messages
+            className={classes.messages}
+            messages={filterMessages(messages.items)}
+            viewRaw={messages.viewRaw}
+            toggleMessageDisplay={toggleMessageDisplay}
+            onMessageFilterCallback={onMessageFilterCallback}
+          />
         </LoadAndExist>
       </Layout>
     </>

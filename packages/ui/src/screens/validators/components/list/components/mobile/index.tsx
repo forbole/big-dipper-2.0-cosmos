@@ -35,9 +35,9 @@ const ListItem: FC<ListItemProps> = ({ index, style, setRowHeight, item, isLast,
   }
 
   const status = getValidatorStatus(item.status, item.jailed, item.tombstoned);
-  const condition = item.status === 3 ? getValidatorConditionClass(item.condition) : undefined;
+  const condition = item.status === 0 ? getValidatorConditionClass(item.condition) : undefined;
   const percentDisplay =
-    item.status === 3 ? `${numeral(item.votingPowerPercent.toFixed(6)).format('0.[00]')}%` : '0%';
+    item.status === 0 ? `${numeral(item.votingPowerPercent.toFixed(6)).format('0.[00]')}%` : '0%';
   const votingPower = numeral(item.votingPower).format('0,0');
   const selectedItem = {
     idx: `#${i + 1}`,

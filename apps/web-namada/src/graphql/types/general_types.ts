@@ -2473,7 +2473,7 @@ export type TransactionDetailsQueryVariables = Exact<{
 }>;
 
 
-export type TransactionDetailsQuery = { transaction: Array<{ __typename?: 'transaction', hash: string, height: any, gasUsed?: any | null, gasWanted?: any | null, success: boolean, memo?: string | null, rawLog?: string | null, block?: { __typename?: 'block', timestamp: any } | null }> };
+export type TransactionDetailsQuery = { transaction: Array<{ __typename?: 'transaction', hash: string, height: any, gasUsed?: any | null, gasWanted?: any | null, success: boolean, memo?: string | null, rawLog?: string | null, block?: { __typename?: 'block', timestamp: any } | null }>, message: Array<{ __typename?: 'message', type: string, value: any, transaction_hash: string }> };
 
 export type TransactionsListenerSubscriptionVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -2741,6 +2741,11 @@ export const TransactionDetailsDocument = gql`
     success: success
     memo: memo
     rawLog: raw_log
+  }
+  message(where: {transaction: {hash: {_eq: $hash}}}) {
+    type
+    value
+    transaction_hash
   }
 }
     `;
