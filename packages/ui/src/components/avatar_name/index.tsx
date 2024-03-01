@@ -41,9 +41,17 @@ const AvatarName: FC<AvatarNameProps> = ({
       {noLink ? (
         <div>{content}</div>
       ) : (
-        <Link shallow href={href(address)} target={target}>
-          {content}
-        </Link>
+        (() => {
+          const hrefVal = href(address);
+
+          return hrefVal ? (
+            <Link shallow href={hrefVal} target={target}>
+              {content}
+            </Link>
+          ) : (
+            <span>{content}</span>
+          );
+        })()
       )}
     </Tooltip>
   );
