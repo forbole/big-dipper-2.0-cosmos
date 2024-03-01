@@ -8,7 +8,6 @@ import { getCondition } from '@/screens/validator_details/components/validator_o
 import { useDisplayStyles } from '@/styles/useSharedStyles';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 import { getValidatorStatus } from '@/utils/get_validator_status';
-import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Big from 'big.js';
@@ -160,12 +159,7 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({
                   className={classes.actionIcons}
                   onClick={() => handleCopyToClipboard(overview.selfDelegateAddress)}
                 />
-                <Link
-                  shallow
-                  prefetch={false}
-                  href={ACCOUNT_DETAILS(overview.selfDelegateAddress)}
-                  className="value"
-                >
+                <span className="value">
                   <span className={display.hiddenUntilLg}>{overview.selfDelegateAddress}</span>
                   <span className={display.hiddenWhenLg}>
                     {getMiddleEllipsis(overview.selfDelegateAddress, {
@@ -173,7 +167,7 @@ const ValidatorOverview: FC<ValidatorOverviewProps> = ({
                       ending: 5,
                     })}
                   </span>
-                </Link>
+                </span>
               </div>
             </div>
           </div>

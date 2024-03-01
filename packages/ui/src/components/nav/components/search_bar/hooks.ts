@@ -1,7 +1,6 @@
 import chainConfig from '@/chainConfig';
 import { readValidator } from '@/recoil/validators';
 import {
-  ACCOUNT_DETAILS,
   BLOCK_DETAILS,
   PROFILE_DETAILS,
   TRANSACTION_DETAILS,
@@ -37,12 +36,6 @@ export const useSearchBar = (t: TFunction) => {
         } else if (validatorRegex.test(parsedValue)) {
           if (isValidAddress(parsedValue)) {
             router.push(VALIDATOR_DETAILS(parsedValue));
-          } else {
-            toast<string>(t('common:invalidAddress'));
-          }
-        } else if (userRegex.test(parsedValue)) {
-          if (isValidAddress(parsedValue)) {
-            router.push(ACCOUNT_DETAILS(parsedValue));
           } else {
             toast<string>(t('common:invalidAddress'));
           }

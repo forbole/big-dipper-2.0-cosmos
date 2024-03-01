@@ -12,7 +12,6 @@ export { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
 export { getValidatorCondition, getValidatorConditionClass } from '@/utils/get_validator_condition';
 export { getValidatorStatus } from '@/utils/get_validator_status';
 export {
-  ACCOUNT_DETAILS,
   ADDRESS_DETAILS,
   BLOCKS,
   BLOCK_DETAILS,
