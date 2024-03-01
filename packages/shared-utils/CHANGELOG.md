@@ -1,5 +1,13 @@
 # shared-utils
 
+## 2.24.0
+
+### Minor Changes
+
+- [#1324](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1324) [`d6ff70b3e`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/d6ff70b3e9e8f7a57c80806444dc9118e7f96904) Thanks [@MonikaCat](https://github.com/MonikaCat)! - add button to filter transactions by type
+
+- [#1309](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1309) [`4037aca22`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/4037aca22239ff1696e3ffb6a655d34bcb651458) Thanks [@MonikaCat](https://github.com/MonikaCat)! - add neutron big dipper
+
 ## 2.23.0
 
 ### Minor Changes
