@@ -34,11 +34,17 @@ const ValidatorDetails = () => {
             ) : (
               <Profile className={classes.profile} profile={overview} />
             )}
-            <ValidatorOverview className={classes.address} overview={overview} status={status} />
+            <ValidatorOverview
+              className={classes.address}
+              overview={overview}
+              status={status}
+              loading={loading}
+            />
             <VotingPower
               className={classes.votingPower}
               data={votingPower}
               status={status.status}
+              loading={loading}
             />
             <Blocks className={classes.blocks} />
             <Staking

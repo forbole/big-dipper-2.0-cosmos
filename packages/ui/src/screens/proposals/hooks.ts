@@ -4,16 +4,16 @@ import * as R from 'ramda';
 import { useCallback, useState } from 'react';
 import xss from 'xss';
 
-const formatProposals = (data: ProposalsQuery) =>
-  data?.proposals.map((x): ProposalType => {
-    const description = xss(x?.description.replace(/\\n\s?/g, '<br/>'));
-    return {
-      description,
-      id: x.proposalId,
-      title: x.title,
-      status: x.status ?? '',
-    };
-  });
+const formatProposals = (data?: ProposalsQuery): ProposalType[] => {
+  if (!data?.proposals) return [];
+
+  return data.proposals.map((x) => ({
+    description: xss(x?.description?.replace(/\\n\s?/g, '<br/>')) ?? '',
+    id: x.proposalId,
+    title: x.title ?? '',
+    status: x.status ?? '',
+  }));
+};
 
 export const useProposals = () => {
   const [state, setState] = useState<ProposalsState>({
