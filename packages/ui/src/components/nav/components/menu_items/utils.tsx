@@ -33,11 +33,11 @@ export const getMenuItems = () => {
       url: TRANSACTIONS,
       icon: <TransactionIcon {...iconProps} />,
     },
-    // {
-    //   key: 'proposals',
-    //   url: PROPOSALS,
-    //   icon: <ProposalsIcon {...iconProps} />,
-    // },
+    {
+      key: 'proposals',
+      url: PROPOSALS,
+      icon: <ProposalsIcon {...iconProps} />,
+    },
     // {
     //   key: 'params',
     //   url: PARAMS,

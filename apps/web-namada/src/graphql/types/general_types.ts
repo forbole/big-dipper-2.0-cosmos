@@ -78,6 +78,94 @@ export type String_Comparison_Exp = {
   _similar?: InputMaybe<Scalars['String']>;
 };
 
+/** columns and relationships of "average_block_time_per_day" */
+export type Average_Block_Time_Per_Day = {
+  __typename?: 'average_block_time_per_day';
+  average_time: Scalars['numeric'];
+  height: Scalars['bigint'];
+};
+
+/** Boolean expression to filter rows from the table "average_block_time_per_day". All fields are combined with a logical 'AND'. */
+export type Average_Block_Time_Per_Day_Bool_Exp = {
+  _and?: InputMaybe<Array<Average_Block_Time_Per_Day_Bool_Exp>>;
+  _not?: InputMaybe<Average_Block_Time_Per_Day_Bool_Exp>;
+  _or?: InputMaybe<Array<Average_Block_Time_Per_Day_Bool_Exp>>;
+  average_time?: InputMaybe<Numeric_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "average_block_time_per_day". */
+export type Average_Block_Time_Per_Day_Order_By = {
+  average_time?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "average_block_time_per_day" */
+export enum Average_Block_Time_Per_Day_Select_Column {
+  /** column name */
+  AverageTime = 'average_time',
+  /** column name */
+  Height = 'height'
+}
+
+/** Streaming cursor of the table "average_block_time_per_day" */
+export type Average_Block_Time_Per_Day_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Average_Block_Time_Per_Day_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Average_Block_Time_Per_Day_Stream_Cursor_Value_Input = {
+  average_time?: InputMaybe<Scalars['numeric']>;
+  height?: InputMaybe<Scalars['bigint']>;
+};
+
+/** columns and relationships of "average_block_time_per_hour" */
+export type Average_Block_Time_Per_Hour = {
+  __typename?: 'average_block_time_per_hour';
+  average_time: Scalars['numeric'];
+  height: Scalars['bigint'];
+};
+
+/** Boolean expression to filter rows from the table "average_block_time_per_hour". All fields are combined with a logical 'AND'. */
+export type Average_Block_Time_Per_Hour_Bool_Exp = {
+  _and?: InputMaybe<Array<Average_Block_Time_Per_Hour_Bool_Exp>>;
+  _not?: InputMaybe<Average_Block_Time_Per_Hour_Bool_Exp>;
+  _or?: InputMaybe<Array<Average_Block_Time_Per_Hour_Bool_Exp>>;
+  average_time?: InputMaybe<Numeric_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+};
+
+/** Ordering options when selecting data from "average_block_time_per_hour". */
+export type Average_Block_Time_Per_Hour_Order_By = {
+  average_time?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "average_block_time_per_hour" */
+export enum Average_Block_Time_Per_Hour_Select_Column {
+  /** column name */
+  AverageTime = 'average_time',
+  /** column name */
+  Height = 'height'
+}
+
+/** Streaming cursor of the table "average_block_time_per_hour" */
+export type Average_Block_Time_Per_Hour_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Average_Block_Time_Per_Hour_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Average_Block_Time_Per_Hour_Stream_Cursor_Value_Input = {
+  average_time?: InputMaybe<Scalars['numeric']>;
+  height?: InputMaybe<Scalars['bigint']>;
+};
+
 /** Boolean expression to compare columns of type "bigint". All fields are combined with logical 'AND'. */
 export type Bigint_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['bigint']>;
@@ -708,6 +796,10 @@ export type Pre_Commit_Variance_Order_By = {
 
 export type Query_Root = {
   __typename?: 'query_root';
+  /** fetch data from the table: "average_block_time_per_day" */
+  average_block_time_per_day: Array<Average_Block_Time_Per_Day>;
+  /** fetch data from the table: "average_block_time_per_hour" */
+  average_block_time_per_hour: Array<Average_Block_Time_Per_Hour>;
   /** fetch data from the table: "block" */
   block: Array<Block>;
   /** fetch data from the table: "block" using primary key columns */
@@ -748,6 +840,24 @@ export type Query_Root = {
   validator_voting_power_aggregate: Validator_Voting_Power_Aggregate;
   /** fetch data from the table: "validator_voting_power" using primary key columns */
   validator_voting_power_by_pk?: Maybe<Validator_Voting_Power>;
+};
+
+
+export type Query_RootAverage_Block_Time_Per_DayArgs = {
+  distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Average_Block_Time_Per_Day_Order_By>>;
+  where?: InputMaybe<Average_Block_Time_Per_Day_Bool_Exp>;
+};
+
+
+export type Query_RootAverage_Block_Time_Per_HourArgs = {
+  distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Average_Block_Time_Per_Hour_Order_By>>;
+  where?: InputMaybe<Average_Block_Time_Per_Hour_Bool_Exp>;
 };
 
 
@@ -904,6 +1014,14 @@ export type Query_RootValidator_Voting_Power_By_PkArgs = {
 
 export type Subscription_Root = {
   __typename?: 'subscription_root';
+  /** fetch data from the table: "average_block_time_per_day" */
+  average_block_time_per_day: Array<Average_Block_Time_Per_Day>;
+  /** fetch data from the table in a streaming manner: "average_block_time_per_day" */
+  average_block_time_per_day_stream: Array<Average_Block_Time_Per_Day>;
+  /** fetch data from the table: "average_block_time_per_hour" */
+  average_block_time_per_hour: Array<Average_Block_Time_Per_Hour>;
+  /** fetch data from the table in a streaming manner: "average_block_time_per_hour" */
+  average_block_time_per_hour_stream: Array<Average_Block_Time_Per_Hour>;
   /** fetch data from the table: "block" */
   block: Array<Block>;
   /** fetch data from the table: "block" using primary key columns */
@@ -964,6 +1082,38 @@ export type Subscription_Root = {
   validator_voting_power_by_pk?: Maybe<Validator_Voting_Power>;
   /** fetch data from the table in a streaming manner: "validator_voting_power" */
   validator_voting_power_stream: Array<Validator_Voting_Power>;
+};
+
+
+export type Subscription_RootAverage_Block_Time_Per_DayArgs = {
+  distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Day_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Average_Block_Time_Per_Day_Order_By>>;
+  where?: InputMaybe<Average_Block_Time_Per_Day_Bool_Exp>;
+};
+
+
+export type Subscription_RootAverage_Block_Time_Per_Day_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Average_Block_Time_Per_Day_Stream_Cursor_Input>>;
+  where?: InputMaybe<Average_Block_Time_Per_Day_Bool_Exp>;
+};
+
+
+export type Subscription_RootAverage_Block_Time_Per_HourArgs = {
+  distinct_on?: InputMaybe<Array<Average_Block_Time_Per_Hour_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Average_Block_Time_Per_Hour_Order_By>>;
+  where?: InputMaybe<Average_Block_Time_Per_Hour_Bool_Exp>;
+};
+
+
+export type Subscription_RootAverage_Block_Time_Per_Hour_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Average_Block_Time_Per_Hour_Stream_Cursor_Input>>;
+  where?: InputMaybe<Average_Block_Time_Per_Hour_Bool_Exp>;
 };
 
 
@@ -2445,6 +2595,11 @@ export type LatestBlockHeightListenerSubscriptionVariables = Exact<{
 
 export type LatestBlockHeightListenerSubscription = { height: Array<{ __typename?: 'block', height: any }> };
 
+export type AverageBlockTimeQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AverageBlockTimeQuery = { averageBlockTime: Array<{ __typename?: 'average_block_time_per_hour', averageTime: any }> };
+
 export type LatestBlockTimestampQueryVariables = Exact<{
   offset?: InputMaybe<Scalars['Int']>;
 }>;
@@ -2618,6 +2773,43 @@ export function useLatestBlockHeightListenerSubscription(baseOptions?: Apollo.Su
       }
 export type LatestBlockHeightListenerSubscriptionHookResult = ReturnType<typeof useLatestBlockHeightListenerSubscription>;
 export type LatestBlockHeightListenerSubscriptionResult = Apollo.SubscriptionResult<LatestBlockHeightListenerSubscription>;
+export const AverageBlockTimeDocument = gql`
+    query AverageBlockTime {
+  averageBlockTime: average_block_time_per_hour(
+    limit: 1
+    order_by: {height: desc}
+  ) {
+    averageTime: average_time
+  }
+}
+    `;
+
+/**
+ * __useAverageBlockTimeQuery__
+ *
+ * To run a query within a React component, call `useAverageBlockTimeQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAverageBlockTimeQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAverageBlockTimeQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAverageBlockTimeQuery(baseOptions?: Apollo.QueryHookOptions<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(AverageBlockTimeDocument, options);
+      }
+export function useAverageBlockTimeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>(AverageBlockTimeDocument, options);
+        }
+export type AverageBlockTimeQueryHookResult = ReturnType<typeof useAverageBlockTimeQuery>;
+export type AverageBlockTimeLazyQueryHookResult = ReturnType<typeof useAverageBlockTimeLazyQuery>;
+export type AverageBlockTimeQueryResult = Apollo.QueryResult<AverageBlockTimeQuery, AverageBlockTimeQueryVariables>;
 export const LatestBlockTimestampDocument = gql`
     query LatestBlockTimestamp($offset: Int = 0) {
   block: block(order_by: {height: desc}, limit: 1, offset: $offset) {

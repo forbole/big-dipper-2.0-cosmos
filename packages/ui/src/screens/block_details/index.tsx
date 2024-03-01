@@ -32,7 +32,7 @@ const BlockDetails = () => {
               timestamp={overview.timestamp}
               txs={overview.txs}
             />
-            <Signatures className={classes.signatures} signatures={signatures} />
+            {/*<Signatures className={classes.signatures} signatures={signatures} />*/}
             <Transactions transactions={transactions} />
           </span>
         </LoadAndExist>
