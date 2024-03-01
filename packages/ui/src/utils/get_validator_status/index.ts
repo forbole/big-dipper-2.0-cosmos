@@ -23,14 +23,20 @@ export const getValidatorStatus = (status: number, jailed: boolean, tombstoned: 
     return results;
   }
 
-  if (status === 3) {
+  if (status === 0) {
     results.status = 'active';
     results.theme = 'one';
   } else if (status === 2) {
-    results.status = 'unbonding';
+    results.status = 'below-threshold';
     results.theme = 'three';
   } else if (status === 1) {
-    results.status = 'unbonded';
+    results.status = 'below-capacity';
+    results.theme = 'zero';
+  } else if (status === 3) {
+    results.status = 'inactive';
+    results.theme = 'zero';
+  } else if (status === 4) {
+    results.status = 'jailed';
     results.theme = 'zero';
   } else {
     results.status = 'unknown';

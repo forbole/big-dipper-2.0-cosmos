@@ -11,28 +11,27 @@ import { FC, useMemo } from 'react';
 const Vote: FC<{ message: MsgVote }> = (props) => {
   const { t } = useAppTranslation('transactions');
   const { message } = props;
-  const vote = t(message.getOptionTranslationKey() ?? '');
+  const vote = t(message.getOptionTranslationKey?.() ?? '');
 
-  const voter = useProfileRecoil(message.voter);
-  const voterMoniker = voter ? voter?.name : message.voter;
+  const voterMoniker = message.value.voter;
 
   const Proposal = useMemo(
     () => (
-      <Link shallow href={PROPOSAL_DETAILS(message.proposalId)}>
-        #{message.proposalId}
+      <Link shallow href={PROPOSAL_DETAILS(message.value.id)}>
+        #{message.value.id}
       </Link>
     ),
-    [message.proposalId]
+    [message.value.id]
   );
 
   return (
     <Typography>
       <AppTrans
         i18nKey="message_contents:txVoteContent"
-        components={[<Name address={message.voter} name={voterMoniker} />, <b />, Proposal]}
+        components={[<Name address={message.value.voter} name={voterMoniker} />, <b />, Proposal]}
         values={{
-          vote,
-          proposal: message.proposalId,
+          vote: message.value.vote,
+          proposal: message.value.id,
         }}
       />
     </Typography>

@@ -45,7 +45,7 @@ const formatValidators = (data: ValidatorsQuery): Partial<ValidatorsState> => {
         votingPowerPercent: votingPowerPercent ?? 0,
         commission: (x?.validatorCommissions?.[0]?.commission ?? 0) * 100,
         condition,
-        status: x?.validatorStatuses?.[0]?.status ?? 0,
+        status: x?.validatorStatuses?.[0]?.status ?? 3,
         jailed: x?.validatorStatuses?.[0]?.jailed ?? false,
         tombstoned: x?.validatorSigningInfos?.[0]?.tombstoned ?? false,
       };
@@ -58,7 +58,7 @@ const formatValidators = (data: ValidatorsQuery): Partial<ValidatorsState> => {
   let cumulativeVotingPower = Big(0);
   let reached = false;
   formattedItems.forEach((x) => {
-    if (x.status === 3) {
+    if (x.status === 0) {
       const totalVp = cumulativeVotingPower.add(x.votingPowerPercent);
       if (totalVp.lte(34) && !reached) {
         x.topVotingPower = true;
@@ -104,7 +104,7 @@ export const useValidators = () => {
   // ==========================
   // Fetch Data
   // ==========================
-  useValidatorsQuery({
+  useValidatorsQuery?.({
     onCompleted: (data) => {
       handleSetState((prevState) => ({
         ...prevState,
@@ -158,11 +158,11 @@ export const useValidators = () => {
       let sorted: ItemType[] = R.clone(items);
 
       if (state.tab === 0) {
-        sorted = sorted.filter((x) => x.status === 3);
+        sorted = sorted.filter((x) => x.status === 0);
       }
 
       if (state.tab === 1) {
-        sorted = sorted.filter((x) => x.status !== 3);
+        sorted = sorted.filter((x) => x.status !== 0);
       }
 
       if (search) {

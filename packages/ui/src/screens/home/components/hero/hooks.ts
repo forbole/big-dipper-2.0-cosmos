@@ -20,7 +20,7 @@ export const useHero = () => {
     });
   }, []);
 
-  useTokenPriceHistoryQuery({
+  useTokenPriceHistoryQuery?.({
     variables: {
       limit: 48,
       denom: tokenUnits?.[primaryTokenUnit]?.display,

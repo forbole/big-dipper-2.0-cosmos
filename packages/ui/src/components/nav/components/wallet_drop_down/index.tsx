@@ -5,7 +5,6 @@ import useAppTranslation from '@/hooks/useAppTranslation';
 import { readUserAddress, readWalletName } from '@/recoil/user';
 import { useAddress } from '@/screens/validator_details/components/validator_overview/hooks';
 import { getMiddleEllipsis } from '@/utils/get_middle_ellipsis';
-import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -31,30 +30,28 @@ const WalletDropDown: FC<WalletDropDownProps> = ({ className, handleLogin }) => 
         {t('walletTitle')}
       </Typography>
       <div className={classes.walletDetails}>
-        <Link href={ACCOUNT_DETAILS(address)} passHref>
-          <div className={classes.walletInfo}>
-            <div className={classes.walletAvatar}>
-              <Avatar address={address} className={classes.avatar} />
-              <div className={classes.greenDot} />
-            </div>
-            <div className={classes.walletLabel}>
-              {walletName}
-              <div>
-                <Typography variant="caption" className={classes.walletAddress}>
-                  {getMiddleEllipsis(address, {
-                    beginning: 9,
-                    ending: 3,
-                  })}
-                </Typography>
-                <CopyIcon
-                  onClick={() => handleCopyToClipboard(address)}
-                  className={classes.copyIcon}
-                />
-              </div>
-            </div>
-            <NextIcon className={classes.next} />
+        <div className={classes.walletInfo}>
+          <div className={classes.walletAvatar}>
+            <Avatar address={address} className={classes.avatar} />
+            <div className={classes.greenDot} />
           </div>
-        </Link>
+          <div className={classes.walletLabel}>
+            {walletName}
+            <div>
+              <Typography variant="caption" className={classes.walletAddress}>
+                {getMiddleEllipsis(address, {
+                  beginning: 9,
+                  ending: 3,
+                })}
+              </Typography>
+              <CopyIcon
+                onClick={() => handleCopyToClipboard(address)}
+                className={classes.copyIcon}
+              />
+            </div>
+          </div>
+          <NextIcon className={classes.next} />
+        </div>
       </div>
       <div
         onClick={handleLogin}

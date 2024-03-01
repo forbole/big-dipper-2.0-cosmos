@@ -4,7 +4,7 @@ import {
   DefaultOptions,
   InMemoryCache,
   NormalizedCacheObject,
-  split
+  split,
 } from '@apollo/client';
 import { BatchHttpLink } from '@apollo/client/link/batch-http';
 import { HttpLink } from '@apollo/client/link/http';
@@ -21,7 +21,6 @@ const { chainType, endpoints, extra } = chainConfig();
 /* Checking if the code is running on the server or the client. */
 const ssrMode = typeof window === 'undefined';
 
-
 /* A global variable that stores the Apollo Client. */
 let globalApolloClient: ApolloClient<NormalizedCacheObject>;
 
@@ -31,9 +30,19 @@ const urlEndpoints = [
   'http://localhost:3000/v1/graphql',
 ];
 
+const websocket = (() => {
+  if (!endpoints.graphqlWebsocket) return endpoints.graphqlWebsocket;
+
+  if (endpoints.graphqlWebsocket.startsWith('/') && typeof window !== 'undefined') {
+    return (window.location.origin + endpoints.graphqlWebsocket).replace('http://', 'ws://').replace('https://', 'wss://');
+  }
+
+  return endpoints.graphqlWebsocket;
+})();
+
 const wsEndpoints = [
   process.env.NEXT_PUBLIC_GRAPHQL_WS,
-  endpoints.graphqlWebsocket,
+  websocket,
   'ws://localhost:3000/websocket',
 ];
 
@@ -102,7 +111,8 @@ export function profileApi() {
   return 'https://gql.mainnet.desmos.network/v1/graphql';
 }
 
-export const BIG_DIPPER_NETWORKS = 'https://raw.githubusercontent.com/forbole/big-dipper-networks/main/';
+export const BIG_DIPPER_NETWORKS =
+  'https://raw.githubusercontent.com/forbole/big-dipper-networks/main/';
 
 /**
  * It creates a new Apollo Client, and sets the default options for it
@@ -147,11 +157,7 @@ function createApolloClient(initialState = {}) {
     httpOrWsLink
   );
 
-  const link = split(
-    ({ operationName }) => operationName === 'Rest',
-    restLink,
-    graphlqllink,
-  );
+  const link = split(({ operationName }) => operationName === 'Rest', restLink, graphlqllink);
 
   /* Creating a new Apollo Client. */
   const client = new ApolloClient({

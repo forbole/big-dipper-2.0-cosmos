@@ -39,23 +39,24 @@ export const useProposals = () => {
   // proposals query
   // ================================
 
-  const proposalQuery = useProposalsQuery({
-    variables: {
-      limit: 50,
-      offset: 0,
-    },
-    onCompleted: (data) => {
-      const newItems = R.uniq([...state.items, ...formatProposals(data)]);
-      handleSetState((prevState) => ({
-        ...prevState,
-        loading: false,
-        items: newItems,
-        hasNextPage: newItems.length < (data.total?.aggregate?.count ?? 0),
-        isNextPageLoading: false,
-        rawDataTotal: data.total?.aggregate?.count ?? prevState.rawDataTotal,
-      }));
-    },
-  });
+  const proposalQuery =
+    useProposalsQuery?.({
+      variables: {
+        limit: 50,
+        offset: 0,
+      },
+      onCompleted: (data) => {
+        const newItems = R.uniq([...state.items, ...formatProposals(data)]);
+        handleSetState((prevState) => ({
+          ...prevState,
+          loading: false,
+          items: newItems,
+          hasNextPage: newItems.length < (data.total?.aggregate?.count ?? 0),
+          isNextPageLoading: false,
+          rawDataTotal: data.total?.aggregate?.count ?? prevState.rawDataTotal,
+        }));
+      },
+    }) || {};
 
   const loadNextPage = async () => {
     handleSetState((prevState) => ({ ...prevState, isNextPageLoading: true }));

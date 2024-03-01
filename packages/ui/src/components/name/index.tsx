@@ -12,8 +12,12 @@ type NameProps = {
 
 const Name: FC<NameProps> = ({ className, address, name, href = ADDRESS_DETAILS }) => {
   const { classes, cx } = useStyles();
+  const hrefVal = href(address);
+  if (!hrefVal) {
+    return <span className={cx(classes.root, className)}>{name}</span>;
+  }
   return (
-    <Link shallow href={href(address)} className={cx(classes.root, className)}>
+    <Link shallow href={hrefVal} className={cx(classes.root, className)}>
       {name}
     </Link>
   );

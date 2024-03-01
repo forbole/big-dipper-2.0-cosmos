@@ -44,7 +44,7 @@ export const useTokenomics = () => {
     denom: '',
   });
 
-  useTokenomicsQuery({
+  useTokenomicsQuery?.({
     onCompleted: (data) => {
       setState(formatTokenomics(data, state));
     },

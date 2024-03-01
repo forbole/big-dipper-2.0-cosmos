@@ -4,7 +4,6 @@ import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import { FC, Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
-import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import useStyles from '@/screens/profile_details/components/connections/components/mobile/styles';
 import { readDate, readTimeFormat } from '@/recoil/settings';
@@ -45,16 +44,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
                   {t('identifier')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                  {checkIdentifier && (
-                    <Link
-                      shallow
-                      prefetch={false}
-                      href={ACCOUNT_DETAILS(x.identifier)}
-                      className="value"
-                    >
-                      {x.identifier}
-                    </Link>
-                  )}
+                  {checkIdentifier && <span className="value">{x.identifier}</span>}
                   {new RegExp(`^(${prefix.account})`).test(x.identifier) === false && x.identifier}
                 </Typography>
               </div>

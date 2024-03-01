@@ -8,7 +8,8 @@ import type { BlocksState } from '@/screens/home/components/blocks/types';
 
 const formatBlocks = (data: BlocksListenerSubscription) =>
   data.blocks.map((x) => {
-    const proposerAddress = x?.validator?.validatorInfo?.operatorAddress ?? '';
+    const proposerAddress = x?.proposerAddress ?? '';
+
     return {
       height: x.height,
       txs: x.txs ?? 0,
@@ -34,7 +35,7 @@ export const useBlocks = () => {
   // ================================
   // block subscription
   // ================================
-  useBlocksListenerSubscription({
+  useBlocksListenerSubscription?.({
     onData: (data) => {
       handleSetState((prevState) => ({
         ...prevState,

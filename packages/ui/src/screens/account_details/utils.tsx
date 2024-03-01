@@ -26,12 +26,13 @@ export const useCommission = (address?: string) => {
     }),
     []
   );
-  const { data, error, refetch } = useAccountCommissionQuery({
-    variables: {
-      validatorAddress,
-    },
-    skip: !address,
-  });
+  const { data, error, refetch } =
+    useAccountCommissionQuery?.({
+      variables: {
+        validatorAddress,
+      },
+      skip: !address,
+    }) || {};
   useEffect(() => {
     if (error) refetch();
   }, [error, refetch]);
@@ -47,12 +48,13 @@ export const useAccountWithdrawalAddress = (address?: string) => {
     }),
     [address]
   );
-  const { data, error, refetch } = useAccountWithdrawalAddressQuery({
-    variables: {
-      address: address ?? '',
-    },
-    skip: !address,
-  });
+  const { data, error, refetch } =
+    useAccountWithdrawalAddressQuery?.({
+      variables: {
+        address: address ?? '',
+      },
+      skip: !address,
+    }) || {};
   useEffect(() => {
     if (error) refetch();
   }, [error, refetch]);
@@ -68,12 +70,13 @@ export const useAvailableBalances = (address?: string) => {
     }),
     []
   );
-  const { data, error, refetch } = useAccountBalancesQuery({
-    variables: {
-      address: address ?? '',
-    },
-    skip: !address,
-  });
+  const { data, error, refetch } =
+    useAccountBalancesQuery?.({
+      variables: {
+        address: address ?? '',
+      },
+      skip: !address,
+    }) || {};
   useEffect(() => {
     if (error) refetch();
   }, [error, refetch]);
@@ -89,12 +92,13 @@ export const useDelegationBalance = (address?: string) => {
     }),
     []
   );
-  const { data, error, refetch } = useAccountDelegationBalanceQuery({
-    variables: {
-      address: address ?? '',
-    },
-    skip: !address,
-  });
+  const { data, error, refetch } =
+    useAccountDelegationBalanceQuery?.({
+      variables: {
+        address: address ?? '',
+      },
+      skip: !address,
+    }) || {};
   useEffect(() => {
     if (error) refetch();
   }, [error, refetch]);
@@ -110,12 +114,13 @@ export const useUnbondingBalance = (address?: string) => {
     }),
     []
   );
-  const { data, error, refetch } = useAccountUnbondingBalanceQuery({
-    variables: {
-      address: address ?? '',
-    },
-    skip: !address,
-  });
+  const { data, error, refetch } =
+    useAccountUnbondingBalanceQuery?.({
+      variables: {
+        address: address ?? '',
+      },
+      skip: !address,
+    }) || {};
   useEffect(() => {
     if (error) refetch();
   }, [error, refetch]);
@@ -124,12 +129,13 @@ export const useUnbondingBalance = (address?: string) => {
 
 export const useRewards = (address?: string) => {
   const defaultReturnValue = useMemo(() => ({ delegationRewards: [] }), []);
-  const { data, error, refetch } = useAccountDelegationRewardsQuery({
-    variables: {
-      address: address ?? '',
-    },
-    skip: !address,
-  });
+  const { data, error, refetch } =
+    useAccountDelegationRewardsQuery?.({
+      variables: {
+        address: address ?? '',
+      },
+      skip: !address,
+    }) || {};
   useEffect(() => {
     if (error) refetch();
   }, [error, refetch]);

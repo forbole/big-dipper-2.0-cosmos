@@ -147,7 +147,7 @@ export const useParams = () => {
   // ================================
   // param query
   // ================================
-  useParamsQuery({
+  useParamsQuery?.({
     onCompleted: (data) => {
       handleSetState((prevState) => ({
         ...prevState,

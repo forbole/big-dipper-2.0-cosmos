@@ -53,7 +53,7 @@ export const useDataBlocks = () => {
   // block height
   // ====================================
 
-  useLatestBlockHeightListenerSubscription({
+  useLatestBlockHeightListenerSubscription?.({
     onData: (data) => {
       setState((prevState) => ({
         ...prevState,
@@ -65,7 +65,7 @@ export const useDataBlocks = () => {
   // ====================================
   // block time
   // ====================================
-  useAverageBlockTimeQuery({
+  useAverageBlockTimeQuery?.({
     onCompleted: (data) => {
       setState((prevState) => ({
         ...prevState,
@@ -77,7 +77,7 @@ export const useDataBlocks = () => {
   // ====================================
   // token price
   // ====================================
-  useTokenPriceListenerSubscription({
+  useTokenPriceListenerSubscription?.({
     variables: {
       denom: tokenUnits?.[primaryTokenUnit]?.display,
     },
@@ -92,7 +92,7 @@ export const useDataBlocks = () => {
   // ====================================
   // validators
   // ====================================
-  useActiveValidatorCountQuery({
+  useActiveValidatorCountQuery?.({
     onCompleted: (data) => {
       setState((prevState) => ({
         ...prevState,

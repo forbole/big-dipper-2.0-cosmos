@@ -67,7 +67,7 @@ export const useTransactions = () => {
   // ================================
   // tx subscription
   // ================================
-  useTransactionsListenerSubscription({
+  useTransactionsListenerSubscription?.({
     variables: {
       limit: 1,
       offset: 0,
@@ -89,26 +89,27 @@ export const useTransactions = () => {
   // tx query
   // ================================
   const LIMIT = 51;
-  const transactionQuery = useTransactionsQuery({
-    variables: {
-      limit: LIMIT,
-      offset: 1,
-    },
-    onError: () => {
-      handleSetState((prevState) => ({ ...prevState, loading: false }));
-    },
-    onCompleted: (data) => {
-      const itemsLength = data.transactions.length;
-      const newItems = uniqueAndSort([...state.items, ...formatTransactions(data)]);
-      handleSetState((prevState) => ({
-        ...prevState,
-        loading: false,
-        items: newItems,
-        hasNextPage: itemsLength === 51,
-        isNextPageLoading: false,
-      }));
-    },
-  });
+  const transactionQuery =
+    useTransactionsQuery?.({
+      variables: {
+        limit: LIMIT,
+        offset: 1,
+      },
+      onError: () => {
+        handleSetState((prevState) => ({ ...prevState, loading: false }));
+      },
+      onCompleted: (data) => {
+        const itemsLength = data.transactions.length;
+        const newItems = uniqueAndSort([...state.items, ...formatTransactions(data)]);
+        handleSetState((prevState) => ({
+          ...prevState,
+          loading: false,
+          items: newItems,
+          hasNextPage: itemsLength === 51,
+          isNextPageLoading: false,
+        }));
+      },
+    }) || {};
 
   const loadNextPage = async () => {
     handleSetState((prevState) => ({ ...prevState, isNextPageLoading: true }));

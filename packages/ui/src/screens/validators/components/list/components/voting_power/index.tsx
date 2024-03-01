@@ -22,9 +22,11 @@ const VotingPower: FC<VotingPowerProps> = ({
     <div className={cx(classes.root, className)}>
       <div className={classes.content}>
         <Typography variant="body1">{content}</Typography>
-        <Typography variant="body1" className="percentage">
-          {percentDisplay}
-        </Typography>
+        {!!percentDisplay && (
+          <Typography variant="body1" className="percentage">
+            {percentDisplay}
+          </Typography>
+        )}
       </div>
       <div className={classes.chart}>
         <div className={classes.active} />

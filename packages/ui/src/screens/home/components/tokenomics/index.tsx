@@ -16,7 +16,7 @@ const { tokenUnits } = chainConfig();
 const Tokenomics: FC<ComponentDefault> = ({ className }) => {
   const { t } = useAppTranslation('home');
   const { classes, cx, theme } = useStyles();
-  const { state } = useTokenomics();
+  const { state } = useTokenomics?.() || {};
 
   const customToolTip = (
     <CustomToolTip>

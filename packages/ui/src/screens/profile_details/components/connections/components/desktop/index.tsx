@@ -7,7 +7,6 @@ import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import { FC, ReactNode } from 'react';
 import { useRecoilValue } from 'recoil';
-import { ACCOUNT_DETAILS } from '@/utils/go_to_page';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { columns } from '@/screens/profile_details/components/connections/components/desktop/utils';
 import { readDate, readTimeFormat } from '@/recoil/settings';
@@ -28,11 +27,7 @@ const Desktop: FC<DesktopProps> = ({ className, items }) => {
   const formattedItems = items?.map((x) => {
     let identity: ReactNode = x.identifier;
     if (new RegExp(`^(${prefix.account})`).test(x.identifier)) {
-      identity = (
-        <Link shallow href={ACCOUNT_DETAILS(x.identifier)} className="value">
-          {x.identifier}
-        </Link>
-      );
+      identity = <span className="value">{x.identifier}</span>;
     }
 
     return {

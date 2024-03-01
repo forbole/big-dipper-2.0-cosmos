@@ -96,21 +96,21 @@ export const useStaking = (
     loading: delegationsLoading,
     error: delegationsError,
     refetch: delegationsRefetch,
-  } = useValidatorDelegationsQuery({
+  } = useValidatorDelegationsQuery?.({
     variables: {
       validatorAddress,
       limit: ROWS_PER_PAGE,
       offset: delegationsPage * ROWS_PER_PAGE,
       pagination: false,
     },
-  });
+  }) || {};
   useEffect(() => {
     if (delegationsLoading) return;
     if (delegationsError) {
       delegationsRefetch({ pagination: false });
     }
   }, [delegationsError, delegationsLoading, delegationsRefetch]);
-  useValidatorDelegationsQuery({
+  useValidatorDelegationsQuery?.({
     variables: {
       validatorAddress,
       limit: ROWS_PER_PAGE,
@@ -124,7 +124,7 @@ export const useStaking = (
     data: dData,
     error: dError,
     refetch: dRefetch,
-  } = useValidatorDelegationsQuery({
+  } = useValidatorDelegationsQuery?.({
     variables: {
       validatorAddress,
       limit: 0,
@@ -132,7 +132,7 @@ export const useStaking = (
       pagination: true,
     },
     skip: delegationsPagination !== undefined,
-  });
+  }) || {};
   useEffect(() => {
     if (dError) {
       dRefetch();
@@ -149,33 +149,33 @@ export const useStaking = (
     loading: redelegationsLoading,
     error: redelegationsError,
     refetch: redelegationsRefetch,
-  } = useValidatorRedelegationsQuery({
+  } = useValidatorRedelegationsQuery?.({
     variables: {
       validatorAddress,
       limit: ROWS_PER_PAGE,
       offset: redelegationsPage * ROWS_PER_PAGE,
     },
-  });
+  }) || {};
   useEffect(() => {
     if (redelegationsLoading) return;
     if (redelegationsError) {
       redelegationsRefetch({ pagination: false });
     }
   }, [redelegationsError, redelegationsLoading, redelegationsRefetch]);
-  useValidatorRedelegationsQuery({
+  useValidatorRedelegationsQuery?.({
     variables: {
       validatorAddress,
       limit: ROWS_PER_PAGE,
       offset: (redelegationsPage + 1) * ROWS_PER_PAGE,
     },
-  });
+  }) || {};
 
   const [redelegationsPagination, setRedelegationsPagination] = useState<number | undefined>();
   const {
     data: rData,
     error: rError,
     refetch: rRefetch,
-  } = useValidatorRedelegationsQuery({
+  } = useValidatorRedelegationsQuery?.({
     variables: {
       validatorAddress,
       limit: 0,
@@ -183,7 +183,7 @@ export const useStaking = (
       pagination: true,
     },
     skip: redelegationsPagination !== undefined,
-  });
+  }) || {};
   useEffect(() => {
     if (rError) {
       rRefetch();
@@ -200,33 +200,33 @@ export const useStaking = (
     loading: undelegationsLoading,
     error: undelegationsError,
     refetch: undelegationsRefetch,
-  } = useValidatorUndelegationsQuery({
+  } = useValidatorUndelegationsQuery?.({
     variables: {
       validatorAddress,
       limit: ROWS_PER_PAGE,
       offset: unbondingsPage * ROWS_PER_PAGE,
     },
-  });
+  }) || {};
   useEffect(() => {
     if (undelegationsLoading) return;
     if (undelegationsError) {
       undelegationsRefetch({ pagination: false });
     }
   }, [undelegationsError, undelegationsLoading, undelegationsRefetch]);
-  useValidatorUndelegationsQuery({
+  useValidatorUndelegationsQuery?.({
     variables: {
       validatorAddress,
       limit: ROWS_PER_PAGE,
       offset: (unbondingsPage + 1) * ROWS_PER_PAGE,
     },
-  });
+  }) || {};
 
   const [undelegationsPagination, setUndelegationsPagination] = useState<number | undefined>();
   const {
     data: uData,
     error: uError,
     refetch: uRefetch,
-  } = useValidatorUndelegationsQuery({
+  } = useValidatorUndelegationsQuery?.({
     variables: {
       validatorAddress,
       limit: 0,
@@ -234,7 +234,7 @@ export const useStaking = (
       pagination: true,
     },
     skip: undelegationsPagination !== undefined,
-  });
+  }) || {};
   useEffect(() => {
     if (uError) {
       uRefetch();

@@ -35,7 +35,7 @@ export const useTransactions = () => {
   // ================================
   // txs subscription
   // ================================
-  useTransactionsListenerSubscription({
+  useTransactionsListenerSubscription?.({
     onData: (data) => {
       setState((prevState) => {
         const newState = {
