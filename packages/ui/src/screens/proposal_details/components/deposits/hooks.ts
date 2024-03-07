@@ -24,7 +24,7 @@ export const useDeposits = () => {
     });
   }, []);
 
-  useProposalDetailsDepositsQuery({
+  useProposalDetailsDepositsQuery?.({
     variables: {
       proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },

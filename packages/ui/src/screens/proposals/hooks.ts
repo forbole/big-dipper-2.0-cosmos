@@ -9,7 +9,7 @@ const formatProposals = (data: ProposalsQuery) =>
     const description = xss(x?.description.replace(/\\n\s?/g, '<br/>'));
     return {
       description,
-      id: x.proposalId,
+      id: x.id,
       title: x.title,
       status: x.status ?? '',
     };

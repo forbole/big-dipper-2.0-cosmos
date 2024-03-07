@@ -42,7 +42,7 @@ export const useVotesGraph = () => {
     []
   );
 
-  useProposalDetailsTallyQuery({
+  useProposalDetailsTallyQuery?.({
     variables: {
       proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },

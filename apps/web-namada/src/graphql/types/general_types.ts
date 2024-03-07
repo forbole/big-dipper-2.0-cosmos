@@ -794,6 +794,580 @@ export type Pre_Commit_Variance_Order_By = {
   voting_power?: InputMaybe<Order_By>;
 };
 
+/** columns and relationships of "proposal" */
+export type Proposal = {
+  __typename?: 'proposal';
+  content: Scalars['jsonb'];
+  description: Scalars['String'];
+  grace_epoch: Scalars['bigint'];
+  id: Scalars['Int'];
+  metadata: Scalars['String'];
+  /** An object relationship */
+  proposal_tally_result?: Maybe<Proposal_Tally_Result>;
+  /** An array relationship */
+  proposal_tally_results: Array<Proposal_Tally_Result>;
+  /** An array relationship */
+  proposal_votes: Array<Proposal_Vote>;
+  proposer_address?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
+  submit_time: Scalars['timestamp'];
+  title: Scalars['String'];
+  voting_end_epoch: Scalars['bigint'];
+  voting_start_epoch: Scalars['bigint'];
+};
+
+
+/** columns and relationships of "proposal" */
+export type ProposalContentArgs = {
+  path?: InputMaybe<Scalars['String']>;
+};
+
+
+/** columns and relationships of "proposal" */
+export type ProposalProposal_Tally_ResultsArgs = {
+  distinct_on?: InputMaybe<Array<Proposal_Tally_Result_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Proposal_Tally_Result_Order_By>>;
+  where?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
+};
+
+
+/** columns and relationships of "proposal" */
+export type ProposalProposal_VotesArgs = {
+  distinct_on?: InputMaybe<Array<Proposal_Vote_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Proposal_Vote_Order_By>>;
+  where?: InputMaybe<Proposal_Vote_Bool_Exp>;
+};
+
+/** aggregated selection of "proposal" */
+export type Proposal_Aggregate = {
+  __typename?: 'proposal_aggregate';
+  aggregate?: Maybe<Proposal_Aggregate_Fields>;
+  nodes: Array<Proposal>;
+};
+
+/** aggregate fields of "proposal" */
+export type Proposal_Aggregate_Fields = {
+  __typename?: 'proposal_aggregate_fields';
+  avg?: Maybe<Proposal_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Proposal_Max_Fields>;
+  min?: Maybe<Proposal_Min_Fields>;
+  stddev?: Maybe<Proposal_Stddev_Fields>;
+  stddev_pop?: Maybe<Proposal_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Proposal_Stddev_Samp_Fields>;
+  sum?: Maybe<Proposal_Sum_Fields>;
+  var_pop?: Maybe<Proposal_Var_Pop_Fields>;
+  var_samp?: Maybe<Proposal_Var_Samp_Fields>;
+  variance?: Maybe<Proposal_Variance_Fields>;
+};
+
+
+/** aggregate fields of "proposal" */
+export type Proposal_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Proposal_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Proposal_Avg_Fields = {
+  __typename?: 'proposal_avg_fields';
+  grace_epoch?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  voting_end_epoch?: Maybe<Scalars['Float']>;
+  voting_start_epoch?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "proposal". All fields are combined with a logical 'AND'. */
+export type Proposal_Bool_Exp = {
+  _and?: InputMaybe<Array<Proposal_Bool_Exp>>;
+  _not?: InputMaybe<Proposal_Bool_Exp>;
+  _or?: InputMaybe<Array<Proposal_Bool_Exp>>;
+  content?: InputMaybe<Jsonb_Comparison_Exp>;
+  description?: InputMaybe<String_Comparison_Exp>;
+  grace_epoch?: InputMaybe<Bigint_Comparison_Exp>;
+  id?: InputMaybe<Int_Comparison_Exp>;
+  metadata?: InputMaybe<String_Comparison_Exp>;
+  proposal_tally_result?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
+  proposal_tally_results?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
+  proposal_votes?: InputMaybe<Proposal_Vote_Bool_Exp>;
+  proposer_address?: InputMaybe<String_Comparison_Exp>;
+  status?: InputMaybe<String_Comparison_Exp>;
+  submit_time?: InputMaybe<Timestamp_Comparison_Exp>;
+  title?: InputMaybe<String_Comparison_Exp>;
+  voting_end_epoch?: InputMaybe<Bigint_Comparison_Exp>;
+  voting_start_epoch?: InputMaybe<Bigint_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Proposal_Max_Fields = {
+  __typename?: 'proposal_max_fields';
+  description?: Maybe<Scalars['String']>;
+  grace_epoch?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  metadata?: Maybe<Scalars['String']>;
+  proposer_address?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
+  submit_time?: Maybe<Scalars['timestamp']>;
+  title?: Maybe<Scalars['String']>;
+  voting_end_epoch?: Maybe<Scalars['bigint']>;
+  voting_start_epoch?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate min on columns */
+export type Proposal_Min_Fields = {
+  __typename?: 'proposal_min_fields';
+  description?: Maybe<Scalars['String']>;
+  grace_epoch?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  metadata?: Maybe<Scalars['String']>;
+  proposer_address?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
+  submit_time?: Maybe<Scalars['timestamp']>;
+  title?: Maybe<Scalars['String']>;
+  voting_end_epoch?: Maybe<Scalars['bigint']>;
+  voting_start_epoch?: Maybe<Scalars['bigint']>;
+};
+
+/** Ordering options when selecting data from "proposal". */
+export type Proposal_Order_By = {
+  content?: InputMaybe<Order_By>;
+  description?: InputMaybe<Order_By>;
+  grace_epoch?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  metadata?: InputMaybe<Order_By>;
+  proposal_tally_result?: InputMaybe<Proposal_Tally_Result_Order_By>;
+  proposal_tally_results_aggregate?: InputMaybe<Proposal_Tally_Result_Aggregate_Order_By>;
+  proposal_votes_aggregate?: InputMaybe<Proposal_Vote_Aggregate_Order_By>;
+  proposer_address?: InputMaybe<Order_By>;
+  status?: InputMaybe<Order_By>;
+  submit_time?: InputMaybe<Order_By>;
+  title?: InputMaybe<Order_By>;
+  voting_end_epoch?: InputMaybe<Order_By>;
+  voting_start_epoch?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "proposal" */
+export enum Proposal_Select_Column {
+  /** column name */
+  Content = 'content',
+  /** column name */
+  Description = 'description',
+  /** column name */
+  GraceEpoch = 'grace_epoch',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Metadata = 'metadata',
+  /** column name */
+  ProposerAddress = 'proposer_address',
+  /** column name */
+  Status = 'status',
+  /** column name */
+  SubmitTime = 'submit_time',
+  /** column name */
+  Title = 'title',
+  /** column name */
+  VotingEndEpoch = 'voting_end_epoch',
+  /** column name */
+  VotingStartEpoch = 'voting_start_epoch'
+}
+
+/** aggregate stddev on columns */
+export type Proposal_Stddev_Fields = {
+  __typename?: 'proposal_stddev_fields';
+  grace_epoch?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  voting_end_epoch?: Maybe<Scalars['Float']>;
+  voting_start_epoch?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Proposal_Stddev_Pop_Fields = {
+  __typename?: 'proposal_stddev_pop_fields';
+  grace_epoch?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  voting_end_epoch?: Maybe<Scalars['Float']>;
+  voting_start_epoch?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Proposal_Stddev_Samp_Fields = {
+  __typename?: 'proposal_stddev_samp_fields';
+  grace_epoch?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  voting_end_epoch?: Maybe<Scalars['Float']>;
+  voting_start_epoch?: Maybe<Scalars['Float']>;
+};
+
+/** Streaming cursor of the table "proposal" */
+export type Proposal_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Proposal_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Proposal_Stream_Cursor_Value_Input = {
+  content?: InputMaybe<Scalars['jsonb']>;
+  description?: InputMaybe<Scalars['String']>;
+  grace_epoch?: InputMaybe<Scalars['bigint']>;
+  id?: InputMaybe<Scalars['Int']>;
+  metadata?: InputMaybe<Scalars['String']>;
+  proposer_address?: InputMaybe<Scalars['String']>;
+  status?: InputMaybe<Scalars['String']>;
+  submit_time?: InputMaybe<Scalars['timestamp']>;
+  title?: InputMaybe<Scalars['String']>;
+  voting_end_epoch?: InputMaybe<Scalars['bigint']>;
+  voting_start_epoch?: InputMaybe<Scalars['bigint']>;
+};
+
+/** aggregate sum on columns */
+export type Proposal_Sum_Fields = {
+  __typename?: 'proposal_sum_fields';
+  grace_epoch?: Maybe<Scalars['bigint']>;
+  id?: Maybe<Scalars['Int']>;
+  voting_end_epoch?: Maybe<Scalars['bigint']>;
+  voting_start_epoch?: Maybe<Scalars['bigint']>;
+};
+
+/** columns and relationships of "proposal_tally_result" */
+export type Proposal_Tally_Result = {
+  __typename?: 'proposal_tally_result';
+  abstain: Scalars['String'];
+  height: Scalars['bigint'];
+  no: Scalars['String'];
+  /** An object relationship */
+  proposal: Proposal;
+  proposal_id: Scalars['Int'];
+  tally_type: Scalars['String'];
+  total: Scalars['String'];
+  yes: Scalars['String'];
+};
+
+/** order by aggregate values of table "proposal_tally_result" */
+export type Proposal_Tally_Result_Aggregate_Order_By = {
+  avg?: InputMaybe<Proposal_Tally_Result_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Proposal_Tally_Result_Max_Order_By>;
+  min?: InputMaybe<Proposal_Tally_Result_Min_Order_By>;
+  stddev?: InputMaybe<Proposal_Tally_Result_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<Proposal_Tally_Result_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<Proposal_Tally_Result_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<Proposal_Tally_Result_Sum_Order_By>;
+  var_pop?: InputMaybe<Proposal_Tally_Result_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<Proposal_Tally_Result_Var_Samp_Order_By>;
+  variance?: InputMaybe<Proposal_Tally_Result_Variance_Order_By>;
+};
+
+/** order by avg() on columns of table "proposal_tally_result" */
+export type Proposal_Tally_Result_Avg_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "proposal_tally_result". All fields are combined with a logical 'AND'. */
+export type Proposal_Tally_Result_Bool_Exp = {
+  _and?: InputMaybe<Array<Proposal_Tally_Result_Bool_Exp>>;
+  _not?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
+  _or?: InputMaybe<Array<Proposal_Tally_Result_Bool_Exp>>;
+  abstain?: InputMaybe<String_Comparison_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  no?: InputMaybe<String_Comparison_Exp>;
+  proposal?: InputMaybe<Proposal_Bool_Exp>;
+  proposal_id?: InputMaybe<Int_Comparison_Exp>;
+  tally_type?: InputMaybe<String_Comparison_Exp>;
+  total?: InputMaybe<String_Comparison_Exp>;
+  yes?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** order by max() on columns of table "proposal_tally_result" */
+export type Proposal_Tally_Result_Max_Order_By = {
+  abstain?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  no?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+  tally_type?: InputMaybe<Order_By>;
+  total?: InputMaybe<Order_By>;
+  yes?: InputMaybe<Order_By>;
+};
+
+/** order by min() on columns of table "proposal_tally_result" */
+export type Proposal_Tally_Result_Min_Order_By = {
+  abstain?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  no?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+  tally_type?: InputMaybe<Order_By>;
+  total?: InputMaybe<Order_By>;
+  yes?: InputMaybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "proposal_tally_result". */
+export type Proposal_Tally_Result_Order_By = {
+  abstain?: InputMaybe<Order_By>;
+  height?: InputMaybe<Order_By>;
+  no?: InputMaybe<Order_By>;
+  proposal?: InputMaybe<Proposal_Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+  tally_type?: InputMaybe<Order_By>;
+  total?: InputMaybe<Order_By>;
+  yes?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "proposal_tally_result" */
+export enum Proposal_Tally_Result_Select_Column {
+  /** column name */
+  Abstain = 'abstain',
+  /** column name */
+  Height = 'height',
+  /** column name */
+  No = 'no',
+  /** column name */
+  ProposalId = 'proposal_id',
+  /** column name */
+  TallyType = 'tally_type',
+  /** column name */
+  Total = 'total',
+  /** column name */
+  Yes = 'yes'
+}
+
+/** order by stddev() on columns of table "proposal_tally_result" */
+export type Proposal_Tally_Result_Stddev_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** order by stddev_pop() on columns of table "proposal_tally_result" */
+export type Proposal_Tally_Result_Stddev_Pop_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** order by stddev_samp() on columns of table "proposal_tally_result" */
+export type Proposal_Tally_Result_Stddev_Samp_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** Streaming cursor of the table "proposal_tally_result" */
+export type Proposal_Tally_Result_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Proposal_Tally_Result_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Proposal_Tally_Result_Stream_Cursor_Value_Input = {
+  abstain?: InputMaybe<Scalars['String']>;
+  height?: InputMaybe<Scalars['bigint']>;
+  no?: InputMaybe<Scalars['String']>;
+  proposal_id?: InputMaybe<Scalars['Int']>;
+  tally_type?: InputMaybe<Scalars['String']>;
+  total?: InputMaybe<Scalars['String']>;
+  yes?: InputMaybe<Scalars['String']>;
+};
+
+/** order by sum() on columns of table "proposal_tally_result" */
+export type Proposal_Tally_Result_Sum_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** order by var_pop() on columns of table "proposal_tally_result" */
+export type Proposal_Tally_Result_Var_Pop_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** order by var_samp() on columns of table "proposal_tally_result" */
+export type Proposal_Tally_Result_Var_Samp_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** order by variance() on columns of table "proposal_tally_result" */
+export type Proposal_Tally_Result_Variance_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** aggregate var_pop on columns */
+export type Proposal_Var_Pop_Fields = {
+  __typename?: 'proposal_var_pop_fields';
+  grace_epoch?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  voting_end_epoch?: Maybe<Scalars['Float']>;
+  voting_start_epoch?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Proposal_Var_Samp_Fields = {
+  __typename?: 'proposal_var_samp_fields';
+  grace_epoch?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  voting_end_epoch?: Maybe<Scalars['Float']>;
+  voting_start_epoch?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Proposal_Variance_Fields = {
+  __typename?: 'proposal_variance_fields';
+  grace_epoch?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
+  voting_end_epoch?: Maybe<Scalars['Float']>;
+  voting_start_epoch?: Maybe<Scalars['Float']>;
+};
+
+/** columns and relationships of "proposal_vote" */
+export type Proposal_Vote = {
+  __typename?: 'proposal_vote';
+  /** An object relationship */
+  block?: Maybe<Block>;
+  height: Scalars['bigint'];
+  option: Scalars['String'];
+  /** An object relationship */
+  proposal?: Maybe<Proposal>;
+  proposal_id: Scalars['Int'];
+  voter_address: Scalars['String'];
+};
+
+/** order by aggregate values of table "proposal_vote" */
+export type Proposal_Vote_Aggregate_Order_By = {
+  avg?: InputMaybe<Proposal_Vote_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Proposal_Vote_Max_Order_By>;
+  min?: InputMaybe<Proposal_Vote_Min_Order_By>;
+  stddev?: InputMaybe<Proposal_Vote_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<Proposal_Vote_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<Proposal_Vote_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<Proposal_Vote_Sum_Order_By>;
+  var_pop?: InputMaybe<Proposal_Vote_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<Proposal_Vote_Var_Samp_Order_By>;
+  variance?: InputMaybe<Proposal_Vote_Variance_Order_By>;
+};
+
+/** order by avg() on columns of table "proposal_vote" */
+export type Proposal_Vote_Avg_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "proposal_vote". All fields are combined with a logical 'AND'. */
+export type Proposal_Vote_Bool_Exp = {
+  _and?: InputMaybe<Array<Proposal_Vote_Bool_Exp>>;
+  _not?: InputMaybe<Proposal_Vote_Bool_Exp>;
+  _or?: InputMaybe<Array<Proposal_Vote_Bool_Exp>>;
+  block?: InputMaybe<Block_Bool_Exp>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  option?: InputMaybe<String_Comparison_Exp>;
+  proposal?: InputMaybe<Proposal_Bool_Exp>;
+  proposal_id?: InputMaybe<Int_Comparison_Exp>;
+  voter_address?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** order by max() on columns of table "proposal_vote" */
+export type Proposal_Vote_Max_Order_By = {
+  height?: InputMaybe<Order_By>;
+  option?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+  voter_address?: InputMaybe<Order_By>;
+};
+
+/** order by min() on columns of table "proposal_vote" */
+export type Proposal_Vote_Min_Order_By = {
+  height?: InputMaybe<Order_By>;
+  option?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+  voter_address?: InputMaybe<Order_By>;
+};
+
+/** Ordering options when selecting data from "proposal_vote". */
+export type Proposal_Vote_Order_By = {
+  block?: InputMaybe<Block_Order_By>;
+  height?: InputMaybe<Order_By>;
+  option?: InputMaybe<Order_By>;
+  proposal?: InputMaybe<Proposal_Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+  voter_address?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "proposal_vote" */
+export enum Proposal_Vote_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Option = 'option',
+  /** column name */
+  ProposalId = 'proposal_id',
+  /** column name */
+  VoterAddress = 'voter_address'
+}
+
+/** order by stddev() on columns of table "proposal_vote" */
+export type Proposal_Vote_Stddev_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** order by stddev_pop() on columns of table "proposal_vote" */
+export type Proposal_Vote_Stddev_Pop_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** order by stddev_samp() on columns of table "proposal_vote" */
+export type Proposal_Vote_Stddev_Samp_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** Streaming cursor of the table "proposal_vote" */
+export type Proposal_Vote_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Proposal_Vote_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Proposal_Vote_Stream_Cursor_Value_Input = {
+  height?: InputMaybe<Scalars['bigint']>;
+  option?: InputMaybe<Scalars['String']>;
+  proposal_id?: InputMaybe<Scalars['Int']>;
+  voter_address?: InputMaybe<Scalars['String']>;
+};
+
+/** order by sum() on columns of table "proposal_vote" */
+export type Proposal_Vote_Sum_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** order by var_pop() on columns of table "proposal_vote" */
+export type Proposal_Vote_Var_Pop_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** order by var_samp() on columns of table "proposal_vote" */
+export type Proposal_Vote_Var_Samp_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
+/** order by variance() on columns of table "proposal_vote" */
+export type Proposal_Vote_Variance_Order_By = {
+  height?: InputMaybe<Order_By>;
+  proposal_id?: InputMaybe<Order_By>;
+};
+
 export type Query_Root = {
   __typename?: 'query_root';
   /** fetch data from the table: "average_block_time_per_day" */
@@ -810,6 +1384,18 @@ export type Query_Root = {
   pre_commit: Array<Pre_Commit>;
   /** fetch aggregated fields from the table: "pre_commit" */
   pre_commit_aggregate: Pre_Commit_Aggregate;
+  /** fetch data from the table: "proposal" */
+  proposal: Array<Proposal>;
+  /** fetch aggregated fields from the table: "proposal" */
+  proposal_aggregate: Proposal_Aggregate;
+  /** fetch data from the table: "proposal" using primary key columns */
+  proposal_by_pk?: Maybe<Proposal>;
+  /** fetch data from the table: "proposal_tally_result" */
+  proposal_tally_result: Array<Proposal_Tally_Result>;
+  /** fetch data from the table: "proposal_tally_result" using primary key columns */
+  proposal_tally_result_by_pk?: Maybe<Proposal_Tally_Result>;
+  /** fetch data from the table: "proposal_vote" */
+  proposal_vote: Array<Proposal_Vote>;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
   /** fetch data from the table: "validator" */
@@ -899,6 +1485,52 @@ export type Query_RootPre_Commit_AggregateArgs = {
   offset?: InputMaybe<Scalars['Int']>;
   order_by?: InputMaybe<Array<Pre_Commit_Order_By>>;
   where?: InputMaybe<Pre_Commit_Bool_Exp>;
+};
+
+
+export type Query_RootProposalArgs = {
+  distinct_on?: InputMaybe<Array<Proposal_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Proposal_Order_By>>;
+  where?: InputMaybe<Proposal_Bool_Exp>;
+};
+
+
+export type Query_RootProposal_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Proposal_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Proposal_Order_By>>;
+  where?: InputMaybe<Proposal_Bool_Exp>;
+};
+
+
+export type Query_RootProposal_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Query_RootProposal_Tally_ResultArgs = {
+  distinct_on?: InputMaybe<Array<Proposal_Tally_Result_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Proposal_Tally_Result_Order_By>>;
+  where?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
+};
+
+
+export type Query_RootProposal_Tally_Result_By_PkArgs = {
+  proposal_id: Scalars['Int'];
+};
+
+
+export type Query_RootProposal_VoteArgs = {
+  distinct_on?: InputMaybe<Array<Proposal_Vote_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Proposal_Vote_Order_By>>;
+  where?: InputMaybe<Proposal_Vote_Bool_Exp>;
 };
 
 
@@ -1038,6 +1670,24 @@ export type Subscription_Root = {
   pre_commit_aggregate: Pre_Commit_Aggregate;
   /** fetch data from the table in a streaming manner: "pre_commit" */
   pre_commit_stream: Array<Pre_Commit>;
+  /** fetch data from the table: "proposal" */
+  proposal: Array<Proposal>;
+  /** fetch aggregated fields from the table: "proposal" */
+  proposal_aggregate: Proposal_Aggregate;
+  /** fetch data from the table: "proposal" using primary key columns */
+  proposal_by_pk?: Maybe<Proposal>;
+  /** fetch data from the table in a streaming manner: "proposal" */
+  proposal_stream: Array<Proposal>;
+  /** fetch data from the table: "proposal_tally_result" */
+  proposal_tally_result: Array<Proposal_Tally_Result>;
+  /** fetch data from the table: "proposal_tally_result" using primary key columns */
+  proposal_tally_result_by_pk?: Maybe<Proposal_Tally_Result>;
+  /** fetch data from the table in a streaming manner: "proposal_tally_result" */
+  proposal_tally_result_stream: Array<Proposal_Tally_Result>;
+  /** fetch data from the table: "proposal_vote" */
+  proposal_vote: Array<Proposal_Vote>;
+  /** fetch data from the table in a streaming manner: "proposal_vote" */
+  proposal_vote_stream: Array<Proposal_Vote>;
   /** fetch data from the table: "transaction" */
   transaction: Array<Transaction>;
   /** fetch data from the table in a streaming manner: "transaction" */
@@ -1176,6 +1826,73 @@ export type Subscription_RootPre_Commit_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Pre_Commit_Stream_Cursor_Input>>;
   where?: InputMaybe<Pre_Commit_Bool_Exp>;
+};
+
+
+export type Subscription_RootProposalArgs = {
+  distinct_on?: InputMaybe<Array<Proposal_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Proposal_Order_By>>;
+  where?: InputMaybe<Proposal_Bool_Exp>;
+};
+
+
+export type Subscription_RootProposal_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Proposal_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Proposal_Order_By>>;
+  where?: InputMaybe<Proposal_Bool_Exp>;
+};
+
+
+export type Subscription_RootProposal_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Subscription_RootProposal_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Proposal_Stream_Cursor_Input>>;
+  where?: InputMaybe<Proposal_Bool_Exp>;
+};
+
+
+export type Subscription_RootProposal_Tally_ResultArgs = {
+  distinct_on?: InputMaybe<Array<Proposal_Tally_Result_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Proposal_Tally_Result_Order_By>>;
+  where?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
+};
+
+
+export type Subscription_RootProposal_Tally_Result_By_PkArgs = {
+  proposal_id: Scalars['Int'];
+};
+
+
+export type Subscription_RootProposal_Tally_Result_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Proposal_Tally_Result_Stream_Cursor_Input>>;
+  where?: InputMaybe<Proposal_Tally_Result_Bool_Exp>;
+};
+
+
+export type Subscription_RootProposal_VoteArgs = {
+  distinct_on?: InputMaybe<Array<Proposal_Vote_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Proposal_Vote_Order_By>>;
+  where?: InputMaybe<Proposal_Vote_Bool_Exp>;
+};
+
+
+export type Subscription_RootProposal_Vote_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Proposal_Vote_Stream_Cursor_Input>>;
+  where?: InputMaybe<Proposal_Vote_Bool_Exp>;
 };
 
 
@@ -2623,6 +3340,21 @@ export type BlocksQueryVariables = Exact<{
 
 export type BlocksQuery = { blocks: Array<{ __typename?: 'block', height: any, hash: string, timestamp: any, txs?: number | null, proposerAddress?: string | null }> };
 
+export type ProposalDetailsQueryVariables = Exact<{
+  proposalId?: InputMaybe<Scalars['Int']>;
+}>;
+
+
+export type ProposalDetailsQuery = { proposal: Array<{ __typename?: 'proposal', title: string, description: string, metadata: string, content: any, submit_time: any, voting_end_epoch: any, voting_start_epoch: any, status?: string | null, proposer?: string | null, proposalId: number, submitTime: any, votingStartTime: any, votingEndTime: any }> };
+
+export type ProposalsQueryVariables = Exact<{
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+}>;
+
+
+export type ProposalsQuery = { proposals: Array<{ __typename?: 'proposal', id: number, title: string, description: string, metadata: string, content: any, submit_time: any, voting_end_epoch: any, voting_start_epoch: any, status?: string | null }>, total: { __typename?: 'proposal_aggregate', aggregate?: { __typename?: 'proposal_aggregate_fields', count: number } | null } };
+
 export type TransactionDetailsQueryVariables = Exact<{
   hash?: InputMaybe<Scalars['String']>;
 }>;
@@ -2920,6 +3652,102 @@ export function useBlocksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Blo
 export type BlocksQueryHookResult = ReturnType<typeof useBlocksQuery>;
 export type BlocksLazyQueryHookResult = ReturnType<typeof useBlocksLazyQuery>;
 export type BlocksQueryResult = Apollo.QueryResult<BlocksQuery, BlocksQueryVariables>;
+export const ProposalDetailsDocument = gql`
+    query ProposalDetails($proposalId: Int) {
+  proposal(where: {id: {_eq: $proposalId}}) {
+    title
+    description
+    metadata
+    content
+    submit_time
+    voting_end_epoch
+    voting_start_epoch
+    status
+    proposer: proposer_address
+    proposalId: id
+    submitTime: submit_time
+    votingStartTime: voting_start_epoch
+    votingEndTime: voting_end_epoch
+  }
+}
+    `;
+
+/**
+ * __useProposalDetailsQuery__
+ *
+ * To run a query within a React component, call `useProposalDetailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProposalDetailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProposalDetailsQuery({
+ *   variables: {
+ *      proposalId: // value for 'proposalId'
+ *   },
+ * });
+ */
+export function useProposalDetailsQuery(baseOptions?: Apollo.QueryHookOptions<ProposalDetailsQuery, ProposalDetailsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProposalDetailsQuery, ProposalDetailsQueryVariables>(ProposalDetailsDocument, options);
+      }
+export function useProposalDetailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProposalDetailsQuery, ProposalDetailsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProposalDetailsQuery, ProposalDetailsQueryVariables>(ProposalDetailsDocument, options);
+        }
+export type ProposalDetailsQueryHookResult = ReturnType<typeof useProposalDetailsQuery>;
+export type ProposalDetailsLazyQueryHookResult = ReturnType<typeof useProposalDetailsLazyQuery>;
+export type ProposalDetailsQueryResult = Apollo.QueryResult<ProposalDetailsQuery, ProposalDetailsQueryVariables>;
+export const ProposalsDocument = gql`
+    query Proposals($limit: Int = 7, $offset: Int = 0) {
+  proposals: proposal(limit: $limit, offset: $offset, order_by: {id: desc}) {
+    id
+    title
+    description
+    metadata
+    content
+    submit_time
+    voting_end_epoch
+    voting_start_epoch
+    status
+  }
+  total: proposal_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
+    `;
+
+/**
+ * __useProposalsQuery__
+ *
+ * To run a query within a React component, call `useProposalsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProposalsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProposalsQuery({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useProposalsQuery(baseOptions?: Apollo.QueryHookOptions<ProposalsQuery, ProposalsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ProposalsQuery, ProposalsQueryVariables>(ProposalsDocument, options);
+      }
+export function useProposalsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ProposalsQuery, ProposalsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ProposalsQuery, ProposalsQueryVariables>(ProposalsDocument, options);
+        }
+export type ProposalsQueryHookResult = ReturnType<typeof useProposalsQuery>;
+export type ProposalsLazyQueryHookResult = ReturnType<typeof useProposalsLazyQuery>;
+export type ProposalsQueryResult = Apollo.QueryResult<ProposalsQuery, ProposalsQueryVariables>;
 export const TransactionDetailsDocument = gql`
     query TransactionDetails($hash: String) {
   transaction(where: {hash: {_eq: $hash}}, limit: 1) {

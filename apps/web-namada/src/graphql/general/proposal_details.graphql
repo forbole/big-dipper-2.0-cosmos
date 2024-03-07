@@ -1,0 +1,17 @@
+query ProposalDetails($proposalId: Int) {
+  proposal(where: {id: {_eq: $proposalId}}) {
+    title
+    description
+    metadata
+    content
+    submit_time
+    voting_end_epoch
+    voting_start_epoch
+    status
+    proposer: proposer_address
+    proposalId: id
+    submitTime: submit_time
+    votingStartTime: voting_start_epoch
+    votingEndTime: voting_end_epoch
+  }
+}

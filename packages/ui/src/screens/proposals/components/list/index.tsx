@@ -112,17 +112,19 @@ const ProposalsList: FC<ProposalsListProps> = ({
                   ref={mergeRefs(listRef, ref)}
                   width={width ?? 0}
                 >
-                  {({ index, style }) => (
-                    <ListItem
-                      key={items[index].id}
-                      index={index}
-                      style={style}
-                      setRowHeight={setRowHeight}
-                      isItemLoaded={isItemLoaded}
-                      item={items[index]}
-                      isLast={index === itemCount - 1}
-                    />
-                  )}
+                  {({ index, style }) =>
+                    !!items[index] && (
+                      <ListItem
+                        key={items[index]?.id}
+                        index={index}
+                        style={style}
+                        setRowHeight={setRowHeight}
+                        isItemLoaded={isItemLoaded}
+                        item={items[index]}
+                        isLast={index === itemCount - 1}
+                      />
+                    )
+                  }
                 </List>
               )}
             </InfiniteLoader>

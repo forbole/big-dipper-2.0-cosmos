@@ -99,7 +99,7 @@ export const useVotes = (resetPagination: () => void) => {
     [handleSetState, resetPagination]
   );
 
-  useProposalDetailsVotesQuery({
+  useProposalDetailsVotesQuery?.({
     variables: {
       proposalId: parseFloat((router?.query?.id as string) ?? '0'),
     },
