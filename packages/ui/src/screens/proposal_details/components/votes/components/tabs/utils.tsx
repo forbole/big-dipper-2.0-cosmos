@@ -25,9 +25,5 @@ export const tabLabels = (data: {
       key: 'abstain',
       num: abstain,
     },
-    {
-      key: 'didNotVote',
-      num: undefined,
-    },
   ];
 };
