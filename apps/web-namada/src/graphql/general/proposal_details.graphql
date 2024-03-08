@@ -33,6 +33,6 @@ query ProposalDetailsVotes($proposalId: Int) {
     height
     option
     proposal_id
-    voter_address
+    voterAddress: voter_address
   }
 }

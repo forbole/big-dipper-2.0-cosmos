@@ -3359,7 +3359,7 @@ export type ProposalDetailsVotesQueryVariables = Exact<{
 }>;
 
 
-export type ProposalDetailsVotesQuery = { proposalVote: Array<{ __typename?: 'proposal_vote', height: any, option: string, proposal_id: number, voter_address: string }> };
+export type ProposalDetailsVotesQuery = { proposalVote: Array<{ __typename?: 'proposal_vote', height: any, option: string, proposal_id: number, voterAddress: string }> };
 
 export type ProposalsQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
@@ -3765,7 +3765,7 @@ export const ProposalDetailsVotesDocument = gql`
     height
     option
     proposal_id
-    voter_address
+    voterAddress: voter_address
   }
 }
     `;

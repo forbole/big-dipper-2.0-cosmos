@@ -55,7 +55,7 @@ const useStyles = makeStyles()((theme) => ({
     },
     '&.no': {
       '&::before': {
-        background: theme.palette.custom.charts.four,
+        background: theme.palette.custom.charts.two,
       },
     },
     '&.veto': {
@@ -65,7 +65,7 @@ const useStyles = makeStyles()((theme) => ({
     },
     '&.abstain': {
       '&::before': {
-        background: theme.palette.custom.charts.two,
+        background: theme.palette.custom.charts.four,
       },
     },
   },

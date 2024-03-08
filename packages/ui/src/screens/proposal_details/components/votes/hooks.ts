@@ -23,17 +23,14 @@ const formatVotes = (data: ProposalDetailsVotesQuery) => {
   let veto = 0;
 
   const votes = data.proposalVote.map((x) => {
-    if (x.option === 'VOTE_OPTION_YES') {
+    if (x.option === 'yes') {
       yes += 1;
     }
-    if (x.option === 'VOTE_OPTION_ABSTAIN') {
+    if (x.option === 'abstain') {
       abstain += 1;
     }
-    if (x.option === 'VOTE_OPTION_NO') {
+    if (x.option === 'no') {
       no += 1;
-    }
-    if (x.option === 'VOTE_OPTION_NO_WITH_VETO') {
-      veto += 1;
     }
     if (validatorDict[x.voterAddress] === false) {
       validatorDict[x.voterAddress] = true;

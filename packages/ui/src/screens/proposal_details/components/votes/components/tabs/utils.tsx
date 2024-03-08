@@ -22,16 +22,12 @@ export const tabLabels = (data: {
       num: no,
     },
     {
-      key: 'veto',
-      num: veto,
-    },
-    {
       key: 'abstain',
       num: abstain,
     },
     {
       key: 'didNotVote',
-      num: notVoted,
+      num: undefined,
     },
   ];
 };

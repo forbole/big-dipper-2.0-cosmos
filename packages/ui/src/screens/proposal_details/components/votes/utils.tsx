@@ -2,10 +2,10 @@ import type { VoteType } from '@/screens/proposal_details/components/votes/types
 
 export const getVoteKey = (vote: string) => {
   const votes = {
-    VOTE_OPTION_YES: 'yes',
-    VOTE_OPTION_NO: 'no',
+    yes: 'yes',
+    no: 'no',
     VOTE_OPTION_NO_WITH_VETO: 'veto',
-    VOTE_OPTION_ABSTAIN: 'abstain',
+    abstain: 'abstain',
     NOT_VOTED: 'notVoted',
   };
 
@@ -19,19 +19,15 @@ export const filterDataByTab = (props: { data: VoteType[]; notVoted: VoteType[];
 
   return props.data.filter((x) => {
     if (props.tab === 1) {
-      return x.vote === 'VOTE_OPTION_YES';
+      return x.vote === 'yes';
     }
 
     if (props.tab === 2) {
-      return x.vote === 'VOTE_OPTION_NO';
+      return x.vote === 'no';
     }
 
     if (props.tab === 3) {
-      return x.vote === 'VOTE_OPTION_NO_WITH_VETO';
-    }
-
-    if (props.tab === 4) {
-      return x.vote === 'VOTE_OPTION_ABSTAIN';
+      return x.vote === 'abstain';
     }
 
     return true;

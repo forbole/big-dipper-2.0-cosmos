@@ -13,8 +13,8 @@ export const formatGraphData = ({ data, theme, total }: FormatGraphType) => {
   const keys = R.keys(data);
   const color = {
     0: theme.palette?.custom?.charts.one,
-    1: theme.palette?.custom?.charts.four,
-    2: theme.palette?.custom?.charts.two,
+    1: theme.palette?.custom?.charts.two,
+    2: theme.palette?.custom?.charts.four,
   };
 
   const formattedData = keys.map((x, i) => {

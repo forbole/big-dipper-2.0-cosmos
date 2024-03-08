@@ -14,7 +14,6 @@ type TabsHeaderProps = {
     yes: number;
     no: number;
     abstain: number;
-    veto: number;
     notVoted: number;
   };
 };
@@ -26,9 +25,11 @@ const TabsHeader: FC<TabsHeaderProps> = ({ className, tab, handleTabChange, data
   return (
     <div className={cx(classes.root, className)}>
       <Tabs variant="scrollable" scrollButtons={false} value={tab} onChange={handleTabChange}>
-        {tabLabels(data).map((x, i) => (
-          <Tab key={x.key} label={`${t(x.key)} (${x.num})`} {...a11yProps(i)} />
-        ))}
+        {tabLabels(data).map((x, i) => {
+          const numLabel = typeof x.num === 'number' ? ` (${x.num})` : '';
+
+          return <Tab key={x.key} label={`${t(x.key)}${numLabel}`} {...a11yProps(i)} />;
+        })}
       </Tabs>
     </div>
   );
