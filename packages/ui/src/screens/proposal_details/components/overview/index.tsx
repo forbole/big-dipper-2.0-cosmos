@@ -96,12 +96,6 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
       <Divider />
       <div className={classes.content}>
         <Typography variant="body1" className="label">
-          {t('type')}
-        </Typography>
-        <Typography variant="body1" className="value">
-          {t(type)}
-        </Typography>
-        <Typography variant="body1" className="label">
           {t('proposer')}
         </Typography>
         <Name name={proposerMoniker} address={proposerAddress} />
@@ -128,20 +122,20 @@ const Overview: FC<{ className?: string; overview: OverviewType }> = ({ classNam
         {!!overview.votingStartTime && (
           <>
             <Typography variant="body1" className="label">
-              {t('votingStartTime')}
+              {t('votingStartEpoch')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs(dayjs.utc(overview.votingStartTime), dateFormat, timeFormat)}
+              {overview.votingStartTime}
             </Typography>
           </>
         )}
         {!!overview.votingEndTime && (
           <>
             <Typography variant="body1" className="label">
-              {t('votingEndTime')}
+              {t('votingEndEpoch')}
             </Typography>
             <Typography variant="body1" className="value">
-              {formatDayJs(dayjs.utc(overview.votingEndTime), dateFormat, timeFormat)}
+              {overview.votingEndTime}
             </Typography>
           </>
         )}

@@ -13,13 +13,19 @@ const formatOverview = (data: ProposalDetailsQuery) => {
   votingStartTime = votingStartTime === DEFAULT_TIME ? '' : votingStartTime;
   let votingEndTime = data?.proposal?.[0]?.votingEndTime ?? DEFAULT_TIME;
   votingEndTime = votingEndTime === DEFAULT_TIME ? '' : votingEndTime;
+  let metadata: any;
+  try {
+    metadata = JSON.parse(data?.proposal?.[0]?.metadata);
+  } catch (error) {
+    console.error('error parsing metadata', error);
+  }
 
   const overview = {
     proposer: data?.proposal?.[0]?.proposer ?? '',
     content: data?.proposal?.[0]?.content ?? '',
     title: data?.proposal?.[0]?.title ?? '',
     id: data?.proposal?.[0]?.proposalId ?? '',
-    description: data?.proposal?.[0]?.description ?? '',
+    description: metadata?.abstract ?? '',
     status: data?.proposal?.[0]?.status ?? '',
     submitTime: data?.proposal?.[0]?.submitTime ?? '',
     proposalType: data?.proposal?.[0]?.proposalType ?? '',
