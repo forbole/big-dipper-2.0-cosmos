@@ -26,7 +26,6 @@ export const useVotesGraph = () => {
       yes: defaultTokenUnit,
       no: defaultTokenUnit,
       abstain: defaultTokenUnit,
-      veto: defaultTokenUnit,
     },
     bonded: defaultTokenUnit,
     quorum: '0',
@@ -58,7 +57,6 @@ export const useVotesGraph = () => {
       votes: {
         yes: formatToken(data?.proposalTallyResult?.[0]?.yes ?? '0', votingPowerTokenUnit),
         no: formatToken(data?.proposalTallyResult?.[0]?.no ?? '0', votingPowerTokenUnit),
-        veto: formatToken(data?.proposalTallyResult?.[0]?.noWithVeto ?? '0', votingPowerTokenUnit),
         abstain: formatToken(data?.proposalTallyResult?.[0]?.abstain ?? '0', votingPowerTokenUnit),
       },
       bonded: formatToken(data?.stakingPool?.[0]?.bondedTokens ?? '0', votingPowerTokenUnit),

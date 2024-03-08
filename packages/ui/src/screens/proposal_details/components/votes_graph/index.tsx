@@ -21,10 +21,7 @@ const VotesGraph: FC<ComponentDefault> = (props) => {
   const { votes } = state;
   const { quorum } = state;
 
-  const total = Big(votes.yes.value)
-    .plus(votes.no.value)
-    .plus(votes.veto.value)
-    .plus(votes.abstain.value);
+  const total = Big(votes.yes.value).plus(votes.no.value).plus(votes.abstain.value);
 
   const formattedData = formatGraphData({
     data: votes,

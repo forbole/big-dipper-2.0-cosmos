@@ -15,3 +15,24 @@ query ProposalDetails($proposalId: Int) {
     votingEndTime: voting_end_epoch
   }
 }
+
+query ProposalDetailsTally($proposalId: Int) {
+	proposalTallyResult: proposal_tally_result(where: {proposal_id: {_eq: $proposalId}}) {
+    height
+    tally_type
+    total
+    yes
+    no
+    abstain
+    proposal_id
+  }
+}
+
+query ProposalDetailsVotes($proposalId: Int) {
+  proposalVote: proposal_vote(where: {proposal_id: {_eq: $proposalId}}, order_by: {height: desc}) {
+    height
+    option
+    proposal_id
+    voter_address
+  }
+}

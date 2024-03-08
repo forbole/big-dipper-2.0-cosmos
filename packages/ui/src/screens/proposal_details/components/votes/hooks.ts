@@ -10,11 +10,12 @@ import { toValidatorAddress } from '@/utils/prefix_convert';
 
 const formatVotes = (data: ProposalDetailsVotesQuery) => {
   const validatorDict: { [key: string]: unknown } = {};
-  const validators = data.validatorStatuses.map((x) => {
-    const selfDelegateAddress = x?.validator?.validatorInfo?.selfDelegateAddress ?? '';
-    validatorDict[selfDelegateAddress] = false;
-    return selfDelegateAddress;
-  });
+  const validators =
+    data.validatorStatuses?.map((x) => {
+      const selfDelegateAddress = x?.validator?.validatorInfo?.selfDelegateAddress ?? '';
+      validatorDict[selfDelegateAddress] = false;
+      return selfDelegateAddress;
+    }) || [];
 
   let yes = 0;
   let no = 0;

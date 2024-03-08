@@ -14,8 +14,7 @@ export const formatGraphData = ({ data, theme, total }: FormatGraphType) => {
   const color = {
     0: theme.palette?.custom?.charts.one,
     1: theme.palette?.custom?.charts.four,
-    2: theme.palette?.custom?.charts.three,
-    3: theme.palette?.custom?.charts.two,
+    2: theme.palette?.custom?.charts.two,
   };
 
   const formattedData = keys.map((x, i) => {
