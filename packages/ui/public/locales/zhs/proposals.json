@@ -39,6 +39,7 @@
   "deposit": "订金",
   "invalid": "无效",
   "voting": "表决",
+  "votingInit": "开始投票",
   "passed": "通过",
   "rejected": "拒绝",
   "failed": "失败",

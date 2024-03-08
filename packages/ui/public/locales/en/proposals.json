@@ -39,6 +39,7 @@
   "deposit": "Deposit",
   "invalid": "Invalid",
   "voting": "Voting",
+  "votingInit": "Started Voting",
   "passed": "Passed",
   "rejected": "Rejected",
   "failed": "Failed",

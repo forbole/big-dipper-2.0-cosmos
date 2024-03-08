@@ -39,6 +39,7 @@
   "deposit": "Depozyt",
   "invalid": "Nieważny",
   "voting": "Głosowanie",
+  "votingInit": "zaczął głosować",
   "passed": "Uchwalony",
   "rejected": "Odrzucony",
   "failed": "Nieudany",

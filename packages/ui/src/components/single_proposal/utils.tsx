@@ -14,6 +14,10 @@ export const getStatusInfo = (status: string, t: TFunction) => {
       value: t('voting'),
       tag: 'three',
     },
+    PROPOSAL_STATUS_INIT: {
+      value: t('votingInit'),
+      tag: 'two',
+    },
     PROPOSAL_STATUS_PASSED: {
       value: t('passed'),
       tag: 'four',

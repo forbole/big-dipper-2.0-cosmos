@@ -39,6 +39,7 @@
   "deposit": "籌集保證金",
   "invalid": "無效",
   "voting": "正在投票",
+  "votingInit": "開始投票",
   "passed": "通過",
   "rejected": "被否決",
   "failed": "失敗",
