@@ -63,9 +63,7 @@ const VotesGraph: FC<ComponentDefault> = (props) => {
               totalVotedPercent,
             })}
           </Typography>
-          <Typography variant="h2">
-            {totalVotedFormat} / {totalBondedFormat}
-          </Typography>
+          <Typography variant="h2">{totalVotedFormat}</Typography>
         </div>
 
         {formattedData

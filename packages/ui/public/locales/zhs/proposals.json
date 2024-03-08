@@ -48,6 +48,6 @@
   "info": "信息",
   "didNotVote": "没有投票",
   "notVoted": "未投票",
-  "votedTotalCaption": "投票 / 总数 ({{totalVotedPercent}})",
+  "votedTotalCaption": "投票",
   "quorumExplanation": "要使提案有效，投票必须至少达到 <0>{{quorum}}%</0> 法定人数"
 }

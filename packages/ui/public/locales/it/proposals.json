@@ -48,6 +48,6 @@
   "info": "Informazioni",
   "didNotVote": "Non ha votato",
   "notVoted": "Non votato",
-  "votedTotalCaption": "Votato / Totale ({{totalVotedPercent}})",
+  "votedTotalCaption": "Votato",
   "quorumExplanation": "Affinché una proposal sia considerata valida, il voto deve raggiungere almeno un quorum del <0>{{quorum}}%</0>"
 }

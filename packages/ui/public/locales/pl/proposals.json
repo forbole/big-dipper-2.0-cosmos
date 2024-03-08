@@ -48,6 +48,6 @@
   "info": "Informacje",
   "didNotVote": "Nie zagłosował",
   "notVoted": "Nie zagłosowano",
-  "votedTotalCaption": "Głosowało / Razem ({{totalVotedPercent}})",
+  "votedTotalCaption": "Głosowało",
   "quorumExplanation": "Aby wniosek został uznany za ważny, głosowanie musi wynieść min. <0>{{quorum}}%</0> kworum"
 }
