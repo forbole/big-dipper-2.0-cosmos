@@ -6,9 +6,8 @@ concurrency:
   cancel-in-progress: true
 env:
   HUSKY: 0 # disable husky
-  # TURBO_TEAM: ${{ secrets.TURBO_TEAM }} # for Turborepo remote cache
-  # TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }} # for Turborepo remote cache
-  YARN_ENABLE_HARDENED_MODE: 0
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }} # for Turborepo remote cache
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }} # for Turborepo remote cache
   NEXT_TELEMETRY_DISABLED: 1 # disable NextJS telemetry
   SENTRYCLI_SKIP_DOWNLOAD: 1 # disable Sentry.io CLI download
   FORCE_COLOR: 0 # disable terminal color in yarn berry
@@ -24,7 +23,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn
+      - run: yarn --no-check-resolutions
   changed-workspaces:
     runs-on: ubuntu-latest
     outputs:
@@ -38,7 +37,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn
+      - run: yarn --no-check-resolutions
       - name: Set needs.changed-workspaces.outputs.{projects,projects-web}
         id: dry-run
         run: |
@@ -68,7 +67,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn
+      - run: yarn --no-check-resolutions
       - name: ts-check
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
@@ -100,7 +99,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn
+      - run: yarn --no-check-resolutions
       - name: test
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
@@ -130,7 +129,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn
+      - run: yarn --no-check-resolutions
       - name: Playwright testing
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
