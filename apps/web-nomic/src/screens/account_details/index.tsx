@@ -36,12 +36,9 @@ const AccountDetails = () => {
                 coverUrl={state.desmosProfile.coverUrl}
               />
             )}
-            <Overview
-              className={classes.overview}
-              withdrawalAddress={state.overview.withdrawalAddress}
-              address={state.overview.address}
-            />
+            <Overview className={classes.overview} />
             <Balance
+              loading={false}
               className={classes.balance}
               available={state.balance.available}
               delegate={state.balance.delegate}
