@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn --immutable --immutable-cache --check-cache
+      - run: yarn
   changed-workspaces:
     runs-on: ubuntu-latest
     outputs:
@@ -37,7 +37,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn --immutable --immutable-cache
+      - run: yarn
       - name: Set needs.changed-workspaces.outputs.{projects,projects-web}
         id: dry-run
         run: |
@@ -67,7 +67,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn --immutable --immutable-cache
+      - run: yarn
       - name: ts-check
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
@@ -99,7 +99,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn --immutable --immutable-cache
+      - run: yarn
       - name: test
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
@@ -129,7 +129,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn --immutable --immutable-cache
+      - run: yarn
       - name: Playwright testing
         run: |
           echo '```' >> $GITHUB_STEP_SUMMARY
