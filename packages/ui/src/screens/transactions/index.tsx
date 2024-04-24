@@ -23,7 +23,7 @@ const Transactions = () => {
   const [, setMsgTypes] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
   const [, setSelectedMsgs] = useRecoilState(writeSelectedMsgTypes) as [
     string[],
-    SetterOrUpdater<string[]>
+    SetterOrUpdater<string[]>,
   ];
   useEffect(() => {
     setMsgTypes('{}');

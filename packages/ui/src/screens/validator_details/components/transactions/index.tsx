@@ -24,14 +24,13 @@ const Transactions: FC<ComponentDefault> = (props) => {
   const [, setMsgTypes] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
   const [, setSelectedMsgs] = useRecoilState(writeSelectedMsgTypes) as [
     string[],
-    SetterOrUpdater<string[]>
+    SetterOrUpdater<string[]>,
   ];
   useEffect(() => {
     setMsgTypes('{}');
     setSelectedMsgs([]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
 
   return (
     <Box className={cx(classes.root, props.className)}>

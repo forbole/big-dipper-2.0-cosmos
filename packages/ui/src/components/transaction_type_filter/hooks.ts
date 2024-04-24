@@ -65,11 +65,11 @@ export const useTransactionTypeFilter = () => {
   const [, setFilter] = useRecoilState(writeFilter) as [string, SetterOrUpdater<string>];
   const [, setSelectedMsgs] = useRecoilState(writeSelectedMsgTypes) as [
     string[],
-    SetterOrUpdater<string[]>
+    SetterOrUpdater<string[]>,
   ];
   const [__, setOpenDialog] = useRecoilState(writeOpenDialog) as [
     boolean,
-    SetterOrUpdater<boolean>
+    SetterOrUpdater<boolean>,
   ];
 
   // Fetch data again if there's an error

@@ -17,8 +17,8 @@ const OnlineVotingPower: FC<ComponentDefault> = () => {
     chainName === 'wormhole'
       ? numeral((state.activeValidators / state.votingPower) * 100)
       : state.totalVotingPower === 0
-      ? numeral(0)
-      : numeral((state.votingPower / state.totalVotingPower) * 100);
+        ? numeral(0)
+        : numeral((state.votingPower / state.totalVotingPower) * 100);
 
   const { classes } = useStyles({ percentage: votingPowerPercent.format('0') });
 

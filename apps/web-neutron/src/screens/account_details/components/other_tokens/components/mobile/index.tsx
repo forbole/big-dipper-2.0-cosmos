@@ -45,7 +45,7 @@ const Mobile: FC<MobileProps> = ({ className, items }) => {
                   {t('reward')}
                 </Typography>
                 <Typography variant="body1" className="value">
-                 0
+                  0
                 </Typography>
               </div>
               <div className={classes.item}>
