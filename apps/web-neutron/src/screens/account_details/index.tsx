@@ -15,6 +15,12 @@ const AccountDetails = () => {
   const { classes } = useStyles();
   const { state } = useAccountDetails();
 
+  const nullBalance: TokenUnit = {
+    displayDenom: 'neutron',
+    baseDenom: 'untrn',
+    exponent: 6,
+    value: '0',
+  };
   return (
     <>
       <NextSeo
@@ -44,15 +50,20 @@ const AccountDetails = () => {
             <Balance
               className={classes.balance}
               available={state.balance.available}
-              delegate={state.balance.delegate}
-              unbonding={state.balance.unbonding}
-              reward={state.balance.reward}
-              commission={state.balance.commission}
+              delegate={nullBalance}
+              unbonding={nullBalance}
+              reward={nullBalance}
+              commission={nullBalance}
               total={state.balance.total}
+              loading={state.loading}
             />
-            <OtherTokens className={classes.otherTokens} otherTokens={state.otherTokens} />
+            <OtherTokens
+              className={classes.otherTokens}
+              otherTokens={state.otherTokens}
+              loading={state.loading}
+            />
             {/* <Staking className={classes.staking} rewards={state.rewards} /> */}
-            <Transactions className={classes.transactions} loading={state.balanceLoading} />
+            <Transactions className={classes.transactions} />
           </span>
         </LoadAndExist>
       </Layout>

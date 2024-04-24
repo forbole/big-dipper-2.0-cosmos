@@ -13,10 +13,34 @@ import Typography from '@mui/material/Typography';
 import useAppTranslation from '@/hooks/useAppTranslation';
 import Link from 'next/link';
 import numeral from 'numeral';
-import { FC, LegacyRef } from 'react';
+import React, { FC, MutableRefObject, LegacyRef } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeGrid as Grid } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
+import FilterTxsByType from '@/components/transaction_type_filter';
+import NoData from '@/components/no_data';
+
+const useRenderHeaderCell = ({
+  columnIndex,
+  style,
+}: {
+  columnIndex: number;
+  style: React.CSSProperties;
+}) => {
+  const { key, align } = columns[columnIndex];
+  const isTypeKey = key === 'type';
+  const { t } = useAppTranslation('transactions');
+  const { classes } = useStyles();
+
+  return (
+    <div style={style} className={classes.cell}>
+      <Typography variant="h4" align={align}>
+        {t(key)}
+      </Typography>
+      {isTypeKey && <FilterTxsByType />}
+    </div>
+  );
+};
 
 const Desktop: FC<TransactionsListState> = ({
   className,
@@ -25,10 +49,8 @@ const Desktop: FC<TransactionsListState> = ({
   isItemLoaded,
   transactions,
 }) => {
-  const { gridRef, columnRef, onResize, getColumnWidth, getRowHeight } = useGrid(columns);
-
+  const { gridRef, onResize, getColumnWidth, getRowHeight, columnRef } = useGrid(columns);
   const { classes, cx } = useStyles();
-  const { t } = useAppTranslation('transactions');
 
   const items = transactions.map((x) => ({
     block: (
@@ -54,6 +76,18 @@ const Desktop: FC<TransactionsListState> = ({
     time: <Timestamp timestamp={x.timestamp} />,
     messages: numeral(x.messages.count).format('0,0'),
   }));
+
+  // Default isItemLoaded function
+  const defaultIsItemLoaded = () => true;
+
+  // Render NoData component if itemCount is 0
+  const noDataComponent =
+    itemCount === 0 ? (
+      <div className={classes.noData}>
+        <NoData />
+      </div>
+    ) : null;
+
   return (
     <div className={cx(classes.root, className)}>
       <AutoSizer onResize={onResize}>
@@ -71,30 +105,15 @@ const Desktop: FC<TransactionsListState> = ({
               rowHeight={() => 50}
               width={width ?? 0}
             >
-              {({ columnIndex, style }) => {
-                const { key, align } = columns[columnIndex];
-
-                return (
-                  <div style={style} className={classes.cell}>
-                    <Typography variant="h4" align={align}>
-                      {t(key)}
-                    </Typography>
-                  </div>
-                );
-              }}
+              {useRenderHeaderCell}
             </Grid>
             {/* ======================================= */}
             {/* Table Body */}
             {/* ======================================= */}
             <InfiniteLoader
-              isItemLoaded={isItemLoaded ?? (() => true)}
+              isItemLoaded={isItemLoaded ?? defaultIsItemLoaded}
               itemCount={itemCount}
-              loadMoreItems={
-                loadMoreItems ??
-                (() => {
-                  // do nothing
-                })
-              }
+              loadMoreItems={loadMoreItems ?? (() => Promise.resolve())}
             >
               {({ onItemsRendered, ref }) => (
                 <Grid
@@ -111,7 +130,7 @@ const Desktop: FC<TransactionsListState> = ({
                       visibleStopIndex: visibleRowStopIndex,
                     });
                   }}
-                  ref={mergeRefs(gridRef, ref)}
+                  ref={mergeRefs(gridRef, ref) as MutableRefObject<Grid<any> | null>}
                   columnCount={columns.length}
                   columnWidth={(index) => getColumnWidth(width ?? 0, index)}
                   height={(height ?? 0) - 50}
@@ -159,6 +178,7 @@ const Desktop: FC<TransactionsListState> = ({
           </>
         )}
       </AutoSizer>
+      {noDataComponent}
     </div>
   );
 };

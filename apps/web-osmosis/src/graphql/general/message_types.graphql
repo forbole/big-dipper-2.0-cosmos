@@ -1,0 +1,49 @@
+query MessageTypes{
+  msgTypes: message_type{
+    type
+    module
+    label
+  }
+}
+
+query MsgTypesByAddress($addresses: _text = "{}") {
+  msgTypes: messages_types_by_address(args: {addresses: $addresses}) {
+    message_type{
+      label
+      module
+      type
+    }
+  }
+}
+
+subscription MessagesByTypesListener($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
+  messagesByTypes: messages_by_type(args: {types: $types, limit: $limit, offset: $offset}) {
+    transaction {
+      height
+      hash
+      success
+      messages
+      logs
+      block {
+        height
+        timestamp
+      }
+    }
+  }
+}
+
+query MessagesByTypes($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
+  messagesByTypes: messages_by_type(args: {types: $types, limit: $limit, offset: $offset}) {
+    transaction {
+      height
+      hash
+      success
+      messages
+      logs
+      block {
+        height
+        timestamp
+      }
+    }
+  }
+}

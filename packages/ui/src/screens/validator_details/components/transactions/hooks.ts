@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { convertMsgsToModels } from '@/components/msg/utils';
 import {
   GetMessagesByAddressQuery,
@@ -8,6 +8,8 @@ import {
 } from '@/graphql/types/general_types';
 import type { TransactionState } from '@/screens/validator_details/components/transactions/types';
 import { convertMsgType } from '@/utils/convert_msg_type';
+import { useRecoilValue } from 'recoil';
+import { readFilter } from '@/recoil/transactions_filter';
 
 const LIMIT = 50;
 
@@ -50,6 +52,17 @@ export function useTransactions() {
     isNextPageLoading: true,
     offsetCount: 0,
   });
+  const msgTypes = useRecoilValue(readFilter);
+
+  useEffect(() => {
+    setState((prevState) => ({
+      ...prevState,
+      data: [],
+      hasNextPage: false,
+      isNextPageLoading: true,
+      offsetCount: 0,
+    }));
+  }, [router?.query?.address, msgTypes]);
 
   const handleSetState = (stateChange: (prevState: TransactionState) => TransactionState) => {
     setState((prevState) => {
@@ -63,6 +76,7 @@ export function useTransactions() {
       limit: LIMIT + 1, // to check if more exist
       offset: 0,
       address: `{${router?.query?.address ?? ''}}`,
+      types: msgTypes,
     },
     onCompleted: (data) => {
       const itemsLength = data.messagesByAddress.length;

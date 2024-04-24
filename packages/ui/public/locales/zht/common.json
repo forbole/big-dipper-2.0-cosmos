@@ -87,5 +87,8 @@
   "loginSuccessMsg": "The system will automatically redirect to the previous \npage in 3 seconds.",
   "connectWalletConnect": "Connect Wallet Connect",
   "scanWalletConnectQR": "Please scan the QR with a WalletConnect compatible Wallet.",
-  "walletTitle": "Connected wallets"
+  "walletTitle": "Connected wallets",
+  "searchType": "搜尋類型",
+  "selectAll": "全選",
+  "filter": "過濾器"
 }

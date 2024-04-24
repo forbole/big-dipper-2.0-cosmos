@@ -10382,6 +10382,8 @@ export type Message = {
   index: Scalars['bigint'];
   involved_accounts_addresses: Scalars['_text'];
   /** An object relationship */
+  message_type?: Maybe<Message_Type>;
+  /** An object relationship */
   transaction?: Maybe<Transaction>;
   /** An object relationship */
   transactionByPartitionIdTransactionHash?: Maybe<Transaction>;
@@ -10425,6 +10427,7 @@ export type Message_Bool_Exp = {
   height?: InputMaybe<Bigint_Comparison_Exp>;
   index?: InputMaybe<Bigint_Comparison_Exp>;
   involved_accounts_addresses?: InputMaybe<_Text_Comparison_Exp>;
+  message_type?: InputMaybe<Message_Type_Bool_Exp>;
   transaction?: InputMaybe<Transaction_Bool_Exp>;
   transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Bool_Exp>;
   transaction_hash?: InputMaybe<String_Comparison_Exp>;
@@ -10453,6 +10456,7 @@ export type Message_Order_By = {
   height?: InputMaybe<Order_By>;
   index?: InputMaybe<Order_By>;
   involved_accounts_addresses?: InputMaybe<Order_By>;
+  message_type?: InputMaybe<Message_Type_Order_By>;
   transaction?: InputMaybe<Transaction_Order_By>;
   transactionByPartitionIdTransactionHash?: InputMaybe<Transaction_Order_By>;
   transaction_hash?: InputMaybe<Order_By>;
@@ -10518,6 +10522,158 @@ export type Message_Sum_Order_By = {
   index?: InputMaybe<Order_By>;
 };
 
+/** columns and relationships of "message_type" */
+export type Message_Type = {
+  __typename?: 'message_type';
+  height: Scalars['bigint'];
+  label: Scalars['String'];
+  module: Scalars['String'];
+  type: Scalars['String'];
+};
+
+/** aggregated selection of "message_type" */
+export type Message_Type_Aggregate = {
+  __typename?: 'message_type_aggregate';
+  aggregate?: Maybe<Message_Type_Aggregate_Fields>;
+  nodes: Array<Message_Type>;
+};
+
+/** aggregate fields of "message_type" */
+export type Message_Type_Aggregate_Fields = {
+  __typename?: 'message_type_aggregate_fields';
+  avg?: Maybe<Message_Type_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Message_Type_Max_Fields>;
+  min?: Maybe<Message_Type_Min_Fields>;
+  stddev?: Maybe<Message_Type_Stddev_Fields>;
+  stddev_pop?: Maybe<Message_Type_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Message_Type_Stddev_Samp_Fields>;
+  sum?: Maybe<Message_Type_Sum_Fields>;
+  var_pop?: Maybe<Message_Type_Var_Pop_Fields>;
+  var_samp?: Maybe<Message_Type_Var_Samp_Fields>;
+  variance?: Maybe<Message_Type_Variance_Fields>;
+};
+
+
+/** aggregate fields of "message_type" */
+export type Message_Type_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Message_Type_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Message_Type_Avg_Fields = {
+  __typename?: 'message_type_avg_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "message_type". All fields are combined with a logical 'AND'. */
+export type Message_Type_Bool_Exp = {
+  _and?: InputMaybe<Array<Message_Type_Bool_Exp>>;
+  _not?: InputMaybe<Message_Type_Bool_Exp>;
+  _or?: InputMaybe<Array<Message_Type_Bool_Exp>>;
+  height?: InputMaybe<Bigint_Comparison_Exp>;
+  label?: InputMaybe<String_Comparison_Exp>;
+  module?: InputMaybe<String_Comparison_Exp>;
+  type?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** aggregate max on columns */
+export type Message_Type_Max_Fields = {
+  __typename?: 'message_type_max_fields';
+  height?: Maybe<Scalars['bigint']>;
+  label?: Maybe<Scalars['String']>;
+  module?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Message_Type_Min_Fields = {
+  __typename?: 'message_type_min_fields';
+  height?: Maybe<Scalars['bigint']>;
+  label?: Maybe<Scalars['String']>;
+  module?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+/** Ordering options when selecting data from "message_type". */
+export type Message_Type_Order_By = {
+  height?: InputMaybe<Order_By>;
+  label?: InputMaybe<Order_By>;
+  module?: InputMaybe<Order_By>;
+  type?: InputMaybe<Order_By>;
+};
+
+/** select columns of table "message_type" */
+export enum Message_Type_Select_Column {
+  /** column name */
+  Height = 'height',
+  /** column name */
+  Label = 'label',
+  /** column name */
+  Module = 'module',
+  /** column name */
+  Type = 'type'
+}
+
+/** aggregate stddev on columns */
+export type Message_Type_Stddev_Fields = {
+  __typename?: 'message_type_stddev_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Message_Type_Stddev_Pop_Fields = {
+  __typename?: 'message_type_stddev_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Message_Type_Stddev_Samp_Fields = {
+  __typename?: 'message_type_stddev_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** Streaming cursor of the table "message_type" */
+export type Message_Type_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Message_Type_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Message_Type_Stream_Cursor_Value_Input = {
+  height?: InputMaybe<Scalars['bigint']>;
+  label?: InputMaybe<Scalars['String']>;
+  module?: InputMaybe<Scalars['String']>;
+  type?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregate sum on columns */
+export type Message_Type_Sum_Fields = {
+  __typename?: 'message_type_sum_fields';
+  height?: Maybe<Scalars['bigint']>;
+};
+
+/** aggregate var_pop on columns */
+export type Message_Type_Var_Pop_Fields = {
+  __typename?: 'message_type_var_pop_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Message_Type_Var_Samp_Fields = {
+  __typename?: 'message_type_var_samp_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Message_Type_Variance_Fields = {
+  __typename?: 'message_type_variance_fields';
+  height?: Maybe<Scalars['Float']>;
+};
+
 /** order by var_pop() on columns of table "message" */
 export type Message_Var_Pop_Order_By = {
   height?: InputMaybe<Order_By>;
@@ -10538,6 +10694,12 @@ export type Message_Variance_Order_By = {
 
 export type Messages_By_Address_Args = {
   addresses?: InputMaybe<Scalars['_text']>;
+  limit?: InputMaybe<Scalars['bigint']>;
+  offset?: InputMaybe<Scalars['bigint']>;
+  types?: InputMaybe<Scalars['_text']>;
+};
+
+export type Messages_By_Type_Args = {
   limit?: InputMaybe<Scalars['bigint']>;
   offset?: InputMaybe<Scalars['bigint']>;
   types?: InputMaybe<Scalars['_text']>;
@@ -16185,8 +16347,14 @@ export type Query_Root = {
   genesis: Array<Genesis>;
   /** fetch data from the table: "message" */
   message: Array<Message>;
+  /** fetch data from the table: "message_type" */
+  message_type: Array<Message_Type>;
+  /** fetch aggregated fields from the table: "message_type" */
+  message_type_aggregate: Message_Type_Aggregate;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
+  /** execute function "messages_by_type" which returns "message" */
+  messages_by_type: Array<Message>;
   /** execute function "messages_types_by_address" which returns "message" */
   messages_types_by_address: Array<Message>;
   /** fetch data from the table: "modules" */
@@ -16399,8 +16567,36 @@ export type Query_RootMessageArgs = {
 };
 
 
+export type Query_RootMessage_TypeArgs = {
+  distinct_on?: InputMaybe<Array<Message_Type_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Type_Order_By>>;
+  where?: InputMaybe<Message_Type_Bool_Exp>;
+};
+
+
+export type Query_RootMessage_Type_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Message_Type_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Type_Order_By>>;
+  where?: InputMaybe<Message_Type_Bool_Exp>;
+};
+
+
 export type Query_RootMessages_By_AddressArgs = {
   args: Messages_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
+export type Query_RootMessages_By_TypeArgs = {
+  args: Messages_By_Type_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -16770,8 +16966,16 @@ export type Subscription_Root = {
   message: Array<Message>;
   /** fetch data from the table in a streaming manner: "message" */
   message_stream: Array<Message>;
+  /** fetch data from the table: "message_type" */
+  message_type: Array<Message_Type>;
+  /** fetch aggregated fields from the table: "message_type" */
+  message_type_aggregate: Message_Type_Aggregate;
+  /** fetch data from the table in a streaming manner: "message_type" */
+  message_type_stream: Array<Message_Type>;
   /** execute function "messages_by_address" which returns "message" */
   messages_by_address: Array<Message>;
+  /** execute function "messages_by_type" which returns "message" */
+  messages_by_type: Array<Message>;
   /** execute function "messages_types_by_address" which returns "message" */
   messages_types_by_address: Array<Message>;
   /** fetch data from the table: "modules" */
@@ -17096,8 +17300,43 @@ export type Subscription_RootMessage_StreamArgs = {
 };
 
 
+export type Subscription_RootMessage_TypeArgs = {
+  distinct_on?: InputMaybe<Array<Message_Type_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Type_Order_By>>;
+  where?: InputMaybe<Message_Type_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessage_Type_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Message_Type_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Type_Order_By>>;
+  where?: InputMaybe<Message_Type_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessage_Type_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Message_Type_Stream_Cursor_Input>>;
+  where?: InputMaybe<Message_Type_Bool_Exp>;
+};
+
+
 export type Subscription_RootMessages_By_AddressArgs = {
   args: Messages_By_Address_Args;
+  distinct_on?: InputMaybe<Array<Message_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Message_Order_By>>;
+  where?: InputMaybe<Message_Bool_Exp>;
+};
+
+
+export type Subscription_RootMessages_By_TypeArgs = {
+  args: Messages_By_Type_Args;
   distinct_on?: InputMaybe<Array<Message_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -20022,6 +20261,36 @@ export type MarketDataQueryVariables = Exact<{
 
 export type MarketDataQuery = { tokenPrice: Array<{ __typename?: 'token_price', price: any, marketCap: any }>, supply: Array<{ __typename?: 'supply', coins: any }> };
 
+export type MessageTypesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MessageTypesQuery = { msgTypes: Array<{ __typename?: 'message_type', type: string, module: string, label: string }> };
+
+export type MsgTypesByAddressQueryVariables = Exact<{
+  addresses?: InputMaybe<Scalars['_text']>;
+}>;
+
+
+export type MsgTypesByAddressQuery = { msgTypes: Array<{ __typename?: 'message', message_type?: { __typename?: 'message_type', label: string, module: string, type: string } | null }> };
+
+export type MessagesByTypesListenerSubscriptionVariables = Exact<{
+  types?: InputMaybe<Scalars['_text']>;
+  limit?: InputMaybe<Scalars['bigint']>;
+  offset?: InputMaybe<Scalars['bigint']>;
+}>;
+
+
+export type MessagesByTypesListenerSubscription = { messagesByTypes: Array<{ __typename?: 'message', transaction?: { __typename?: 'transaction', height: any, hash: string, success: boolean, messages: any, logs?: any | null, block: { __typename?: 'block', height: any, timestamp: any } } | null }> };
+
+export type MessagesByTypesQueryVariables = Exact<{
+  types?: InputMaybe<Scalars['_text']>;
+  limit?: InputMaybe<Scalars['bigint']>;
+  offset?: InputMaybe<Scalars['bigint']>;
+}>;
+
+
+export type MessagesByTypesQuery = { messagesByTypes: Array<{ __typename?: 'message', transaction?: { __typename?: 'transaction', height: any, hash: string, success: boolean, messages: any, logs?: any | null, block: { __typename?: 'block', height: any, timestamp: any } } | null }> };
+
 export type GetMessagesByAddressQueryVariables = Exact<{
   address?: InputMaybe<Scalars['_text']>;
   limit?: InputMaybe<Scalars['bigint']>;
@@ -20473,6 +20742,174 @@ export function useMarketDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type MarketDataQueryHookResult = ReturnType<typeof useMarketDataQuery>;
 export type MarketDataLazyQueryHookResult = ReturnType<typeof useMarketDataLazyQuery>;
 export type MarketDataQueryResult = Apollo.QueryResult<MarketDataQuery, MarketDataQueryVariables>;
+export const MessageTypesDocument = gql`
+    query MessageTypes {
+  msgTypes: message_type {
+    type
+    module
+    label
+  }
+}
+    `;
+
+/**
+ * __useMessageTypesQuery__
+ *
+ * To run a query within a React component, call `useMessageTypesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMessageTypesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMessageTypesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useMessageTypesQuery(baseOptions?: Apollo.QueryHookOptions<MessageTypesQuery, MessageTypesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MessageTypesQuery, MessageTypesQueryVariables>(MessageTypesDocument, options);
+      }
+export function useMessageTypesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MessageTypesQuery, MessageTypesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MessageTypesQuery, MessageTypesQueryVariables>(MessageTypesDocument, options);
+        }
+export type MessageTypesQueryHookResult = ReturnType<typeof useMessageTypesQuery>;
+export type MessageTypesLazyQueryHookResult = ReturnType<typeof useMessageTypesLazyQuery>;
+export type MessageTypesQueryResult = Apollo.QueryResult<MessageTypesQuery, MessageTypesQueryVariables>;
+export const MsgTypesByAddressDocument = gql`
+    query MsgTypesByAddress($addresses: _text = "{}") {
+  msgTypes: messages_types_by_address(args: {addresses: $addresses}) {
+    message_type {
+      label
+      module
+      type
+    }
+  }
+}
+    `;
+
+/**
+ * __useMsgTypesByAddressQuery__
+ *
+ * To run a query within a React component, call `useMsgTypesByAddressQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMsgTypesByAddressQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMsgTypesByAddressQuery({
+ *   variables: {
+ *      addresses: // value for 'addresses'
+ *   },
+ * });
+ */
+export function useMsgTypesByAddressQuery(baseOptions?: Apollo.QueryHookOptions<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>(MsgTypesByAddressDocument, options);
+      }
+export function useMsgTypesByAddressLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>(MsgTypesByAddressDocument, options);
+        }
+export type MsgTypesByAddressQueryHookResult = ReturnType<typeof useMsgTypesByAddressQuery>;
+export type MsgTypesByAddressLazyQueryHookResult = ReturnType<typeof useMsgTypesByAddressLazyQuery>;
+export type MsgTypesByAddressQueryResult = Apollo.QueryResult<MsgTypesByAddressQuery, MsgTypesByAddressQueryVariables>;
+export const MessagesByTypesListenerDocument = gql`
+    subscription MessagesByTypesListener($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
+  messagesByTypes: messages_by_type(
+    args: {types: $types, limit: $limit, offset: $offset}
+  ) {
+    transaction {
+      height
+      hash
+      success
+      messages
+      logs
+      block {
+        height
+        timestamp
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useMessagesByTypesListenerSubscription__
+ *
+ * To run a query within a React component, call `useMessagesByTypesListenerSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useMessagesByTypesListenerSubscription` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMessagesByTypesListenerSubscription({
+ *   variables: {
+ *      types: // value for 'types'
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useMessagesByTypesListenerSubscription(baseOptions?: Apollo.SubscriptionHookOptions<MessagesByTypesListenerSubscription, MessagesByTypesListenerSubscriptionVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useSubscription<MessagesByTypesListenerSubscription, MessagesByTypesListenerSubscriptionVariables>(MessagesByTypesListenerDocument, options);
+      }
+export type MessagesByTypesListenerSubscriptionHookResult = ReturnType<typeof useMessagesByTypesListenerSubscription>;
+export type MessagesByTypesListenerSubscriptionResult = Apollo.SubscriptionResult<MessagesByTypesListenerSubscription>;
+export const MessagesByTypesDocument = gql`
+    query MessagesByTypes($types: _text = "{}", $limit: bigint = 7, $offset: bigint = 0) {
+  messagesByTypes: messages_by_type(
+    args: {types: $types, limit: $limit, offset: $offset}
+  ) {
+    transaction {
+      height
+      hash
+      success
+      messages
+      logs
+      block {
+        height
+        timestamp
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useMessagesByTypesQuery__
+ *
+ * To run a query within a React component, call `useMessagesByTypesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMessagesByTypesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMessagesByTypesQuery({
+ *   variables: {
+ *      types: // value for 'types'
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
+ *   },
+ * });
+ */
+export function useMessagesByTypesQuery(baseOptions?: Apollo.QueryHookOptions<MessagesByTypesQuery, MessagesByTypesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MessagesByTypesQuery, MessagesByTypesQueryVariables>(MessagesByTypesDocument, options);
+      }
+export function useMessagesByTypesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MessagesByTypesQuery, MessagesByTypesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MessagesByTypesQuery, MessagesByTypesQueryVariables>(MessagesByTypesDocument, options);
+        }
+export type MessagesByTypesQueryHookResult = ReturnType<typeof useMessagesByTypesQuery>;
+export type MessagesByTypesLazyQueryHookResult = ReturnType<typeof useMessagesByTypesLazyQuery>;
+export type MessagesByTypesQueryResult = Apollo.QueryResult<MessagesByTypesQuery, MessagesByTypesQueryVariables>;
 export const GetMessagesByAddressDocument = gql`
     query GetMessagesByAddress($address: _text, $limit: bigint = 50, $offset: bigint = 0, $types: _text = "{}") {
   messagesByAddress: messages_by_address(

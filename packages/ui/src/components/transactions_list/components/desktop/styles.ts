@@ -11,6 +11,9 @@ const useStyles = makeStyles()((theme) => ({
   body: {
     color: theme.palette.custom.fonts.fontTwo,
   },
+  noData: {
+    marginTop: '120px',
+  },
 }));
 
 export default useStyles;

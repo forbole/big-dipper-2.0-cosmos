@@ -1,10 +1,9 @@
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
-import useAppTranslation from '@/hooks/useAppTranslation';
-import numeral from 'numeral';
-import * as R from 'ramda';
 import { FC, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import numeral from 'numeral';
+import * as R from 'ramda';
 import Box from '@/components/box';
 import Markdown from '@/components/markdown';
 import Name from '@/components/name';
@@ -19,15 +18,20 @@ import type { OverviewType } from '@/screens/proposal_details/types';
 import { getProposalType } from '@/screens/proposal_details/utils';
 import dayjs, { formatDayJs } from '@/utils/dayjs';
 import { formatNumber, formatToken } from '@/utils/format_token';
+import useAppTranslation from '@/hooks/useAppTranslation';
 
-const Overview: FC<{ className?: string; overview: OverviewType }> = ({ className, overview }) => {
+type OverviewProps = {
+  className?: string;
+  overview: OverviewType;
+};
+
+const Overview: FC<OverviewProps> = ({ className, overview }) => {
   const dateFormat = useRecoilValue(readDate);
   const timeFormat = useRecoilValue(readTimeFormat);
   const { classes, cx } = useStyles();
   const { t } = useAppTranslation('proposals');
 
   const type = getProposalType(R.pathOr('', ['@type'], overview.content));
-
   const { address: proposerAddress, name: proposerName } = useProfileRecoil(overview.proposer);
   const { name: recipientName } = useProfileRecoil(overview?.content?.recipient);
   const proposerMoniker = proposerName || overview.proposer;
