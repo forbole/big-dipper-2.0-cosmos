@@ -5,10 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false next dev",
-    "build": "next build && next-sitemap",
+    "build": "echo 'Disabled since this app is not used'",
     "clean": "rm -rf .next .swc .turbo coverage node_modules",
     "start": "next start",
-    "ts-check": "pnpify tsc --noemit",
+    "ts-check": "echo 'Disabled since this app is not used'",
     "lint": "next lint",
     "test": "pnpify jest --passWithNoTests --ci --no-watchman --runInBand",
     "graphql:codegen": "pnpify graphql-codegen"

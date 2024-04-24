@@ -30,7 +30,7 @@ const ValidatorDetails = () => {
             {desmosProfile ? (
               <DesmosProfile className={classes.profile} {...desmosProfile} />
             ) : (
-              <Profile className={classes.profile} profile={overview} />
+              <Profile className={classes.profile} profile={overview} loading={false} />
             )}
             <ValidatorOverview className={classes.address} overview={overview} status={status} />
             <VotingPower
