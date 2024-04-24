@@ -2668,7 +2668,7 @@ __metadata:
     graphql-ws: "npm:5.11.2"
     isomorphic-ws: "npm:5.0.0"
     tslib: "npm:^2.4.0"
-    ws: "npm:8.11.0"
+    ws: "npm:8.12.0"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 10/79ced279e56b7508282859f805ca8fe1286eec3b53592893e35517f93e5204eca2db327258599749b0d832918d9d709962059087b4e6a894eacc16ceb0142273
@@ -2701,7 +2701,7 @@ __metadata:
     "@types/ws": "npm:^8.0.0"
     isomorphic-ws: "npm:5.0.0"
     tslib: "npm:^2.4.0"
-    ws: "npm:8.11.0"
+    ws: "npm:8.12.0"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 10/2705e57ae81fbe3117d14900d50ab2459618d93192f795db97e2b98e9a772ebfe2308c17e72d92735123ec32fbedad014158d20fd1cc569fa287d47c90037a71
@@ -3003,7 +3003,7 @@ __metadata:
     isomorphic-ws: "npm:5.0.0"
     tslib: "npm:^2.4.0"
     value-or-promise: "npm:^1.0.11"
-    ws: "npm:8.11.0"
+    ws: "npm:8.12.0"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 10/1a836f09e24ea1f3815c243ac3442eb87778ec4677362102fe40d9a0efe5ff7891eae98354af7c1d4fc612da3957ea559ac818d6e9f4d6b5e0571899d96fe59c
@@ -10894,7 +10894,7 @@ __metadata:
     whatwg-encoding: "npm:^2.0.0"
     whatwg-mimetype: "npm:^3.0.0"
     whatwg-url: "npm:^11.0.0"
-    ws: "npm:^8.11.0"
+    ws: "npm:^8.12.0"
     xml-name-validator: "npm:^4.0.0"
   peerDependencies:
     canvas: ^2.5.0
@@ -20151,7 +20151,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:8.11.0":
+"ws@npm:8.12.0":
   version: 8.12.0
   resolution: "ws@npm:8.12.0"
   peerDependencies:
@@ -20181,7 +20181,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:^8.11.0, ws@npm:^8.13.0":
+"ws@npm:^8.12.0, ws@npm:^8.13.0":
   version: 8.13.0
   resolution: "ws@npm:8.13.0"
   peerDependencies:
