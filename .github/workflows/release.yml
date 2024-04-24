@@ -24,7 +24,7 @@ jobs:
           node-version: 18
           cache: 'yarn'
 
-      - run: yarn
+      - run: yarn --immutable --immutable-cache
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
