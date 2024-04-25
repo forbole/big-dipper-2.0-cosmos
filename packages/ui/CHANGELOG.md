@@ -1,5 +1,34 @@
 # ui
 
+## 3.0.0
+
+### Major Changes
+
+- [#1311](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1311) [`e749a3b03`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/e749a3b0317efb1f659447d336e8dec081aed64d) Thanks [@MonikaCat](https://github.com/MonikaCat)! - display suggested proposal params changes on proposal page
+
+- [#1322](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1322) [`10bfd25a2`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/10bfd25a2bfce97f04d78edba11f90d4da920d6d) Thanks [@MonikaCat](https://github.com/MonikaCat)! - improve account and validator details page loading speed
+
+### Minor Changes
+
+- [#1324](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1324) [`d6ff70b3e`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/d6ff70b3e9e8f7a57c80806444dc9118e7f96904) Thanks [@MonikaCat](https://github.com/MonikaCat)! - add button to filter transactions by type
+
+- [#1300](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1300) [`2aa110c9c`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/2aa110c9c7c7965bfa468c07797a820387094834) Thanks [@rachelhox](https://github.com/rachelhox)! - fix: account page issue
+
+- [#1309](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1309) [`4037aca22`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/4037aca22239ff1696e3ffb6a655d34bcb651458) Thanks [@MonikaCat](https://github.com/MonikaCat)! - add neutron big dipper
+
+### Patch Changes
+
+- [#1312](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1312) [`c6ec239b6`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/c6ec239b634bca5789e4ae7dc7c43b91b424b85a) Thanks [@MonikaCat](https://github.com/MonikaCat)! - fix: token and params display
+
+- [#1306](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1306) [`61b3c8ebe`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/61b3c8ebe308a3d64844f6a01ab11b0461a27c33) Thanks [@MonikaCat](https://github.com/MonikaCat)! - fix: accounts transaction loading
+
+- [#1316](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1316) [`8789ccbd7`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/8789ccbd72b8a6267bc2e9704e44632fa89a2870) Thanks [@MonikaCat](https://github.com/MonikaCat)! - fix validator details page loading
+
+- [#1315](https://github.com/forbole/big-dipper-2.0-cosmos/pull/1315) [`cb67b4175`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/cb67b4175dac3958f936472e8fa8d0ff378adb89) Thanks [@MonikaCat](https://github.com/MonikaCat)! - fix account page stuck on loading
+
+- Updated dependencies [[`d6ff70b3e`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/d6ff70b3e9e8f7a57c80806444dc9118e7f96904), [`4037aca22`](https://github.com/forbole/big-dipper-2.0-cosmos/commit/4037aca22239ff1696e3ffb6a655d34bcb651458)]:
+  - shared-utils@2.24.0
+
 ## 2.36.0
 
 ### Minor Changes
