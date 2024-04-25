@@ -1,6 +1,6 @@
 {
   "name": "web-cheqd",
-  "version": "2.22.3",
+  "version": "3.0.0",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {

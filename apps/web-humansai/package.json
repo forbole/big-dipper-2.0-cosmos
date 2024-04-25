@@ -1,6 +1,6 @@
 {
   "name": "web-humansai",
-  "version": "2.19.3",
+  "version": "3.0.0",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {

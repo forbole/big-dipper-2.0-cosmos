@@ -1,6 +1,6 @@
 {
   "name": "web-celestia",
-  "version": "2.18.3",
+  "version": "2.18.4",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
